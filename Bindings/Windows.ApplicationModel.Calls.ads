@@ -2630,7 +2630,7 @@ package Windows.ApplicationModel.Calls is
    subtype PhoneCallVideoCapabilities is Windows.ApplicationModel.Calls.IPhoneCallVideoCapabilities;
    subtype PhoneLineConfiguration is Windows.ApplicationModel.Calls.IPhoneLineConfiguration;
    subtype PhoneDialOptions is Windows.ApplicationModel.Calls.IPhoneDialOptions;
-   function CreatePhoneDialOptions return Windows.ApplicationModel.Calls.IPhoneDialOptions;
+   function Create return Windows.ApplicationModel.Calls.IPhoneDialOptions;
    
    subtype PhoneLineWatcher is Windows.ApplicationModel.Calls.IPhoneLineWatcher;
    subtype PhoneLineWatcherEventArgs is Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs;
@@ -2645,7 +2645,7 @@ package Windows.ApplicationModel.Calls is
    subtype LockScreenCallUI is Windows.ApplicationModel.Calls.ILockScreenCallUI;
    subtype LockScreenCallEndRequestedEventArgs is Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs;
    subtype PhoneCallHistoryEntryAddress is Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
-   function CreatePhoneCallHistoryEntryAddress return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
+   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
    
    function Create
    (
@@ -2655,11 +2655,11 @@ package Windows.ApplicationModel.Calls is
    return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
    
    subtype PhoneCallHistoryEntry is Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry;
-   function CreatePhoneCallHistoryEntry return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry;
+   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry;
    
    subtype PhoneCallHistoryEntryReader is Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryReader;
    subtype PhoneCallHistoryEntryQueryOptions is Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions;
-   function CreatePhoneCallHistoryEntryQueryOptions return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions;
+   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions;
    
    subtype PhoneCallHistoryStore is Windows.ApplicationModel.Calls.IPhoneCallHistoryStore;
    subtype PhoneCallHistoryManagerForUser is Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser;

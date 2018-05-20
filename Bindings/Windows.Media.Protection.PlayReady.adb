@@ -235,7 +235,7 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function CreatePlayReadyIndividualizationServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest is
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest");
       Instance      : aliased IInspectable := null;
@@ -252,7 +252,7 @@ package body Windows.Media.Protection.PlayReady is
       return Convert(RetVal);
    end;
    
-   function CreatePlayReadyDomainJoinServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest is
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest");
       Instance      : aliased IInspectable := null;
@@ -269,7 +269,7 @@ package body Windows.Media.Protection.PlayReady is
       return Convert(RetVal);
    end;
    
-   function CreatePlayReadyDomainLeaveServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest is
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest");
       Instance      : aliased IInspectable := null;
@@ -286,7 +286,7 @@ package body Windows.Media.Protection.PlayReady is
       return Convert(RetVal);
    end;
    
-   function CreatePlayReadyLicenseIterable return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense is
+   function Create return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable");
       Instance      : aliased IInspectable := null;
@@ -324,7 +324,7 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function CreatePlayReadyLicenseAcquisitionServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest is
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest");
       Instance      : aliased IInspectable := null;
@@ -341,7 +341,7 @@ package body Windows.Media.Protection.PlayReady is
       return Convert(RetVal);
    end;
    
-   function CreatePlayReadyMeteringReportServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest is
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest");
       Instance      : aliased IInspectable := null;
@@ -358,7 +358,7 @@ package body Windows.Media.Protection.PlayReady is
       return Convert(RetVal);
    end;
    
-   function CreatePlayReadyRevocationServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyRevocationServiceRequest is
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyRevocationServiceRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest");
       Instance      : aliased IInspectable := null;
@@ -456,7 +456,7 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function CreatePlayReadyITADataGenerator return Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator is
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator");
       Instance      : aliased IInspectable := null;
@@ -493,7 +493,7 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function CreateNDDownloadEngineNotifier return Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier is
+   function Create return Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier");
       Instance      : aliased IInspectable := null;
@@ -510,7 +510,7 @@ package body Windows.Media.Protection.PlayReady is
       return Convert(RetVal);
    end;
    
-   function CreateNDStreamParserNotifier return Windows.Media.Protection.PlayReady.INDStreamParserNotifier is
+   function Create return Windows.Media.Protection.PlayReady.INDStreamParserNotifier is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDStreamParserNotifier");
       Instance      : aliased IInspectable := null;
@@ -613,7 +613,7 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function CreateNDStorageFileHelper return Windows.Media.Protection.PlayReady.INDStorageFileHelper is
+   function Create return Windows.Media.Protection.PlayReady.INDStorageFileHelper is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDStorageFileHelper");
       Instance      : aliased IInspectable := null;

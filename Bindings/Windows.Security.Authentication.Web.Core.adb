@@ -205,7 +205,7 @@ package body Windows.Security.Authentication.Web.Core is
       return RetVal;
    end;
    
-   function CreateWebTokenResponse return Windows.Security.Authentication.Web.Core.IWebTokenResponse is
+   function Create return Windows.Security.Authentication.Web.Core.IWebTokenResponse is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenResponse");
       Instance      : aliased IInspectable := null;

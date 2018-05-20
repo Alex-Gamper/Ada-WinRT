@@ -927,7 +927,7 @@ package Windows.Security.Authentication.Web.Core is
    return Windows.Security.Authentication.Web.Core.IWebProviderError;
    
    subtype WebTokenResponse is Windows.Security.Authentication.Web.Core.IWebTokenResponse;
-   function CreateWebTokenResponse return Windows.Security.Authentication.Web.Core.IWebTokenResponse;
+   function Create return Windows.Security.Authentication.Web.Core.IWebTokenResponse;
    
    function CreateWithToken
    (

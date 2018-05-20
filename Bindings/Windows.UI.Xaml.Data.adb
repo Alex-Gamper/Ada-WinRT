@@ -72,7 +72,7 @@ package body Windows.UI.Xaml.Data is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCollectionViewSource return Windows.UI.Xaml.Data.ICollectionViewSource is
+   function Create return Windows.UI.Xaml.Data.ICollectionViewSource is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Data.CollectionViewSource");
       Instance      : aliased IInspectable := null;

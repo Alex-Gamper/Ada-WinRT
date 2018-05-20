@@ -3091,7 +3091,7 @@ package Windows.Media.Audio is
    subtype AudioFrameOutputNode is Windows.Media.Audio.IAudioFrameOutputNode;
    subtype AudioSubmixNode is Windows.Media.Audio.IAudioInputNode;
    subtype AudioNodeEmitter is Windows.Media.Audio.IAudioNodeEmitter;
-   function CreateAudioNodeEmitter return Windows.Media.Audio.IAudioNodeEmitter;
+   function Create return Windows.Media.Audio.IAudioNodeEmitter;
    
    function CreateAudioNodeEmitter
    (
@@ -3102,7 +3102,7 @@ package Windows.Media.Audio is
    return Windows.Media.Audio.IAudioNodeEmitter;
    
    subtype AudioNodeListener is Windows.Media.Audio.IAudioNodeListener;
-   function CreateAudioNodeListener return Windows.Media.Audio.IAudioNodeListener;
+   function Create return Windows.Media.Audio.IAudioNodeListener;
    
    subtype AudioGraphConnection is Windows.Media.Audio.IAudioGraphConnection;
    subtype AudioFrameCompletedEventArgs is Windows.Media.Audio.IAudioFrameCompletedEventArgs;

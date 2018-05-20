@@ -5651,28 +5651,28 @@ package Windows.UI.Xaml.Media is
    
    subtype VisualTreeHelper is Windows.UI.Xaml.Media.IVisualTreeHelper;
    subtype PartialMediaFailureDetectedEventArgs is Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
-   function CreatePartialMediaFailureDetectedEventArgs return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
+   function Create return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
    
    subtype MatrixHelper is Windows.UI.Xaml.Media.IMatrixHelper;
    subtype BrushCollection is Windows.UI.Xaml.Media.IVector_Brush;
-   function CreateBrushCollection return Windows.UI.Xaml.Media.IVector_Brush;
+   function Create return Windows.UI.Xaml.Media.IVector_Brush;
    
    subtype RenderedEventArgs is Windows.UI.Xaml.Media.IRenderedEventArgs;
    subtype CompositionTarget is Windows.UI.Xaml.Media.ICompositionTarget;
    subtype DoubleCollection is Windows.UI.Xaml.Media.IVector_Double;
-   function CreateDoubleCollection return Windows.UI.Xaml.Media.IVector_Double;
+   function Create return Windows.UI.Xaml.Media.IVector_Double;
    
    subtype FontFamily is Windows.UI.Xaml.Media.IFontFamily;
    subtype MediaTransportControlsThumbnailRequestedEventArgs is Windows.UI.Xaml.Media.IMediaTransportControlsThumbnailRequestedEventArgs;
    subtype PointCollection is Windows.UI.Xaml.Media.IVector_Point;
-   function CreatePointCollection return Windows.UI.Xaml.Media.IVector_Point;
+   function Create return Windows.UI.Xaml.Media.IVector_Point;
    
    subtype RenderingEventArgs is Windows.UI.Xaml.Media.IRenderingEventArgs;
    subtype TimelineMarkerCollection is Windows.UI.Xaml.Media.IVector_TimelineMarker;
-   function CreateTimelineMarkerCollection return Windows.UI.Xaml.Media.IVector_TimelineMarker;
+   function Create return Windows.UI.Xaml.Media.IVector_TimelineMarker;
    
    subtype TransformCollection is Windows.UI.Xaml.Media.IVector_Transform;
-   function CreateTransformCollection return Windows.UI.Xaml.Media.IVector_Transform;
+   function Create return Windows.UI.Xaml.Media.IVector_Transform;
    
    subtype Brush is Windows.UI.Xaml.Media.IBrush;
    
@@ -6040,13 +6040,13 @@ package Windows.UI.Xaml.Media is
    return Windows.HRESULT;
    
    subtype RateChangedRoutedEventArgs is Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
-   function CreateRateChangedRoutedEventArgs return Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
    
    subtype TimelineMarker is Windows.UI.Xaml.Media.ITimelineMarker;
-   function CreateTimelineMarker return Windows.UI.Xaml.Media.ITimelineMarker;
+   function Create return Windows.UI.Xaml.Media.ITimelineMarker;
    
    subtype TimelineMarkerRoutedEventArgs is Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
-   function CreateTimelineMarkerRoutedEventArgs return Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
    
    subtype XamlLight is Windows.UI.Xaml.Media.IXamlLight;
    
@@ -6175,19 +6175,19 @@ package Windows.UI.Xaml.Media is
    return Windows.HRESULT;
    
    subtype BitmapCache is Windows.UI.Xaml.Media.IBitmapCache;
-   function CreateBitmapCache return Windows.UI.Xaml.Media.IBitmapCache;
+   function Create return Windows.UI.Xaml.Media.IBitmapCache;
    
    subtype Matrix3DProjection is Windows.UI.Xaml.Media.IMatrix3DProjection;
-   function CreateMatrix3DProjection return Windows.UI.Xaml.Media.IMatrix3DProjection;
+   function Create return Windows.UI.Xaml.Media.IMatrix3DProjection;
    
    subtype PlaneProjection is Windows.UI.Xaml.Media.IPlaneProjection;
-   function CreatePlaneProjection return Windows.UI.Xaml.Media.IPlaneProjection;
+   function Create return Windows.UI.Xaml.Media.IPlaneProjection;
    
    subtype RectangleGeometry is Windows.UI.Xaml.Media.IRectangleGeometry;
-   function CreateRectangleGeometry return Windows.UI.Xaml.Media.IRectangleGeometry;
+   function Create return Windows.UI.Xaml.Media.IRectangleGeometry;
    
    subtype SolidColorBrush is Windows.UI.Xaml.Media.ISolidColorBrush;
-   function CreateSolidColorBrush return Windows.UI.Xaml.Media.ISolidColorBrush;
+   function Create return Windows.UI.Xaml.Media.ISolidColorBrush;
    
    function CreateInstanceWithColor
    (
@@ -6197,57 +6197,57 @@ package Windows.UI.Xaml.Media is
    
    subtype Transform is Windows.UI.Xaml.Media.ITransform;
    subtype CompositeTransform is Windows.UI.Xaml.Media.ICompositeTransform;
-   function CreateCompositeTransform return Windows.UI.Xaml.Media.ICompositeTransform;
+   function Create return Windows.UI.Xaml.Media.ICompositeTransform;
    
    subtype MatrixTransform is Windows.UI.Xaml.Media.IMatrixTransform;
-   function CreateMatrixTransform return Windows.UI.Xaml.Media.IMatrixTransform;
+   function Create return Windows.UI.Xaml.Media.IMatrixTransform;
    
    subtype RotateTransform is Windows.UI.Xaml.Media.IRotateTransform;
-   function CreateRotateTransform return Windows.UI.Xaml.Media.IRotateTransform;
+   function Create return Windows.UI.Xaml.Media.IRotateTransform;
    
    subtype ScaleTransform is Windows.UI.Xaml.Media.IScaleTransform;
-   function CreateScaleTransform return Windows.UI.Xaml.Media.IScaleTransform;
+   function Create return Windows.UI.Xaml.Media.IScaleTransform;
    
    subtype SkewTransform is Windows.UI.Xaml.Media.ISkewTransform;
-   function CreateSkewTransform return Windows.UI.Xaml.Media.ISkewTransform;
+   function Create return Windows.UI.Xaml.Media.ISkewTransform;
    
    subtype TransformGroup is Windows.UI.Xaml.Media.ITransformGroup;
-   function CreateTransformGroup return Windows.UI.Xaml.Media.ITransformGroup;
+   function Create return Windows.UI.Xaml.Media.ITransformGroup;
    
    subtype TranslateTransform is Windows.UI.Xaml.Media.ITranslateTransform;
-   function CreateTranslateTransform return Windows.UI.Xaml.Media.ITranslateTransform;
+   function Create return Windows.UI.Xaml.Media.ITranslateTransform;
    
    subtype GeometryCollection is Windows.UI.Xaml.Media.IVector_Geometry;
-   function CreateGeometryCollection return Windows.UI.Xaml.Media.IVector_Geometry;
+   function Create return Windows.UI.Xaml.Media.IVector_Geometry;
    
    subtype GradientStopCollection is Windows.UI.Xaml.Media.IVector_GradientStop;
-   function CreateGradientStopCollection return Windows.UI.Xaml.Media.IVector_GradientStop;
+   function Create return Windows.UI.Xaml.Media.IVector_GradientStop;
    
    subtype LoadedImageSourceLoadCompletedEventArgs is Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs;
    subtype LoadedImageSurface is Windows.UI.Xaml.Media.ILoadedImageSurface;
    subtype PathFigureCollection is Windows.UI.Xaml.Media.IVector_PathFigure;
-   function CreatePathFigureCollection return Windows.UI.Xaml.Media.IVector_PathFigure;
+   function Create return Windows.UI.Xaml.Media.IVector_PathFigure;
    
    subtype PathSegmentCollection is Windows.UI.Xaml.Media.IVector_PathSegment;
-   function CreatePathSegmentCollection return Windows.UI.Xaml.Media.IVector_PathSegment;
+   function Create return Windows.UI.Xaml.Media.IVector_PathSegment;
    
    subtype GradientStop is Windows.UI.Xaml.Media.IGradientStop;
-   function CreateGradientStop return Windows.UI.Xaml.Media.IGradientStop;
+   function Create return Windows.UI.Xaml.Media.IGradientStop;
    
    subtype PathFigure is Windows.UI.Xaml.Media.IPathFigure;
-   function CreatePathFigure return Windows.UI.Xaml.Media.IPathFigure;
+   function Create return Windows.UI.Xaml.Media.IPathFigure;
    
    subtype ArcSegment is Windows.UI.Xaml.Media.IArcSegment;
-   function CreateArcSegment return Windows.UI.Xaml.Media.IArcSegment;
+   function Create return Windows.UI.Xaml.Media.IArcSegment;
    
    subtype BezierSegment is Windows.UI.Xaml.Media.IBezierSegment;
-   function CreateBezierSegment return Windows.UI.Xaml.Media.IBezierSegment;
+   function Create return Windows.UI.Xaml.Media.IBezierSegment;
    
    subtype EllipseGeometry is Windows.UI.Xaml.Media.IEllipseGeometry;
-   function CreateEllipseGeometry return Windows.UI.Xaml.Media.IEllipseGeometry;
+   function Create return Windows.UI.Xaml.Media.IEllipseGeometry;
    
    subtype GeometryGroup is Windows.UI.Xaml.Media.IGeometryGroup;
-   function CreateGeometryGroup return Windows.UI.Xaml.Media.IGeometryGroup;
+   function Create return Windows.UI.Xaml.Media.IGeometryGroup;
    
    subtype GradientBrush is Windows.UI.Xaml.Media.IGradientBrush;
    
@@ -6359,25 +6359,25 @@ package Windows.UI.Xaml.Media is
    return Windows.HRESULT;
    
    subtype LineGeometry is Windows.UI.Xaml.Media.ILineGeometry;
-   function CreateLineGeometry return Windows.UI.Xaml.Media.ILineGeometry;
+   function Create return Windows.UI.Xaml.Media.ILineGeometry;
    
    subtype LineSegment is Windows.UI.Xaml.Media.ILineSegment;
-   function CreateLineSegment return Windows.UI.Xaml.Media.ILineSegment;
+   function Create return Windows.UI.Xaml.Media.ILineSegment;
    
    subtype PathGeometry is Windows.UI.Xaml.Media.IPathGeometry;
-   function CreatePathGeometry return Windows.UI.Xaml.Media.IPathGeometry;
+   function Create return Windows.UI.Xaml.Media.IPathGeometry;
    
    subtype PolyBezierSegment is Windows.UI.Xaml.Media.IPolyBezierSegment;
-   function CreatePolyBezierSegment return Windows.UI.Xaml.Media.IPolyBezierSegment;
+   function Create return Windows.UI.Xaml.Media.IPolyBezierSegment;
    
    subtype PolyLineSegment is Windows.UI.Xaml.Media.IPolyLineSegment;
-   function CreatePolyLineSegment return Windows.UI.Xaml.Media.IPolyLineSegment;
+   function Create return Windows.UI.Xaml.Media.IPolyLineSegment;
    
    subtype PolyQuadraticBezierSegment is Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment;
-   function CreatePolyQuadraticBezierSegment return Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment;
+   function Create return Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment;
    
    subtype QuadraticBezierSegment is Windows.UI.Xaml.Media.IQuadraticBezierSegment;
-   function CreateQuadraticBezierSegment return Windows.UI.Xaml.Media.IQuadraticBezierSegment;
+   function Create return Windows.UI.Xaml.Media.IQuadraticBezierSegment;
    
    subtype TileBrush is Windows.UI.Xaml.Media.ITileBrush;
    
@@ -6930,10 +6930,10 @@ package Windows.UI.Xaml.Media is
    return Windows.HRESULT;
    
    subtype ImageBrush is Windows.UI.Xaml.Media.IImageBrush;
-   function CreateImageBrush return Windows.UI.Xaml.Media.IImageBrush;
+   function Create return Windows.UI.Xaml.Media.IImageBrush;
    
    subtype LinearGradientBrush is Windows.UI.Xaml.Media.ILinearGradientBrush;
-   function CreateLinearGradientBrush return Windows.UI.Xaml.Media.ILinearGradientBrush;
+   function Create return Windows.UI.Xaml.Media.ILinearGradientBrush;
    
    function CreateInstanceWithGradientStopCollectionAndAngle
    (

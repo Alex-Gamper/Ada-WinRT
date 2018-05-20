@@ -59,7 +59,7 @@ package body Windows.Web.Syndication is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSyndicationAttribute return Windows.Web.Syndication.ISyndicationAttribute is
+   function Create return Windows.Web.Syndication.ISyndicationAttribute is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationAttribute");
       Instance      : aliased IInspectable := null;
@@ -98,7 +98,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationNode return Windows.Web.Syndication.ISyndicationNode is
+   function Create return Windows.Web.Syndication.ISyndicationNode is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationNode");
       Instance      : aliased IInspectable := null;
@@ -137,7 +137,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationGenerator return Windows.Web.Syndication.ISyndicationGenerator is
+   function Create return Windows.Web.Syndication.ISyndicationGenerator is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationGenerator");
       Instance      : aliased IInspectable := null;
@@ -174,7 +174,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationText return Windows.Web.Syndication.ISyndicationText is
+   function Create return Windows.Web.Syndication.ISyndicationText is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationText");
       Instance      : aliased IInspectable := null;
@@ -232,7 +232,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationContent return Windows.Web.Syndication.ISyndicationContent is
+   function Create return Windows.Web.Syndication.ISyndicationContent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationContent");
       Instance      : aliased IInspectable := null;
@@ -290,7 +290,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationLink return Windows.Web.Syndication.ISyndicationLink is
+   function Create return Windows.Web.Syndication.ISyndicationLink is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationLink");
       Instance      : aliased IInspectable := null;
@@ -351,7 +351,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationPerson return Windows.Web.Syndication.ISyndicationPerson is
+   function Create return Windows.Web.Syndication.ISyndicationPerson is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationPerson");
       Instance      : aliased IInspectable := null;
@@ -410,7 +410,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationCategory return Windows.Web.Syndication.ISyndicationCategory is
+   function Create return Windows.Web.Syndication.ISyndicationCategory is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationCategory");
       Instance      : aliased IInspectable := null;
@@ -469,7 +469,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationFeed return Windows.Web.Syndication.ISyndicationFeed is
+   function Create return Windows.Web.Syndication.ISyndicationFeed is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationFeed");
       Instance      : aliased IInspectable := null;
@@ -508,7 +508,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationItem return Windows.Web.Syndication.ISyndicationItem is
+   function Create return Windows.Web.Syndication.ISyndicationItem is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationItem");
       Instance      : aliased IInspectable := null;
@@ -547,7 +547,7 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-   function CreateSyndicationClient return Windows.Web.Syndication.ISyndicationClient is
+   function Create return Windows.Web.Syndication.ISyndicationClient is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationClient");
       Instance      : aliased IInspectable := null;

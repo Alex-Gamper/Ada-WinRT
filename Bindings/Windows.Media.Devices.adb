@@ -158,7 +158,7 @@ package body Windows.Media.Devices is
       return RetVal;
    end;
    
-   function CreateZoomSettings return Windows.Media.Devices.IZoomSettings is
+   function Create return Windows.Media.Devices.IZoomSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Devices.ZoomSettings");
       Instance      : aliased IInspectable := null;
@@ -175,7 +175,7 @@ package body Windows.Media.Devices is
       return Convert(RetVal);
    end;
    
-   function CreateFocusSettings return Windows.Media.Devices.IFocusSettings is
+   function Create return Windows.Media.Devices.IFocusSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Devices.FocusSettings");
       Instance      : aliased IInspectable := null;
@@ -192,7 +192,7 @@ package body Windows.Media.Devices is
       return Convert(RetVal);
    end;
    
-   function CreateRegionOfInterest return Windows.Media.Devices.IRegionOfInterest is
+   function Create return Windows.Media.Devices.IRegionOfInterest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Devices.RegionOfInterest");
       Instance      : aliased IInspectable := null;
@@ -209,7 +209,7 @@ package body Windows.Media.Devices is
       return Convert(RetVal);
    end;
    
-   function CreateAdvancedPhotoCaptureSettings return Windows.Media.Devices.IAdvancedPhotoCaptureSettings is
+   function Create return Windows.Media.Devices.IAdvancedPhotoCaptureSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Devices.AdvancedPhotoCaptureSettings");
       Instance      : aliased IInspectable := null;

@@ -214,7 +214,7 @@ package body Windows.Media.PlayTo is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePlayToReceiver return Windows.Media.PlayTo.IPlayToReceiver is
+   function Create return Windows.Media.PlayTo.IPlayToReceiver is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.PlayTo.PlayToReceiver");
       Instance      : aliased IInspectable := null;

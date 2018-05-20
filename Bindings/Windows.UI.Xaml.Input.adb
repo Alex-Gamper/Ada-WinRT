@@ -218,7 +218,7 @@ package body Windows.UI.Xaml.Input is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAccessKeyDisplayRequestedEventArgs return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -235,7 +235,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateAccessKeyDisplayDismissedEventArgs return Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -252,7 +252,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateAccessKeyInvokedEventArgs return Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -269,7 +269,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateManipulationPivot return Windows.UI.Xaml.Input.IManipulationPivot is
+   function Create return Windows.UI.Xaml.Input.IManipulationPivot is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationPivot");
       Instance      : aliased IInspectable := null;
@@ -307,7 +307,7 @@ package body Windows.UI.Xaml.Input is
       return RetVal;
    end;
    
-   function CreateContextRequestedEventArgs return Windows.UI.Xaml.Input.IContextRequestedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IContextRequestedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ContextRequestedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -324,7 +324,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateDoubleTappedRoutedEventArgs return Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -341,7 +341,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateHoldingRoutedEventArgs return Windows.UI.Xaml.Input.IHoldingRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IHoldingRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.HoldingRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -358,7 +358,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateInputScope return Windows.UI.Xaml.Input.IInputScope is
+   function Create return Windows.UI.Xaml.Input.IInputScope is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.InputScope");
       Instance      : aliased IInspectable := null;
@@ -375,7 +375,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateInputScopeName return Windows.UI.Xaml.Input.IInputScopeName is
+   function Create return Windows.UI.Xaml.Input.IInputScopeName is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.InputScopeName");
       Instance      : aliased IInspectable := null;
@@ -412,7 +412,7 @@ package body Windows.UI.Xaml.Input is
       return RetVal;
    end;
    
-   function CreateManipulationCompletedRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -429,7 +429,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateManipulationDeltaRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -446,7 +446,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateManipulationInertiaStartingRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -463,7 +463,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateManipulationStartingRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -480,7 +480,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateRightTappedRoutedEventArgs return Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.RightTappedRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -497,7 +497,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateTappedRoutedEventArgs return Windows.UI.Xaml.Input.ITappedRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Input.ITappedRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.TappedRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -514,7 +514,7 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
-   function CreateFindNextElementOptions return Windows.UI.Xaml.Input.IFindNextElementOptions is
+   function Create return Windows.UI.Xaml.Input.IFindNextElementOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FindNextElementOptions");
       Instance      : aliased IInspectable := null;

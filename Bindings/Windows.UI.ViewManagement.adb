@@ -165,7 +165,7 @@ package body Windows.UI.ViewManagement is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateApplicationViewTransferContext return Windows.UI.ViewManagement.IApplicationViewTransferContext is
+   function Create return Windows.UI.ViewManagement.IApplicationViewTransferContext is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewTransferContext");
       Instance      : aliased IInspectable := null;
@@ -182,7 +182,7 @@ package body Windows.UI.ViewManagement is
       return Convert(RetVal);
    end;
    
-   function CreateAccessibilitySettings return Windows.UI.ViewManagement.IAccessibilitySettings is
+   function Create return Windows.UI.ViewManagement.IAccessibilitySettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.AccessibilitySettings");
       Instance      : aliased IInspectable := null;
@@ -199,7 +199,7 @@ package body Windows.UI.ViewManagement is
       return Convert(RetVal);
    end;
    
-   function CreateUISettings return Windows.UI.ViewManagement.IUISettings is
+   function Create return Windows.UI.ViewManagement.IUISettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.UISettings");
       Instance      : aliased IInspectable := null;

@@ -190,7 +190,7 @@ package body Windows.UI.Input.Inking.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCoreInkPresenterHost return Windows.UI.Input.Inking.Core.ICoreInkPresenterHost is
+   function Create return Windows.UI.Input.Inking.Core.ICoreInkPresenterHost is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.Core.CoreInkPresenterHost");
       Instance      : aliased IInspectable := null;

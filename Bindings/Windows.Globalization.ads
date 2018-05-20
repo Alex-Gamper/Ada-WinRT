@@ -3040,7 +3040,7 @@ package Windows.Globalization is
    ------------------------------------------------------------------------
    
    subtype GeographicRegion is Windows.Globalization.IGeographicRegion;
-   function CreateGeographicRegion return Windows.Globalization.IGeographicRegion;
+   function Create return Windows.Globalization.IGeographicRegion;
    
    function CreateGeographicRegion
    (
@@ -3056,7 +3056,7 @@ package Windows.Globalization is
    return Windows.Globalization.ILanguage;
    
    subtype Calendar is Windows.Globalization.ICalendar;
-   function CreateCalendar return Windows.Globalization.ICalendar;
+   function Create return Windows.Globalization.ICalendar;
    
    function CreateCalendarDefaultCalendarAndClock
    (

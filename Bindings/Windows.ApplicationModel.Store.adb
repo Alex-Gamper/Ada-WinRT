@@ -82,7 +82,7 @@ package body Windows.ApplicationModel.Store is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateProductPurchaseDisplayProperties return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties is
+   function Create return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties");
       Instance      : aliased IInspectable := null;

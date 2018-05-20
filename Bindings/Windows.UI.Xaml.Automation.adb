@@ -29,7 +29,7 @@ package body Windows.UI.Xaml.Automation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAutomationAnnotation return Windows.UI.Xaml.Automation.IAutomationAnnotation is
+   function Create return Windows.UI.Xaml.Automation.IAutomationAnnotation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationAnnotation");
       Instance      : aliased IInspectable := null;

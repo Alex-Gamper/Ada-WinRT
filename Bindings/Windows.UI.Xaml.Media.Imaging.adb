@@ -87,7 +87,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateRenderTargetBitmap return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap is
+   function Create return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
       Instance      : aliased IInspectable := null;
@@ -104,7 +104,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       return Convert(RetVal);
    end;
    
-   function CreateBitmapImage return Windows.UI.Xaml.Media.Imaging.IBitmapImage is
+   function Create return Windows.UI.Xaml.Media.Imaging.IBitmapImage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
       Instance      : aliased IInspectable := null;
@@ -205,7 +205,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function CreateSoftwareBitmapSource return Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource is
+   function Create return Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource");
       Instance      : aliased IInspectable := null;

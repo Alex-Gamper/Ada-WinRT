@@ -647,7 +647,7 @@ package Windows.Security.Authentication.OnlineId is
    subtype SignOutUserOperation is Windows.Foundation.IAsyncAction;
    subtype UserIdentity is Windows.Security.Authentication.OnlineId.IUserIdentity;
    subtype OnlineIdAuthenticator is Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
-   function CreateOnlineIdAuthenticator return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
+   function Create return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
    
    subtype OnlineIdSystemIdentity is Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity;
    subtype OnlineIdSystemTicketResult is Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult;

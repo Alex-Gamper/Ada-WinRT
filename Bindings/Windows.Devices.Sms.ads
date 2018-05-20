@@ -2694,10 +2694,10 @@ package Windows.Devices.Sms is
    ------------------------------------------------------------------------
    
    subtype SmsBinaryMessage is Windows.Devices.Sms.ISmsBinaryMessage;
-   function CreateSmsBinaryMessage return Windows.Devices.Sms.ISmsBinaryMessage;
+   function Create return Windows.Devices.Sms.ISmsBinaryMessage;
    
    subtype SmsTextMessage is Windows.Devices.Sms.ISmsTextMessage;
-   function CreateSmsTextMessage return Windows.Devices.Sms.ISmsTextMessage;
+   function Create return Windows.Devices.Sms.ISmsTextMessage;
    
    subtype DeleteSmsMessageOperation is Windows.Foundation.IAsyncAction;
    subtype DeleteSmsMessagesOperation is Windows.Foundation.IAsyncAction;
@@ -2710,11 +2710,11 @@ package Windows.Devices.Sms is
    subtype GetSmsDeviceOperation is Windows.Devices.Sms.IAsyncOperation_SmsDevice;
    subtype SmsReceivedEventDetails is Windows.Devices.Sms.ISmsReceivedEventDetails;
    subtype SmsTextMessage2 is Windows.Devices.Sms.ISmsTextMessage2;
-   function CreateSmsTextMessage2 return Windows.Devices.Sms.ISmsTextMessage2;
+   function Create return Windows.Devices.Sms.ISmsTextMessage2;
    
    subtype SmsWapMessage is Windows.Devices.Sms.ISmsWapMessage;
    subtype SmsAppMessage is Windows.Devices.Sms.ISmsAppMessage;
-   function CreateSmsAppMessage return Windows.Devices.Sms.ISmsAppMessage;
+   function Create return Windows.Devices.Sms.ISmsAppMessage;
    
    subtype SmsBroadcastMessage is Windows.Devices.Sms.ISmsBroadcastMessage;
    subtype SmsVoicemailMessage is Windows.Devices.Sms.ISmsVoicemailMessage;

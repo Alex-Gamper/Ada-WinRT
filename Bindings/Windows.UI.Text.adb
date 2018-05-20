@@ -29,7 +29,7 @@ package body Windows.UI.Text is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateContentLinkInfo return Windows.UI.Text.IContentLinkInfo is
+   function Create return Windows.UI.Text.IContentLinkInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Text.ContentLinkInfo");
       Instance      : aliased IInspectable := null;

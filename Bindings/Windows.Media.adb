@@ -258,7 +258,7 @@ package body Windows.Media is
       return RetVal;
    end;
    
-   function CreateSystemMediaTransportControlsTimelineProperties return Windows.Media.ISystemMediaTransportControlsTimelineProperties is
+   function Create return Windows.Media.ISystemMediaTransportControlsTimelineProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.SystemMediaTransportControlsTimelineProperties");
       Instance      : aliased IInspectable := null;
@@ -275,7 +275,7 @@ package body Windows.Media is
       return Convert(RetVal);
    end;
    
-   function CreateMediaTimelineController return Windows.Media.IMediaTimelineController is
+   function Create return Windows.Media.IMediaTimelineController is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaTimelineController");
       Instance      : aliased IInspectable := null;
@@ -292,7 +292,7 @@ package body Windows.Media is
       return Convert(RetVal);
    end;
    
-   function CreateMediaExtensionManager return Windows.Media.IMediaExtensionManager is
+   function Create return Windows.Media.IMediaExtensionManager is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaExtensionManager");
       Instance      : aliased IInspectable := null;

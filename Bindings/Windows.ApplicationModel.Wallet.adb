@@ -114,7 +114,7 @@ package body Windows.ApplicationModel.Wallet is
       return RetVal;
    end;
    
-   function CreateWalletTransaction return Windows.ApplicationModel.Wallet.IWalletTransaction is
+   function Create return Windows.ApplicationModel.Wallet.IWalletTransaction is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletTransaction");
       Instance      : aliased IInspectable := null;
@@ -131,7 +131,7 @@ package body Windows.ApplicationModel.Wallet is
       return Convert(RetVal);
    end;
    
-   function CreateWalletRelevantLocation return Windows.ApplicationModel.Wallet.IWalletRelevantLocation is
+   function Create return Windows.ApplicationModel.Wallet.IWalletRelevantLocation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletRelevantLocation");
       Instance      : aliased IInspectable := null;

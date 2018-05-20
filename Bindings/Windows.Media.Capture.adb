@@ -654,7 +654,7 @@ package body Windows.Media.Capture is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCameraCaptureUI return Windows.Media.Capture.ICameraCaptureUI is
+   function Create return Windows.Media.Capture.ICameraCaptureUI is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Capture.CameraCaptureUI");
       Instance      : aliased IInspectable := null;
@@ -671,7 +671,7 @@ package body Windows.Media.Capture is
       return Convert(RetVal);
    end;
    
-   function CreateMediaCapture return Windows.Media.Capture.IMediaCapture is
+   function Create return Windows.Media.Capture.IMediaCapture is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Capture.MediaCapture");
       Instance      : aliased IInspectable := null;
@@ -688,7 +688,7 @@ package body Windows.Media.Capture is
       return Convert(RetVal);
    end;
    
-   function CreateMediaCaptureInitializationSettings return Windows.Media.Capture.IMediaCaptureInitializationSettings is
+   function Create return Windows.Media.Capture.IMediaCaptureInitializationSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Capture.MediaCaptureInitializationSettings");
       Instance      : aliased IInspectable := null;
@@ -705,7 +705,7 @@ package body Windows.Media.Capture is
       return Convert(RetVal);
    end;
    
-   function CreateAppCaptureMetadataWriter return Windows.Media.Capture.IAppCaptureMetadataWriter is
+   function Create return Windows.Media.Capture.IAppCaptureMetadataWriter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Capture.AppCaptureMetadataWriter");
       Instance      : aliased IInspectable := null;

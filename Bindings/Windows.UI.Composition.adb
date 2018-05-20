@@ -109,7 +109,7 @@ package body Windows.UI.Composition is
       return RetVal;
    end;
    
-   function CreateCompositor return Windows.UI.Composition.ICompositor is
+   function Create return Windows.UI.Composition.ICompositor is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Composition.Compositor");
       Instance      : aliased IInspectable := null;

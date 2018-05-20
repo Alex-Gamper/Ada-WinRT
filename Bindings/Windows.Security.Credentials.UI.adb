@@ -71,7 +71,7 @@ package body Windows.Security.Credentials.UI is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCredentialPickerOptions return Windows.Security.Credentials.UI.ICredentialPickerOptions is
+   function Create return Windows.Security.Credentials.UI.ICredentialPickerOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Credentials.UI.CredentialPickerOptions");
       Instance      : aliased IInspectable := null;

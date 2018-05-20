@@ -28,7 +28,7 @@ package body Windows.Globalization is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateGeographicRegion return Windows.Globalization.IGeographicRegion is
+   function Create return Windows.Globalization.IGeographicRegion is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");
       Instance      : aliased IInspectable := null;
@@ -85,7 +85,7 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-   function CreateCalendar return Windows.Globalization.ICalendar is
+   function Create return Windows.Globalization.ICalendar is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.Calendar");
       Instance      : aliased IInspectable := null;

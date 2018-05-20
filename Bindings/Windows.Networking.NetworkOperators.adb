@@ -426,7 +426,7 @@ package body Windows.Networking.NetworkOperators is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateNetworkOperatorTetheringAccessPointConfiguration return Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration is
+   function Create return Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration");
       Instance      : aliased IInspectable := null;
@@ -443,7 +443,7 @@ package body Windows.Networking.NetworkOperators is
       return Convert(RetVal);
    end;
    
-   function CreateMobileBroadbandAccountWatcher return Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher is
+   function Create return Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher");
       Instance      : aliased IInspectable := null;
@@ -502,7 +502,7 @@ package body Windows.Networking.NetworkOperators is
       return RetVal;
    end;
    
-   function CreateProvisioningAgent return Windows.Networking.NetworkOperators.IProvisioningAgent is
+   function Create return Windows.Networking.NetworkOperators.IProvisioningAgent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.ProvisioningAgent");
       Instance      : aliased IInspectable := null;

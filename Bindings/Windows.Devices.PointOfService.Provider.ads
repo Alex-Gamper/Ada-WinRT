@@ -905,7 +905,7 @@ package Windows.Devices.PointOfService.Provider is
    subtype BarcodeScannerStopSoftwareTriggerRequest is Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequest;
    subtype BarcodeScannerStopSoftwareTriggerRequestEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequestEventArgs;
    subtype BarcodeSymbologyAttributesBuilder is Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder;
-   function CreateBarcodeSymbologyAttributesBuilder return Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder;
+   function Create return Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder;
    
    subtype BarcodeScannerGetSymbologyAttributesRequest is Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequest;
    subtype BarcodeScannerGetSymbologyAttributesRequestEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequestEventArgs;

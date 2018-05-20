@@ -44,7 +44,7 @@ package body Windows.Security.ExchangeActiveSyncProvisioning is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateEasClientDeviceInformation return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation is
+   function Create return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation");
       Instance      : aliased IInspectable := null;
@@ -61,7 +61,7 @@ package body Windows.Security.ExchangeActiveSyncProvisioning is
       return Convert(RetVal);
    end;
    
-   function CreateEasClientSecurityPolicy return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy is
+   function Create return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy");
       Instance      : aliased IInspectable := null;

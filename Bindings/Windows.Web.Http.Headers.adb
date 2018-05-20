@@ -31,7 +31,7 @@ package body Windows.Web.Http.Headers is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateHttpContentHeaderCollection return Windows.Web.Http.Headers.IHttpContentHeaderCollection is
+   function Create return Windows.Web.Http.Headers.IHttpContentHeaderCollection is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.Headers.HttpContentHeaderCollection");
       Instance      : aliased IInspectable := null;

@@ -84,7 +84,7 @@ package body Windows.Networking.Connectivity is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateConnectionProfileFilter return Windows.Networking.Connectivity.IConnectionProfileFilter is
+   function Create return Windows.Networking.Connectivity.IConnectionProfileFilter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.ConnectionProfileFilter");
       Instance      : aliased IInspectable := null;
@@ -123,7 +123,7 @@ package body Windows.Networking.Connectivity is
       return RetVal;
    end;
    
-   function CreateCellularApnContext return Windows.Networking.Connectivity.ICellularApnContext is
+   function Create return Windows.Networking.Connectivity.ICellularApnContext is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.CellularApnContext");
       Instance      : aliased IInspectable := null;

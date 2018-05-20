@@ -27,7 +27,7 @@ package body Windows.Management is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateMdmAlert return Windows.Management.IMdmAlert is
+   function Create return Windows.Management.IMdmAlert is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Management.MdmAlert");
       Instance      : aliased IInspectable := null;

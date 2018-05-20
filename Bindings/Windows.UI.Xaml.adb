@@ -503,7 +503,7 @@ package body Windows.UI.Xaml is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateVisualStateChangedEventArgs return Windows.UI.Xaml.IVisualStateChangedEventArgs is
+   function Create return Windows.UI.Xaml.IVisualStateChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.VisualStateChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -520,7 +520,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateBringIntoViewOptions return Windows.UI.Xaml.IBringIntoViewOptions is
+   function Create return Windows.UI.Xaml.IBringIntoViewOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.BringIntoViewOptions");
       Instance      : aliased IInspectable := null;
@@ -537,7 +537,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateFrameworkView return Windows.UI.Xaml.IFrameworkView is
+   function Create return Windows.UI.Xaml.IFrameworkView is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.FrameworkView");
       Instance      : aliased IInspectable := null;
@@ -554,7 +554,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateSetterBaseCollection return Windows.UI.Xaml.ISetterBaseCollection is
+   function Create return Windows.UI.Xaml.ISetterBaseCollection is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.SetterBaseCollection");
       Instance      : aliased IInspectable := null;
@@ -571,7 +571,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateTargetPropertyPath return Windows.UI.Xaml.ITargetPropertyPath is
+   function Create return Windows.UI.Xaml.ITargetPropertyPath is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.TargetPropertyPath");
       Instance      : aliased IInspectable := null;
@@ -608,7 +608,7 @@ package body Windows.UI.Xaml is
       return RetVal;
    end;
    
-   function CreateTriggerActionCollection return Windows.UI.Xaml.IVector_TriggerAction is
+   function Create return Windows.UI.Xaml.IVector_TriggerAction is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.TriggerActionCollection");
       Instance      : aliased IInspectable := null;
@@ -645,7 +645,7 @@ package body Windows.UI.Xaml is
       return RetVal;
    end;
    
-   function CreateStyle return Windows.UI.Xaml.IStyle is
+   function Create return Windows.UI.Xaml.IStyle is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Style");
       Instance      : aliased IInspectable := null;
@@ -682,7 +682,7 @@ package body Windows.UI.Xaml is
       return RetVal;
    end;
    
-   function CreateVisualState return Windows.UI.Xaml.IVisualState is
+   function Create return Windows.UI.Xaml.IVisualState is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.VisualState");
       Instance      : aliased IInspectable := null;
@@ -699,7 +699,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateVisualStateGroup return Windows.UI.Xaml.IVisualStateGroup is
+   function Create return Windows.UI.Xaml.IVisualStateGroup is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.VisualStateGroup");
       Instance      : aliased IInspectable := null;
@@ -716,7 +716,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateEventTrigger return Windows.UI.Xaml.IEventTrigger is
+   function Create return Windows.UI.Xaml.IEventTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.EventTrigger");
       Instance      : aliased IInspectable := null;
@@ -733,7 +733,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateSetter return Windows.UI.Xaml.ISetter is
+   function Create return Windows.UI.Xaml.ISetter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Setter");
       Instance      : aliased IInspectable := null;
@@ -771,7 +771,7 @@ package body Windows.UI.Xaml is
       return RetVal;
    end;
    
-   function CreateStateTrigger return Windows.UI.Xaml.IStateTrigger is
+   function Create return Windows.UI.Xaml.IStateTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.StateTrigger");
       Instance      : aliased IInspectable := null;
@@ -788,7 +788,7 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
-   function CreateFrameworkViewSource return Windows.UI.Xaml.IFrameworkViewSource is
+   function Create return Windows.UI.Xaml.IFrameworkViewSource is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.FrameworkViewSource");
       Instance      : aliased IInspectable := null;

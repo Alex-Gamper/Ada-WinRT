@@ -1736,7 +1736,7 @@ package body Windows.UI.Xaml.Controls is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateNavigationViewItemInvokedEventArgs return Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1753,7 +1753,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateBackClickEventArgs return Windows.UI.Xaml.Controls.IBackClickEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IBackClickEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.BackClickEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1770,7 +1770,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateDragItemsStartingEventArgs return Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DragItemsStartingEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1787,7 +1787,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateSemanticZoomViewChangedEventArgs return Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SemanticZoomViewChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1804,7 +1804,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateContainerContentChangingEventArgs return Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ContainerContentChangingEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1821,7 +1821,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateSemanticZoomLocation return Windows.UI.Xaml.Controls.ISemanticZoomLocation is
+   function Create return Windows.UI.Xaml.Controls.ISemanticZoomLocation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SemanticZoomLocation");
       Instance      : aliased IInspectable := null;
@@ -1838,7 +1838,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateChoosingGroupHeaderContainerEventArgs return Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ChoosingGroupHeaderContainerEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1855,7 +1855,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateChoosingItemContainerEventArgs return Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ChoosingItemContainerEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1872,7 +1872,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateHubSectionHeaderClickEventArgs return Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.HubSectionHeaderClickEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1889,7 +1889,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateDynamicOverflowItemsChangingEventArgs return Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DynamicOverflowItemsChangingEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1906,7 +1906,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateScrollViewerViewChangedEventArgs return Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1923,7 +1923,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateSearchBoxResultSuggestionChosenEventArgs return Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs is
+   function Create return Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SearchBoxResultSuggestionChosenEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1940,7 +1940,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateColumnDefinition return Windows.UI.Xaml.Controls.IColumnDefinition is
+   function Create return Windows.UI.Xaml.Controls.IColumnDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ColumnDefinition");
       Instance      : aliased IInspectable := null;
@@ -1957,7 +1957,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateRowDefinition return Windows.UI.Xaml.Controls.IRowDefinition is
+   function Create return Windows.UI.Xaml.Controls.IRowDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RowDefinition");
       Instance      : aliased IInspectable := null;
@@ -1974,7 +1974,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateAutoSuggestBoxQuerySubmittedEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1991,7 +1991,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateAutoSuggestBoxSuggestionChosenEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2008,7 +2008,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateAutoSuggestBoxTextChangedEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2025,7 +2025,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateItemClickEventArgs return Windows.UI.Xaml.Controls.IItemClickEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IItemClickEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemClickEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2042,7 +2042,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateItemsPanelTemplate return Windows.UI.Xaml.Controls.IItemsPanelTemplate is
+   function Create return Windows.UI.Xaml.Controls.IItemsPanelTemplate is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsPanelTemplate");
       Instance      : aliased IInspectable := null;
@@ -2059,7 +2059,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateBorder return Windows.UI.Xaml.Controls.IBorder is
+   function Create return Windows.UI.Xaml.Controls.IBorder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Border");
       Instance      : aliased IInspectable := null;
@@ -2076,7 +2076,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateCaptureElement return Windows.UI.Xaml.Controls.ICaptureElement is
+   function Create return Windows.UI.Xaml.Controls.ICaptureElement is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CaptureElement");
       Instance      : aliased IInspectable := null;
@@ -2093,7 +2093,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateImage return Windows.UI.Xaml.Controls.IImage is
+   function Create return Windows.UI.Xaml.Controls.IImage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Image");
       Instance      : aliased IInspectable := null;
@@ -2110,7 +2110,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateItemsPresenter return Windows.UI.Xaml.Controls.IItemsPresenter is
+   function Create return Windows.UI.Xaml.Controls.IItemsPresenter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsPresenter");
       Instance      : aliased IInspectable := null;
@@ -2127,7 +2127,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateRichTextBlockOverflow return Windows.UI.Xaml.Controls.IRichTextBlockOverflow is
+   function Create return Windows.UI.Xaml.Controls.IRichTextBlockOverflow is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlockOverflow");
       Instance      : aliased IInspectable := null;
@@ -2144,7 +2144,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateRichTextBlock return Windows.UI.Xaml.Controls.IRichTextBlock is
+   function Create return Windows.UI.Xaml.Controls.IRichTextBlock is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlock");
       Instance      : aliased IInspectable := null;
@@ -2161,7 +2161,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateTextBlock return Windows.UI.Xaml.Controls.ITextBlock is
+   function Create return Windows.UI.Xaml.Controls.ITextBlock is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
       Instance      : aliased IInspectable := null;
@@ -2178,7 +2178,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateViewbox return Windows.UI.Xaml.Controls.IViewbox is
+   function Create return Windows.UI.Xaml.Controls.IViewbox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Viewbox");
       Instance      : aliased IInspectable := null;
@@ -2195,7 +2195,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateVariableSizedWrapGrid return Windows.UI.Xaml.Controls.IVariableSizedWrapGrid is
+   function Create return Windows.UI.Xaml.Controls.IVariableSizedWrapGrid is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.VariableSizedWrapGrid");
       Instance      : aliased IInspectable := null;
@@ -2212,7 +2212,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateVirtualizingStackPanel return Windows.UI.Xaml.Controls.IVirtualizingStackPanel is
+   function Create return Windows.UI.Xaml.Controls.IVirtualizingStackPanel is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.VirtualizingStackPanel");
       Instance      : aliased IInspectable := null;
@@ -2229,7 +2229,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateMediaElement return Windows.UI.Xaml.Controls.IMediaElement is
+   function Create return Windows.UI.Xaml.Controls.IMediaElement is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
       Instance      : aliased IInspectable := null;
@@ -2246,7 +2246,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateWebView return Windows.UI.Xaml.Controls.IWebView is
+   function Create return Windows.UI.Xaml.Controls.IWebView is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
       Instance      : aliased IInspectable := null;
@@ -2283,7 +2283,7 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateItemsStackPanel return Windows.UI.Xaml.Controls.IItemsStackPanel is
+   function Create return Windows.UI.Xaml.Controls.IItemsStackPanel is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsStackPanel");
       Instance      : aliased IInspectable := null;
@@ -2300,7 +2300,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateItemsWrapGrid return Windows.UI.Xaml.Controls.IItemsWrapGrid is
+   function Create return Windows.UI.Xaml.Controls.IItemsWrapGrid is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsWrapGrid");
       Instance      : aliased IInspectable := null;
@@ -2317,7 +2317,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateScrollContentPresenter return Windows.UI.Xaml.Controls.IScrollContentPresenter is
+   function Create return Windows.UI.Xaml.Controls.IScrollContentPresenter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ScrollContentPresenter");
       Instance      : aliased IInspectable := null;
@@ -2334,7 +2334,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateSymbolIcon return Windows.UI.Xaml.Controls.ISymbolIcon is
+   function Create return Windows.UI.Xaml.Controls.ISymbolIcon is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SymbolIcon");
       Instance      : aliased IInspectable := null;
@@ -2371,7 +2371,7 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateWrapGrid return Windows.UI.Xaml.Controls.IWrapGrid is
+   function Create return Windows.UI.Xaml.Controls.IWrapGrid is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WrapGrid");
       Instance      : aliased IInspectable := null;
@@ -2388,7 +2388,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateControlTemplate return Windows.UI.Xaml.Controls.IControlTemplate is
+   function Create return Windows.UI.Xaml.Controls.IControlTemplate is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ControlTemplate");
       Instance      : aliased IInspectable := null;
@@ -2405,7 +2405,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateSemanticZoom return Windows.UI.Xaml.Controls.ISemanticZoom is
+   function Create return Windows.UI.Xaml.Controls.ISemanticZoom is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SemanticZoom");
       Instance      : aliased IInspectable := null;
@@ -2422,7 +2422,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreatePasswordBox return Windows.UI.Xaml.Controls.IPasswordBox is
+   function Create return Windows.UI.Xaml.Controls.IPasswordBox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PasswordBox");
       Instance      : aliased IInspectable := null;
@@ -2439,7 +2439,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateProgressRing return Windows.UI.Xaml.Controls.IProgressRing is
+   function Create return Windows.UI.Xaml.Controls.IProgressRing is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ProgressRing");
       Instance      : aliased IInspectable := null;
@@ -2456,7 +2456,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateToggleSwitch return Windows.UI.Xaml.Controls.IToggleSwitch is
+   function Create return Windows.UI.Xaml.Controls.IToggleSwitch is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ToggleSwitch");
       Instance      : aliased IInspectable := null;
@@ -2473,7 +2473,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateAutoSuggestBox return Windows.UI.Xaml.Controls.IAutoSuggestBox is
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AutoSuggestBox");
       Instance      : aliased IInspectable := null;
@@ -2490,7 +2490,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateMenuFlyoutSubItem return Windows.UI.Xaml.Controls.IMenuFlyoutSubItem is
+   function Create return Windows.UI.Xaml.Controls.IMenuFlyoutSubItem is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutSubItem");
       Instance      : aliased IInspectable := null;
@@ -2507,7 +2507,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateScrollViewer return Windows.UI.Xaml.Controls.IScrollViewer is
+   function Create return Windows.UI.Xaml.Controls.IScrollViewer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ScrollViewer");
       Instance      : aliased IInspectable := null;
@@ -2524,7 +2524,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateWebViewBrush return Windows.UI.Xaml.Controls.IWebViewBrush is
+   function Create return Windows.UI.Xaml.Controls.IWebViewBrush is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebViewBrush");
       Instance      : aliased IInspectable := null;
@@ -2541,7 +2541,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateInkToolbarIsStencilButtonCheckedChangedEventArgs return Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbarIsStencilButtonCheckedChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2558,7 +2558,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreatePivotItemEventArgs return Windows.UI.Xaml.Controls.IPivotItemEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IPivotItemEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PivotItemEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2575,7 +2575,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateDatePickedEventArgs return Windows.UI.Xaml.Controls.IDatePickedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IDatePickedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2592,7 +2592,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateItemsPickedEventArgs return Windows.UI.Xaml.Controls.IItemsPickedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IItemsPickedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsPickedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2609,7 +2609,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreatePickerConfirmedEventArgs return Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PickerConfirmedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2626,7 +2626,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateTimePickedEventArgs return Windows.UI.Xaml.Controls.ITimePickedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.ITimePickedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TimePickedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -2643,7 +2643,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateDatePickerFlyout return Windows.UI.Xaml.Controls.IDatePickerFlyout is
+   function Create return Windows.UI.Xaml.Controls.IDatePickerFlyout is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyout");
       Instance      : aliased IInspectable := null;
@@ -2660,7 +2660,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateListPickerFlyout return Windows.UI.Xaml.Controls.IListPickerFlyout is
+   function Create return Windows.UI.Xaml.Controls.IListPickerFlyout is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListPickerFlyout");
       Instance      : aliased IInspectable := null;
@@ -2677,7 +2677,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreatePickerFlyout return Windows.UI.Xaml.Controls.IPickerFlyout is
+   function Create return Windows.UI.Xaml.Controls.IPickerFlyout is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PickerFlyout");
       Instance      : aliased IInspectable := null;
@@ -2694,7 +2694,7 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
-   function CreateTimePickerFlyout return Windows.UI.Xaml.Controls.ITimePickerFlyout is
+   function Create return Windows.UI.Xaml.Controls.ITimePickerFlyout is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TimePickerFlyout");
       Instance      : aliased IInspectable := null;

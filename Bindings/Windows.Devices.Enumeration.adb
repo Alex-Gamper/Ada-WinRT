@@ -230,7 +230,7 @@ package body Windows.Devices.Enumeration is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateDevicePicker return Windows.Devices.Enumeration.IDevicePicker is
+   function Create return Windows.Devices.Enumeration.IDevicePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DevicePicker");
       Instance      : aliased IInspectable := null;

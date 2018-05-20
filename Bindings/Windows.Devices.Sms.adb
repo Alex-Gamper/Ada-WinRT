@@ -122,7 +122,7 @@ package body Windows.Devices.Sms is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSmsBinaryMessage return Windows.Devices.Sms.ISmsBinaryMessage is
+   function Create return Windows.Devices.Sms.ISmsBinaryMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsBinaryMessage");
       Instance      : aliased IInspectable := null;
@@ -139,7 +139,7 @@ package body Windows.Devices.Sms is
       return Convert(RetVal);
    end;
    
-   function CreateSmsTextMessage return Windows.Devices.Sms.ISmsTextMessage is
+   function Create return Windows.Devices.Sms.ISmsTextMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
       Instance      : aliased IInspectable := null;
@@ -156,7 +156,7 @@ package body Windows.Devices.Sms is
       return Convert(RetVal);
    end;
    
-   function CreateSmsTextMessage2 return Windows.Devices.Sms.ISmsTextMessage2 is
+   function Create return Windows.Devices.Sms.ISmsTextMessage2 is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage2");
       Instance      : aliased IInspectable := null;
@@ -173,7 +173,7 @@ package body Windows.Devices.Sms is
       return Convert(RetVal);
    end;
    
-   function CreateSmsAppMessage return Windows.Devices.Sms.ISmsAppMessage is
+   function Create return Windows.Devices.Sms.ISmsAppMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsAppMessage");
       Instance      : aliased IInspectable := null;

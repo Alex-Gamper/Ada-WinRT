@@ -972,16 +972,16 @@ package Windows.ApplicationModel.SocialInfo is
    subtype SocialUserInfo is Windows.ApplicationModel.SocialInfo.ISocialUserInfo;
    subtype SocialFeedContent is Windows.ApplicationModel.SocialInfo.ISocialFeedContent;
    subtype SocialItemThumbnail is Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail;
-   function CreateSocialItemThumbnail return Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail;
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail;
    
    subtype SocialFeedSharedItem is Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem;
-   function CreateSocialFeedSharedItem return Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem;
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem;
    
    subtype SocialFeedChildItem is Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem;
-   function CreateSocialFeedChildItem return Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem;
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem;
    
    subtype SocialFeedItem is Windows.ApplicationModel.SocialInfo.ISocialFeedItem;
-   function CreateSocialFeedItem return Windows.ApplicationModel.SocialInfo.ISocialFeedItem;
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialFeedItem;
    
    
    ------------------------------------------------------------------------

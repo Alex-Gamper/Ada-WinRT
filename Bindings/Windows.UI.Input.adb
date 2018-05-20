@@ -360,7 +360,7 @@ package body Windows.UI.Input is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateGestureRecognizer return Windows.UI.Input.IGestureRecognizer is
+   function Create return Windows.UI.Input.IGestureRecognizer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.GestureRecognizer");
       Instance      : aliased IInspectable := null;

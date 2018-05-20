@@ -87,7 +87,7 @@ package body Windows.ApplicationModel.VoiceCommands is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateVoiceCommandContentTile return Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile is
+   function Create return Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile");
       Instance      : aliased IInspectable := null;
@@ -104,7 +104,7 @@ package body Windows.ApplicationModel.VoiceCommands is
       return Convert(RetVal);
    end;
    
-   function CreateVoiceCommandUserMessage return Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage is
+   function Create return Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage");
       Instance      : aliased IInspectable := null;

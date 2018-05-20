@@ -576,10 +576,10 @@ package Windows.UI.Xaml.Media.Media3D is
    return Windows.HRESULT;
    
    subtype CompositeTransform3D is Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D;
-   function CreateCompositeTransform3D return Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D;
+   function Create return Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D;
    
    subtype PerspectiveTransform3D is Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D;
-   function CreatePerspectiveTransform3D return Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D;
+   function Create return Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D;
    
    
    ------------------------------------------------------------------------

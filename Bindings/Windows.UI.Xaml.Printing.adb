@@ -72,7 +72,7 @@ package body Windows.UI.Xaml.Printing is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAddPagesEventArgs return Windows.UI.Xaml.Printing.IAddPagesEventArgs is
+   function Create return Windows.UI.Xaml.Printing.IAddPagesEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Printing.AddPagesEventArgs");
       Instance      : aliased IInspectable := null;
@@ -89,7 +89,7 @@ package body Windows.UI.Xaml.Printing is
       return Convert(RetVal);
    end;
    
-   function CreateGetPreviewPageEventArgs return Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs is
+   function Create return Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Printing.GetPreviewPageEventArgs");
       Instance      : aliased IInspectable := null;
@@ -106,7 +106,7 @@ package body Windows.UI.Xaml.Printing is
       return Convert(RetVal);
    end;
    
-   function CreatePaginateEventArgs return Windows.UI.Xaml.Printing.IPaginateEventArgs is
+   function Create return Windows.UI.Xaml.Printing.IPaginateEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Printing.PaginateEventArgs");
       Instance      : aliased IInspectable := null;

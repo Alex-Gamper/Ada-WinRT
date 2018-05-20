@@ -4005,7 +4005,7 @@ package Windows.Devices.SmartCards is
    subtype SmartCardEmulator is Windows.Devices.SmartCards.ISmartCardEmulator;
    subtype SmartCardAppletIdGroupRegistration is Windows.Devices.SmartCards.ISmartCardAppletIdGroupRegistration;
    subtype SmartCardAppletIdGroup is Windows.Devices.SmartCards.ISmartCardAppletIdGroup;
-   function CreateSmartCardAppletIdGroup return Windows.Devices.SmartCards.ISmartCardAppletIdGroup;
+   function Create return Windows.Devices.SmartCards.ISmartCardAppletIdGroup;
    
    function Create
    (
@@ -4028,28 +4028,28 @@ package Windows.Devices.SmartCards is
    return Windows.Devices.SmartCards.ISmartCardAutomaticResponseApdu;
    
    subtype SmartCardCryptogramPlacementStep is Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep;
-   function CreateSmartCardCryptogramPlacementStep return Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep;
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep;
    
    subtype SmartCardCryptogramStorageKeyCharacteristics is Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyCharacteristics;
-   function CreateSmartCardCryptogramStorageKeyCharacteristics return Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyCharacteristics;
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyCharacteristics;
    
    subtype SmartCardCryptogramMaterialPackageCharacteristics is Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPackageCharacteristics;
-   function CreateSmartCardCryptogramMaterialPackageCharacteristics return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPackageCharacteristics;
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPackageCharacteristics;
    
    subtype SmartCardCryptogramMaterialCharacteristics is Windows.Devices.SmartCards.ISmartCardCryptogramMaterialCharacteristics;
-   function CreateSmartCardCryptogramMaterialCharacteristics return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialCharacteristics;
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialCharacteristics;
    
    subtype SmartCardCryptogramGenerator is Windows.Devices.SmartCards.ISmartCardCryptogramGenerator;
    subtype SmartCardCryptogramStorageKeyInfo is Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyInfo;
    subtype SmartCardCryptogramMaterialPossessionProof is Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPossessionProof;
    subtype SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult is Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult;
-   function CreateSmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult;
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult;
    
    subtype SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult is Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;
-   function CreateSmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;
    
    subtype SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult is Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult;
-   function CreateSmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult;
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult;
    
    subtype SmartCardReader is Windows.Devices.SmartCards.ISmartCardReader;
    subtype SmartCard is Windows.Devices.SmartCards.ISmartCard;
@@ -4057,7 +4057,7 @@ package Windows.Devices.SmartCards is
    subtype CardRemovedEventArgs is Windows.Devices.SmartCards.ICardRemovedEventArgs;
    subtype SmartCardProvisioning is Windows.Devices.SmartCards.ISmartCardProvisioning;
    subtype SmartCardPinPolicy is Windows.Devices.SmartCards.ISmartCardPinPolicy;
-   function CreateSmartCardPinPolicy return Windows.Devices.SmartCards.ISmartCardPinPolicy;
+   function Create return Windows.Devices.SmartCards.ISmartCardPinPolicy;
    
    subtype SmartCardChallengeContext is Windows.Devices.SmartCards.ISmartCardChallengeContext;
    subtype SmartCardPinResetRequest is Windows.Devices.SmartCards.ISmartCardPinResetRequest;

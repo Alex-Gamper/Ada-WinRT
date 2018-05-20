@@ -32,7 +32,7 @@ package body Windows.Web.Http is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateHttpRequestMessage return Windows.Web.Http.IHttpRequestMessage is
+   function Create return Windows.Web.Http.IHttpRequestMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpRequestMessage");
       Instance      : aliased IInspectable := null;
@@ -70,7 +70,7 @@ package body Windows.Web.Http is
       return RetVal;
    end;
    
-   function CreateHttpResponseMessage return Windows.Web.Http.IHttpResponseMessage is
+   function Create return Windows.Web.Http.IHttpResponseMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpResponseMessage");
       Instance      : aliased IInspectable := null;
@@ -107,7 +107,7 @@ package body Windows.Web.Http is
       return RetVal;
    end;
    
-   function CreateHttpClient return Windows.Web.Http.IHttpClient is
+   function Create return Windows.Web.Http.IHttpClient is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpClient");
       Instance      : aliased IInspectable := null;
@@ -331,7 +331,7 @@ package body Windows.Web.Http is
       return RetVal;
    end;
    
-   function CreateHttpMultipartContent return Windows.Web.Http.IHttpContent is
+   function Create return Windows.Web.Http.IHttpContent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpMultipartContent");
       Instance      : aliased IInspectable := null;
@@ -389,7 +389,7 @@ package body Windows.Web.Http is
       return RetVal;
    end;
    
-   function CreateHttpMultipartFormDataContent return Windows.Web.Http.IHttpContent is
+   function Create1 return Windows.Web.Http.IHttpContent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpMultipartFormDataContent");
       Instance      : aliased IInspectable := null;

@@ -74,7 +74,7 @@ package body Windows.Storage.Search is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateValueAndLanguage return Windows.Storage.Search.IValueAndLanguage is
+   function Create return Windows.Storage.Search.IValueAndLanguage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Search.ValueAndLanguage");
       Instance      : aliased IInspectable := null;
@@ -91,7 +91,7 @@ package body Windows.Storage.Search is
       return Convert(RetVal);
    end;
    
-   function CreateIndexableContent return Windows.Storage.Search.IIndexableContent is
+   function Create return Windows.Storage.Search.IIndexableContent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Search.IndexableContent");
       Instance      : aliased IInspectable := null;
@@ -108,7 +108,7 @@ package body Windows.Storage.Search is
       return Convert(RetVal);
    end;
    
-   function CreateQueryOptions return Windows.Storage.Search.IQueryOptions is
+   function Create return Windows.Storage.Search.IQueryOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Search.QueryOptions");
       Instance      : aliased IInspectable := null;

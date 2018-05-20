@@ -89,7 +89,7 @@ package body Windows.Networking.BackgroundTransfer is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateBackgroundTransferCompletionGroup return Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup is
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup");
       Instance      : aliased IInspectable := null;
@@ -106,7 +106,7 @@ package body Windows.Networking.BackgroundTransfer is
       return Convert(RetVal);
    end;
    
-   function CreateBackgroundTransferContentPart return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart is
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart");
       Instance      : aliased IInspectable := null;
@@ -164,7 +164,7 @@ package body Windows.Networking.BackgroundTransfer is
       return RetVal;
    end;
    
-   function CreateBackgroundDownloader return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundDownloader");
       Instance      : aliased IInspectable := null;
@@ -201,7 +201,7 @@ package body Windows.Networking.BackgroundTransfer is
       return RetVal;
    end;
    
-   function CreateBackgroundUploader return Windows.Networking.BackgroundTransfer.IBackgroundUploader is
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundUploader is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundUploader");
       Instance      : aliased IInspectable := null;

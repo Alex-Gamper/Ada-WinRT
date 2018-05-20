@@ -98,7 +98,7 @@ package body Windows.ApplicationModel.Search is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateLocalContentSuggestionSettings return Windows.ApplicationModel.Search.ILocalContentSuggestionSettings is
+   function Create return Windows.ApplicationModel.Search.ILocalContentSuggestionSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Search.LocalContentSuggestionSettings");
       Instance      : aliased IInspectable := null;

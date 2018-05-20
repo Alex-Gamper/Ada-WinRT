@@ -72,7 +72,7 @@ package body Windows.ApplicationModel.Preview.Notes is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateNotesWindowManagerPreviewShowNoteOptions return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions is
+   function Create return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions");
       Instance      : aliased IInspectable := null;

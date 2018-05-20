@@ -186,7 +186,7 @@ package body Windows.ApplicationModel.DataTransfer is
       return RetVal;
    end;
    
-   function CreateDataPackage return Windows.ApplicationModel.DataTransfer.IDataPackage is
+   function Create return Windows.ApplicationModel.DataTransfer.IDataPackage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.DataPackage");
       Instance      : aliased IInspectable := null;
@@ -203,7 +203,7 @@ package body Windows.ApplicationModel.DataTransfer is
       return Convert(RetVal);
    end;
    
-   function CreateShareUIOptions return Windows.ApplicationModel.DataTransfer.IShareUIOptions is
+   function Create return Windows.ApplicationModel.DataTransfer.IShareUIOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.ShareUIOptions");
       Instance      : aliased IInspectable := null;

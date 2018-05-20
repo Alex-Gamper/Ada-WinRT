@@ -28,7 +28,7 @@ package body Windows.Data.Json is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateJsonArray return Windows.Data.Json.IJsonArray is
+   function Create return Windows.Data.Json.IJsonArray is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Json.JsonArray");
       Instance      : aliased IInspectable := null;
@@ -45,7 +45,7 @@ package body Windows.Data.Json is
       return Convert(RetVal);
    end;
    
-   function CreateJsonObject return Windows.Data.Json.IJsonObject is
+   function Create return Windows.Data.Json.IJsonObject is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Json.JsonObject");
       Instance      : aliased IInspectable := null;

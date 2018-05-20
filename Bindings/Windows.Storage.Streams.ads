@@ -1763,7 +1763,7 @@ package Windows.Storage.Streams is
    
    subtype DataWriterStoreOperation is Windows.Storage.Streams.IAsyncOperation_UInt32;
    subtype DataWriter is Windows.Storage.Streams.IDataWriter;
-   function CreateDataWriter return Windows.Storage.Streams.IDataWriter;
+   function Create return Windows.Storage.Streams.IDataWriter;
    
    function CreateDataWriter
    (
@@ -1786,7 +1786,7 @@ package Windows.Storage.Streams is
    subtype InputStreamOverStream is Windows.Storage.Streams.IInputStream;
    subtype OutputStreamOverStream is Windows.Storage.Streams.IOutputStream;
    subtype InMemoryRandomAccessStream is Windows.Storage.Streams.IRandomAccessStream;
-   function CreateInMemoryRandomAccessStream return Windows.Storage.Streams.IRandomAccessStream;
+   function Create return Windows.Storage.Streams.IRandomAccessStream;
    
    
    ------------------------------------------------------------------------

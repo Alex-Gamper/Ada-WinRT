@@ -45,7 +45,7 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateDeviceAccountConfiguration return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration is
+   function Create return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration");
       Instance      : aliased IInspectable := null;

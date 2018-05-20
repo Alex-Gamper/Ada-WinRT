@@ -441,7 +441,7 @@ package Windows.Web.Http.Filters is
    ------------------------------------------------------------------------
    
    subtype HttpBaseProtocolFilter is Windows.Web.Http.Filters.IHttpBaseProtocolFilter;
-   function CreateHttpBaseProtocolFilter return Windows.Web.Http.Filters.IHttpBaseProtocolFilter;
+   function Create return Windows.Web.Http.Filters.IHttpBaseProtocolFilter;
    
    subtype HttpCacheControl is Windows.Web.Http.Filters.IHttpCacheControl;
    subtype HttpServerCustomValidationRequestedEventArgs is Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs;

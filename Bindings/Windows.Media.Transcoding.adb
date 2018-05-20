@@ -61,7 +61,7 @@ package body Windows.Media.Transcoding is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateMediaTranscoder return Windows.Media.Transcoding.IMediaTranscoder is
+   function Create return Windows.Media.Transcoding.IMediaTranscoder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Transcoding.MediaTranscoder");
       Instance      : aliased IInspectable := null;

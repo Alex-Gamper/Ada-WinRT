@@ -111,7 +111,7 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAppUpdateOptions return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions is
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions");
       Instance      : aliased IInspectable := null;
@@ -128,7 +128,7 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Convert(RetVal);
    end;
    
-   function CreateAppInstallOptions return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions is
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions");
       Instance      : aliased IInspectable := null;
@@ -145,7 +145,7 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Convert(RetVal);
    end;
    
-   function CreateAppInstallManager return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager is
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager");
       Instance      : aliased IInspectable := null;

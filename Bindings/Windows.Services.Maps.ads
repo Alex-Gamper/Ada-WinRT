@@ -2159,11 +2159,11 @@ package Windows.Services.Maps is
    subtype MapLocationFinderResult is Windows.Services.Maps.IMapLocationFinderResult;
    subtype MapRouteFinderResult is Windows.Services.Maps.IMapRouteFinderResult;
    subtype MapRouteDrivingOptions is Windows.Services.Maps.IMapRouteDrivingOptions;
-   function CreateMapRouteDrivingOptions return Windows.Services.Maps.IMapRouteDrivingOptions;
+   function Create return Windows.Services.Maps.IMapRouteDrivingOptions;
    
    subtype PlaceInfo is Windows.Services.Maps.IPlaceInfo;
    subtype PlaceInfoCreateOptions is Windows.Services.Maps.IPlaceInfoCreateOptions;
-   function CreatePlaceInfoCreateOptions return Windows.Services.Maps.IPlaceInfoCreateOptions;
+   function Create return Windows.Services.Maps.IPlaceInfoCreateOptions;
    
    
    ------------------------------------------------------------------------

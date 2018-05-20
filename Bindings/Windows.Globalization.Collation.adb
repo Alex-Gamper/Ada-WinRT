@@ -27,7 +27,7 @@ package body Windows.Globalization.Collation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCharacterGroupings return Windows.Globalization.Collation.ICharacterGroupings is
+   function Create return Windows.Globalization.Collation.ICharacterGroupings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.Collation.CharacterGroupings");
       Instance      : aliased IInspectable := null;

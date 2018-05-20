@@ -112,7 +112,7 @@ package body Windows.UI.Notifications is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateNotification return Windows.UI.Notifications.INotification is
+   function Create return Windows.UI.Notifications.INotification is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.Notification");
       Instance      : aliased IInspectable := null;
@@ -129,7 +129,7 @@ package body Windows.UI.Notifications is
       return Convert(RetVal);
    end;
    
-   function CreateAdaptiveNotificationText return Windows.UI.Notifications.IAdaptiveNotificationText is
+   function Create return Windows.UI.Notifications.IAdaptiveNotificationText is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.AdaptiveNotificationText");
       Instance      : aliased IInspectable := null;
@@ -291,7 +291,7 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function CreateNotificationData return Windows.UI.Notifications.INotificationData is
+   function Create return Windows.UI.Notifications.INotificationData is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.NotificationData");
       Instance      : aliased IInspectable := null;

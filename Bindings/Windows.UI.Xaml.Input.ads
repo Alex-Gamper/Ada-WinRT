@@ -2920,13 +2920,13 @@ package Windows.UI.Xaml.Input is
    
    subtype Pointer is Windows.UI.Xaml.Input.IPointer;
    subtype AccessKeyDisplayRequestedEventArgs is Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs;
-   function CreateAccessKeyDisplayRequestedEventArgs return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs;
    
    subtype AccessKeyDisplayDismissedEventArgs is Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs;
-   function CreateAccessKeyDisplayDismissedEventArgs return Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs;
    
    subtype AccessKeyInvokedEventArgs is Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs;
-   function CreateAccessKeyInvokedEventArgs return Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs;
    
    subtype ProcessKeyboardAcceleratorEventArgs is Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs;
    subtype KeyboardAcceleratorInvokedEventArgs is Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs;
@@ -2935,7 +2935,7 @@ package Windows.UI.Xaml.Input is
    subtype InertiaRotationBehavior is Windows.UI.Xaml.Input.IInertiaRotationBehavior;
    subtype InertiaTranslationBehavior is Windows.UI.Xaml.Input.IInertiaTranslationBehavior;
    subtype ManipulationPivot is Windows.UI.Xaml.Input.IManipulationPivot;
-   function CreateManipulationPivot return Windows.UI.Xaml.Input.IManipulationPivot;
+   function Create return Windows.UI.Xaml.Input.IManipulationPivot;
    
    function CreateInstanceWithCenterAndRadius
    (
@@ -2946,20 +2946,20 @@ package Windows.UI.Xaml.Input is
    
    subtype CharacterReceivedRoutedEventArgs is Windows.UI.Xaml.Input.ICharacterReceivedRoutedEventArgs;
    subtype ContextRequestedEventArgs is Windows.UI.Xaml.Input.IContextRequestedEventArgs;
-   function CreateContextRequestedEventArgs return Windows.UI.Xaml.Input.IContextRequestedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IContextRequestedEventArgs;
    
    subtype DoubleTappedRoutedEventArgs is Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs;
-   function CreateDoubleTappedRoutedEventArgs return Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs;
    
    subtype GettingFocusEventArgs is Windows.UI.Xaml.Input.IGettingFocusEventArgs;
    subtype HoldingRoutedEventArgs is Windows.UI.Xaml.Input.IHoldingRoutedEventArgs;
-   function CreateHoldingRoutedEventArgs return Windows.UI.Xaml.Input.IHoldingRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IHoldingRoutedEventArgs;
    
    subtype InputScope is Windows.UI.Xaml.Input.IInputScope;
-   function CreateInputScope return Windows.UI.Xaml.Input.IInputScope;
+   function Create return Windows.UI.Xaml.Input.IInputScope;
    
    subtype InputScopeName is Windows.UI.Xaml.Input.IInputScopeName;
-   function CreateInputScopeName return Windows.UI.Xaml.Input.IInputScopeName;
+   function Create return Windows.UI.Xaml.Input.IInputScopeName;
    
    function CreateInstance
    (
@@ -3094,13 +3094,13 @@ package Windows.UI.Xaml.Input is
    subtype KeyRoutedEventArgs is Windows.UI.Xaml.Input.IKeyRoutedEventArgs;
    subtype LosingFocusEventArgs is Windows.UI.Xaml.Input.ILosingFocusEventArgs;
    subtype ManipulationCompletedRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs;
-   function CreateManipulationCompletedRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs;
    
    subtype ManipulationDeltaRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs;
-   function CreateManipulationDeltaRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs;
    
    subtype ManipulationInertiaStartingRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs;
-   function CreateManipulationInertiaStartingRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs;
    
    subtype ManipulationStartedRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
    
@@ -3204,18 +3204,18 @@ package Windows.UI.Xaml.Input is
    return Windows.HRESULT;
    
    subtype ManipulationStartingRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs;
-   function CreateManipulationStartingRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs;
    
    subtype NoFocusCandidateFoundEventArgs is Windows.UI.Xaml.Input.INoFocusCandidateFoundEventArgs;
    subtype PointerRoutedEventArgs is Windows.UI.Xaml.Input.IPointerRoutedEventArgs;
    subtype RightTappedRoutedEventArgs is Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs;
-   function CreateRightTappedRoutedEventArgs return Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs;
    
    subtype TappedRoutedEventArgs is Windows.UI.Xaml.Input.ITappedRoutedEventArgs;
-   function CreateTappedRoutedEventArgs return Windows.UI.Xaml.Input.ITappedRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Input.ITappedRoutedEventArgs;
    
    subtype FindNextElementOptions is Windows.UI.Xaml.Input.IFindNextElementOptions;
-   function CreateFindNextElementOptions return Windows.UI.Xaml.Input.IFindNextElementOptions;
+   function Create return Windows.UI.Xaml.Input.IFindNextElementOptions;
    
    subtype FocusMovementResult is Windows.UI.Xaml.Input.IFocusMovementResult;
    subtype FocusManager is Windows.UI.Xaml.Input.IFocusManager;

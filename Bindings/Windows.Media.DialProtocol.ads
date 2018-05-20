@@ -721,7 +721,7 @@ package Windows.Media.DialProtocol is
    subtype DialDisconnectButtonClickedEventArgs is Windows.Media.DialProtocol.IDialDisconnectButtonClickedEventArgs;
    subtype DialDevicePickerFilter is Windows.Media.DialProtocol.IDialDevicePickerFilter;
    subtype DialDevicePicker is Windows.Media.DialProtocol.IDialDevicePicker;
-   function CreateDialDevicePicker return Windows.Media.DialProtocol.IDialDevicePicker;
+   function Create return Windows.Media.DialProtocol.IDialDevicePicker;
    
    subtype DialReceiverApp is Windows.Media.DialProtocol.IDialReceiverApp;
    

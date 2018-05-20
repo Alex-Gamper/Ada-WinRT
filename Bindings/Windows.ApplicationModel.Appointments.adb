@@ -112,7 +112,7 @@ package body Windows.ApplicationModel.Appointments is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAppointment return Windows.ApplicationModel.Appointments.IAppointment is
+   function Create return Windows.ApplicationModel.Appointments.IAppointment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.Appointment");
       Instance      : aliased IInspectable := null;
@@ -129,7 +129,7 @@ package body Windows.ApplicationModel.Appointments is
       return Convert(RetVal);
    end;
    
-   function CreateAppointmentOrganizer return Windows.ApplicationModel.Appointments.IAppointmentParticipant is
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentParticipant is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentOrganizer");
       Instance      : aliased IInspectable := null;
@@ -146,7 +146,7 @@ package body Windows.ApplicationModel.Appointments is
       return Convert(RetVal);
    end;
    
-   function CreateAppointmentInvitee return Windows.ApplicationModel.Appointments.IAppointmentInvitee is
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentInvitee is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentInvitee");
       Instance      : aliased IInspectable := null;
@@ -163,7 +163,7 @@ package body Windows.ApplicationModel.Appointments is
       return Convert(RetVal);
    end;
    
-   function CreateAppointmentRecurrence return Windows.ApplicationModel.Appointments.IAppointmentRecurrence is
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentRecurrence is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentRecurrence");
       Instance      : aliased IInspectable := null;
@@ -180,7 +180,7 @@ package body Windows.ApplicationModel.Appointments is
       return Convert(RetVal);
    end;
    
-   function CreateFindAppointmentsOptions return Windows.ApplicationModel.Appointments.IFindAppointmentsOptions is
+   function Create return Windows.ApplicationModel.Appointments.IFindAppointmentsOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.FindAppointmentsOptions");
       Instance      : aliased IInspectable := null;

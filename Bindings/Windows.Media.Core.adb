@@ -503,7 +503,7 @@ package body Windows.Media.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateTimedTextRegion return Windows.Media.Core.ITimedTextRegion is
+   function Create return Windows.Media.Core.ITimedTextRegion is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextRegion");
       Instance      : aliased IInspectable := null;
@@ -520,7 +520,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateTimedTextStyle return Windows.Media.Core.ITimedTextStyle is
+   function Create return Windows.Media.Core.ITimedTextStyle is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextStyle");
       Instance      : aliased IInspectable := null;
@@ -537,7 +537,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateTimedTextLine return Windows.Media.Core.ITimedTextLine is
+   function Create return Windows.Media.Core.ITimedTextLine is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextLine");
       Instance      : aliased IInspectable := null;
@@ -554,7 +554,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateTimedTextSubformat return Windows.Media.Core.ITimedTextSubformat is
+   function Create return Windows.Media.Core.ITimedTextSubformat is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSubformat");
       Instance      : aliased IInspectable := null;
@@ -571,7 +571,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateTimedTextCue return Windows.Media.Core.ITimedTextCue is
+   function Create return Windows.Media.Core.ITimedTextCue is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextCue");
       Instance      : aliased IInspectable := null;
@@ -588,7 +588,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateDataCue return Windows.Media.Core.IDataCue is
+   function Create return Windows.Media.Core.IDataCue is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.DataCue");
       Instance      : aliased IInspectable := null;
@@ -605,7 +605,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateChapterCue return Windows.Media.Core.IChapterCue is
+   function Create return Windows.Media.Core.IChapterCue is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.ChapterCue");
       Instance      : aliased IInspectable := null;
@@ -622,7 +622,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateImageCue return Windows.Media.Core.IImageCue is
+   function Create return Windows.Media.Core.IImageCue is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.ImageCue");
       Instance      : aliased IInspectable := null;
@@ -639,7 +639,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateSpeechCue return Windows.Media.Core.ISpeechCue is
+   function Create return Windows.Media.Core.ISpeechCue is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.SpeechCue");
       Instance      : aliased IInspectable := null;
@@ -656,7 +656,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateCodecQuery return Windows.Media.Core.ICodecQuery is
+   function Create return Windows.Media.Core.ICodecQuery is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.CodecQuery");
       Instance      : aliased IInspectable := null;
@@ -774,7 +774,7 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-   function CreateMseStreamSource return Windows.Media.Core.IMseStreamSource is
+   function Create return Windows.Media.Core.IMseStreamSource is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.MseStreamSource");
       Instance      : aliased IInspectable := null;
@@ -811,7 +811,7 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-   function CreateSceneAnalysisEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
+   function Create return Windows.Media.Effects.IVideoEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.SceneAnalysisEffectDefinition");
       Instance      : aliased IInspectable := null;
@@ -828,7 +828,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateFaceDetectionEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
+   function Create1 return Windows.Media.Effects.IVideoEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.FaceDetectionEffectDefinition");
       Instance      : aliased IInspectable := null;
@@ -845,7 +845,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateVideoStabilizationEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
+   function Create2 return Windows.Media.Effects.IVideoEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.VideoStabilizationEffectDefinition");
       Instance      : aliased IInspectable := null;
@@ -862,7 +862,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateMediaBinder return Windows.Media.Core.IMediaBinder is
+   function Create return Windows.Media.Core.IMediaBinder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.MediaBinder");
       Instance      : aliased IInspectable := null;

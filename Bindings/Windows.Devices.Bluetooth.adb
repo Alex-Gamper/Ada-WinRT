@@ -154,7 +154,7 @@ package body Windows.Devices.Bluetooth is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateBluetoothSignalStrengthFilter return Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter is
+   function Create return Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter");
       Instance      : aliased IInspectable := null;

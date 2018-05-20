@@ -45,7 +45,7 @@ package body Windows.Media.Playlists is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePlaylist return Windows.Media.Playlists.IPlaylist is
+   function Create return Windows.Media.Playlists.IPlaylist is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Playlists.Playlist");
       Instance      : aliased IInspectable := null;

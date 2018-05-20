@@ -80,7 +80,7 @@ package body Windows.Media.ContentRestrictions is
       return RetVal;
    end;
    
-   function CreateRatedContentRestrictions return Windows.Media.ContentRestrictions.IRatedContentRestrictions is
+   function Create return Windows.Media.ContentRestrictions.IRatedContentRestrictions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.ContentRestrictions.RatedContentRestrictions");
       Instance      : aliased IInspectable := null;

@@ -773,7 +773,7 @@ package body Windows.Media.Playback is
       return RetVal;
    end;
    
-   function CreateMediaPlayer return Windows.Media.Playback.IMediaPlayer is
+   function Create return Windows.Media.Playback.IMediaPlayer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Playback.MediaPlayer");
       Instance      : aliased IInspectable := null;
@@ -894,7 +894,7 @@ package body Windows.Media.Playback is
       return RetVal;
    end;
    
-   function CreateMediaPlaybackList return Windows.Media.Playback.IMediaPlaybackList is
+   function Create return Windows.Media.Playback.IMediaPlaybackList is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Playback.MediaPlaybackList");
       Instance      : aliased IInspectable := null;

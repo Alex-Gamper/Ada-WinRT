@@ -1978,7 +1978,7 @@ package Windows.Graphics.Printing is
    
    subtype PrintPageRangeOptions is Windows.Graphics.Printing.IPrintPageRangeOptions;
    subtype PrintPageInfo is Windows.Graphics.Printing.IPrintPageInfo;
-   function CreatePrintPageInfo return Windows.Graphics.Printing.IPrintPageInfo;
+   function Create return Windows.Graphics.Printing.IPrintPageInfo;
    
    subtype PrintTaskOptions is Windows.Graphics.Printing.IPrintTaskOptionsCore;
    subtype PrintTaskProgressingEventArgs is Windows.Graphics.Printing.IPrintTaskProgressingEventArgs;

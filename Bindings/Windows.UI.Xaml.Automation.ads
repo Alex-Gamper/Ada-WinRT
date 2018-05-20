@@ -2649,7 +2649,7 @@ package Windows.UI.Xaml.Automation is
    subtype ValuePatternIdentifiers is Windows.UI.Xaml.Automation.IValuePatternIdentifiers;
    subtype WindowPatternIdentifiers is Windows.UI.Xaml.Automation.IWindowPatternIdentifiers;
    subtype AutomationAnnotation is Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   function CreateAutomationAnnotation return Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   function Create return Windows.UI.Xaml.Automation.IAutomationAnnotation;
    
    function CreateInstance
    (

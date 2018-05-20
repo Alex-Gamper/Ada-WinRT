@@ -5367,7 +5367,7 @@ package Windows.UI.Xaml.Automation.Peers is
    return Windows.HRESULT;
    
    subtype AutomationPeerAnnotation is Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation;
-   function CreateAutomationPeerAnnotation return Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation;
+   function Create return Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation;
    
    function CreateInstance
    (

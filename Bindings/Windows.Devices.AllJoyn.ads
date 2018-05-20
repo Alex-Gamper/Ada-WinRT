@@ -2152,7 +2152,7 @@ package Windows.Devices.AllJoyn is
    
    subtype AllJoynAboutData is Windows.Devices.AllJoyn.IAllJoynAboutData;
    subtype AllJoynBusAttachment is Windows.Devices.AllJoyn.IAllJoynBusAttachment;
-   function CreateAllJoynBusAttachment return Windows.Devices.AllJoyn.IAllJoynBusAttachment;
+   function Create return Windows.Devices.AllJoyn.IAllJoynBusAttachment;
    
    function Create
    (
@@ -2216,7 +2216,7 @@ package Windows.Devices.AllJoyn is
    return Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs;
    
    subtype AllJoynBusObject is Windows.Devices.AllJoyn.IAllJoynBusObject;
-   function CreateAllJoynBusObject return Windows.Devices.AllJoyn.IAllJoynBusObject;
+   function Create return Windows.Devices.AllJoyn.IAllJoynBusObject;
    
    function Create
    (

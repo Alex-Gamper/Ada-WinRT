@@ -216,7 +216,7 @@ package body Windows.Services.Store is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateStorePurchaseProperties return Windows.Services.Store.IStorePurchaseProperties is
+   function Create return Windows.Services.Store.IStorePurchaseProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Services.Store.StorePurchaseProperties");
       Instance      : aliased IInspectable := null;
@@ -253,7 +253,7 @@ package body Windows.Services.Store is
       return RetVal;
    end;
    
-   function CreateStoreProductOptions return Windows.Services.Store.IStoreProductOptions is
+   function Create return Windows.Services.Store.IStoreProductOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Services.Store.StoreProductOptions");
       Instance      : aliased IInspectable := null;
@@ -270,7 +270,7 @@ package body Windows.Services.Store is
       return Convert(RetVal);
    end;
    
-   function CreateStorePackageInstallOptions return Windows.Services.Store.IStorePackageInstallOptions is
+   function Create return Windows.Services.Store.IStorePackageInstallOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Services.Store.StorePackageInstallOptions");
       Instance      : aliased IInspectable := null;

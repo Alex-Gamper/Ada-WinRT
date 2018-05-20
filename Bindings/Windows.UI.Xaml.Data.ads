@@ -1775,7 +1775,7 @@ package Windows.UI.Xaml.Data is
    return Windows.HRESULT;
    
    subtype CollectionViewSource is Windows.UI.Xaml.Data.ICollectionViewSource;
-   function CreateCollectionViewSource return Windows.UI.Xaml.Data.ICollectionViewSource;
+   function Create return Windows.UI.Xaml.Data.ICollectionViewSource;
    
    
    ------------------------------------------------------------------------

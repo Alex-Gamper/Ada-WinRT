@@ -1431,19 +1431,19 @@ package Windows.Storage.Provider is
    subtype FileUpdateRequest is Windows.Storage.Provider.IFileUpdateRequest;
    subtype FileUpdateRequestDeferral is Windows.Storage.Provider.IFileUpdateRequestDeferral;
    subtype StorageProviderItemProperty is Windows.Storage.Provider.IStorageProviderItemProperty;
-   function CreateStorageProviderItemProperty return Windows.Storage.Provider.IStorageProviderItemProperty;
+   function Create return Windows.Storage.Provider.IStorageProviderItemProperty;
    
    subtype StorageProviderItemPropertyDefinition is Windows.Storage.Provider.IStorageProviderItemPropertyDefinition;
-   function CreateStorageProviderItemPropertyDefinition return Windows.Storage.Provider.IStorageProviderItemPropertyDefinition;
+   function Create return Windows.Storage.Provider.IStorageProviderItemPropertyDefinition;
    
    subtype StorageProviderSyncRootInfo is Windows.Storage.Provider.IStorageProviderSyncRootInfo;
-   function CreateStorageProviderSyncRootInfo return Windows.Storage.Provider.IStorageProviderSyncRootInfo;
+   function Create return Windows.Storage.Provider.IStorageProviderSyncRootInfo;
    
    subtype StorageProviderGetContentInfoForPathResult is Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult;
-   function CreateStorageProviderGetContentInfoForPathResult return Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult;
+   function Create return Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult;
    
    subtype StorageProviderGetPathForContentUriResult is Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult;
-   function CreateStorageProviderGetPathForContentUriResult return Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult;
+   function Create return Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult;
    
    
    ------------------------------------------------------------------------

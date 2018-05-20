@@ -3668,10 +3668,10 @@ package Windows.Networking.Vpn is
    return Windows.Networking.Vpn.IVpnInterfaceId;
    
    subtype VpnRouteAssignment is Windows.Networking.Vpn.IVpnRouteAssignment;
-   function CreateVpnRouteAssignment return Windows.Networking.Vpn.IVpnRouteAssignment;
+   function Create return Windows.Networking.Vpn.IVpnRouteAssignment;
    
    subtype VpnNamespaceAssignment is Windows.Networking.Vpn.IVpnNamespaceAssignment;
-   function CreateVpnNamespaceAssignment return Windows.Networking.Vpn.IVpnNamespaceAssignment;
+   function Create return Windows.Networking.Vpn.IVpnNamespaceAssignment;
    
    subtype VpnPickedCredential is Windows.Networking.Vpn.IVpnPickedCredential;
    subtype VpnPacketBuffer is Windows.Networking.Vpn.IVpnPacketBuffer;
@@ -3688,12 +3688,12 @@ package Windows.Networking.Vpn is
    subtype VpnChannelActivityEventArgs is Windows.Networking.Vpn.IVpnChannelActivityEventArgs;
    subtype VpnSystemHealth is Windows.Networking.Vpn.IVpnSystemHealth;
    subtype VpnDomainNameAssignment is Windows.Networking.Vpn.IVpnDomainNameAssignment;
-   function CreateVpnDomainNameAssignment return Windows.Networking.Vpn.IVpnDomainNameAssignment;
+   function Create return Windows.Networking.Vpn.IVpnDomainNameAssignment;
    
    subtype VpnChannelActivityStateChangedArgs is Windows.Networking.Vpn.IVpnChannelActivityStateChangedArgs;
    subtype VpnCredential is Windows.Networking.Vpn.IVpnCredential;
    subtype VpnTrafficFilterAssignment is Windows.Networking.Vpn.IVpnTrafficFilterAssignment;
-   function CreateVpnTrafficFilterAssignment return Windows.Networking.Vpn.IVpnTrafficFilterAssignment;
+   function Create return Windows.Networking.Vpn.IVpnTrafficFilterAssignment;
    
    subtype VpnAppId is Windows.Networking.Vpn.IVpnAppId;
    function Create
@@ -3722,40 +3722,40 @@ package Windows.Networking.Vpn is
    
    subtype VpnPacketBufferList is Windows.Networking.Vpn.IVpnPacketBufferList;
    subtype VpnCustomEditBox is Windows.Networking.Vpn.IVpnCustomEditBox;
-   function CreateVpnCustomEditBox return Windows.Networking.Vpn.IVpnCustomEditBox;
+   function Create return Windows.Networking.Vpn.IVpnCustomEditBox;
    
    subtype VpnCustomPromptTextInput is Windows.Networking.Vpn.IVpnCustomPromptTextInput;
-   function CreateVpnCustomPromptTextInput return Windows.Networking.Vpn.IVpnCustomPromptTextInput;
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptTextInput;
    
    subtype VpnCustomComboBox is Windows.Networking.Vpn.IVpnCustomComboBox;
-   function CreateVpnCustomComboBox return Windows.Networking.Vpn.IVpnCustomComboBox;
+   function Create return Windows.Networking.Vpn.IVpnCustomComboBox;
    
    subtype VpnCustomPromptOptionSelector is Windows.Networking.Vpn.IVpnCustomPromptOptionSelector;
-   function CreateVpnCustomPromptOptionSelector return Windows.Networking.Vpn.IVpnCustomPromptOptionSelector;
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptOptionSelector;
    
    subtype VpnCustomTextBox is Windows.Networking.Vpn.IVpnCustomTextBox;
-   function CreateVpnCustomTextBox return Windows.Networking.Vpn.IVpnCustomTextBox;
+   function Create return Windows.Networking.Vpn.IVpnCustomTextBox;
    
    subtype VpnCustomPromptText is Windows.Networking.Vpn.IVpnCustomPromptText;
-   function CreateVpnCustomPromptText return Windows.Networking.Vpn.IVpnCustomPromptText;
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptText;
    
    subtype VpnCustomCheckBox is Windows.Networking.Vpn.IVpnCustomCheckBox;
-   function CreateVpnCustomCheckBox return Windows.Networking.Vpn.IVpnCustomCheckBox;
+   function Create return Windows.Networking.Vpn.IVpnCustomCheckBox;
    
    subtype VpnCustomPromptBooleanInput is Windows.Networking.Vpn.IVpnCustomPromptBooleanInput;
-   function CreateVpnCustomPromptBooleanInput return Windows.Networking.Vpn.IVpnCustomPromptBooleanInput;
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptBooleanInput;
    
    subtype VpnCustomErrorBox is Windows.Networking.Vpn.IVpnCustomErrorBox;
-   function CreateVpnCustomErrorBox return Windows.Networking.Vpn.IVpnCustomErrorBox;
+   function Create return Windows.Networking.Vpn.IVpnCustomErrorBox;
    
    subtype VpnPlugInProfile is Windows.Networking.Vpn.IVpnPlugInProfile;
-   function CreateVpnPlugInProfile return Windows.Networking.Vpn.IVpnPlugInProfile;
+   function Create return Windows.Networking.Vpn.IVpnPlugInProfile;
    
    subtype VpnNativeProfile is Windows.Networking.Vpn.IVpnNativeProfile;
-   function CreateVpnNativeProfile return Windows.Networking.Vpn.IVpnNativeProfile;
+   function Create return Windows.Networking.Vpn.IVpnNativeProfile;
    
    subtype VpnManagementAgent is Windows.Networking.Vpn.IVpnManagementAgent;
-   function CreateVpnManagementAgent return Windows.Networking.Vpn.IVpnManagementAgent;
+   function Create return Windows.Networking.Vpn.IVpnManagementAgent;
    
    
    ------------------------------------------------------------------------

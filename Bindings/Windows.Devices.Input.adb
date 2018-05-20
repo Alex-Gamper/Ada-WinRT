@@ -44,7 +44,7 @@ package body Windows.Devices.Input is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateMouseCapabilities return Windows.Devices.Input.IMouseCapabilities is
+   function Create return Windows.Devices.Input.IMouseCapabilities is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Input.MouseCapabilities");
       Instance      : aliased IInspectable := null;
@@ -61,7 +61,7 @@ package body Windows.Devices.Input is
       return Convert(RetVal);
    end;
    
-   function CreateKeyboardCapabilities return Windows.Devices.Input.IKeyboardCapabilities is
+   function Create return Windows.Devices.Input.IKeyboardCapabilities is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Input.KeyboardCapabilities");
       Instance      : aliased IInspectable := null;
@@ -78,7 +78,7 @@ package body Windows.Devices.Input is
       return Convert(RetVal);
    end;
    
-   function CreateTouchCapabilities return Windows.Devices.Input.ITouchCapabilities is
+   function Create return Windows.Devices.Input.ITouchCapabilities is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Input.TouchCapabilities");
       Instance      : aliased IInspectable := null;

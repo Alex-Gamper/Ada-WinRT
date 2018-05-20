@@ -143,7 +143,7 @@ package body Windows.Security.Credentials is
       return RetVal;
    end;
    
-   function CreatePasswordCredential return Windows.Security.Credentials.IPasswordCredential is
+   function Create return Windows.Security.Credentials.IPasswordCredential is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Credentials.PasswordCredential");
       Instance      : aliased IInspectable := null;
@@ -182,7 +182,7 @@ package body Windows.Security.Credentials is
       return RetVal;
    end;
    
-   function CreatePasswordVault return Windows.Security.Credentials.IPasswordVault is
+   function Create return Windows.Security.Credentials.IPasswordVault is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Credentials.PasswordVault");
       Instance      : aliased IInspectable := null;
@@ -199,7 +199,7 @@ package body Windows.Security.Credentials is
       return Convert(RetVal);
    end;
    
-   function CreatePasswordCredentialPropertyStore return Windows.Foundation.Collections.IPropertySet is
+   function Create return Windows.Foundation.Collections.IPropertySet is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Credentials.PasswordCredentialPropertyStore");
       Instance      : aliased IInspectable := null;

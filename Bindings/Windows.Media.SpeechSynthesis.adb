@@ -47,7 +47,7 @@ package body Windows.Media.SpeechSynthesis is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSpeechSynthesizer return Windows.Media.SpeechSynthesis.ISpeechSynthesizer is
+   function Create return Windows.Media.SpeechSynthesis.ISpeechSynthesizer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.SpeechSynthesis.SpeechSynthesizer");
       Instance      : aliased IInspectable := null;

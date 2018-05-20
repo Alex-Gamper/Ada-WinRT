@@ -2156,11 +2156,11 @@ package Windows.Foundation.Diagnostics is
    
    subtype TracingStatusChangedEventArgs is Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs;
    subtype RuntimeBrokerErrorSettings is Windows.Foundation.Diagnostics.IErrorReportingSettings;
-   function CreateRuntimeBrokerErrorSettings return Windows.Foundation.Diagnostics.IErrorReportingSettings;
+   function Create return Windows.Foundation.Diagnostics.IErrorReportingSettings;
    
    subtype ErrorDetails is Windows.Foundation.Diagnostics.IErrorDetails;
    subtype LoggingOptions is Windows.Foundation.Diagnostics.ILoggingOptions;
-   function CreateLoggingOptions return Windows.Foundation.Diagnostics.ILoggingOptions;
+   function Create return Windows.Foundation.Diagnostics.ILoggingOptions;
    
    function CreateWithKeywords
    (
@@ -2169,7 +2169,7 @@ package Windows.Foundation.Diagnostics is
    return Windows.Foundation.Diagnostics.ILoggingOptions;
    
    subtype LoggingChannelOptions is Windows.Foundation.Diagnostics.ILoggingChannelOptions;
-   function CreateLoggingChannelOptions return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
+   function Create return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
    
    function Create
    (
@@ -2178,7 +2178,7 @@ package Windows.Foundation.Diagnostics is
    return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
    
    subtype LoggingFields is Windows.Foundation.Diagnostics.ILoggingFields;
-   function CreateLoggingFields return Windows.Foundation.Diagnostics.ILoggingFields;
+   function Create return Windows.Foundation.Diagnostics.ILoggingFields;
    
    subtype LoggingActivity is Windows.Foundation.Diagnostics.ILoggingActivity;
    function CreateLoggingActivity

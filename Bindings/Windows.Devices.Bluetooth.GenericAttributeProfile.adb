@@ -398,7 +398,7 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateGattReliableWriteTransaction return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction is
+   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction");
       Instance      : aliased IInspectable := null;
@@ -415,7 +415,7 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Convert(RetVal);
    end;
    
-   function CreateGattServiceProviderAdvertisingParameters return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters is
+   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters");
       Instance      : aliased IInspectable := null;
@@ -432,7 +432,7 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Convert(RetVal);
    end;
    
-   function CreateGattLocalCharacteristicParameters return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicParameters is
+   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicParameters is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters");
       Instance      : aliased IInspectable := null;
@@ -449,7 +449,7 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Convert(RetVal);
    end;
    
-   function CreateGattLocalDescriptorParameters return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorParameters is
+   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorParameters is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters");
       Instance      : aliased IInspectable := null;

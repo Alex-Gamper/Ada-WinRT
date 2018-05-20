@@ -1269,7 +1269,7 @@ package Windows.Data.Xml.Dom is
    subtype XmlNodeList is Windows.Data.Xml.Dom.IXmlNodeList;
    subtype XmlNamedNodeMap is Windows.Data.Xml.Dom.IXmlNamedNodeMap;
    subtype XmlDocument is Windows.Data.Xml.Dom.IXmlDocument;
-   function CreateXmlDocument return Windows.Data.Xml.Dom.IXmlDocument;
+   function Create return Windows.Data.Xml.Dom.IXmlDocument;
    
    subtype XmlAttribute is Windows.Data.Xml.Dom.IXmlAttribute;
    subtype XmlDocumentType is Windows.Data.Xml.Dom.IXmlDocumentType;
@@ -1282,7 +1282,7 @@ package Windows.Data.Xml.Dom is
    subtype XmlEntityReference is Windows.Data.Xml.Dom.IXmlEntityReference;
    subtype XmlCDataSection is Windows.Data.Xml.Dom.IXmlCDataSection;
    subtype XmlLoadSettings is Windows.Data.Xml.Dom.IXmlLoadSettings;
-   function CreateXmlLoadSettings return Windows.Data.Xml.Dom.IXmlLoadSettings;
+   function Create return Windows.Data.Xml.Dom.IXmlLoadSettings;
    
    subtype DtdNotation is Windows.Data.Xml.Dom.IDtdNotation;
    subtype DtdEntity is Windows.Data.Xml.Dom.IDtdEntity;

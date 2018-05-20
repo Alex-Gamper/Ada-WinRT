@@ -80,7 +80,7 @@ package body Windows.Services.Maps is
       return RetVal;
    end;
    
-   function CreateMapRouteDrivingOptions return Windows.Services.Maps.IMapRouteDrivingOptions is
+   function Create return Windows.Services.Maps.IMapRouteDrivingOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Services.Maps.MapRouteDrivingOptions");
       Instance      : aliased IInspectable := null;
@@ -97,7 +97,7 @@ package body Windows.Services.Maps is
       return Convert(RetVal);
    end;
    
-   function CreatePlaceInfoCreateOptions return Windows.Services.Maps.IPlaceInfoCreateOptions is
+   function Create return Windows.Services.Maps.IPlaceInfoCreateOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Services.Maps.PlaceInfoCreateOptions");
       Instance      : aliased IInspectable := null;

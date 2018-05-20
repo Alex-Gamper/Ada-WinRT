@@ -219,7 +219,7 @@ package body Windows.ApplicationModel.Contacts is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateContactCardOptions return Windows.ApplicationModel.Contacts.IContactCardOptions is
+   function Create return Windows.ApplicationModel.Contacts.IContactCardOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactCardOptions");
       Instance      : aliased IInspectable := null;
@@ -236,7 +236,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateFullContactCardOptions return Windows.ApplicationModel.Contacts.IFullContactCardOptions is
+   function Create return Windows.ApplicationModel.Contacts.IFullContactCardOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.FullContactCardOptions");
       Instance      : aliased IInspectable := null;
@@ -253,7 +253,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactAnnotation return Windows.ApplicationModel.Contacts.IContactAnnotation is
+   function Create return Windows.ApplicationModel.Contacts.IContactAnnotation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactAnnotation");
       Instance      : aliased IInspectable := null;
@@ -270,7 +270,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactQueryOptions return Windows.ApplicationModel.Contacts.IContactQueryOptions is
+   function Create return Windows.ApplicationModel.Contacts.IContactQueryOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactQueryOptions");
       Instance      : aliased IInspectable := null;
@@ -328,7 +328,7 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function CreateContactPicker return Windows.ApplicationModel.Contacts.IContactPicker is
+   function Create return Windows.ApplicationModel.Contacts.IContactPicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactPicker");
       Instance      : aliased IInspectable := null;
@@ -345,7 +345,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactPhone return Windows.ApplicationModel.Contacts.IContactPhone is
+   function Create return Windows.ApplicationModel.Contacts.IContactPhone is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactPhone");
       Instance      : aliased IInspectable := null;
@@ -362,7 +362,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactEmail return Windows.ApplicationModel.Contacts.IContactEmail is
+   function Create return Windows.ApplicationModel.Contacts.IContactEmail is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactEmail");
       Instance      : aliased IInspectable := null;
@@ -379,7 +379,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactAddress return Windows.ApplicationModel.Contacts.IContactAddress is
+   function Create return Windows.ApplicationModel.Contacts.IContactAddress is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactAddress");
       Instance      : aliased IInspectable := null;
@@ -396,7 +396,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactConnectedServiceAccount return Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount is
+   function Create return Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount");
       Instance      : aliased IInspectable := null;
@@ -413,7 +413,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactDate return Windows.ApplicationModel.Contacts.IContactDate is
+   function Create return Windows.ApplicationModel.Contacts.IContactDate is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactDate");
       Instance      : aliased IInspectable := null;
@@ -430,7 +430,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactJobInfo return Windows.ApplicationModel.Contacts.IContactJobInfo is
+   function Create return Windows.ApplicationModel.Contacts.IContactJobInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactJobInfo");
       Instance      : aliased IInspectable := null;
@@ -447,7 +447,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactSignificantOther return Windows.ApplicationModel.Contacts.IContactSignificantOther is
+   function Create return Windows.ApplicationModel.Contacts.IContactSignificantOther is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactSignificantOther");
       Instance      : aliased IInspectable := null;
@@ -464,7 +464,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContactWebsite return Windows.ApplicationModel.Contacts.IContactWebsite is
+   function Create return Windows.ApplicationModel.Contacts.IContactWebsite is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactWebsite");
       Instance      : aliased IInspectable := null;
@@ -481,7 +481,7 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateContact return Windows.ApplicationModel.Contacts.IContact is
+   function Create return Windows.ApplicationModel.Contacts.IContact is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.Contact");
       Instance      : aliased IInspectable := null;
@@ -696,7 +696,7 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function CreateContactFieldFactory return Windows.ApplicationModel.Contacts.IContactFieldFactory is
+   function Create return Windows.ApplicationModel.Contacts.IContactFieldFactory is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactFieldFactory");
       Instance      : aliased IInspectable := null;

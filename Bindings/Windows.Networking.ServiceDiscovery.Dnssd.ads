@@ -495,7 +495,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance;
    
    subtype DnssdRegistrationResult is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
-   function CreateDnssdRegistrationResult return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
+   function Create return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
    
    subtype DnssdServiceInstanceCollection is Windows.Networking.ServiceDiscovery.Dnssd.IVectorView_DnssdServiceInstance;
    

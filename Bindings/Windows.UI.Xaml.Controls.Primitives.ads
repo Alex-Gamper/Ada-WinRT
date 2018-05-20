@@ -5580,13 +5580,13 @@ package Windows.UI.Xaml.Controls.Primitives is
    subtype DragStartedEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs;
    subtype RangeBaseValueChangedEventArgs is Windows.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs;
    subtype ScrollEventArgs is Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs;
-   function CreateScrollEventArgs return Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs;
    
    subtype Popup is Windows.UI.Xaml.Controls.Primitives.IPopup;
-   function CreatePopup return Windows.UI.Xaml.Controls.Primitives.IPopup;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IPopup;
    
    subtype TickBar is Windows.UI.Xaml.Controls.Primitives.ITickBar;
-   function CreateTickBar return Windows.UI.Xaml.Controls.Primitives.ITickBar;
+   function Create return Windows.UI.Xaml.Controls.Primitives.ITickBar;
    
    subtype CarouselPanel is Windows.UI.Xaml.Controls.Primitives.ICarouselPanel;
    
@@ -5822,7 +5822,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    subtype OrientedVirtualizingPanel is Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanel;
    subtype CalendarPanel is Windows.UI.Xaml.Controls.Primitives.ICalendarPanel;
-   function CreateCalendarPanel return Windows.UI.Xaml.Controls.Primitives.ICalendarPanel;
+   function Create return Windows.UI.Xaml.Controls.Primitives.ICalendarPanel;
    
    subtype GridViewItemPresenter is Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
    
@@ -7103,7 +7103,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.HRESULT;
    
    subtype Thumb is Windows.UI.Xaml.Controls.Primitives.IThumb;
-   function CreateThumb return Windows.UI.Xaml.Controls.Primitives.IThumb;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IThumb;
    
    subtype ButtonBase is Windows.UI.Xaml.Controls.Primitives.IButtonBase;
    
@@ -7230,11 +7230,11 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.HRESULT;
    
    subtype ScrollBar is Windows.UI.Xaml.Controls.Primitives.IScrollBar;
-   function CreateScrollBar return Windows.UI.Xaml.Controls.Primitives.IScrollBar;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IScrollBar;
    
    subtype Selector is Windows.UI.Xaml.Controls.Primitives.ISelector;
    subtype RepeatButton is Windows.UI.Xaml.Controls.Primitives.IRepeatButton;
-   function CreateRepeatButton return Windows.UI.Xaml.Controls.Primitives.IRepeatButton;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IRepeatButton;
    
    subtype ToggleButton is Windows.UI.Xaml.Controls.Primitives.IToggleButton;
    
@@ -7606,10 +7606,10 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.HRESULT;
    
    subtype JumpListItemBackgroundConverter is Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter;
-   function CreateJumpListItemBackgroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter;
    
    subtype JumpListItemForegroundConverter is Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter;
-   function CreateJumpListItemForegroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter;
    
    subtype PickerFlyoutBase is Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
    
@@ -7731,7 +7731,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    subtype LoopingSelector is Windows.UI.Xaml.Controls.Primitives.ILoopingSelector;
    subtype PivotPanel is Windows.UI.Xaml.Controls.Primitives.IPivotPanel;
-   function CreatePivotPanel return Windows.UI.Xaml.Controls.Primitives.IPivotPanel;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IPivotPanel;
    
    subtype LoopingSelectorItem is Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorItem;
    subtype LoopingSelectorPanel is Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorPanel;
@@ -7789,7 +7789,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.HRESULT;
    
    subtype PivotHeaderPanel is Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel;
-   function CreatePivotHeaderPanel return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel;
+   function Create return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel;
    
    
    ------------------------------------------------------------------------

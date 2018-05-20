@@ -2343,7 +2343,7 @@ package Windows.Devices.Enumeration is
    subtype DeviceDisconnectButtonClickedEventArgs is Windows.Devices.Enumeration.IDeviceDisconnectButtonClickedEventArgs;
    subtype DevicePickerFilter is Windows.Devices.Enumeration.IDevicePickerFilter;
    subtype DevicePicker is Windows.Devices.Enumeration.IDevicePicker;
-   function CreateDevicePicker return Windows.Devices.Enumeration.IDevicePicker;
+   function Create return Windows.Devices.Enumeration.IDevicePicker;
    
    subtype DeviceThumbnail is Windows.Storage.Streams.IRandomAccessStreamWithContentType;
    subtype EnclosureLocation is Windows.Devices.Enumeration.IEnclosureLocation;

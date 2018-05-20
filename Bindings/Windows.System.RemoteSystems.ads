@@ -2186,7 +2186,7 @@ package Windows.System.RemoteSystems is
    subtype RemoteSystemSessionInvitation is Windows.System.RemoteSystems.IRemoteSystemSessionInvitation;
    subtype RemoteSystemSessionInvitationReceivedEventArgs is Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs;
    subtype RemoteSystemSessionInvitationListener is Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener;
-   function CreateRemoteSystemSessionInvitationListener return Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener;
+   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener;
    
    subtype RemoteSystemSessionParticipant is Windows.System.RemoteSystems.IRemoteSystemSessionParticipant;
    subtype RemoteSystemSessionParticipantAddedEventArgs is Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs;
@@ -2196,7 +2196,7 @@ package Windows.System.RemoteSystems is
    subtype RemoteSystemSessionJoinRequestedEventArgs is Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs;
    subtype RemoteSystemSessionCreationResult is Windows.System.RemoteSystems.IRemoteSystemSessionCreationResult;
    subtype RemoteSystemSessionOptions is Windows.System.RemoteSystems.IRemoteSystemSessionOptions;
-   function CreateRemoteSystemSessionOptions return Windows.System.RemoteSystems.IRemoteSystemSessionOptions;
+   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionOptions;
    
    subtype RemoteSystemSessionController is Windows.System.RemoteSystems.IRemoteSystemSessionController;
    function CreateController

@@ -85,7 +85,7 @@ package body Windows.Networking.XboxLive is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateXboxLiveQualityOfServiceMeasurement return Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement is
+   function Create return Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
       Instance      : aliased IInspectable := null;

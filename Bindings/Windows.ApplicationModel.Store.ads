@@ -1054,7 +1054,7 @@ package Windows.ApplicationModel.Store is
    subtype ListingInformation is Windows.ApplicationModel.Store.IListingInformation;
    subtype PurchaseResults is Windows.ApplicationModel.Store.IPurchaseResults;
    subtype ProductPurchaseDisplayProperties is Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
-   function CreateProductPurchaseDisplayProperties return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
+   function Create return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
    
    function CreateProductPurchaseDisplayProperties
    (

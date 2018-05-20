@@ -45,7 +45,7 @@ package body Windows.Media.AppBroadcasting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAppBroadcastingMonitor return Windows.Media.AppBroadcasting.IAppBroadcastingMonitor is
+   function Create return Windows.Media.AppBroadcasting.IAppBroadcastingMonitor is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.AppBroadcasting.AppBroadcastingMonitor");
       Instance      : aliased IInspectable := null;

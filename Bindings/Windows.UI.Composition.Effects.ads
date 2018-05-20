@@ -185,7 +185,7 @@ package Windows.UI.Composition.Effects is
    ------------------------------------------------------------------------
    
    subtype SceneLightingEffect is Windows.UI.Composition.Effects.ISceneLightingEffect;
-   function CreateSceneLightingEffect return Windows.UI.Composition.Effects.ISceneLightingEffect;
+   function Create return Windows.UI.Composition.Effects.ISceneLightingEffect;
    
    
    ------------------------------------------------------------------------

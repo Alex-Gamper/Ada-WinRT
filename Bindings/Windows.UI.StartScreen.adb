@@ -62,7 +62,7 @@ package body Windows.UI.StartScreen is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSecondaryTile return Windows.UI.StartScreen.ISecondaryTile is
+   function Create return Windows.UI.StartScreen.ISecondaryTile is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
       Instance      : aliased IInspectable := null;

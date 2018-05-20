@@ -45,7 +45,7 @@ package body Windows.Management.Deployment is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePackageManager return Windows.Management.Deployment.IPackageManager is
+   function Create return Windows.Management.Deployment.IPackageManager is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Management.Deployment.PackageManager");
       Instance      : aliased IInspectable := null;

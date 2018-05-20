@@ -57,7 +57,7 @@ package body Windows.ApplicationModel.ExtendedExecution.Foreground is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateExtendedExecutionForegroundSession return Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession is
+   function Create return Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession");
       Instance      : aliased IInspectable := null;

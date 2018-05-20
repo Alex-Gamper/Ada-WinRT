@@ -184,7 +184,7 @@ package Windows.Media.Playlists is
    ------------------------------------------------------------------------
    
    subtype Playlist is Windows.Media.Playlists.IPlaylist;
-   function CreatePlaylist return Windows.Media.Playlists.IPlaylist;
+   function Create return Windows.Media.Playlists.IPlaylist;
    
    
    ------------------------------------------------------------------------

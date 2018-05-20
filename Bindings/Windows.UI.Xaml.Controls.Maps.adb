@@ -505,7 +505,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateMapActualCameraChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapActualCameraChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -522,7 +522,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapActualCameraChangingEventArgs return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapActualCameraChangingEventArgs");
       Instance      : aliased IInspectable := null;
@@ -539,7 +539,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapContextRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapContextRequestedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -556,7 +556,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapCustomExperienceChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapCustomExperienceChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -573,7 +573,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs");
       Instance      : aliased IInspectable := null;
@@ -590,7 +590,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementPointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
@@ -607,7 +607,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementPointerExitedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -624,7 +624,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementsLayerClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerClickEventArgs");
       Instance      : aliased IInspectable := null;
@@ -641,7 +641,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementsLayerContextRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerContextRequestedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -658,7 +658,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementsLayerPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
@@ -675,7 +675,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementsLayerPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerExitedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -692,7 +692,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapRightTappedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -709,7 +709,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapTargetCameraChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTargetCameraChangedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -726,7 +726,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapTileBitmapRequestDeferral return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestDeferral");
       Instance      : aliased IInspectable := null;
@@ -743,7 +743,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapTileBitmapRequest return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequest");
       Instance      : aliased IInspectable := null;
@@ -760,7 +760,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapTileBitmapRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -777,7 +777,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapTileUriRequestDeferral return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileUriRequestDeferral");
       Instance      : aliased IInspectable := null;
@@ -794,7 +794,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapTileUriRequest return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileUriRequest");
       Instance      : aliased IInspectable := null;
@@ -811,7 +811,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapTileUriRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -915,7 +915,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function CreateMapInputEventArgs return Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapInputEventArgs");
       Instance      : aliased IInspectable := null;
@@ -932,7 +932,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapItemsControl return Windows.UI.Xaml.Controls.Maps.IMapItemsControl is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapItemsControl is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapItemsControl");
       Instance      : aliased IInspectable := null;
@@ -969,7 +969,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function CreateMapElement3D return Windows.UI.Xaml.Controls.Maps.IMapElement3D is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElement3D is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElement3D");
       Instance      : aliased IInspectable := null;
@@ -986,7 +986,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapElementsLayer return Windows.UI.Xaml.Controls.Maps.IMapElementsLayer is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapElementsLayer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayer");
       Instance      : aliased IInspectable := null;
@@ -1003,7 +1003,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapIcon return Windows.UI.Xaml.Controls.Maps.IMapIcon is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapIcon is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapIcon");
       Instance      : aliased IInspectable := null;
@@ -1020,7 +1020,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapPolygon return Windows.UI.Xaml.Controls.Maps.IMapPolygon is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapPolygon is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapPolygon");
       Instance      : aliased IInspectable := null;
@@ -1037,7 +1037,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapPolyline return Windows.UI.Xaml.Controls.Maps.IMapPolyline is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapPolyline is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapPolyline");
       Instance      : aliased IInspectable := null;
@@ -1097,7 +1097,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function CreateMapControl return Windows.UI.Xaml.Controls.Maps.IMapControl is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControl is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
       Instance      : aliased IInspectable := null;
@@ -1114,7 +1114,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlBusinessLandmarkClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkClickEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1131,7 +1131,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlTransitFeatureClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureClickEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1148,7 +1148,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlBusinessLandmarkRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkRightTappedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1165,7 +1165,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlTransitFeatureRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureRightTappedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1182,7 +1182,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlBusinessLandmarkPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1199,7 +1199,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlTransitFeaturePointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1216,7 +1216,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlBusinessLandmarkPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerExitedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -1233,7 +1233,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Convert(RetVal);
    end;
    
-   function CreateMapControlTransitFeaturePointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerExitedEventArgs");
       Instance      : aliased IInspectable := null;

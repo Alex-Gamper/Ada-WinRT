@@ -735,13 +735,13 @@ package Windows.Storage.Pickers is
    subtype FilePickerFileTypesOrderedMap is Windows.Storage.Pickers.IMap_String_IVector;
    subtype FileExtensionVector is Windows.Storage.Pickers.IVector_String;
    subtype FileOpenPicker is Windows.Storage.Pickers.IFileOpenPicker;
-   function CreateFileOpenPicker return Windows.Storage.Pickers.IFileOpenPicker;
+   function Create return Windows.Storage.Pickers.IFileOpenPicker;
    
    subtype FileSavePicker is Windows.Storage.Pickers.IFileSavePicker;
-   function CreateFileSavePicker return Windows.Storage.Pickers.IFileSavePicker;
+   function Create return Windows.Storage.Pickers.IFileSavePicker;
    
    subtype FolderPicker is Windows.Storage.Pickers.IFolderPicker;
-   function CreateFolderPicker return Windows.Storage.Pickers.IFolderPicker;
+   function Create return Windows.Storage.Pickers.IFolderPicker;
    
    
    ------------------------------------------------------------------------

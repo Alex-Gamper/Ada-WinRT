@@ -45,7 +45,7 @@ package body Windows.UI.Input.Inking.Analysis is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateInkAnalyzer return Windows.UI.Input.Inking.Analysis.IInkAnalyzer is
+   function Create return Windows.UI.Input.Inking.Analysis.IInkAnalyzer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.Analysis.InkAnalyzer");
       Instance      : aliased IInspectable := null;

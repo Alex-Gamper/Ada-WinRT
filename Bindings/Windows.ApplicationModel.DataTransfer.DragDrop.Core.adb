@@ -47,7 +47,7 @@ package body Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCoreDragOperation return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation is
+   function Create return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation");
       Instance      : aliased IInspectable := null;

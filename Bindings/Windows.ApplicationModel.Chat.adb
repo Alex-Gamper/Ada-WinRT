@@ -190,7 +190,7 @@ package body Windows.ApplicationModel.Chat is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateChatMessage return Windows.ApplicationModel.Chat.IChatMessage is
+   function Create return Windows.ApplicationModel.Chat.IChatMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessage");
       Instance      : aliased IInspectable := null;
@@ -228,7 +228,7 @@ package body Windows.ApplicationModel.Chat is
       return RetVal;
    end;
    
-   function CreateChatConversationThreadingInfo return Windows.ApplicationModel.Chat.IChatConversationThreadingInfo is
+   function Create return Windows.ApplicationModel.Chat.IChatConversationThreadingInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatConversationThreadingInfo");
       Instance      : aliased IInspectable := null;
@@ -245,7 +245,7 @@ package body Windows.ApplicationModel.Chat is
       return Convert(RetVal);
    end;
    
-   function CreateChatRecipientDeliveryInfo return Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo is
+   function Create return Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo");
       Instance      : aliased IInspectable := null;
@@ -262,7 +262,7 @@ package body Windows.ApplicationModel.Chat is
       return Convert(RetVal);
    end;
    
-   function CreateChatQueryOptions return Windows.ApplicationModel.Chat.IChatQueryOptions is
+   function Create return Windows.ApplicationModel.Chat.IChatQueryOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatQueryOptions");
       Instance      : aliased IInspectable := null;

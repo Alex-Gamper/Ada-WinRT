@@ -3361,7 +3361,7 @@ package Windows.ApplicationModel.Chat is
    
    subtype ChatMessageTransportConfiguration is Windows.ApplicationModel.Chat.IChatMessageTransportConfiguration;
    subtype ChatMessage is Windows.ApplicationModel.Chat.IChatMessage;
-   function CreateChatMessage return Windows.ApplicationModel.Chat.IChatMessage;
+   function Create return Windows.ApplicationModel.Chat.IChatMessage;
    
    subtype ChatMessageChange is Windows.ApplicationModel.Chat.IChatMessageChange;
    subtype ChatMessageChangeReader is Windows.ApplicationModel.Chat.IChatMessageChangeReader;
@@ -3374,10 +3374,10 @@ package Windows.ApplicationModel.Chat is
    return Windows.ApplicationModel.Chat.IChatMessageAttachment;
    
    subtype ChatConversationThreadingInfo is Windows.ApplicationModel.Chat.IChatConversationThreadingInfo;
-   function CreateChatConversationThreadingInfo return Windows.ApplicationModel.Chat.IChatConversationThreadingInfo;
+   function Create return Windows.ApplicationModel.Chat.IChatConversationThreadingInfo;
    
    subtype ChatRecipientDeliveryInfo is Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo;
-   function CreateChatRecipientDeliveryInfo return Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo;
+   function Create return Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo;
    
    subtype ChatMessageChangeTracker is Windows.ApplicationModel.Chat.IChatMessageChangeTracker;
    subtype ChatMessageReader is Windows.ApplicationModel.Chat.IChatMessageReader;
@@ -3387,7 +3387,7 @@ package Windows.ApplicationModel.Chat is
    subtype ChatConversation is Windows.ApplicationModel.Chat.IChatConversation;
    subtype ChatConversationReader is Windows.ApplicationModel.Chat.IChatConversationReader;
    subtype ChatQueryOptions is Windows.ApplicationModel.Chat.IChatQueryOptions;
-   function CreateChatQueryOptions return Windows.ApplicationModel.Chat.IChatQueryOptions;
+   function Create return Windows.ApplicationModel.Chat.IChatQueryOptions;
    
    subtype ChatSearchReader is Windows.ApplicationModel.Chat.IChatSearchReader;
    subtype ChatMessageStoreChangedEventArgs is Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs;

@@ -72,7 +72,7 @@ package body Windows.Storage.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateStorageProviderItemProperty return Windows.Storage.Provider.IStorageProviderItemProperty is
+   function Create return Windows.Storage.Provider.IStorageProviderItemProperty is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderItemProperty");
       Instance      : aliased IInspectable := null;
@@ -89,7 +89,7 @@ package body Windows.Storage.Provider is
       return Convert(RetVal);
    end;
    
-   function CreateStorageProviderItemPropertyDefinition return Windows.Storage.Provider.IStorageProviderItemPropertyDefinition is
+   function Create return Windows.Storage.Provider.IStorageProviderItemPropertyDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderItemPropertyDefinition");
       Instance      : aliased IInspectable := null;
@@ -106,7 +106,7 @@ package body Windows.Storage.Provider is
       return Convert(RetVal);
    end;
    
-   function CreateStorageProviderSyncRootInfo return Windows.Storage.Provider.IStorageProviderSyncRootInfo is
+   function Create return Windows.Storage.Provider.IStorageProviderSyncRootInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderSyncRootInfo");
       Instance      : aliased IInspectable := null;
@@ -123,7 +123,7 @@ package body Windows.Storage.Provider is
       return Convert(RetVal);
    end;
    
-   function CreateStorageProviderGetContentInfoForPathResult return Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult is
+   function Create return Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult");
       Instance      : aliased IInspectable := null;
@@ -140,7 +140,7 @@ package body Windows.Storage.Provider is
       return Convert(RetVal);
    end;
    
-   function CreateStorageProviderGetPathForContentUriResult return Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult is
+   function Create return Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderGetPathForContentUriResult");
       Instance      : aliased IInspectable := null;

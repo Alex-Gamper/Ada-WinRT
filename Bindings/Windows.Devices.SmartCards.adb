@@ -306,7 +306,7 @@ package body Windows.Devices.SmartCards is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSmartCardAppletIdGroup return Windows.Devices.SmartCards.ISmartCardAppletIdGroup is
+   function Create return Windows.Devices.SmartCards.ISmartCardAppletIdGroup is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardAppletIdGroup");
       Instance      : aliased IInspectable := null;
@@ -367,7 +367,7 @@ package body Windows.Devices.SmartCards is
       return RetVal;
    end;
    
-   function CreateSmartCardCryptogramPlacementStep return Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep is
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep");
       Instance      : aliased IInspectable := null;
@@ -384,7 +384,7 @@ package body Windows.Devices.SmartCards is
       return Convert(RetVal);
    end;
    
-   function CreateSmartCardCryptogramStorageKeyCharacteristics return Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyCharacteristics is
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyCharacteristics is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics");
       Instance      : aliased IInspectable := null;
@@ -401,7 +401,7 @@ package body Windows.Devices.SmartCards is
       return Convert(RetVal);
    end;
    
-   function CreateSmartCardCryptogramMaterialPackageCharacteristics return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPackageCharacteristics is
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPackageCharacteristics is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics");
       Instance      : aliased IInspectable := null;
@@ -418,7 +418,7 @@ package body Windows.Devices.SmartCards is
       return Convert(RetVal);
    end;
    
-   function CreateSmartCardCryptogramMaterialCharacteristics return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialCharacteristics is
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramMaterialCharacteristics is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics");
       Instance      : aliased IInspectable := null;
@@ -435,7 +435,7 @@ package body Windows.Devices.SmartCards is
       return Convert(RetVal);
    end;
    
-   function CreateSmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult is
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult");
       Instance      : aliased IInspectable := null;
@@ -452,7 +452,7 @@ package body Windows.Devices.SmartCards is
       return Convert(RetVal);
    end;
    
-   function CreateSmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult is
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult");
       Instance      : aliased IInspectable := null;
@@ -469,7 +469,7 @@ package body Windows.Devices.SmartCards is
       return Convert(RetVal);
    end;
    
-   function CreateSmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult is
+   function Create return Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult");
       Instance      : aliased IInspectable := null;
@@ -486,7 +486,7 @@ package body Windows.Devices.SmartCards is
       return Convert(RetVal);
    end;
    
-   function CreateSmartCardPinPolicy return Windows.Devices.SmartCards.ISmartCardPinPolicy is
+   function Create return Windows.Devices.SmartCards.ISmartCardPinPolicy is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardPinPolicy");
       Instance      : aliased IInspectable := null;

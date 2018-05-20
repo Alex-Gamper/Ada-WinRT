@@ -1457,10 +1457,10 @@ package Windows.Media.Effects is
    subtype ProcessAudioFrameContext is Windows.Media.Effects.IProcessAudioFrameContext;
    subtype VideoTransformSphericalProjection is Windows.Media.Effects.IVideoTransformSphericalProjection;
    subtype VideoTransformEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   function CreateVideoTransformEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
+   function Create return Windows.Media.Effects.IVideoEffectDefinition;
    
    subtype SlowMotionEffectDefinition is Windows.Media.Effects.ISlowMotionEffectDefinition;
-   function CreateSlowMotionEffectDefinition return Windows.Media.Effects.ISlowMotionEffectDefinition;
+   function Create return Windows.Media.Effects.ISlowMotionEffectDefinition;
    
    
    ------------------------------------------------------------------------

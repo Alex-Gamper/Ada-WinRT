@@ -49,7 +49,7 @@ package body Windows.UI.Xaml.Media.Animation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateTransitionCollection return Windows.UI.Xaml.Media.Animation.IVector_Transition is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Transition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.TransitionCollection");
       Instance      : aliased IInspectable := null;
@@ -66,7 +66,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDoubleKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection");
       Instance      : aliased IInspectable := null;
@@ -83,7 +83,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateObjectKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection");
       Instance      : aliased IInspectable := null;
@@ -100,7 +100,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateTimelineCollection return Windows.UI.Xaml.Media.Animation.IVector_Timeline is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Timeline is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.TimelineCollection");
       Instance      : aliased IInspectable := null;
@@ -117,7 +117,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateKeySpline return Windows.UI.Xaml.Media.Animation.IKeySpline is
+   function Create return Windows.UI.Xaml.Media.Animation.IKeySpline is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.KeySpline");
       Instance      : aliased IInspectable := null;
@@ -134,7 +134,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateAddDeleteThemeTransition return Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -151,7 +151,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateBackEase return Windows.UI.Xaml.Media.Animation.IBackEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IBackEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.BackEase");
       Instance      : aliased IInspectable := null;
@@ -168,7 +168,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateBeginStoryboard return Windows.UI.Xaml.Media.Animation.IBeginStoryboard is
+   function Create return Windows.UI.Xaml.Media.Animation.IBeginStoryboard is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.BeginStoryboard");
       Instance      : aliased IInspectable := null;
@@ -185,7 +185,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateBounceEase return Windows.UI.Xaml.Media.Animation.IBounceEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IBounceEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.BounceEase");
       Instance      : aliased IInspectable := null;
@@ -202,7 +202,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateCircleEase return Windows.UI.Xaml.Media.Animation.ICircleEase is
+   function Create return Windows.UI.Xaml.Media.Animation.ICircleEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CircleEase");
       Instance      : aliased IInspectable := null;
@@ -219,7 +219,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateColorAnimation return Windows.UI.Xaml.Media.Animation.IColorAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorAnimation");
       Instance      : aliased IInspectable := null;
@@ -236,7 +236,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateContentThemeTransition return Windows.UI.Xaml.Media.Animation.IContentThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IContentThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContentThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -253,7 +253,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateCubicEase return Windows.UI.Xaml.Media.Animation.ICubicEase is
+   function Create return Windows.UI.Xaml.Media.Animation.ICubicEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CubicEase");
       Instance      : aliased IInspectable := null;
@@ -270,7 +270,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDiscreteDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -287,7 +287,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDiscreteObjectKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -304,7 +304,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDoubleAnimation return Windows.UI.Xaml.Media.Animation.IDoubleAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleAnimation");
       Instance      : aliased IInspectable := null;
@@ -321,7 +321,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDoubleAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames is
+   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames");
       Instance      : aliased IInspectable := null;
@@ -338,7 +338,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateEasingDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -355,7 +355,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateEdgeUIThemeTransition return Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -372,7 +372,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateElasticEase return Windows.UI.Xaml.Media.Animation.IElasticEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IElasticEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ElasticEase");
       Instance      : aliased IInspectable := null;
@@ -389,7 +389,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateEntranceThemeTransition return Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -406,7 +406,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateExponentialEase return Windows.UI.Xaml.Media.Animation.IExponentialEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IExponentialEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ExponentialEase");
       Instance      : aliased IInspectable := null;
@@ -423,7 +423,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateLinearDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -440,7 +440,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateObjectAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames is
+   function Create return Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames");
       Instance      : aliased IInspectable := null;
@@ -457,7 +457,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePaneThemeTransition return Windows.UI.Xaml.Media.Animation.IPaneThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IPaneThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PaneThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -474,7 +474,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePointAnimation return Windows.UI.Xaml.Media.Animation.IPointAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
       Instance      : aliased IInspectable := null;
@@ -491,7 +491,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePopupThemeTransition return Windows.UI.Xaml.Media.Animation.IPopupThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IPopupThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopupThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -508,7 +508,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePowerEase return Windows.UI.Xaml.Media.Animation.IPowerEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IPowerEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PowerEase");
       Instance      : aliased IInspectable := null;
@@ -525,7 +525,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateQuadraticEase return Windows.UI.Xaml.Media.Animation.IQuadraticEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IQuadraticEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.QuadraticEase");
       Instance      : aliased IInspectable := null;
@@ -542,7 +542,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateQuarticEase return Windows.UI.Xaml.Media.Animation.IQuarticEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IQuarticEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.QuarticEase");
       Instance      : aliased IInspectable := null;
@@ -559,7 +559,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateQuinticEase return Windows.UI.Xaml.Media.Animation.IQuinticEase is
+   function Create return Windows.UI.Xaml.Media.Animation.IQuinticEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.QuinticEase");
       Instance      : aliased IInspectable := null;
@@ -576,7 +576,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateReorderThemeTransition return Windows.UI.Xaml.Media.Animation.IReorderThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IReorderThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ReorderThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -593,7 +593,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateRepositionThemeTransition return Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepositionThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -610,7 +610,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSineEase return Windows.UI.Xaml.Media.Animation.ISineEase is
+   function Create return Windows.UI.Xaml.Media.Animation.ISineEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SineEase");
       Instance      : aliased IInspectable := null;
@@ -627,7 +627,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSplineDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -644,7 +644,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateStoryboard return Windows.UI.Xaml.Media.Animation.IStoryboard is
+   function Create return Windows.UI.Xaml.Media.Animation.IStoryboard is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
       Instance      : aliased IInspectable := null;
@@ -661,7 +661,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateColorKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection");
       Instance      : aliased IInspectable := null;
@@ -678,7 +678,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePointKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection");
       Instance      : aliased IInspectable := null;
@@ -695,7 +695,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateColorAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames is
+   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames");
       Instance      : aliased IInspectable := null;
@@ -712,7 +712,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDiscreteColorKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -729,7 +729,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDiscretePointKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -746,7 +746,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDragItemThemeAnimation return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -763,7 +763,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDragOverThemeAnimation return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -780,7 +780,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDrillInThemeAnimation return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -797,7 +797,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDrillOutThemeAnimation return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -814,7 +814,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDropTargetItemThemeAnimation return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -831,7 +831,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateEasingColorKeyFrame return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -848,7 +848,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateEasingPointKeyFrame return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -865,7 +865,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateFadeInThemeAnimation return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -882,7 +882,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateFadeOutThemeAnimation return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -899,7 +899,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateLinearColorKeyFrame return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -916,7 +916,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateLinearPointKeyFrame return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -933,7 +933,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePointAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames is
+   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames");
       Instance      : aliased IInspectable := null;
@@ -950,7 +950,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePointerDownThemeAnimation return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -967,7 +967,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePointerUpThemeAnimation return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -984,7 +984,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePopInThemeAnimation return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopInThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -1001,7 +1001,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreatePopOutThemeAnimation return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -1018,7 +1018,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateRepositionThemeAnimation return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -1035,7 +1035,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSplineColorKeyFrame return Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -1052,7 +1052,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSplinePointKeyFrame return Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame");
       Instance      : aliased IInspectable := null;
@@ -1069,7 +1069,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSplitCloseThemeAnimation return Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -1086,7 +1086,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSplitOpenThemeAnimation return Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -1103,7 +1103,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSwipeBackThemeAnimation return Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -1120,7 +1120,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSwipeHintThemeAnimation return Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation is
+   function Create return Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation");
       Instance      : aliased IInspectable := null;
@@ -1137,7 +1137,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateCommonNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
       Instance      : aliased IInspectable := null;
@@ -1154,7 +1154,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateContinuumNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
       Instance      : aliased IInspectable := null;
@@ -1171,7 +1171,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateDrillInNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo");
       Instance      : aliased IInspectable := null;
@@ -1188,7 +1188,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateEntranceNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
       Instance      : aliased IInspectable := null;
@@ -1205,7 +1205,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateNavigationThemeTransition return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition is
+   function Create return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.NavigationThemeTransition");
       Instance      : aliased IInspectable := null;
@@ -1222,7 +1222,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSlideNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo");
       Instance      : aliased IInspectable := null;
@@ -1239,7 +1239,7 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function CreateSuppressNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo");
       Instance      : aliased IInspectable := null;

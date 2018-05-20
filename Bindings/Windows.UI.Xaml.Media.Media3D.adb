@@ -28,7 +28,7 @@ package body Windows.UI.Xaml.Media.Media3D is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCompositeTransform3D return Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D is
+   function Create return Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.CompositeTransform3D");
       Instance      : aliased IInspectable := null;
@@ -45,7 +45,7 @@ package body Windows.UI.Xaml.Media.Media3D is
       return Convert(RetVal);
    end;
    
-   function CreatePerspectiveTransform3D return Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D is
+   function Create return Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D");
       Instance      : aliased IInspectable := null;

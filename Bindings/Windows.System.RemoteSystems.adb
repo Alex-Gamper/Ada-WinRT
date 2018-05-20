@@ -379,7 +379,7 @@ package body Windows.System.RemoteSystems is
       return RetVal;
    end;
    
-   function CreateRemoteSystemSessionInvitationListener return Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener is
+   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener");
       Instance      : aliased IInspectable := null;
@@ -396,7 +396,7 @@ package body Windows.System.RemoteSystems is
       return Convert(RetVal);
    end;
    
-   function CreateRemoteSystemSessionOptions return Windows.System.RemoteSystems.IRemoteSystemSessionOptions is
+   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemSessionOptions");
       Instance      : aliased IInspectable := null;

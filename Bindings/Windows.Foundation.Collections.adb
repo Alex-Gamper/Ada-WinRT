@@ -44,7 +44,7 @@ package body Windows.Foundation.Collections is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePropertySet return Windows.Foundation.Collections.IPropertySet is
+   function Create return Windows.Foundation.Collections.IPropertySet is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Collections.PropertySet");
       Instance      : aliased IInspectable := null;
@@ -61,7 +61,7 @@ package body Windows.Foundation.Collections is
       return Convert(RetVal);
    end;
    
-   function CreateValueSet return Windows.Foundation.Collections.IPropertySet is
+   function Create1 return Windows.Foundation.Collections.IPropertySet is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Collections.ValueSet");
       Instance      : aliased IInspectable := null;
@@ -78,7 +78,7 @@ package body Windows.Foundation.Collections is
       return Convert(RetVal);
    end;
    
-   function CreateStringMap return Windows.Foundation.Collections.IMap_String_String is
+   function Create return Windows.Foundation.Collections.IMap_String_String is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Collections.StringMap");
       Instance      : aliased IInspectable := null;

@@ -111,7 +111,7 @@ package body Windows.Graphics.Imaging is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateBitmapTransform return Windows.Graphics.Imaging.IBitmapTransform is
+   function Create return Windows.Graphics.Imaging.IBitmapTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Imaging.BitmapTransform");
       Instance      : aliased IInspectable := null;
@@ -149,7 +149,7 @@ package body Windows.Graphics.Imaging is
       return RetVal;
    end;
    
-   function CreateBitmapPropertySet return Windows.Graphics.Imaging.IMap_String_BitmapTypedValue is
+   function Create return Windows.Graphics.Imaging.IMap_String_BitmapTypedValue is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Imaging.BitmapPropertySet");
       Instance      : aliased IInspectable := null;

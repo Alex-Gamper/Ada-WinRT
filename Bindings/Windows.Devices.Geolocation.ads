@@ -1889,7 +1889,7 @@ package Windows.Devices.Geolocation is
    subtype PositionChangedEventArgs is Windows.Devices.Geolocation.IPositionChangedEventArgs;
    subtype StatusChangedEventArgs is Windows.Devices.Geolocation.IStatusChangedEventArgs;
    subtype Geolocator is Windows.Devices.Geolocation.IGeolocator;
-   function CreateGeolocator return Windows.Devices.Geolocation.IGeolocator;
+   function Create return Windows.Devices.Geolocation.IGeolocator;
    
    subtype Geocircle is Windows.Devices.Geolocation.IGeocircle;
    function Create
@@ -1919,7 +1919,7 @@ package Windows.Devices.Geolocation is
    subtype Geovisit is Windows.Devices.Geolocation.IGeovisit;
    subtype GeovisitStateChangedEventArgs is Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs;
    subtype GeovisitMonitor is Windows.Devices.Geolocation.IGeovisitMonitor;
-   function CreateGeovisitMonitor return Windows.Devices.Geolocation.IGeovisitMonitor;
+   function Create return Windows.Devices.Geolocation.IGeovisitMonitor;
    
    subtype GeovisitTriggerDetails is Windows.Devices.Geolocation.IGeovisitTriggerDetails;
    

@@ -101,7 +101,7 @@ package body Windows.UI.Xaml.Documents is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateContentLinkProviderCollection return Windows.UI.Xaml.Documents.IContentLinkProviderCollection is
+   function Create return Windows.UI.Xaml.Documents.IContentLinkProviderCollection is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLinkProviderCollection");
       Instance      : aliased IInspectable := null;
@@ -118,7 +118,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateInlineUIContainer return Windows.UI.Xaml.Documents.IInlineUIContainer is
+   function Create return Windows.UI.Xaml.Documents.IInlineUIContainer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.InlineUIContainer");
       Instance      : aliased IInspectable := null;
@@ -135,7 +135,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateLineBreak return Windows.UI.Xaml.Documents.ILineBreak is
+   function Create return Windows.UI.Xaml.Documents.ILineBreak is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.LineBreak");
       Instance      : aliased IInspectable := null;
@@ -152,7 +152,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateParagraph return Windows.UI.Xaml.Documents.IParagraph is
+   function Create return Windows.UI.Xaml.Documents.IParagraph is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Paragraph");
       Instance      : aliased IInspectable := null;
@@ -169,7 +169,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateRun return Windows.UI.Xaml.Documents.IRun is
+   function Create return Windows.UI.Xaml.Documents.IRun is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Run");
       Instance      : aliased IInspectable := null;
@@ -186,7 +186,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateBold return Windows.UI.Xaml.Documents.IBold is
+   function Create return Windows.UI.Xaml.Documents.IBold is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Bold");
       Instance      : aliased IInspectable := null;
@@ -203,7 +203,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateItalic return Windows.UI.Xaml.Documents.IItalic is
+   function Create return Windows.UI.Xaml.Documents.IItalic is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Italic");
       Instance      : aliased IInspectable := null;
@@ -220,7 +220,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateUnderline return Windows.UI.Xaml.Documents.IUnderline is
+   function Create return Windows.UI.Xaml.Documents.IUnderline is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Underline");
       Instance      : aliased IInspectable := null;
@@ -237,7 +237,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateContactContentLinkProvider return Windows.UI.Xaml.Documents.IContactContentLinkProvider is
+   function Create return Windows.UI.Xaml.Documents.IContactContentLinkProvider is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContactContentLinkProvider");
       Instance      : aliased IInspectable := null;
@@ -254,7 +254,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreatePlaceContentLinkProvider return Windows.UI.Xaml.Documents.IPlaceContentLinkProvider is
+   function Create return Windows.UI.Xaml.Documents.IPlaceContentLinkProvider is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.PlaceContentLinkProvider");
       Instance      : aliased IInspectable := null;
@@ -271,7 +271,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateContentLink return Windows.UI.Xaml.Documents.IContentLink is
+   function Create return Windows.UI.Xaml.Documents.IContentLink is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
       Instance      : aliased IInspectable := null;
@@ -288,7 +288,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateHyperlink return Windows.UI.Xaml.Documents.IHyperlink is
+   function Create return Windows.UI.Xaml.Documents.IHyperlink is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
       Instance      : aliased IInspectable := null;
@@ -305,7 +305,7 @@ package body Windows.UI.Xaml.Documents is
       return Convert(RetVal);
    end;
    
-   function CreateGlyphs return Windows.UI.Xaml.Documents.IGlyphs is
+   function Create return Windows.UI.Xaml.Documents.IGlyphs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
       Instance      : aliased IInspectable := null;

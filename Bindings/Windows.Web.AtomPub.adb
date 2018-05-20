@@ -31,7 +31,7 @@ package body Windows.Web.AtomPub is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAtomPubClient return Windows.Web.AtomPub.IAtomPubClient is
+   function Create return Windows.Web.AtomPub.IAtomPubClient is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.AtomPub.AtomPubClient");
       Instance      : aliased IInspectable := null;

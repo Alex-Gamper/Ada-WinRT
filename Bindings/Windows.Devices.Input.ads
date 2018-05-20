@@ -533,13 +533,13 @@ package Windows.Devices.Input is
    subtype MouseDevice is Windows.Devices.Input.IMouseDevice;
    subtype MouseEventArgs is Windows.Devices.Input.IMouseEventArgs;
    subtype MouseCapabilities is Windows.Devices.Input.IMouseCapabilities;
-   function CreateMouseCapabilities return Windows.Devices.Input.IMouseCapabilities;
+   function Create return Windows.Devices.Input.IMouseCapabilities;
    
    subtype KeyboardCapabilities is Windows.Devices.Input.IKeyboardCapabilities;
-   function CreateKeyboardCapabilities return Windows.Devices.Input.IKeyboardCapabilities;
+   function Create return Windows.Devices.Input.IKeyboardCapabilities;
    
    subtype TouchCapabilities is Windows.Devices.Input.ITouchCapabilities;
-   function CreateTouchCapabilities return Windows.Devices.Input.ITouchCapabilities;
+   function Create return Windows.Devices.Input.ITouchCapabilities;
    
    
    ------------------------------------------------------------------------

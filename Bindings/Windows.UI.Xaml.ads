@@ -9769,10 +9769,10 @@ package Windows.UI.Xaml is
    
    subtype UnhandledExceptionEventArgs is Windows.UI.Xaml.IUnhandledExceptionEventArgs;
    subtype VisualStateChangedEventArgs is Windows.UI.Xaml.IVisualStateChangedEventArgs;
-   function CreateVisualStateChangedEventArgs return Windows.UI.Xaml.IVisualStateChangedEventArgs;
+   function Create return Windows.UI.Xaml.IVisualStateChangedEventArgs;
    
    subtype BringIntoViewOptions is Windows.UI.Xaml.IBringIntoViewOptions;
-   function CreateBringIntoViewOptions return Windows.UI.Xaml.IBringIntoViewOptions;
+   function Create return Windows.UI.Xaml.IBringIntoViewOptions;
    
    subtype DataContextChangedEventArgs is Windows.UI.Xaml.IDataContextChangedEventArgs;
    subtype DataTemplateKey is Windows.UI.Xaml.IDataTemplateKey;
@@ -9847,14 +9847,14 @@ package Windows.UI.Xaml is
    subtype DragUI is Windows.UI.Xaml.IDragUI;
    subtype DragUIOverride is Windows.UI.Xaml.IDragUIOverride;
    subtype FrameworkView is Windows.UI.Xaml.IFrameworkView;
-   function CreateFrameworkView return Windows.UI.Xaml.IFrameworkView;
+   function Create return Windows.UI.Xaml.IFrameworkView;
    
    subtype RoutedEvent is Windows.UI.Xaml.IRoutedEvent;
    subtype SetterBaseCollection is Windows.UI.Xaml.ISetterBaseCollection;
-   function CreateSetterBaseCollection return Windows.UI.Xaml.ISetterBaseCollection;
+   function Create return Windows.UI.Xaml.ISetterBaseCollection;
    
    subtype TargetPropertyPath is Windows.UI.Xaml.ITargetPropertyPath;
-   function CreateTargetPropertyPath return Windows.UI.Xaml.ITargetPropertyPath;
+   function Create return Windows.UI.Xaml.ITargetPropertyPath;
    
    function CreateInstance
    (
@@ -9863,7 +9863,7 @@ package Windows.UI.Xaml is
    return Windows.UI.Xaml.ITargetPropertyPath;
    
    subtype TriggerActionCollection is Windows.UI.Xaml.IVector_TriggerAction;
-   function CreateTriggerActionCollection return Windows.UI.Xaml.IVector_TriggerAction;
+   function Create return Windows.UI.Xaml.IVector_TriggerAction;
    
    subtype TriggerCollection is Windows.UI.Xaml.IVector_TriggerBase;
    subtype BringIntoViewRequestedEventArgs is Windows.UI.Xaml.IBringIntoViewRequestedEventArgs;
@@ -10129,7 +10129,7 @@ package Windows.UI.Xaml is
    return Windows.HRESULT;
    
    subtype Style is Windows.UI.Xaml.IStyle;
-   function CreateStyle return Windows.UI.Xaml.IStyle;
+   function Create return Windows.UI.Xaml.IStyle;
    
    function CreateInstance
    (
@@ -10141,10 +10141,10 @@ package Windows.UI.Xaml is
    subtype TriggerBase is Windows.UI.Xaml.ITriggerBase;
    subtype UIElement is Windows.UI.Xaml.IUIElement;
    subtype VisualState is Windows.UI.Xaml.IVisualState;
-   function CreateVisualState return Windows.UI.Xaml.IVisualState;
+   function Create return Windows.UI.Xaml.IVisualState;
    
    subtype VisualStateGroup is Windows.UI.Xaml.IVisualStateGroup;
-   function CreateVisualStateGroup return Windows.UI.Xaml.IVisualStateGroup;
+   function Create return Windows.UI.Xaml.IVisualStateGroup;
    
    subtype VisualTransition is Windows.UI.Xaml.IVisualTransition;
    
@@ -10351,7 +10351,7 @@ package Windows.UI.Xaml is
    return Windows.HRESULT;
    
    subtype EventTrigger is Windows.UI.Xaml.IEventTrigger;
-   function CreateEventTrigger return Windows.UI.Xaml.IEventTrigger;
+   function Create return Windows.UI.Xaml.IEventTrigger;
    
    subtype FrameworkElement is Windows.UI.Xaml.IFrameworkElement;
    
@@ -10878,7 +10878,7 @@ package Windows.UI.Xaml is
    
    subtype MediaFailedRoutedEventArgs is Windows.UI.Xaml.IMediaFailedRoutedEventArgs;
    subtype Setter is Windows.UI.Xaml.ISetter;
-   function CreateSetter return Windows.UI.Xaml.ISetter;
+   function Create return Windows.UI.Xaml.ISetter;
    
    function CreateInstance
    (
@@ -10888,7 +10888,7 @@ package Windows.UI.Xaml is
    return Windows.UI.Xaml.ISetter;
    
    subtype StateTrigger is Windows.UI.Xaml.IStateTrigger;
-   function CreateStateTrigger return Windows.UI.Xaml.IStateTrigger;
+   function Create return Windows.UI.Xaml.IStateTrigger;
    
    subtype GridLengthHelper is Windows.UI.Xaml.IGridLengthHelper;
    subtype BindingFailedEventArgs is Windows.UI.Xaml.IBindingFailedEventArgs;
@@ -11209,7 +11209,7 @@ package Windows.UI.Xaml is
    return Windows.HRESULT;
    
    subtype FrameworkViewSource is Windows.UI.Xaml.IFrameworkViewSource;
-   function CreateFrameworkViewSource return Windows.UI.Xaml.IFrameworkViewSource;
+   function Create return Windows.UI.Xaml.IFrameworkViewSource;
    
    subtype PointHelper is Windows.UI.Xaml.IPointHelper;
    subtype RectHelper is Windows.UI.Xaml.IRectHelper;

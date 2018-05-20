@@ -4248,7 +4248,7 @@ package Windows.UI.Xaml.Documents is
    subtype Typography is Windows.UI.Xaml.Documents.ITypography;
    subtype ContentLinkInvokedEventArgs is Windows.UI.Xaml.Documents.IContentLinkInvokedEventArgs;
    subtype ContentLinkProviderCollection is Windows.UI.Xaml.Documents.IContentLinkProviderCollection;
-   function CreateContentLinkProviderCollection return Windows.UI.Xaml.Documents.IContentLinkProviderCollection;
+   function Create return Windows.UI.Xaml.Documents.IContentLinkProviderCollection;
    
    subtype TextElement is Windows.UI.Xaml.Documents.ITextElement;
    subtype TextHighlighterBase is Windows.UI.Xaml.Documents.ITextHighlighterBase;
@@ -4415,16 +4415,16 @@ package Windows.UI.Xaml.Documents is
    return Windows.HRESULT;
    
    subtype InlineUIContainer is Windows.UI.Xaml.Documents.IInlineUIContainer;
-   function CreateInlineUIContainer return Windows.UI.Xaml.Documents.IInlineUIContainer;
+   function Create return Windows.UI.Xaml.Documents.IInlineUIContainer;
    
    subtype LineBreak is Windows.UI.Xaml.Documents.ILineBreak;
-   function CreateLineBreak return Windows.UI.Xaml.Documents.ILineBreak;
+   function Create return Windows.UI.Xaml.Documents.ILineBreak;
    
    subtype Paragraph is Windows.UI.Xaml.Documents.IParagraph;
-   function CreateParagraph return Windows.UI.Xaml.Documents.IParagraph;
+   function Create return Windows.UI.Xaml.Documents.IParagraph;
    
    subtype Run is Windows.UI.Xaml.Documents.IRun;
-   function CreateRun return Windows.UI.Xaml.Documents.IRun;
+   function Create return Windows.UI.Xaml.Documents.IRun;
    
    subtype Span is Windows.UI.Xaml.Documents.ISpan;
    
@@ -4494,13 +4494,13 @@ package Windows.UI.Xaml.Documents is
    return Windows.HRESULT;
    
    subtype Bold is Windows.UI.Xaml.Documents.IBold;
-   function CreateBold return Windows.UI.Xaml.Documents.IBold;
+   function Create return Windows.UI.Xaml.Documents.IBold;
    
    subtype Italic is Windows.UI.Xaml.Documents.IItalic;
-   function CreateItalic return Windows.UI.Xaml.Documents.IItalic;
+   function Create return Windows.UI.Xaml.Documents.IItalic;
    
    subtype Underline is Windows.UI.Xaml.Documents.IUnderline;
-   function CreateUnderline return Windows.UI.Xaml.Documents.IUnderline;
+   function Create return Windows.UI.Xaml.Documents.IUnderline;
    
    subtype ContentLinkProvider is Windows.UI.Xaml.Documents.IContentLinkProvider;
    
@@ -4556,20 +4556,20 @@ package Windows.UI.Xaml.Documents is
    return Windows.HRESULT;
    
    subtype ContactContentLinkProvider is Windows.UI.Xaml.Documents.IContactContentLinkProvider;
-   function CreateContactContentLinkProvider return Windows.UI.Xaml.Documents.IContactContentLinkProvider;
+   function Create return Windows.UI.Xaml.Documents.IContactContentLinkProvider;
    
    subtype PlaceContentLinkProvider is Windows.UI.Xaml.Documents.IPlaceContentLinkProvider;
-   function CreatePlaceContentLinkProvider return Windows.UI.Xaml.Documents.IPlaceContentLinkProvider;
+   function Create return Windows.UI.Xaml.Documents.IPlaceContentLinkProvider;
    
    subtype ContentLink is Windows.UI.Xaml.Documents.IContentLink;
-   function CreateContentLink return Windows.UI.Xaml.Documents.IContentLink;
+   function Create return Windows.UI.Xaml.Documents.IContentLink;
    
    subtype Hyperlink is Windows.UI.Xaml.Documents.IHyperlink;
-   function CreateHyperlink return Windows.UI.Xaml.Documents.IHyperlink;
+   function Create return Windows.UI.Xaml.Documents.IHyperlink;
    
    subtype HyperlinkClickEventArgs is Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs;
    subtype Glyphs is Windows.UI.Xaml.Documents.IGlyphs;
-   function CreateGlyphs return Windows.UI.Xaml.Documents.IGlyphs;
+   function Create return Windows.UI.Xaml.Documents.IGlyphs;
    
    
    ------------------------------------------------------------------------

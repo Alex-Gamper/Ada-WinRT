@@ -188,7 +188,7 @@ package body Windows.Networking.Sockets is
       return RetVal;
    end;
    
-   function CreateDatagramSocket return Windows.Networking.Sockets.IDatagramSocket is
+   function Create return Windows.Networking.Sockets.IDatagramSocket is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Sockets.DatagramSocket");
       Instance      : aliased IInspectable := null;
@@ -205,7 +205,7 @@ package body Windows.Networking.Sockets is
       return Convert(RetVal);
    end;
    
-   function CreateStreamSocket return Windows.Networking.Sockets.IStreamSocket is
+   function Create return Windows.Networking.Sockets.IStreamSocket is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Sockets.StreamSocket");
       Instance      : aliased IInspectable := null;
@@ -222,7 +222,7 @@ package body Windows.Networking.Sockets is
       return Convert(RetVal);
    end;
    
-   function CreateStreamSocketListener return Windows.Networking.Sockets.IStreamSocketListener is
+   function Create return Windows.Networking.Sockets.IStreamSocketListener is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Sockets.StreamSocketListener");
       Instance      : aliased IInspectable := null;
@@ -239,7 +239,7 @@ package body Windows.Networking.Sockets is
       return Convert(RetVal);
    end;
    
-   function CreateMessageWebSocket return Windows.Networking.Sockets.IMessageWebSocket is
+   function Create return Windows.Networking.Sockets.IMessageWebSocket is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Sockets.MessageWebSocket");
       Instance      : aliased IInspectable := null;
@@ -256,7 +256,7 @@ package body Windows.Networking.Sockets is
       return Convert(RetVal);
    end;
    
-   function CreateStreamWebSocket return Windows.Networking.Sockets.IStreamWebSocket is
+   function Create return Windows.Networking.Sockets.IStreamWebSocket is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Sockets.StreamWebSocket");
       Instance      : aliased IInspectable := null;
@@ -273,7 +273,7 @@ package body Windows.Networking.Sockets is
       return Convert(RetVal);
    end;
    
-   function CreateWebSocketKeepAlive return Windows.ApplicationModel.Background.IBackgroundTask is
+   function Create return Windows.ApplicationModel.Background.IBackgroundTask is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Sockets.WebSocketKeepAlive");
       Instance      : aliased IInspectable := null;

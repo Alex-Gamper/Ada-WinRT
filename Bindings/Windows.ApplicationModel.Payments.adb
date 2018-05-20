@@ -83,7 +83,7 @@ package body Windows.ApplicationModel.Payments is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePaymentMerchantInfo return Windows.ApplicationModel.Payments.IPaymentMerchantInfo is
+   function Create return Windows.ApplicationModel.Payments.IPaymentMerchantInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentMerchantInfo");
       Instance      : aliased IInspectable := null;
@@ -120,7 +120,7 @@ package body Windows.ApplicationModel.Payments is
       return RetVal;
    end;
    
-   function CreatePaymentDetails return Windows.ApplicationModel.Payments.IPaymentDetails is
+   function Create return Windows.ApplicationModel.Payments.IPaymentDetails is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentDetails");
       Instance      : aliased IInspectable := null;
@@ -219,7 +219,7 @@ package body Windows.ApplicationModel.Payments is
       return RetVal;
    end;
    
-   function CreatePaymentOptions return Windows.ApplicationModel.Payments.IPaymentOptions is
+   function Create return Windows.ApplicationModel.Payments.IPaymentOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentOptions");
       Instance      : aliased IInspectable := null;
@@ -433,7 +433,7 @@ package body Windows.ApplicationModel.Payments is
       return RetVal;
    end;
    
-   function CreatePaymentAddress return Windows.ApplicationModel.Payments.IPaymentAddress is
+   function Create return Windows.ApplicationModel.Payments.IPaymentAddress is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentAddress");
       Instance      : aliased IInspectable := null;
@@ -641,7 +641,7 @@ package body Windows.ApplicationModel.Payments is
       return RetVal;
    end;
    
-   function CreatePaymentMediator return Windows.ApplicationModel.Payments.IPaymentMediator is
+   function Create return Windows.ApplicationModel.Payments.IPaymentMediator is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentMediator");
       Instance      : aliased IInspectable := null;

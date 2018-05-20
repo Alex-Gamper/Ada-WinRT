@@ -3470,11 +3470,11 @@ package Windows.UI.Notifications is
    
    subtype ShownTileNotification is Windows.UI.Notifications.IShownTileNotification;
    subtype Notification is Windows.UI.Notifications.INotification;
-   function CreateNotification return Windows.UI.Notifications.INotification;
+   function Create return Windows.UI.Notifications.INotification;
    
    subtype NotificationBinding is Windows.UI.Notifications.INotificationBinding;
    subtype AdaptiveNotificationText is Windows.UI.Notifications.IAdaptiveNotificationText;
-   function CreateAdaptiveNotificationText return Windows.UI.Notifications.IAdaptiveNotificationText;
+   function Create return Windows.UI.Notifications.IAdaptiveNotificationText;
    
    subtype TileUpdater is Windows.UI.Notifications.ITileUpdater;
    subtype TileUpdateManagerForUser is Windows.UI.Notifications.ITileUpdateManagerForUser;
@@ -3536,7 +3536,7 @@ package Windows.UI.Notifications is
    return Windows.UI.Notifications.IScheduledToastNotification;
    
    subtype NotificationData is Windows.UI.Notifications.INotificationData;
-   function CreateNotificationData return Windows.UI.Notifications.INotificationData;
+   function Create return Windows.UI.Notifications.INotificationData;
    
    function CreateNotificationDataWithValuesAndSequenceNumber
    (

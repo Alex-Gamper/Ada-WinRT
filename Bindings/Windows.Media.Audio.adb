@@ -243,7 +243,7 @@ package body Windows.Media.Audio is
       return RetVal;
    end;
    
-   function CreateAudioNodeEmitter return Windows.Media.Audio.IAudioNodeEmitter is
+   function Create return Windows.Media.Audio.IAudioNodeEmitter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitter");
       Instance      : aliased IInspectable := null;
@@ -282,7 +282,7 @@ package body Windows.Media.Audio is
       return RetVal;
    end;
    
-   function CreateAudioNodeListener return Windows.Media.Audio.IAudioNodeListener is
+   function Create return Windows.Media.Audio.IAudioNodeListener is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeListener");
       Instance      : aliased IInspectable := null;

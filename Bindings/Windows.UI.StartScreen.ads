@@ -1472,7 +1472,7 @@ package Windows.UI.StartScreen is
    subtype JumpList is Windows.UI.StartScreen.IJumpList;
    subtype SecondaryTileVisualElements is Windows.UI.StartScreen.ISecondaryTileVisualElements;
    subtype SecondaryTile is Windows.UI.StartScreen.ISecondaryTile;
-   function CreateSecondaryTile return Windows.UI.StartScreen.ISecondaryTile;
+   function Create return Windows.UI.StartScreen.ISecondaryTile;
    
    function CreateMinimalTile
    (

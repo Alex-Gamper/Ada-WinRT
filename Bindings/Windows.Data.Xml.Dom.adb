@@ -46,7 +46,7 @@ package body Windows.Data.Xml.Dom is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateXmlDocument return Windows.Data.Xml.Dom.IXmlDocument is
+   function Create return Windows.Data.Xml.Dom.IXmlDocument is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Xml.Dom.XmlDocument");
       Instance      : aliased IInspectable := null;
@@ -63,7 +63,7 @@ package body Windows.Data.Xml.Dom is
       return Convert(RetVal);
    end;
    
-   function CreateXmlLoadSettings return Windows.Data.Xml.Dom.IXmlLoadSettings is
+   function Create return Windows.Data.Xml.Dom.IXmlLoadSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Xml.Dom.XmlLoadSettings");
       Instance      : aliased IInspectable := null;

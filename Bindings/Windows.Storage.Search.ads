@@ -1270,14 +1270,14 @@ package Windows.Storage.Search is
    
    subtype ContentIndexer is Windows.Storage.Search.IContentIndexer;
    subtype ValueAndLanguage is Windows.Storage.Search.IValueAndLanguage;
-   function CreateValueAndLanguage return Windows.Storage.Search.IValueAndLanguage;
+   function Create return Windows.Storage.Search.IValueAndLanguage;
    
    subtype ContentIndexerQuery is Windows.Storage.Search.IContentIndexerQuery;
    subtype IndexableContent is Windows.Storage.Search.IIndexableContent;
-   function CreateIndexableContent return Windows.Storage.Search.IIndexableContent;
+   function Create return Windows.Storage.Search.IIndexableContent;
    
    subtype QueryOptions is Windows.Storage.Search.IQueryOptions;
-   function CreateQueryOptions return Windows.Storage.Search.IQueryOptions;
+   function Create return Windows.Storage.Search.IQueryOptions;
    
    function CreateCommonFileQuery
    (

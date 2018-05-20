@@ -229,7 +229,7 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    
    subtype ExtendedExecutionForegroundRevokedEventArgs is Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs;
    subtype ExtendedExecutionForegroundSession is Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession;
-   function CreateExtendedExecutionForegroundSession return Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession;
+   function Create return Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession;
    
    
    ------------------------------------------------------------------------

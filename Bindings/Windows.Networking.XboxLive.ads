@@ -1817,7 +1817,7 @@ package Windows.Networking.XboxLive is
    subtype XboxLiveQualityOfServiceMetricResult is Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMetricResult;
    subtype XboxLiveQualityOfServicePrivatePayloadResult is Windows.Networking.XboxLive.IXboxLiveQualityOfServicePrivatePayloadResult;
    subtype XboxLiveQualityOfServiceMeasurement is Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement;
-   function CreateXboxLiveQualityOfServiceMeasurement return Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement;
+   function Create return Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement;
    
    
    ------------------------------------------------------------------------

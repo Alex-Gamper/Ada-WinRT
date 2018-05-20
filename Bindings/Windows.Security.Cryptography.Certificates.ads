@@ -2873,7 +2873,7 @@ package Windows.Security.Cryptography.Certificates is
    ------------------------------------------------------------------------
    
    subtype CertificateExtension is Windows.Security.Cryptography.Certificates.ICertificateExtension;
-   function CreateCertificateExtension return Windows.Security.Cryptography.Certificates.ICertificateExtension;
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateExtension;
    
    subtype Certificate is Windows.Security.Cryptography.Certificates.ICertificate;
    function CreateCertificate
@@ -2883,33 +2883,33 @@ package Windows.Security.Cryptography.Certificates is
    return Windows.Security.Cryptography.Certificates.ICertificate;
    
    subtype SubjectAlternativeNameInfo is Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo;
-   function CreateSubjectAlternativeNameInfo return Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo;
+   function Create return Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo;
    
    subtype CertificateRequestProperties is Windows.Security.Cryptography.Certificates.ICertificateRequestProperties;
-   function CreateCertificateRequestProperties return Windows.Security.Cryptography.Certificates.ICertificateRequestProperties;
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateRequestProperties;
    
    subtype UserCertificateEnrollmentManager is Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager;
    subtype PfxImportParameters is Windows.Security.Cryptography.Certificates.IPfxImportParameters;
-   function CreatePfxImportParameters return Windows.Security.Cryptography.Certificates.IPfxImportParameters;
+   function Create return Windows.Security.Cryptography.Certificates.IPfxImportParameters;
    
    subtype CertificateQuery is Windows.Security.Cryptography.Certificates.ICertificateQuery;
-   function CreateCertificateQuery return Windows.Security.Cryptography.Certificates.ICertificateQuery;
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateQuery;
    
    subtype CertificateStore is Windows.Security.Cryptography.Certificates.ICertificateStore;
    subtype UserCertificateStore is Windows.Security.Cryptography.Certificates.IUserCertificateStore;
    subtype ChainBuildingParameters is Windows.Security.Cryptography.Certificates.IChainBuildingParameters;
-   function CreateChainBuildingParameters return Windows.Security.Cryptography.Certificates.IChainBuildingParameters;
+   function Create return Windows.Security.Cryptography.Certificates.IChainBuildingParameters;
    
    subtype ChainValidationParameters is Windows.Security.Cryptography.Certificates.IChainValidationParameters;
-   function CreateChainValidationParameters return Windows.Security.Cryptography.Certificates.IChainValidationParameters;
+   function Create return Windows.Security.Cryptography.Certificates.IChainValidationParameters;
    
    subtype CertificateChain is Windows.Security.Cryptography.Certificates.ICertificateChain;
    subtype CertificateKeyUsages is Windows.Security.Cryptography.Certificates.ICertificateKeyUsages;
-   function CreateCertificateKeyUsages return Windows.Security.Cryptography.Certificates.ICertificateKeyUsages;
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateKeyUsages;
    
    subtype CmsTimestampInfo is Windows.Security.Cryptography.Certificates.ICmsTimestampInfo;
    subtype CmsSignerInfo is Windows.Security.Cryptography.Certificates.ICmsSignerInfo;
-   function CreateCmsSignerInfo return Windows.Security.Cryptography.Certificates.ICmsSignerInfo;
+   function Create return Windows.Security.Cryptography.Certificates.ICmsSignerInfo;
    
    subtype CmsAttachedSignature is Windows.Security.Cryptography.Certificates.ICmsAttachedSignature;
    function CreateCmsAttachedSignature

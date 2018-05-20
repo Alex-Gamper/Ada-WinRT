@@ -96,7 +96,7 @@ package body Windows.Media.Protection is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateMediaProtectionManager return Windows.Media.Protection.IMediaProtectionManager is
+   function Create return Windows.Media.Protection.IMediaProtectionManager is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.MediaProtectionManager");
       Instance      : aliased IInspectable := null;
@@ -133,7 +133,7 @@ package body Windows.Media.Protection is
       return RetVal;
    end;
    
-   function CreateProtectionCapabilities return Windows.Media.Protection.IProtectionCapabilities is
+   function Create return Windows.Media.Protection.IProtectionCapabilities is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.ProtectionCapabilities");
       Instance      : aliased IInspectable := null;
@@ -150,7 +150,7 @@ package body Windows.Media.Protection is
       return Convert(RetVal);
    end;
    
-   function CreateHdcpSession return Windows.Media.Protection.IHdcpSession is
+   function Create return Windows.Media.Protection.IHdcpSession is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.HdcpSession");
       Instance      : aliased IInspectable := null;

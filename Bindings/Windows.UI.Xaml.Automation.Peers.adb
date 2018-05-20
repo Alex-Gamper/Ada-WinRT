@@ -32,7 +32,7 @@ package body Windows.UI.Xaml.Automation.Peers is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAutomationPeerAnnotation return Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation is
+   function Create return Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation");
       Instance      : aliased IInspectable := null;

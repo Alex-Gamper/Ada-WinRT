@@ -582,7 +582,7 @@ package Windows.ApplicationModel.AppService is
    subtype AppServiceDeferral is Windows.ApplicationModel.AppService.IAppServiceDeferral;
    subtype AppServiceResponse is Windows.ApplicationModel.AppService.IAppServiceResponse;
    subtype AppServiceConnection is Windows.ApplicationModel.AppService.IAppServiceConnection;
-   function CreateAppServiceConnection return Windows.ApplicationModel.AppService.IAppServiceConnection;
+   function Create return Windows.ApplicationModel.AppService.IAppServiceConnection;
    
    subtype AppServiceRequestReceivedEventArgs is Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs;
    subtype AppServiceClosedEventArgs is Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs;

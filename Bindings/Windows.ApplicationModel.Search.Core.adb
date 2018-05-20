@@ -72,7 +72,7 @@ package body Windows.ApplicationModel.Search.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSearchSuggestionManager return Windows.ApplicationModel.Search.Core.ISearchSuggestionManager is
+   function Create return Windows.ApplicationModel.Search.Core.ISearchSuggestionManager is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Search.Core.SearchSuggestionManager");
       Instance      : aliased IInspectable := null;

@@ -143,7 +143,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateScrollEventArgs return Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs");
       Instance      : aliased IInspectable := null;
@@ -160,7 +160,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreatePopup return Windows.UI.Xaml.Controls.Primitives.IPopup is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IPopup is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.Popup");
       Instance      : aliased IInspectable := null;
@@ -177,7 +177,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreateTickBar return Windows.UI.Xaml.Controls.Primitives.ITickBar is
+   function Create return Windows.UI.Xaml.Controls.Primitives.ITickBar is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.TickBar");
       Instance      : aliased IInspectable := null;
@@ -194,7 +194,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreateCalendarPanel return Windows.UI.Xaml.Controls.Primitives.ICalendarPanel is
+   function Create return Windows.UI.Xaml.Controls.Primitives.ICalendarPanel is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.CalendarPanel");
       Instance      : aliased IInspectable := null;
@@ -211,7 +211,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreateThumb return Windows.UI.Xaml.Controls.Primitives.IThumb is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IThumb is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.Thumb");
       Instance      : aliased IInspectable := null;
@@ -228,7 +228,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreateScrollBar return Windows.UI.Xaml.Controls.Primitives.IScrollBar is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IScrollBar is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.ScrollBar");
       Instance      : aliased IInspectable := null;
@@ -245,7 +245,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreateRepeatButton return Windows.UI.Xaml.Controls.Primitives.IRepeatButton is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IRepeatButton is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.RepeatButton");
       Instance      : aliased IInspectable := null;
@@ -262,7 +262,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreateJumpListItemBackgroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.JumpListItemBackgroundConverter");
       Instance      : aliased IInspectable := null;
@@ -279,7 +279,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreateJumpListItemForegroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.JumpListItemForegroundConverter");
       Instance      : aliased IInspectable := null;
@@ -296,7 +296,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreatePivotPanel return Windows.UI.Xaml.Controls.Primitives.IPivotPanel is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IPivotPanel is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.PivotPanel");
       Instance      : aliased IInspectable := null;
@@ -313,7 +313,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Convert(RetVal);
    end;
    
-   function CreatePivotHeaderPanel return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel is
+   function Create return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.PivotHeaderPanel");
       Instance      : aliased IInspectable := null;

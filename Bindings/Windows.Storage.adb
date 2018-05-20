@@ -177,7 +177,7 @@ package body Windows.Storage is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateApplicationDataCompositeValue return Windows.Foundation.Collections.IPropertySet is
+   function Create return Windows.Foundation.Collections.IPropertySet is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.ApplicationDataCompositeValue");
       Instance      : aliased IInspectable := null;

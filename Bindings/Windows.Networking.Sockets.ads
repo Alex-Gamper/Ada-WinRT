@@ -2789,13 +2789,13 @@ package Windows.Networking.Sockets is
    return Windows.Networking.Sockets.ISocketActivityContext;
    
    subtype DatagramSocket is Windows.Networking.Sockets.IDatagramSocket;
-   function CreateDatagramSocket return Windows.Networking.Sockets.IDatagramSocket;
+   function Create return Windows.Networking.Sockets.IDatagramSocket;
    
    subtype StreamSocket is Windows.Networking.Sockets.IStreamSocket;
-   function CreateStreamSocket return Windows.Networking.Sockets.IStreamSocket;
+   function Create return Windows.Networking.Sockets.IStreamSocket;
    
    subtype StreamSocketListener is Windows.Networking.Sockets.IStreamSocketListener;
-   function CreateStreamSocketListener return Windows.Networking.Sockets.IStreamSocketListener;
+   function Create return Windows.Networking.Sockets.IStreamSocketListener;
    
    subtype SocketActivityInformation is Windows.Networking.Sockets.ISocketActivityInformation;
    subtype DatagramSocketControl is Windows.Networking.Sockets.IDatagramSocketControl;
@@ -2810,14 +2810,14 @@ package Windows.Networking.Sockets is
    subtype MessageWebSocketControl is Windows.Networking.Sockets.IMessageWebSocketControl;
    subtype MessageWebSocketInformation is Windows.Networking.Sockets.IWebSocketInformation;
    subtype MessageWebSocket is Windows.Networking.Sockets.IMessageWebSocket;
-   function CreateMessageWebSocket return Windows.Networking.Sockets.IMessageWebSocket;
+   function Create return Windows.Networking.Sockets.IMessageWebSocket;
    
    subtype MessageWebSocketMessageReceivedEventArgs is Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs;
    subtype WebSocketServerCustomValidationRequestedEventArgs is Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs;
    subtype StreamWebSocketControl is Windows.Networking.Sockets.IStreamWebSocketControl;
    subtype StreamWebSocketInformation is Windows.Networking.Sockets.IWebSocketInformation;
    subtype StreamWebSocket is Windows.Networking.Sockets.IStreamWebSocket;
-   function CreateStreamWebSocket return Windows.Networking.Sockets.IStreamWebSocket;
+   function Create return Windows.Networking.Sockets.IStreamWebSocket;
    
    subtype ServerMessageWebSocket is Windows.Networking.Sockets.IServerMessageWebSocket;
    subtype ServerMessageWebSocketControl is Windows.Networking.Sockets.IServerMessageWebSocketControl;
@@ -2825,7 +2825,7 @@ package Windows.Networking.Sockets is
    subtype ServerStreamWebSocketInformation is Windows.Networking.Sockets.IServerStreamWebSocketInformation;
    subtype ServerStreamWebSocket is Windows.Networking.Sockets.IServerStreamWebSocket;
    subtype WebSocketKeepAlive is Windows.ApplicationModel.Background.IBackgroundTask;
-   function CreateWebSocketKeepAlive return Windows.ApplicationModel.Background.IBackgroundTask;
+   function Create return Windows.ApplicationModel.Background.IBackgroundTask;
    
    subtype SocketActivityTriggerDetails is Windows.Networking.Sockets.ISocketActivityTriggerDetails;
    subtype ControlChannelTrigger is Windows.Networking.Sockets.IControlChannelTrigger;

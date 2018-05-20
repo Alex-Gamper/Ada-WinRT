@@ -131,7 +131,7 @@ package body Windows.Storage.Streams is
       return RetVal;
    end;
    
-   function CreateDataWriter return Windows.Storage.Streams.IDataWriter is
+   function Create return Windows.Storage.Streams.IDataWriter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Streams.DataWriter");
       Instance      : aliased IInspectable := null;
@@ -188,7 +188,7 @@ package body Windows.Storage.Streams is
       return RetVal;
    end;
    
-   function CreateInMemoryRandomAccessStream return Windows.Storage.Streams.IRandomAccessStream is
+   function Create return Windows.Storage.Streams.IRandomAccessStream is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Streams.InMemoryRandomAccessStream");
       Instance      : aliased IInspectable := null;

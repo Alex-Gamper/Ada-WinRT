@@ -59,7 +59,7 @@ package body Windows.Security.Cryptography.Certificates is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCertificateExtension return Windows.Security.Cryptography.Certificates.ICertificateExtension is
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateExtension is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateExtension");
       Instance      : aliased IInspectable := null;
@@ -96,7 +96,7 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function CreateSubjectAlternativeNameInfo return Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo is
+   function Create return Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo");
       Instance      : aliased IInspectable := null;
@@ -113,7 +113,7 @@ package body Windows.Security.Cryptography.Certificates is
       return Convert(RetVal);
    end;
    
-   function CreateCertificateRequestProperties return Windows.Security.Cryptography.Certificates.ICertificateRequestProperties is
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateRequestProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateRequestProperties");
       Instance      : aliased IInspectable := null;
@@ -130,7 +130,7 @@ package body Windows.Security.Cryptography.Certificates is
       return Convert(RetVal);
    end;
    
-   function CreatePfxImportParameters return Windows.Security.Cryptography.Certificates.IPfxImportParameters is
+   function Create return Windows.Security.Cryptography.Certificates.IPfxImportParameters is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.PfxImportParameters");
       Instance      : aliased IInspectable := null;
@@ -147,7 +147,7 @@ package body Windows.Security.Cryptography.Certificates is
       return Convert(RetVal);
    end;
    
-   function CreateCertificateQuery return Windows.Security.Cryptography.Certificates.ICertificateQuery is
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateQuery is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateQuery");
       Instance      : aliased IInspectable := null;
@@ -164,7 +164,7 @@ package body Windows.Security.Cryptography.Certificates is
       return Convert(RetVal);
    end;
    
-   function CreateChainBuildingParameters return Windows.Security.Cryptography.Certificates.IChainBuildingParameters is
+   function Create return Windows.Security.Cryptography.Certificates.IChainBuildingParameters is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.ChainBuildingParameters");
       Instance      : aliased IInspectable := null;
@@ -181,7 +181,7 @@ package body Windows.Security.Cryptography.Certificates is
       return Convert(RetVal);
    end;
    
-   function CreateChainValidationParameters return Windows.Security.Cryptography.Certificates.IChainValidationParameters is
+   function Create return Windows.Security.Cryptography.Certificates.IChainValidationParameters is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.ChainValidationParameters");
       Instance      : aliased IInspectable := null;
@@ -198,7 +198,7 @@ package body Windows.Security.Cryptography.Certificates is
       return Convert(RetVal);
    end;
    
-   function CreateCertificateKeyUsages return Windows.Security.Cryptography.Certificates.ICertificateKeyUsages is
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateKeyUsages is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateKeyUsages");
       Instance      : aliased IInspectable := null;
@@ -215,7 +215,7 @@ package body Windows.Security.Cryptography.Certificates is
       return Convert(RetVal);
    end;
    
-   function CreateCmsSignerInfo return Windows.Security.Cryptography.Certificates.ICmsSignerInfo is
+   function Create return Windows.Security.Cryptography.Certificates.ICmsSignerInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsSignerInfo");
       Instance      : aliased IInspectable := null;

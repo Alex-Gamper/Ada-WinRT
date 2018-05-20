@@ -205,7 +205,7 @@ package body Windows.Devices.AllJoyn is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateAllJoynBusAttachment return Windows.Devices.AllJoyn.IAllJoynBusAttachment is
+   function Create return Windows.Devices.AllJoyn.IAllJoynBusAttachment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusAttachment");
       Instance      : aliased IInspectable := null;
@@ -368,7 +368,7 @@ package body Windows.Devices.AllJoyn is
       return RetVal;
    end;
    
-   function CreateAllJoynBusObject return Windows.Devices.AllJoyn.IAllJoynBusObject is
+   function Create return Windows.Devices.AllJoyn.IAllJoynBusObject is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusObject");
       Instance      : aliased IInspectable := null;

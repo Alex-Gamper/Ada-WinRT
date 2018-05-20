@@ -627,7 +627,7 @@ package Windows.Web.AtomPub is
    subtype Workspace is Windows.Web.AtomPub.IWorkspace;
    subtype ServiceDocument is Windows.Web.AtomPub.IServiceDocument;
    subtype AtomPubClient is Windows.Web.AtomPub.IAtomPubClient;
-   function CreateAtomPubClient return Windows.Web.AtomPub.IAtomPubClient;
+   function Create return Windows.Web.AtomPub.IAtomPubClient;
    
    function CreateAtomPubClientWithCredentials
    (

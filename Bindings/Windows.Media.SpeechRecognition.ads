@@ -1595,7 +1595,7 @@ package Windows.Media.SpeechRecognition is
    subtype SpeechRecognizerUIOptions is Windows.Media.SpeechRecognition.ISpeechRecognizerUIOptions;
    subtype SpeechRecognitionCompilationResult is Windows.Media.SpeechRecognition.ISpeechRecognitionCompilationResult;
    subtype SpeechRecognizer is Windows.Media.SpeechRecognition.ISpeechRecognizer;
-   function CreateSpeechRecognizer return Windows.Media.SpeechRecognition.ISpeechRecognizer;
+   function Create return Windows.Media.SpeechRecognition.ISpeechRecognizer;
    
    function Create
    (

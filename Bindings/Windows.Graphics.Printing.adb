@@ -151,7 +151,7 @@ package body Windows.Graphics.Printing is
       return RetVal;
    end;
    
-   function CreatePrintPageInfo return Windows.Graphics.Printing.IPrintPageInfo is
+   function Create return Windows.Graphics.Printing.IPrintPageInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintPageInfo");
       Instance      : aliased IInspectable := null;

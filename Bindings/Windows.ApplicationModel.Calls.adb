@@ -294,7 +294,7 @@ package body Windows.ApplicationModel.Calls is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePhoneDialOptions return Windows.ApplicationModel.Calls.IPhoneDialOptions is
+   function Create return Windows.ApplicationModel.Calls.IPhoneDialOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneDialOptions");
       Instance      : aliased IInspectable := null;
@@ -311,7 +311,7 @@ package body Windows.ApplicationModel.Calls is
       return Convert(RetVal);
    end;
    
-   function CreatePhoneCallHistoryEntryAddress return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress is
+   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress");
       Instance      : aliased IInspectable := null;
@@ -349,7 +349,7 @@ package body Windows.ApplicationModel.Calls is
       return RetVal;
    end;
    
-   function CreatePhoneCallHistoryEntry return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry is
+   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryEntry");
       Instance      : aliased IInspectable := null;
@@ -366,7 +366,7 @@ package body Windows.ApplicationModel.Calls is
       return Convert(RetVal);
    end;
    
-   function CreatePhoneCallHistoryEntryQueryOptions return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions is
+   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions");
       Instance      : aliased IInspectable := null;

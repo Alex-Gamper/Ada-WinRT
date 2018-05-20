@@ -57,7 +57,7 @@ package body Windows.ApplicationModel.ExtendedExecution is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateExtendedExecutionSession return Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession is
+   function Create return Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession");
       Instance      : aliased IInspectable := null;

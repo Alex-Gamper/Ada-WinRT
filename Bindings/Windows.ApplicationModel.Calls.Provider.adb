@@ -28,7 +28,7 @@ package body Windows.ApplicationModel.Calls.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePhoneCallOrigin return Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin is
+   function Create return Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin");
       Instance      : aliased IInspectable := null;

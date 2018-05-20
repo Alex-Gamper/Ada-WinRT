@@ -27,7 +27,7 @@ package body Windows.ApplicationModel.Resources is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateResourceLoader return Windows.ApplicationModel.Resources.IResourceLoader is
+   function Create return Windows.ApplicationModel.Resources.IResourceLoader is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.ResourceLoader");
       Instance      : aliased IInspectable := null;

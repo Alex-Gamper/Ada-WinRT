@@ -1767,10 +1767,10 @@ package Windows.Media.Editing is
    subtype EmbeddedAudioTrack is Windows.Media.Editing.IEmbeddedAudioTrack;
    subtype BackgroundAudioTrack is Windows.Media.Editing.IBackgroundAudioTrack;
    subtype MediaComposition is Windows.Media.Editing.IMediaComposition;
-   function CreateMediaComposition return Windows.Media.Editing.IMediaComposition;
+   function Create return Windows.Media.Editing.IMediaComposition;
    
    subtype MediaOverlayLayer is Windows.Media.Editing.IMediaOverlayLayer;
-   function CreateMediaOverlayLayer return Windows.Media.Editing.IMediaOverlayLayer;
+   function Create return Windows.Media.Editing.IMediaOverlayLayer;
    
    function CreateWithCompositorDefinition
    (

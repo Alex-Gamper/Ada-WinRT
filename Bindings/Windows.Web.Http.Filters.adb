@@ -48,7 +48,7 @@ package body Windows.Web.Http.Filters is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateHttpBaseProtocolFilter return Windows.Web.Http.Filters.IHttpBaseProtocolFilter is
+   function Create return Windows.Web.Http.Filters.IHttpBaseProtocolFilter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.Filters.HttpBaseProtocolFilter");
       Instance      : aliased IInspectable := null;

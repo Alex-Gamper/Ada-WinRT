@@ -6295,7 +6295,7 @@ package Windows.UI.Composition is
    subtype CompositionColorGradientStopCollection is Windows.UI.Composition.ICompositionColorGradientStopCollection;
    subtype CompositionGraphicsDevice is Windows.UI.Composition.ICompositionGraphicsDevice;
    subtype Compositor is Windows.UI.Composition.ICompositor;
-   function CreateCompositor return Windows.UI.Composition.ICompositor;
+   function Create return Windows.UI.Composition.ICompositor;
    
    subtype AnimationController is Windows.UI.Composition.IAnimationController;
    subtype CompositionPath is Windows.UI.Composition.ICompositionPath;

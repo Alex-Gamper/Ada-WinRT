@@ -4037,7 +4037,7 @@ package Windows.Web.Http.Headers is
    ------------------------------------------------------------------------
    
    subtype HttpContentHeaderCollection is Windows.Web.Http.Headers.IHttpContentHeaderCollection;
-   function CreateHttpContentHeaderCollection return Windows.Web.Http.Headers.IHttpContentHeaderCollection;
+   function Create return Windows.Web.Http.Headers.IHttpContentHeaderCollection;
    
    subtype HttpRequestHeaderCollection is Windows.Web.Http.Headers.IHttpRequestHeaderCollection;
    subtype HttpResponseHeaderCollection is Windows.Web.Http.Headers.IHttpResponseHeaderCollection;

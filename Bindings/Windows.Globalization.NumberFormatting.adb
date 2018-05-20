@@ -27,7 +27,7 @@ package body Windows.Globalization.NumberFormatting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSignificantDigitsNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder is
+   function Create return Windows.Globalization.NumberFormatting.INumberRounder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder");
       Instance      : aliased IInspectable := null;
@@ -44,7 +44,7 @@ package body Windows.Globalization.NumberFormatting is
       return Convert(RetVal);
    end;
    
-   function CreateIncrementNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder is
+   function Create1 return Windows.Globalization.NumberFormatting.INumberRounder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.IncrementNumberRounder");
       Instance      : aliased IInspectable := null;
@@ -61,7 +61,7 @@ package body Windows.Globalization.NumberFormatting is
       return Convert(RetVal);
    end;
    
-   function CreateDecimalFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+   function Create return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.DecimalFormatter");
       Instance      : aliased IInspectable := null;
@@ -99,7 +99,7 @@ package body Windows.Globalization.NumberFormatting is
       return RetVal;
    end;
    
-   function CreatePercentFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+   function Create1 return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.PercentFormatter");
       Instance      : aliased IInspectable := null;
@@ -137,7 +137,7 @@ package body Windows.Globalization.NumberFormatting is
       return RetVal;
    end;
    
-   function CreatePermilleFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+   function Create2 return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.PermilleFormatter");
       Instance      : aliased IInspectable := null;
@@ -217,7 +217,7 @@ package body Windows.Globalization.NumberFormatting is
       return RetVal;
    end;
    
-   function CreateNumeralSystemTranslator return Windows.Globalization.NumberFormatting.INumeralSystemTranslator is
+   function Create return Windows.Globalization.NumberFormatting.INumeralSystemTranslator is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.NumeralSystemTranslator");
       Instance      : aliased IInspectable := null;

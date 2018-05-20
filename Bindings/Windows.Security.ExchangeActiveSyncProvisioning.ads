@@ -624,11 +624,11 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    ------------------------------------------------------------------------
    
    subtype EasClientDeviceInformation is Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation;
-   function CreateEasClientDeviceInformation return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation;
+   function Create return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation;
    
    subtype EasComplianceResults is Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults;
    subtype EasClientSecurityPolicy is Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy;
-   function CreateEasClientSecurityPolicy return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy;
+   function Create return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy;
    
    
    ------------------------------------------------------------------------

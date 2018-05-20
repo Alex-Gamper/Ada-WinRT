@@ -1402,17 +1402,17 @@ package Windows.ApplicationModel.UserDataTasks is
    subtype UserDataTaskListSyncManager is Windows.ApplicationModel.UserDataTasks.IUserDataTaskListSyncManager;
    subtype UserDataTaskReader is Windows.ApplicationModel.UserDataTasks.IUserDataTaskReader;
    subtype UserDataTaskQueryOptions is Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions;
-   function CreateUserDataTaskQueryOptions return Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions;
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions;
    
    subtype UserDataTask is Windows.ApplicationModel.UserDataTasks.IUserDataTask;
-   function CreateUserDataTask return Windows.ApplicationModel.UserDataTasks.IUserDataTask;
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTask;
    
    subtype UserDataTaskBatch is Windows.ApplicationModel.UserDataTasks.IUserDataTaskBatch;
    subtype UserDataTaskRecurrenceProperties is Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties;
-   function CreateUserDataTaskRecurrenceProperties return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties;
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties;
    
    subtype UserDataTaskRegenerationProperties is Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties;
-   function CreateUserDataTaskRegenerationProperties return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties;
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties;
    
    
    ------------------------------------------------------------------------

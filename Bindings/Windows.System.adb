@@ -453,7 +453,7 @@ package body Windows.System is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateUserPicker return Windows.System.IUserPicker is
+   function Create return Windows.System.IUserPicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.UserPicker");
       Instance      : aliased IInspectable := null;
@@ -470,7 +470,7 @@ package body Windows.System is
       return Convert(RetVal);
    end;
    
-   function CreateLauncherOptions return Windows.System.ILauncherOptions is
+   function Create return Windows.System.ILauncherOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.LauncherOptions");
       Instance      : aliased IInspectable := null;
@@ -487,7 +487,7 @@ package body Windows.System is
       return Convert(RetVal);
    end;
    
-   function CreateRemoteLauncherOptions return Windows.System.IRemoteLauncherOptions is
+   function Create return Windows.System.IRemoteLauncherOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.RemoteLauncherOptions");
       Instance      : aliased IInspectable := null;
@@ -504,7 +504,7 @@ package body Windows.System is
       return Convert(RetVal);
    end;
    
-   function CreateFolderLauncherOptions return Windows.System.IFolderLauncherOptions is
+   function Create return Windows.System.IFolderLauncherOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.FolderLauncherOptions");
       Instance      : aliased IInspectable := null;
@@ -521,7 +521,7 @@ package body Windows.System is
       return Convert(RetVal);
    end;
    
-   function CreateProcessLauncherOptions return Windows.System.IProcessLauncherOptions is
+   function Create return Windows.System.IProcessLauncherOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.ProcessLauncherOptions");
       Instance      : aliased IInspectable := null;

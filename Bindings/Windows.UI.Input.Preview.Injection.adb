@@ -28,7 +28,7 @@ package body Windows.UI.Input.Preview.Injection is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateInjectedInputGamepadInfo return Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo is
+   function Create return Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo");
       Instance      : aliased IInspectable := null;
@@ -65,7 +65,7 @@ package body Windows.UI.Input.Preview.Injection is
       return RetVal;
    end;
    
-   function CreateInjectedInputKeyboardInfo return Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo is
+   function Create return Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo");
       Instance      : aliased IInspectable := null;
@@ -82,7 +82,7 @@ package body Windows.UI.Input.Preview.Injection is
       return Convert(RetVal);
    end;
    
-   function CreateInjectedInputMouseInfo return Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo is
+   function Create return Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo");
       Instance      : aliased IInspectable := null;
@@ -99,7 +99,7 @@ package body Windows.UI.Input.Preview.Injection is
       return Convert(RetVal);
    end;
    
-   function CreateInjectedInputTouchInfo return Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo is
+   function Create return Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo");
       Instance      : aliased IInspectable := null;
@@ -116,7 +116,7 @@ package body Windows.UI.Input.Preview.Injection is
       return Convert(RetVal);
    end;
    
-   function CreateInjectedInputPenInfo return Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo is
+   function Create return Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputPenInfo");
       Instance      : aliased IInspectable := null;

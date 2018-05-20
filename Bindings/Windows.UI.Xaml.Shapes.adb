@@ -30,7 +30,7 @@ package body Windows.UI.Xaml.Shapes is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateEllipse return Windows.UI.Xaml.Shapes.IEllipse is
+   function Create return Windows.UI.Xaml.Shapes.IEllipse is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Ellipse");
       Instance      : aliased IInspectable := null;
@@ -47,7 +47,7 @@ package body Windows.UI.Xaml.Shapes is
       return Convert(RetVal);
    end;
    
-   function CreateLine return Windows.UI.Xaml.Shapes.ILine is
+   function Create return Windows.UI.Xaml.Shapes.ILine is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Line");
       Instance      : aliased IInspectable := null;
@@ -64,7 +64,7 @@ package body Windows.UI.Xaml.Shapes is
       return Convert(RetVal);
    end;
    
-   function CreatePolygon return Windows.UI.Xaml.Shapes.IPolygon is
+   function Create return Windows.UI.Xaml.Shapes.IPolygon is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Polygon");
       Instance      : aliased IInspectable := null;
@@ -81,7 +81,7 @@ package body Windows.UI.Xaml.Shapes is
       return Convert(RetVal);
    end;
    
-   function CreatePolyline return Windows.UI.Xaml.Shapes.IPolyline is
+   function Create return Windows.UI.Xaml.Shapes.IPolyline is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Polyline");
       Instance      : aliased IInspectable := null;
@@ -98,7 +98,7 @@ package body Windows.UI.Xaml.Shapes is
       return Convert(RetVal);
    end;
    
-   function CreateRectangle return Windows.UI.Xaml.Shapes.IRectangle is
+   function Create return Windows.UI.Xaml.Shapes.IRectangle is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Rectangle");
       Instance      : aliased IInspectable := null;

@@ -1077,11 +1077,11 @@ package Windows.UI.Xaml.Media.Imaging is
    return Windows.HRESULT;
    
    subtype RenderTargetBitmap is Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap;
-   function CreateRenderTargetBitmap return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap;
+   function Create return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap;
    
    subtype SurfaceImageSource is Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
    subtype BitmapImage is Windows.UI.Xaml.Media.Imaging.IBitmapImage;
-   function CreateBitmapImage return Windows.UI.Xaml.Media.Imaging.IBitmapImage;
+   function Create return Windows.UI.Xaml.Media.Imaging.IBitmapImage;
    
    function CreateInstanceWithUriSource
    (
@@ -1228,7 +1228,7 @@ package Windows.UI.Xaml.Media.Imaging is
    return Windows.HRESULT;
    
    subtype SoftwareBitmapSource is Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource;
-   function CreateSoftwareBitmapSource return Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource;
+   function Create return Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource;
    
    subtype SvgImageSource is Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
    

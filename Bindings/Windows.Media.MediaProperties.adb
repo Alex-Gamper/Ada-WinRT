@@ -47,7 +47,7 @@ package body Windows.Media.MediaProperties is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateMediaPropertySet return Windows.Media.MediaProperties.IMap_Guid_Object is
+   function Create return Windows.Media.MediaProperties.IMap_Guid_Object is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaPropertySet");
       Instance      : aliased IInspectable := null;
@@ -64,7 +64,7 @@ package body Windows.Media.MediaProperties is
       return Convert(RetVal);
    end;
    
-   function CreateAudioEncodingProperties return Windows.Media.MediaProperties.IAudioEncodingProperties is
+   function Create return Windows.Media.MediaProperties.IAudioEncodingProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.AudioEncodingProperties");
       Instance      : aliased IInspectable := null;
@@ -81,7 +81,7 @@ package body Windows.Media.MediaProperties is
       return Convert(RetVal);
    end;
    
-   function CreateVideoEncodingProperties return Windows.Media.MediaProperties.IVideoEncodingProperties is
+   function Create return Windows.Media.MediaProperties.IVideoEncodingProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.VideoEncodingProperties");
       Instance      : aliased IInspectable := null;
@@ -98,7 +98,7 @@ package body Windows.Media.MediaProperties is
       return Convert(RetVal);
    end;
    
-   function CreateTimedMetadataEncodingProperties return Windows.Media.MediaProperties.IMediaEncodingProperties is
+   function Create return Windows.Media.MediaProperties.IMediaEncodingProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.TimedMetadataEncodingProperties");
       Instance      : aliased IInspectable := null;
@@ -115,7 +115,7 @@ package body Windows.Media.MediaProperties is
       return Convert(RetVal);
    end;
    
-   function CreateImageEncodingProperties return Windows.Media.MediaProperties.IImageEncodingProperties is
+   function Create return Windows.Media.MediaProperties.IImageEncodingProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ImageEncodingProperties");
       Instance      : aliased IInspectable := null;
@@ -132,7 +132,7 @@ package body Windows.Media.MediaProperties is
       return Convert(RetVal);
    end;
    
-   function CreateContainerEncodingProperties return Windows.Media.MediaProperties.IContainerEncodingProperties is
+   function Create return Windows.Media.MediaProperties.IContainerEncodingProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ContainerEncodingProperties");
       Instance      : aliased IInspectable := null;
@@ -149,7 +149,7 @@ package body Windows.Media.MediaProperties is
       return Convert(RetVal);
    end;
    
-   function CreateMediaEncodingProfile return Windows.Media.MediaProperties.IMediaEncodingProfile is
+   function Create return Windows.Media.MediaProperties.IMediaEncodingProfile is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
       Instance      : aliased IInspectable := null;

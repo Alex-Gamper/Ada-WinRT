@@ -97,7 +97,7 @@ package body Windows.UI.Popups is
       return RetVal;
    end;
    
-   function CreateUICommand return Windows.UI.Popups.IUICommand is
+   function Create return Windows.UI.Popups.IUICommand is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Popups.UICommand");
       Instance      : aliased IInspectable := null;
@@ -177,7 +177,7 @@ package body Windows.UI.Popups is
       return RetVal;
    end;
    
-   function CreateUICommandSeparator return Windows.UI.Popups.IUICommand is
+   function Create1 return Windows.UI.Popups.IUICommand is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Popups.UICommandSeparator");
       Instance      : aliased IInspectable := null;
@@ -194,7 +194,7 @@ package body Windows.UI.Popups is
       return Convert(RetVal);
    end;
    
-   function CreatePopupMenu return Windows.UI.Popups.IPopupMenu is
+   function Create return Windows.UI.Popups.IPopupMenu is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Popups.PopupMenu");
       Instance      : aliased IInspectable := null;

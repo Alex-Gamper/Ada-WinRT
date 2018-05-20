@@ -136,7 +136,7 @@ package body Windows.Devices.PointOfService.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateBarcodeSymbologyAttributesBuilder return Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder is
+   function Create return Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder");
       Instance      : aliased IInspectable := null;

@@ -60,7 +60,7 @@ package body Windows.Perception.Spatial.Surfaces is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSpatialSurfaceMeshOptions return Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions is
+   function Create return Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions");
       Instance      : aliased IInspectable := null;
@@ -77,7 +77,7 @@ package body Windows.Perception.Spatial.Surfaces is
       return Convert(RetVal);
    end;
    
-   function CreateSpatialSurfaceObserver return Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver is
+   function Create return Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver");
       Instance      : aliased IInspectable := null;

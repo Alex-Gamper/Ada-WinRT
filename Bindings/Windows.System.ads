@@ -4210,7 +4210,7 @@ package Windows.System is
    subtype UserAuthenticationStatusChangingEventArgs is Windows.System.IUserAuthenticationStatusChangingEventArgs;
    subtype UserAuthenticationStatusChangeDeferral is Windows.System.IUserAuthenticationStatusChangeDeferral;
    subtype UserPicker is Windows.System.IUserPicker;
-   function CreateUserPicker return Windows.System.IUserPicker;
+   function Create return Windows.System.IUserPicker;
    
    subtype UserDeviceAssociationChangedEventArgs is Windows.System.IUserDeviceAssociationChangedEventArgs;
    subtype AppMemoryUsageLimitChangingEventArgs is Windows.System.IAppMemoryUsageLimitChangingEventArgs;
@@ -4232,16 +4232,16 @@ package Windows.System is
    subtype LaunchUriResult is Windows.System.ILaunchUriResult;
    subtype LauncherUIOptions is Windows.System.ILauncherUIOptions;
    subtype LauncherOptions is Windows.System.ILauncherOptions;
-   function CreateLauncherOptions return Windows.System.ILauncherOptions;
+   function Create return Windows.System.ILauncherOptions;
    
    subtype RemoteLauncherOptions is Windows.System.IRemoteLauncherOptions;
-   function CreateRemoteLauncherOptions return Windows.System.IRemoteLauncherOptions;
+   function Create return Windows.System.IRemoteLauncherOptions;
    
    subtype FolderLauncherOptions is Windows.System.IFolderLauncherOptions;
-   function CreateFolderLauncherOptions return Windows.System.IFolderLauncherOptions;
+   function Create return Windows.System.IFolderLauncherOptions;
    
    subtype ProcessLauncherOptions is Windows.System.IProcessLauncherOptions;
-   function CreateProcessLauncherOptions return Windows.System.IProcessLauncherOptions;
+   function Create return Windows.System.IProcessLauncherOptions;
    
    subtype ProcessLauncherResult is Windows.System.IProcessLauncherResult;
    

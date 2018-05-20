@@ -2028,10 +2028,10 @@ package Windows.ApplicationModel.DataTransfer is
    subtype ShareTargetInfo is Windows.ApplicationModel.DataTransfer.IShareTargetInfo;
    subtype ShareCompletedEventArgs is Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs;
    subtype DataPackage is Windows.ApplicationModel.DataTransfer.IDataPackage;
-   function CreateDataPackage return Windows.ApplicationModel.DataTransfer.IDataPackage;
+   function Create return Windows.ApplicationModel.DataTransfer.IDataPackage;
    
    subtype ShareUIOptions is Windows.ApplicationModel.DataTransfer.IShareUIOptions;
-   function CreateShareUIOptions return Windows.ApplicationModel.DataTransfer.IShareUIOptions;
+   function Create return Windows.ApplicationModel.DataTransfer.IShareUIOptions;
    
    subtype DataRequestDeferral is Windows.ApplicationModel.DataTransfer.IDataRequestDeferral;
    subtype DataRequest is Windows.ApplicationModel.DataTransfer.IDataRequest;

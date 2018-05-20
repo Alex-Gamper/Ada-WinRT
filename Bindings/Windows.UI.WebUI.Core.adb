@@ -105,7 +105,7 @@ package body Windows.UI.WebUI.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateWebUICommandBarIconButton return Windows.UI.WebUI.Core.IWebUICommandBarIconButton is
+   function Create return Windows.UI.WebUI.Core.IWebUICommandBarIconButton is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarIconButton");
       Instance      : aliased IInspectable := null;
@@ -122,7 +122,7 @@ package body Windows.UI.WebUI.Core is
       return Convert(RetVal);
    end;
    
-   function CreateWebUICommandBarConfirmationButton return Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton is
+   function Create return Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton");
       Instance      : aliased IInspectable := null;
@@ -139,7 +139,7 @@ package body Windows.UI.WebUI.Core is
       return Convert(RetVal);
    end;
    
-   function CreateWebUICommandBarBitmapIcon return Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon is
+   function Create return Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon");
       Instance      : aliased IInspectable := null;
@@ -176,7 +176,7 @@ package body Windows.UI.WebUI.Core is
       return RetVal;
    end;
    
-   function CreateWebUICommandBarSymbolIcon return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon is
+   function Create return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon");
       Instance      : aliased IInspectable := null;

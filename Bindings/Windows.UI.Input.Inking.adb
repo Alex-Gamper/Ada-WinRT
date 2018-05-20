@@ -289,7 +289,7 @@ package body Windows.UI.Input.Inking is
       return RetVal;
    end;
    
-   function CreateInkDrawingAttributes return Windows.UI.Input.Inking.IInkDrawingAttributes is
+   function Create return Windows.UI.Input.Inking.IInkDrawingAttributes is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkDrawingAttributes");
       Instance      : aliased IInspectable := null;
@@ -306,7 +306,7 @@ package body Windows.UI.Input.Inking is
       return Convert(RetVal);
    end;
    
-   function CreateInkStrokeBuilder return Windows.UI.Input.Inking.IInkStrokeBuilder is
+   function Create return Windows.UI.Input.Inking.IInkStrokeBuilder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkStrokeBuilder");
       Instance      : aliased IInspectable := null;
@@ -323,7 +323,7 @@ package body Windows.UI.Input.Inking is
       return Convert(RetVal);
    end;
    
-   function CreateInkStrokeContainer return Windows.UI.Input.Inking.IInkStrokeContainer is
+   function Create return Windows.UI.Input.Inking.IInkStrokeContainer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkStrokeContainer");
       Instance      : aliased IInspectable := null;
@@ -340,7 +340,7 @@ package body Windows.UI.Input.Inking is
       return Convert(RetVal);
    end;
    
-   function CreateInkRecognizerContainer return Windows.UI.Input.Inking.IInkRecognizerContainer is
+   function Create return Windows.UI.Input.Inking.IInkRecognizerContainer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkRecognizerContainer");
       Instance      : aliased IInspectable := null;
@@ -357,7 +357,7 @@ package body Windows.UI.Input.Inking is
       return Convert(RetVal);
    end;
    
-   function CreateInkManager return Windows.UI.Input.Inking.IInkManager is
+   function Create return Windows.UI.Input.Inking.IInkManager is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkManager");
       Instance      : aliased IInspectable := null;

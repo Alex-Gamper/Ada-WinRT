@@ -108,7 +108,7 @@ package body Windows.Networking.ServiceDiscovery.Dnssd is
       return RetVal;
    end;
    
-   function CreateDnssdRegistrationResult return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult is
+   function Create return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult");
       Instance      : aliased IInspectable := null;

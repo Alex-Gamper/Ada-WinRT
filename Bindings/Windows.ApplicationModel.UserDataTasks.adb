@@ -97,7 +97,7 @@ package body Windows.ApplicationModel.UserDataTasks is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateUserDataTaskQueryOptions return Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions is
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions");
       Instance      : aliased IInspectable := null;
@@ -114,7 +114,7 @@ package body Windows.ApplicationModel.UserDataTasks is
       return Convert(RetVal);
    end;
    
-   function CreateUserDataTask return Windows.ApplicationModel.UserDataTasks.IUserDataTask is
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTask is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataTasks.UserDataTask");
       Instance      : aliased IInspectable := null;
@@ -131,7 +131,7 @@ package body Windows.ApplicationModel.UserDataTasks is
       return Convert(RetVal);
    end;
    
-   function CreateUserDataTaskRecurrenceProperties return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties is
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties");
       Instance      : aliased IInspectable := null;
@@ -148,7 +148,7 @@ package body Windows.ApplicationModel.UserDataTasks is
       return Convert(RetVal);
    end;
    
-   function CreateUserDataTaskRegenerationProperties return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties is
+   function Create return Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties");
       Instance      : aliased IInspectable := null;

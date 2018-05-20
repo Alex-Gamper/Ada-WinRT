@@ -1946,25 +1946,25 @@ package Windows.Media.MediaProperties is
    
    subtype MediaRatio is Windows.Media.MediaProperties.IMediaRatio;
    subtype MediaPropertySet is Windows.Media.MediaProperties.IMap_Guid_Object;
-   function CreateMediaPropertySet return Windows.Media.MediaProperties.IMap_Guid_Object;
+   function Create return Windows.Media.MediaProperties.IMap_Guid_Object;
    
    subtype AudioEncodingProperties is Windows.Media.MediaProperties.IAudioEncodingProperties;
-   function CreateAudioEncodingProperties return Windows.Media.MediaProperties.IAudioEncodingProperties;
+   function Create return Windows.Media.MediaProperties.IAudioEncodingProperties;
    
    subtype VideoEncodingProperties is Windows.Media.MediaProperties.IVideoEncodingProperties;
-   function CreateVideoEncodingProperties return Windows.Media.MediaProperties.IVideoEncodingProperties;
+   function Create return Windows.Media.MediaProperties.IVideoEncodingProperties;
    
    subtype TimedMetadataEncodingProperties is Windows.Media.MediaProperties.IMediaEncodingProperties;
-   function CreateTimedMetadataEncodingProperties return Windows.Media.MediaProperties.IMediaEncodingProperties;
+   function Create return Windows.Media.MediaProperties.IMediaEncodingProperties;
    
    subtype ImageEncodingProperties is Windows.Media.MediaProperties.IImageEncodingProperties;
-   function CreateImageEncodingProperties return Windows.Media.MediaProperties.IImageEncodingProperties;
+   function Create return Windows.Media.MediaProperties.IImageEncodingProperties;
    
    subtype ContainerEncodingProperties is Windows.Media.MediaProperties.IContainerEncodingProperties;
-   function CreateContainerEncodingProperties return Windows.Media.MediaProperties.IContainerEncodingProperties;
+   function Create return Windows.Media.MediaProperties.IContainerEncodingProperties;
    
    subtype MediaEncodingProfile is Windows.Media.MediaProperties.IMediaEncodingProfile;
-   function CreateMediaEncodingProfile return Windows.Media.MediaProperties.IMediaEncodingProfile;
+   function Create return Windows.Media.MediaProperties.IMediaEncodingProfile;
    
    
    ------------------------------------------------------------------------

@@ -84,7 +84,7 @@ package body Windows.Gaming.Input.ForceFeedback is
       return RetVal;
    end;
    
-   function CreateConstantForceEffect return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect is
+   function Create return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Gaming.Input.ForceFeedback.ConstantForceEffect");
       Instance      : aliased IInspectable := null;
@@ -101,7 +101,7 @@ package body Windows.Gaming.Input.ForceFeedback is
       return Convert(RetVal);
    end;
    
-   function CreateRampForceEffect return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect is
+   function Create1 return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Gaming.Input.ForceFeedback.RampForceEffect");
       Instance      : aliased IInspectable := null;

@@ -1878,7 +1878,7 @@ package Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    
    subtype PaymentMerchantInfo is Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
-   function CreatePaymentMerchantInfo return Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
+   function Create return Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
    
    function Create
    (
@@ -1887,7 +1887,7 @@ package Windows.ApplicationModel.Payments is
    return Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
    
    subtype PaymentDetails is Windows.ApplicationModel.Payments.IPaymentDetails;
-   function CreatePaymentDetails return Windows.ApplicationModel.Payments.IPaymentDetails;
+   function Create return Windows.ApplicationModel.Payments.IPaymentDetails;
    
    function Create
    (
@@ -1917,7 +1917,7 @@ package Windows.ApplicationModel.Payments is
    return Windows.ApplicationModel.Payments.IPaymentMethodData;
    
    subtype PaymentOptions is Windows.ApplicationModel.Payments.IPaymentOptions;
-   function CreatePaymentOptions return Windows.ApplicationModel.Payments.IPaymentOptions;
+   function Create return Windows.ApplicationModel.Payments.IPaymentOptions;
    
    subtype PaymentRequest is Windows.ApplicationModel.Payments.IPaymentRequest;
    function Create
@@ -1994,7 +1994,7 @@ package Windows.ApplicationModel.Payments is
    return Windows.ApplicationModel.Payments.IPaymentShippingOption;
    
    subtype PaymentAddress is Windows.ApplicationModel.Payments.IPaymentAddress;
-   function CreatePaymentAddress return Windows.ApplicationModel.Payments.IPaymentAddress;
+   function Create return Windows.ApplicationModel.Payments.IPaymentAddress;
    
    subtype PaymentItem is Windows.ApplicationModel.Payments.IPaymentItem;
    function Create
@@ -2070,7 +2070,7 @@ package Windows.ApplicationModel.Payments is
    
    subtype PaymentResponse is Windows.ApplicationModel.Payments.IPaymentResponse;
    subtype PaymentMediator is Windows.ApplicationModel.Payments.IPaymentMediator;
-   function CreatePaymentMediator return Windows.ApplicationModel.Payments.IPaymentMediator;
+   function Create return Windows.ApplicationModel.Payments.IPaymentMediator;
    
    
    ------------------------------------------------------------------------

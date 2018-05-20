@@ -217,7 +217,7 @@ package body Windows.ApplicationModel.Email is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateEmailMessage return Windows.ApplicationModel.Email.IEmailMessage is
+   function Create return Windows.ApplicationModel.Email.IEmailMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailMessage");
       Instance      : aliased IInspectable := null;
@@ -234,7 +234,7 @@ package body Windows.ApplicationModel.Email is
       return Convert(RetVal);
    end;
    
-   function CreateEmailQueryOptions return Windows.ApplicationModel.Email.IEmailQueryOptions is
+   function Create return Windows.ApplicationModel.Email.IEmailQueryOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailQueryOptions");
       Instance      : aliased IInspectable := null;
@@ -292,7 +292,7 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function CreateEmailRecipient return Windows.ApplicationModel.Email.IEmailRecipient is
+   function Create return Windows.ApplicationModel.Email.IEmailRecipient is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailRecipient");
       Instance      : aliased IInspectable := null;
@@ -350,7 +350,7 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function CreateEmailIrmTemplate return Windows.ApplicationModel.Email.IEmailIrmTemplate is
+   function Create return Windows.ApplicationModel.Email.IEmailIrmTemplate is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmTemplate");
       Instance      : aliased IInspectable := null;
@@ -389,7 +389,7 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function CreateEmailIrmInfo return Windows.ApplicationModel.Email.IEmailIrmInfo is
+   function Create return Windows.ApplicationModel.Email.IEmailIrmInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmInfo");
       Instance      : aliased IInspectable := null;
@@ -427,7 +427,7 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function CreateEmailAttachment return Windows.ApplicationModel.Email.IEmailAttachment is
+   function Create return Windows.ApplicationModel.Email.IEmailAttachment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
       Instance      : aliased IInspectable := null;
@@ -487,7 +487,7 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function CreateEmailMeetingInfo return Windows.ApplicationModel.Email.IEmailMeetingInfo is
+   function Create return Windows.ApplicationModel.Email.IEmailMeetingInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailMeetingInfo");
       Instance      : aliased IInspectable := null;
@@ -504,7 +504,7 @@ package body Windows.ApplicationModel.Email is
       return Convert(RetVal);
    end;
    
-   function CreateEmailMailboxAutoReplySettings return Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings is
+   function Create return Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings");
       Instance      : aliased IInspectable := null;
@@ -521,7 +521,7 @@ package body Windows.ApplicationModel.Email is
       return Convert(RetVal);
    end;
    
-   function CreateEmailRecipientResolutionResult return Windows.ApplicationModel.Email.IEmailRecipientResolutionResult is
+   function Create return Windows.ApplicationModel.Email.IEmailRecipientResolutionResult is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailRecipientResolutionResult");
       Instance      : aliased IInspectable := null;

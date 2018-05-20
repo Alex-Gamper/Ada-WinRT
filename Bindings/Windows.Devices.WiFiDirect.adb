@@ -87,7 +87,7 @@ package body Windows.Devices.WiFiDirect is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateWiFiDirectConnectionParameters return Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters is
+   function Create return Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters");
       Instance      : aliased IInspectable := null;
@@ -104,7 +104,7 @@ package body Windows.Devices.WiFiDirect is
       return Convert(RetVal);
    end;
    
-   function CreateWiFiDirectInformationElement return Windows.Devices.WiFiDirect.IWiFiDirectInformationElement is
+   function Create return Windows.Devices.WiFiDirect.IWiFiDirectInformationElement is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectInformationElement");
       Instance      : aliased IInspectable := null;
@@ -121,7 +121,7 @@ package body Windows.Devices.WiFiDirect is
       return Convert(RetVal);
    end;
    
-   function CreateWiFiDirectAdvertisementPublisher return Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher is
+   function Create return Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher");
       Instance      : aliased IInspectable := null;
@@ -138,7 +138,7 @@ package body Windows.Devices.WiFiDirect is
       return Convert(RetVal);
    end;
    
-   function CreateWiFiDirectConnectionListener return Windows.Devices.WiFiDirect.IWiFiDirectConnectionListener is
+   function Create return Windows.Devices.WiFiDirect.IWiFiDirectConnectionListener is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectConnectionListener");
       Instance      : aliased IInspectable := null;

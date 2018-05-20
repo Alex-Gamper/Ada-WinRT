@@ -6486,7 +6486,7 @@ package Windows.Networking.NetworkOperators is
    subtype NetworkOperatorDataUsageTriggerDetails is Windows.Networking.NetworkOperators.INetworkOperatorDataUsageTriggerDetails;
    subtype TetheringEntitlementCheckTriggerDetails is Windows.Networking.NetworkOperators.ITetheringEntitlementCheckTriggerDetails;
    subtype NetworkOperatorTetheringAccessPointConfiguration is Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration;
-   function CreateNetworkOperatorTetheringAccessPointConfiguration return Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration;
+   function Create return Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration;
    
    subtype NetworkOperatorTetheringOperationResult is Windows.Networking.NetworkOperators.INetworkOperatorTetheringOperationResult;
    subtype NetworkOperatorTetheringManager is Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
@@ -6494,7 +6494,7 @@ package Windows.Networking.NetworkOperators is
    subtype MobileBroadbandAccountEventArgs is Windows.Networking.NetworkOperators.IMobileBroadbandAccountEventArgs;
    subtype MobileBroadbandAccountUpdatedEventArgs is Windows.Networking.NetworkOperators.IMobileBroadbandAccountUpdatedEventArgs;
    subtype MobileBroadbandAccountWatcher is Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher;
-   function CreateMobileBroadbandAccountWatcher return Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher;
+   function Create return Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher;
    
    subtype MobileBroadbandModem is Windows.Networking.NetworkOperators.IMobileBroadbandModem;
    subtype MobileBroadbandUicc is Windows.Networking.NetworkOperators.IMobileBroadbandUicc;
@@ -6560,7 +6560,7 @@ package Windows.Networking.NetworkOperators is
    subtype ProvisionFromXmlDocumentResults is Windows.Networking.NetworkOperators.IProvisionFromXmlDocumentResults;
    subtype ProvisionedProfile is Windows.Networking.NetworkOperators.IProvisionedProfile;
    subtype ProvisioningAgent is Windows.Networking.NetworkOperators.IProvisioningAgent;
-   function CreateProvisioningAgent return Windows.Networking.NetworkOperators.IProvisioningAgent;
+   function Create return Windows.Networking.NetworkOperators.IProvisioningAgent;
    
    subtype UssdMessage is Windows.Networking.NetworkOperators.IUssdMessage;
    function CreateMessage

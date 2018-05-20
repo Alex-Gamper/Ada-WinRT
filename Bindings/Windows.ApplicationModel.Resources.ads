@@ -145,7 +145,7 @@ package Windows.ApplicationModel.Resources is
    ------------------------------------------------------------------------
    
    subtype ResourceLoader is Windows.ApplicationModel.Resources.IResourceLoader;
-   function CreateResourceLoader return Windows.ApplicationModel.Resources.IResourceLoader;
+   function Create return Windows.ApplicationModel.Resources.IResourceLoader;
    
    function CreateResourceLoaderByName
    (

@@ -641,7 +641,7 @@ package Windows.UI.Input.Inking.Core is
    subtype CoreWetStrokeUpdateEventArgs is Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs;
    subtype CoreWetStrokeUpdateSource is Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource;
    subtype CoreInkPresenterHost is Windows.UI.Input.Inking.Core.ICoreInkPresenterHost;
-   function CreateCoreInkPresenterHost return Windows.UI.Input.Inking.Core.ICoreInkPresenterHost;
+   function Create return Windows.UI.Input.Inking.Core.ICoreInkPresenterHost;
    
    subtype CoreIncrementalInkStroke is Windows.UI.Input.Inking.Core.ICoreIncrementalInkStroke;
    function Create

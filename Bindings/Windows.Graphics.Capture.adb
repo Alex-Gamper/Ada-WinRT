@@ -74,7 +74,7 @@ package body Windows.Graphics.Capture is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateGraphicsCapturePicker return Windows.Graphics.Capture.IGraphicsCapturePicker is
+   function Create return Windows.Graphics.Capture.IGraphicsCapturePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Capture.GraphicsCapturePicker");
       Instance      : aliased IInspectable := null;

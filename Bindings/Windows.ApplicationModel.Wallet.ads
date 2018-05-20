@@ -1152,10 +1152,10 @@ package Windows.ApplicationModel.Wallet is
    return Windows.ApplicationModel.Wallet.IWalletBarcode;
    
    subtype WalletTransaction is Windows.ApplicationModel.Wallet.IWalletTransaction;
-   function CreateWalletTransaction return Windows.ApplicationModel.Wallet.IWalletTransaction;
+   function Create return Windows.ApplicationModel.Wallet.IWalletTransaction;
    
    subtype WalletRelevantLocation is Windows.ApplicationModel.Wallet.IWalletRelevantLocation;
-   function CreateWalletRelevantLocation return Windows.ApplicationModel.Wallet.IWalletRelevantLocation;
+   function Create return Windows.ApplicationModel.Wallet.IWalletRelevantLocation;
    
    subtype WalletItemCustomProperty is Windows.ApplicationModel.Wallet.IWalletItemCustomProperty;
    function CreateWalletItemCustomProperty

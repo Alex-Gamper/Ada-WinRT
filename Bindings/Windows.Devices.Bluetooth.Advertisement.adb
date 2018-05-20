@@ -72,7 +72,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateBluetoothLEManufacturerData return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData is
+   function Create return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData");
       Instance      : aliased IInspectable := null;
@@ -110,7 +110,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return RetVal;
    end;
    
-   function CreateBluetoothLEAdvertisementDataSection return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection is
+   function Create return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection");
       Instance      : aliased IInspectable := null;
@@ -148,7 +148,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return RetVal;
    end;
    
-   function CreateBluetoothLEAdvertisement return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement is
+   function Create return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement");
       Instance      : aliased IInspectable := null;
@@ -165,7 +165,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return Convert(RetVal);
    end;
    
-   function CreateBluetoothLEAdvertisementBytePattern return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern is
+   function Create return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern");
       Instance      : aliased IInspectable := null;
@@ -204,7 +204,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return RetVal;
    end;
    
-   function CreateBluetoothLEAdvertisementFilter return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter is
+   function Create return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter");
       Instance      : aliased IInspectable := null;
@@ -221,7 +221,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return Convert(RetVal);
    end;
    
-   function CreateBluetoothLEAdvertisementWatcher return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher is
+   function Create return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher");
       Instance      : aliased IInspectable := null;
@@ -258,7 +258,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return RetVal;
    end;
    
-   function CreateBluetoothLEAdvertisementPublisher return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher is
+   function Create return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher");
       Instance      : aliased IInspectable := null;

@@ -436,7 +436,7 @@ package Windows.Web.UI.Interop is
    ------------------------------------------------------------------------
    
    subtype WebViewControlProcess is Windows.Web.UI.Interop.IWebViewControlProcess;
-   function CreateWebViewControlProcess return Windows.Web.UI.Interop.IWebViewControlProcess;
+   function Create return Windows.Web.UI.Interop.IWebViewControlProcess;
    
    function CreateWithOptions
    (
@@ -448,7 +448,7 @@ package Windows.Web.UI.Interop is
    subtype WebViewControlMoveFocusRequestedEventArgs is Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs;
    subtype WebViewControlAcceleratorKeyPressedEventArgs is Windows.Web.UI.Interop.IWebViewControlAcceleratorKeyPressedEventArgs;
    subtype WebViewControlProcessOptions is Windows.Web.UI.Interop.IWebViewControlProcessOptions;
-   function CreateWebViewControlProcessOptions return Windows.Web.UI.Interop.IWebViewControlProcessOptions;
+   function Create return Windows.Web.UI.Interop.IWebViewControlProcessOptions;
    
    
    ------------------------------------------------------------------------

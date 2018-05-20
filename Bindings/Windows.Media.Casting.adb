@@ -125,7 +125,7 @@ package body Windows.Media.Casting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCastingDevicePicker return Windows.Media.Casting.ICastingDevicePicker is
+   function Create return Windows.Media.Casting.ICastingDevicePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Casting.CastingDevicePicker");
       Instance      : aliased IInspectable := null;

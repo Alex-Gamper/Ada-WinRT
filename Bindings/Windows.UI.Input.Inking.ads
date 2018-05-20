@@ -2722,24 +2722,24 @@ package Windows.UI.Input.Inking is
    
    subtype InkDrawingAttributesPencilProperties is Windows.UI.Input.Inking.IInkDrawingAttributesPencilProperties;
    subtype InkDrawingAttributes is Windows.UI.Input.Inking.IInkDrawingAttributes;
-   function CreateInkDrawingAttributes return Windows.UI.Input.Inking.IInkDrawingAttributes;
+   function Create return Windows.UI.Input.Inking.IInkDrawingAttributes;
    
    subtype InkModelerAttributes is Windows.UI.Input.Inking.IInkModelerAttributes;
    subtype InkStrokeRenderingSegment is Windows.UI.Input.Inking.IInkStrokeRenderingSegment;
    subtype InkStroke is Windows.UI.Input.Inking.IInkStroke;
    subtype InkStrokeBuilder is Windows.UI.Input.Inking.IInkStrokeBuilder;
-   function CreateInkStrokeBuilder return Windows.UI.Input.Inking.IInkStrokeBuilder;
+   function Create return Windows.UI.Input.Inking.IInkStrokeBuilder;
    
    subtype InkRecognitionResult is Windows.UI.Input.Inking.IInkRecognitionResult;
    subtype InkStrokeContainer is Windows.UI.Input.Inking.IInkStrokeContainer;
-   function CreateInkStrokeContainer return Windows.UI.Input.Inking.IInkStrokeContainer;
+   function Create return Windows.UI.Input.Inking.IInkStrokeContainer;
    
    subtype InkRecognizer is Windows.UI.Input.Inking.IInkRecognizer;
    subtype InkRecognizerContainer is Windows.UI.Input.Inking.IInkRecognizerContainer;
-   function CreateInkRecognizerContainer return Windows.UI.Input.Inking.IInkRecognizerContainer;
+   function Create return Windows.UI.Input.Inking.IInkRecognizerContainer;
    
    subtype InkManager is Windows.UI.Input.Inking.IInkManager;
-   function CreateInkManager return Windows.UI.Input.Inking.IInkManager;
+   function Create return Windows.UI.Input.Inking.IInkManager;
    
    
    ------------------------------------------------------------------------

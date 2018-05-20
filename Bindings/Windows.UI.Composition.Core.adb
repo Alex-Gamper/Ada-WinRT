@@ -45,7 +45,7 @@ package body Windows.UI.Composition.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateCompositorController return Windows.UI.Composition.Core.ICompositorController is
+   function Create return Windows.UI.Composition.Core.ICompositorController is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Composition.Core.CompositorController");
       Instance      : aliased IInspectable := null;

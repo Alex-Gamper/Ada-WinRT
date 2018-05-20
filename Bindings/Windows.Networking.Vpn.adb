@@ -151,7 +151,7 @@ package body Windows.Networking.Vpn is
       return RetVal;
    end;
    
-   function CreateVpnRouteAssignment return Windows.Networking.Vpn.IVpnRouteAssignment is
+   function Create return Windows.Networking.Vpn.IVpnRouteAssignment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnRouteAssignment");
       Instance      : aliased IInspectable := null;
@@ -168,7 +168,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnNamespaceAssignment return Windows.Networking.Vpn.IVpnNamespaceAssignment is
+   function Create return Windows.Networking.Vpn.IVpnNamespaceAssignment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnNamespaceAssignment");
       Instance      : aliased IInspectable := null;
@@ -207,7 +207,7 @@ package body Windows.Networking.Vpn is
       return RetVal;
    end;
    
-   function CreateVpnDomainNameAssignment return Windows.Networking.Vpn.IVpnDomainNameAssignment is
+   function Create return Windows.Networking.Vpn.IVpnDomainNameAssignment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnDomainNameAssignment");
       Instance      : aliased IInspectable := null;
@@ -224,7 +224,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnTrafficFilterAssignment return Windows.Networking.Vpn.IVpnTrafficFilterAssignment is
+   function Create return Windows.Networking.Vpn.IVpnTrafficFilterAssignment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnTrafficFilterAssignment");
       Instance      : aliased IInspectable := null;
@@ -305,7 +305,7 @@ package body Windows.Networking.Vpn is
       return RetVal;
    end;
    
-   function CreateVpnCustomEditBox return Windows.Networking.Vpn.IVpnCustomEditBox is
+   function Create return Windows.Networking.Vpn.IVpnCustomEditBox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomEditBox");
       Instance      : aliased IInspectable := null;
@@ -322,7 +322,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomPromptTextInput return Windows.Networking.Vpn.IVpnCustomPromptTextInput is
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptTextInput is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptTextInput");
       Instance      : aliased IInspectable := null;
@@ -339,7 +339,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomComboBox return Windows.Networking.Vpn.IVpnCustomComboBox is
+   function Create return Windows.Networking.Vpn.IVpnCustomComboBox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomComboBox");
       Instance      : aliased IInspectable := null;
@@ -356,7 +356,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomPromptOptionSelector return Windows.Networking.Vpn.IVpnCustomPromptOptionSelector is
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptOptionSelector is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptOptionSelector");
       Instance      : aliased IInspectable := null;
@@ -373,7 +373,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomTextBox return Windows.Networking.Vpn.IVpnCustomTextBox is
+   function Create return Windows.Networking.Vpn.IVpnCustomTextBox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomTextBox");
       Instance      : aliased IInspectable := null;
@@ -390,7 +390,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomPromptText return Windows.Networking.Vpn.IVpnCustomPromptText is
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptText is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptText");
       Instance      : aliased IInspectable := null;
@@ -407,7 +407,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomCheckBox return Windows.Networking.Vpn.IVpnCustomCheckBox is
+   function Create return Windows.Networking.Vpn.IVpnCustomCheckBox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomCheckBox");
       Instance      : aliased IInspectable := null;
@@ -424,7 +424,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomPromptBooleanInput return Windows.Networking.Vpn.IVpnCustomPromptBooleanInput is
+   function Create return Windows.Networking.Vpn.IVpnCustomPromptBooleanInput is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptBooleanInput");
       Instance      : aliased IInspectable := null;
@@ -441,7 +441,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnCustomErrorBox return Windows.Networking.Vpn.IVpnCustomErrorBox is
+   function Create return Windows.Networking.Vpn.IVpnCustomErrorBox is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomErrorBox");
       Instance      : aliased IInspectable := null;
@@ -458,7 +458,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnPlugInProfile return Windows.Networking.Vpn.IVpnPlugInProfile is
+   function Create return Windows.Networking.Vpn.IVpnPlugInProfile is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnPlugInProfile");
       Instance      : aliased IInspectable := null;
@@ -475,7 +475,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnNativeProfile return Windows.Networking.Vpn.IVpnNativeProfile is
+   function Create return Windows.Networking.Vpn.IVpnNativeProfile is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnNativeProfile");
       Instance      : aliased IInspectable := null;
@@ -492,7 +492,7 @@ package body Windows.Networking.Vpn is
       return Convert(RetVal);
    end;
    
-   function CreateVpnManagementAgent return Windows.Networking.Vpn.IVpnManagementAgent is
+   function Create return Windows.Networking.Vpn.IVpnManagementAgent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnManagementAgent");
       Instance      : aliased IInspectable := null;

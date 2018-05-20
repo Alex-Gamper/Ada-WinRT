@@ -29,7 +29,7 @@ package body Windows.ApplicationModel.Resources.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateResourceContext return Windows.ApplicationModel.Resources.Core.IResourceContext is
+   function Create return Windows.ApplicationModel.Resources.Core.IResourceContext is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
       Instance      : aliased IInspectable := null;

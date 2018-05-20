@@ -718,7 +718,7 @@ package Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    
    subtype PerceptionFrameProviderInfo is Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
-   function CreatePerceptionFrameProviderInfo return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
+   function Create return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
    
    subtype PerceptionPropertyChangeRequest is Windows.Devices.Perception.Provider.IPerceptionPropertyChangeRequest;
    subtype PerceptionFaceAuthenticationGroup is Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup;

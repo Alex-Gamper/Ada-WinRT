@@ -412,7 +412,7 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    subtype CoreDragDropManager is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager;
    subtype CoreDropOperationTargetRequestedEventArgs is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs;
    subtype CoreDragOperation is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation;
-   function CreateCoreDragOperation return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation;
+   function Create return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation;
    
    
    ------------------------------------------------------------------------

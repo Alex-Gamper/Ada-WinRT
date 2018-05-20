@@ -687,13 +687,13 @@ package Windows.Globalization.NumberFormatting is
    ------------------------------------------------------------------------
    
    subtype SignificantDigitsNumberRounder is Windows.Globalization.NumberFormatting.INumberRounder;
-   function CreateSignificantDigitsNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder;
+   function Create return Windows.Globalization.NumberFormatting.INumberRounder;
    
    subtype IncrementNumberRounder is Windows.Globalization.NumberFormatting.INumberRounder;
-   function CreateIncrementNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder;
+   function Create1 return Windows.Globalization.NumberFormatting.INumberRounder;
    
    subtype DecimalFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
-   function CreateDecimalFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   function Create return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
    function CreateDecimalFormatter
    (
@@ -703,7 +703,7 @@ package Windows.Globalization.NumberFormatting is
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
    subtype PercentFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
-   function CreatePercentFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   function Create1 return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
    function CreatePercentFormatter
    (
@@ -713,7 +713,7 @@ package Windows.Globalization.NumberFormatting is
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
    subtype PermilleFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
-   function CreatePermilleFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   function Create2 return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
    function CreatePermilleFormatter
    (
@@ -738,7 +738,7 @@ package Windows.Globalization.NumberFormatting is
    return Windows.Globalization.NumberFormatting.ICurrencyFormatter;
    
    subtype NumeralSystemTranslator is Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
-   function CreateNumeralSystemTranslator return Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
+   function Create return Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
    
    function Create
    (

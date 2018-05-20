@@ -125,7 +125,7 @@ package body Windows.Media.DialProtocol is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateDialDevicePicker return Windows.Media.DialProtocol.IDialDevicePicker is
+   function Create return Windows.Media.DialProtocol.IDialDevicePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.DialProtocol.DialDevicePicker");
       Instance      : aliased IInspectable := null;

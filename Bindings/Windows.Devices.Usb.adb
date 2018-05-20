@@ -58,7 +58,7 @@ package body Windows.Devices.Usb is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateUsbControlRequestType return Windows.Devices.Usb.IUsbControlRequestType is
+   function Create return Windows.Devices.Usb.IUsbControlRequestType is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbControlRequestType");
       Instance      : aliased IInspectable := null;
@@ -75,7 +75,7 @@ package body Windows.Devices.Usb is
       return Convert(RetVal);
    end;
    
-   function CreateUsbSetupPacket return Windows.Devices.Usb.IUsbSetupPacket is
+   function Create return Windows.Devices.Usb.IUsbSetupPacket is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbSetupPacket");
       Instance      : aliased IInspectable := null;
@@ -112,7 +112,7 @@ package body Windows.Devices.Usb is
       return RetVal;
    end;
    
-   function CreateUsbDeviceClass return Windows.Devices.Usb.IUsbDeviceClass is
+   function Create return Windows.Devices.Usb.IUsbDeviceClass is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClass");
       Instance      : aliased IInspectable := null;

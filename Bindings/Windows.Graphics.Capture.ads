@@ -324,7 +324,7 @@ package Windows.Graphics.Capture is
    subtype Direct3D11CaptureFramePool is Windows.Graphics.Capture.IDirect3D11CaptureFramePool;
    subtype GraphicsCaptureSession is Windows.Graphics.Capture.IGraphicsCaptureSession;
    subtype GraphicsCapturePicker is Windows.Graphics.Capture.IGraphicsCapturePicker;
-   function CreateGraphicsCapturePicker return Windows.Graphics.Capture.IGraphicsCapturePicker;
+   function Create return Windows.Graphics.Capture.IGraphicsCapturePicker;
    
    
    ------------------------------------------------------------------------

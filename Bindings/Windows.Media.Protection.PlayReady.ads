@@ -2423,16 +2423,16 @@ package Windows.Media.Protection.PlayReady is
    
    subtype PlayReadySoapMessage is Windows.Media.Protection.PlayReady.IPlayReadySoapMessage;
    subtype PlayReadyIndividualizationServiceRequest is Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest;
-   function CreatePlayReadyIndividualizationServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest;
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest;
    
    subtype PlayReadyDomainJoinServiceRequest is Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest;
-   function CreatePlayReadyDomainJoinServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest;
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest;
    
    subtype PlayReadyDomainLeaveServiceRequest is Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest;
-   function CreatePlayReadyDomainLeaveServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest;
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest;
    
    subtype PlayReadyLicenseIterable is Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense;
-   function CreatePlayReadyLicenseIterable return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense;
+   function Create return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense;
    
    function CreateInstance
    (
@@ -2442,13 +2442,13 @@ package Windows.Media.Protection.PlayReady is
    return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense;
    
    subtype PlayReadyLicenseAcquisitionServiceRequest is Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest;
-   function CreatePlayReadyLicenseAcquisitionServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest;
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest;
    
    subtype PlayReadyMeteringReportServiceRequest is Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest;
-   function CreatePlayReadyMeteringReportServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest;
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest;
    
    subtype PlayReadyRevocationServiceRequest is Windows.Media.Protection.PlayReady.IPlayReadyRevocationServiceRequest;
-   function CreatePlayReadyRevocationServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyRevocationServiceRequest;
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyRevocationServiceRequest;
    
    subtype PlayReadyLicense is Windows.Media.Protection.PlayReady.IPlayReadyLicense;
    subtype PlayReadyLicenseIterator is Windows.Media.Protection.PlayReady.IIterator_IPlayReadyLicense;
@@ -2484,7 +2484,7 @@ package Windows.Media.Protection.PlayReady is
    
    subtype PlayReadySecureStopIterator is Windows.Media.Protection.PlayReady.IIterator_IPlayReadySecureStopServiceRequest;
    subtype PlayReadyITADataGenerator is Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator;
-   function CreatePlayReadyITADataGenerator return Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator;
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator;
    
    subtype PlayReadyLicenseSession is Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession;
    function CreateInstance
@@ -2494,10 +2494,10 @@ package Windows.Media.Protection.PlayReady is
    return Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession;
    
    subtype NDDownloadEngineNotifier is Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier;
-   function CreateNDDownloadEngineNotifier return Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier;
+   function Create return Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier;
    
    subtype NDStreamParserNotifier is Windows.Media.Protection.PlayReady.INDStreamParserNotifier;
-   function CreateNDStreamParserNotifier return Windows.Media.Protection.PlayReady.INDStreamParserNotifier;
+   function Create return Windows.Media.Protection.PlayReady.INDStreamParserNotifier;
    
    subtype NDTCPMessenger is Windows.Media.Protection.PlayReady.INDMessenger;
    function CreateInstance
@@ -2534,7 +2534,7 @@ package Windows.Media.Protection.PlayReady is
    return Windows.Media.Protection.PlayReady.INDClient;
    
    subtype NDStorageFileHelper is Windows.Media.Protection.PlayReady.INDStorageFileHelper;
-   function CreateNDStorageFileHelper return Windows.Media.Protection.PlayReady.INDStorageFileHelper;
+   function Create return Windows.Media.Protection.PlayReady.INDStorageFileHelper;
    
    
    ------------------------------------------------------------------------

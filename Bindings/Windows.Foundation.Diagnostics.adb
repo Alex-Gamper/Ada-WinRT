@@ -84,7 +84,7 @@ package body Windows.Foundation.Diagnostics is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateRuntimeBrokerErrorSettings return Windows.Foundation.Diagnostics.IErrorReportingSettings is
+   function Create return Windows.Foundation.Diagnostics.IErrorReportingSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings");
       Instance      : aliased IInspectable := null;
@@ -101,7 +101,7 @@ package body Windows.Foundation.Diagnostics is
       return Convert(RetVal);
    end;
    
-   function CreateLoggingOptions return Windows.Foundation.Diagnostics.ILoggingOptions is
+   function Create return Windows.Foundation.Diagnostics.ILoggingOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingOptions");
       Instance      : aliased IInspectable := null;
@@ -138,7 +138,7 @@ package body Windows.Foundation.Diagnostics is
       return RetVal;
    end;
    
-   function CreateLoggingChannelOptions return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
+   function Create return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannelOptions");
       Instance      : aliased IInspectable := null;
@@ -175,7 +175,7 @@ package body Windows.Foundation.Diagnostics is
       return RetVal;
    end;
    
-   function CreateLoggingFields return Windows.Foundation.Diagnostics.ILoggingFields is
+   function Create return Windows.Foundation.Diagnostics.ILoggingFields is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingFields");
       Instance      : aliased IInspectable := null;

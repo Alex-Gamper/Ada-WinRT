@@ -1894,10 +1894,10 @@ package Windows.Networking.BackgroundTransfer is
    subtype UploadOperation is Windows.Networking.BackgroundTransfer.IUploadOperation;
    subtype BackgroundTransferGroup is Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup;
    subtype BackgroundTransferCompletionGroup is Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup;
-   function CreateBackgroundTransferCompletionGroup return Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup;
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup;
    
    subtype BackgroundTransferContentPart is Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart;
-   function CreateBackgroundTransferContentPart return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart;
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart;
    
    function CreateWithName
    (
@@ -1915,7 +1915,7 @@ package Windows.Networking.BackgroundTransfer is
    subtype ResponseInformation is Windows.Networking.BackgroundTransfer.IResponseInformation;
    subtype BackgroundTransferRangesDownloadedEventArgs is Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs;
    subtype BackgroundDownloader is Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
-   function CreateBackgroundDownloader return Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
    
    function CreateWithCompletionGroup
    (
@@ -1924,7 +1924,7 @@ package Windows.Networking.BackgroundTransfer is
    return Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
    
    subtype BackgroundUploader is Windows.Networking.BackgroundTransfer.IBackgroundUploader;
-   function CreateBackgroundUploader return Windows.Networking.BackgroundTransfer.IBackgroundUploader;
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundUploader;
    
    function CreateWithCompletionGroup
    (

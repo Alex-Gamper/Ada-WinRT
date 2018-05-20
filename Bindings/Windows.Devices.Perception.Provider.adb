@@ -59,7 +59,7 @@ package body Windows.Devices.Perception.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePerceptionFrameProviderInfo return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo is
+   function Create return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.PerceptionFrameProviderInfo");
       Instance      : aliased IInspectable := null;

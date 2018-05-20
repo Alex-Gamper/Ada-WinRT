@@ -875,7 +875,7 @@ package Windows.Media.Casting is
    subtype CastingDeviceSelectedEventArgs is Windows.Media.Casting.ICastingDeviceSelectedEventArgs;
    subtype CastingDevicePickerFilter is Windows.Media.Casting.ICastingDevicePickerFilter;
    subtype CastingDevicePicker is Windows.Media.Casting.ICastingDevicePicker;
-   function CreateCastingDevicePicker return Windows.Media.Casting.ICastingDevicePicker;
+   function Create return Windows.Media.Casting.ICastingDevicePicker;
    
    
    ------------------------------------------------------------------------

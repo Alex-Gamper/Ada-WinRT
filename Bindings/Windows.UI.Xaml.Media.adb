@@ -90,7 +90,7 @@ package body Windows.UI.Xaml.Media is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePartialMediaFailureDetectedEventArgs return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs is
+   function Create return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -107,7 +107,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateBrushCollection return Windows.UI.Xaml.Media.IVector_Brush is
+   function Create return Windows.UI.Xaml.Media.IVector_Brush is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.BrushCollection");
       Instance      : aliased IInspectable := null;
@@ -124,7 +124,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateDoubleCollection return Windows.UI.Xaml.Media.IVector_Double is
+   function Create return Windows.UI.Xaml.Media.IVector_Double is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.DoubleCollection");
       Instance      : aliased IInspectable := null;
@@ -141,7 +141,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePointCollection return Windows.UI.Xaml.Media.IVector_Point is
+   function Create return Windows.UI.Xaml.Media.IVector_Point is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PointCollection");
       Instance      : aliased IInspectable := null;
@@ -158,7 +158,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateTimelineMarkerCollection return Windows.UI.Xaml.Media.IVector_TimelineMarker is
+   function Create return Windows.UI.Xaml.Media.IVector_TimelineMarker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TimelineMarkerCollection");
       Instance      : aliased IInspectable := null;
@@ -175,7 +175,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateTransformCollection return Windows.UI.Xaml.Media.IVector_Transform is
+   function Create return Windows.UI.Xaml.Media.IVector_Transform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TransformCollection");
       Instance      : aliased IInspectable := null;
@@ -192,7 +192,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateRateChangedRoutedEventArgs return Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RateChangedRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -209,7 +209,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateTimelineMarker return Windows.UI.Xaml.Media.ITimelineMarker is
+   function Create return Windows.UI.Xaml.Media.ITimelineMarker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TimelineMarker");
       Instance      : aliased IInspectable := null;
@@ -226,7 +226,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateTimelineMarkerRoutedEventArgs return Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs is
+   function Create return Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs");
       Instance      : aliased IInspectable := null;
@@ -243,7 +243,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateBitmapCache return Windows.UI.Xaml.Media.IBitmapCache is
+   function Create return Windows.UI.Xaml.Media.IBitmapCache is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.BitmapCache");
       Instance      : aliased IInspectable := null;
@@ -260,7 +260,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateMatrix3DProjection return Windows.UI.Xaml.Media.IMatrix3DProjection is
+   function Create return Windows.UI.Xaml.Media.IMatrix3DProjection is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Matrix3DProjection");
       Instance      : aliased IInspectable := null;
@@ -277,7 +277,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePlaneProjection return Windows.UI.Xaml.Media.IPlaneProjection is
+   function Create return Windows.UI.Xaml.Media.IPlaneProjection is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
       Instance      : aliased IInspectable := null;
@@ -294,7 +294,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateRectangleGeometry return Windows.UI.Xaml.Media.IRectangleGeometry is
+   function Create return Windows.UI.Xaml.Media.IRectangleGeometry is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RectangleGeometry");
       Instance      : aliased IInspectable := null;
@@ -311,7 +311,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateSolidColorBrush return Windows.UI.Xaml.Media.ISolidColorBrush is
+   function Create return Windows.UI.Xaml.Media.ISolidColorBrush is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SolidColorBrush");
       Instance      : aliased IInspectable := null;
@@ -348,7 +348,7 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function CreateCompositeTransform return Windows.UI.Xaml.Media.ICompositeTransform is
+   function Create return Windows.UI.Xaml.Media.ICompositeTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositeTransform");
       Instance      : aliased IInspectable := null;
@@ -365,7 +365,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateMatrixTransform return Windows.UI.Xaml.Media.IMatrixTransform is
+   function Create return Windows.UI.Xaml.Media.IMatrixTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.MatrixTransform");
       Instance      : aliased IInspectable := null;
@@ -382,7 +382,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateRotateTransform return Windows.UI.Xaml.Media.IRotateTransform is
+   function Create return Windows.UI.Xaml.Media.IRotateTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RotateTransform");
       Instance      : aliased IInspectable := null;
@@ -399,7 +399,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateScaleTransform return Windows.UI.Xaml.Media.IScaleTransform is
+   function Create return Windows.UI.Xaml.Media.IScaleTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.ScaleTransform");
       Instance      : aliased IInspectable := null;
@@ -416,7 +416,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateSkewTransform return Windows.UI.Xaml.Media.ISkewTransform is
+   function Create return Windows.UI.Xaml.Media.ISkewTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SkewTransform");
       Instance      : aliased IInspectable := null;
@@ -433,7 +433,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateTransformGroup return Windows.UI.Xaml.Media.ITransformGroup is
+   function Create return Windows.UI.Xaml.Media.ITransformGroup is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TransformGroup");
       Instance      : aliased IInspectable := null;
@@ -450,7 +450,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateTranslateTransform return Windows.UI.Xaml.Media.ITranslateTransform is
+   function Create return Windows.UI.Xaml.Media.ITranslateTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TranslateTransform");
       Instance      : aliased IInspectable := null;
@@ -467,7 +467,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateGeometryCollection return Windows.UI.Xaml.Media.IVector_Geometry is
+   function Create return Windows.UI.Xaml.Media.IVector_Geometry is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GeometryCollection");
       Instance      : aliased IInspectable := null;
@@ -484,7 +484,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateGradientStopCollection return Windows.UI.Xaml.Media.IVector_GradientStop is
+   function Create return Windows.UI.Xaml.Media.IVector_GradientStop is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientStopCollection");
       Instance      : aliased IInspectable := null;
@@ -501,7 +501,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePathFigureCollection return Windows.UI.Xaml.Media.IVector_PathFigure is
+   function Create return Windows.UI.Xaml.Media.IVector_PathFigure is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathFigureCollection");
       Instance      : aliased IInspectable := null;
@@ -518,7 +518,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePathSegmentCollection return Windows.UI.Xaml.Media.IVector_PathSegment is
+   function Create return Windows.UI.Xaml.Media.IVector_PathSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathSegmentCollection");
       Instance      : aliased IInspectable := null;
@@ -535,7 +535,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateGradientStop return Windows.UI.Xaml.Media.IGradientStop is
+   function Create return Windows.UI.Xaml.Media.IGradientStop is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientStop");
       Instance      : aliased IInspectable := null;
@@ -552,7 +552,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePathFigure return Windows.UI.Xaml.Media.IPathFigure is
+   function Create return Windows.UI.Xaml.Media.IPathFigure is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathFigure");
       Instance      : aliased IInspectable := null;
@@ -569,7 +569,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateArcSegment return Windows.UI.Xaml.Media.IArcSegment is
+   function Create return Windows.UI.Xaml.Media.IArcSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.ArcSegment");
       Instance      : aliased IInspectable := null;
@@ -586,7 +586,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateBezierSegment return Windows.UI.Xaml.Media.IBezierSegment is
+   function Create return Windows.UI.Xaml.Media.IBezierSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.BezierSegment");
       Instance      : aliased IInspectable := null;
@@ -603,7 +603,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateEllipseGeometry return Windows.UI.Xaml.Media.IEllipseGeometry is
+   function Create return Windows.UI.Xaml.Media.IEllipseGeometry is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.EllipseGeometry");
       Instance      : aliased IInspectable := null;
@@ -620,7 +620,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateGeometryGroup return Windows.UI.Xaml.Media.IGeometryGroup is
+   function Create return Windows.UI.Xaml.Media.IGeometryGroup is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GeometryGroup");
       Instance      : aliased IInspectable := null;
@@ -637,7 +637,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateLineGeometry return Windows.UI.Xaml.Media.ILineGeometry is
+   function Create return Windows.UI.Xaml.Media.ILineGeometry is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LineGeometry");
       Instance      : aliased IInspectable := null;
@@ -654,7 +654,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateLineSegment return Windows.UI.Xaml.Media.ILineSegment is
+   function Create return Windows.UI.Xaml.Media.ILineSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LineSegment");
       Instance      : aliased IInspectable := null;
@@ -671,7 +671,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePathGeometry return Windows.UI.Xaml.Media.IPathGeometry is
+   function Create return Windows.UI.Xaml.Media.IPathGeometry is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathGeometry");
       Instance      : aliased IInspectable := null;
@@ -688,7 +688,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePolyBezierSegment return Windows.UI.Xaml.Media.IPolyBezierSegment is
+   function Create return Windows.UI.Xaml.Media.IPolyBezierSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PolyBezierSegment");
       Instance      : aliased IInspectable := null;
@@ -705,7 +705,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePolyLineSegment return Windows.UI.Xaml.Media.IPolyLineSegment is
+   function Create return Windows.UI.Xaml.Media.IPolyLineSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PolyLineSegment");
       Instance      : aliased IInspectable := null;
@@ -722,7 +722,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreatePolyQuadraticBezierSegment return Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment is
+   function Create return Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PolyQuadraticBezierSegment");
       Instance      : aliased IInspectable := null;
@@ -739,7 +739,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateQuadraticBezierSegment return Windows.UI.Xaml.Media.IQuadraticBezierSegment is
+   function Create return Windows.UI.Xaml.Media.IQuadraticBezierSegment is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.QuadraticBezierSegment");
       Instance      : aliased IInspectable := null;
@@ -756,7 +756,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateImageBrush return Windows.UI.Xaml.Media.IImageBrush is
+   function Create return Windows.UI.Xaml.Media.IImageBrush is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.ImageBrush");
       Instance      : aliased IInspectable := null;
@@ -773,7 +773,7 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateLinearGradientBrush return Windows.UI.Xaml.Media.ILinearGradientBrush is
+   function Create return Windows.UI.Xaml.Media.ILinearGradientBrush is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LinearGradientBrush");
       Instance      : aliased IInspectable := null;

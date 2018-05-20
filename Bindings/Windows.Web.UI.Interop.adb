@@ -78,7 +78,7 @@ package body Windows.Web.UI.Interop is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateWebViewControlProcess return Windows.Web.UI.Interop.IWebViewControlProcess is
+   function Create return Windows.Web.UI.Interop.IWebViewControlProcess is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.UI.Interop.WebViewControlProcess");
       Instance      : aliased IInspectable := null;
@@ -115,7 +115,7 @@ package body Windows.Web.UI.Interop is
       return RetVal;
    end;
    
-   function CreateWebViewControlProcessOptions return Windows.Web.UI.Interop.IWebViewControlProcessOptions is
+   function Create return Windows.Web.UI.Interop.IWebViewControlProcessOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.UI.Interop.WebViewControlProcessOptions");
       Instance      : aliased IInspectable := null;

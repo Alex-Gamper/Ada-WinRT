@@ -60,7 +60,7 @@ package body Windows.ApplicationModel.UserActivities is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateUserActivityAttribution return Windows.ApplicationModel.UserActivities.IUserActivityAttribution is
+   function Create return Windows.ApplicationModel.UserActivities.IUserActivityAttribution is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityAttribution");
       Instance      : aliased IInspectable := null;

@@ -29,7 +29,7 @@ package body Windows.ApplicationModel.SocialInfo is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSocialItemThumbnail return Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail is
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialItemThumbnail");
       Instance      : aliased IInspectable := null;
@@ -46,7 +46,7 @@ package body Windows.ApplicationModel.SocialInfo is
       return Convert(RetVal);
    end;
    
-   function CreateSocialFeedSharedItem return Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem is
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem");
       Instance      : aliased IInspectable := null;
@@ -63,7 +63,7 @@ package body Windows.ApplicationModel.SocialInfo is
       return Convert(RetVal);
    end;
    
-   function CreateSocialFeedChildItem return Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem is
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialFeedChildItem");
       Instance      : aliased IInspectable := null;
@@ -80,7 +80,7 @@ package body Windows.ApplicationModel.SocialInfo is
       return Convert(RetVal);
    end;
    
-   function CreateSocialFeedItem return Windows.ApplicationModel.SocialInfo.ISocialFeedItem is
+   function Create return Windows.ApplicationModel.SocialInfo.ISocialFeedItem is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialFeedItem");
       Instance      : aliased IInspectable := null;

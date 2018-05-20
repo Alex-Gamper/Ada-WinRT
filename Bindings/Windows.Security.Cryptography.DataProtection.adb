@@ -28,7 +28,7 @@ package body Windows.Security.Cryptography.DataProtection is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateDataProtectionProvider return Windows.Security.Cryptography.DataProtection.IDataProtectionProvider is
+   function Create return Windows.Security.Cryptography.DataProtection.IDataProtectionProvider is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.DataProtection.DataProtectionProvider");
       Instance      : aliased IInspectable := null;

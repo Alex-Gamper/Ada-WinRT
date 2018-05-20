@@ -121,7 +121,7 @@ package body Windows.Media.Editing is
       return RetVal;
    end;
    
-   function CreateMediaComposition return Windows.Media.Editing.IMediaComposition is
+   function Create return Windows.Media.Editing.IMediaComposition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Editing.MediaComposition");
       Instance      : aliased IInspectable := null;
@@ -138,7 +138,7 @@ package body Windows.Media.Editing is
       return Convert(RetVal);
    end;
    
-   function CreateMediaOverlayLayer return Windows.Media.Editing.IMediaOverlayLayer is
+   function Create return Windows.Media.Editing.IMediaOverlayLayer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Editing.MediaOverlayLayer");
       Instance      : aliased IInspectable := null;

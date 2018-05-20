@@ -2549,7 +2549,7 @@ package Windows.UI.Text is
    subtype RichEditTextDocument is Windows.UI.Text.ITextDocument;
    subtype RichEditTextRange is Windows.UI.Text.ITextRange;
    subtype ContentLinkInfo is Windows.UI.Text.IContentLinkInfo;
-   function CreateContentLinkInfo return Windows.UI.Text.IContentLinkInfo;
+   function Create return Windows.UI.Text.IContentLinkInfo;
    
    subtype FontWeights is Windows.UI.Text.IFontWeights;
    

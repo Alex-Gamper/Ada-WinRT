@@ -1306,13 +1306,13 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    subtype GetEntitlementResult is Windows.ApplicationModel.Store.Preview.InstallControl.IGetEntitlementResult;
    subtype AppInstallManagerItemEventArgs is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs;
    subtype AppUpdateOptions is Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions;
-   function CreateAppUpdateOptions return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions;
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions;
    
    subtype AppInstallOptions is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions;
-   function CreateAppInstallOptions return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions;
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions;
    
    subtype AppInstallManager is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager;
-   function CreateAppInstallManager return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager;
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager;
    
    
    ------------------------------------------------------------------------

@@ -249,7 +249,7 @@ package body Windows.Media.SpeechRecognition is
       return RetVal;
    end;
    
-   function CreateSpeechRecognizer return Windows.Media.SpeechRecognition.ISpeechRecognizer is
+   function Create return Windows.Media.SpeechRecognition.ISpeechRecognizer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognizer");
       Instance      : aliased IInspectable := null;

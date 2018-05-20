@@ -38450,7 +38450,7 @@ package Windows.UI.Xaml.Controls is
    subtype NavigationViewDisplayModeChangedEventArgs is Windows.UI.Xaml.Controls.INavigationViewDisplayModeChangedEventArgs;
    subtype NavigationViewSelectionChangedEventArgs is Windows.UI.Xaml.Controls.INavigationViewSelectionChangedEventArgs;
    subtype NavigationViewItemInvokedEventArgs is Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs;
-   function CreateNavigationViewItemInvokedEventArgs return Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs;
    
    subtype NavigationViewPaneClosingEventArgs is Windows.UI.Xaml.Controls.INavigationViewPaneClosingEventArgs;
    subtype NavigationViewBackRequestedEventArgs is Windows.UI.Xaml.Controls.INavigationViewBackRequestedEventArgs;
@@ -38462,28 +38462,28 @@ package Windows.UI.Xaml.Controls is
    subtype TreeViewExpandingEventArgs is Windows.UI.Xaml.Controls.ITreeViewExpandingEventArgs;
    subtype TreeViewCollapsedEventArgs is Windows.UI.Xaml.Controls.ITreeViewCollapsedEventArgs;
    subtype BackClickEventArgs is Windows.UI.Xaml.Controls.IBackClickEventArgs;
-   function CreateBackClickEventArgs return Windows.UI.Xaml.Controls.IBackClickEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IBackClickEventArgs;
    
    subtype DragItemsStartingEventArgs is Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs;
-   function CreateDragItemsStartingEventArgs return Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs;
    
    subtype NotifyEventArgs is Windows.UI.Xaml.Controls.INotifyEventArgs;
    subtype SemanticZoomViewChangedEventArgs is Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs;
-   function CreateSemanticZoomViewChangedEventArgs return Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs;
    
    subtype TextControlPasteEventArgs is Windows.UI.Xaml.Controls.ITextControlPasteEventArgs;
    subtype ContainerContentChangingEventArgs is Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs;
-   function CreateContainerContentChangingEventArgs return Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs;
    
    subtype SemanticZoomLocation is Windows.UI.Xaml.Controls.ISemanticZoomLocation;
-   function CreateSemanticZoomLocation return Windows.UI.Xaml.Controls.ISemanticZoomLocation;
+   function Create return Windows.UI.Xaml.Controls.ISemanticZoomLocation;
    
    subtype CandidateWindowBoundsChangedEventArgs is Windows.UI.Xaml.Controls.ICandidateWindowBoundsChangedEventArgs;
    subtype ChoosingGroupHeaderContainerEventArgs is Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs;
-   function CreateChoosingGroupHeaderContainerEventArgs return Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs;
    
    subtype ChoosingItemContainerEventArgs is Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs;
-   function CreateChoosingItemContainerEventArgs return Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs;
    
    subtype ColumnDefinitionCollection is Windows.UI.Xaml.Controls.IVector_ColumnDefinition;
    subtype DataTemplateSelector is Windows.UI.Xaml.Controls.IDataTemplateSelector;
@@ -38935,7 +38935,7 @@ package Windows.UI.Xaml.Controls is
    subtype ToolTipService is Windows.UI.Xaml.Controls.IToolTipService;
    subtype CalendarViewDayItemChangingEventArgs is Windows.UI.Xaml.Controls.ICalendarViewDayItemChangingEventArgs;
    subtype HubSectionHeaderClickEventArgs is Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs;
-   function CreateHubSectionHeaderClickEventArgs return Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs;
    
    subtype SectionsInViewChangedEventArgs is Windows.UI.Xaml.Controls.ISectionsInViewChangedEventArgs;
    subtype WebViewNavigationFailedEventArgs is Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs;
@@ -38950,20 +38950,20 @@ package Windows.UI.Xaml.Controls is
    subtype ContentLinkChangedEventArgs is Windows.UI.Xaml.Controls.IContentLinkChangedEventArgs;
    subtype DatePickerValueChangedEventArgs is Windows.UI.Xaml.Controls.IDatePickerValueChangedEventArgs;
    subtype DynamicOverflowItemsChangingEventArgs is Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs;
-   function CreateDynamicOverflowItemsChangingEventArgs return Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs;
    
    subtype HubSectionCollection is Windows.UI.Xaml.Controls.IVector_HubSection;
    subtype ListViewPersistenceHelper is Windows.UI.Xaml.Controls.IListViewPersistenceHelper;
    subtype RichEditBoxTextChangingEventArgs is Windows.UI.Xaml.Controls.IRichEditBoxTextChangingEventArgs;
    subtype ScrollViewerView is Windows.UI.Xaml.Controls.IScrollViewerView;
    subtype ScrollViewerViewChangedEventArgs is Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs;
-   function CreateScrollViewerViewChangedEventArgs return Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs;
    
    subtype ScrollViewerViewChangingEventArgs is Windows.UI.Xaml.Controls.IScrollViewerViewChangingEventArgs;
    subtype SearchBoxQueryChangedEventArgs is Windows.UI.Xaml.Controls.ISearchBoxQueryChangedEventArgs;
    subtype SearchBoxQuerySubmittedEventArgs is Windows.UI.Xaml.Controls.ISearchBoxQuerySubmittedEventArgs;
    subtype SearchBoxResultSuggestionChosenEventArgs is Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs;
-   function CreateSearchBoxResultSuggestionChosenEventArgs return Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs;
+   function Create return Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs;
    
    subtype SearchBoxSuggestionsRequestedEventArgs is Windows.UI.Xaml.Controls.ISearchBoxSuggestionsRequestedEventArgs;
    subtype SplitViewPaneClosingEventArgs is Windows.UI.Xaml.Controls.ISplitViewPaneClosingEventArgs;
@@ -39746,20 +39746,20 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype ColumnDefinition is Windows.UI.Xaml.Controls.IColumnDefinition;
-   function CreateColumnDefinition return Windows.UI.Xaml.Controls.IColumnDefinition;
+   function Create return Windows.UI.Xaml.Controls.IColumnDefinition;
    
    subtype RowDefinition is Windows.UI.Xaml.Controls.IRowDefinition;
-   function CreateRowDefinition return Windows.UI.Xaml.Controls.IRowDefinition;
+   function Create return Windows.UI.Xaml.Controls.IRowDefinition;
    
    subtype IconSource is Windows.UI.Xaml.Controls.IIconSource;
    subtype AutoSuggestBoxQuerySubmittedEventArgs is Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs;
-   function CreateAutoSuggestBoxQuerySubmittedEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs;
    
    subtype AutoSuggestBoxSuggestionChosenEventArgs is Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs;
-   function CreateAutoSuggestBoxSuggestionChosenEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs;
    
    subtype AutoSuggestBoxTextChangedEventArgs is Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs;
-   function CreateAutoSuggestBoxTextChangedEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs;
    
    subtype BitmapIconSource is Windows.UI.Xaml.Controls.IBitmapIconSource;
    
@@ -40130,12 +40130,12 @@ package Windows.UI.Xaml.Controls is
    subtype CleanUpVirtualizedItemEventArgs is Windows.UI.Xaml.Controls.ICleanUpVirtualizedItemEventArgs;
    subtype ContextMenuEventArgs is Windows.UI.Xaml.Controls.IContextMenuEventArgs;
    subtype ItemClickEventArgs is Windows.UI.Xaml.Controls.IItemClickEventArgs;
-   function CreateItemClickEventArgs return Windows.UI.Xaml.Controls.IItemClickEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IItemClickEventArgs;
    
    subtype SelectionChangedEventArgs is Windows.UI.Xaml.Controls.ISelectionChangedEventArgs;
    subtype TextChangedEventArgs is Windows.UI.Xaml.Controls.ITextChangedEventArgs;
    subtype ItemsPanelTemplate is Windows.UI.Xaml.Controls.IItemsPanelTemplate;
-   function CreateItemsPanelTemplate return Windows.UI.Xaml.Controls.IItemsPanelTemplate;
+   function Create return Windows.UI.Xaml.Controls.IItemsPanelTemplate;
    
    subtype ParallaxView is Windows.UI.Xaml.Controls.IParallaxView;
    
@@ -40494,10 +40494,10 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype Border is Windows.UI.Xaml.Controls.IBorder;
-   function CreateBorder return Windows.UI.Xaml.Controls.IBorder;
+   function Create return Windows.UI.Xaml.Controls.IBorder;
    
    subtype CaptureElement is Windows.UI.Xaml.Controls.ICaptureElement;
-   function CreateCaptureElement return Windows.UI.Xaml.Controls.ICaptureElement;
+   function Create return Windows.UI.Xaml.Controls.ICaptureElement;
    
    subtype ContentPresenter is Windows.UI.Xaml.Controls.IContentPresenter;
    
@@ -40775,22 +40775,22 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype Image is Windows.UI.Xaml.Controls.IImage;
-   function CreateImage return Windows.UI.Xaml.Controls.IImage;
+   function Create return Windows.UI.Xaml.Controls.IImage;
    
    subtype ItemsPresenter is Windows.UI.Xaml.Controls.IItemsPresenter;
-   function CreateItemsPresenter return Windows.UI.Xaml.Controls.IItemsPresenter;
+   function Create return Windows.UI.Xaml.Controls.IItemsPresenter;
    
    subtype RichTextBlockOverflow is Windows.UI.Xaml.Controls.IRichTextBlockOverflow;
-   function CreateRichTextBlockOverflow return Windows.UI.Xaml.Controls.IRichTextBlockOverflow;
+   function Create return Windows.UI.Xaml.Controls.IRichTextBlockOverflow;
    
    subtype RichTextBlock is Windows.UI.Xaml.Controls.IRichTextBlock;
-   function CreateRichTextBlock return Windows.UI.Xaml.Controls.IRichTextBlock;
+   function Create return Windows.UI.Xaml.Controls.IRichTextBlock;
    
    subtype TextBlock is Windows.UI.Xaml.Controls.ITextBlock;
-   function CreateTextBlock return Windows.UI.Xaml.Controls.ITextBlock;
+   function Create return Windows.UI.Xaml.Controls.ITextBlock;
    
    subtype Viewbox is Windows.UI.Xaml.Controls.IViewbox;
-   function CreateViewbox return Windows.UI.Xaml.Controls.IViewbox;
+   function Create return Windows.UI.Xaml.Controls.IViewbox;
    
    subtype Canvas is Windows.UI.Xaml.Controls.ICanvas;
    
@@ -41023,11 +41023,11 @@ package Windows.UI.Xaml.Controls is
    
    subtype StackPanel is Windows.UI.Xaml.Controls.IStackPanel;
    subtype VariableSizedWrapGrid is Windows.UI.Xaml.Controls.IVariableSizedWrapGrid;
-   function CreateVariableSizedWrapGrid return Windows.UI.Xaml.Controls.IVariableSizedWrapGrid;
+   function Create return Windows.UI.Xaml.Controls.IVariableSizedWrapGrid;
    
    subtype VirtualizingPanel is Windows.UI.Xaml.Controls.IVirtualizingPanel;
    subtype VirtualizingStackPanel is Windows.UI.Xaml.Controls.IVirtualizingStackPanel;
-   function CreateVirtualizingStackPanel return Windows.UI.Xaml.Controls.IVirtualizingStackPanel;
+   function Create return Windows.UI.Xaml.Controls.IVirtualizingStackPanel;
    
    subtype IconElement is Windows.UI.Xaml.Controls.IIconElement;
    subtype InkCanvas is Windows.UI.Xaml.Controls.IInkCanvas;
@@ -41091,7 +41091,7 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype MediaElement is Windows.UI.Xaml.Controls.IMediaElement;
-   function CreateMediaElement return Windows.UI.Xaml.Controls.IMediaElement;
+   function Create return Windows.UI.Xaml.Controls.IMediaElement;
    
    subtype MediaPlayerPresenter is Windows.UI.Xaml.Controls.IMediaPlayerPresenter;
    
@@ -41189,7 +41189,7 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype WebView is Windows.UI.Xaml.Controls.IWebView;
-   function CreateWebView return Windows.UI.Xaml.Controls.IWebView;
+   function Create return Windows.UI.Xaml.Controls.IWebView;
    
    function CreateInstanceWithExecutionMode
    (
@@ -41388,10 +41388,10 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype ItemsStackPanel is Windows.UI.Xaml.Controls.IItemsStackPanel;
-   function CreateItemsStackPanel return Windows.UI.Xaml.Controls.IItemsStackPanel;
+   function Create return Windows.UI.Xaml.Controls.IItemsStackPanel;
    
    subtype ItemsWrapGrid is Windows.UI.Xaml.Controls.IItemsWrapGrid;
-   function CreateItemsWrapGrid return Windows.UI.Xaml.Controls.IItemsWrapGrid;
+   function Create return Windows.UI.Xaml.Controls.IItemsWrapGrid;
    
    subtype PathIcon is Windows.UI.Xaml.Controls.IPathIcon;
    
@@ -41461,10 +41461,10 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype ScrollContentPresenter is Windows.UI.Xaml.Controls.IScrollContentPresenter;
-   function CreateScrollContentPresenter return Windows.UI.Xaml.Controls.IScrollContentPresenter;
+   function Create return Windows.UI.Xaml.Controls.IScrollContentPresenter;
    
    subtype SymbolIcon is Windows.UI.Xaml.Controls.ISymbolIcon;
-   function CreateSymbolIcon return Windows.UI.Xaml.Controls.ISymbolIcon;
+   function Create return Windows.UI.Xaml.Controls.ISymbolIcon;
    
    function CreateInstanceWithSymbol
    (
@@ -41616,13 +41616,13 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype WrapGrid is Windows.UI.Xaml.Controls.IWrapGrid;
-   function CreateWrapGrid return Windows.UI.Xaml.Controls.IWrapGrid;
+   function Create return Windows.UI.Xaml.Controls.IWrapGrid;
    
    subtype UIElementCollection is Windows.UI.Xaml.Controls.IVector_UIElement;
    subtype FocusDisengagedEventArgs is Windows.UI.Xaml.Controls.IFocusDisengagedEventArgs;
    subtype FocusEngagedEventArgs is Windows.UI.Xaml.Controls.IFocusEngagedEventArgs;
    subtype ControlTemplate is Windows.UI.Xaml.Controls.IControlTemplate;
-   function CreateControlTemplate return Windows.UI.Xaml.Controls.IControlTemplate;
+   function Create return Windows.UI.Xaml.Controls.IControlTemplate;
    
    subtype Control is Windows.UI.Xaml.Controls.IControl;
    
@@ -43171,7 +43171,7 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype SemanticZoom is Windows.UI.Xaml.Controls.ISemanticZoom;
-   function CreateSemanticZoom return Windows.UI.Xaml.Controls.ISemanticZoom;
+   function Create return Windows.UI.Xaml.Controls.ISemanticZoom;
    
    subtype ContentControl is Windows.UI.Xaml.Controls.IContentControl;
    
@@ -44752,10 +44752,10 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype PasswordBox is Windows.UI.Xaml.Controls.IPasswordBox;
-   function CreatePasswordBox return Windows.UI.Xaml.Controls.IPasswordBox;
+   function Create return Windows.UI.Xaml.Controls.IPasswordBox;
    
    subtype ProgressRing is Windows.UI.Xaml.Controls.IProgressRing;
-   function CreateProgressRing return Windows.UI.Xaml.Controls.IProgressRing;
+   function Create return Windows.UI.Xaml.Controls.IProgressRing;
    
    subtype TextBox is Windows.UI.Xaml.Controls.ITextBox;
    
@@ -45047,7 +45047,7 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype ToggleSwitch is Windows.UI.Xaml.Controls.IToggleSwitch;
-   function CreateToggleSwitch return Windows.UI.Xaml.Controls.IToggleSwitch;
+   function Create return Windows.UI.Xaml.Controls.IToggleSwitch;
    
    subtype UserControl is Windows.UI.Xaml.Controls.IUserControl;
    
@@ -48473,7 +48473,7 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype AutoSuggestBox is Windows.UI.Xaml.Controls.IAutoSuggestBox;
-   function CreateAutoSuggestBox return Windows.UI.Xaml.Controls.IAutoSuggestBox;
+   function Create return Windows.UI.Xaml.Controls.IAutoSuggestBox;
    
    subtype CommandBarOverflowPresenter is Windows.UI.Xaml.Controls.ICommandBarOverflowPresenter;
    
@@ -49297,7 +49297,7 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype MenuFlyoutSubItem is Windows.UI.Xaml.Controls.IMenuFlyoutSubItem;
-   function CreateMenuFlyoutSubItem return Windows.UI.Xaml.Controls.IMenuFlyoutSubItem;
+   function Create return Windows.UI.Xaml.Controls.IMenuFlyoutSubItem;
    
    subtype Page is Windows.UI.Xaml.Controls.IPage;
    
@@ -49475,7 +49475,7 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype ScrollViewer is Windows.UI.Xaml.Controls.IScrollViewer;
-   function CreateScrollViewer return Windows.UI.Xaml.Controls.IScrollViewer;
+   function Create return Windows.UI.Xaml.Controls.IScrollViewer;
    
    subtype CommandBar is Windows.UI.Xaml.Controls.ICommandBar;
    
@@ -50341,10 +50341,10 @@ package Windows.UI.Xaml.Controls is
    subtype Flyout is Windows.UI.Xaml.Controls.IFlyout;
    subtype MenuFlyout is Windows.UI.Xaml.Controls.IMenuFlyout;
    subtype WebViewBrush is Windows.UI.Xaml.Controls.IWebViewBrush;
-   function CreateWebViewBrush return Windows.UI.Xaml.Controls.IWebViewBrush;
+   function Create return Windows.UI.Xaml.Controls.IWebViewBrush;
    
    subtype InkToolbarIsStencilButtonCheckedChangedEventArgs is Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs;
-   function CreateInkToolbarIsStencilButtonCheckedChangedEventArgs return Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs;
    
    subtype InkToolbarCustomPen is Windows.UI.Xaml.Controls.IInkToolbarCustomPen;
    
@@ -51316,20 +51316,20 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype PivotItemEventArgs is Windows.UI.Xaml.Controls.IPivotItemEventArgs;
-   function CreatePivotItemEventArgs return Windows.UI.Xaml.Controls.IPivotItemEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IPivotItemEventArgs;
    
    subtype DatePickedEventArgs is Windows.UI.Xaml.Controls.IDatePickedEventArgs;
-   function CreateDatePickedEventArgs return Windows.UI.Xaml.Controls.IDatePickedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IDatePickedEventArgs;
    
    subtype DatePickerFlyoutItem is Windows.UI.Xaml.Controls.IDatePickerFlyoutItem;
    subtype ItemsPickedEventArgs is Windows.UI.Xaml.Controls.IItemsPickedEventArgs;
-   function CreateItemsPickedEventArgs return Windows.UI.Xaml.Controls.IItemsPickedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IItemsPickedEventArgs;
    
    subtype PickerConfirmedEventArgs is Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs;
-   function CreatePickerConfirmedEventArgs return Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs;
    
    subtype TimePickedEventArgs is Windows.UI.Xaml.Controls.ITimePickedEventArgs;
-   function CreateTimePickedEventArgs return Windows.UI.Xaml.Controls.ITimePickedEventArgs;
+   function Create return Windows.UI.Xaml.Controls.ITimePickedEventArgs;
    
    subtype DatePickerFlyoutPresenter is Windows.UI.Xaml.Controls.IDatePickerFlyoutPresenter;
    subtype ListPickerFlyoutPresenter is Windows.UI.Xaml.Controls.IListPickerFlyoutPresenter;
@@ -51615,16 +51615,16 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype DatePickerFlyout is Windows.UI.Xaml.Controls.IDatePickerFlyout;
-   function CreateDatePickerFlyout return Windows.UI.Xaml.Controls.IDatePickerFlyout;
+   function Create return Windows.UI.Xaml.Controls.IDatePickerFlyout;
    
    subtype ListPickerFlyout is Windows.UI.Xaml.Controls.IListPickerFlyout;
-   function CreateListPickerFlyout return Windows.UI.Xaml.Controls.IListPickerFlyout;
+   function Create return Windows.UI.Xaml.Controls.IListPickerFlyout;
    
    subtype PickerFlyout is Windows.UI.Xaml.Controls.IPickerFlyout;
-   function CreatePickerFlyout return Windows.UI.Xaml.Controls.IPickerFlyout;
+   function Create return Windows.UI.Xaml.Controls.IPickerFlyout;
    
    subtype TimePickerFlyout is Windows.UI.Xaml.Controls.ITimePickerFlyout;
-   function CreateTimePickerFlyout return Windows.UI.Xaml.Controls.ITimePickerFlyout;
+   function Create return Windows.UI.Xaml.Controls.ITimePickerFlyout;
    
    
    ------------------------------------------------------------------------

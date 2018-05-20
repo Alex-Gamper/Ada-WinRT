@@ -314,7 +314,7 @@ package body Windows.Devices.Geolocation is
       return RetVal;
    end;
    
-   function CreateGeolocator return Windows.Devices.Geolocation.IGeolocator is
+   function Create return Windows.Devices.Geolocation.IGeolocator is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.Geolocator");
       Instance      : aliased IInspectable := null;
@@ -397,7 +397,7 @@ package body Windows.Devices.Geolocation is
       return RetVal;
    end;
    
-   function CreateGeovisitMonitor return Windows.Devices.Geolocation.IGeovisitMonitor is
+   function Create return Windows.Devices.Geolocation.IGeovisitMonitor is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.GeovisitMonitor");
       Instance      : aliased IInspectable := null;

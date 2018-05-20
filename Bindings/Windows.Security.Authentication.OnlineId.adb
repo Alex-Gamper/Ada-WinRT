@@ -86,7 +86,7 @@ package body Windows.Security.Authentication.OnlineId is
       return RetVal;
    end;
    
-   function CreateOnlineIdAuthenticator return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator is
+   function Create return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator");
       Instance      : aliased IInspectable := null;

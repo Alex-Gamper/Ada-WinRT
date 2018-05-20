@@ -241,7 +241,7 @@ package Windows.ApplicationModel.ExtendedExecution is
    
    subtype ExtendedExecutionRevokedEventArgs is Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs;
    subtype ExtendedExecutionSession is Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession;
-   function CreateExtendedExecutionSession return Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession;
+   function Create return Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession;
    
    
    ------------------------------------------------------------------------

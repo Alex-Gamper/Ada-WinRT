@@ -27,7 +27,7 @@ package body Windows.System.Display is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateDisplayRequest return Windows.System.Display.IDisplayRequest is
+   function Create return Windows.System.Display.IDisplayRequest is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Display.DisplayRequest");
       Instance      : aliased IInspectable := null;

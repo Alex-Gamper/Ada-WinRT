@@ -350,7 +350,7 @@ package Windows.ApplicationModel.Preview.Notes is
    subtype NotePlacementChangedPreviewEventArgs is Windows.ApplicationModel.Preview.Notes.INotePlacementChangedPreviewEventArgs;
    subtype NoteVisibilityChangedPreviewEventArgs is Windows.ApplicationModel.Preview.Notes.INoteVisibilityChangedPreviewEventArgs;
    subtype NotesWindowManagerPreviewShowNoteOptions is Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions;
-   function CreateNotesWindowManagerPreviewShowNoteOptions return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions;
+   function Create return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions;
    
    subtype NotesWindowManagerPreview is Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview;
    

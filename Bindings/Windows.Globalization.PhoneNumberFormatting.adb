@@ -48,7 +48,7 @@ package body Windows.Globalization.PhoneNumberFormatting is
       return RetVal;
    end;
    
-   function CreatePhoneNumberFormatter return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter is
+   function Create return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter");
       Instance      : aliased IInspectable := null;

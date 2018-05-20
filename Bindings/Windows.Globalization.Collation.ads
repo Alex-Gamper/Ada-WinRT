@@ -153,7 +153,7 @@ package Windows.Globalization.Collation is
    
    subtype CharacterGrouping is Windows.Globalization.Collation.ICharacterGrouping;
    subtype CharacterGroupings is Windows.Globalization.Collation.ICharacterGroupings;
-   function CreateCharacterGroupings return Windows.Globalization.Collation.ICharacterGroupings;
+   function Create return Windows.Globalization.Collation.ICharacterGroupings;
    
    function Create
    (

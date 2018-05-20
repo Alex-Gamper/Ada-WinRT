@@ -28,7 +28,7 @@ package body Windows.Storage.Pickers is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateFileOpenPicker return Windows.Storage.Pickers.IFileOpenPicker is
+   function Create return Windows.Storage.Pickers.IFileOpenPicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FileOpenPicker");
       Instance      : aliased IInspectable := null;
@@ -45,7 +45,7 @@ package body Windows.Storage.Pickers is
       return Convert(RetVal);
    end;
    
-   function CreateFileSavePicker return Windows.Storage.Pickers.IFileSavePicker is
+   function Create return Windows.Storage.Pickers.IFileSavePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FileSavePicker");
       Instance      : aliased IInspectable := null;
@@ -62,7 +62,7 @@ package body Windows.Storage.Pickers is
       return Convert(RetVal);
    end;
    
-   function CreateFolderPicker return Windows.Storage.Pickers.IFolderPicker is
+   function Create return Windows.Storage.Pickers.IFolderPicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FolderPicker");
       Instance      : aliased IInspectable := null;

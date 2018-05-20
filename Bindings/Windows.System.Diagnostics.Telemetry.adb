@@ -27,7 +27,7 @@ package body Windows.System.Diagnostics.Telemetry is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePlatformTelemetryRegistrationSettings return Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings is
+   function Create return Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings");
       Instance      : aliased IInspectable := null;

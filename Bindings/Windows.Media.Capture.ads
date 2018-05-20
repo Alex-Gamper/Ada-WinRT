@@ -7485,16 +7485,16 @@ package Windows.Media.Capture is
    subtype CameraCaptureUIPhotoCaptureSettings is Windows.Media.Capture.ICameraCaptureUIPhotoCaptureSettings;
    subtype CameraCaptureUIVideoCaptureSettings is Windows.Media.Capture.ICameraCaptureUIVideoCaptureSettings;
    subtype CameraCaptureUI is Windows.Media.Capture.ICameraCaptureUI;
-   function CreateCameraCaptureUI return Windows.Media.Capture.ICameraCaptureUI;
+   function Create return Windows.Media.Capture.ICameraCaptureUI;
    
    subtype MediaCaptureFailedEventArgs is Windows.Media.Capture.IMediaCaptureFailedEventArgs;
    subtype MediaCapture is Windows.Media.Capture.IMediaCapture;
-   function CreateMediaCapture return Windows.Media.Capture.IMediaCapture;
+   function Create return Windows.Media.Capture.IMediaCapture;
    
    subtype MediaCaptureVideoProfileMediaDescription is Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription;
    subtype MediaCaptureVideoProfile is Windows.Media.Capture.IMediaCaptureVideoProfile;
    subtype MediaCaptureInitializationSettings is Windows.Media.Capture.IMediaCaptureInitializationSettings;
-   function CreateMediaCaptureInitializationSettings return Windows.Media.Capture.IMediaCaptureInitializationSettings;
+   function Create return Windows.Media.Capture.IMediaCaptureInitializationSettings;
    
    subtype MediaCaptureSettings is Windows.Media.Capture.IMediaCaptureSettings;
    subtype LowLagMediaRecording is Windows.Media.Capture.ILowLagMediaRecording;
@@ -7550,7 +7550,7 @@ package Windows.Media.Capture is
    subtype AppCaptureFileGeneratedEventArgs is Windows.Media.Capture.IAppCaptureFileGeneratedEventArgs;
    subtype AppCaptureServices is Windows.Media.Capture.IAppCaptureServices;
    subtype AppCaptureMetadataWriter is Windows.Media.Capture.IAppCaptureMetadataWriter;
-   function CreateAppCaptureMetadataWriter return Windows.Media.Capture.IAppCaptureMetadataWriter;
+   function Create return Windows.Media.Capture.IAppCaptureMetadataWriter;
    
    subtype GameBarServicesManager is Windows.Media.Capture.IGameBarServicesManager;
    subtype GameBarServicesManagerGameBarServicesCreatedEventArgs is Windows.Media.Capture.IGameBarServicesManagerGameBarServicesCreatedEventArgs;

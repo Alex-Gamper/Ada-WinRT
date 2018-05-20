@@ -2873,21 +2873,21 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    
    subtype Appointment is Windows.ApplicationModel.Appointments.IAppointment;
-   function CreateAppointment return Windows.ApplicationModel.Appointments.IAppointment;
+   function Create return Windows.ApplicationModel.Appointments.IAppointment;
    
    subtype AppointmentStore is Windows.ApplicationModel.Appointments.IAppointmentStore;
    subtype AppointmentManagerForUser is Windows.ApplicationModel.Appointments.IAppointmentManagerForUser;
    subtype AppointmentOrganizer is Windows.ApplicationModel.Appointments.IAppointmentParticipant;
-   function CreateAppointmentOrganizer return Windows.ApplicationModel.Appointments.IAppointmentParticipant;
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentParticipant;
    
    subtype AppointmentInvitee is Windows.ApplicationModel.Appointments.IAppointmentInvitee;
-   function CreateAppointmentInvitee return Windows.ApplicationModel.Appointments.IAppointmentInvitee;
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentInvitee;
    
    subtype AppointmentRecurrence is Windows.ApplicationModel.Appointments.IAppointmentRecurrence;
-   function CreateAppointmentRecurrence return Windows.ApplicationModel.Appointments.IAppointmentRecurrence;
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentRecurrence;
    
    subtype FindAppointmentsOptions is Windows.ApplicationModel.Appointments.IFindAppointmentsOptions;
-   function CreateFindAppointmentsOptions return Windows.ApplicationModel.Appointments.IFindAppointmentsOptions;
+   function Create return Windows.ApplicationModel.Appointments.IFindAppointmentsOptions;
    
    subtype AppointmentException is Windows.ApplicationModel.Appointments.IAppointmentException;
    subtype AppointmentCalendarSyncManager is Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager;

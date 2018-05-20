@@ -598,7 +598,7 @@ package Windows.UI.Popups is
    return Windows.UI.Popups.IMessageDialog;
    
    subtype UICommand is Windows.UI.Popups.IUICommand;
-   function CreateUICommand return Windows.UI.Popups.IUICommand;
+   function Create return Windows.UI.Popups.IUICommand;
    
    function Create
    (
@@ -622,10 +622,10 @@ package Windows.UI.Popups is
    return Windows.UI.Popups.IUICommand;
    
    subtype UICommandSeparator is Windows.UI.Popups.IUICommand;
-   function CreateUICommandSeparator return Windows.UI.Popups.IUICommand;
+   function Create1 return Windows.UI.Popups.IUICommand;
    
    subtype PopupMenu is Windows.UI.Popups.IPopupMenu;
-   function CreatePopupMenu return Windows.UI.Popups.IPopupMenu;
+   function Create return Windows.UI.Popups.IPopupMenu;
    
    
    ------------------------------------------------------------------------

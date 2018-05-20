@@ -190,7 +190,7 @@ package body Windows.Media.Effects is
       return RetVal;
    end;
    
-   function CreateVideoTransformEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
+   function Create return Windows.Media.Effects.IVideoEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Effects.VideoTransformEffectDefinition");
       Instance      : aliased IInspectable := null;
@@ -207,7 +207,7 @@ package body Windows.Media.Effects is
       return Convert(RetVal);
    end;
    
-   function CreateSlowMotionEffectDefinition return Windows.Media.Effects.ISlowMotionEffectDefinition is
+   function Create return Windows.Media.Effects.ISlowMotionEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Effects.SlowMotionEffectDefinition");
       Instance      : aliased IInspectable := null;

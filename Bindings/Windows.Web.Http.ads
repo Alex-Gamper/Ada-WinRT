@@ -1388,7 +1388,7 @@ package Windows.Web.Http is
    ------------------------------------------------------------------------
    
    subtype HttpRequestMessage is Windows.Web.Http.IHttpRequestMessage;
-   function CreateHttpRequestMessage return Windows.Web.Http.IHttpRequestMessage;
+   function Create return Windows.Web.Http.IHttpRequestMessage;
    
    function Create
    (
@@ -1398,7 +1398,7 @@ package Windows.Web.Http is
    return Windows.Web.Http.IHttpRequestMessage;
    
    subtype HttpResponseMessage is Windows.Web.Http.IHttpResponseMessage;
-   function CreateHttpResponseMessage return Windows.Web.Http.IHttpResponseMessage;
+   function Create return Windows.Web.Http.IHttpResponseMessage;
    
    function Create
    (
@@ -1407,7 +1407,7 @@ package Windows.Web.Http is
    return Windows.Web.Http.IHttpResponseMessage;
    
    subtype HttpClient is Windows.Web.Http.IHttpClient;
-   function CreateHttpClient return Windows.Web.Http.IHttpClient;
+   function Create return Windows.Web.Http.IHttpClient;
    
    function Create
    (
@@ -1485,7 +1485,7 @@ package Windows.Web.Http is
    return Windows.Web.Http.IHttpContent;
    
    subtype HttpMultipartContent is Windows.Web.Http.IHttpContent;
-   function CreateHttpMultipartContent return Windows.Web.Http.IHttpContent;
+   function Create return Windows.Web.Http.IHttpContent;
    
    function CreateWithSubtype
    (
@@ -1501,7 +1501,7 @@ package Windows.Web.Http is
    return Windows.Web.Http.IHttpContent;
    
    subtype HttpMultipartFormDataContent is Windows.Web.Http.IHttpContent;
-   function CreateHttpMultipartFormDataContent return Windows.Web.Http.IHttpContent;
+   function Create1 return Windows.Web.Http.IHttpContent;
    
    function CreateWithBoundary
    (

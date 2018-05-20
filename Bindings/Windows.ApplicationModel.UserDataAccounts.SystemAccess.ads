@@ -934,7 +934,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    ------------------------------------------------------------------------
    
    subtype DeviceAccountConfiguration is Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration;
-   function CreateDeviceAccountConfiguration return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration;
+   function Create return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration;
    
    
    ------------------------------------------------------------------------

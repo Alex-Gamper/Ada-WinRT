@@ -5071,16 +5071,16 @@ package Windows.UI.Xaml.Media.Animation is
    subtype KeyTimeHelper is Windows.UI.Xaml.Media.Animation.IKeyTimeHelper;
    subtype RepeatBehaviorHelper is Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelper;
    subtype TransitionCollection is Windows.UI.Xaml.Media.Animation.IVector_Transition;
-   function CreateTransitionCollection return Windows.UI.Xaml.Media.Animation.IVector_Transition;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Transition;
    
    subtype DoubleKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame;
-   function CreateDoubleKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame;
    
    subtype ObjectKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame;
-   function CreateObjectKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame;
    
    subtype TimelineCollection is Windows.UI.Xaml.Media.Animation.IVector_Timeline;
-   function CreateTimelineCollection return Windows.UI.Xaml.Media.Animation.IVector_Timeline;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Timeline;
    
    subtype DoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
    
@@ -5165,7 +5165,7 @@ package Windows.UI.Xaml.Media.Animation is
    
    subtype EasingFunctionBase is Windows.UI.Xaml.Media.Animation.IEasingFunctionBase;
    subtype KeySpline is Windows.UI.Xaml.Media.Animation.IKeySpline;
-   function CreateKeySpline return Windows.UI.Xaml.Media.Animation.IKeySpline;
+   function Create return Windows.UI.Xaml.Media.Animation.IKeySpline;
    
    subtype NavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
    
@@ -5521,105 +5521,105 @@ package Windows.UI.Xaml.Media.Animation is
    
    subtype Transition is Windows.UI.Xaml.Media.Animation.ITransition;
    subtype AddDeleteThemeTransition is Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition;
-   function CreateAddDeleteThemeTransition return Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition;
    
    subtype BackEase is Windows.UI.Xaml.Media.Animation.IBackEase;
-   function CreateBackEase return Windows.UI.Xaml.Media.Animation.IBackEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IBackEase;
    
    subtype BeginStoryboard is Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
-   function CreateBeginStoryboard return Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
+   function Create return Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
    
    subtype BounceEase is Windows.UI.Xaml.Media.Animation.IBounceEase;
-   function CreateBounceEase return Windows.UI.Xaml.Media.Animation.IBounceEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IBounceEase;
    
    subtype CircleEase is Windows.UI.Xaml.Media.Animation.ICircleEase;
-   function CreateCircleEase return Windows.UI.Xaml.Media.Animation.ICircleEase;
+   function Create return Windows.UI.Xaml.Media.Animation.ICircleEase;
    
    subtype ColorAnimation is Windows.UI.Xaml.Media.Animation.IColorAnimation;
-   function CreateColorAnimation return Windows.UI.Xaml.Media.Animation.IColorAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimation;
    
    subtype ContentThemeTransition is Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
-   function CreateContentThemeTransition return Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
    
    subtype CubicEase is Windows.UI.Xaml.Media.Animation.ICubicEase;
-   function CreateCubicEase return Windows.UI.Xaml.Media.Animation.ICubicEase;
+   function Create return Windows.UI.Xaml.Media.Animation.ICubicEase;
    
    subtype DiscreteDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame;
-   function CreateDiscreteDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame;
    
    subtype DiscreteObjectKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame;
-   function CreateDiscreteObjectKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame;
    
    subtype DoubleAnimation is Windows.UI.Xaml.Media.Animation.IDoubleAnimation;
-   function CreateDoubleAnimation return Windows.UI.Xaml.Media.Animation.IDoubleAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimation;
    
    subtype DoubleAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames;
-   function CreateDoubleAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames;
    
    subtype EasingDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame;
-   function CreateEasingDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame;
    
    subtype EdgeUIThemeTransition is Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition;
-   function CreateEdgeUIThemeTransition return Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition;
    
    subtype ElasticEase is Windows.UI.Xaml.Media.Animation.IElasticEase;
-   function CreateElasticEase return Windows.UI.Xaml.Media.Animation.IElasticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IElasticEase;
    
    subtype EntranceThemeTransition is Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition;
-   function CreateEntranceThemeTransition return Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition;
    
    subtype ExponentialEase is Windows.UI.Xaml.Media.Animation.IExponentialEase;
-   function CreateExponentialEase return Windows.UI.Xaml.Media.Animation.IExponentialEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IExponentialEase;
    
    subtype LinearDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame;
-   function CreateLinearDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame;
    
    subtype ObjectAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames;
-   function CreateObjectAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames;
    
    subtype PaneThemeTransition is Windows.UI.Xaml.Media.Animation.IPaneThemeTransition;
-   function CreatePaneThemeTransition return Windows.UI.Xaml.Media.Animation.IPaneThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IPaneThemeTransition;
    
    subtype PointAnimation is Windows.UI.Xaml.Media.Animation.IPointAnimation;
-   function CreatePointAnimation return Windows.UI.Xaml.Media.Animation.IPointAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimation;
    
    subtype PopupThemeTransition is Windows.UI.Xaml.Media.Animation.IPopupThemeTransition;
-   function CreatePopupThemeTransition return Windows.UI.Xaml.Media.Animation.IPopupThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IPopupThemeTransition;
    
    subtype PowerEase is Windows.UI.Xaml.Media.Animation.IPowerEase;
-   function CreatePowerEase return Windows.UI.Xaml.Media.Animation.IPowerEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IPowerEase;
    
    subtype QuadraticEase is Windows.UI.Xaml.Media.Animation.IQuadraticEase;
-   function CreateQuadraticEase return Windows.UI.Xaml.Media.Animation.IQuadraticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IQuadraticEase;
    
    subtype QuarticEase is Windows.UI.Xaml.Media.Animation.IQuarticEase;
-   function CreateQuarticEase return Windows.UI.Xaml.Media.Animation.IQuarticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IQuarticEase;
    
    subtype QuinticEase is Windows.UI.Xaml.Media.Animation.IQuinticEase;
-   function CreateQuinticEase return Windows.UI.Xaml.Media.Animation.IQuinticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IQuinticEase;
    
    subtype ReorderThemeTransition is Windows.UI.Xaml.Media.Animation.IReorderThemeTransition;
-   function CreateReorderThemeTransition return Windows.UI.Xaml.Media.Animation.IReorderThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IReorderThemeTransition;
    
    subtype RepositionThemeTransition is Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition;
-   function CreateRepositionThemeTransition return Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition;
    
    subtype SineEase is Windows.UI.Xaml.Media.Animation.ISineEase;
-   function CreateSineEase return Windows.UI.Xaml.Media.Animation.ISineEase;
+   function Create return Windows.UI.Xaml.Media.Animation.ISineEase;
    
    subtype SplineDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame;
-   function CreateSplineDoubleKeyFrame return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame;
    
    subtype Storyboard is Windows.UI.Xaml.Media.Animation.IStoryboard;
-   function CreateStoryboard return Windows.UI.Xaml.Media.Animation.IStoryboard;
+   function Create return Windows.UI.Xaml.Media.Animation.IStoryboard;
    
    subtype ColorKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame;
-   function CreateColorKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame;
    
    subtype ConnectedAnimation is Windows.UI.Xaml.Media.Animation.IConnectedAnimation;
    subtype ConnectedAnimationService is Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
    subtype PointKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame;
-   function CreatePointKeyFrameCollection return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame;
    
    subtype ColorKeyFrame is Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
    
@@ -5784,103 +5784,103 @@ package Windows.UI.Xaml.Media.Animation is
    return Windows.HRESULT;
    
    subtype ColorAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames;
-   function CreateColorAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames;
    
    subtype DiscreteColorKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
-   function CreateDiscreteColorKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
    
    subtype DiscretePointKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame;
-   function CreateDiscretePointKeyFrame return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame;
    
    subtype DragItemThemeAnimation is Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation;
-   function CreateDragItemThemeAnimation return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation;
    
    subtype DragOverThemeAnimation is Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation;
-   function CreateDragOverThemeAnimation return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation;
    
    subtype DrillInThemeAnimation is Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation;
-   function CreateDrillInThemeAnimation return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation;
    
    subtype DrillOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation;
-   function CreateDrillOutThemeAnimation return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation;
    
    subtype DropTargetItemThemeAnimation is Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation;
-   function CreateDropTargetItemThemeAnimation return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation;
    
    subtype EasingColorKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame;
-   function CreateEasingColorKeyFrame return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame;
    
    subtype EasingPointKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame;
-   function CreateEasingPointKeyFrame return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame;
    
    subtype FadeInThemeAnimation is Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation;
-   function CreateFadeInThemeAnimation return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation;
    
    subtype FadeOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
-   function CreateFadeOutThemeAnimation return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
    
    subtype LinearColorKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame;
-   function CreateLinearColorKeyFrame return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame;
    
    subtype LinearPointKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame;
-   function CreateLinearPointKeyFrame return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame;
    
    subtype PointAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames;
-   function CreatePointAnimationUsingKeyFrames return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames;
    
    subtype PointerDownThemeAnimation is Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation;
-   function CreatePointerDownThemeAnimation return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation;
    
    subtype PointerUpThemeAnimation is Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation;
-   function CreatePointerUpThemeAnimation return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation;
    
    subtype PopInThemeAnimation is Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation;
-   function CreatePopInThemeAnimation return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation;
    
    subtype PopOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation;
-   function CreatePopOutThemeAnimation return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation;
    
    subtype RepositionThemeAnimation is Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation;
-   function CreateRepositionThemeAnimation return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation;
    
    subtype SplineColorKeyFrame is Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame;
-   function CreateSplineColorKeyFrame return Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame;
    
    subtype SplinePointKeyFrame is Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame;
-   function CreateSplinePointKeyFrame return Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame;
    
    subtype SplitCloseThemeAnimation is Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation;
-   function CreateSplitCloseThemeAnimation return Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation;
    
    subtype SplitOpenThemeAnimation is Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation;
-   function CreateSplitOpenThemeAnimation return Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation;
    
    subtype SwipeBackThemeAnimation is Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation;
-   function CreateSwipeBackThemeAnimation return Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation;
    
    subtype SwipeHintThemeAnimation is Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation;
-   function CreateSwipeHintThemeAnimation return Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation;
    
    subtype CommonNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
-   function CreateCommonNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
    
    subtype ContinuumNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo;
-   function CreateContinuumNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo;
    
    subtype DrillInNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo;
-   function CreateDrillInNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo;
    
    subtype EntranceNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo;
-   function CreateEntranceNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo;
    
    subtype NavigationThemeTransition is Windows.UI.Xaml.Media.Animation.INavigationThemeTransition;
-   function CreateNavigationThemeTransition return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition;
    
    subtype SlideNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo;
-   function CreateSlideNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo;
    
    subtype SuppressNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo;
-   function CreateSuppressNavigationTransitionInfo return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo;
    
    
    ------------------------------------------------------------------------

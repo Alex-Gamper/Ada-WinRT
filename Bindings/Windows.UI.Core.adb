@@ -624,7 +624,7 @@ package body Windows.UI.Core is
       return RetVal;
    end;
    
-   function CreateCoreWindowDialog return Windows.UI.Core.ICoreWindowDialog is
+   function Create return Windows.UI.Core.ICoreWindowDialog is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Core.CoreWindowDialog");
       Instance      : aliased IInspectable := null;

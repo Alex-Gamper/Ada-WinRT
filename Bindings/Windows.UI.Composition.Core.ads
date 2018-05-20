@@ -107,7 +107,7 @@ package Windows.UI.Composition.Core is
    ------------------------------------------------------------------------
    
    subtype CompositorController is Windows.UI.Composition.Core.ICompositorController;
-   function CreateCompositorController return Windows.UI.Composition.Core.ICompositorController;
+   function Create return Windows.UI.Composition.Core.ICompositorController;
    
    
    ------------------------------------------------------------------------

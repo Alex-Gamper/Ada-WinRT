@@ -47,7 +47,7 @@ package body Windows.Data.Pdf is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePdfPageRenderOptions return Windows.Data.Pdf.IPdfPageRenderOptions is
+   function Create return Windows.Data.Pdf.IPdfPageRenderOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Pdf.PdfPageRenderOptions");
       Instance      : aliased IInspectable := null;

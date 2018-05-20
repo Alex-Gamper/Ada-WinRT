@@ -3062,7 +3062,7 @@ package Windows.Services.Store is
    subtype StoreProduct is Windows.Services.Store.IStoreProduct;
    subtype StoreProductPagedQueryResult is Windows.Services.Store.IStoreProductPagedQueryResult;
    subtype StorePurchaseProperties is Windows.Services.Store.IStorePurchaseProperties;
-   function CreateStorePurchaseProperties return Windows.Services.Store.IStorePurchaseProperties;
+   function Create return Windows.Services.Store.IStorePurchaseProperties;
    
    function Create
    (
@@ -3090,11 +3090,11 @@ package Windows.Services.Store is
    subtype StorePackageUpdateResult is Windows.Services.Store.IStorePackageUpdateResult;
    subtype StoreCanAcquireLicenseResult is Windows.Services.Store.IStoreCanAcquireLicenseResult;
    subtype StoreProductOptions is Windows.Services.Store.IStoreProductOptions;
-   function CreateStoreProductOptions return Windows.Services.Store.IStoreProductOptions;
+   function Create return Windows.Services.Store.IStoreProductOptions;
    
    subtype StoreQueueItem is Windows.Services.Store.IStoreQueueItem;
    subtype StorePackageInstallOptions is Windows.Services.Store.IStorePackageInstallOptions;
-   function CreateStorePackageInstallOptions return Windows.Services.Store.IStorePackageInstallOptions;
+   function Create return Windows.Services.Store.IStorePackageInstallOptions;
    
    subtype StoreUninstallStorePackageResult is Windows.Services.Store.IStoreUninstallStorePackageResult;
    subtype StoreQueueItemStatus is Windows.Services.Store.IStoreQueueItemStatus;

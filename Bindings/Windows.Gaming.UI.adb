@@ -58,7 +58,7 @@ package body Windows.Gaming.UI is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateGameChatOverlayMessageSource return Windows.Gaming.UI.IGameChatOverlayMessageSource is
+   function Create return Windows.Gaming.UI.IGameChatOverlayMessageSource is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameChatOverlayMessageSource");
       Instance      : aliased IInspectable := null;

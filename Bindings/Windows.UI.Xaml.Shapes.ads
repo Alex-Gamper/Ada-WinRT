@@ -892,10 +892,10 @@ package Windows.UI.Xaml.Shapes is
    return Windows.HRESULT;
    
    subtype Ellipse is Windows.UI.Xaml.Shapes.IEllipse;
-   function CreateEllipse return Windows.UI.Xaml.Shapes.IEllipse;
+   function Create return Windows.UI.Xaml.Shapes.IEllipse;
    
    subtype Line is Windows.UI.Xaml.Shapes.ILine;
-   function CreateLine return Windows.UI.Xaml.Shapes.ILine;
+   function Create return Windows.UI.Xaml.Shapes.ILine;
    
    subtype Path is Windows.UI.Xaml.Shapes.IPath;
    
@@ -965,13 +965,13 @@ package Windows.UI.Xaml.Shapes is
    return Windows.HRESULT;
    
    subtype Polygon is Windows.UI.Xaml.Shapes.IPolygon;
-   function CreatePolygon return Windows.UI.Xaml.Shapes.IPolygon;
+   function Create return Windows.UI.Xaml.Shapes.IPolygon;
    
    subtype Polyline is Windows.UI.Xaml.Shapes.IPolyline;
-   function CreatePolyline return Windows.UI.Xaml.Shapes.IPolyline;
+   function Create return Windows.UI.Xaml.Shapes.IPolyline;
    
    subtype Rectangle is Windows.UI.Xaml.Shapes.IRectangle;
-   function CreateRectangle return Windows.UI.Xaml.Shapes.IRectangle;
+   function Create return Windows.UI.Xaml.Shapes.IRectangle;
    
    
    ------------------------------------------------------------------------

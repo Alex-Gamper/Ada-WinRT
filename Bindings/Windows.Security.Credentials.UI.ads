@@ -534,7 +534,7 @@ package Windows.Security.Credentials.UI is
    ------------------------------------------------------------------------
    
    subtype CredentialPickerOptions is Windows.Security.Credentials.UI.ICredentialPickerOptions;
-   function CreateCredentialPickerOptions return Windows.Security.Credentials.UI.ICredentialPickerOptions;
+   function Create return Windows.Security.Credentials.UI.ICredentialPickerOptions;
    
    subtype CredentialPickerResults is Windows.Security.Credentials.UI.ICredentialPickerResults;
    

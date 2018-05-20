@@ -136,7 +136,7 @@ package body Windows.Graphics.Printing3D is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreatePrinting3DTextureResource return Windows.Graphics.Printing3D.IPrinting3DTextureResource is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DTextureResource is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DTextureResource");
       Instance      : aliased IInspectable := null;
@@ -153,7 +153,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DComponent return Windows.Graphics.Printing3D.IPrinting3DComponent is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DComponent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DComponent");
       Instance      : aliased IInspectable := null;
@@ -170,7 +170,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DMesh return Windows.Graphics.Printing3D.IPrinting3DMesh is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DMesh is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMesh");
       Instance      : aliased IInspectable := null;
@@ -187,7 +187,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DComponentWithMatrix return Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DComponentWithMatrix");
       Instance      : aliased IInspectable := null;
@@ -204,7 +204,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DColorMaterial return Windows.Graphics.Printing3D.IPrinting3DColorMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DColorMaterial is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DColorMaterial");
       Instance      : aliased IInspectable := null;
@@ -221,7 +221,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DModelTexture return Windows.Graphics.Printing3D.IPrinting3DModelTexture is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DModelTexture is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DModelTexture");
       Instance      : aliased IInspectable := null;
@@ -258,7 +258,7 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
-   function CreatePrinting3DBaseMaterial return Windows.Graphics.Printing3D.IPrinting3DBaseMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DBaseMaterial is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DBaseMaterial");
       Instance      : aliased IInspectable := null;
@@ -315,7 +315,7 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
-   function CreatePrinting3DTexture2CoordMaterial return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterial is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial");
       Instance      : aliased IInspectable := null;
@@ -352,7 +352,7 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
-   function CreatePrinting3DCompositeMaterial return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DCompositeMaterial");
       Instance      : aliased IInspectable := null;
@@ -389,7 +389,7 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
-   function CreatePrinting3DMultiplePropertyMaterial return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial");
       Instance      : aliased IInspectable := null;
@@ -406,7 +406,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DMaterial return Windows.Graphics.Printing3D.IPrinting3DMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DMaterial is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMaterial");
       Instance      : aliased IInspectable := null;
@@ -423,7 +423,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DModel return Windows.Graphics.Printing3D.IPrinting3DModel is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DModel is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DModel");
       Instance      : aliased IInspectable := null;
@@ -440,7 +440,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3DFaceReductionOptions return Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DFaceReductionOptions");
       Instance      : aliased IInspectable := null;
@@ -457,7 +457,7 @@ package body Windows.Graphics.Printing3D is
       return Convert(RetVal);
    end;
    
-   function CreatePrinting3D3MFPackage return Windows.Graphics.Printing3D.IPrinting3D3MFPackage is
+   function Create return Windows.Graphics.Printing3D.IPrinting3D3MFPackage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3D3MFPackage");
       Instance      : aliased IInspectable := null;
