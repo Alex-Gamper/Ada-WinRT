@@ -81,11 +81,14 @@ procedure Ocr is
     ----------------------------------------------------------------------------
     function Get_SoftwareBitmap (p_IBitmapDecoder : IBitmapDecoder) return ISoftwareBitmap is
         function Await  is new GenericAwait(IAsyncOperation_ISoftwareBitmap_Interface);
+        
+        function QI is new GenericQI(IBitmapDecoder_Interface , IBitmapFrameWithSoftwareBitmap , IID_IBitmapFrameWithSoftwareBitmap'Access);
+
         m_IBitmapFrameWithSoftwareBitmap    : aliased IBitmapFrameWithSoftwareBitmap;
         m_IAsyncOperation_ISoftwareBitmap   : aliased IAsyncOperation_ISoftwareBitmap;
         RetVal                              : aliased ISoftwareBitmap := null;
     begin
-        Hr := p_IBitmapDecoder.QueryInterface(IID_IBitmapFrameWithSoftwareBitmap'access, m_IBitmapFrameWithSoftwareBitmap'address);
+        m_IBitmapFrameWithSoftwareBitmap := QI(p_IBitmapDecoder); --Hr := p_IBitmapDecoder.QueryInterface(IID_IBitmapFrameWithSoftwareBitmap'access, m_IBitmapFrameWithSoftwareBitmap'Access);
         Hr := m_IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapAsync(m_IAsyncOperation_ISoftwareBitmap'access);
         if m_IAsyncOperation_ISoftwareBitmap /= null then
             if Await(m_IAsyncOperation_ISoftwareBitmap) = true then

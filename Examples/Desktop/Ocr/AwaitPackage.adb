@@ -25,10 +25,12 @@ package body AwaitPackage is
         m_IAsyncInfo    : aliased IAsyncInfo;
         m_AsyncStatus   : aliased AsyncStatus;
 
+        function QI is new GenericQI(T , IAsyncInfo , IID_IAsyncInfo'Access);
+
         pragma suppress(all_checks);    -- QueryInterface raises access check without this !!!
 
     begin
-        Hr := p_IAsyncOperation.QueryInterface(IID_IAsyncInfo'Access, m_IAsyncInfo'Address);
+        m_IAsyncInfo := QI(p_IAsyncOperation); --Hr := p_IAsyncOperation.QueryInterface(IID_IAsyncInfo'Access, m_IAsyncInfo'address);
         if Hr = 0 then      
             Hr := m_IAsyncInfo.get_Status(m_AsyncStatus'access);
             while Hr = 0 loop
@@ -43,6 +45,5 @@ package body AwaitPackage is
         end if;
         return RetVal;
     end;
-
 
 end AwaitPackage;
