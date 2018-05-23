@@ -1705,7 +1705,7 @@ package Windows.System is
    function get_ExtendedError
    (
       This       : access IAppActivationResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1869,7 +1869,7 @@ package Windows.System is
    function get_ExtendedError
    (
       This       : access IAppExecutionStateChangeResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

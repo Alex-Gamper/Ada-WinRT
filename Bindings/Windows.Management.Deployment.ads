@@ -270,7 +270,7 @@ package Windows.Management.Deployment is
    function get_ExtendedErrorCode
    (
       This       : access IDeploymentResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

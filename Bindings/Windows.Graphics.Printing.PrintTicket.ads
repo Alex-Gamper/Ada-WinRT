@@ -560,7 +560,7 @@ package Windows.Graphics.Printing.PrintTicket is
    function get_ExtendedError
    (
       This       : access IWorkflowPrintTicketValidationResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

@@ -289,7 +289,7 @@ package Windows.Media.AppRecording is
    function get_ExtendedError
    (
       This       : access IAppRecordingResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -323,7 +323,7 @@ package Windows.Media.AppRecording is
    function get_ExtendedError
    (
       This       : access IAppRecordingSaveScreenshotResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

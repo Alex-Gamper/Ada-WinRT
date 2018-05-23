@@ -968,7 +968,7 @@ package Windows.ApplicationModel is
    function get_ErrorCode
    (
       This       : access IPackageStagingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1009,7 +1009,7 @@ package Windows.ApplicationModel is
    function get_ErrorCode
    (
       This       : access IPackageInstallingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1057,7 +1057,7 @@ package Windows.ApplicationModel is
    function get_ErrorCode
    (
       This       : access IPackageUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1098,7 +1098,7 @@ package Windows.ApplicationModel is
    function get_ErrorCode
    (
       This       : access IPackageUninstallingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1152,7 +1152,7 @@ package Windows.ApplicationModel is
    function get_ErrorCode
    (
       This       : access IPackageContentGroupStagingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1267,7 +1267,7 @@ package Windows.ApplicationModel is
    function get_ExtendedError
    (
       This       : access IPackageCatalogAddOptionalPackageResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1316,7 +1316,7 @@ package Windows.ApplicationModel is
    function get_ExtendedError
    (
       This       : access IPackageCatalogRemoveOptionalPackagesResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1350,7 +1350,7 @@ package Windows.ApplicationModel is
    function get_ExtendedError
    (
       This       : access IPackageCatalogRemoveResourcePackagesResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1377,7 +1377,7 @@ package Windows.ApplicationModel is
    function get_ExtendedError
    (
       This       : access IPackageCatalogAddResourcePackageResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

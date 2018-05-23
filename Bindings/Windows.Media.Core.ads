@@ -3932,7 +3932,7 @@ package Windows.Media.Core is
    function get_ExtendedError
    (
       This       : access IMediaSourceError_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -4452,7 +4452,7 @@ package Windows.Media.Core is
    function get_ExtendedError
    (
       This       : access ITimedMetadataTrackError_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -4792,7 +4792,7 @@ package Windows.Media.Core is
    function get_ExtendedError
    (
       This       : access IVideoTrackOpenFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -4805,7 +4805,7 @@ package Windows.Media.Core is
    function get_ExtendedError
    (
       This       : access IAudioTrackOpenFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

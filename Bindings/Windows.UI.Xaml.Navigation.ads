@@ -250,7 +250,7 @@ package Windows.UI.Xaml.Navigation is
    function get_Exception
    (
       This       : access INavigationFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

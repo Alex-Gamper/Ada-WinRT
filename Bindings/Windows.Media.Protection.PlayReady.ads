@@ -1965,7 +1965,7 @@ package Windows.Media.Protection.PlayReady is
    (
       This       : access IPlayReadyServiceRequest_Interface
       ; responseBytes : Windows.UInt8_Ptr
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

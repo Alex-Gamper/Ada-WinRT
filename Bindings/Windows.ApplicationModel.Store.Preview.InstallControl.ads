@@ -249,7 +249,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    function get_ErrorCode
    (
       This       : access IAppInstallStatus_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

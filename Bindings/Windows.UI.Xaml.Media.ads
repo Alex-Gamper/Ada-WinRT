@@ -1256,7 +1256,7 @@ package Windows.UI.Xaml.Media is
    function get_ExtendedError
    (
       This       : access IPartialMediaFailureDetectedEventArgs2_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

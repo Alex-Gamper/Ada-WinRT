@@ -1092,7 +1092,7 @@ package Windows.UI.Notifications is
    function get_ErrorCode
    (
       This       : access IToastFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

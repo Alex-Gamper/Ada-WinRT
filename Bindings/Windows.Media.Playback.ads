@@ -815,7 +815,7 @@ package Windows.Media.Playback is
    function get_ExtendedErrorCode
    (
       This       : access IMediaPlayerFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -3587,7 +3587,7 @@ package Windows.Media.Playback is
    function get_ExtendedError
    (
       This       : access IMediaPlaybackItemError_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

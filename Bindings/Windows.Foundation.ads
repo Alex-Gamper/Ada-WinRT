@@ -186,13 +186,6 @@ package Windows.Foundation is
    
    type EventRegistrationToken_Ptr is access EventRegistrationToken;
    
-   type HResult is record
-      Value : Windows.Int32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , HResult);
-   
-   type HResult_Ptr is access HResult;
-   
    type FoundationContract is null record;
    pragma Convention (C_Pass_By_Copy , FoundationContract);
    
@@ -1175,7 +1168,7 @@ package Windows.Foundation is
    function get_ErrorCode
    (
       This       : access IAsyncInfo_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

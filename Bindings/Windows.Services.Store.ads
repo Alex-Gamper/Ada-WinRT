@@ -518,7 +518,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreProductPagedQueryResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -545,7 +545,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreProductQueryResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -565,7 +565,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreProductResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -805,7 +805,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreSendRequestResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1352,7 +1352,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreConsumableResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1372,7 +1372,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStorePurchaseResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1746,7 +1746,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreCanAcquireLicenseResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1867,7 +1867,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreQueueItemStatus_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1964,7 +1964,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreAcquireLicenseResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -2018,7 +2018,7 @@ package Windows.Services.Store is
    function get_ExtendedError
    (
       This       : access IStoreUninstallStorePackageResult_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

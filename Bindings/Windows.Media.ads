@@ -1641,7 +1641,7 @@ package Windows.Media is
    function get_ExtendedError
    (
       This       : access IMediaTimelineControllerFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

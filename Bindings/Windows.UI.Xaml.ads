@@ -2633,7 +2633,7 @@ package Windows.UI.Xaml is
    function get_Exception
    (
       This       : access IUnhandledExceptionEventArgs_Interface
-      ; RetVal : access Windows.Foundation.HResult
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
