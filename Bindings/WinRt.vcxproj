@@ -631,7 +631,7 @@
     <ProjectGuid>{AC5510D6-492C-4B48-AE8D-F7F7AE2B7F11}</ProjectGuid>
     <Keyword>WinRt</Keyword>
     <RootNamespace>WinRt</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
     <UseMicrosoftLinker>false</UseMicrosoftLinker>
   </PropertyGroup>
   <Import Project="$(CustomProjectExtensionsPath)Ada_Default.props" />
