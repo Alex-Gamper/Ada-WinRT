@@ -573,26 +573,6 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Email.IEmailManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailManager");
-      m_Factory     : IEmailManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Email.IEmailManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function RequestStoreAsync
    (
       accessType : Windows.ApplicationModel.Email.EmailStoreAccessType
@@ -607,6 +587,26 @@ package body Windows.ApplicationModel.Email is
       Hr := RoGetActivationFactory(m_hString, IID_IEmailManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestStoreAsync(accessType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.ApplicationModel.Email.IEmailManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailManager");
+      m_Factory     : IEmailManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

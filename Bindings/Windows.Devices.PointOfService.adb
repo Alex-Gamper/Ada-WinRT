@@ -2228,26 +2228,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function GetDeviceSelectorWithConnectionTypes_ICashDrawer
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.CashDrawer");
-      m_Factory     : ICashDrawerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICashDrawerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -2296,6 +2276,26 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_ICashDrawerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorWithConnectionTypes_ICashDrawer
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.CashDrawer");
+      m_Factory     : ICashDrawerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICashDrawerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2450,26 +2450,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
-      m_Factory     : IMagneticStripeReaderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -2518,6 +2498,26 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
+      m_Factory     : IMagneticStripeReaderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -44,26 +44,6 @@ package body Windows.System.Profile is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetSystemPropertiesAsync
-   (
-      attributeNames : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.AnalyticsInfo");
-      m_Factory     : IAnalyticsInfoStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAnalyticsInfoStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetSystemPropertiesAsync(attributeNames, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_DeviceForm
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -92,6 +72,26 @@ package body Windows.System.Profile is
       Hr := RoGetActivationFactory(m_hString, IID_IAnalyticsInfoStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VersionInfo(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetSystemPropertiesAsync
+   (
+      attributeNames : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.AnalyticsInfo");
+      m_Factory     : IAnalyticsInfoStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAnalyticsInfoStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetSystemPropertiesAsync(attributeNames, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -618,23 +618,6 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   function get_ShouldAvoidLocalStorage
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.SharedModeSettings");
-      m_Factory     : ISharedModeSettingsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISharedModeSettingsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ShouldAvoidLocalStorage(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IsEnabled
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -646,6 +629,23 @@ package body Windows.System.Profile is
       Hr := RoGetActivationFactory(m_hString, IID_ISharedModeSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ShouldAvoidLocalStorage
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.SharedModeSettings");
+      m_Factory     : ISharedModeSettingsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISharedModeSettingsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ShouldAvoidLocalStorage(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -805,6 +805,23 @@ package body Windows.Storage is
       return RetVal;
    end;
    
+   function get_CameraRoll
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersCameraRollStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersCameraRollStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CameraRoll(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Playlists
    return Windows.Storage.IStorageFolder is
       Hr            : Windows.HRESULT := S_OK;
@@ -833,74 +850,6 @@ package body Windows.Storage is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersSavedPicturesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SavedPictures(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AppCaptures
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AppCaptures(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Objects3D
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Objects3D(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RecordedCalls
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RecordedCalls(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CameraRoll
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersCameraRollStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersCameraRollStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CameraRoll(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1020,6 +969,57 @@ package body Windows.Storage is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VideosLibrary(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AppCaptures
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AppCaptures(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Objects3D
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Objects3D(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RecordedCalls
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RecordedCalls(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

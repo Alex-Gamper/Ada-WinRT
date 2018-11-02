@@ -353,28 +353,6 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function ImportPfxDataToKspWithParametersAsync
-   (
-      pfxData : Windows.String
-      ; password : Windows.String
-      ; pfxImportParameters : Windows.Security.Cryptography.Certificates.IPfxImportParameters
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager");
-      m_Factory     : ICertificateEnrollmentManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICertificateEnrollmentManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ImportPfxDataToKspWithParametersAsync(pfxData, password, pfxImportParameters, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_UserCertificateEnrollmentManager
    return Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -418,20 +396,22 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function GetUserStoreByName
+   function ImportPfxDataToKspWithParametersAsync
    (
-      storeName : Windows.String
+      pfxData : Windows.String
+      ; password : Windows.String
+      ; pfxImportParameters : Windows.Security.Cryptography.Certificates.IPfxImportParameters
    )
-   return Windows.Security.Cryptography.Certificates.IUserCertificateStore is
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateStores");
-      m_Factory     : ICertificateStoresStatics2 := null;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager");
+      m_Factory     : ICertificateEnrollmentManagerStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.IUserCertificateStore;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICertificateStoresStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICertificateEnrollmentManagerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetUserStoreByName(storeName, RetVal'Access);
+         Hr := m_Factory.ImportPfxDataToKspWithParametersAsync(pfxData, password, pfxImportParameters, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -529,6 +509,26 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
+   function GetUserStoreByName
+   (
+      storeName : Windows.String
+   )
+   return Windows.Security.Cryptography.Certificates.IUserCertificateStore is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateStores");
+      m_Factory     : ICertificateStoresStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Cryptography.Certificates.IUserCertificateStore;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICertificateStoresStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetUserStoreByName(storeName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GenerateSignatureAsync
    (
       data : Windows.Storage.Streams.IBuffer
@@ -567,40 +567,6 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoGetActivationFactory(m_hString, IID_ICmsDetachedSignatureStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GenerateSignatureAsync(data, signers, certificates, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ecdh
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAlgorithmNames");
-      m_Factory     : IKeyAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ecdh(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ecdsa
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAlgorithmNames");
-      m_Factory     : IKeyAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ecdsa(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -743,21 +709,34 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function DecryptTpmAttestationCredentialWithContainerNameAsync
-   (
-      credential : Windows.String
-      ; containerName : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String is
+   function get_Ecdh
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
-      m_Factory     : IKeyAttestationHelperStatics2 := null;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAlgorithmNames");
+      m_Factory     : IKeyAlgorithmNamesStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.DecryptTpmAttestationCredentialWithContainerNameAsync(credential, containerName, RetVal'Access);
+         Hr := m_Factory.get_Ecdh(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ecdsa
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAlgorithmNames");
+      m_Factory     : IKeyAlgorithmNamesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ecdsa(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -798,6 +777,27 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetTpmAttestationCredentialId(credential, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function DecryptTpmAttestationCredentialWithContainerNameAsync
+   (
+      credential : Windows.String
+      ; containerName : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
+      m_Factory     : IKeyAttestationHelperStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DecryptTpmAttestationCredentialWithContainerNameAsync(credential, containerName, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

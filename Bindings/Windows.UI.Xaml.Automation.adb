@@ -221,159 +221,6 @@ package body Windows.UI.Xaml.Automation is
       return RetVal;
    end;
    
-   function get_LandmarkTypeProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LandmarkTypeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LocalizedLandmarkTypeProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LocalizedLandmarkTypeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DescribedByProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DescribedByProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FlowsFromProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FlowsFromProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FlowsToProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FlowsToProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FullDescriptionProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FullDescriptionProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsDataValidForFormProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsDataValidForFormProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsPeripheralProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsPeripheralProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CultureProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics6 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics6'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CultureProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AcceleratorKeyProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -765,6 +612,23 @@ package body Windows.UI.Xaml.Automation is
       return RetVal;
    end;
    
+   function get_ControlledPeersProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ControlledPeersProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AnnotationsProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -833,6 +697,159 @@ package body Windows.UI.Xaml.Automation is
       return RetVal;
    end;
    
+   function get_LandmarkTypeProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LandmarkTypeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LocalizedLandmarkTypeProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocalizedLandmarkTypeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DescribedByProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DescribedByProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FlowsFromProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FlowsFromProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FlowsToProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FlowsToProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FullDescriptionProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FullDescriptionProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsDataValidForFormProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDataValidForFormProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsPeripheralProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsPeripheralProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CultureProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics6 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics6'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CultureProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HeadingLevelProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -848,116 +865,6 @@ package body Windows.UI.Xaml.Automation is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function get_ControlledPeersProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
-      m_Factory     : IAutomationElementIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ControlledPeersProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AccessibilityViewProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AccessibilityViewProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ControlledPeersProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ControlledPeersProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetAccessibilityView
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Automation.Peers.AccessibilityView is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.AccessibilityView;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetAccessibilityView(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetControlledPeers
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IUIElement is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IVector_IUIElement;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetControlledPeers(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetAccessibilityView
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.Automation.Peers.AccessibilityView
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetAccessibilityView(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_AcceleratorKeyProperty
@@ -1520,6 +1427,99 @@ package body Windows.UI.Xaml.Automation is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function get_AccessibilityViewProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AccessibilityViewProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ControlledPeersProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ControlledPeersProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetAccessibilityView
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.Peers.AccessibilityView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.AccessibilityView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetAccessibilityView(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetControlledPeers
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IUIElement is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IVector_IUIElement;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetControlledPeers(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetAccessibilityView
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Automation.Peers.AccessibilityView
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetAccessibilityView(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function get_AnnotationsProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1720,62 +1720,6 @@ package body Windows.UI.Xaml.Automation is
       Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetSizeOfSet(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_HeadingLevelProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeadingLevelProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetHeadingLevel
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetHeadingLevel(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetHeadingLevel
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
-      m_Factory     : IAutomationPropertiesStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetHeadingLevel(element, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2279,6 +2223,62 @@ package body Windows.UI.Xaml.Automation is
       Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics6'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetCulture(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_HeadingLevelProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeadingLevelProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetHeadingLevel
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetHeadingLevel(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetHeadingLevel
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetHeadingLevel(element, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

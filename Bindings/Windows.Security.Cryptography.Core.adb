@@ -438,113 +438,6 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function DecryptAsync
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; iv : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DecryptAsync(key, data, iv, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SignAsync
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SignAsync(key, data, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SignHashedData
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SignHashedData(key, data, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SignHashedDataAsync
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SignHashedDataAsync(key, data, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function VerifySignatureWithHashInput
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; signature : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.VerifySignatureWithHashInput(key, data, signature, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function Decrypt
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
@@ -695,6 +588,113 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.VerifySignature(key, data, signature, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function DecryptAsync
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; iv : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DecryptAsync(key, data, iv, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SignAsync
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SignAsync(key, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SignHashedData
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SignHashedData(key, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SignHashedDataAsync
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SignHashedDataAsync(key, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function VerifySignatureWithHashInput
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; signature : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.VerifySignatureWithHashInput(key, data, signature, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1588,91 +1588,6 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function get_CapiKdfMd5
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
-      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CapiKdfMd5(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CapiKdfSha1
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
-      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CapiKdfSha1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CapiKdfSha256
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
-      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CapiKdfSha256(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CapiKdfSha384
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
-      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CapiKdfSha384(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CapiKdfSha512
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
-      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CapiKdfSha512(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Pbkdf2Md5
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -1928,6 +1843,91 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
+   function get_CapiKdfMd5
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
+      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CapiKdfMd5(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CapiKdfSha1
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
+      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CapiKdfSha1(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CapiKdfSha256
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
+      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CapiKdfSha256(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CapiKdfSha384
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
+      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CapiKdfSha384(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CapiKdfSha512
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames");
+      m_Factory     : IKeyDerivationAlgorithmNamesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmNamesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CapiKdfSha512(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function OpenAlgorithm
    (
       algorithm : Windows.String
@@ -1942,26 +1942,6 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationAlgorithmProviderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.OpenAlgorithm(algorithm, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function BuildForCapi1Kdf
-   (
-      capi1KdfTargetAlgorithm : Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm
-   )
-   return Windows.Security.Cryptography.Core.IKeyDerivationParameters is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationParameters");
-      m_Factory     : IKeyDerivationParametersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Core.IKeyDerivationParameters;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationParametersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.BuildForCapi1Kdf(capi1KdfTargetAlgorithm, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2028,6 +2008,26 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationParametersStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.BuildForSP80056a(algorithmId, partyUInfo, partyVInfo, suppPubInfo, suppPrivInfo, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function BuildForCapi1Kdf
+   (
+      capi1KdfTargetAlgorithm : Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm
+   )
+   return Windows.Security.Cryptography.Core.IKeyDerivationParameters is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.KeyDerivationParameters");
+      m_Factory     : IKeyDerivationParametersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Cryptography.Core.IKeyDerivationParameters;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyDerivationParametersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.BuildForCapi1Kdf(capi1KdfTargetAlgorithm, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

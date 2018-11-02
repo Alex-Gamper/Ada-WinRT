@@ -280,6 +280,106 @@ package body Windows.ApplicationModel.Store is
       return RetVal;
    end;
    
+   function GetCustomerCollectionsIdAsync
+   (
+      serviceTicket : Windows.String
+      ; publisherUserId : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
+      m_Factory     : ICurrentApp2Statics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentApp2Statics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCustomerCollectionsIdAsync(serviceTicket, publisherUserId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetCustomerPurchaseIdAsync
+   (
+      serviceTicket : Windows.String
+      ; publisherUserId : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
+      m_Factory     : ICurrentApp2Statics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentApp2Statics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCustomerPurchaseIdAsync(serviceTicket, publisherUserId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadListingInformationByKeywordsAsync
+   (
+      keywords : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
+      m_Factory     : ICurrentAppStaticsWithFiltering := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppStaticsWithFiltering'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadListingInformationByKeywordsAsync(keywords, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadListingInformationByProductIdsAsync
+   (
+      productIds : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
+      m_Factory     : ICurrentAppStaticsWithFiltering := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppStaticsWithFiltering'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadListingInformationByProductIdsAsync(productIds, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure ReportProductFulfillment
+   (
+      productId : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
+      m_Factory     : ICurrentAppStaticsWithFiltering := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppStaticsWithFiltering'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ReportProductFulfillment(productId);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function GetAppPurchaseCampaignIdAsync
    return Windows.Foundation.IAsyncOperation_String is
       Hr            : Windows.HRESULT := S_OK;
@@ -371,163 +471,6 @@ package body Windows.ApplicationModel.Store is
       Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppWithConsumables'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestProductPurchaseWithResultsAsync(productId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadListingInformationByKeywordsAsync
-   (
-      keywords : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
-      m_Factory     : ICurrentAppStaticsWithFiltering := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppStaticsWithFiltering'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadListingInformationByKeywordsAsync(keywords, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadListingInformationByProductIdsAsync
-   (
-      productIds : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
-      m_Factory     : ICurrentAppStaticsWithFiltering := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppStaticsWithFiltering'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadListingInformationByProductIdsAsync(productIds, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure ReportProductFulfillment
-   (
-      productId : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
-      m_Factory     : ICurrentAppStaticsWithFiltering := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppStaticsWithFiltering'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ReportProductFulfillment(productId);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetCustomerCollectionsIdAsync
-   (
-      serviceTicket : Windows.String
-      ; publisherUserId : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
-      m_Factory     : ICurrentApp2Statics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentApp2Statics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetCustomerCollectionsIdAsync(serviceTicket, publisherUserId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetCustomerPurchaseIdAsync
-   (
-      serviceTicket : Windows.String
-      ; publisherUserId : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentApp");
-      m_Factory     : ICurrentApp2Statics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentApp2Statics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetCustomerPurchaseIdAsync(serviceTicket, publisherUserId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetAppPurchaseCampaignIdAsync_CurrentAppSimulator
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentAppSimulator");
-      m_Factory     : ICurrentAppSimulatorWithCampaignId := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppSimulatorWithCampaignId'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetAppPurchaseCampaignIdAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadListingInformationByKeywordsAsync_CurrentAppSimulator
-   (
-      keywords : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentAppSimulator");
-      m_Factory     : ICurrentAppSimulatorStaticsWithFiltering := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppSimulatorStaticsWithFiltering'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadListingInformationByKeywordsAsync(keywords, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadListingInformationByProductIdsAsync_CurrentAppSimulator
-   (
-      productIds : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentAppSimulator");
-      m_Factory     : ICurrentAppSimulatorStaticsWithFiltering := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppSimulatorStaticsWithFiltering'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadListingInformationByProductIdsAsync(productIds, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -694,6 +637,63 @@ package body Windows.ApplicationModel.Store is
       Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppSimulator'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestProductPurchaseAsync(productId, includeReceipt, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadListingInformationByKeywordsAsync_CurrentAppSimulator
+   (
+      keywords : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentAppSimulator");
+      m_Factory     : ICurrentAppSimulatorStaticsWithFiltering := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppSimulatorStaticsWithFiltering'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadListingInformationByKeywordsAsync(keywords, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadListingInformationByProductIdsAsync_CurrentAppSimulator
+   (
+      productIds : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentAppSimulator");
+      m_Factory     : ICurrentAppSimulatorStaticsWithFiltering := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppSimulatorStaticsWithFiltering'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadListingInformationByProductIdsAsync(productIds, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetAppPurchaseCampaignIdAsync_CurrentAppSimulator
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.CurrentAppSimulator");
+      m_Factory     : ICurrentAppSimulatorWithCampaignId := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrentAppSimulatorWithCampaignId'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetAppPurchaseCampaignIdAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

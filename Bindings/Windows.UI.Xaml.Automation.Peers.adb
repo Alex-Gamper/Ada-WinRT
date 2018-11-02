@@ -1425,23 +1425,6 @@ package body Windows.UI.Xaml.Automation.Peers is
       return RetVal;
    end;
    
-   function GenerateRawElementProviderRuntimeId
-   return Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.AutomationPeer");
-      m_Factory     : IAutomationPeerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GenerateRawElementProviderRuntimeId(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function ListenerExists
    (
       eventId : Windows.UI.Xaml.Automation.Peers.AutomationEvents
@@ -1456,6 +1439,23 @@ package body Windows.UI.Xaml.Automation.Peers is
       Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ListenerExists(eventId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GenerateRawElementProviderRuntimeId
+   return Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.AutomationPeer");
+      m_Factory     : IAutomationPeerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GenerateRawElementProviderRuntimeId(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1828,6 +1828,28 @@ package body Windows.UI.Xaml.Automation.Peers is
       return RetVal;
    end;
    
+   function CreateInstanceWithOwner
+   (
+      owner : Windows.UI.Xaml.IFrameworkElement
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer");
+      m_Factory     : IFrameworkElementAutomationPeerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreatePeerForElement
    (
       element : Windows.UI.Xaml.IUIElement
@@ -1862,28 +1884,6 @@ package body Windows.UI.Xaml.Automation.Peers is
       Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromElement(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstanceWithOwner
-   (
-      owner : Windows.UI.Xaml.IFrameworkElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer");
-      m_Factory     : IFrameworkElementAutomationPeerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

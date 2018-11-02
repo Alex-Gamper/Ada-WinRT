@@ -917,41 +917,6 @@ package body Windows.UI.Xaml.Input is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_AreKeyTipsEnabled
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyManager");
-      m_Factory     : IAccessKeyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAccessKeyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AreKeyTipsEnabled(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_AreKeyTipsEnabled
-   (
-      value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyManager");
-      m_Factory     : IAccessKeyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAccessKeyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_AreKeyTipsEnabled(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_IsDisplayModeEnabledChanged
    (
       value : TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged
@@ -1022,6 +987,41 @@ package body Windows.UI.Xaml.Input is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function get_AreKeyTipsEnabled
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyManager");
+      m_Factory     : IAccessKeyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAccessKeyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AreKeyTipsEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_AreKeyTipsEnabled
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyManager");
+      m_Factory     : IAccessKeyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAccessKeyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_AreKeyTipsEnabled(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function GetFocusedElement
    return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
@@ -1033,6 +1033,26 @@ package body Windows.UI.Xaml.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetFocusedElement(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryMoveFocus
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
+      m_Factory     : IFocusManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryMoveFocus(focusNavigationDirection, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1074,88 +1094,6 @@ package body Windows.UI.Xaml.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindNextFocusableElementWithHint(focusNavigationDirection, hintRect, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryFocusAsync
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FocusState
-   )
-   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
-      m_Factory     : IFocusManagerStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryFocusAsync(element, value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryMoveFocusAsync
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-   )
-   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
-      m_Factory     : IFocusManagerStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryMoveFocusAsync(focusNavigationDirection, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryMoveFocusWithOptionsAsync
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
-   )
-   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
-      m_Factory     : IFocusManagerStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryMoveFocusWithOptionsAsync(focusNavigationDirection, focusNavigationOptions, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryMoveFocus
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
-      m_Factory     : IFocusManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryMoveFocus(focusNavigationDirection, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1258,6 +1196,68 @@ package body Windows.UI.Xaml.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryMoveFocusWithOptions(focusNavigationDirection, focusNavigationOptions, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryFocusAsync
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FocusState
+   )
+   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
+      m_Factory     : IFocusManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryFocusAsync(element, value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryMoveFocusAsync
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+   )
+   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
+      m_Factory     : IFocusManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryMoveFocusAsync(focusNavigationDirection, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryMoveFocusWithOptionsAsync
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+   )
+   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
+      m_Factory     : IFocusManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryMoveFocusWithOptionsAsync(focusNavigationDirection, focusNavigationOptions, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

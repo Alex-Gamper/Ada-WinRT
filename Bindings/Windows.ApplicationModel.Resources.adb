@@ -79,6 +79,26 @@ package body Windows.ApplicationModel.Resources is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetStringForReference
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.ResourceLoader");
+      m_Factory     : IResourceLoaderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IResourceLoaderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStringForReference(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetForCurrentView
    return Windows.ApplicationModel.Resources.IResourceLoader is
       Hr            : Windows.HRESULT := S_OK;
@@ -147,26 +167,6 @@ package body Windows.ApplicationModel.Resources is
       Hr := RoGetActivationFactory(m_hString, IID_IResourceLoaderStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForViewIndependentUseWithName(name, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStringForReference
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.ResourceLoader");
-      m_Factory     : IResourceLoaderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IResourceLoaderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStringForReference(uri, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

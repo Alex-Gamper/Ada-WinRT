@@ -192,6 +192,23 @@ package body Windows.ApplicationModel.UserActivities is
       return RetVal;
    end;
    
+   function GetDefault
+   return Windows.ApplicationModel.UserActivities.IUserActivityChannel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityChannel");
+      m_Factory     : IUserActivityChannelStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivityChannel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityChannelStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    procedure DisableAutoSessionCreation
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -221,23 +238,6 @@ package body Windows.ApplicationModel.UserActivities is
       Hr := RoGetActivationFactory(m_hString, IID_IUserActivityChannelStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryGetForWebAccount(account, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.ApplicationModel.UserActivities.IUserActivityChannel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityChannel");
-      m_Factory     : IUserActivityChannelStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivityChannel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityChannelStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

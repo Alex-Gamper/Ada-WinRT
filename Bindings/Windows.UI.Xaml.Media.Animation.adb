@@ -2445,6 +2445,27 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IColorKeyFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
+      m_Factory     : IColorKeyFrameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_KeyTimeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2473,27 +2494,6 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ValueProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IColorKeyFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
-      m_Factory     : IColorKeyFrameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3747,6 +3747,27 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IPointKeyFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
+      m_Factory     : IPointKeyFrameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_KeyTimeProperty_IPointKeyFrame
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3775,27 +3796,6 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ValueProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IPointKeyFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
-      m_Factory     : IPointKeyFrameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4765,6 +4765,27 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.ITimeline is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.ITimeline;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AllowDependentAnimations
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -4900,27 +4921,6 @@ package body Windows.UI.Xaml.Media.Animation is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.ITimeline is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.ITimeline;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

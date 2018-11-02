@@ -77,6 +77,26 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function AddAndShowDeviceAccountsAsync
+   (
+      accounts : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterable_IDeviceAccountConfiguration
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager");
+      m_Factory     : IUserDataAccountSystemAccessManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountSystemAccessManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AddAndShowDeviceAccountsAsync(accounts, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateDeviceAccountAsync
    (
       account : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
@@ -151,26 +171,6 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountSystemAccessManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SuppressLocalAccountWithAccountAsync(userDataAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function AddAndShowDeviceAccountsAsync
-   (
-      accounts : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterable_IDeviceAccountConfiguration
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager");
-      m_Factory     : IUserDataAccountSystemAccessManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountSystemAccessManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AddAndShowDeviceAccountsAsync(accounts, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

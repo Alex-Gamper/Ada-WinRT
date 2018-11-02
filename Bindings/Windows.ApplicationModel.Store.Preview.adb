@@ -64,154 +64,6 @@ package body Windows.ApplicationModel.Store.Preview is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetEnterpriseStoreWebAccountId
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetEnterpriseStoreWebAccountId(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetEnterpriseStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetEnterpriseStoreWebAccountIdForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStoreWebAccountId
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStoreWebAccountId(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStoreWebAccountIdForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetEnterpriseStoreWebAccountId
-   (
-      webAccountId : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetEnterpriseStoreWebAccountId(webAccountId);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure SetEnterpriseStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetEnterpriseStoreWebAccountIdForUser(user, webAccountId);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function ShouldRestrictToEnterpriseStoreOnly
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShouldRestrictToEnterpriseStoreOnly(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShouldRestrictToEnterpriseStoreOnlyForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShouldRestrictToEnterpriseStoreOnlyForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FilterUnsupportedSystemFeaturesAsync
    (
       systemFeatures : Windows.ApplicationModel.Store.Preview.IIterable_StoreSystemFeature
@@ -497,6 +349,154 @@ package body Windows.ApplicationModel.Store.Preview is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetEnterpriseStoreWebAccountId
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetEnterpriseStoreWebAccountId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetEnterpriseStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetEnterpriseStoreWebAccountIdForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStoreWebAccountId
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStoreWebAccountId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStoreWebAccountIdForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetEnterpriseStoreWebAccountId
+   (
+      webAccountId : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetEnterpriseStoreWebAccountId(webAccountId);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetEnterpriseStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetEnterpriseStoreWebAccountIdForUser(user, webAccountId);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function ShouldRestrictToEnterpriseStoreOnly
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShouldRestrictToEnterpriseStoreOnly(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShouldRestrictToEnterpriseStoreOnlyForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShouldRestrictToEnterpriseStoreOnlyForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function LoadAddOnProductInfosAsync

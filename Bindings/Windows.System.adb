@@ -1158,6 +1158,47 @@ package body Windows.System is
       return RetVal;
    end;
    
+   function LaunchFolderAsync
+   (
+      folder : Windows.Storage.IStorageFolder
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchFolderAsync(folder, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LaunchFolderWithOptionsAsync
+   (
+      folder : Windows.Storage.IStorageFolder
+      ; options : Windows.System.IFolderLauncherOptions
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchFolderWithOptionsAsync(folder, options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FindAppUriHandlersAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -1330,64 +1371,6 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function LaunchFolderAsync
-   (
-      folder : Windows.Storage.IStorageFolder
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchFolderAsync(folder, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LaunchFolderWithOptionsAsync
-   (
-      folder : Windows.Storage.IStorageFolder
-      ; options : Windows.System.IFolderLauncherOptions
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchFolderWithOptionsAsync(folder, options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ExpectedAppMemoryUsageLimit
-   return Windows.UInt64 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
-      m_Factory     : IMemoryManagerStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt64;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ExpectedAppMemoryUsageLimit(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function add_AppMemoryUsageDecreased
    (
       handler : Windows.Foundation.EventHandler_Object
@@ -1553,26 +1536,6 @@ package body Windows.System is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function TrySetAppMemoryUsageLimit
-   (
-      value : Windows.UInt64
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
-      m_Factory     : IMemoryManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TrySetAppMemoryUsageLimit(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetAppMemoryReport
    return Windows.System.IAppMemoryReport is
       Hr            : Windows.HRESULT := S_OK;
@@ -1601,6 +1564,43 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetProcessMemoryReport(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TrySetAppMemoryUsageLimit
+   (
+      value : Windows.UInt64
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
+      m_Factory     : IMemoryManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TrySetAppMemoryUsageLimit(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ExpectedAppMemoryUsageLimit
+   return Windows.UInt64 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
+      m_Factory     : IMemoryManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt64;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExpectedAppMemoryUsageLimit(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

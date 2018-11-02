@@ -338,24 +338,6 @@ package body Windows.ApplicationModel.DataTransfer is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure ShowShareUIWithOptions
-   (
-      options : Windows.ApplicationModel.DataTransfer.IShareUIOptions
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.DataTransferManager");
-      m_Factory     : IDataTransferManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataTransferManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowShareUIWithOptions(options);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function GetForCurrentView
    return Windows.ApplicationModel.DataTransfer.IDataTransferManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -403,6 +385,24 @@ package body Windows.ApplicationModel.DataTransfer is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure ShowShareUIWithOptions
+   (
+      options : Windows.ApplicationModel.DataTransfer.IShareUIOptions
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.DataTransferManager");
+      m_Factory     : IDataTransferManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataTransferManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowShareUIWithOptions(options);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function CreateHtmlFormat
@@ -503,57 +503,6 @@ package body Windows.ApplicationModel.DataTransfer is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_UserActivityJsonArray
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.StandardDataFormats");
-      m_Factory     : IStandardDataFormatsStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardDataFormatsStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UserActivityJsonArray(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ApplicationLink
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.StandardDataFormats");
-      m_Factory     : IStandardDataFormatsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardDataFormatsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ApplicationLink(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_WebLink
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.StandardDataFormats");
-      m_Factory     : IStandardDataFormatsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardDataFormatsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_WebLink(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Bitmap
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -650,6 +599,57 @@ package body Windows.ApplicationModel.DataTransfer is
       Hr := RoGetActivationFactory(m_hString, IID_IStandardDataFormatsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Uri(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ApplicationLink
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.StandardDataFormats");
+      m_Factory     : IStandardDataFormatsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardDataFormatsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ApplicationLink(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_WebLink
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.StandardDataFormats");
+      m_Factory     : IStandardDataFormatsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardDataFormatsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_WebLink(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UserActivityJsonArray
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.StandardDataFormats");
+      m_Factory     : IStandardDataFormatsStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardDataFormatsStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UserActivityJsonArray(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

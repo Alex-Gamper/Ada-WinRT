@@ -245,26 +245,6 @@ package body Windows.Devices.Sms is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function FromNetworkAccountIdAsync
-   (
-      networkAccountId : Windows.String
-   )
-   return Windows.Devices.Sms.IAsyncOperation_ISmsDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsDevice");
-      m_Factory     : ISmsDeviceStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sms.IAsyncOperation_ISmsDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmsDeviceStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromNetworkAccountIdAsync(networkAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -313,6 +293,26 @@ package body Windows.Devices.Sms is
       Hr := RoGetActivationFactory(m_hString, IID_ISmsDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromNetworkAccountIdAsync
+   (
+      networkAccountId : Windows.String
+   )
+   return Windows.Devices.Sms.IAsyncOperation_ISmsDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsDevice");
+      m_Factory     : ISmsDeviceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sms.IAsyncOperation_ISmsDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmsDeviceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromNetworkAccountIdAsync(networkAccountId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -98,26 +98,6 @@ package body Windows.System.Diagnostics is
       return RetVal;
    end;
    
-   function TryGetForProcessId
-   (
-      processId : Windows.UInt32
-   )
-   return Windows.System.Diagnostics.IProcessDiagnosticInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.ProcessDiagnosticInfo");
-      m_Factory     : IProcessDiagnosticInfoStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Diagnostics.IProcessDiagnosticInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProcessDiagnosticInfoStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryGetForProcessId(processId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetForCurrentProcess
    return Windows.System.Diagnostics.IProcessDiagnosticInfo is
       Hr            : Windows.HRESULT := S_OK;
@@ -146,6 +126,26 @@ package body Windows.System.Diagnostics is
       Hr := RoGetActivationFactory(m_hString, IID_IProcessDiagnosticInfoStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForProcesses(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryGetForProcessId
+   (
+      processId : Windows.UInt32
+   )
+   return Windows.System.Diagnostics.IProcessDiagnosticInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.ProcessDiagnosticInfo");
+      m_Factory     : IProcessDiagnosticInfoStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Diagnostics.IProcessDiagnosticInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProcessDiagnosticInfoStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryGetForProcessId(processId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

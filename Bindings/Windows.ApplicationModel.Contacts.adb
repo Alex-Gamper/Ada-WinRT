@@ -874,72 +874,17 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function get_IncludeMiddleNameInSystemDisplayAndSort
-   return Windows.Boolean is
+   function RequestStoreAsync
+   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics5 := null;
+      m_Factory     : IContactManagerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IncludeMiddleNameInSystemDisplayAndSort(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsShowFullContactCardSupportedAsync
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsShowFullContactCardSupportedAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_IncludeMiddleNameInSystemDisplayAndSort
-   (
-      value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_IncludeMiddleNameInSystemDisplayAndSort(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Contacts.IContactManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         Hr := m_Factory.RequestStoreAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1214,21 +1159,76 @@ package body Windows.ApplicationModel.Contacts is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function RequestStoreAsync
-   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore is
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.ApplicationModel.Contacts.IContactManagerForUser is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics2 := null;
+      m_Factory     : IContactManagerStatics4 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactManagerForUser;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics4'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.RequestStoreAsync(RetVal'Access);
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function get_IncludeMiddleNameInSystemDisplayAndSort
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IncludeMiddleNameInSystemDisplayAndSort(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsShowFullContactCardSupportedAsync
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsShowFullContactCardSupportedAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_IncludeMiddleNameInSystemDisplayAndSort
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_IncludeMiddleNameInSystemDisplayAndSort(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function CreateForUser

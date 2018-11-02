@@ -61,26 +61,6 @@ package body Windows.ApplicationModel.Resources.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   procedure SetGlobalQualifierValueWithPersistence
-   (
-      key : Windows.String
-      ; value : Windows.String
-      ; persistence : Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
-      m_Factory     : IResourceContextStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetGlobalQualifierValueWithPersistence(key, value, persistence);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function CreateMatchingContext
    (
       result : Windows.ApplicationModel.Resources.Core.IIterable_IResourceQualifier
@@ -182,6 +162,26 @@ package body Windows.ApplicationModel.Resources.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetGlobalQualifierValue(key, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetGlobalQualifierValueWithPersistence
+   (
+      key : Windows.String
+      ; value : Windows.String
+      ; persistence : Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
+      m_Factory     : IResourceContextStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetGlobalQualifierValueWithPersistence(key, value, persistence);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

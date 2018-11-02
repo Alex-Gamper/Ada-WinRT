@@ -75,23 +75,6 @@ package body Windows.Networking.PushNotifications is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefault
-   return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.PushNotifications.PushNotificationChannelManager");
-      m_Factory     : IPushNotificationChannelManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPushNotificationChannelManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreatePushNotificationChannelForApplicationAsync
    return Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel is
       Hr            : Windows.HRESULT := S_OK;
@@ -163,6 +146,23 @@ package body Windows.Networking.PushNotifications is
       Hr := RoGetActivationFactory(m_hString, IID_IPushNotificationChannelManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.PushNotifications.PushNotificationChannelManager");
+      m_Factory     : IPushNotificationChannelManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPushNotificationChannelManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

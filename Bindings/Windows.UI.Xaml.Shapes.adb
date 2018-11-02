@@ -657,23 +657,6 @@ package body Windows.UI.Xaml.Shapes is
       return RetVal;
    end;
    
-   function get_DataProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Path");
-      m_Factory     : IPathStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPathStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DataProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -689,6 +672,23 @@ package body Windows.UI.Xaml.Shapes is
       Hr := RoGetActivationFactory(m_hString, IID_IPathFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DataProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Path");
+      m_Factory     : IPathStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPathStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DataProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

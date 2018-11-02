@@ -183,23 +183,6 @@ package body Windows.Graphics.Printing is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
-      m_Factory     : IPrintManagerStatic2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetForCurrentView
    return Windows.Graphics.Printing.IPrintManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -228,6 +211,23 @@ package body Windows.Graphics.Printing is
       Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ShowPrintUIAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
+      m_Factory     : IPrintManagerStatic2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsSupported(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

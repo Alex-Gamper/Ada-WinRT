@@ -79,26 +79,6 @@ package body Windows.Media.SpeechSynthesis is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function TrySetDefaultVoiceAsync
-   (
-      voice : Windows.Media.SpeechSynthesis.IVoiceInformation
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SpeechSynthesis.SpeechSynthesizer");
-      m_Factory     : IInstalledVoicesStatic2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInstalledVoicesStatic2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TrySetDefaultVoiceAsync(voice, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AllVoices
    return Windows.Media.SpeechSynthesis.IVectorView_IVoiceInformation is
       Hr            : Windows.HRESULT := S_OK;
@@ -127,6 +107,26 @@ package body Windows.Media.SpeechSynthesis is
       Hr := RoGetActivationFactory(m_hString, IID_IInstalledVoicesStatic'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_DefaultVoice(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TrySetDefaultVoiceAsync
+   (
+      voice : Windows.Media.SpeechSynthesis.IVoiceInformation
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechSynthesis.SpeechSynthesizer");
+      m_Factory     : IInstalledVoicesStatic2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInstalledVoicesStatic2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TrySetDefaultVoiceAsync(voice, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

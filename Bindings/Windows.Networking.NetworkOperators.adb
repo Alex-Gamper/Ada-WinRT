@@ -1013,21 +1013,40 @@ package body Windows.Networking.NetworkOperators is
       return RetVal;
    end;
    
-   function CreateFromConnectionProfileWithTargetAdapter
+   function CreateFromNetworkAccountId
    (
-      profile : Windows.Networking.Connectivity.IConnectionProfile
-      ; adapter : Windows.Networking.Connectivity.INetworkAdapter
+      networkAccountId : Windows.String
    )
    return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
-      m_Factory     : INetworkOperatorTetheringManagerStatics3 := null;
+      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateFromConnectionProfileWithTargetAdapter(profile, adapter, RetVal'Access);
+         Hr := m_Factory.CreateFromNetworkAccountId(networkAccountId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTetheringCapability
+   (
+      networkAccountId : Windows.String
+   )
+   return Windows.Networking.NetworkOperators.TetheringCapability is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
+      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.NetworkOperators.TetheringCapability;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTetheringCapability(networkAccountId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1074,40 +1093,21 @@ package body Windows.Networking.NetworkOperators is
       return RetVal;
    end;
    
-   function CreateFromNetworkAccountId
+   function CreateFromConnectionProfileWithTargetAdapter
    (
-      networkAccountId : Windows.String
+      profile : Windows.Networking.Connectivity.IConnectionProfile
+      ; adapter : Windows.Networking.Connectivity.INetworkAdapter
    )
    return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
-      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
+      m_Factory     : INetworkOperatorTetheringManagerStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateFromNetworkAccountId(networkAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetTetheringCapability
-   (
-      networkAccountId : Windows.String
-   )
-   return Windows.Networking.NetworkOperators.TetheringCapability is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
-      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.NetworkOperators.TetheringCapability;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetTetheringCapability(networkAccountId, RetVal'Access);
+         Hr := m_Factory.CreateFromConnectionProfileWithTargetAdapter(profile, adapter, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

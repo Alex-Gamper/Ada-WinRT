@@ -387,26 +387,6 @@ package body Windows.UI.Notifications is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.UI.Notifications.IBadgeUpdateManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
-      m_Factory     : IBadgeUpdateManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdateManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateBadgeUpdaterForApplication
    return Windows.UI.Notifications.IBadgeUpdater is
       Hr            : Windows.HRESULT := S_OK;
@@ -478,6 +458,26 @@ package body Windows.UI.Notifications is
       Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetTemplateContent(type_x, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.UI.Notifications.IBadgeUpdateManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
+      m_Factory     : IBadgeUpdateManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdateManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1003,26 +1003,6 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.UI.Notifications.ITileUpdateManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileUpdateManager");
-      m_Factory     : ITileUpdateManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.ITileUpdateManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileUpdateManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateTileUpdaterForApplication
    return Windows.UI.Notifications.ITileUpdater is
       Hr            : Windows.HRESULT := S_OK;
@@ -1100,53 +1080,18 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function GetDefault
-   return Windows.UI.Notifications.IToastNotificationManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
-      m_Factory     : IToastNotificationManagerStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IToastNotificationManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure ConfigureNotificationMirroring
-   (
-      value : Windows.UI.Notifications.NotificationMirroring
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
-      m_Factory     : IToastNotificationManagerStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ConfigureNotificationMirroring(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function GetForUser
    (
       user : Windows.System.IUser
    )
-   return Windows.UI.Notifications.IToastNotificationManagerForUser is
+   return Windows.UI.Notifications.ITileUpdateManagerForUser is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
-      m_Factory     : IToastNotificationManagerStatics4 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileUpdateManager");
+      m_Factory     : ITileUpdateManagerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IToastNotificationManagerForUser;
+      RetVal        : aliased Windows.UI.Notifications.ITileUpdateManagerForUser;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics4'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITileUpdateManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -1223,6 +1168,61 @@ package body Windows.UI.Notifications is
       Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_History(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure ConfigureNotificationMirroring
+   (
+      value : Windows.UI.Notifications.NotificationMirroring
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
+      m_Factory     : IToastNotificationManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ConfigureNotificationMirroring(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.UI.Notifications.IToastNotificationManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
+      m_Factory     : IToastNotificationManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IToastNotificationManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.UI.Notifications.IToastNotificationManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
+      m_Factory     : IToastNotificationManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IToastNotificationManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

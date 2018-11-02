@@ -291,36 +291,6 @@ package body Windows.ApplicationModel.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure DecrementApplicationUseCount
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplicationUseCount := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUseCount'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DecrementApplicationUseCount;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure IncrementApplicationUseCount
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplicationUseCount := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUseCount'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IncrementApplicationUseCount;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_BackgroundActivated
    (
       handler : Windows.ApplicationModel.Activation.EventHandler_IBackgroundActivatedEventArgs
@@ -453,20 +423,41 @@ package body Windows.ApplicationModel.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function CreateNewViewWithViewSource
+   function RequestRestartAsync
    (
-      viewSource : Windows.ApplicationModel.Core.IFrameworkViewSource
+      launchArguments : Windows.String
    )
-   return Windows.ApplicationModel.Core.ICoreApplicationView is
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreImmersiveApplication3 := null;
+      m_Factory     : ICoreApplication3 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Core.ICoreApplicationView;
+      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreImmersiveApplication3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateNewViewWithViewSource(viewSource, RetVal'Access);
+         Hr := m_Factory.RequestRestartAsync(launchArguments, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestRestartForUserAsync
+   (
+      user : Windows.System.IUser
+      ; launchArguments : Windows.String
+   )
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplication3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestRestartForUserAsync(user, launchArguments, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -526,23 +517,6 @@ package body Windows.ApplicationModel.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function CreateNewViewFromMainView
-   return Windows.ApplicationModel.Core.ICoreApplicationView is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreImmersiveApplication2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Core.ICoreApplicationView;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreImmersiveApplication2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateNewViewFromMainView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function add_UnhandledErrorDetected
    (
       handler : Windows.ApplicationModel.Core.EventHandler_IUnhandledErrorDetectedEventArgs
@@ -576,6 +550,36 @@ package body Windows.ApplicationModel.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUnhandledError'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.remove_UnhandledErrorDetected(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure DecrementApplicationUseCount
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplicationUseCount := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUseCount'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DecrementApplicationUseCount;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure IncrementApplicationUseCount
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplicationUseCount := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUseCount'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IncrementApplicationUseCount;
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -636,41 +640,37 @@ package body Windows.ApplicationModel.Core is
       return RetVal;
    end;
    
-   function RequestRestartAsync
-   (
-      launchArguments : Windows.String
-   )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
+   function CreateNewViewFromMainView
+   return Windows.ApplicationModel.Core.ICoreApplicationView is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplication3 := null;
+      m_Factory     : ICoreImmersiveApplication2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+      RetVal        : aliased Windows.ApplicationModel.Core.ICoreApplicationView;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreImmersiveApplication2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.RequestRestartAsync(launchArguments, RetVal'Access);
+         Hr := m_Factory.CreateNewViewFromMainView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function RequestRestartForUserAsync
+   function CreateNewViewWithViewSource
    (
-      user : Windows.System.IUser
-      ; launchArguments : Windows.String
+      viewSource : Windows.ApplicationModel.Core.IFrameworkViewSource
    )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
+   return Windows.ApplicationModel.Core.ICoreApplicationView is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplication3 := null;
+      m_Factory     : ICoreImmersiveApplication3 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+      RetVal        : aliased Windows.ApplicationModel.Core.ICoreApplicationView;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreImmersiveApplication3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.RequestRestartForUserAsync(user, launchArguments, RetVal'Access);
+         Hr := m_Factory.CreateNewViewWithViewSource(viewSource, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

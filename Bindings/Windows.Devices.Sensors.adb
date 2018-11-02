@@ -413,6 +413,43 @@ package body Windows.Devices.Sensors is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetDefault
+   return Windows.Devices.Sensors.IAccelerometer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Accelerometer");
+      m_Factory     : IAccelerometerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IAccelerometer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAccelerometerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultWithAccelerometerReadingType
+   (
+      readingType : Windows.Devices.Sensors.AccelerometerReadingType
+   )
+   return Windows.Devices.Sensors.IAccelerometer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Accelerometer");
+      m_Factory     : IAccelerometerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IAccelerometer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAccelerometerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultWithAccelerometerReadingType(readingType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -447,43 +484,6 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_IAccelerometerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(readingType, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefaultWithAccelerometerReadingType
-   (
-      readingType : Windows.Devices.Sensors.AccelerometerReadingType
-   )
-   return Windows.Devices.Sensors.IAccelerometer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Accelerometer");
-      m_Factory     : IAccelerometerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.IAccelerometer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAccelerometerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultWithAccelerometerReadingType(readingType, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Devices.Sensors.IAccelerometer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Accelerometer");
-      m_Factory     : IAccelerometerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.IAccelerometer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAccelerometerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -602,6 +602,23 @@ package body Windows.Devices.Sensors is
       return RetVal;
    end;
    
+   function GetDefault
+   return Windows.Devices.Sensors.IBarometer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Barometer");
+      m_Factory     : IBarometerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IBarometer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarometerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -640,14 +657,14 @@ package body Windows.Devices.Sensors is
    end;
    
    function GetDefault
-   return Windows.Devices.Sensors.IBarometer is
+   return Windows.Devices.Sensors.ICompass is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Barometer");
-      m_Factory     : IBarometerStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Compass");
+      m_Factory     : ICompassStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.IBarometer;
+      RetVal        : aliased Windows.Devices.Sensors.ICompass;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarometerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICompassStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -687,23 +704,6 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_ICompassStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Devices.Sensors.ICompass is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Compass");
-      m_Factory     : ICompassStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.ICompass;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICompassStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -764,6 +764,23 @@ package body Windows.Devices.Sensors is
       return RetVal;
    end;
    
+   function GetDefault
+   return Windows.Devices.Sensors.IInclinometer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Inclinometer");
+      m_Factory     : IInclinometerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IInclinometer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInclinometerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefaultForRelativeReadings
    return Windows.Devices.Sensors.IInclinometer is
       Hr            : Windows.HRESULT := S_OK;
@@ -795,23 +812,6 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_IInclinometerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefaultWithSensorReadingType(sensorReadingtype, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Devices.Sensors.IInclinometer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Inclinometer");
-      m_Factory     : IInclinometerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.IInclinometer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInclinometerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -858,6 +858,23 @@ package body Windows.Devices.Sensors is
       return RetVal;
    end;
    
+   function GetDefault
+   return Windows.Devices.Sensors.ILightSensor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.LightSensor");
+      m_Factory     : ILightSensorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.ILightSensor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILightSensorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -889,23 +906,6 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_ILightSensorStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Devices.Sensors.ILightSensor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.LightSensor");
-      m_Factory     : ILightSensorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.ILightSensor;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILightSensorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -983,6 +983,23 @@ package body Windows.Devices.Sensors is
       return RetVal;
    end;
    
+   function GetDefaultForRelativeReadings
+   return Windows.Devices.Sensors.IOrientationSensor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.OrientationSensor");
+      m_Factory     : IOrientationSensorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IOrientationSensor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IOrientationSensorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultForRelativeReadings(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefaultWithSensorReadingType
    (
       sensorReadingtype : Windows.Devices.Sensors.SensorReadingType
@@ -1018,23 +1035,6 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_IOrientationSensorStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal(sensorReadingType, optimizationGoal, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefaultForRelativeReadings
-   return Windows.Devices.Sensors.IOrientationSensor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.OrientationSensor");
-      m_Factory     : IOrientationSensorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.IOrientationSensor;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IOrientationSensorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultForRelativeReadings(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1096,26 +1096,6 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_IOrientationSensorStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal(readingType, optimizationGoal, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetReadingsFromTriggerDetails
-   (
-      triggerDetails : Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails
-   )
-   return Windows.Devices.Sensors.IVectorView_IPedometerReading is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Pedometer");
-      m_Factory     : IPedometerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.IVectorView_IPedometerReading;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPedometerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetReadingsFromTriggerDetails(triggerDetails, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1221,14 +1201,14 @@ package body Windows.Devices.Sensors is
    (
       triggerDetails : Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails
    )
-   return Windows.Devices.Sensors.IVectorView_IProximitySensorReading is
+   return Windows.Devices.Sensors.IVectorView_IPedometerReading is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.ProximitySensor");
-      m_Factory     : IProximitySensorStatics2 := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Pedometer");
+      m_Factory     : IPedometerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sensors.IVectorView_IProximitySensorReading;
+      RetVal        : aliased Windows.Devices.Sensors.IVectorView_IPedometerReading;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProximitySensorStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPedometerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetReadingsFromTriggerDetails(triggerDetails, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -1268,6 +1248,26 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_IProximitySensorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetReadingsFromTriggerDetails
+   (
+      triggerDetails : Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails
+   )
+   return Windows.Devices.Sensors.IVectorView_IProximitySensorReading is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.ProximitySensor");
+      m_Factory     : IProximitySensorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IVectorView_IProximitySensorReading;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProximitySensorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetReadingsFromTriggerDetails(triggerDetails, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

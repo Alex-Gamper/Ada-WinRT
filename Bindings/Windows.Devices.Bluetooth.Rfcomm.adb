@@ -90,6 +90,46 @@ package body Windows.Devices.Bluetooth.Rfcomm is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService");
+      m_Factory     : IRfcommDeviceServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRfcommDeviceServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   (
+      serviceId : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService");
+      m_Factory     : IRfcommDeviceServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRfcommDeviceServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(serviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDeviceSelectorForBluetoothDevice
    (
       bluetoothDevice : Windows.Devices.Bluetooth.IBluetoothDevice
@@ -168,46 +208,6 @@ package body Windows.Devices.Bluetooth.Rfcomm is
       Hr := RoGetActivationFactory(m_hString, IID_IRfcommDeviceServiceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceWithCacheMode(bluetoothDevice, cacheMode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService");
-      m_Factory     : IRfcommDeviceServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRfcommDeviceServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelector
-   (
-      serviceId : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService");
-      m_Factory     : IRfcommDeviceServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRfcommDeviceServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(serviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

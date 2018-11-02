@@ -24003,23 +24003,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_LightDismissOverlayModeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBar");
-      m_Factory     : IAppBarStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBarStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LightDismissOverlayModeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_ClosedDisplayModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -24037,17 +24020,38 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_KeyboardAcceleratorTextOverrideProperty
+   function get_LightDismissOverlayModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarButton");
-      m_Factory     : IAppBarButtonStatics4 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBar");
+      m_Factory     : IAppBarStatics4 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBarButtonStatics4'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBarStatics4'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_KeyboardAcceleratorTextOverrideProperty(RetVal'Access);
+         Hr := m_Factory.get_LightDismissOverlayModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IAppBarButton is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarButton");
+      m_Factory     : IAppBarButtonFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IAppBarButton;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBarButtonFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -24156,19 +24160,36 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_KeyboardAcceleratorTextOverrideProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarButton");
+      m_Factory     : IAppBarButtonStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBarButtonStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeyboardAcceleratorTextOverrideProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IAppBarButton is
+   return Windows.UI.Xaml.Controls.IAppBarSeparator is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarButton");
-      m_Factory     : IAppBarButtonFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarSeparator");
+      m_Factory     : IAppBarSeparatorFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IAppBarButton;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IAppBarSeparator;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBarButtonFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBarSeparatorFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -24222,78 +24243,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IAppBarSeparatorStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsInOverflowProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IAppBarSeparator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarSeparator");
-      m_Factory     : IAppBarSeparatorFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IAppBarSeparator;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBarSeparatorFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DynamicOverflowOrderProperty_IAppBarToggleButton
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarToggleButton");
-      m_Factory     : IAppBarToggleButtonStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DynamicOverflowOrderProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsInOverflowProperty_IAppBarToggleButton
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarToggleButton");
-      m_Factory     : IAppBarToggleButtonStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsInOverflowProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LabelPositionProperty_IAppBarToggleButton
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarToggleButton");
-      m_Factory     : IAppBarToggleButtonStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LabelPositionProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -24366,6 +24315,57 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_LabelProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DynamicOverflowOrderProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarToggleButton");
+      m_Factory     : IAppBarToggleButtonStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DynamicOverflowOrderProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsInOverflowProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarToggleButton");
+      m_Factory     : IAppBarToggleButtonStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsInOverflowProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LabelPositionProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AppBarToggleButton");
+      m_Factory     : IAppBarToggleButtonStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LabelPositionProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -24542,23 +24542,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_LightDismissOverlayModeProperty_IAutoSuggestBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AutoSuggestBox");
-      m_Factory     : IAutoSuggestBoxStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutoSuggestBoxStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LightDismissOverlayModeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_QueryIconProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -24570,6 +24553,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IAutoSuggestBoxStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_QueryIconProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LightDismissOverlayModeProperty_IAutoSuggestBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.AutoSuggestBox");
+      m_Factory     : IAutoSuggestBoxStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutoSuggestBoxStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LightDismissOverlayModeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -24593,23 +24593,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_UriSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.BitmapIcon");
-      m_Factory     : IBitmapIconStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapIconStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UriSourceProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -24625,6 +24608,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IBitmapIconFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UriSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.BitmapIcon");
+      m_Factory     : IBitmapIconStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapIconStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UriSourceProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -24837,6 +24837,27 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IButtonStaticsWithFlyout'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_FlyoutProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ICalendarDatePicker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CalendarDatePicker");
+      m_Factory     : ICalendarDatePickerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ICalendarDatePicker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICalendarDatePickerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -25109,27 +25130,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_ICalendarDatePickerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PlaceholderTextProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ICalendarDatePicker is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CalendarDatePicker");
-      m_Factory     : ICalendarDatePickerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ICalendarDatePicker;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICalendarDatePickerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -26096,6 +26096,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ICanvas is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Canvas");
+      m_Factory     : ICanvasFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ICanvas;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICanvasFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_LeftProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -26264,27 +26285,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ICanvas is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Canvas");
-      m_Factory     : ICanvasFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ICanvas;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICanvasFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_SourceProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -26332,6 +26332,27 @@ package body Windows.UI.Xaml.Controls is
       RetVal        : aliased Windows.UI.Xaml.Controls.ICheckBox;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICheckBoxFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IColorPicker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ColorPicker");
+      m_Factory     : IColorPickerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IColorPicker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorPickerFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -26663,27 +26684,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IColorPicker is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ColorPicker");
-      m_Factory     : IColorPickerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IColorPicker;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorPickerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_MaxWidthProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -26729,6 +26729,61 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IColumnDefinitionStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_WidthProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IComboBox is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
+      m_Factory     : IComboBoxFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IComboBox;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsDropDownOpenProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
+      m_Factory     : IComboBoxStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDropDownOpenProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxDropDownHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
+      m_Factory     : IComboBoxStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxDropDownHeightProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -26786,44 +26841,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IComboBox is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
-      m_Factory     : IComboBoxFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IComboBox;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SelectionChangedTriggerProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
-      m_Factory     : IComboBoxStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SelectionChangedTriggerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IsTextSearchEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -26858,6 +26875,23 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_SelectionChangedTriggerProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
+      m_Factory     : IComboBoxStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SelectionChangedTriggerProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_PlaceholderForegroundProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -26869,40 +26903,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IComboBoxStatics5'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PlaceholderForegroundProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsDropDownOpenProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
-      m_Factory     : IComboBoxStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsDropDownOpenProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MaxDropDownHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ComboBox");
-      m_Factory     : IComboBoxStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IComboBoxStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxDropDownHeightProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -26924,57 +26924,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IComboBoxItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DefaultLabelPositionProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CommandBar");
-      m_Factory     : ICommandBarStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommandBarStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DefaultLabelPositionProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsDynamicOverflowEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CommandBar");
-      m_Factory     : ICommandBarStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommandBarStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsDynamicOverflowEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OverflowButtonVisibilityProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CommandBar");
-      m_Factory     : ICommandBarStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommandBarStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OverflowButtonVisibilityProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -27047,6 +26996,57 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_ICommandBarStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_CommandBarOverflowPresenterStyleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DefaultLabelPositionProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CommandBar");
+      m_Factory     : ICommandBarStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommandBarStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DefaultLabelPositionProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsDynamicOverflowEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CommandBar");
+      m_Factory     : ICommandBarStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommandBarStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDynamicOverflowEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OverflowButtonVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.CommandBar");
+      m_Factory     : ICommandBarStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommandBarStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OverflowButtonVisibilityProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -27157,6 +27157,27 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IContentControlStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ContentTransitionsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IContentDialog is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ContentDialog");
+      m_Factory     : IContentDialogFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IContentDialog;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentDialogFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -27474,27 +27495,6 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IContentDialog is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ContentDialog");
-      m_Factory     : IContentDialogFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IContentDialog;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentDialogFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Controls.IContentPresenter is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ContentPresenter");
@@ -27505,23 +27505,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IContentPresenterFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsTextScaleFactorEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ContentPresenter");
-      m_Factory     : IContentPresenterStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentPresenterStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -27749,6 +27732,23 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_IsTextScaleFactorEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ContentPresenter");
+      m_Factory     : IContentPresenterStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentPresenterStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_BackgroundProperty_IContentPresenter
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -27951,215 +27951,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IControlFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DefaultStyleResourceUriProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DefaultStyleResourceUriProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsTemplateKeyTipTargetProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsTemplateKeyTipTargetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetIsTemplateKeyTipTarget
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetIsTemplateKeyTipTarget(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetIsTemplateKeyTipTarget
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetIsTemplateKeyTipTarget(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_ElementSoundModeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ElementSoundModeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsFocusEngagedProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsFocusEngagedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsFocusEngagementEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsFocusEngagementEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RequiresPointerProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RequiresPointerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusDownProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusLeftProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusLeftProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusRightProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusRightProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusUpProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
-      m_Factory     : IControlStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -28596,6 +28387,215 @@ package body Windows.UI.Xaml.Controls is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function get_ElementSoundModeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ElementSoundModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsFocusEngagedProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsFocusEngagedProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsFocusEngagementEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsFocusEngagementEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RequiresPointerProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RequiresPointerProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusDownProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusLeftProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusLeftProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusRightProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusRightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusUpProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DefaultStyleResourceUriProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DefaultStyleResourceUriProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsTemplateKeyTipTargetProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTemplateKeyTipTargetProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIsTemplateKeyTipTarget
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIsTemplateKeyTipTarget(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetIsTemplateKeyTipTarget
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Control");
+      m_Factory     : IControlStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IControlStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetIsTemplateKeyTipTarget(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -28609,6 +28609,27 @@ package body Windows.UI.Xaml.Controls is
       RetVal        : aliased Windows.UI.Xaml.Controls.IDataTemplateSelector;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDataTemplateSelectorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IDatePicker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePicker");
+      m_Factory     : IDatePickerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IDatePicker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -28855,78 +28876,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IDatePicker is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePicker");
-      m_Factory     : IDatePickerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IDatePicker;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DayFormatProperty_IDatePickerFlyout
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyout");
-      m_Factory     : IDatePickerFlyoutStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFlyoutStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DayFormatProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MonthFormatProperty_IDatePickerFlyout
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyout");
-      m_Factory     : IDatePickerFlyoutStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFlyoutStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MonthFormatProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_YearFormatProperty_IDatePickerFlyout
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyout");
-      m_Factory     : IDatePickerFlyoutStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFlyoutStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_YearFormatProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_CalendarIdentifierProperty_IDatePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -29046,6 +28995,57 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_DayFormatProperty_IDatePickerFlyout
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyout");
+      m_Factory     : IDatePickerFlyoutStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFlyoutStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DayFormatProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MonthFormatProperty_IDatePickerFlyout
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyout");
+      m_Factory     : IDatePickerFlyoutStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFlyoutStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MonthFormatProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_YearFormatProperty_IDatePickerFlyout
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyout");
+      m_Factory     : IDatePickerFlyoutStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFlyoutStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_YearFormatProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_PrimaryTextProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -29080,23 +29080,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_UseTouchAnimationsForAllNavigationProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FlipView");
-      m_Factory     : IFlipViewStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFlipViewStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UseTouchAnimationsForAllNavigationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -29112,6 +29095,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IFlipViewFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UseTouchAnimationsForAllNavigationProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FlipView");
+      m_Factory     : IFlipViewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlipViewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UseTouchAnimationsForAllNavigationProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -29209,40 +29209,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IFlyoutPresenterFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MirroredWhenRightToLeftProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FontIcon");
-      m_Factory     : IFontIconStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFontIconStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MirroredWhenRightToLeftProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsTextScaleFactorEnabledProperty_IFontIcon
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FontIcon");
-      m_Factory     : IFontIconStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFontIconStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -29349,6 +29315,61 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IFontIconStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_GlyphProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsTextScaleFactorEnabledProperty_IFontIcon
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FontIcon");
+      m_Factory     : IFontIconStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFontIconStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MirroredWhenRightToLeftProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FontIcon");
+      m_Factory     : IFontIconStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFontIconStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MirroredWhenRightToLeftProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IFontIconSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FontIconSource");
+      m_Factory     : IFontIconSourceFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IFontIconSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFontIconSourceFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -29479,14 +29500,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IFontIconSource is
+   return Windows.UI.Xaml.Controls.IFrame is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FontIconSource");
-      m_Factory     : IFontIconSourceFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Frame");
+      m_Factory     : IFrameFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IFontIconSource;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IFrame;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFontIconSourceFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IFrameFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -29636,14 +29657,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IFrame is
+   return Windows.UI.Xaml.Controls.IGrid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Frame");
-      m_Factory     : IFrameFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Grid");
+      m_Factory     : IGridFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IFrame;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IGrid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFrameFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGridFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -29876,61 +29897,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IGrid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Grid");
-      m_Factory     : IGridFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IGrid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGridFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ColumnSpacingProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Grid");
-      m_Factory     : IGridStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGridStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ColumnSpacingProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RowSpacingProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Grid");
-      m_Factory     : IGridStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGridStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RowSpacingProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_BorderBrushProperty_IGrid
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -29993,6 +29959,40 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IGridStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PaddingProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ColumnSpacingProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Grid");
+      m_Factory     : IGridStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGridStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ColumnSpacingProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RowSpacingProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Grid");
+      m_Factory     : IGridStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGridStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RowSpacingProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -30214,6 +30214,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IHub is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Hub");
+      m_Factory     : IHubFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IHub;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHubFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_DefaultSectionIndexProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -30327,27 +30348,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IHubStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SemanticZoomOwnerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IHub is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Hub");
-      m_Factory     : IHubFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IHub;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHubFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -30896,6 +30896,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbarCustomToolButton");
+      m_Factory     : IInkToolbarCustomToolButtonFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarCustomToolButtonFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ConfigurationContentProperty_IInkToolbarCustomToolButton
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -30918,14 +30939,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton is
+   return Windows.UI.Xaml.Controls.IInkToolbarEraserButton is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbarCustomToolButton");
-      m_Factory     : IInkToolbarCustomToolButtonFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbarEraserButton");
+      m_Factory     : IInkToolbarEraserButtonFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IInkToolbarEraserButton;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarCustomToolButtonFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarEraserButtonFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -30945,27 +30966,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarEraserButtonStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsClearAllVisibleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IInkToolbarEraserButton is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbarEraserButton");
-      m_Factory     : IInkToolbarEraserButtonFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IInkToolbarEraserButton;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarEraserButtonFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -31226,23 +31226,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_RulerProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbarRulerButton");
-      m_Factory     : IInkToolbarRulerButtonStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarRulerButtonStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RulerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -31258,6 +31241,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarRulerButtonFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RulerProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbarRulerButton");
+      m_Factory     : IInkToolbarRulerButtonStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarRulerButtonStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RulerProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -31381,6 +31381,27 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarToolButtonStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsExtensionGlyphShownProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IItemsControl is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsControl");
+      m_Factory     : IItemsControlFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IItemsControl;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IItemsControlFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -31597,27 +31618,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IItemsControl is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsControl");
-      m_Factory     : IItemsControlFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IItemsControl;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IItemsControlFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_HeaderProperty_IItemsPresenter
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -31737,23 +31737,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_AreStickyGroupHeadersEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsStackPanel");
-      m_Factory     : IItemsStackPanelStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IItemsStackPanelStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AreStickyGroupHeadersEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_CacheLengthProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -31816,6 +31799,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IItemsStackPanelStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_OrientationProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AreStickyGroupHeadersEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ItemsStackPanel");
+      m_Factory     : IItemsStackPanelStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IItemsStackPanelStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AreStickyGroupHeadersEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -31958,17 +31958,21 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_SingleSelectionFollowsFocusProperty
-   return Windows.UI.Xaml.IDependencyProperty is
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IListBox is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListBox");
-      m_Factory     : IListBoxStatics2 := null;
+      m_Factory     : IListBoxFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IListBox;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListBoxStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IListBoxFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SingleSelectionFollowsFocusProperty(RetVal'Access);
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -31992,21 +31996,17 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IListBox is
+   function get_SingleSelectionFollowsFocusProperty
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListBox");
-      m_Factory     : IListBoxFactory := null;
+      m_Factory     : IListBoxStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IListBox;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListBoxFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IListBoxStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.get_SingleSelectionFollowsFocusProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -32191,119 +32191,21 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_FooterProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty is
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IListViewBase is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseStatics2 := null;
+      m_Factory     : IListViewBaseFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IListViewBase;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FooterProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FooterTemplateProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FooterTemplateProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FooterTransitionsProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FooterTransitionsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ShowsScrollingPlaceholdersProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ShowsScrollingPlaceholdersProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsMultiSelectCheckBoxEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsMultiSelectCheckBoxEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SingleSelectionFollowsFocusProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SingleSelectionFollowsFocusProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ReorderModeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ReorderModeProperty(RetVal'Access);
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -32548,21 +32450,119 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IListViewBase is
+   function get_FooterProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
-      m_Factory     : IListViewBaseFactory := null;
+      m_Factory     : IListViewBaseStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IListViewBase;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.get_FooterProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FooterTemplateProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
+      m_Factory     : IListViewBaseStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FooterTemplateProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FooterTransitionsProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
+      m_Factory     : IListViewBaseStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FooterTransitionsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ShowsScrollingPlaceholdersProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
+      m_Factory     : IListViewBaseStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ShowsScrollingPlaceholdersProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ReorderModeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
+      m_Factory     : IListViewBaseStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ReorderModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsMultiSelectCheckBoxEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
+      m_Factory     : IListViewBaseStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsMultiSelectCheckBoxEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SingleSelectionFollowsFocusProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ListViewBase");
+      m_Factory     : IListViewBaseStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IListViewBaseStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SingleSelectionFollowsFocusProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -32648,74 +32648,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IListViewPersistenceHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetRelativeScrollPositionAsync(listViewBase, relativeScrollPosition, keyToItemHandler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AreTransportControlsEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
-      m_Factory     : IMediaElementStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AreTransportControlsEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsFullWindowProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
-      m_Factory     : IMediaElementStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsFullWindowProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PlayToPreferredSourceUriProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
-      m_Factory     : IMediaElementStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PlayToPreferredSourceUriProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StretchProperty_IMediaElement
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
-      m_Factory     : IMediaElementStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StretchProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -33283,6 +33215,74 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_AreTransportControlsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
+      m_Factory     : IMediaElementStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AreTransportControlsEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsFullWindowProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
+      m_Factory     : IMediaElementStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsFullWindowProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PlayToPreferredSourceUriProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
+      m_Factory     : IMediaElementStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PlayToPreferredSourceUriProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StretchProperty_IMediaElement
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaElement");
+      m_Factory     : IMediaElementStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaElementStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StretchProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -33423,6 +33423,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IMediaPlayerPresenter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaPlayerPresenter");
+      m_Factory     : IMediaPlayerPresenterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IMediaPlayerPresenter;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaPlayerPresenterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_IsFullWindowProperty_IMediaPlayerPresenter
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -33479,169 +33500,16 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IMediaPlayerPresenter is
+   return Windows.UI.Xaml.Controls.IMediaTransportControls is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaPlayerPresenter");
-      m_Factory     : IMediaPlayerPresenterFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IMediaPlayerPresenter;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IMediaTransportControls;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaPlayerPresenterFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsCompactOverlayButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsCompactOverlayButtonVisibleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsCompactOverlayEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsCompactOverlayEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FastPlayFallbackBehaviourProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FastPlayFallbackBehaviourProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsNextTrackButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsNextTrackButtonVisibleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsPreviousTrackButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsPreviousTrackButtonVisibleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsSkipBackwardButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSkipBackwardButtonVisibleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsSkipBackwardEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSkipBackwardEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsSkipForwardButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSkipForwardButtonVisibleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsSkipForwardEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSkipForwardEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -33937,21 +33805,119 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IMediaTransportControls is
+   function get_FastPlayFallbackBehaviourProperty
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
-      m_Factory     : IMediaTransportControlsFactory := null;
+      m_Factory     : IMediaTransportControlsStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IMediaTransportControls;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.get_FastPlayFallbackBehaviourProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsNextTrackButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsNextTrackButtonVisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsPreviousTrackButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsPreviousTrackButtonVisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsSkipBackwardButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSkipBackwardButtonVisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsSkipBackwardEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSkipBackwardEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsSkipForwardButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSkipForwardButtonVisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsSkipForwardEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSkipForwardEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -34003,6 +33969,40 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ShowAndHideAutomaticallyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsCompactOverlayButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsCompactOverlayButtonVisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsCompactOverlayEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MediaTransportControls");
+      m_Factory     : IMediaTransportControlsStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaTransportControlsStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsCompactOverlayEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -34065,6 +34065,27 @@ package body Windows.UI.Xaml.Controls is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IMenuFlyout is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyout");
+      m_Factory     : IMenuFlyoutFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IMenuFlyout;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_MenuFlyoutPresenterStyleProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -34087,44 +34108,6 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IMenuFlyout is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyout");
-      m_Factory     : IMenuFlyoutFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IMenuFlyout;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_KeyboardAcceleratorTextOverrideProperty_IMenuFlyoutItem
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutItem");
-      m_Factory     : IMenuFlyoutItemStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutItemStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeyboardAcceleratorTextOverrideProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Controls.IMenuFlyoutItem is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutItem");
@@ -34135,23 +34118,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IconProperty_IMenuFlyoutItem
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutItem");
-      m_Factory     : IMenuFlyoutItemStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutItemStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IconProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -34209,6 +34175,40 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_IconProperty_IMenuFlyoutItem
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutItem");
+      m_Factory     : IMenuFlyoutItemStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutItemStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IconProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeyboardAcceleratorTextOverrideProperty_IMenuFlyoutItem
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutItem");
+      m_Factory     : IMenuFlyoutItemStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutItemStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeyboardAcceleratorTextOverrideProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -34251,23 +34251,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_IconProperty_IMenuFlyoutSubItem
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutSubItem");
-      m_Factory     : IMenuFlyoutSubItemStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutSubItemStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IconProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_TextProperty_IMenuFlyoutSubItem
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -34285,51 +34268,17 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_IsBackButtonVisibleProperty
+   function get_IconProperty_IMenuFlyoutSubItem
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationView");
-      m_Factory     : INavigationViewStatics2 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutSubItem");
+      m_Factory     : IMenuFlyoutSubItemStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutSubItemStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsBackButtonVisibleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsBackEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationView");
-      m_Factory     : INavigationViewStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsBackEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PaneTitleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationView");
-      m_Factory     : INavigationViewStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PaneTitleProperty(RetVal'Access);
+         Hr := m_Factory.get_IconProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -34731,6 +34680,78 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_IsBackButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationView");
+      m_Factory     : INavigationViewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsBackButtonVisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsBackEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationView");
+      m_Factory     : INavigationViewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsBackEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PaneTitleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationView");
+      m_Factory     : INavigationViewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PaneTitleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.INavigationViewItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationViewItem");
+      m_Factory     : INavigationViewItemFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.INavigationViewItem;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewItemFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_CompactPaneLengthProperty_INavigationViewItem
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -34759,27 +34780,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_INavigationViewItemStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IconProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.INavigationViewItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.NavigationViewItem");
-      m_Factory     : INavigationViewItemFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.INavigationViewItem;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewItemFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -35252,57 +35252,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_InputScopeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PasswordBox");
-      m_Factory     : IPasswordBoxStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPasswordBoxStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InputScopeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PasswordRevealModeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PasswordBox");
-      m_Factory     : IPasswordBoxStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPasswordBoxStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PasswordRevealModeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TextReadingOrderProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PasswordBox");
-      m_Factory     : IPasswordBoxStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPasswordBoxStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TextReadingOrderProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IsPasswordRevealButtonEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -35456,17 +35405,51 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_DataProperty
+   function get_InputScopeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PathIcon");
-      m_Factory     : IPathIconStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PasswordBox");
+      m_Factory     : IPasswordBoxStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPathIconStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPasswordBoxStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_DataProperty(RetVal'Access);
+         Hr := m_Factory.get_InputScopeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PasswordRevealModeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PasswordBox");
+      m_Factory     : IPasswordBoxStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPasswordBoxStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PasswordRevealModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TextReadingOrderProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PasswordBox");
+      m_Factory     : IPasswordBoxStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPasswordBoxStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextReadingOrderProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -35494,15 +35477,15 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_DataProperty_IPathIconSource
+   function get_DataProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PathIconSource");
-      m_Factory     : IPathIconSourceStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PathIcon");
+      m_Factory     : IPathIconStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPathIconSourceStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPathIconStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_DataProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -35526,6 +35509,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IPathIconSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DataProperty_IPathIconSource
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PathIconSource");
+      m_Factory     : IPathIconSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPathIconSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DataProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -35757,34 +35757,21 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_HeaderFocusVisualPlacementProperty
-   return Windows.UI.Xaml.IDependencyProperty is
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IPivot is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Pivot");
-      m_Factory     : IPivotStatics3 := null;
+      m_Factory     : IPivotFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IPivot;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPivotStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPivotFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_HeaderFocusVisualPlacementProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsHeaderItemsCarouselEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Pivot");
-      m_Factory     : IPivotStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPivotStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsHeaderItemsCarouselEnabledProperty(RetVal'Access);
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -36017,38 +36004,34 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IPivot is
+   function get_HeaderFocusVisualPlacementProperty
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Pivot");
-      m_Factory     : IPivotFactory := null;
+      m_Factory     : IPivotStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IPivot;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPivotFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPivotStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.get_HeaderFocusVisualPlacementProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_HeaderProperty_IPivotItem
+   function get_IsHeaderItemsCarouselEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PivotItem");
-      m_Factory     : IPivotItemStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Pivot");
+      m_Factory     : IPivotStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPivotItemStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPivotStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_HeaderProperty(RetVal'Access);
+         Hr := m_Factory.get_IsHeaderItemsCarouselEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -36070,6 +36053,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IPivotItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HeaderProperty_IPivotItem
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.PivotItem");
+      m_Factory     : IPivotItemStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPivotItemStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeaderProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -36165,23 +36165,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_GroupNameProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RadioButton");
-      m_Factory     : IRadioButtonStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadioButtonStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_GroupNameProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -36197,6 +36180,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IRadioButtonFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_GroupNameProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RadioButton");
+      m_Factory     : IRadioButtonStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadioButtonStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_GroupNameProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -36627,6 +36627,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IRefreshContainer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RefreshContainer");
+      m_Factory     : IRefreshContainerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IRefreshContainer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRefreshContainerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_PullDirectionProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -36655,27 +36676,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IRefreshContainerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VisualizerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IRefreshContainer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RefreshContainer");
-      m_Factory     : IRefreshContainerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IRefreshContainer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRefreshContainerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -36765,6 +36765,27 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IRefreshVisualizerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_StateProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IRelativePanel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RelativePanel");
+      m_Factory     : IRelativePanelFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IRelativePanel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRelativePanelFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -37740,152 +37761,16 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IRelativePanel is
+   return Windows.UI.Xaml.Controls.IRichEditBox is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RelativePanel");
-      m_Factory     : IRelativePanelFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IRelativePanel;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IRichEditBox;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRelativePanelFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ContentLinkBackgroundColorProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ContentLinkBackgroundColorProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ContentLinkForegroundColorProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ContentLinkForegroundColorProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ContentLinkProvidersProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ContentLinkProvidersProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HandwritingViewProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HandwritingViewProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsHandwritingViewEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsHandwritingViewEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ClipboardCopyFormatProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ClipboardCopyFormatProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DesiredCandidateWindowAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DesiredCandidateWindowAlignmentProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TextReadingOrderProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TextReadingOrderProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -38011,112 +37896,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_MaxLengthProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxLengthProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SelectionHighlightColorWhenNotFocusedProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SelectionHighlightColorWhenNotFocusedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IRichEditBox is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IRichEditBox;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CharacterCasingProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics6 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics6'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CharacterCasingProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DisabledFormattingAcceleratorsProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics6 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics6'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DisabledFormattingAcceleratorsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HorizontalTextAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
-      m_Factory     : IRichEditBoxStatics6 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics6'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HorizontalTextAlignmentProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_HeaderProperty_IRichEditBox
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -38219,34 +37998,221 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_TextDecorationsProperty
+   function get_DesiredCandidateWindowAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlock");
-      m_Factory     : IRichTextBlockStatics4 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockStatics4'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TextDecorationsProperty(RetVal'Access);
+         Hr := m_Factory.get_DesiredCandidateWindowAlignmentProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_IsTextScaleFactorEnabledProperty_IRichTextBlock
+   function get_TextReadingOrderProperty_IRichEditBox
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlock");
-      m_Factory     : IRichTextBlockStatics3 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
+         Hr := m_Factory.get_TextReadingOrderProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ClipboardCopyFormatProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ClipboardCopyFormatProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxLengthProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxLengthProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SelectionHighlightColorWhenNotFocusedProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SelectionHighlightColorWhenNotFocusedProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CharacterCasingProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics6 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics6'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CharacterCasingProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DisabledFormattingAcceleratorsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics6 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics6'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DisabledFormattingAcceleratorsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HorizontalTextAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics6 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics6'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HorizontalTextAlignmentProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ContentLinkBackgroundColorProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ContentLinkBackgroundColorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ContentLinkForegroundColorProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ContentLinkForegroundColorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ContentLinkProvidersProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ContentLinkProvidersProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HandwritingViewProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HandwritingViewProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsHandwritingViewEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichEditBox");
+      m_Factory     : IRichEditBoxStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichEditBoxStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsHandwritingViewEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -38661,6 +38627,40 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_IsTextScaleFactorEnabledProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlock");
+      m_Factory     : IRichTextBlockStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TextDecorationsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlock");
+      m_Factory     : IRichTextBlockStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextDecorationsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HorizontalTextAlignmentProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -38689,40 +38689,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockStatics5'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsTextTrimmedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsTextTrimmedProperty_IRichTextBlockOverflow
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlockOverflow");
-      m_Factory     : IRichTextBlockOverflowStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockOverflowStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsTextTrimmedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MaxLinesProperty_IRichTextBlockOverflow
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlockOverflow");
-      m_Factory     : IRichTextBlockOverflowStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockOverflowStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxLinesProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -38774,6 +38740,40 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockOverflowStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PaddingProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxLinesProperty_IRichTextBlockOverflow
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlockOverflow");
+      m_Factory     : IRichTextBlockOverflowStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockOverflowStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxLinesProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsTextTrimmedProperty_IRichTextBlockOverflow
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.RichTextBlockOverflow");
+      m_Factory     : IRichTextBlockOverflowStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRichTextBlockOverflowStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTextTrimmedProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -39989,6 +39989,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ISearchBox is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SearchBox");
+      m_Factory     : ISearchBoxFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ISearchBox;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISearchBoxFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ChooseSuggestionOnEnterProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -40085,27 +40106,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_ISearchBoxStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SearchHistoryEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ISearchBox is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SearchBox");
-      m_Factory     : ISearchBoxFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ISearchBox;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISearchBoxFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -40220,6 +40220,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ISettingsFlyout is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SettingsFlyout");
+      m_Factory     : ISettingsFlyoutFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ISettingsFlyout;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISettingsFlyoutFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HeaderBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -40293,14 +40314,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ISettingsFlyout is
+   return Windows.UI.Xaml.Controls.ISlider is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SettingsFlyout");
-      m_Factory     : ISettingsFlyoutFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Slider");
+      m_Factory     : ISliderFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ISettingsFlyout;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ISlider;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISettingsFlyoutFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISliderFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -40501,27 +40522,6 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ISlider is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Slider");
-      m_Factory     : ISliderFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ISlider;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISliderFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Controls.ISplitView is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SplitView");
@@ -40708,23 +40708,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_SpacingProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.StackPanel");
-      m_Factory     : IStackPanelStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStackPanelStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SpacingProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -40848,6 +40831,23 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_SpacingProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.StackPanel");
+      m_Factory     : IStackPanelStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStackPanelStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SpacingProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -40890,6 +40890,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ISwapChainPanel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SwapChainPanel");
+      m_Factory     : ISwapChainPanelFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ISwapChainPanel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISwapChainPanelFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_CompositionScaleXProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -40918,27 +40939,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_ISwapChainPanelStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_CompositionScaleYProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ISwapChainPanel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SwapChainPanel");
-      m_Factory     : ISwapChainPanelFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ISwapChainPanel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISwapChainPanelFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -41174,23 +41174,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_ModeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SwipeItems");
-      m_Factory     : ISwipeItemsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISwipeItemsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ModeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -41212,6 +41195,23 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_ModeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SwipeItems");
+      m_Factory     : ISwipeItemsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISwipeItemsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_SymbolProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -41221,23 +41221,6 @@ package body Windows.UI.Xaml.Controls is
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISymbolIconStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SymbolProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SymbolProperty_ISymbolIconSource
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SymbolIconSource");
-      m_Factory     : ISymbolIconSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymbolIconSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SymbolProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -41267,136 +41250,17 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_IsTextScaleFactorEnabledProperty_ITextBlock
+   function get_SymbolProperty_ISymbolIconSource
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics3 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SymbolIconSource");
+      m_Factory     : ISymbolIconSourceStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISymbolIconSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TextDecorationsProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TextDecorationsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsColorFontEnabledProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MaxLinesProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxLinesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OpticalMarginAlignmentProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OpticalMarginAlignmentProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SelectionHighlightColorProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SelectionHighlightColorProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TextLineBoundsProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TextLineBoundsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TextReadingOrderProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
-      m_Factory     : ITextBlockStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TextReadingOrderProperty(RetVal'Access);
+         Hr := m_Factory.get_SymbolProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -41675,6 +41539,142 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_IsColorFontEnabledProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxLinesProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxLinesProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OpticalMarginAlignmentProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OpticalMarginAlignmentProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SelectionHighlightColorProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SelectionHighlightColorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TextLineBoundsProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextLineBoundsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TextReadingOrderProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextReadingOrderProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsTextScaleFactorEnabledProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTextScaleFactorEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TextDecorationsProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBlock");
+      m_Factory     : ITextBlockStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBlockStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextDecorationsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HorizontalTextAlignmentProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -41709,136 +41709,21 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_HandwritingViewProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ITextBox is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics7 := null;
+      m_Factory     : ITextBoxFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ITextBox;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics7'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_HandwritingViewProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsHandwritingViewEnabledProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics7 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics7'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsHandwritingViewEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HeaderProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeaderProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HeaderTemplateProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeaderTemplateProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsColorFontEnabledProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PlaceholderTextProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PlaceholderTextProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PreventKeyboardDisplayOnProgrammaticFocusProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PreventKeyboardDisplayOnProgrammaticFocusProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SelectionHighlightColorProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SelectionHighlightColorProperty(RetVal'Access);
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -41998,6 +41883,108 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_HeaderProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeaderProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HeaderTemplateProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeaderTemplateProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsColorFontEnabledProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PlaceholderTextProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PlaceholderTextProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PreventKeyboardDisplayOnProgrammaticFocusProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PreventKeyboardDisplayOnProgrammaticFocusProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SelectionHighlightColorProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SelectionHighlightColorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_DesiredCandidateWindowAlignmentProperty_ITextBox
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -42026,6 +42013,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TextReadingOrderProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SelectionHighlightColorWhenNotFocusedProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SelectionHighlightColorWhenNotFocusedProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -42083,17 +42087,34 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_SelectionHighlightColorWhenNotFocusedProperty_ITextBox
+   function get_HandwritingViewProperty_ITextBox
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxStatics5 := null;
+      m_Factory     : ITextBoxStatics7 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics5'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics7'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SelectionHighlightColorWhenNotFocusedProperty(RetVal'Access);
+         Hr := m_Factory.get_HandwritingViewProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsHandwritingViewEnabledProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
+      m_Factory     : ITextBoxStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsHandwritingViewEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -42105,14 +42126,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ITextBox is
+   return Windows.UI.Xaml.Controls.ITimePicker is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TextBox");
-      m_Factory     : ITextBoxFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TimePicker");
+      m_Factory     : ITimePickerFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ITextBox;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ITimePicker;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextBoxFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimePickerFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -42223,27 +42244,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ITimePicker is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TimePicker");
-      m_Factory     : ITimePickerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ITimePicker;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimePickerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_ClockIdentifierProperty_ITimePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -42295,23 +42295,6 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
-   function get_IsCheckedProperty_IToggleMenuFlyoutItem
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem");
-      m_Factory     : IToggleMenuFlyoutItemStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToggleMenuFlyoutItemStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsCheckedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -42327,6 +42310,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IToggleMenuFlyoutItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsCheckedProperty_IToggleMenuFlyoutItem
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem");
+      m_Factory     : IToggleMenuFlyoutItemStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToggleMenuFlyoutItemStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsCheckedProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -42452,6 +42452,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IToolTip is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ToolTip");
+      m_Factory     : IToolTipFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IToolTip;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToolTipFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HorizontalOffsetProperty_IToolTip
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -42531,27 +42552,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IToolTipStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VerticalOffsetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IToolTip is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.ToolTip");
-      m_Factory     : IToolTipFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IToolTip;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToolTipFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -42904,6 +42904,27 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TreeViewItemTemplateSettings");
+      m_Factory     : ITreeViewItemTemplateSettingsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewItemTemplateSettingsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_CollapsedGlyphVisibilityProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -42977,14 +42998,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettings is
+   return Windows.UI.Xaml.Controls.ITreeViewList is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TreeViewItemTemplateSettings");
-      m_Factory     : ITreeViewItemTemplateSettingsFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TreeViewList");
+      m_Factory     : ITreeViewListFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettings;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ITreeViewList;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewItemTemplateSettingsFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewListFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -42998,14 +43019,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ITreeViewList is
+   return Windows.UI.Xaml.Controls.ITreeViewNode is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TreeViewList");
-      m_Factory     : ITreeViewListFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TreeViewNode");
+      m_Factory     : ITreeViewNodeFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ITreeViewList;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ITreeViewNode;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewListFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewNodeFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -43087,14 +43108,14 @@ package body Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ITreeViewNode is
+   return Windows.UI.Xaml.Controls.IUserControl is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TreeViewNode");
-      m_Factory     : ITreeViewNodeFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.UserControl");
+      m_Factory     : IUserControlFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.ITreeViewNode;
+      RetVal        : aliased Windows.UI.Xaml.Controls.IUserControl;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewNodeFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUserControlFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -43114,27 +43135,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IUserControlStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ContentProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IUserControl is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.UserControl");
-      m_Factory     : IUserControlFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.IUserControl;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserControlFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -43652,6 +43652,57 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_ContainsFullScreenElementProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
+      m_Factory     : IWebViewStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebViewStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ContainsFullScreenElementProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ClearTemporaryWebDataAsync
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
+      m_Factory     : IWebViewStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebViewStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ClearTemporaryWebDataAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DefaultExecutionMode
+   return Windows.UI.Xaml.Controls.WebViewExecutionMode is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
+      m_Factory     : IWebViewStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.WebViewExecutionMode;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebViewStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DefaultExecutionMode(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_XYFocusDownProperty_IWebView
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -43714,57 +43765,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IWebViewStatics5'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ContainsFullScreenElementProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
-      m_Factory     : IWebViewStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebViewStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ContainsFullScreenElementProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ClearTemporaryWebDataAsync
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
-      m_Factory     : IWebViewStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebViewStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ClearTemporaryWebDataAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DefaultExecutionMode
-   return Windows.UI.Xaml.Controls.WebViewExecutionMode is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
-      m_Factory     : IWebViewStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.WebViewExecutionMode;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebViewStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DefaultExecutionMode(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -338,6 +338,135 @@ package body Windows.Security.Authentication.Web.Provider is
       return RetVal;
    end;
    
+   function AddWebAccountForUserAsync
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+      ; webAccountUserName : Windows.String
+      ; props : IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
+      m_Factory     : IWebAccountManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AddWebAccountForUserAsync(user, webAccountId, webAccountUserName, props, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function AddWebAccountWithScopeAndMapForUserAsync
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+      ; webAccountUserName : Windows.String
+      ; props : IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+      ; perUserWebAccountId : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
+      m_Factory     : IWebAccountManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AddWebAccountWithScopeAndMapForUserAsync(user, webAccountId, webAccountUserName, props, scope, perUserWebAccountId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function AddWebAccountWithScopeForUserAsync
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+      ; webAccountUserName : Windows.String
+      ; props : IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
+      m_Factory     : IWebAccountManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AddWebAccountWithScopeForUserAsync(user, webAccountId, webAccountUserName, props, scope, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAllProviderWebAccountsForUserAsync
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
+      m_Factory     : IWebAccountManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAllProviderWebAccountsForUserAsync(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function InvalidateAppCacheForAccountAsync
+   (
+      webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
+      m_Factory     : IWebAccountManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.InvalidateAppCacheForAccountAsync(webAccount, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function InvalidateAppCacheForAllAccountsAsync
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
+      m_Factory     : IWebAccountManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.InvalidateAppCacheForAllAccountsAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function AddWebAccountWithScopeAndMapAsync
    (
       webAccountId : Windows.String
@@ -481,135 +610,6 @@ package body Windows.Security.Authentication.Web.Provider is
       Hr := RoGetActivationFactory(m_hString, IID_IWebAccountScopeManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetScopeAsync(webAccount, scope, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function AddWebAccountForUserAsync
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-      ; webAccountUserName : Windows.String
-      ; props : IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccount is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
-      m_Factory     : IWebAccountManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccount;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AddWebAccountForUserAsync(user, webAccountId, webAccountUserName, props, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function AddWebAccountWithScopeAndMapForUserAsync
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-      ; webAccountUserName : Windows.String
-      ; props : IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-      ; perUserWebAccountId : Windows.String
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccount is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
-      m_Factory     : IWebAccountManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccount;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AddWebAccountWithScopeAndMapForUserAsync(user, webAccountId, webAccountUserName, props, scope, perUserWebAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function AddWebAccountWithScopeForUserAsync
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-      ; webAccountUserName : Windows.String
-      ; props : IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccount is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
-      m_Factory     : IWebAccountManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccount;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AddWebAccountWithScopeForUserAsync(user, webAccountId, webAccountUserName, props, scope, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FindAllProviderWebAccountsForUserAsync
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
-      m_Factory     : IWebAccountManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindAllProviderWebAccountsForUserAsync(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function InvalidateAppCacheForAccountAsync
-   (
-      webAccount : Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
-      m_Factory     : IWebAccountManagerStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.InvalidateAppCacheForAccountAsync(webAccount, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function InvalidateAppCacheForAllAccountsAsync
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebAccountManager");
-      m_Factory     : IWebAccountManagerStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountManagerStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.InvalidateAppCacheForAllAccountsAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

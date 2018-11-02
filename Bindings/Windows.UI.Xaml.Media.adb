@@ -3024,6 +3024,27 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IBrush is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Brush");
+      m_Factory     : IBrushFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.IBrush;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrushFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_OpacityProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3069,27 +3090,6 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TransformProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IBrush is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Brush");
-      m_Factory     : IBrushFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.IBrush;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrushFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3580,6 +3580,27 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IGradientBrush is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientBrush");
+      m_Factory     : IGradientBrushFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.IGradientBrush;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ColorInterpolationModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3642,27 +3663,6 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SpreadMethodProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IGradientBrush is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientBrush");
-      m_Factory     : IGradientBrushFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.IGradientBrush;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4492,6 +4492,27 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IRevealBrush is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RevealBrush");
+      m_Factory     : IRevealBrushFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.IRevealBrush;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AlwaysUseFallbackProperty_IRevealBrush
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4597,27 +4618,6 @@ package body Windows.UI.Xaml.Media is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IRevealBrush is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RevealBrush");
-      m_Factory     : IRevealBrushFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.IRevealBrush;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function get_AngleProperty
@@ -4998,26 +4998,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function GetOpenPopups
-   (
-      window : Windows.UI.Xaml.IWindow
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
-      m_Factory     : IVisualTreeHelperStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetOpenPopups(window, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure DisconnectChildrenRecursive
    (
       element : Windows.UI.Xaml.IUIElement
@@ -5183,17 +5163,20 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_FallbackColorProperty
-   return Windows.UI.Xaml.IDependencyProperty is
+   function GetOpenPopups
+   (
+      window : Windows.UI.Xaml.IWindow
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlCompositionBrushBase");
-      m_Factory     : IXamlCompositionBrushBaseStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
+      m_Factory     : IVisualTreeHelperStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlCompositionBrushBaseStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FallbackColorProperty(RetVal'Access);
+         Hr := m_Factory.GetOpenPopups(window, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5215,6 +5198,23 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IXamlCompositionBrushBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FallbackColorProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlCompositionBrushBase");
+      m_Factory     : IXamlCompositionBrushBaseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlCompositionBrushBaseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FallbackColorProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

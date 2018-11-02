@@ -526,47 +526,6 @@ package body Windows.Security.EnterpriseData is
       return RetVal;
    end;
    
-   function UnprotectAsync
-   (
-      target : Windows.Storage.IStorageItem
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.UnprotectAsync(target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function UnprotectWithOptionsAsync
-   (
-      target : Windows.Storage.IStorageItem
-      ; options : Windows.Security.EnterpriseData.IFileUnprotectOptions
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.UnprotectWithOptionsAsync(target, options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function IsContainerAsync
    (
       file : Windows.Storage.IStorageFile
@@ -624,6 +583,47 @@ package body Windows.Security.EnterpriseData is
       Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SaveFileAsContainerWithSharingAsync(protectedFile, sharedWithIdentities, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function UnprotectAsync
+   (
+      target : Windows.Storage.IStorageItem
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.UnprotectAsync(target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function UnprotectWithOptionsAsync
+   (
+      target : Windows.Storage.IStorageItem
+      ; options : Windows.Security.EnterpriseData.IFileUnprotectOptions
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.UnprotectWithOptionsAsync(target, options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -708,294 +708,6 @@ package body Windows.Security.EnterpriseData is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure LogAuditEvent
-   (
-      sourceIdentity : Windows.String
-      ; targetIdentity : Windows.String
-      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LogAuditEvent(sourceIdentity, targetIdentity, auditInfo);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function RequestAccessForAppWithAuditingInfoAsync
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAccessForAppWithAuditingInfoAsync(sourceIdentity, appPackageFamilyName, auditInfo, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestAccessForAppWithMessageAsync
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
-      ; messageFromApp : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAccessForAppWithMessageAsync(sourceIdentity, appPackageFamilyName, auditInfo, messageFromApp, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestAccessWithAuditingInfoAsync
-   (
-      sourceIdentity : Windows.String
-      ; targetIdentity : Windows.String
-      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAccessWithAuditingInfoAsync(sourceIdentity, targetIdentity, auditInfo, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestAccessWithMessageAsync
-   (
-      sourceIdentity : Windows.String
-      ; targetIdentity : Windows.String
-      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
-      ; messageFromApp : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAccessWithMessageAsync(sourceIdentity, targetIdentity, auditInfo, messageFromApp, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function add_PolicyChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_PolicyChanged(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CheckAccessForApp
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-   )
-   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CheckAccessForApp(sourceIdentity, appPackageFamilyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsProtectionEnabled
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsProtectionEnabled(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetEnforcementLevel
-   (
-      identity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.EnforcementLevel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.EnforcementLevel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetEnforcementLevel(identity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function HasContentBeenRevokedSince
-   (
-      identity : Windows.String
-      ; since : Windows.Foundation.DateTime
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.HasContentBeenRevokedSince(identity, since, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsProtectionUnderLockRequired
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsProtectionUnderLockRequired(identity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsUserDecryptionAllowed
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsUserDecryptionAllowed(identity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_PolicyChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_PolicyChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function RequestAccessForAppAsync
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
-      m_Factory     : IProtectionPolicyManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAccessForAppAsync(sourceIdentity, appPackageFamilyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function add_ProtectedAccessResumed
@@ -1278,6 +990,294 @@ package body Windows.Security.EnterpriseData is
       Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryApplyProcessUIPolicy(identity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_PolicyChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_PolicyChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CheckAccessForApp
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CheckAccessForApp(sourceIdentity, appPackageFamilyName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsProtectionEnabled
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsProtectionEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetEnforcementLevel
+   (
+      identity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.EnforcementLevel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.EnforcementLevel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetEnforcementLevel(identity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function HasContentBeenRevokedSince
+   (
+      identity : Windows.String
+      ; since : Windows.Foundation.DateTime
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.HasContentBeenRevokedSince(identity, since, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsProtectionUnderLockRequired
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsProtectionUnderLockRequired(identity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsUserDecryptionAllowed
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsUserDecryptionAllowed(identity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_PolicyChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_PolicyChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function RequestAccessForAppAsync
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessForAppAsync(sourceIdentity, appPackageFamilyName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure LogAuditEvent
+   (
+      sourceIdentity : Windows.String
+      ; targetIdentity : Windows.String
+      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LogAuditEvent(sourceIdentity, targetIdentity, auditInfo);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function RequestAccessForAppWithAuditingInfoAsync
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessForAppWithAuditingInfoAsync(sourceIdentity, appPackageFamilyName, auditInfo, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessForAppWithMessageAsync
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+      ; messageFromApp : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessForAppWithMessageAsync(sourceIdentity, appPackageFamilyName, auditInfo, messageFromApp, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessWithAuditingInfoAsync
+   (
+      sourceIdentity : Windows.String
+      ; targetIdentity : Windows.String
+      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessWithAuditingInfoAsync(sourceIdentity, targetIdentity, auditInfo, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessWithMessageAsync
+   (
+      sourceIdentity : Windows.String
+      ; targetIdentity : Windows.String
+      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+      ; messageFromApp : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.ProtectionPolicyManager");
+      m_Factory     : IProtectionPolicyManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessWithMessageAsync(sourceIdentity, targetIdentity, auditInfo, messageFromApp, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

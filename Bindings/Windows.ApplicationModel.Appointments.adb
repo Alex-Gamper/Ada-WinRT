@@ -212,26 +212,6 @@ package body Windows.ApplicationModel.Appointments is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Appointments.IAppointmentManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Appointments.IAppointmentManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function ShowAddAppointmentAsync
    (
       appointment : Windows.ApplicationModel.Appointments.IAppointment
@@ -506,6 +486,26 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ShowEditNewAppointmentAsync(appointment, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.ApplicationModel.Appointments.IAppointmentManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Appointments.IAppointmentManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

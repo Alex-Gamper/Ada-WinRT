@@ -167,26 +167,6 @@ package body Windows.Gaming.Input is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IArcadeStick is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
-      m_Factory     : IArcadeStickStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IArcadeStick;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function add_ArcadeStickAdded
    (
       value : Windows.Gaming.Input.EventHandler_IArcadeStick
@@ -278,6 +258,26 @@ package body Windows.Gaming.Input is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IArcadeStick is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
+      m_Factory     : IArcadeStickStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IArcadeStick;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function add_FlightStickAdded

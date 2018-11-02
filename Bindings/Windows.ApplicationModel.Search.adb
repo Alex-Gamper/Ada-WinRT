@@ -152,21 +152,6 @@ package body Windows.ApplicationModel.Search is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   procedure HideThisApplication
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Search.SearchPane");
-      m_Factory     : ISearchPaneStaticsWithHideThisApplication := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISearchPaneStaticsWithHideThisApplication'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.HideThisApplication;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function GetForCurrentView
    return Windows.ApplicationModel.Search.ISearchPane is
       Hr            : Windows.HRESULT := S_OK;
@@ -182,6 +167,21 @@ package body Windows.ApplicationModel.Search is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure HideThisApplication
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Search.SearchPane");
+      m_Factory     : ISearchPaneStaticsWithHideThisApplication := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISearchPaneStaticsWithHideThisApplication'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.HideThisApplication;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
 end;

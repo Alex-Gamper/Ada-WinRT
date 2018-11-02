@@ -844,6 +844,23 @@ package body Windows.Media.Capture is
       return RetVal;
    end;
    
+   function GetForCurrentView
+   return Windows.Media.Capture.IAppCapture is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppCapture");
+      m_Factory     : IAppCaptureStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Capture.IAppCapture;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppCaptureStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function SetAllowedAsync
    (
       allowed : Windows.Boolean
@@ -858,23 +875,6 @@ package body Windows.Media.Capture is
       Hr := RoGetActivationFactory(m_hString, IID_IAppCaptureStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetAllowedAsync(allowed, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
-   return Windows.Media.Capture.IAppCapture is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppCapture");
-      m_Factory     : IAppCaptureStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Capture.IAppCapture;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppCaptureStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -1271,27 +1271,6 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
-   function RequestAccessKindAsync
-   (
-      requestedAccess : Windows.ApplicationModel.Background.BackgroundAccessRequestKind
-      ; reason : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.BackgroundExecutionManager");
-      m_Factory     : IBackgroundExecutionManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundExecutionManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAccessKindAsync(requestedAccess, reason, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetAccessStatus
    return Windows.ApplicationModel.Background.BackgroundAccessStatus is
       Hr            : Windows.HRESULT := S_OK;
@@ -1393,6 +1372,27 @@ package body Windows.ApplicationModel.Background is
       Hr := RoGetActivationFactory(m_hString, IID_IBackgroundExecutionManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestAccessForApplicationAsync(applicationId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessKindAsync
+   (
+      requestedAccess : Windows.ApplicationModel.Background.BackgroundAccessRequestKind
+      ; reason : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.BackgroundExecutionManager");
+      m_Factory     : IBackgroundExecutionManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundExecutionManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessKindAsync(requestedAccess, reason, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -42,26 +42,6 @@ package body Windows.UI is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function ToDisplayName
-   (
-      color : Windows.UI.Color
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ColorHelper");
-      m_Factory     : IColorHelperStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorHelperStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ToDisplayName(color, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromArgb
    (
       a : Windows.UInt8
@@ -79,6 +59,26 @@ package body Windows.UI is
       Hr := RoGetActivationFactory(m_hString, IID_IColorHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromArgb(a, r, g, b, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ToDisplayName
+   (
+      color : Windows.UI.Color
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ColorHelper");
+      m_Factory     : IColorHelperStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorHelperStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ToDisplayName(color, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

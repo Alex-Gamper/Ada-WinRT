@@ -2019,26 +2019,6 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-   function CreateFromDownloadOperation
-   (
-      downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
-   )
-   return Windows.Media.Core.IMediaSource2 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaSource");
-      m_Factory     : IMediaSourceStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IMediaSource2;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromDownloadOperation(downloadOperation, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateFromMediaFrameSource
    (
       frameSource : Windows.Media.Capture.Frames.IMediaFrameSource
@@ -2053,6 +2033,26 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromMediaFrameSource(frameSource, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromDownloadOperation
+   (
+      downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
+   )
+   return Windows.Media.Core.IMediaSource2 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaSource");
+      m_Factory     : IMediaSourceStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IMediaSource2;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDownloadOperation(downloadOperation, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2116,6 +2116,88 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IMseStreamSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsContentTypeSupported(contentType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromStream
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Media.Core.ITimedTextSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
+      m_Factory     : ITimedTextSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromStream(stream, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromStreamWithLanguage
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+      ; defaultLanguage : Windows.String
+   )
+   return Windows.Media.Core.ITimedTextSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
+      m_Factory     : ITimedTextSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromStreamWithLanguage(stream, defaultLanguage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromUri
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Media.Core.ITimedTextSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
+      m_Factory     : ITimedTextSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromUri(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromUriWithLanguage
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; defaultLanguage : Windows.String
+   )
+   return Windows.Media.Core.ITimedTextSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
+      m_Factory     : ITimedTextSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromUriWithLanguage(uri, defaultLanguage, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2202,88 +2284,6 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromUriWithIndexAndLanguage(uri, indexUri, defaultLanguage, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromStream
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Media.Core.ITimedTextSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
-      m_Factory     : ITimedTextSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromStream(stream, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromStreamWithLanguage
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-      ; defaultLanguage : Windows.String
-   )
-   return Windows.Media.Core.ITimedTextSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
-      m_Factory     : ITimedTextSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromStreamWithLanguage(stream, defaultLanguage, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Media.Core.ITimedTextSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
-      m_Factory     : ITimedTextSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromUri(uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromUriWithLanguage
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; defaultLanguage : Windows.String
-   )
-   return Windows.Media.Core.ITimedTextSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
-      m_Factory     : ITimedTextSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromUriWithLanguage(uri, defaultLanguage, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
