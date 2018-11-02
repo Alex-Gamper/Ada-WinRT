@@ -40,6 +40,19 @@ package body Windows.UI.ViewManagement is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface
+      ; sender : Windows.UI.ViewManagement.IAccessibilitySettings
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.IAccessibilitySettings(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IApplicationView_add_Consolidated_Interface
       ; sender : Windows.UI.ViewManagement.IApplicationView
       ; args : Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs
@@ -66,19 +79,6 @@ package body Windows.UI.ViewManagement is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IInputPane_add_Showing_Interface
-      ; sender : Windows.UI.ViewManagement.IInputPane
-      ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.ViewManagement.IInputPane(sender), Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IInputPane_add_Hiding_Interface
       ; sender : Windows.UI.ViewManagement.IInputPane
       ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs
@@ -92,14 +92,40 @@ package body Windows.UI.ViewManagement is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface
-      ; sender : Windows.UI.ViewManagement.IAccessibilitySettings
+      This       : access TypedEventHandler_IInputPane_add_Showing_Interface
+      ; sender : Windows.UI.ViewManagement.IInputPane
+      ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.IInputPane(sender), Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStatusBar_add_Hiding_Interface
+      ; sender : Windows.UI.ViewManagement.IStatusBar
       ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.ViewManagement.IAccessibilitySettings(sender), args);
+      This.Callback(Windows.UI.ViewManagement.IStatusBar(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStatusBar_add_Showing_Interface
+      ; sender : Windows.UI.ViewManagement.IStatusBar
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.IStatusBar(sender), args);
       return Hr;
    end;
    
@@ -142,52 +168,9 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access TypedEventHandler_IStatusBar_add_Showing_Interface
-      ; sender : Windows.UI.ViewManagement.IStatusBar
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.ViewManagement.IStatusBar(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IStatusBar_add_Hiding_Interface
-      ; sender : Windows.UI.ViewManagement.IStatusBar
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.ViewManagement.IStatusBar(sender), args);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.UI.ViewManagement.IApplicationViewTransferContext is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewTransferContext");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.ViewManagement.IApplicationViewTransferContext) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IApplicationViewTransferContext'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create return Windows.UI.ViewManagement.IAccessibilitySettings is
       Hr            : Windows.HResult := S_OK;
@@ -200,6 +183,23 @@ package body Windows.UI.ViewManagement is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IAccessibilitySettings'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.ViewManagement.IApplicationViewTransferContext is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewTransferContext");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.ViewManagement.IApplicationViewTransferContext) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IApplicationViewTransferContext'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -230,26 +230,6 @@ package body Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function CreateDefault
-   (
-      mode : Windows.UI.ViewManagement.ApplicationViewMode
-   )
-   return Windows.UI.ViewManagement.IViewModePreferences is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ViewModePreferences");
-      m_Factory     : IViewModePreferencesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ViewManagement.IViewModePreferences;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IViewModePreferencesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateDefault(mode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function TryUnsnapToFullscreen
    return Windows.Boolean is
@@ -438,6 +418,43 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryUnsnap(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DisableLayoutScaling
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewScaling");
+      m_Factory     : IApplicationViewScalingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewScalingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DisableLayoutScaling(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TrySetDisableLayoutScaling
+   (
+      disableLayoutScaling : Windows.Boolean
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewScaling");
+      m_Factory     : IApplicationViewScalingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewScalingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TrySetDisableLayoutScaling(disableLayoutScaling, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -903,23 +920,6 @@ package body Windows.UI.ViewManagement is
    end;
    
    function GetForCurrentView
-   return Windows.UI.ViewManagement.IUIViewSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.UIViewSettings");
-      m_Factory     : IUIViewSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ViewManagement.IUIViewSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUIViewSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
    return Windows.UI.ViewManagement.IStatusBar is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.StatusBar");
@@ -936,37 +936,37 @@ package body Windows.UI.ViewManagement is
       return RetVal;
    end;
    
-   function get_DisableLayoutScaling
-   return Windows.Boolean is
+   function GetForCurrentView
+   return Windows.UI.ViewManagement.IUIViewSettings is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewScaling");
-      m_Factory     : IApplicationViewScalingStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.UIViewSettings");
+      m_Factory     : IUIViewSettingsStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.UI.ViewManagement.IUIViewSettings;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewScalingStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUIViewSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_DisableLayoutScaling(RetVal'Access);
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function TrySetDisableLayoutScaling
+   function CreateDefault
    (
-      disableLayoutScaling : Windows.Boolean
+      mode : Windows.UI.ViewManagement.ApplicationViewMode
    )
-   return Windows.Boolean is
+   return Windows.UI.ViewManagement.IViewModePreferences is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewScaling");
-      m_Factory     : IApplicationViewScalingStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ViewModePreferences");
+      m_Factory     : IViewModePreferencesStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.UI.ViewManagement.IViewModePreferences;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewScalingStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IViewModePreferencesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.TrySetDisableLayoutScaling(disableLayoutScaling, RetVal'Access);
+         Hr := m_Factory.CreateDefault(mode, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

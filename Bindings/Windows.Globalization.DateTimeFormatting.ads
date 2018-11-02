@@ -36,39 +36,17 @@ package Windows.Globalization.DateTimeFormatting is
    -- Enums
    ------------------------------------------------------------------------
    
-   type YearFormat is (
+   type DayFormat is (
       None,
-      Default,
-      Abbreviated,
-      Full
+      Default
    );
-   for YearFormat use (
+   for DayFormat use (
       None => 0,
-      Default => 1,
-      Abbreviated => 2,
-      Full => 3
+      Default => 1
    );
-   for YearFormat'Size use 32;
+   for DayFormat'Size use 32;
    
-   type YearFormat_Ptr is access YearFormat;
-   
-   type MonthFormat is (
-      None,
-      Default,
-      Abbreviated,
-      Full,
-      Numeric
-   );
-   for MonthFormat use (
-      None => 0,
-      Default => 1,
-      Abbreviated => 2,
-      Full => 3,
-      Numeric => 4
-   );
-   for MonthFormat'Size use 32;
-   
-   type MonthFormat_Ptr is access MonthFormat;
+   type DayFormat_Ptr is access DayFormat;
    
    type DayOfWeekFormat is (
       None,
@@ -85,18 +63,6 @@ package Windows.Globalization.DateTimeFormatting is
    for DayOfWeekFormat'Size use 32;
    
    type DayOfWeekFormat_Ptr is access DayOfWeekFormat;
-   
-   type DayFormat is (
-      None,
-      Default
-   );
-   for DayFormat use (
-      None => 0,
-      Default => 1
-   );
-   for DayFormat'Size use 32;
-   
-   type DayFormat_Ptr is access DayFormat;
    
    type HourFormat is (
       None,
@@ -122,6 +88,24 @@ package Windows.Globalization.DateTimeFormatting is
    
    type MinuteFormat_Ptr is access MinuteFormat;
    
+   type MonthFormat is (
+      None,
+      Default,
+      Abbreviated,
+      Full,
+      Numeric
+   );
+   for MonthFormat use (
+      None => 0,
+      Default => 1,
+      Abbreviated => 2,
+      Full => 3,
+      Numeric => 4
+   );
+   for MonthFormat'Size use 32;
+   
+   type MonthFormat_Ptr is access MonthFormat;
+   
    type SecondFormat is (
       None,
       Default
@@ -134,6 +118,22 @@ package Windows.Globalization.DateTimeFormatting is
    
    type SecondFormat_Ptr is access SecondFormat;
    
+   type YearFormat is (
+      None,
+      Default,
+      Abbreviated,
+      Full
+   );
+   for YearFormat use (
+      None => 0,
+      Default => 1,
+      Abbreviated => 2,
+      Full => 3
+   );
+   for YearFormat'Size use 32;
+   
+   type YearFormat_Ptr is access YearFormat;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
@@ -141,15 +141,15 @@ package Windows.Globalization.DateTimeFormatting is
    type IDateTimeFormatter_Interface;
    type IDateTimeFormatter is access all IDateTimeFormatter_Interface'Class;
    type IDateTimeFormatter_Ptr is access all IDateTimeFormatter;
+   type IDateTimeFormatter2_Interface;
+   type IDateTimeFormatter2 is access all IDateTimeFormatter2_Interface'Class;
+   type IDateTimeFormatter2_Ptr is access all IDateTimeFormatter2;
    type IDateTimeFormatterFactory_Interface;
    type IDateTimeFormatterFactory is access all IDateTimeFormatterFactory_Interface'Class;
    type IDateTimeFormatterFactory_Ptr is access all IDateTimeFormatterFactory;
    type IDateTimeFormatterStatics_Interface;
    type IDateTimeFormatterStatics is access all IDateTimeFormatterStatics_Interface'Class;
    type IDateTimeFormatterStatics_Ptr is access all IDateTimeFormatterStatics;
-   type IDateTimeFormatter2_Interface;
-   type IDateTimeFormatter2 is access all IDateTimeFormatter2_Interface'Class;
-   type IDateTimeFormatter2_Ptr is access all IDateTimeFormatter2;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -290,6 +290,21 @@ package Windows.Globalization.DateTimeFormatting is
    
    ------------------------------------------------------------------------
    
+   IID_IDateTimeFormatter2 : aliased constant Windows.IID := (667490950, 48554, 20432, (158, 54, 103, 29, 90, 165, 238, 3 ));
+   
+   type IDateTimeFormatter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FormatUsingTimeZone
+   (
+      This       : access IDateTimeFormatter2_Interface
+      ; datetime : Windows.Foundation.DateTime
+      ; timeZoneId : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDateTimeFormatterFactory : aliased constant Windows.IID := (3968698963, 6702, 16685, (136, 21, 59, 116, 95, 177, 162, 160 ));
    
    type IDateTimeFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -408,21 +423,6 @@ package Windows.Globalization.DateTimeFormatting is
    (
       This       : access IDateTimeFormatterStatics_Interface
       ; RetVal : access Windows.Globalization.DateTimeFormatting.IDateTimeFormatter
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDateTimeFormatter2 : aliased constant Windows.IID := (667490950, 48554, 20432, (158, 54, 103, 29, 90, 165, 238, 3 ));
-   
-   type IDateTimeFormatter2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FormatUsingTimeZone
-   (
-      This       : access IDateTimeFormatter2_Interface
-      ; datetime : Windows.Foundation.DateTime
-      ; timeZoneId : Windows.String
-      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    

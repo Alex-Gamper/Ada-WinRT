@@ -72,21 +72,9 @@ package body Windows.UI.WebUI is
    
    function Invoke
    (
-      This       : access ResumingEventHandler_Interface
+      This       : access EnteredBackgroundEventHandler_Interface
       ; sender : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access SuspendingEventHandler_Interface
-      ; sender : Windows.Object
-      ; e : Windows.ApplicationModel.ISuspendingEventArgs
+      ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -110,9 +98,9 @@ package body Windows.UI.WebUI is
    
    function Invoke
    (
-      This       : access EnteredBackgroundEventHandler_Interface
+      This       : access NavigatedEventHandler_Interface
       ; sender : Windows.Object
-      ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs
+      ; e : Windows.UI.WebUI.IWebUINavigatedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -123,9 +111,21 @@ package body Windows.UI.WebUI is
    
    function Invoke
    (
-      This       : access NavigatedEventHandler_Interface
+      This       : access ResumingEventHandler_Interface
       ; sender : Windows.Object
-      ; e : Windows.UI.WebUI.IWebUINavigatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access SuspendingEventHandler_Interface
+      ; sender : Windows.Object
+      ; e : Windows.ApplicationModel.ISuspendingEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -145,23 +145,6 @@ package body Windows.UI.WebUI is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_Current
-   return Windows.UI.WebUI.IWebUIBackgroundTaskInstance is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIBackgroundTaskInstance");
-      m_Factory     : IWebUIBackgroundTaskInstanceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.WebUI.IWebUIBackgroundTaskInstance;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIBackgroundTaskInstanceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Current(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function add_Activated
    (
@@ -444,6 +427,23 @@ package body Windows.UI.WebUI is
       Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestRestartForUserAsync(user, launchArguments, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Current
+   return Windows.UI.WebUI.IWebUIBackgroundTaskInstance is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIBackgroundTaskInstance");
+      m_Factory     : IWebUIBackgroundTaskInstanceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.WebUI.IWebUIBackgroundTaskInstance;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIBackgroundTaskInstanceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Current(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

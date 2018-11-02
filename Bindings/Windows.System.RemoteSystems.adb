@@ -50,6 +50,32 @@ package body Windows.System.RemoteSystems is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface
+      ; asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionCreationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface
+      ; asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface
       ; asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_RemoteSystemAccessStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -58,6 +84,136 @@ package body Windows.System.RemoteSystems is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSession
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSession(sender), Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionController
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionController(sender), Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener(sender), Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel(sender), Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs(args));
       return Hr;
    end;
    
@@ -76,19 +232,6 @@ package body Windows.System.RemoteSystems is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemWatcher
-      ; args : Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface
       ; sender : Windows.System.RemoteSystems.IRemoteSystemWatcher
       ; args : Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs
@@ -97,6 +240,19 @@ package body Windows.System.RemoteSystems is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.System.RemoteSystems.IRemoteSystemWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs(args));
       return Hr;
    end;
    
@@ -123,162 +279,6 @@ package body Windows.System.RemoteSystems is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.System.RemoteSystems.IRemoteSystemWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemWatcherErrorOccurredEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface
-      ; asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener(sender), Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionController
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionController(sender), Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface
-      ; asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionCreationResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSession
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSession(sender), Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface
-      ; sender : Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel
-      ; args : Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel(sender), Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs(args));
       return Hr;
    end;
    
@@ -328,26 +328,6 @@ package body Windows.System.RemoteSystems is
    
    function Create
    (
-      remoteSystemKinds : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.System.RemoteSystems.IRemoteSystemKindFilter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKindFilter");
-      m_Factory     : Windows.System.RemoteSystems.IRemoteSystemKindFilterFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemKindFilter := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindFilterFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(remoteSystemKinds, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
       discoveryType : Windows.System.RemoteSystems.RemoteSystemDiscoveryType
    )
    return Windows.System.RemoteSystems.IRemoteSystemDiscoveryTypeFilter is
@@ -368,56 +348,22 @@ package body Windows.System.RemoteSystems is
    
    function Create
    (
-      remoteSystemStatusType : Windows.System.RemoteSystems.RemoteSystemStatusType
+      remoteSystemKinds : Windows.Foundation.Collections.IIterable_String
    )
-   return Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter is
+   return Windows.System.RemoteSystems.IRemoteSystemKindFilter is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter");
-      m_Factory     : Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilterFactory := null;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKindFilter");
+      m_Factory     : Windows.System.RemoteSystems.IRemoteSystemKindFilterFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter := null;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemKindFilter := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatusTypeFilterFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindFilterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(remoteSystemStatusType, RetVal'Access);
+         Hr := m_Factory.Create(remoteSystemKinds, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.System.RemoteSystems.IID_IRemoteSystemSessionInvitationListener'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionOptions is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemSessionOptions");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.System.RemoteSystems.IRemoteSystemSessionOptions) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.System.RemoteSystems.IID_IRemoteSystemSessionOptions'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    function CreateController
@@ -459,6 +405,23 @@ package body Windows.System.RemoteSystems is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.System.RemoteSystems.IID_IRemoteSystemSessionInvitationListener'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create
@@ -504,6 +467,43 @@ package body Windows.System.RemoteSystems is
       return RetVal;
    end;
    
+   function Create return Windows.System.RemoteSystems.IRemoteSystemSessionOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemSessionOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.System.RemoteSystems.IRemoteSystemSessionOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.System.RemoteSystems.IID_IRemoteSystemSessionOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      remoteSystemStatusType : Windows.System.RemoteSystems.RemoteSystemStatusType
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter");
+      m_Factory     : Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatusTypeFilterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(remoteSystemStatusType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -511,6 +511,74 @@ package body Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_AppService
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
+      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AppService(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LaunchUri
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
+      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LaunchUri(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RemoteSession
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
+      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RemoteSession(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SpatialEntity
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
+      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SpatialEntity(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function FindByHostNameAsync
    (
@@ -600,74 +668,6 @@ package body Windows.System.RemoteSystems is
       Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsAuthorizationKindEnabled(kind, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AppService
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
-      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AppService(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LaunchUri
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
-      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LaunchUri(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RemoteSession
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
-      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RemoteSession(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SpatialEntity
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.KnownRemoteSystemCapabilities");
-      m_Factory     : IKnownRemoteSystemCapabilitiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SpatialEntity(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

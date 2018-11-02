@@ -52,84 +52,6 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedBarcodeScanner
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface
-      ; sender : Windows.Devices.PointOfService.IBarcodeScanner
-      ; args : Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.IBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
-      ; args : Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access EventHandler_IClaimedBarcodeScanner_Interface
-      ; sender : Windows.Object
-      ; args : Windows.Devices.PointOfService.IClaimedBarcodeScanner
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
-      ; args : Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
-      ; args : Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface
       ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IBarcodeSymbologyAttributes
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -143,73 +65,47 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
-      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs
+      This       : access AsyncOperationCompletedHandler_ICashDrawer_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
-      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs
+      This       : access AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedBarcodeScanner
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
-      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs
+      This       : access AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedCashDrawer
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access EventHandler_IClaimedMagneticStripeReader_Interface
-      ; sender : Windows.Object
-      ; args : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
-      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IMagneticStripeReader_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader
+      This       : access AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -234,14 +130,66 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface
-      ; sender : Windows.Devices.PointOfService.IMagneticStripeReader
-      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs
+      This       : access AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedPosPrinter
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.PointOfService.IMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ILineDisplay_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplay
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayStoredBitmap
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ILineDisplayWindow_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayWindow
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IMagneticStripeReader_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -260,8 +208,8 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedPosPrinter
+      This       : access AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_LineDisplayPowerStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -273,79 +221,40 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface
-      ; sender : Windows.Devices.PointOfService.IPosPrinter
-      ; args : Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs
+      This       : access EventHandler_IClaimedBarcodeScanner_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Devices.PointOfService.IClaimedBarcodeScanner
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.PointOfService.IPosPrinter(sender), Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs(args));
+      This.Callback(sender, args);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface
-      ; sender : Windows.Devices.PointOfService.IClaimedPosPrinter
-      ; args : Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs
+      This       : access EventHandler_IClaimedMagneticStripeReader_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.PointOfService.IClaimedPosPrinter(sender), Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs(args));
+      This.Callback(sender, args);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface
-      ; sender : Windows.Devices.PointOfService.ICashDrawerEventSource
-      ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs
+      This       : access TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface
+      ; sender : Windows.Devices.PointOfService.IBarcodeScanner
+      ; args : Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.PointOfService.ICashDrawerEventSource(sender), Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface
-      ; sender : Windows.Devices.PointOfService.ICashDrawerEventSource
-      ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.ICashDrawerEventSource(sender), Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ICashDrawer_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedCashDrawer
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Devices.PointOfService.IBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs(args));
       return Hr;
    end;
    
@@ -377,6 +286,71 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
+      This       : access TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface
+      ; sender : Windows.Devices.PointOfService.ICashDrawerEventSource
+      ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.ICashDrawerEventSource(sender), Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface
+      ; sender : Windows.Devices.PointOfService.ICashDrawerEventSource
+      ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.ICashDrawerEventSource(sender), Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
+      ; args : Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
+      ; args : Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
+      ; args : Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedBarcodeScanner(sender), Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface
       ; sender : Windows.Devices.PointOfService.IClaimedCashDrawer
       ; args : Windows.Object
@@ -385,45 +359,6 @@ package body Windows.Devices.PointOfService is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.PointOfService.IClaimedCashDrawer(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ILineDisplay_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplay
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_LineDisplayPowerStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -455,33 +390,120 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ILineDisplayWindow_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayWindow
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
+      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface
-      ; asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayStoredBitmap
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
+      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
+      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
+      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedPosPrinter
+      ; args : Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedPosPrinter(sender), Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface
+      ; sender : Windows.Devices.PointOfService.IMagneticStripeReader
+      ; args : Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IMagneticStripeReader(sender), Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface
+      ; sender : Windows.Devices.PointOfService.IPosPrinter
+      ; args : Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IPosPrinter(sender), Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs(args));
       return Hr;
    end;
    
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function CreateInstance
+   (
+      scanDataType : Windows.UInt32
+      ; scanData : Windows.Storage.Streams.IBuffer
+      ; scanDataLabel : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.PointOfService.IBarcodeScannerReport is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScannerReport");
+      m_Factory     : Windows.Devices.PointOfService.IBarcodeScannerReportFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IBarcodeScannerReport := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerReportFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(scanDataType, scanData, scanDataLabel, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreateInstance
    (
@@ -506,28 +528,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      scanDataType : Windows.UInt32
-      ; scanData : Windows.Storage.Streams.IBuffer
-      ; scanDataLabel : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Devices.PointOfService.IBarcodeScannerReport is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScannerReport");
-      m_Factory     : Windows.Devices.PointOfService.IBarcodeScannerReportFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IBarcodeScannerReport := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerReportFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(scanDataType, scanData, scanDataLabel, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -535,6 +535,80 @@ package body Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
+      m_Factory     : IBarcodeScannerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
+      m_Factory     : IBarcodeScannerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
+      m_Factory     : IBarcodeScannerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorWithConnectionTypes
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
+      m_Factory     : IBarcodeScannerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function get_Unknown
    return Windows.UInt32 is
@@ -2154,398 +2228,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
-      m_Factory     : IBarcodeScannerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
-      m_Factory     : IBarcodeScannerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelector
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
-      m_Factory     : IBarcodeScannerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorWithConnectionTypes
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
-      m_Factory     : IBarcodeScannerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_None
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
-      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_None(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TripleDesDukpt
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
-      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TripleDesDukpt(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ExtendedBase_MagneticStripeReaderEncryptionAlgorithms
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
-      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Unknown_MagneticStripeReaderCardTypes
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
-      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Unknown(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Bank
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
-      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Bank(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Aamva
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
-      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Aamva(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ExtendedBase_MagneticStripeReaderCardTypes
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
-      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
-      m_Factory     : IMagneticStripeReaderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
-      m_Factory     : IMagneticStripeReaderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
-      m_Factory     : IMagneticStripeReaderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelector_IMagneticStripeReader
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
-      m_Factory     : IMagneticStripeReaderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Utf16LE
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
-      m_Factory     : IPosPrinterCharacterSetIdsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Utf16LE(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ascii
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
-      m_Factory     : IPosPrinterCharacterSetIdsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ascii(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ansi
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
-      m_Factory     : IPosPrinterCharacterSetIdsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ansi(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
-      m_Factory     : IPosPrinterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
-      m_Factory     : IPosPrinterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelector_IPosPrinter
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
-      m_Factory     : IPosPrinterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorWithConnectionTypes_IPosPrinter
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
-      m_Factory     : IPosPrinterStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetDeviceSelectorWithConnectionTypes_ICashDrawer
    (
       connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
@@ -2614,6 +2296,63 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_ICashDrawerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.ClaimedLineDisplay");
+      m_Factory     : IClaimedLineDisplayStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClaimedLineDisplayStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector_IClaimedLineDisplay
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.ClaimedLineDisplay");
+      m_Factory     : IClaimedLineDisplayStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClaimedLineDisplayStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorWithConnectionTypes_IClaimedLineDisplay
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.ClaimedLineDisplay");
+      m_Factory     : IClaimedLineDisplayStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClaimedLineDisplayStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2711,18 +2450,55 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
+   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
+      m_Factory     : IMagneticStripeReaderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
+      m_Factory     : IMagneticStripeReaderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
-   return Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay is
+   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.ClaimedLineDisplay");
-      m_Factory     : IClaimedLineDisplayStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
+      m_Factory     : IMagneticStripeReaderStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClaimedLineDisplayStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -2731,15 +2507,15 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function GetDeviceSelector_IClaimedLineDisplay
+   function GetDeviceSelector_IMagneticStripeReader
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.ClaimedLineDisplay");
-      m_Factory     : IClaimedLineDisplayStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
+      m_Factory     : IMagneticStripeReaderStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClaimedLineDisplayStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -2748,20 +2524,244 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function GetDeviceSelectorWithConnectionTypes_IClaimedLineDisplay
+   function get_Unknown_MagneticStripeReaderCardTypes
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
+      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Unknown(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Bank
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
+      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Bank(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Aamva
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
+      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Aamva(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ExtendedBase_MagneticStripeReaderCardTypes
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
+      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_None
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
+      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_None(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TripleDesDukpt
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
+      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TripleDesDukpt(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ExtendedBase_MagneticStripeReaderEncryptionAlgorithms
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
+      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
+      m_Factory     : IPosPrinterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
+      m_Factory     : IPosPrinterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector_IPosPrinter
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
+      m_Factory     : IPosPrinterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorWithConnectionTypes_IPosPrinter
    (
       connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
    )
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.ClaimedLineDisplay");
-      m_Factory     : IClaimedLineDisplayStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
+      m_Factory     : IPosPrinterStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClaimedLineDisplayStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Utf16LE
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
+      m_Factory     : IPosPrinterCharacterSetIdsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Utf16LE(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ascii
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
+      m_Factory     : IPosPrinterCharacterSetIdsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ascii(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ansi
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
+      m_Factory     : IPosPrinterCharacterSetIdsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ansi(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

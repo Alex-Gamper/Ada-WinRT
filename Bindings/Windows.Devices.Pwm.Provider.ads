@@ -35,18 +35,18 @@ package Windows.Devices.Pwm.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IIterable_IPwmControllerProvider_Interface;
+   type IIterable_IPwmControllerProvider is access all IIterable_IPwmControllerProvider_Interface'Class;
+   type IIterable_IPwmControllerProvider_Ptr is access all IIterable_IPwmControllerProvider;
+   type IIterator_IPwmControllerProvider_Interface;
+   type IIterator_IPwmControllerProvider is access all IIterator_IPwmControllerProvider_Interface'Class;
+   type IIterator_IPwmControllerProvider_Ptr is access all IIterator_IPwmControllerProvider;
    type IPwmControllerProvider_Interface;
    type IPwmControllerProvider is access all IPwmControllerProvider_Interface'Class;
    type IPwmControllerProvider_Ptr is access all IPwmControllerProvider;
    type IPwmProvider_Interface;
    type IPwmProvider is access all IPwmProvider_Interface'Class;
    type IPwmProvider_Ptr is access all IPwmProvider;
-   type IIterator_IPwmControllerProvider_Interface;
-   type IIterator_IPwmControllerProvider is access all IIterator_IPwmControllerProvider_Interface'Class;
-   type IIterator_IPwmControllerProvider_Ptr is access all IIterator_IPwmControllerProvider;
-   type IIterable_IPwmControllerProvider_Interface;
-   type IIterable_IPwmControllerProvider is access all IIterable_IPwmControllerProvider_Interface'Class;
-   type IIterable_IPwmControllerProvider_Ptr is access all IIterable_IPwmControllerProvider;
    type IVectorView_IPwmControllerProvider_Interface;
    type IVectorView_IPwmControllerProvider is access all IVectorView_IPwmControllerProvider_Interface'Class;
    type IVectorView_IPwmControllerProvider_Ptr is access all IVectorView_IPwmControllerProvider;
@@ -54,6 +54,54 @@ package Windows.Devices.Pwm.Provider is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPwmControllerProvider : aliased constant Windows.IID := (1228336473, 46228, 20776, (188, 126, 3, 230, 48, 52, 100, 117 ));
+   
+   type IIterable_IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IPwmControllerProvider_Interface
+      ; RetVal : access Windows.Devices.Pwm.Provider.IIterator_IPwmControllerProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPwmControllerProvider : aliased constant Windows.IID := (2419627778, 61494, 22241, (169, 79, 109, 153, 213, 43, 149, 120 ));
+   
+   type IIterator_IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPwmControllerProvider_Interface
+      ; RetVal : access Windows.Devices.Pwm.Provider.IPwmControllerProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPwmControllerProvider_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPwmControllerProvider_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPwmControllerProvider_Interface
+      ; items : Windows.Devices.Pwm.Provider.IPwmControllerProvider_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -144,54 +192,6 @@ package Windows.Devices.Pwm.Provider is
    (
       This       : access IPwmProvider_Interface
       ; RetVal : access Windows.Devices.Pwm.Provider.IVectorView_IPwmControllerProvider -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IPwmControllerProvider : aliased constant Windows.IID := (2419627778, 61494, 22241, (169, 79, 109, 153, 213, 43, 149, 120 ));
-   
-   type IIterator_IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IPwmControllerProvider_Interface
-      ; RetVal : access Windows.Devices.Pwm.Provider.IPwmControllerProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IPwmControllerProvider_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPwmControllerProvider_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPwmControllerProvider_Interface
-      ; items : Windows.Devices.Pwm.Provider.IPwmControllerProvider_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IPwmControllerProvider : aliased constant Windows.IID := (1228336473, 46228, 20776, (188, 126, 3, 230, 48, 52, 100, 117 ));
-   
-   type IIterable_IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IPwmControllerProvider_Interface
-      ; RetVal : access Windows.Devices.Pwm.Provider.IIterator_IPwmControllerProvider
    )
    return Windows.HRESULT is abstract;
    

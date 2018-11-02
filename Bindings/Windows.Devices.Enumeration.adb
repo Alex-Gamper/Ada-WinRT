@@ -53,6 +53,97 @@ package body Windows.Devices.Enumeration is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IDeviceInformation_Interface
+      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IDevicePairingResult_Interface
+      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDevicePairingResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IDeviceUnpairingResult_Interface
+      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceUnpairingResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IVectorView_DeviceInformation_Interface
+      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDeviceAccessInformation_add_AccessChanged_Interface
+      ; sender : Windows.Devices.Enumeration.IDeviceAccessInformation
+      ; args : Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.IDeviceAccessInformation(sender), Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested_Interface
+      ; sender : Windows.Devices.Enumeration.IDeviceInformationCustomPairing
+      ; args : Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.IDeviceInformationCustomPairing(sender), Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDevicePicker_add_DevicePickerDismissed_Interface
+      ; sender : Windows.Devices.Enumeration.IDevicePicker
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.IDevicePicker(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IDevicePicker_add_DeviceSelected_Interface
       ; sender : Windows.Devices.Enumeration.IDevicePicker
       ; args : Windows.Devices.Enumeration.IDeviceSelectedEventArgs
@@ -79,32 +170,6 @@ package body Windows.Devices.Enumeration is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IDevicePicker_add_DevicePickerDismissed_Interface
-      ; sender : Windows.Devices.Enumeration.IDevicePicker
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.IDevicePicker(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IDeviceInformation_Interface
-      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IDeviceWatcher_add_Added_Interface
       ; sender : Windows.Devices.Enumeration.IDeviceWatcher
       ; args : Windows.Devices.Enumeration.IDeviceInformation
@@ -113,32 +178,6 @@ package body Windows.Devices.Enumeration is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.Enumeration.IDeviceWatcher(sender), Windows.Devices.Enumeration.IDeviceInformation(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDeviceWatcher_add_Updated_Interface
-      ; sender : Windows.Devices.Enumeration.IDeviceWatcher
-      ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.IDeviceWatcher(sender), Windows.Devices.Enumeration.IDeviceInformationUpdate(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDeviceWatcher_add_Removed_Interface
-      ; sender : Windows.Devices.Enumeration.IDeviceWatcher
-      ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.IDeviceWatcher(sender), Windows.Devices.Enumeration.IDeviceInformationUpdate(args));
       return Hr;
    end;
    
@@ -157,6 +196,19 @@ package body Windows.Devices.Enumeration is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IDeviceWatcher_add_Removed_Interface
+      ; sender : Windows.Devices.Enumeration.IDeviceWatcher
+      ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.IDeviceWatcher(sender), Windows.Devices.Enumeration.IDeviceInformationUpdate(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IDeviceWatcher_add_Stopped_Interface
       ; sender : Windows.Devices.Enumeration.IDeviceWatcher
       ; args : Windows.Object
@@ -170,66 +222,14 @@ package body Windows.Devices.Enumeration is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IVectorView_DeviceInformation_Interface
-      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IDeviceWatcher_add_Updated_Interface
+      ; sender : Windows.Devices.Enumeration.IDeviceWatcher
+      ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IDevicePairingResult_Interface
-      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDevicePairingResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested_Interface
-      ; sender : Windows.Devices.Enumeration.IDeviceInformationCustomPairing
-      ; args : Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.IDeviceInformationCustomPairing(sender), Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IDeviceUnpairingResult_Interface
-      ; asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceUnpairingResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDeviceAccessInformation_add_AccessChanged_Interface
-      ; sender : Windows.Devices.Enumeration.IDeviceAccessInformation
-      ; args : Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.IDeviceAccessInformation(sender), Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs(args));
+      This.Callback(Windows.Devices.Enumeration.IDeviceWatcher(sender), Windows.Devices.Enumeration.IDeviceInformationUpdate(args));
       return Hr;
    end;
    
@@ -261,6 +261,66 @@ package body Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateFromId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Enumeration.IDeviceAccessInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceAccessInformation");
+      m_Factory     : IDeviceAccessInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.IDeviceAccessInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceAccessInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromId(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromDeviceClassId
+   (
+      deviceClassId : Windows.Guid
+   )
+   return Windows.Devices.Enumeration.IDeviceAccessInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceAccessInformation");
+      m_Factory     : IDeviceAccessInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.IDeviceAccessInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceAccessInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDeviceClassId(deviceClassId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromDeviceClass
+   (
+      deviceClass : Windows.Devices.Enumeration.DeviceClass
+   )
+   return Windows.Devices.Enumeration.IDeviceAccessInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceAccessInformation");
+      m_Factory     : IDeviceAccessInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.IDeviceAccessInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceAccessInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDeviceClass(deviceClass, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetAqsFilterFromDeviceClass
    (
@@ -559,66 +619,6 @@ package body Windows.Devices.Enumeration is
       Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationPairingStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryRegisterForAllInboundPairingRequests(pairingKindsSupported, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromId
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Enumeration.IDeviceAccessInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceAccessInformation");
-      m_Factory     : IDeviceAccessInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.IDeviceAccessInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceAccessInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromId(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromDeviceClassId
-   (
-      deviceClassId : Windows.Guid
-   )
-   return Windows.Devices.Enumeration.IDeviceAccessInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceAccessInformation");
-      m_Factory     : IDeviceAccessInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.IDeviceAccessInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceAccessInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromDeviceClassId(deviceClassId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromDeviceClass
-   (
-      deviceClass : Windows.Devices.Enumeration.DeviceClass
-   )
-   return Windows.Devices.Enumeration.IDeviceAccessInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceAccessInformation");
-      m_Factory     : IDeviceAccessInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.IDeviceAccessInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceAccessInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromDeviceClass(deviceClass, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

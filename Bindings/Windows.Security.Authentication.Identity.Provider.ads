@@ -38,144 +38,6 @@ package Windows.Security.Authentication.Identity.Provider is
    -- Enums
    ------------------------------------------------------------------------
    
-   type SecondaryAuthenticationFactorDeviceCapabilities is (
-      None,
-      SecureStorage,
-      StoreKeys,
-      ConfirmUserIntentToAuthenticate,
-      SupportSecureUserPresenceCheck,
-      TransmittedDataIsEncrypted,
-      HMacSha256,
-      CloseRangeDataTransmission
-   );
-   for SecondaryAuthenticationFactorDeviceCapabilities use (
-      None => 0,
-      SecureStorage => 1,
-      StoreKeys => 2,
-      ConfirmUserIntentToAuthenticate => 4,
-      SupportSecureUserPresenceCheck => 8,
-      TransmittedDataIsEncrypted => 16,
-      HMacSha256 => 32,
-      CloseRangeDataTransmission => 64
-   );
-   for SecondaryAuthenticationFactorDeviceCapabilities'Size use 32;
-   
-   type SecondaryAuthenticationFactorDeviceCapabilities_Ptr is access SecondaryAuthenticationFactorDeviceCapabilities;
-   
-   type SecondaryAuthenticationFactorDeviceFindScope is (
-      User,
-      AllUsers
-   );
-   for SecondaryAuthenticationFactorDeviceFindScope use (
-      User => 0,
-      AllUsers => 1
-   );
-   for SecondaryAuthenticationFactorDeviceFindScope'Size use 32;
-   
-   type SecondaryAuthenticationFactorDeviceFindScope_Ptr is access SecondaryAuthenticationFactorDeviceFindScope;
-   
-   type SecondaryAuthenticationFactorAuthenticationStage is (
-      NotStarted,
-      WaitingForUserConfirmation,
-      CollectingCredential,
-      SuspendingAuthentication,
-      CredentialCollected,
-      CredentialAuthenticated,
-      StoppingAuthentication,
-      ReadyForLock,
-      CheckingDevicePresence
-   );
-   for SecondaryAuthenticationFactorAuthenticationStage use (
-      NotStarted => 0,
-      WaitingForUserConfirmation => 1,
-      CollectingCredential => 2,
-      SuspendingAuthentication => 3,
-      CredentialCollected => 4,
-      CredentialAuthenticated => 5,
-      StoppingAuthentication => 6,
-      ReadyForLock => 7,
-      CheckingDevicePresence => 8
-   );
-   for SecondaryAuthenticationFactorAuthenticationStage'Size use 32;
-   
-   type SecondaryAuthenticationFactorAuthenticationStage_Ptr is access SecondaryAuthenticationFactorAuthenticationStage;
-   
-   type SecondaryAuthenticationFactorRegistrationStatus is (
-      Failed,
-      Started,
-      CanceledByUser,
-      PinSetupRequired,
-      DisabledByPolicy
-   );
-   for SecondaryAuthenticationFactorRegistrationStatus use (
-      Failed => 0,
-      Started => 1,
-      CanceledByUser => 2,
-      PinSetupRequired => 3,
-      DisabledByPolicy => 4
-   );
-   for SecondaryAuthenticationFactorRegistrationStatus'Size use 32;
-   
-   type SecondaryAuthenticationFactorRegistrationStatus_Ptr is access SecondaryAuthenticationFactorRegistrationStatus;
-   
-   type SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus is (
-      Unsupported,
-      Succeeded,
-      DisabledByPolicy
-   );
-   for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus use (
-      Unsupported => 0,
-      Succeeded => 1,
-      DisabledByPolicy => 2
-   );
-   for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus'Size use 32;
-   
-   type SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Ptr is access SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;
-   
-   type SecondaryAuthenticationFactorAuthenticationStatus is (
-      Failed,
-      Started,
-      UnknownDevice,
-      DisabledByPolicy,
-      InvalidAuthenticationStage
-   );
-   for SecondaryAuthenticationFactorAuthenticationStatus use (
-      Failed => 0,
-      Started => 1,
-      UnknownDevice => 2,
-      DisabledByPolicy => 3,
-      InvalidAuthenticationStage => 4
-   );
-   for SecondaryAuthenticationFactorAuthenticationStatus'Size use 32;
-   
-   type SecondaryAuthenticationFactorAuthenticationStatus_Ptr is access SecondaryAuthenticationFactorAuthenticationStatus;
-   
-   type SecondaryAuthenticationFactorFinishAuthenticationStatus is (
-      Failed,
-      Completed,
-      NonceExpired
-   );
-   for SecondaryAuthenticationFactorFinishAuthenticationStatus use (
-      Failed => 0,
-      Completed => 1,
-      NonceExpired => 2
-   );
-   for SecondaryAuthenticationFactorFinishAuthenticationStatus'Size use 32;
-   
-   type SecondaryAuthenticationFactorFinishAuthenticationStatus_Ptr is access SecondaryAuthenticationFactorFinishAuthenticationStatus;
-   
-   type SecondaryAuthenticationFactorAuthenticationScenario is (
-      SignIn,
-      CredentialPrompt
-   );
-   for SecondaryAuthenticationFactorAuthenticationScenario use (
-      SignIn => 0,
-      CredentialPrompt => 1
-   );
-   for SecondaryAuthenticationFactorAuthenticationScenario'Size use 32;
-   
-   type SecondaryAuthenticationFactorAuthenticationScenario_Ptr is access SecondaryAuthenticationFactorAuthenticationScenario;
-   
    type SecondaryAuthenticationFactorAuthenticationMessage is (
       Invalid,
       SwipeUpWelcome,
@@ -242,6 +104,98 @@ package Windows.Security.Authentication.Identity.Provider is
    
    type SecondaryAuthenticationFactorAuthenticationMessage_Ptr is access SecondaryAuthenticationFactorAuthenticationMessage;
    
+   type SecondaryAuthenticationFactorAuthenticationScenario is (
+      SignIn,
+      CredentialPrompt
+   );
+   for SecondaryAuthenticationFactorAuthenticationScenario use (
+      SignIn => 0,
+      CredentialPrompt => 1
+   );
+   for SecondaryAuthenticationFactorAuthenticationScenario'Size use 32;
+   
+   type SecondaryAuthenticationFactorAuthenticationScenario_Ptr is access SecondaryAuthenticationFactorAuthenticationScenario;
+   
+   type SecondaryAuthenticationFactorAuthenticationStage is (
+      NotStarted,
+      WaitingForUserConfirmation,
+      CollectingCredential,
+      SuspendingAuthentication,
+      CredentialCollected,
+      CredentialAuthenticated,
+      StoppingAuthentication,
+      ReadyForLock,
+      CheckingDevicePresence
+   );
+   for SecondaryAuthenticationFactorAuthenticationStage use (
+      NotStarted => 0,
+      WaitingForUserConfirmation => 1,
+      CollectingCredential => 2,
+      SuspendingAuthentication => 3,
+      CredentialCollected => 4,
+      CredentialAuthenticated => 5,
+      StoppingAuthentication => 6,
+      ReadyForLock => 7,
+      CheckingDevicePresence => 8
+   );
+   for SecondaryAuthenticationFactorAuthenticationStage'Size use 32;
+   
+   type SecondaryAuthenticationFactorAuthenticationStage_Ptr is access SecondaryAuthenticationFactorAuthenticationStage;
+   
+   type SecondaryAuthenticationFactorAuthenticationStatus is (
+      Failed,
+      Started,
+      UnknownDevice,
+      DisabledByPolicy,
+      InvalidAuthenticationStage
+   );
+   for SecondaryAuthenticationFactorAuthenticationStatus use (
+      Failed => 0,
+      Started => 1,
+      UnknownDevice => 2,
+      DisabledByPolicy => 3,
+      InvalidAuthenticationStage => 4
+   );
+   for SecondaryAuthenticationFactorAuthenticationStatus'Size use 32;
+   
+   type SecondaryAuthenticationFactorAuthenticationStatus_Ptr is access SecondaryAuthenticationFactorAuthenticationStatus;
+   
+   type SecondaryAuthenticationFactorDeviceCapabilities is (
+      None,
+      SecureStorage,
+      StoreKeys,
+      ConfirmUserIntentToAuthenticate,
+      SupportSecureUserPresenceCheck,
+      TransmittedDataIsEncrypted,
+      HMacSha256,
+      CloseRangeDataTransmission
+   );
+   for SecondaryAuthenticationFactorDeviceCapabilities use (
+      None => 0,
+      SecureStorage => 1,
+      StoreKeys => 2,
+      ConfirmUserIntentToAuthenticate => 4,
+      SupportSecureUserPresenceCheck => 8,
+      TransmittedDataIsEncrypted => 16,
+      HMacSha256 => 32,
+      CloseRangeDataTransmission => 64
+   );
+   for SecondaryAuthenticationFactorDeviceCapabilities'Size use 32;
+   
+   type SecondaryAuthenticationFactorDeviceCapabilities_Ptr is access SecondaryAuthenticationFactorDeviceCapabilities;
+   
+   type SecondaryAuthenticationFactorDeviceFindScope is (
+      User,
+      AllUsers
+   );
+   for SecondaryAuthenticationFactorDeviceFindScope use (
+      User => 0,
+      AllUsers => 1
+   );
+   for SecondaryAuthenticationFactorDeviceFindScope'Size use 32;
+   
+   type SecondaryAuthenticationFactorDeviceFindScope_Ptr is access SecondaryAuthenticationFactorDeviceFindScope;
+   
    type SecondaryAuthenticationFactorDevicePresence is (
       Absent,
       Present
@@ -268,81 +222,127 @@ package Windows.Security.Authentication.Identity.Provider is
    
    type SecondaryAuthenticationFactorDevicePresenceMonitoringMode_Ptr is access SecondaryAuthenticationFactorDevicePresenceMonitoringMode;
    
+   type SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus is (
+      Unsupported,
+      Succeeded,
+      DisabledByPolicy
+   );
+   for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus use (
+      Unsupported => 0,
+      Succeeded => 1,
+      DisabledByPolicy => 2
+   );
+   for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus'Size use 32;
+   
+   type SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Ptr is access SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;
+   
+   type SecondaryAuthenticationFactorFinishAuthenticationStatus is (
+      Failed,
+      Completed,
+      NonceExpired
+   );
+   for SecondaryAuthenticationFactorFinishAuthenticationStatus use (
+      Failed => 0,
+      Completed => 1,
+      NonceExpired => 2
+   );
+   for SecondaryAuthenticationFactorFinishAuthenticationStatus'Size use 32;
+   
+   type SecondaryAuthenticationFactorFinishAuthenticationStatus_Ptr is access SecondaryAuthenticationFactorFinishAuthenticationStatus;
+   
+   type SecondaryAuthenticationFactorRegistrationStatus is (
+      Failed,
+      Started,
+      CanceledByUser,
+      PinSetupRequired,
+      DisabledByPolicy
+   );
+   for SecondaryAuthenticationFactorRegistrationStatus use (
+      Failed => 0,
+      Started => 1,
+      CanceledByUser => 2,
+      PinSetupRequired => 3,
+      DisabledByPolicy => 4
+   );
+   for SecondaryAuthenticationFactorRegistrationStatus'Size use 32;
+   
+   type SecondaryAuthenticationFactorRegistrationStatus_Ptr is access SecondaryAuthenticationFactorRegistrationStatus;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface;
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface'Class;
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Ptr is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult;
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface;
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface'Class;
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Ptr is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo;
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface;
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface'Class;
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Ptr is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult;
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface;
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus is access all AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface'Class;
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Ptr is access all AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface;
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface'Class;
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Ptr is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult;
-   type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface;
-   type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is access all EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface'Class;
-   type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Ptr is access all EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs;
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface;
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface'Class;
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Ptr is access all AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo;
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface;
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus is access all AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface'Class;
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Ptr is access all AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus;
+   type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface;
+   type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is access all EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface'Class;
+   type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Ptr is access all EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISecondaryAuthenticationFactorRegistrationResult_Interface;
-   type ISecondaryAuthenticationFactorRegistrationResult is access all ISecondaryAuthenticationFactorRegistrationResult_Interface'Class;
-   type ISecondaryAuthenticationFactorRegistrationResult_Ptr is access all ISecondaryAuthenticationFactorRegistrationResult;
-   type ISecondaryAuthenticationFactorAuthenticationResult_Interface;
-   type ISecondaryAuthenticationFactorAuthenticationResult is access all ISecondaryAuthenticationFactorAuthenticationResult_Interface'Class;
-   type ISecondaryAuthenticationFactorAuthenticationResult_Ptr is access all ISecondaryAuthenticationFactorAuthenticationResult;
-   type ISecondaryAuthenticationFactorRegistrationStatics_Interface;
-   type ISecondaryAuthenticationFactorRegistrationStatics is access all ISecondaryAuthenticationFactorRegistrationStatics_Interface'Class;
-   type ISecondaryAuthenticationFactorRegistrationStatics_Ptr is access all ISecondaryAuthenticationFactorRegistrationStatics;
-   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface;
-   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics is access all ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface'Class;
-   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Ptr is access all ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics;
-   type ISecondaryAuthenticationFactorRegistration_Interface;
-   type ISecondaryAuthenticationFactorRegistration is access all ISecondaryAuthenticationFactorRegistration_Interface'Class;
-   type ISecondaryAuthenticationFactorRegistration_Ptr is access all ISecondaryAuthenticationFactorRegistration;
-   type ISecondaryAuthenticationFactorAuthenticationStatics_Interface;
-   type ISecondaryAuthenticationFactorAuthenticationStatics is access all ISecondaryAuthenticationFactorAuthenticationStatics_Interface'Class;
-   type ISecondaryAuthenticationFactorAuthenticationStatics_Ptr is access all ISecondaryAuthenticationFactorAuthenticationStatics;
-   type ISecondaryAuthenticationFactorAuthentication_Interface;
-   type ISecondaryAuthenticationFactorAuthentication is access all ISecondaryAuthenticationFactorAuthentication_Interface'Class;
-   type ISecondaryAuthenticationFactorAuthentication_Ptr is access all ISecondaryAuthenticationFactorAuthentication;
-   type ISecondaryAuthenticationFactorInfo_Interface;
-   type ISecondaryAuthenticationFactorInfo is access all ISecondaryAuthenticationFactorInfo_Interface'Class;
-   type ISecondaryAuthenticationFactorInfo_Ptr is access all ISecondaryAuthenticationFactorInfo;
-   type ISecondaryAuthenticationFactorInfo2_Interface;
-   type ISecondaryAuthenticationFactorInfo2 is access all ISecondaryAuthenticationFactorInfo2_Interface'Class;
-   type ISecondaryAuthenticationFactorInfo2_Ptr is access all ISecondaryAuthenticationFactorInfo2;
-   type ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface;
-   type ISecondaryAuthenticationFactorAuthenticationStageInfo is access all ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface'Class;
-   type ISecondaryAuthenticationFactorAuthenticationStageInfo_Ptr is access all ISecondaryAuthenticationFactorAuthenticationStageInfo;
-   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface;
-   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is access all ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface'Class;
-   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Ptr is access all ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs;
-   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface;
-   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult is access all IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface'Class;
-   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Ptr is access all IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult;
-   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface;
-   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus is access all IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface'Class;
-   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Ptr is access all IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;
    type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface;
    type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult is access all IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface'Class;
    type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Ptr is access all IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult;
    type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface;
    type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo is access all IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface'Class;
    type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Ptr is access all IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
+   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface;
+   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult is access all IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface'Class;
+   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Ptr is access all IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult;
+   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface;
+   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus is access all IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface'Class;
+   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Ptr is access all IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;
    type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface;
    type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus is access all IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface'Class;
    type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Ptr is access all IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus;
+   type ISecondaryAuthenticationFactorAuthentication_Interface;
+   type ISecondaryAuthenticationFactorAuthentication is access all ISecondaryAuthenticationFactorAuthentication_Interface'Class;
+   type ISecondaryAuthenticationFactorAuthentication_Ptr is access all ISecondaryAuthenticationFactorAuthentication;
+   type ISecondaryAuthenticationFactorAuthenticationResult_Interface;
+   type ISecondaryAuthenticationFactorAuthenticationResult is access all ISecondaryAuthenticationFactorAuthenticationResult_Interface'Class;
+   type ISecondaryAuthenticationFactorAuthenticationResult_Ptr is access all ISecondaryAuthenticationFactorAuthenticationResult;
+   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface;
+   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is access all ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface'Class;
+   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Ptr is access all ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs;
+   type ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface;
+   type ISecondaryAuthenticationFactorAuthenticationStageInfo is access all ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface'Class;
+   type ISecondaryAuthenticationFactorAuthenticationStageInfo_Ptr is access all ISecondaryAuthenticationFactorAuthenticationStageInfo;
+   type ISecondaryAuthenticationFactorAuthenticationStatics_Interface;
+   type ISecondaryAuthenticationFactorAuthenticationStatics is access all ISecondaryAuthenticationFactorAuthenticationStatics_Interface'Class;
+   type ISecondaryAuthenticationFactorAuthenticationStatics_Ptr is access all ISecondaryAuthenticationFactorAuthenticationStatics;
+   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface;
+   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics is access all ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface'Class;
+   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Ptr is access all ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics;
+   type ISecondaryAuthenticationFactorInfo_Interface;
+   type ISecondaryAuthenticationFactorInfo is access all ISecondaryAuthenticationFactorInfo_Interface'Class;
+   type ISecondaryAuthenticationFactorInfo_Ptr is access all ISecondaryAuthenticationFactorInfo;
+   type ISecondaryAuthenticationFactorInfo2_Interface;
+   type ISecondaryAuthenticationFactorInfo2 is access all ISecondaryAuthenticationFactorInfo2_Interface'Class;
+   type ISecondaryAuthenticationFactorInfo2_Ptr is access all ISecondaryAuthenticationFactorInfo2;
+   type ISecondaryAuthenticationFactorRegistration_Interface;
+   type ISecondaryAuthenticationFactorRegistration is access all ISecondaryAuthenticationFactorRegistration_Interface'Class;
+   type ISecondaryAuthenticationFactorRegistration_Ptr is access all ISecondaryAuthenticationFactorRegistration;
+   type ISecondaryAuthenticationFactorRegistrationResult_Interface;
+   type ISecondaryAuthenticationFactorRegistrationResult is access all ISecondaryAuthenticationFactorRegistrationResult_Interface'Class;
+   type ISecondaryAuthenticationFactorRegistrationResult_Ptr is access all ISecondaryAuthenticationFactorRegistrationResult;
+   type ISecondaryAuthenticationFactorRegistrationStatics_Interface;
+   type ISecondaryAuthenticationFactorRegistrationStatics is access all ISecondaryAuthenticationFactorRegistrationStatics_Interface'Class;
+   type ISecondaryAuthenticationFactorRegistrationStatics_Ptr is access all ISecondaryAuthenticationFactorRegistrationStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -350,197 +350,136 @@ package Windows.Security.Authentication.Identity.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_ISecondaryAuthenticationFactorRegistrationResult : aliased constant Windows.IID := (2768123376, 44515, 18817, (175, 107, 236, 25, 89, 33, 104, 42 ));
+   IID_IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (414230332, 56153, 21113, (167, 109, 2, 65, 107, 45, 144, 182 ));
    
-   type ISecondaryAuthenticationFactorRegistrationResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Status
+   function put_Completed
    (
-      This       : access ISecondaryAuthenticationFactorRegistrationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationStatus
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface
+      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_Registration
+   function get_Completed
    (
-      This       : access ISecondaryAuthenticationFactorRegistrationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (2629523847, 61293, 19394, (191, 73, 70, 23, 81, 90, 15, 154 ));
-   
-   type ISecondaryAuthenticationFactorAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Status
+   function GetResults
    (
-      This       : access ISecondaryAuthenticationFactorAuthenticationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Authentication
-   (
-      This       : access ISecondaryAuthenticationFactorAuthenticationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISecondaryAuthenticationFactorRegistrationStatics : aliased constant Windows.IID := (450826085, 58295, 16725, (153, 127, 183, 86, 239, 101, 190, 186 ));
+   IID_IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (2253005591, 46144, 24222, (174, 85, 69, 80, 187, 99, 7, 223 ));
    
-   type ISecondaryAuthenticationFactorRegistrationStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function RequestStartRegisteringDeviceAsync
+   function put_Completed
    (
-      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
-      ; deviceId : Windows.String
-      ; capabilities : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceCapabilities
-      ; deviceFriendlyName : Windows.String
-      ; deviceModelNumber : Windows.String
-      ; deviceKey : Windows.Storage.Streams.IBuffer
-      ; mutualAuthenticationKey : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult -- Generic Parameter Type
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo
    )
    return Windows.HRESULT is abstract;
    
-   function FindAllRegisteredDeviceInfoAsync
+   function get_Completed
    (
-      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
-      ; queryType : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo
    )
    return Windows.HRESULT is abstract;
    
-   function UnregisterDeviceAsync
+   function GetResults
    (
-      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UpdateDeviceConfigurationDataAsync
-   (
-      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
-      ; deviceId : Windows.String
-      ; deviceConfigurationData : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics : aliased constant Windows.IID := (2420742681, 32498, 17699, (149, 28, 164, 23, 162, 74, 207, 147 ));
+   IID_IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult : aliased constant Windows.IID := (98193932, 43940, 22604, (188, 8, 25, 197, 56, 154, 112, 226 ));
    
-   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function RegisterDevicePresenceMonitoringAsync
+   function put_Completed
    (
-      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
-      ; deviceId : Windows.String
-      ; deviceInstancePath : Windows.String
-      ; monitoringMode : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus -- Generic Parameter Type
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface
+      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult
    )
    return Windows.HRESULT is abstract;
    
-   function RegisterDevicePresenceMonitoringWithNewDeviceAsync
+   function get_Completed
    (
-      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
-      ; deviceId : Windows.String
-      ; deviceInstancePath : Windows.String
-      ; monitoringMode : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode
-      ; deviceFriendlyName : Windows.String
-      ; deviceModelNumber : Windows.String
-      ; deviceConfigurationData : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus -- Generic Parameter Type
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult
    )
    return Windows.HRESULT is abstract;
    
-   function UnregisterDevicePresenceMonitoringAsync
+   function GetResults
    (
-      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IsDevicePresenceMonitoringSupported
-   (
-      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISecondaryAuthenticationFactorRegistration : aliased constant Windows.IID := (2672606132, 36026, 18608, (132, 13, 219, 178, 42, 84, 198, 120 ));
+   IID_IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus : aliased constant Windows.IID := (2134371562, 58344, 21500, (176, 229, 122, 164, 113, 151, 14, 221 ));
    
-   type ISecondaryAuthenticationFactorRegistration_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface is interface and Windows.IInspectable_Interface;
    
-   function FinishRegisteringDeviceAsync
+   function put_Completed
    (
-      This       : access ISecondaryAuthenticationFactorRegistration_Interface
-      ; deviceConfigurationData : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface
+      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus
    )
    return Windows.HRESULT is abstract;
    
-   function AbortRegisteringDeviceAsync
+   function get_Completed
    (
-      This       : access ISecondaryAuthenticationFactorRegistration_Interface
-      ; errorLogMessage : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISecondaryAuthenticationFactorAuthenticationStatics : aliased constant Windows.IID := (1062741590, 10488, 19983, (174, 140, 88, 152, 185, 174, 36, 105 ));
+   IID_IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus : aliased constant Windows.IID := (2438546298, 17303, 21614, (190, 97, 46, 241, 97, 113, 126, 6 ));
    
-   type ISecondaryAuthenticationFactorAuthenticationStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface is interface and Windows.IInspectable_Interface;
    
-   function ShowNotificationMessageAsync
+   function put_Completed
    (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
-      ; deviceName : Windows.String
-      ; message : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
+      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus
    )
    return Windows.HRESULT is abstract;
    
-   function StartAuthenticationAsync
+   function get_Completed
    (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
-      ; deviceId : Windows.String
-      ; serviceAuthenticationNonce : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult -- Generic Parameter Type
+      This       : access IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus
    )
    return Windows.HRESULT is abstract;
    
-   function add_AuthenticationStageChanged
+   function GetResults
    (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
-      ; handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_AuthenticationStageChanged
-   (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetAuthenticationStageInfoAsync
-   (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo -- Generic Parameter Type
+      This       : access IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -592,6 +531,156 @@ package Windows.Security.Authentication.Identity.Provider is
       This       : access ISecondaryAuthenticationFactorAuthentication_Interface
       ; errorLogMessage : Windows.String
       ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (2629523847, 61293, 19394, (191, 73, 70, 23, 81, 90, 15, 154 ));
+   
+   type ISecondaryAuthenticationFactorAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Authentication
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs : aliased constant Windows.IID := (3567644246, 29329, 16499, (188, 31, 204, 184, 245, 175, 223, 150 ));
+   
+   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StageInfo
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (1459536523, 59562, 19471, (142, 76, 165, 89, 231, 58, 221, 136 ));
+   
+   type ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Stage
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Scenario
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationScenario
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceId
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecondaryAuthenticationFactorAuthenticationStatics : aliased constant Windows.IID := (1062741590, 10488, 19983, (174, 140, 88, 152, 185, 174, 36, 105 ));
+   
+   type ISecondaryAuthenticationFactorAuthenticationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ShowNotificationMessageAsync
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
+      ; deviceName : Windows.String
+      ; message : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartAuthenticationAsync
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
+      ; deviceId : Windows.String
+      ; serviceAuthenticationNonce : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_AuthenticationStageChanged
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
+      ; handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_AuthenticationStageChanged
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAuthenticationStageInfoAsync
+   (
+      This       : access ISecondaryAuthenticationFactorAuthenticationStatics_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics : aliased constant Windows.IID := (2420742681, 32498, 17699, (149, 28, 164, 23, 162, 74, 207, 147 ));
+   
+   type ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RegisterDevicePresenceMonitoringAsync
+   (
+      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
+      ; deviceId : Windows.String
+      ; deviceInstancePath : Windows.String
+      ; monitoringMode : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RegisterDevicePresenceMonitoringWithNewDeviceAsync
+   (
+      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
+      ; deviceId : Windows.String
+      ; deviceInstancePath : Windows.String
+      ; monitoringMode : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode
+      ; deviceFriendlyName : Windows.String
+      ; deviceModelNumber : Windows.String
+      ; deviceConfigurationData : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UnregisterDevicePresenceMonitoringAsync
+   (
+      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsDevicePresenceMonitoringSupported
+   (
+      This       : access ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -659,182 +748,119 @@ package Windows.Security.Authentication.Identity.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (1459536523, 59562, 19471, (142, 76, 165, 89, 231, 58, 221, 136 ));
+   IID_ISecondaryAuthenticationFactorRegistration : aliased constant Windows.IID := (2672606132, 36026, 18608, (132, 13, 219, 178, 42, 84, 198, 120 ));
    
-   type ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface is interface and Windows.IInspectable_Interface;
+   type ISecondaryAuthenticationFactorRegistration_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Stage
+   function FinishRegisteringDeviceAsync
    (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStage
+      This       : access ISecondaryAuthenticationFactorRegistration_Interface
+      ; deviceConfigurationData : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
-   function get_Scenario
+   function AbortRegisteringDeviceAsync
    (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationScenario
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DeviceId
-   (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access ISecondaryAuthenticationFactorRegistration_Interface
+      ; errorLogMessage : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs : aliased constant Windows.IID := (3567644246, 29329, 16499, (188, 31, 204, 184, 245, 175, 223, 150 ));
+   IID_ISecondaryAuthenticationFactorRegistrationResult : aliased constant Windows.IID := (2768123376, 44515, 18817, (175, 107, 236, 25, 89, 33, 104, 42 ));
    
-   type ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type ISecondaryAuthenticationFactorRegistrationResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_StageInfo
+   function get_Status
    (
-      This       : access ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo
+      This       : access ISecondaryAuthenticationFactorRegistrationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Registration
+   (
+      This       : access ISecondaryAuthenticationFactorRegistrationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult : aliased constant Windows.IID := (98193932, 43940, 22604, (188, 8, 25, 197, 56, 154, 112, 226 ));
+   IID_ISecondaryAuthenticationFactorRegistrationStatics : aliased constant Windows.IID := (450826085, 58295, 16725, (153, 127, 183, 86, 239, 101, 190, 186 ));
    
-   type IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface is interface and Windows.IInspectable_Interface;
+   type ISecondaryAuthenticationFactorRegistrationStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function RequestStartRegisteringDeviceAsync
    (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface
-      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult
+      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
+      ; deviceId : Windows.String
+      ; capabilities : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceCapabilities
+      ; deviceFriendlyName : Windows.String
+      ; deviceModelNumber : Windows.String
+      ; deviceKey : Windows.Storage.Streams.IBuffer
+      ; mutualAuthenticationKey : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function FindAllRegisteredDeviceInfoAsync
    (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult
+      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
+      ; queryType : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function UnregisterDeviceAsync
    (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult
+      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus : aliased constant Windows.IID := (2134371562, 58344, 21500, (176, 229, 122, 164, 113, 151, 14, 221 ));
-   
-   type IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
+   function UpdateDeviceConfigurationDataAsync
    (
-      This       : access IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface
-      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (414230332, 56153, 21113, (167, 109, 2, 65, 107, 45, 144, 182 ));
-   
-   type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface
-      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (2253005591, 46144, 24222, (174, 85, 69, 80, 187, 99, 7, 223 ));
-   
-   type IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus : aliased constant Windows.IID := (2438546298, 17303, 21614, (190, 97, 46, 241, 97, 113, 126, 6 ));
-   
-   type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
-      ; handler : Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus
+      This       : access ISecondaryAuthenticationFactorRegistrationStatics_Interface
+      ; deviceId : Windows.String
+      ; deviceConfigurationData : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (625424189, 38532, 24155, (169, 184, 166, 249, 12, 230, 50, 173 ));
+   
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (2014434180, 11960, 22769, (175, 237, 75, 75, 136, 143, 67, 87 ));
+   
+   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -864,13 +890,13 @@ package Windows.Security.Authentication.Identity.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (625424189, 38532, 24155, (169, 184, 166, 249, 12, 230, 50, 173 ));
+   IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus : aliased constant Windows.IID := (2921165126, 15761, 20707, (143, 19, 97, 60, 242, 128, 18, 7 ));
    
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult'access) with null record;
+   type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult
+      This       : access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -889,46 +915,49 @@ package Windows.Security.Authentication.Identity.Provider is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (2014434180, 11960, 22769, (175, 237, 75, 75, 136, 143, 67, 87 ));
-   
-   type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus : aliased constant Windows.IID := (2921165126, 15761, 20707, (143, 19, 97, 60, 242, 128, 18, 7 ));
-   
-   type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SecondaryAuthenticationFactorRegistration is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration;
-   subtype SecondaryAuthenticationFactorRegistrationResult is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult;
    subtype SecondaryAuthenticationFactorAuthentication is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication;
    subtype SecondaryAuthenticationFactorAuthenticationResult is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationResult;
-   subtype SecondaryAuthenticationFactorInfo is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo;
    subtype SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs;
    subtype SecondaryAuthenticationFactorAuthenticationStageInfo is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo;
+   subtype SecondaryAuthenticationFactorInfo is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo;
+   subtype SecondaryAuthenticationFactorRegistration is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration;
+   subtype SecondaryAuthenticationFactorRegistrationResult is Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function ShowNotificationMessageAsync
+   (
+      deviceName : Windows.String
+      ; message : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function StartAuthenticationAsync
+   (
+      deviceId : Windows.String
+      ; serviceAuthenticationNonce : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult;
+   
+   function add_AuthenticationStageChanged
+   (
+      handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_AuthenticationStageChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function GetAuthenticationStageInfoAsync
+   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
    
    function RegisterDevicePresenceMonitoringAsync
    (
@@ -987,34 +1016,5 @@ package Windows.Security.Authentication.Identity.Provider is
       ; deviceConfigurationData : Windows.Storage.Streams.IBuffer
    )
    return Windows.Foundation.IAsyncAction;
-   
-   function ShowNotificationMessageAsync
-   (
-      deviceName : Windows.String
-      ; message : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function StartAuthenticationAsync
-   (
-      deviceId : Windows.String
-      ; serviceAuthenticationNonce : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult;
-   
-   function add_AuthenticationStageChanged
-   (
-      handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_AuthenticationStageChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function GetAuthenticationStageInfoAsync
-   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
    
 end;

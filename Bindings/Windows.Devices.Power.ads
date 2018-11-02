@@ -37,17 +37,20 @@ package Windows.Devices.Power is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IBattery_add_ReportUpdated_Interface;
-   type TypedEventHandler_IBattery_add_ReportUpdated is access all TypedEventHandler_IBattery_add_ReportUpdated_Interface'Class;
-   type TypedEventHandler_IBattery_add_ReportUpdated_Ptr is access all TypedEventHandler_IBattery_add_ReportUpdated;
    type AsyncOperationCompletedHandler_IBattery_Interface;
    type AsyncOperationCompletedHandler_IBattery is access all AsyncOperationCompletedHandler_IBattery_Interface'Class;
    type AsyncOperationCompletedHandler_IBattery_Ptr is access all AsyncOperationCompletedHandler_IBattery;
+   type TypedEventHandler_IBattery_add_ReportUpdated_Interface;
+   type TypedEventHandler_IBattery_add_ReportUpdated is access all TypedEventHandler_IBattery_add_ReportUpdated_Interface'Class;
+   type TypedEventHandler_IBattery_add_ReportUpdated_Ptr is access all TypedEventHandler_IBattery_add_ReportUpdated;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IBattery_Interface;
+   type IAsyncOperation_IBattery is access all IAsyncOperation_IBattery_Interface'Class;
+   type IAsyncOperation_IBattery_Ptr is access all IAsyncOperation_IBattery;
    type IBattery_Interface;
    type IBattery is access all IBattery_Interface'Class;
    type IBattery_Ptr is access all IBattery;
@@ -57,13 +60,37 @@ package Windows.Devices.Power is
    type IBatteryStatics_Interface;
    type IBatteryStatics is access all IBatteryStatics_Interface'Class;
    type IBatteryStatics_Ptr is access all IBatteryStatics;
-   type IAsyncOperation_IBattery_Interface;
-   type IAsyncOperation_IBattery is access all IAsyncOperation_IBattery_Interface'Class;
-   type IAsyncOperation_IBattery_Ptr is access all IAsyncOperation_IBattery;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBattery : aliased constant Windows.IID := (3668170070, 5417, 22226, (165, 248, 191, 182, 194, 42, 61, 254 ));
+   
+   type IAsyncOperation_IBattery_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IBattery_Interface
+      ; handler : Windows.Devices.Power.AsyncOperationCompletedHandler_IBattery
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IBattery_Interface
+      ; RetVal : access Windows.Devices.Power.AsyncOperationCompletedHandler_IBattery
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IBattery_Interface
+      ; RetVal : access Windows.Devices.Power.IBattery
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -170,48 +197,8 @@ package Windows.Devices.Power is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IBattery : aliased constant Windows.IID := (3668170070, 5417, 22226, (165, 248, 191, 182, 194, 42, 61, 254 ));
-   
-   type IAsyncOperation_IBattery_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IBattery_Interface
-      ; handler : Windows.Devices.Power.AsyncOperationCompletedHandler_IBattery
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IBattery_Interface
-      ; RetVal : access Windows.Devices.Power.AsyncOperationCompletedHandler_IBattery
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBattery_Interface
-      ; RetVal : access Windows.Devices.Power.IBattery
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IBattery_add_ReportUpdated : aliased constant Windows.IID := (1296737862, 30335, 22085, (175, 92, 84, 100, 100, 211, 236, 9 ));
-   
-   type TypedEventHandler_IBattery_add_ReportUpdated_Interface(Callback : access procedure (sender : Windows.Devices.Power.IBattery ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBattery_add_ReportUpdated'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IBattery_add_ReportUpdated_Interface
-      ; sender : Windows.Devices.Power.IBattery
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -227,11 +214,24 @@ package Windows.Devices.Power is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IBattery_add_ReportUpdated : aliased constant Windows.IID := (1296737862, 30335, 22085, (175, 92, 84, 100, 100, 211, 236, 9 ));
+   
+   type TypedEventHandler_IBattery_add_ReportUpdated_Interface(Callback : access procedure (sender : Windows.Devices.Power.IBattery ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBattery_add_ReportUpdated'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBattery_add_ReportUpdated_Interface
+      ; sender : Windows.Devices.Power.IBattery
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype BatteryReport is Windows.Devices.Power.IBatteryReport;
    subtype Battery is Windows.Devices.Power.IBattery;
+   subtype BatteryReport is Windows.Devices.Power.IBatteryReport;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

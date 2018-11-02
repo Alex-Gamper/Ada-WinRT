@@ -52,19 +52,6 @@ package body Windows.UI.Input.Inking.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface
-      ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface
       ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
       ; args : Windows.UI.Core.IPointerEventArgs
@@ -78,33 +65,7 @@ package body Windows.UI.Input.Inking.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface
-      ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface
-      ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface
+      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface
       ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
       ; args : Windows.UI.Core.IPointerEventArgs
    )
@@ -130,33 +91,46 @@ package body Windows.UI.Input.Inking.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface
-      ; sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource
-      ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs
+      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface
+      ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
+      ; args : Windows.UI.Core.IPointerEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource(sender), Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs(args));
+      This.Callback(Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource(sender), Windows.UI.Core.IPointerEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface
-      ; sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource
-      ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs
+      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface
+      ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
+      ; args : Windows.UI.Core.IPointerEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource(sender), Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs(args));
+      This.Callback(Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource(sender), Windows.UI.Core.IPointerEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface
+      This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface
+      ; sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface
       ; sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource
       ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs
    )
@@ -182,7 +156,33 @@ package body Windows.UI.Input.Inking.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface
+      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface
+      ; sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource
+      ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource(sender), Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface
+      ; sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource
+      ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource(sender), Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface
       ; sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource
       ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs
    )
@@ -196,23 +196,6 @@ package body Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.UI.Input.Inking.Core.ICoreInkPresenterHost is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.Core.CoreInkPresenterHost");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.Core.ICoreInkPresenterHost) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.Core.IID_ICoreInkPresenterHost'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create
    (
@@ -233,6 +216,23 @@ package body Windows.UI.Input.Inking.Core is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function Create return Windows.UI.Input.Inking.Core.ICoreInkPresenterHost is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.Core.CoreInkPresenterHost");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.Core.ICoreInkPresenterHost) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.Core.IID_ICoreInkPresenterHost'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

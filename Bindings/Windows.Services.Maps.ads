@@ -39,220 +39,6 @@ package Windows.Services.Maps is
    -- Enums
    ------------------------------------------------------------------------
    
-   type MapRouteOptimization is (
-      Time,
-      Distance,
-      TimeWithTraffic,
-      Scenic
-   );
-   for MapRouteOptimization use (
-      Time => 0,
-      Distance => 1,
-      TimeWithTraffic => 2,
-      Scenic => 3
-   );
-   for MapRouteOptimization'Size use 32;
-   
-   type MapRouteOptimization_Ptr is access MapRouteOptimization;
-   
-   type MapRouteRestrictions is (
-      None,
-      Highways,
-      TollRoads,
-      Ferries,
-      Tunnels,
-      DirtRoads,
-      Motorail
-   );
-   for MapRouteRestrictions use (
-      None => 0,
-      Highways => 1,
-      TollRoads => 2,
-      Ferries => 4,
-      Tunnels => 8,
-      DirtRoads => 16,
-      Motorail => 32
-   );
-   for MapRouteRestrictions'Size use 32;
-   
-   type MapRouteRestrictions_Ptr is access MapRouteRestrictions;
-   
-   type MapRouteManeuverKind is (
-      None,
-      Start,
-      Stopover,
-      StopoverResume,
-      End_x,
-      GoStraight,
-      UTurnLeft,
-      UTurnRight,
-      TurnKeepLeft,
-      TurnKeepRight,
-      TurnLightLeft,
-      TurnLightRight,
-      TurnLeft,
-      TurnRight,
-      TurnHardLeft,
-      TurnHardRight,
-      FreewayEnterLeft,
-      FreewayEnterRight,
-      FreewayLeaveLeft,
-      FreewayLeaveRight,
-      FreewayContinueLeft,
-      FreewayContinueRight,
-      TrafficCircleLeft,
-      TrafficCircleRight,
-      TakeFerry
-   );
-   for MapRouteManeuverKind use (
-      None => 0,
-      Start => 1,
-      Stopover => 2,
-      StopoverResume => 3,
-      End_x => 4,
-      GoStraight => 5,
-      UTurnLeft => 6,
-      UTurnRight => 7,
-      TurnKeepLeft => 8,
-      TurnKeepRight => 9,
-      TurnLightLeft => 10,
-      TurnLightRight => 11,
-      TurnLeft => 12,
-      TurnRight => 13,
-      TurnHardLeft => 14,
-      TurnHardRight => 15,
-      FreewayEnterLeft => 16,
-      FreewayEnterRight => 17,
-      FreewayLeaveLeft => 18,
-      FreewayLeaveRight => 19,
-      FreewayContinueLeft => 20,
-      FreewayContinueRight => 21,
-      TrafficCircleLeft => 22,
-      TrafficCircleRight => 23,
-      TakeFerry => 24
-   );
-   for MapRouteManeuverKind'Size use 32;
-   
-   type MapRouteManeuverKind_Ptr is access MapRouteManeuverKind;
-   
-   type MapManeuverNotices is (
-      None,
-      Toll,
-      Unpaved
-   );
-   for MapManeuverNotices use (
-      None => 0,
-      Toll => 1,
-      Unpaved => 2
-   );
-   for MapManeuverNotices'Size use 32;
-   
-   type MapManeuverNotices_Ptr is access MapManeuverNotices;
-   
-   type MapLocationFinderStatus is (
-      Success,
-      UnknownError,
-      InvalidCredentials,
-      BadLocation,
-      IndexFailure,
-      NetworkFailure,
-      NotSupported
-   );
-   for MapLocationFinderStatus use (
-      Success => 0,
-      UnknownError => 1,
-      InvalidCredentials => 2,
-      BadLocation => 3,
-      IndexFailure => 4,
-      NetworkFailure => 5,
-      NotSupported => 6
-   );
-   for MapLocationFinderStatus'Size use 32;
-   
-   type MapLocationFinderStatus_Ptr is access MapLocationFinderStatus;
-   
-   type MapRouteFinderStatus is (
-      Success,
-      UnknownError,
-      InvalidCredentials,
-      NoRouteFound,
-      NoRouteFoundWithGivenOptions,
-      StartPointNotFound,
-      EndPointNotFound,
-      NoPedestrianRouteFound,
-      NetworkFailure,
-      NotSupported
-   );
-   for MapRouteFinderStatus use (
-      Success => 0,
-      UnknownError => 1,
-      InvalidCredentials => 2,
-      NoRouteFound => 3,
-      NoRouteFoundWithGivenOptions => 4,
-      StartPointNotFound => 5,
-      EndPointNotFound => 6,
-      NoPedestrianRouteFound => 7,
-      NetworkFailure => 8,
-      NotSupported => 9
-   );
-   for MapRouteFinderStatus'Size use 32;
-   
-   type MapRouteFinderStatus_Ptr is access MapRouteFinderStatus;
-   
-   type MapLocationDesiredAccuracy is (
-      High,
-      Low
-   );
-   for MapLocationDesiredAccuracy use (
-      High => 0,
-      Low => 1
-   );
-   for MapLocationDesiredAccuracy'Size use 32;
-   
-   type MapLocationDesiredAccuracy_Ptr is access MapLocationDesiredAccuracy;
-   
-   type WaypointKind is (
-      Stop,
-      Via
-   );
-   for WaypointKind use (
-      Stop => 0,
-      Via => 1
-   );
-   for WaypointKind'Size use 32;
-   
-   type WaypointKind_Ptr is access WaypointKind;
-   
-   type MapServiceDataUsagePreference is (
-      Default,
-      OfflineMapDataOnly
-   );
-   for MapServiceDataUsagePreference use (
-      Default => 0,
-      OfflineMapDataOnly => 1
-   );
-   for MapServiceDataUsagePreference'Size use 32;
-   
-   type MapServiceDataUsagePreference_Ptr is access MapServiceDataUsagePreference;
-   
-   type TrafficCongestion is (
-      Unknown,
-      Light,
-      Mild,
-      Medium,
-      Heavy
-   );
-   for TrafficCongestion use (
-      Unknown => 0,
-      Light => 1,
-      Mild => 2,
-      Medium => 3,
-      Heavy => 4
-   );
-   for TrafficCongestion'Size use 32;
-   
-   type TrafficCongestion_Ptr is access TrafficCongestion;
-   
    type ManeuverWarningKind is (
       None,
       Accident,
@@ -351,6 +137,220 @@ package Windows.Services.Maps is
    
    type ManeuverWarningSeverity_Ptr is access ManeuverWarningSeverity;
    
+   type MapLocationDesiredAccuracy is (
+      High,
+      Low
+   );
+   for MapLocationDesiredAccuracy use (
+      High => 0,
+      Low => 1
+   );
+   for MapLocationDesiredAccuracy'Size use 32;
+   
+   type MapLocationDesiredAccuracy_Ptr is access MapLocationDesiredAccuracy;
+   
+   type MapLocationFinderStatus is (
+      Success,
+      UnknownError,
+      InvalidCredentials,
+      BadLocation,
+      IndexFailure,
+      NetworkFailure,
+      NotSupported
+   );
+   for MapLocationFinderStatus use (
+      Success => 0,
+      UnknownError => 1,
+      InvalidCredentials => 2,
+      BadLocation => 3,
+      IndexFailure => 4,
+      NetworkFailure => 5,
+      NotSupported => 6
+   );
+   for MapLocationFinderStatus'Size use 32;
+   
+   type MapLocationFinderStatus_Ptr is access MapLocationFinderStatus;
+   
+   type MapManeuverNotices is (
+      None,
+      Toll,
+      Unpaved
+   );
+   for MapManeuverNotices use (
+      None => 0,
+      Toll => 1,
+      Unpaved => 2
+   );
+   for MapManeuverNotices'Size use 32;
+   
+   type MapManeuverNotices_Ptr is access MapManeuverNotices;
+   
+   type MapRouteFinderStatus is (
+      Success,
+      UnknownError,
+      InvalidCredentials,
+      NoRouteFound,
+      NoRouteFoundWithGivenOptions,
+      StartPointNotFound,
+      EndPointNotFound,
+      NoPedestrianRouteFound,
+      NetworkFailure,
+      NotSupported
+   );
+   for MapRouteFinderStatus use (
+      Success => 0,
+      UnknownError => 1,
+      InvalidCredentials => 2,
+      NoRouteFound => 3,
+      NoRouteFoundWithGivenOptions => 4,
+      StartPointNotFound => 5,
+      EndPointNotFound => 6,
+      NoPedestrianRouteFound => 7,
+      NetworkFailure => 8,
+      NotSupported => 9
+   );
+   for MapRouteFinderStatus'Size use 32;
+   
+   type MapRouteFinderStatus_Ptr is access MapRouteFinderStatus;
+   
+   type MapRouteManeuverKind is (
+      None,
+      Start,
+      Stopover,
+      StopoverResume,
+      End_x,
+      GoStraight,
+      UTurnLeft,
+      UTurnRight,
+      TurnKeepLeft,
+      TurnKeepRight,
+      TurnLightLeft,
+      TurnLightRight,
+      TurnLeft,
+      TurnRight,
+      TurnHardLeft,
+      TurnHardRight,
+      FreewayEnterLeft,
+      FreewayEnterRight,
+      FreewayLeaveLeft,
+      FreewayLeaveRight,
+      FreewayContinueLeft,
+      FreewayContinueRight,
+      TrafficCircleLeft,
+      TrafficCircleRight,
+      TakeFerry
+   );
+   for MapRouteManeuverKind use (
+      None => 0,
+      Start => 1,
+      Stopover => 2,
+      StopoverResume => 3,
+      End_x => 4,
+      GoStraight => 5,
+      UTurnLeft => 6,
+      UTurnRight => 7,
+      TurnKeepLeft => 8,
+      TurnKeepRight => 9,
+      TurnLightLeft => 10,
+      TurnLightRight => 11,
+      TurnLeft => 12,
+      TurnRight => 13,
+      TurnHardLeft => 14,
+      TurnHardRight => 15,
+      FreewayEnterLeft => 16,
+      FreewayEnterRight => 17,
+      FreewayLeaveLeft => 18,
+      FreewayLeaveRight => 19,
+      FreewayContinueLeft => 20,
+      FreewayContinueRight => 21,
+      TrafficCircleLeft => 22,
+      TrafficCircleRight => 23,
+      TakeFerry => 24
+   );
+   for MapRouteManeuverKind'Size use 32;
+   
+   type MapRouteManeuverKind_Ptr is access MapRouteManeuverKind;
+   
+   type MapRouteOptimization is (
+      Time,
+      Distance,
+      TimeWithTraffic,
+      Scenic
+   );
+   for MapRouteOptimization use (
+      Time => 0,
+      Distance => 1,
+      TimeWithTraffic => 2,
+      Scenic => 3
+   );
+   for MapRouteOptimization'Size use 32;
+   
+   type MapRouteOptimization_Ptr is access MapRouteOptimization;
+   
+   type MapRouteRestrictions is (
+      None,
+      Highways,
+      TollRoads,
+      Ferries,
+      Tunnels,
+      DirtRoads,
+      Motorail
+   );
+   for MapRouteRestrictions use (
+      None => 0,
+      Highways => 1,
+      TollRoads => 2,
+      Ferries => 4,
+      Tunnels => 8,
+      DirtRoads => 16,
+      Motorail => 32
+   );
+   for MapRouteRestrictions'Size use 32;
+   
+   type MapRouteRestrictions_Ptr is access MapRouteRestrictions;
+   
+   type MapServiceDataUsagePreference is (
+      Default,
+      OfflineMapDataOnly
+   );
+   for MapServiceDataUsagePreference use (
+      Default => 0,
+      OfflineMapDataOnly => 1
+   );
+   for MapServiceDataUsagePreference'Size use 32;
+   
+   type MapServiceDataUsagePreference_Ptr is access MapServiceDataUsagePreference;
+   
+   type TrafficCongestion is (
+      Unknown,
+      Light,
+      Mild,
+      Medium,
+      Heavy
+   );
+   for TrafficCongestion use (
+      Unknown => 0,
+      Light => 1,
+      Mild => 2,
+      Medium => 3,
+      Heavy => 4
+   );
+   for TrafficCongestion'Size use 32;
+   
+   type TrafficCongestion_Ptr is access TrafficCongestion;
+   
+   type WaypointKind is (
+      Stop,
+      Via
+   );
+   for WaypointKind use (
+      Stop => 0,
+      Via => 1
+   );
+   for WaypointKind'Size use 32;
+   
+   type WaypointKind_Ptr is access WaypointKind;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -380,12 +380,57 @@ package Windows.Services.Maps is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IMapRouteDrivingOptions_Interface;
-   type IMapRouteDrivingOptions is access all IMapRouteDrivingOptions_Interface'Class;
-   type IMapRouteDrivingOptions_Ptr is access all IMapRouteDrivingOptions;
-   type IMapRouteDrivingOptions2_Interface;
-   type IMapRouteDrivingOptions2 is access all IMapRouteDrivingOptions2_Interface'Class;
-   type IMapRouteDrivingOptions2_Ptr is access all IMapRouteDrivingOptions2;
+   type IAsyncOperation_IMapLocationFinderResult_Interface;
+   type IAsyncOperation_IMapLocationFinderResult is access all IAsyncOperation_IMapLocationFinderResult_Interface'Class;
+   type IAsyncOperation_IMapLocationFinderResult_Ptr is access all IAsyncOperation_IMapLocationFinderResult;
+   type IAsyncOperation_IMapRouteFinderResult_Interface;
+   type IAsyncOperation_IMapRouteFinderResult is access all IAsyncOperation_IMapRouteFinderResult_Interface'Class;
+   type IAsyncOperation_IMapRouteFinderResult_Ptr is access all IAsyncOperation_IMapRouteFinderResult;
+   type IEnhancedWaypoint_Interface;
+   type IEnhancedWaypoint is access all IEnhancedWaypoint_Interface'Class;
+   type IEnhancedWaypoint_Ptr is access all IEnhancedWaypoint;
+   type IEnhancedWaypointFactory_Interface;
+   type IEnhancedWaypointFactory is access all IEnhancedWaypointFactory_Interface'Class;
+   type IEnhancedWaypointFactory_Ptr is access all IEnhancedWaypointFactory;
+   type IIterable_IEnhancedWaypoint_Interface;
+   type IIterable_IEnhancedWaypoint is access all IIterable_IEnhancedWaypoint_Interface'Class;
+   type IIterable_IEnhancedWaypoint_Ptr is access all IIterable_IEnhancedWaypoint;
+   type IIterable_IManeuverWarning_Interface;
+   type IIterable_IManeuverWarning is access all IIterable_IManeuverWarning_Interface'Class;
+   type IIterable_IManeuverWarning_Ptr is access all IIterable_IManeuverWarning;
+   type IIterable_IMapLocation_Interface;
+   type IIterable_IMapLocation is access all IIterable_IMapLocation_Interface'Class;
+   type IIterable_IMapLocation_Ptr is access all IIterable_IMapLocation;
+   type IIterable_IMapRoute_Interface;
+   type IIterable_IMapRoute is access all IIterable_IMapRoute_Interface'Class;
+   type IIterable_IMapRoute_Ptr is access all IIterable_IMapRoute;
+   type IIterable_IMapRouteLeg_Interface;
+   type IIterable_IMapRouteLeg is access all IIterable_IMapRouteLeg_Interface'Class;
+   type IIterable_IMapRouteLeg_Ptr is access all IIterable_IMapRouteLeg;
+   type IIterable_IMapRouteManeuver_Interface;
+   type IIterable_IMapRouteManeuver is access all IIterable_IMapRouteManeuver_Interface'Class;
+   type IIterable_IMapRouteManeuver_Ptr is access all IIterable_IMapRouteManeuver;
+   type IIterator_IEnhancedWaypoint_Interface;
+   type IIterator_IEnhancedWaypoint is access all IIterator_IEnhancedWaypoint_Interface'Class;
+   type IIterator_IEnhancedWaypoint_Ptr is access all IIterator_IEnhancedWaypoint;
+   type IIterator_IManeuverWarning_Interface;
+   type IIterator_IManeuverWarning is access all IIterator_IManeuverWarning_Interface'Class;
+   type IIterator_IManeuverWarning_Ptr is access all IIterator_IManeuverWarning;
+   type IIterator_IMapLocation_Interface;
+   type IIterator_IMapLocation is access all IIterator_IMapLocation_Interface'Class;
+   type IIterator_IMapLocation_Ptr is access all IIterator_IMapLocation;
+   type IIterator_IMapRoute_Interface;
+   type IIterator_IMapRoute is access all IIterator_IMapRoute_Interface'Class;
+   type IIterator_IMapRoute_Ptr is access all IIterator_IMapRoute;
+   type IIterator_IMapRouteLeg_Interface;
+   type IIterator_IMapRouteLeg is access all IIterator_IMapRouteLeg_Interface'Class;
+   type IIterator_IMapRouteLeg_Ptr is access all IIterator_IMapRouteLeg;
+   type IIterator_IMapRouteManeuver_Interface;
+   type IIterator_IMapRouteManeuver is access all IIterator_IMapRouteManeuver_Interface'Class;
+   type IIterator_IMapRouteManeuver_Ptr is access all IIterator_IMapRouteManeuver;
+   type IManeuverWarning_Interface;
+   type IManeuverWarning is access all IManeuverWarning_Interface'Class;
+   type IManeuverWarning_Ptr is access all IManeuverWarning;
    type IMapAddress_Interface;
    type IMapAddress is access all IMapAddress_Interface'Class;
    type IMapAddress_Ptr is access all IMapAddress;
@@ -398,24 +443,15 @@ package Windows.Services.Maps is
    type IMapLocationFinderResult_Interface;
    type IMapLocationFinderResult is access all IMapLocationFinderResult_Interface'Class;
    type IMapLocationFinderResult_Ptr is access all IMapLocationFinderResult;
-   type IMapRouteManeuver_Interface;
-   type IMapRouteManeuver is access all IMapRouteManeuver_Interface'Class;
-   type IMapRouteManeuver_Ptr is access all IMapRouteManeuver;
-   type IMapRouteManeuver2_Interface;
-   type IMapRouteManeuver2 is access all IMapRouteManeuver2_Interface'Class;
-   type IMapRouteManeuver2_Ptr is access all IMapRouteManeuver2;
-   type IMapRouteManeuver3_Interface;
-   type IMapRouteManeuver3 is access all IMapRouteManeuver3_Interface'Class;
-   type IMapRouteManeuver3_Ptr is access all IMapRouteManeuver3;
-   type IManeuverWarning_Interface;
-   type IManeuverWarning is access all IManeuverWarning_Interface'Class;
-   type IManeuverWarning_Ptr is access all IManeuverWarning;
-   type IMapRouteLeg_Interface;
-   type IMapRouteLeg is access all IMapRouteLeg_Interface'Class;
-   type IMapRouteLeg_Ptr is access all IMapRouteLeg;
-   type IMapRouteLeg2_Interface;
-   type IMapRouteLeg2 is access all IMapRouteLeg2_Interface'Class;
-   type IMapRouteLeg2_Ptr is access all IMapRouteLeg2;
+   type IMapLocationFinderStatics_Interface;
+   type IMapLocationFinderStatics is access all IMapLocationFinderStatics_Interface'Class;
+   type IMapLocationFinderStatics_Ptr is access all IMapLocationFinderStatics;
+   type IMapLocationFinderStatics2_Interface;
+   type IMapLocationFinderStatics2 is access all IMapLocationFinderStatics2_Interface'Class;
+   type IMapLocationFinderStatics2_Ptr is access all IMapLocationFinderStatics2;
+   type IMapManagerStatics_Interface;
+   type IMapManagerStatics is access all IMapManagerStatics_Interface'Class;
+   type IMapManagerStatics_Ptr is access all IMapManagerStatics;
    type IMapRoute_Interface;
    type IMapRoute is access all IMapRoute_Interface'Class;
    type IMapRoute_Ptr is access all IMapRoute;
@@ -428,24 +464,18 @@ package Windows.Services.Maps is
    type IMapRoute4_Interface;
    type IMapRoute4 is access all IMapRoute4_Interface'Class;
    type IMapRoute4_Ptr is access all IMapRoute4;
+   type IMapRouteDrivingOptions_Interface;
+   type IMapRouteDrivingOptions is access all IMapRouteDrivingOptions_Interface'Class;
+   type IMapRouteDrivingOptions_Ptr is access all IMapRouteDrivingOptions;
+   type IMapRouteDrivingOptions2_Interface;
+   type IMapRouteDrivingOptions2 is access all IMapRouteDrivingOptions2_Interface'Class;
+   type IMapRouteDrivingOptions2_Ptr is access all IMapRouteDrivingOptions2;
    type IMapRouteFinderResult_Interface;
    type IMapRouteFinderResult is access all IMapRouteFinderResult_Interface'Class;
    type IMapRouteFinderResult_Ptr is access all IMapRouteFinderResult;
    type IMapRouteFinderResult2_Interface;
    type IMapRouteFinderResult2 is access all IMapRouteFinderResult2_Interface'Class;
    type IMapRouteFinderResult2_Ptr is access all IMapRouteFinderResult2;
-   type IEnhancedWaypoint_Interface;
-   type IEnhancedWaypoint is access all IEnhancedWaypoint_Interface'Class;
-   type IEnhancedWaypoint_Ptr is access all IEnhancedWaypoint;
-   type IEnhancedWaypointFactory_Interface;
-   type IEnhancedWaypointFactory is access all IEnhancedWaypointFactory_Interface'Class;
-   type IEnhancedWaypointFactory_Ptr is access all IEnhancedWaypointFactory;
-   type IMapLocationFinderStatics_Interface;
-   type IMapLocationFinderStatics is access all IMapLocationFinderStatics_Interface'Class;
-   type IMapLocationFinderStatics_Ptr is access all IMapLocationFinderStatics;
-   type IMapLocationFinderStatics2_Interface;
-   type IMapLocationFinderStatics2 is access all IMapLocationFinderStatics2_Interface'Class;
-   type IMapLocationFinderStatics2_Ptr is access all IMapLocationFinderStatics2;
    type IMapRouteFinderStatics_Interface;
    type IMapRouteFinderStatics is access all IMapRouteFinderStatics_Interface'Class;
    type IMapRouteFinderStatics_Ptr is access all IMapRouteFinderStatics;
@@ -455,12 +485,24 @@ package Windows.Services.Maps is
    type IMapRouteFinderStatics3_Interface;
    type IMapRouteFinderStatics3 is access all IMapRouteFinderStatics3_Interface'Class;
    type IMapRouteFinderStatics3_Ptr is access all IMapRouteFinderStatics3;
+   type IMapRouteLeg_Interface;
+   type IMapRouteLeg is access all IMapRouteLeg_Interface'Class;
+   type IMapRouteLeg_Ptr is access all IMapRouteLeg;
+   type IMapRouteLeg2_Interface;
+   type IMapRouteLeg2 is access all IMapRouteLeg2_Interface'Class;
+   type IMapRouteLeg2_Ptr is access all IMapRouteLeg2;
+   type IMapRouteManeuver_Interface;
+   type IMapRouteManeuver is access all IMapRouteManeuver_Interface'Class;
+   type IMapRouteManeuver_Ptr is access all IMapRouteManeuver;
+   type IMapRouteManeuver2_Interface;
+   type IMapRouteManeuver2 is access all IMapRouteManeuver2_Interface'Class;
+   type IMapRouteManeuver2_Ptr is access all IMapRouteManeuver2;
+   type IMapRouteManeuver3_Interface;
+   type IMapRouteManeuver3 is access all IMapRouteManeuver3_Interface'Class;
+   type IMapRouteManeuver3_Ptr is access all IMapRouteManeuver3;
    type IMapServiceStatics_Interface;
    type IMapServiceStatics is access all IMapServiceStatics_Interface'Class;
    type IMapServiceStatics_Ptr is access all IMapServiceStatics;
-   type IMapManagerStatics_Interface;
-   type IMapManagerStatics is access all IMapManagerStatics_Interface'Class;
-   type IMapManagerStatics_Ptr is access all IMapManagerStatics;
    type IMapServiceStatics2_Interface;
    type IMapServiceStatics2 is access all IMapServiceStatics2_Interface'Class;
    type IMapServiceStatics2_Ptr is access all IMapServiceStatics2;
@@ -470,6 +512,9 @@ package Windows.Services.Maps is
    type IMapServiceStatics4_Interface;
    type IMapServiceStatics4 is access all IMapServiceStatics4_Interface'Class;
    type IMapServiceStatics4_Ptr is access all IMapServiceStatics4;
+   type IPlaceInfo_Interface;
+   type IPlaceInfo is access all IPlaceInfo_Interface'Class;
+   type IPlaceInfo_Ptr is access all IPlaceInfo;
    type IPlaceInfoCreateOptions_Interface;
    type IPlaceInfoCreateOptions is access all IPlaceInfoCreateOptions_Interface'Class;
    type IPlaceInfoCreateOptions_Ptr is access all IPlaceInfoCreateOptions;
@@ -479,66 +524,21 @@ package Windows.Services.Maps is
    type IPlaceInfoStatics2_Interface;
    type IPlaceInfoStatics2 is access all IPlaceInfoStatics2_Interface'Class;
    type IPlaceInfoStatics2_Ptr is access all IPlaceInfoStatics2;
-   type IPlaceInfo_Interface;
-   type IPlaceInfo is access all IPlaceInfo_Interface'Class;
-   type IPlaceInfo_Ptr is access all IPlaceInfo;
-   type IIterator_IMapLocation_Interface;
-   type IIterator_IMapLocation is access all IIterator_IMapLocation_Interface'Class;
-   type IIterator_IMapLocation_Ptr is access all IIterator_IMapLocation;
-   type IIterable_IMapLocation_Interface;
-   type IIterable_IMapLocation is access all IIterable_IMapLocation_Interface'Class;
-   type IIterable_IMapLocation_Ptr is access all IIterable_IMapLocation;
-   type IVectorView_IMapLocation_Interface;
-   type IVectorView_IMapLocation is access all IVectorView_IMapLocation_Interface'Class;
-   type IVectorView_IMapLocation_Ptr is access all IVectorView_IMapLocation;
-   type IIterator_IManeuverWarning_Interface;
-   type IIterator_IManeuverWarning is access all IIterator_IManeuverWarning_Interface'Class;
-   type IIterator_IManeuverWarning_Ptr is access all IIterator_IManeuverWarning;
-   type IIterable_IManeuverWarning_Interface;
-   type IIterable_IManeuverWarning is access all IIterable_IManeuverWarning_Interface'Class;
-   type IIterable_IManeuverWarning_Ptr is access all IIterable_IManeuverWarning;
    type IVectorView_IManeuverWarning_Interface;
    type IVectorView_IManeuverWarning is access all IVectorView_IManeuverWarning_Interface'Class;
    type IVectorView_IManeuverWarning_Ptr is access all IVectorView_IManeuverWarning;
-   type IIterator_IMapRouteManeuver_Interface;
-   type IIterator_IMapRouteManeuver is access all IIterator_IMapRouteManeuver_Interface'Class;
-   type IIterator_IMapRouteManeuver_Ptr is access all IIterator_IMapRouteManeuver;
-   type IIterable_IMapRouteManeuver_Interface;
-   type IIterable_IMapRouteManeuver is access all IIterable_IMapRouteManeuver_Interface'Class;
-   type IIterable_IMapRouteManeuver_Ptr is access all IIterable_IMapRouteManeuver;
-   type IVectorView_IMapRouteManeuver_Interface;
-   type IVectorView_IMapRouteManeuver is access all IVectorView_IMapRouteManeuver_Interface'Class;
-   type IVectorView_IMapRouteManeuver_Ptr is access all IVectorView_IMapRouteManeuver;
-   type IIterator_IMapRouteLeg_Interface;
-   type IIterator_IMapRouteLeg is access all IIterator_IMapRouteLeg_Interface'Class;
-   type IIterator_IMapRouteLeg_Ptr is access all IIterator_IMapRouteLeg;
-   type IIterable_IMapRouteLeg_Interface;
-   type IIterable_IMapRouteLeg is access all IIterable_IMapRouteLeg_Interface'Class;
-   type IIterable_IMapRouteLeg_Ptr is access all IIterable_IMapRouteLeg;
-   type IVectorView_IMapRouteLeg_Interface;
-   type IVectorView_IMapRouteLeg is access all IVectorView_IMapRouteLeg_Interface'Class;
-   type IVectorView_IMapRouteLeg_Ptr is access all IVectorView_IMapRouteLeg;
-   type IIterator_IMapRoute_Interface;
-   type IIterator_IMapRoute is access all IIterator_IMapRoute_Interface'Class;
-   type IIterator_IMapRoute_Ptr is access all IIterator_IMapRoute;
-   type IIterable_IMapRoute_Interface;
-   type IIterable_IMapRoute is access all IIterable_IMapRoute_Interface'Class;
-   type IIterable_IMapRoute_Ptr is access all IIterable_IMapRoute;
+   type IVectorView_IMapLocation_Interface;
+   type IVectorView_IMapLocation is access all IVectorView_IMapLocation_Interface'Class;
+   type IVectorView_IMapLocation_Ptr is access all IVectorView_IMapLocation;
    type IVectorView_IMapRoute_Interface;
    type IVectorView_IMapRoute is access all IVectorView_IMapRoute_Interface'Class;
    type IVectorView_IMapRoute_Ptr is access all IVectorView_IMapRoute;
-   type IAsyncOperation_IMapLocationFinderResult_Interface;
-   type IAsyncOperation_IMapLocationFinderResult is access all IAsyncOperation_IMapLocationFinderResult_Interface'Class;
-   type IAsyncOperation_IMapLocationFinderResult_Ptr is access all IAsyncOperation_IMapLocationFinderResult;
-   type IAsyncOperation_IMapRouteFinderResult_Interface;
-   type IAsyncOperation_IMapRouteFinderResult is access all IAsyncOperation_IMapRouteFinderResult_Interface'Class;
-   type IAsyncOperation_IMapRouteFinderResult_Ptr is access all IAsyncOperation_IMapRouteFinderResult;
-   type IIterator_IEnhancedWaypoint_Interface;
-   type IIterator_IEnhancedWaypoint is access all IIterator_IEnhancedWaypoint_Interface'Class;
-   type IIterator_IEnhancedWaypoint_Ptr is access all IIterator_IEnhancedWaypoint;
-   type IIterable_IEnhancedWaypoint_Interface;
-   type IIterable_IEnhancedWaypoint is access all IIterable_IEnhancedWaypoint_Interface'Class;
-   type IIterable_IEnhancedWaypoint_Ptr is access all IIterable_IEnhancedWaypoint;
+   type IVectorView_IMapRouteLeg_Interface;
+   type IVectorView_IMapRouteLeg is access all IVectorView_IMapRouteLeg_Interface'Class;
+   type IVectorView_IMapRouteLeg_Ptr is access all IVectorView_IMapRouteLeg;
+   type IVectorView_IMapRouteManeuver_Interface;
+   type IVectorView_IMapRouteManeuver is access all IVectorView_IMapRouteManeuver_Interface'Class;
+   type IVectorView_IMapRouteManeuver_Ptr is access all IVectorView_IMapRouteManeuver;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -546,83 +546,398 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
-   IID_IMapRouteDrivingOptions : aliased constant Windows.IID := (1746220621, 50908, 18071, (164, 82, 177, 143, 143, 11, 103, 161 ));
+   IID_IAsyncOperation_IMapLocationFinderResult : aliased constant Windows.IID := (3857051187, 43992, 22165, (159, 229, 172, 149, 133, 13, 113, 152 ));
    
-   type IMapRouteDrivingOptions_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IMapLocationFinderResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_MaxAlternateRouteCount
+   function put_Completed
    (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IAsyncOperation_IMapLocationFinderResult_Interface
+      ; handler : Windows.Services.Maps.AsyncOperationCompletedHandler_IMapLocationFinderResult
    )
    return Windows.HRESULT is abstract;
    
-   function put_MaxAlternateRouteCount
+   function get_Completed
    (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; value : Windows.UInt32
+      This       : access IAsyncOperation_IMapLocationFinderResult_Interface
+      ; RetVal : access Windows.Services.Maps.AsyncOperationCompletedHandler_IMapLocationFinderResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_InitialHeading
+   function GetResults
    (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_InitialHeading
-   (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; value : Windows.Foundation.IReference_Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RouteOptimization
-   (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; RetVal : access Windows.Services.Maps.MapRouteOptimization
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RouteOptimization
-   (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; value : Windows.Services.Maps.MapRouteOptimization
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RouteRestrictions
-   (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; RetVal : access Windows.Services.Maps.MapRouteRestrictions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RouteRestrictions
-   (
-      This       : access IMapRouteDrivingOptions_Interface
-      ; value : Windows.Services.Maps.MapRouteRestrictions
+      This       : access IAsyncOperation_IMapLocationFinderResult_Interface
+      ; RetVal : access Windows.Services.Maps.IMapLocationFinderResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMapRouteDrivingOptions2 : aliased constant Windows.IID := (903644784, 49816, 18640, (181, 173, 130, 84, 96, 100, 86, 3 ));
+   IID_IAsyncOperation_IMapRouteFinderResult : aliased constant Windows.IID := (3970580095, 50470, 20631, (182, 36, 207, 116, 61, 120, 169, 186 ));
    
-   type IMapRouteDrivingOptions2_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IMapRouteFinderResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_DepartureTime
+   function put_Completed
    (
-      This       : access IMapRouteDrivingOptions2_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+      This       : access IAsyncOperation_IMapRouteFinderResult_Interface
+      ; handler : Windows.Services.Maps.AsyncOperationCompletedHandler_IMapRouteFinderResult
    )
    return Windows.HRESULT is abstract;
    
-   function put_DepartureTime
+   function get_Completed
    (
-      This       : access IMapRouteDrivingOptions2_Interface
-      ; value : Windows.Foundation.IReference_DateTime
+      This       : access IAsyncOperation_IMapRouteFinderResult_Interface
+      ; RetVal : access Windows.Services.Maps.AsyncOperationCompletedHandler_IMapRouteFinderResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IMapRouteFinderResult_Interface
+      ; RetVal : access Windows.Services.Maps.IMapRouteFinderResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEnhancedWaypoint : aliased constant Windows.IID := (3978726516, 22803, 4582, (139, 119, 134, 243, 12, 168, 147, 211 ));
+   
+   type IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Point
+   (
+      This       : access IEnhancedWaypoint_Interface
+      ; RetVal : access Windows.Devices.Geolocation.IGeopoint
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access IEnhancedWaypoint_Interface
+      ; RetVal : access Windows.Services.Maps.WaypointKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEnhancedWaypointFactory : aliased constant Windows.IID := (2944828535, 41642, 18141, (182, 69, 35, 179, 27, 138, 166, 199 ));
+   
+   type IEnhancedWaypointFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IEnhancedWaypointFactory_Interface
+      ; point : Windows.Devices.Geolocation.IGeopoint
+      ; kind : Windows.Services.Maps.WaypointKind
+      ; RetVal : access Windows.Services.Maps.IEnhancedWaypoint
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IEnhancedWaypoint : aliased constant Windows.IID := (3495189946, 39685, 24119, (191, 192, 61, 162, 181, 29, 19, 91 ));
+   
+   type IIterable_IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IEnhancedWaypoint_Interface
+      ; RetVal : access Windows.Services.Maps.IIterator_IEnhancedWaypoint
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IManeuverWarning : aliased constant Windows.IID := (3456793619, 54212, 21935, (169, 15, 197, 63, 123, 217, 51, 115 ));
+   
+   type IIterable_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IManeuverWarning_Interface
+      ; RetVal : access Windows.Services.Maps.IIterator_IManeuverWarning
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapLocation : aliased constant Windows.IID := (2010800465, 1891, 20618, (144, 65, 51, 16, 186, 172, 229, 117 ));
+   
+   type IIterable_IMapLocation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMapLocation_Interface
+      ; RetVal : access Windows.Services.Maps.IIterator_IMapLocation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapRoute : aliased constant Windows.IID := (3632947874, 3807, 21266, (151, 168, 16, 174, 174, 168, 11, 153 ));
+   
+   type IIterable_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMapRoute_Interface
+      ; RetVal : access Windows.Services.Maps.IIterator_IMapRoute
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapRouteLeg : aliased constant Windows.IID := (2415495001, 30925, 22248, (135, 123, 131, 206, 132, 109, 111, 139 ));
+   
+   type IIterable_IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMapRouteLeg_Interface
+      ; RetVal : access Windows.Services.Maps.IIterator_IMapRouteLeg
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapRouteManeuver : aliased constant Windows.IID := (3733984763, 37335, 21870, (187, 77, 32, 11, 111, 88, 250, 212 ));
+   
+   type IIterable_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Services.Maps.IIterator_IMapRouteManeuver
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IEnhancedWaypoint : aliased constant Windows.IID := (373967905, 53408, 23912, (128, 226, 68, 136, 157, 206, 166, 213 ));
+   
+   type IIterator_IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IEnhancedWaypoint_Interface
+      ; RetVal : access Windows.Services.Maps.IEnhancedWaypoint
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IEnhancedWaypoint_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IEnhancedWaypoint_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IEnhancedWaypoint_Interface
+      ; items : Windows.Services.Maps.IEnhancedWaypoint_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IManeuverWarning : aliased constant Windows.IID := (3748962979, 7915, 23234, (188, 95, 159, 45, 175, 252, 224, 23 ));
+   
+   type IIterator_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IManeuverWarning_Interface
+      ; RetVal : access Windows.Services.Maps.IManeuverWarning
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IManeuverWarning_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IManeuverWarning_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IManeuverWarning_Interface
+      ; items : Windows.Services.Maps.IManeuverWarning_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapLocation : aliased constant Windows.IID := (712002970, 14743, 24350, (134, 65, 136, 62, 186, 64, 135, 38 ));
+   
+   type IIterator_IMapLocation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMapLocation_Interface
+      ; RetVal : access Windows.Services.Maps.IMapLocation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMapLocation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMapLocation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMapLocation_Interface
+      ; items : Windows.Services.Maps.IMapLocation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapRoute : aliased constant Windows.IID := (2548582490, 31168, 21315, (147, 209, 71, 205, 251, 85, 36, 107 ));
+   
+   type IIterator_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMapRoute_Interface
+      ; RetVal : access Windows.Services.Maps.IMapRoute
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMapRoute_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMapRoute_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMapRoute_Interface
+      ; items : Windows.Services.Maps.IMapRoute_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapRouteLeg : aliased constant Windows.IID := (3709593554, 56930, 22354, (178, 224, 162, 176, 135, 35, 183, 135 ));
+   
+   type IIterator_IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMapRouteLeg_Interface
+      ; RetVal : access Windows.Services.Maps.IMapRouteLeg
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMapRouteLeg_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMapRouteLeg_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMapRouteLeg_Interface
+      ; items : Windows.Services.Maps.IMapRouteLeg_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapRouteManeuver : aliased constant Windows.IID := (2813002891, 42716, 24140, (147, 33, 113, 176, 228, 101, 223, 232 ));
+   
+   type IIterator_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Services.Maps.IMapRouteManeuver
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMapRouteManeuver_Interface
+      ; items : Windows.Services.Maps.IMapRouteManeuver_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IManeuverWarning : aliased constant Windows.IID := (3248713098, 9776, 17272, (158, 74, 110, 68, 37, 61, 206, 186 ));
+   
+   type IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access IManeuverWarning_Interface
+      ; RetVal : access Windows.Services.Maps.ManeuverWarningKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Severity
+   (
+      This       : access IManeuverWarning_Interface
+      ; RetVal : access Windows.Services.Maps.ManeuverWarningSeverity
    )
    return Windows.HRESULT is abstract;
    
@@ -806,170 +1121,67 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
-   IID_IMapRouteManeuver : aliased constant Windows.IID := (3982235632, 42667, 19813, (160, 134, 250, 138, 126, 52, 13, 242 ));
+   IID_IMapLocationFinderStatics : aliased constant Windows.IID := (831183709, 7261, 20277, (162, 223, 170, 202, 148, 149, 149, 23 ));
    
-   type IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
+   type IMapLocationFinderStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_StartingPoint
+   function FindLocationsAtAsync
    (
-      This       : access IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Devices.Geolocation.IGeopoint
+      This       : access IMapLocationFinderStatics_Interface
+      ; queryPoint : Windows.Devices.Geolocation.IGeopoint
+      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_LengthInMeters
+   function FindLocationsAsync
    (
-      This       : access IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Double
+      This       : access IMapLocationFinderStatics_Interface
+      ; searchText : Windows.String
+      ; referencePoint : Windows.Devices.Geolocation.IGeopoint
+      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_InstructionText
+   function FindLocationsWithMaxCountAsync
    (
-      This       : access IMapRouteManeuver_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Kind
-   (
-      This       : access IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Services.Maps.MapRouteManeuverKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExitNumber
-   (
-      This       : access IMapRouteManeuver_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ManeuverNotices
-   (
-      This       : access IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Services.Maps.MapManeuverNotices
+      This       : access IMapLocationFinderStatics_Interface
+      ; searchText : Windows.String
+      ; referencePoint : Windows.Devices.Geolocation.IGeopoint
+      ; maxCount : Windows.UInt32
+      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMapRouteManeuver2 : aliased constant Windows.IID := (1568394652, 31899, 16863, (131, 139, 234, 226, 30, 75, 5, 169 ));
+   IID_IMapLocationFinderStatics2 : aliased constant Windows.IID := (2509933462, 25733, 19965, (133, 26, 51, 172, 49, 126, 58, 246 ));
    
-   type IMapRouteManeuver2_Interface is interface and Windows.IInspectable_Interface;
+   type IMapLocationFinderStatics2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_StartHeading
+   function FindLocationsAtWithAccuracyAsync
    (
-      This       : access IMapRouteManeuver2_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EndHeading
-   (
-      This       : access IMapRouteManeuver2_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StreetName
-   (
-      This       : access IMapRouteManeuver2_Interface
-      ; RetVal : access Windows.String
+      This       : access IMapLocationFinderStatics2_Interface
+      ; queryPoint : Windows.Devices.Geolocation.IGeopoint
+      ; accuracy : Windows.Services.Maps.MapLocationDesiredAccuracy
+      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMapRouteManeuver3 : aliased constant Windows.IID := (2795583711, 1155, 16742, (133, 190, 185, 147, 54, 193, 24, 117 ));
+   IID_IMapManagerStatics : aliased constant Windows.IID := (937682197, 33460, 19796, (143, 217, 175, 38, 36, 179, 1, 28 ));
    
-   type IMapRouteManeuver3_Interface is interface and Windows.IInspectable_Interface;
+   type IMapManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Warnings
+   function ShowDownloadedMapsUI
    (
-      This       : access IMapRouteManeuver3_Interface
-      ; RetVal : access Windows.Services.Maps.IVectorView_IManeuverWarning -- Generic Parameter Type
+      This       : access IMapManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IManeuverWarning : aliased constant Windows.IID := (3248713098, 9776, 17272, (158, 74, 110, 68, 37, 61, 206, 186 ));
-   
-   type IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Kind
+   function ShowMapsUpdateUI
    (
-      This       : access IManeuverWarning_Interface
-      ; RetVal : access Windows.Services.Maps.ManeuverWarningKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Severity
-   (
-      This       : access IManeuverWarning_Interface
-      ; RetVal : access Windows.Services.Maps.ManeuverWarningSeverity
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapRouteLeg : aliased constant Windows.IID := (2532881142, 23482, 19735, (157, 182, 26, 38, 63, 236, 116, 113 ));
-   
-   type IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_BoundingBox
-   (
-      This       : access IMapRouteLeg_Interface
-      ; RetVal : access Windows.Devices.Geolocation.IGeoboundingBox
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Path
-   (
-      This       : access IMapRouteLeg_Interface
-      ; RetVal : access Windows.Devices.Geolocation.IGeopath
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LengthInMeters
-   (
-      This       : access IMapRouteLeg_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EstimatedDuration
-   (
-      This       : access IMapRouteLeg_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Maneuvers
-   (
-      This       : access IMapRouteLeg_Interface
-      ; RetVal : access Windows.Services.Maps.IVectorView_IMapRouteManeuver -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapRouteLeg2 : aliased constant Windows.IID := (48367149, 51654, 17848, (142, 84, 26, 16, 181, 122, 23, 232 ));
-   
-   type IMapRouteLeg2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DurationWithoutTraffic
-   (
-      This       : access IMapRouteLeg2_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TrafficCongestion
-   (
-      This       : access IMapRouteLeg2_Interface
-      ; RetVal : access Windows.Services.Maps.TrafficCongestion
+      This       : access IMapManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -1076,6 +1288,88 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IMapRouteDrivingOptions : aliased constant Windows.IID := (1746220621, 50908, 18071, (164, 82, 177, 143, 143, 11, 103, 161 ));
+   
+   type IMapRouteDrivingOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MaxAlternateRouteCount
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MaxAlternateRouteCount
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InitialHeading
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InitialHeading
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; value : Windows.Foundation.IReference_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RouteOptimization
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; RetVal : access Windows.Services.Maps.MapRouteOptimization
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RouteOptimization
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; value : Windows.Services.Maps.MapRouteOptimization
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RouteRestrictions
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; RetVal : access Windows.Services.Maps.MapRouteRestrictions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RouteRestrictions
+   (
+      This       : access IMapRouteDrivingOptions_Interface
+      ; value : Windows.Services.Maps.MapRouteRestrictions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapRouteDrivingOptions2 : aliased constant Windows.IID := (903644784, 49816, 18640, (181, 173, 130, 84, 96, 100, 86, 3 ));
+   
+   type IMapRouteDrivingOptions2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DepartureTime
+   (
+      This       : access IMapRouteDrivingOptions2_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DepartureTime
+   (
+      This       : access IMapRouteDrivingOptions2_Interface
+      ; value : Windows.Foundation.IReference_DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMapRouteFinderResult : aliased constant Windows.IID := (2825429786, 37922, 18092, (140, 161, 177, 97, 77, 75, 251, 226 ));
    
    type IMapRouteFinderResult_Interface is interface and Windows.IInspectable_Interface;
@@ -1104,89 +1398,6 @@ package Windows.Services.Maps is
    (
       This       : access IMapRouteFinderResult2_Interface
       ; RetVal : access Windows.Services.Maps.IVectorView_IMapRoute -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEnhancedWaypoint : aliased constant Windows.IID := (3978726516, 22803, 4582, (139, 119, 134, 243, 12, 168, 147, 211 ));
-   
-   type IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Point
-   (
-      This       : access IEnhancedWaypoint_Interface
-      ; RetVal : access Windows.Devices.Geolocation.IGeopoint
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Kind
-   (
-      This       : access IEnhancedWaypoint_Interface
-      ; RetVal : access Windows.Services.Maps.WaypointKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEnhancedWaypointFactory : aliased constant Windows.IID := (2944828535, 41642, 18141, (182, 69, 35, 179, 27, 138, 166, 199 ));
-   
-   type IEnhancedWaypointFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IEnhancedWaypointFactory_Interface
-      ; point : Windows.Devices.Geolocation.IGeopoint
-      ; kind : Windows.Services.Maps.WaypointKind
-      ; RetVal : access Windows.Services.Maps.IEnhancedWaypoint
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapLocationFinderStatics : aliased constant Windows.IID := (831183709, 7261, 20277, (162, 223, 170, 202, 148, 149, 149, 23 ));
-   
-   type IMapLocationFinderStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FindLocationsAtAsync
-   (
-      This       : access IMapLocationFinderStatics_Interface
-      ; queryPoint : Windows.Devices.Geolocation.IGeopoint
-      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindLocationsAsync
-   (
-      This       : access IMapLocationFinderStatics_Interface
-      ; searchText : Windows.String
-      ; referencePoint : Windows.Devices.Geolocation.IGeopoint
-      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindLocationsWithMaxCountAsync
-   (
-      This       : access IMapLocationFinderStatics_Interface
-      ; searchText : Windows.String
-      ; referencePoint : Windows.Devices.Geolocation.IGeopoint
-      ; maxCount : Windows.UInt32
-      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapLocationFinderStatics2 : aliased constant Windows.IID := (2509933462, 25733, 19965, (133, 26, 51, 172, 49, 126, 58, 246 ));
-   
-   type IMapLocationFinderStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FindLocationsAtWithAccuracyAsync
-   (
-      This       : access IMapLocationFinderStatics2_Interface
-      ; queryPoint : Windows.Devices.Geolocation.IGeopoint
-      ; accuracy : Windows.Services.Maps.MapLocationDesiredAccuracy
-      ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1334,6 +1545,155 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IMapRouteLeg : aliased constant Windows.IID := (2532881142, 23482, 19735, (157, 182, 26, 38, 63, 236, 116, 113 ));
+   
+   type IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BoundingBox
+   (
+      This       : access IMapRouteLeg_Interface
+      ; RetVal : access Windows.Devices.Geolocation.IGeoboundingBox
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Path
+   (
+      This       : access IMapRouteLeg_Interface
+      ; RetVal : access Windows.Devices.Geolocation.IGeopath
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LengthInMeters
+   (
+      This       : access IMapRouteLeg_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EstimatedDuration
+   (
+      This       : access IMapRouteLeg_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Maneuvers
+   (
+      This       : access IMapRouteLeg_Interface
+      ; RetVal : access Windows.Services.Maps.IVectorView_IMapRouteManeuver -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapRouteLeg2 : aliased constant Windows.IID := (48367149, 51654, 17848, (142, 84, 26, 16, 181, 122, 23, 232 ));
+   
+   type IMapRouteLeg2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DurationWithoutTraffic
+   (
+      This       : access IMapRouteLeg2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TrafficCongestion
+   (
+      This       : access IMapRouteLeg2_Interface
+      ; RetVal : access Windows.Services.Maps.TrafficCongestion
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapRouteManeuver : aliased constant Windows.IID := (3982235632, 42667, 19813, (160, 134, 250, 138, 126, 52, 13, 242 ));
+   
+   type IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StartingPoint
+   (
+      This       : access IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Devices.Geolocation.IGeopoint
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LengthInMeters
+   (
+      This       : access IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstructionText
+   (
+      This       : access IMapRouteManeuver_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Services.Maps.MapRouteManeuverKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExitNumber
+   (
+      This       : access IMapRouteManeuver_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ManeuverNotices
+   (
+      This       : access IMapRouteManeuver_Interface
+      ; RetVal : access Windows.Services.Maps.MapManeuverNotices
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapRouteManeuver2 : aliased constant Windows.IID := (1568394652, 31899, 16863, (131, 139, 234, 226, 30, 75, 5, 169 ));
+   
+   type IMapRouteManeuver2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StartHeading
+   (
+      This       : access IMapRouteManeuver2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndHeading
+   (
+      This       : access IMapRouteManeuver2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StreetName
+   (
+      This       : access IMapRouteManeuver2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapRouteManeuver3 : aliased constant Windows.IID := (2795583711, 1155, 16742, (133, 190, 185, 147, 54, 193, 24, 117 ));
+   
+   type IMapRouteManeuver3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Warnings
+   (
+      This       : access IMapRouteManeuver3_Interface
+      ; RetVal : access Windows.Services.Maps.IVectorView_IManeuverWarning -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMapServiceStatics : aliased constant Windows.IID := (21278085, 49228, 19677, (135, 26, 160, 114, 109, 9, 124, 212 ));
    
    type IMapServiceStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1349,24 +1709,6 @@ package Windows.Services.Maps is
    (
       This       : access IMapServiceStatics_Interface
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapManagerStatics : aliased constant Windows.IID := (937682197, 33460, 19796, (143, 217, 175, 38, 36, 179, 1, 28 ));
-   
-   type IMapManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ShowDownloadedMapsUI
-   (
-      This       : access IMapManagerStatics_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowMapsUpdateUI
-   (
-      This       : access IMapManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -1413,6 +1755,55 @@ package Windows.Services.Maps is
    (
       This       : access IMapServiceStatics4_Interface
       ; RetVal : access Windows.Services.Maps.MapServiceDataUsagePreference
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlaceInfo : aliased constant Windows.IID := (2584219830, 12744, 20330, (159, 24, 149, 11, 76, 56, 149, 26 ));
+   
+   type IPlaceInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Show
+   (
+      This       : access IPlaceInfo_Interface
+      ; selection : Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowWithPreferredPlacement
+   (
+      This       : access IPlaceInfo_Interface
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Identifier
+   (
+      This       : access IPlaceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayName
+   (
+      This       : access IPlaceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayAddress
+   (
+      This       : access IPlaceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Geoshape
+   (
+      This       : access IPlaceInfo_Interface
+      ; RetVal : access Windows.Devices.Geolocation.IGeoshape
    )
    return Windows.HRESULT is abstract;
    
@@ -1531,98 +1922,40 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
-   IID_IPlaceInfo : aliased constant Windows.IID := (2584219830, 12744, 20330, (159, 24, 149, 11, 76, 56, 149, 26 ));
+   IID_IVectorView_IManeuverWarning : aliased constant Windows.IID := (1153506080, 49517, 22241, (160, 163, 110, 180, 79, 36, 146, 234 ));
    
-   type IPlaceInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
    
-   function Show
+   function GetAt
    (
-      This       : access IPlaceInfo_Interface
-      ; selection : Windows.Foundation.Rect
+      This       : access IVectorView_IManeuverWarning_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Services.Maps.IManeuverWarning
    )
    return Windows.HRESULT is abstract;
    
-   function ShowWithPreferredPlacement
+   function get_Size
    (
-      This       : access IPlaceInfo_Interface
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
+      This       : access IVectorView_IManeuverWarning_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_Identifier
+   function IndexOf
    (
-      This       : access IPlaceInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DisplayName
-   (
-      This       : access IPlaceInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DisplayAddress
-   (
-      This       : access IPlaceInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Geoshape
-   (
-      This       : access IPlaceInfo_Interface
-      ; RetVal : access Windows.Devices.Geolocation.IGeoshape
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IMapLocation : aliased constant Windows.IID := (712002970, 14743, 24350, (134, 65, 136, 62, 186, 64, 135, 38 ));
-   
-   type IIterator_IMapLocation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IMapLocation_Interface
-      ; RetVal : access Windows.Services.Maps.IMapLocation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IMapLocation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IMapLocation_Interface
+      This       : access IVectorView_IManeuverWarning_Interface
+      ; value : Windows.Services.Maps.IManeuverWarning
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_IMapLocation_Interface
-      ; items : Windows.Services.Maps.IMapLocation_Ptr
+      This       : access IVectorView_IManeuverWarning_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Services.Maps.IManeuverWarning_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IMapLocation : aliased constant Windows.IID := (2010800465, 1891, 20618, (144, 65, 51, 16, 186, 172, 229, 117 ));
-   
-   type IIterable_IMapLocation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IMapLocation_Interface
-      ; RetVal : access Windows.Services.Maps.IIterator_IMapLocation
    )
    return Windows.HRESULT is abstract;
    
@@ -1667,77 +2000,29 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IManeuverWarning : aliased constant Windows.IID := (3748962979, 7915, 23234, (188, 95, 159, 45, 175, 252, 224, 23 ));
+   IID_IVectorView_IMapRoute : aliased constant Windows.IID := (643200681, 18995, 23849, (151, 30, 130, 68, 160, 33, 184, 78 ));
    
-   type IIterator_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IManeuverWarning_Interface
-      ; RetVal : access Windows.Services.Maps.IManeuverWarning
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IManeuverWarning_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IManeuverWarning_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IManeuverWarning_Interface
-      ; items : Windows.Services.Maps.IManeuverWarning_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IManeuverWarning : aliased constant Windows.IID := (3456793619, 54212, 21935, (169, 15, 197, 63, 123, 217, 51, 115 ));
-   
-   type IIterable_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IManeuverWarning_Interface
-      ; RetVal : access Windows.Services.Maps.IIterator_IManeuverWarning
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IManeuverWarning : aliased constant Windows.IID := (1153506080, 49517, 22241, (160, 163, 110, 180, 79, 36, 146, 234 ));
-   
-   type IVectorView_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
    (
-      This       : access IVectorView_IManeuverWarning_Interface
+      This       : access IVectorView_IMapRoute_Interface
       ; index : Windows.UInt32
-      ; RetVal : access Windows.Services.Maps.IManeuverWarning
+      ; RetVal : access Windows.Services.Maps.IMapRoute
    )
    return Windows.HRESULT is abstract;
    
    function get_Size
    (
-      This       : access IVectorView_IManeuverWarning_Interface
+      This       : access IVectorView_IMapRoute_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    function IndexOf
    (
-      This       : access IVectorView_IManeuverWarning_Interface
-      ; value : Windows.Services.Maps.IManeuverWarning
+      This       : access IVectorView_IMapRoute_Interface
+      ; value : Windows.Services.Maps.IMapRoute
       ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
@@ -1745,145 +2030,10 @@ package Windows.Services.Maps is
    
    function GetMany
    (
-      This       : access IVectorView_IManeuverWarning_Interface
+      This       : access IVectorView_IMapRoute_Interface
       ; startIndex : Windows.UInt32
-      ; items : Windows.Services.Maps.IManeuverWarning_Ptr
+      ; items : Windows.Services.Maps.IMapRoute_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IMapRouteManeuver : aliased constant Windows.IID := (2813002891, 42716, 24140, (147, 33, 113, 176, 228, 101, 223, 232 ));
-   
-   type IIterator_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Services.Maps.IMapRouteManeuver
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IMapRouteManeuver_Interface
-      ; items : Windows.Services.Maps.IMapRouteManeuver_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IMapRouteManeuver : aliased constant Windows.IID := (3733984763, 37335, 21870, (187, 77, 32, 11, 111, 88, 250, 212 ));
-   
-   type IIterable_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IMapRouteManeuver_Interface
-      ; RetVal : access Windows.Services.Maps.IIterator_IMapRouteManeuver
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IMapRouteManeuver : aliased constant Windows.IID := (2750768789, 18063, 21999, (177, 132, 201, 139, 76, 199, 228, 132 ));
-   
-   type IVectorView_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IMapRouteManeuver_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Services.Maps.IMapRouteManeuver
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IMapRouteManeuver_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IMapRouteManeuver_Interface
-      ; value : Windows.Services.Maps.IMapRouteManeuver
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IMapRouteManeuver_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Services.Maps.IMapRouteManeuver_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IMapRouteLeg : aliased constant Windows.IID := (3709593554, 56930, 22354, (178, 224, 162, 176, 135, 35, 183, 135 ));
-   
-   type IIterator_IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IMapRouteLeg_Interface
-      ; RetVal : access Windows.Services.Maps.IMapRouteLeg
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IMapRouteLeg_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IMapRouteLeg_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IMapRouteLeg_Interface
-      ; items : Windows.Services.Maps.IMapRouteLeg_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IMapRouteLeg : aliased constant Windows.IID := (2415495001, 30925, 22248, (135, 123, 131, 206, 132, 109, 111, 139 ));
-   
-   type IIterable_IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IMapRouteLeg_Interface
-      ; RetVal : access Windows.Services.Maps.IIterator_IMapRouteLeg
    )
    return Windows.HRESULT is abstract;
    
@@ -1928,77 +2078,29 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IMapRoute : aliased constant Windows.IID := (2548582490, 31168, 21315, (147, 209, 71, 205, 251, 85, 36, 107 ));
+   IID_IVectorView_IMapRouteManeuver : aliased constant Windows.IID := (2750768789, 18063, 21999, (177, 132, 201, 139, 76, 199, 228, 132 ));
    
-   type IIterator_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IMapRoute_Interface
-      ; RetVal : access Windows.Services.Maps.IMapRoute
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IMapRoute_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IMapRoute_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IMapRoute_Interface
-      ; items : Windows.Services.Maps.IMapRoute_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IMapRoute : aliased constant Windows.IID := (3632947874, 3807, 21266, (151, 168, 16, 174, 174, 168, 11, 153 ));
-   
-   type IIterable_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IMapRoute_Interface
-      ; RetVal : access Windows.Services.Maps.IIterator_IMapRoute
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IMapRoute : aliased constant Windows.IID := (643200681, 18995, 23849, (151, 30, 130, 68, 160, 33, 184, 78 ));
-   
-   type IVectorView_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
    (
-      This       : access IVectorView_IMapRoute_Interface
+      This       : access IVectorView_IMapRouteManeuver_Interface
       ; index : Windows.UInt32
-      ; RetVal : access Windows.Services.Maps.IMapRoute
+      ; RetVal : access Windows.Services.Maps.IMapRouteManeuver
    )
    return Windows.HRESULT is abstract;
    
    function get_Size
    (
-      This       : access IVectorView_IMapRoute_Interface
+      This       : access IVectorView_IMapRouteManeuver_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    function IndexOf
    (
-      This       : access IVectorView_IMapRoute_Interface
-      ; value : Windows.Services.Maps.IMapRoute
+      This       : access IVectorView_IMapRouteManeuver_Interface
+      ; value : Windows.Services.Maps.IMapRouteManeuver
       ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
@@ -2006,112 +2108,10 @@ package Windows.Services.Maps is
    
    function GetMany
    (
-      This       : access IVectorView_IMapRoute_Interface
+      This       : access IVectorView_IMapRouteManeuver_Interface
       ; startIndex : Windows.UInt32
-      ; items : Windows.Services.Maps.IMapRoute_Ptr
+      ; items : Windows.Services.Maps.IMapRouteManeuver_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IMapLocationFinderResult : aliased constant Windows.IID := (3857051187, 43992, 22165, (159, 229, 172, 149, 133, 13, 113, 152 ));
-   
-   type IAsyncOperation_IMapLocationFinderResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IMapLocationFinderResult_Interface
-      ; handler : Windows.Services.Maps.AsyncOperationCompletedHandler_IMapLocationFinderResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IMapLocationFinderResult_Interface
-      ; RetVal : access Windows.Services.Maps.AsyncOperationCompletedHandler_IMapLocationFinderResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IMapLocationFinderResult_Interface
-      ; RetVal : access Windows.Services.Maps.IMapLocationFinderResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IMapRouteFinderResult : aliased constant Windows.IID := (3970580095, 50470, 20631, (182, 36, 207, 116, 61, 120, 169, 186 ));
-   
-   type IAsyncOperation_IMapRouteFinderResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IMapRouteFinderResult_Interface
-      ; handler : Windows.Services.Maps.AsyncOperationCompletedHandler_IMapRouteFinderResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IMapRouteFinderResult_Interface
-      ; RetVal : access Windows.Services.Maps.AsyncOperationCompletedHandler_IMapRouteFinderResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IMapRouteFinderResult_Interface
-      ; RetVal : access Windows.Services.Maps.IMapRouteFinderResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IEnhancedWaypoint : aliased constant Windows.IID := (373967905, 53408, 23912, (128, 226, 68, 136, 157, 206, 166, 213 ));
-   
-   type IIterator_IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IEnhancedWaypoint_Interface
-      ; RetVal : access Windows.Services.Maps.IEnhancedWaypoint
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IEnhancedWaypoint_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IEnhancedWaypoint_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IEnhancedWaypoint_Interface
-      ; items : Windows.Services.Maps.IEnhancedWaypoint_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IEnhancedWaypoint : aliased constant Windows.IID := (3495189946, 39685, 24119, (191, 192, 61, 162, 181, 29, 19, 91 ));
-   
-   type IIterable_IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IEnhancedWaypoint_Interface
-      ; RetVal : access Windows.Services.Maps.IIterator_IEnhancedWaypoint
    )
    return Windows.HRESULT is abstract;
    
@@ -2149,12 +2149,6 @@ package Windows.Services.Maps is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype MapAddress is Windows.Services.Maps.IMapAddress;
-   subtype MapLocation is Windows.Services.Maps.IMapLocation;
-   subtype ManeuverWarning is Windows.Services.Maps.IManeuverWarning;
-   subtype MapRouteManeuver is Windows.Services.Maps.IMapRouteManeuver;
-   subtype MapRouteLeg is Windows.Services.Maps.IMapRouteLeg;
-   subtype MapRoute is Windows.Services.Maps.IMapRoute;
    subtype EnhancedWaypoint is Windows.Services.Maps.IEnhancedWaypoint;
    function Create
    (
@@ -2163,11 +2157,17 @@ package Windows.Services.Maps is
    )
    return Windows.Services.Maps.IEnhancedWaypoint;
    
+   subtype ManeuverWarning is Windows.Services.Maps.IManeuverWarning;
+   subtype MapAddress is Windows.Services.Maps.IMapAddress;
+   subtype MapLocation is Windows.Services.Maps.IMapLocation;
    subtype MapLocationFinderResult is Windows.Services.Maps.IMapLocationFinderResult;
-   subtype MapRouteFinderResult is Windows.Services.Maps.IMapRouteFinderResult;
+   subtype MapRoute is Windows.Services.Maps.IMapRoute;
    subtype MapRouteDrivingOptions is Windows.Services.Maps.IMapRouteDrivingOptions;
    function Create return Windows.Services.Maps.IMapRouteDrivingOptions;
    
+   subtype MapRouteFinderResult is Windows.Services.Maps.IMapRouteFinderResult;
+   subtype MapRouteLeg is Windows.Services.Maps.IMapRouteLeg;
+   subtype MapRouteManeuver is Windows.Services.Maps.IMapRouteManeuver;
    subtype PlaceInfo is Windows.Services.Maps.IPlaceInfo;
    subtype PlaceInfoCreateOptions is Windows.Services.Maps.IPlaceInfoCreateOptions;
    function Create return Windows.Services.Maps.IPlaceInfoCreateOptions;
@@ -2176,55 +2176,6 @@ package Windows.Services.Maps is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function CreateFromAddress
-   (
-      displayAddress : Windows.String
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function CreateFromAddressWithName
-   (
-      displayAddress : Windows.String
-      ; displayName : Windows.String
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function Create
-   (
-      referencePoint : Windows.Devices.Geolocation.IGeopoint
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function CreateWithGeopointAndOptions
-   (
-      referencePoint : Windows.Devices.Geolocation.IGeopoint
-      ; options : Windows.Services.Maps.IPlaceInfoCreateOptions
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function CreateFromIdentifier
-   (
-      identifier : Windows.String
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function CreateFromIdentifierWithOptions
-   (
-      identifier : Windows.String
-      ; defaultPoint : Windows.Devices.Geolocation.IGeopoint
-      ; options : Windows.Services.Maps.IPlaceInfoCreateOptions
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function CreateFromMapLocation
-   (
-      location : Windows.Services.Maps.IMapLocation
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function get_IsShowSupported
-   return Windows.Boolean;
    
    function FindLocationsAtAsync
    (
@@ -2253,6 +2204,12 @@ package Windows.Services.Maps is
       ; accuracy : Windows.Services.Maps.MapLocationDesiredAccuracy
    )
    return Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult;
+   
+   procedure ShowDownloadedMapsUI
+   ;
+   
+   procedure ShowMapsUpdateUI
+   ;
    
    function GetDrivingRouteFromEnhancedWaypointsAsync
    (
@@ -2376,10 +2333,53 @@ package Windows.Services.Maps is
    function get_DataAttributions
    return Windows.String;
    
-   procedure ShowDownloadedMapsUI
-   ;
+   function CreateFromAddress
+   (
+      displayAddress : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo;
    
-   procedure ShowMapsUpdateUI
-   ;
+   function CreateFromAddressWithName
+   (
+      displayAddress : Windows.String
+      ; displayName : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function Create
+   (
+      referencePoint : Windows.Devices.Geolocation.IGeopoint
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function CreateWithGeopointAndOptions
+   (
+      referencePoint : Windows.Devices.Geolocation.IGeopoint
+      ; options : Windows.Services.Maps.IPlaceInfoCreateOptions
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function CreateFromIdentifier
+   (
+      identifier : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function CreateFromIdentifierWithOptions
+   (
+      identifier : Windows.String
+      ; defaultPoint : Windows.Devices.Geolocation.IGeopoint
+      ; options : Windows.Services.Maps.IPlaceInfoCreateOptions
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function CreateFromMapLocation
+   (
+      location : Windows.Services.Maps.IMapLocation
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function get_IsShowSupported
+   return Windows.Boolean;
    
 end;

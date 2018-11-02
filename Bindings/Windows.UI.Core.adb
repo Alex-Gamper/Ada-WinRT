@@ -50,6 +50,19 @@ package body Windows.UI.Core is
    
    function Invoke
    (
+      This       : access EventHandler_IBackRequestedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IBackRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access IdleDispatchedHandler_Interface
       ; e : Windows.UI.Core.IIdleDispatchedHandlerArgs
    )
@@ -62,14 +75,248 @@ package body Windows.UI.Core is
    
    function Invoke
    (
-      This       : access EventHandler_IBackRequestedEventArgs_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IBackRequestedEventArgs
+      This       : access TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated_Interface
+      ; sender : Windows.UI.Core.ICoreDispatcher
+      ; args : Windows.UI.Core.IAcceleratorKeyEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(sender, args);
+      This.Callback(Windows.UI.Core.ICoreDispatcher(sender), Windows.UI.Core.IAcceleratorKeyEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested_Interface
+      ; sender : Windows.UI.Core.ICoreInputSourceBase
+      ; args : Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Core.ICoreInputSourceBase(sender), Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreComponentFocusable_add_GotFocus_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.ICoreWindowEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.ICoreWindowEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreComponentFocusable_add_LostFocus_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.ICoreWindowEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.ICoreWindowEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreInputSourceBase_add_InputEnabled_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IInputEnabledEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IInputEnabledEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.ICharacterReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.ICharacterReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IKeyEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IKeyEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IKeyEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IKeyEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerEntered_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerExited_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerMoved_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerPressed_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerReleased_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway_Interface
+      ; sender : Windows.UI.Core.ICorePointerRedirector
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased_Interface
+      ; sender : Windows.UI.Core.ICorePointerRedirector
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo_Interface
+      ; sender : Windows.UI.Core.ICorePointerRedirector
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Core.ITouchHitTestingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.UI.Core.ITouchHitTestingEventArgs(args));
       return Hr;
    end;
    
@@ -244,19 +491,6 @@ package body Windows.UI.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreWindow_add_TouchHitTesting_Interface
-      ; sender : Windows.UI.Core.ICoreWindow
-      ; args : Windows.UI.Core.ITouchHitTestingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Core.ICoreWindow(sender), Windows.UI.Core.ITouchHitTestingEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_ICoreWindow_add_PointerWheelChanged_Interface
       ; sender : Windows.UI.Core.ICoreWindow
       ; args : Windows.UI.Core.IPointerEventArgs
@@ -278,6 +512,19 @@ package body Windows.UI.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Core.ICoreWindow(sender), Windows.UI.Core.IWindowSizeChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreWindow_add_TouchHitTesting_Interface
+      ; sender : Windows.UI.Core.ICoreWindow
+      ; args : Windows.UI.Core.ITouchHitTestingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Core.ICoreWindow(sender), Windows.UI.Core.ITouchHitTestingEventArgs(args));
       return Hr;
    end;
    
@@ -309,19 +556,6 @@ package body Windows.UI.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreWindow4_add_ResizeStarted_Interface
-      ; sender : Windows.UI.Core.ICoreWindow
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Core.ICoreWindow(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_ICoreWindow4_add_ResizeCompleted_Interface
       ; sender : Windows.UI.Core.ICoreWindow
       ; args : Windows.Object
@@ -335,248 +569,14 @@ package body Windows.UI.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated_Interface
-      ; sender : Windows.UI.Core.ICoreDispatcher
-      ; args : Windows.UI.Core.IAcceleratorKeyEventArgs
+      This       : access TypedEventHandler_ICoreWindow4_add_ResizeStarted_Interface
+      ; sender : Windows.UI.Core.ICoreWindow
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Core.ICoreDispatcher(sender), Windows.UI.Core.IAcceleratorKeyEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreInputSourceBase_add_InputEnabled_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IInputEnabledEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IInputEnabledEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerEntered_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerExited_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerMoved_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerPressed_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerReleased_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.ICharacterReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.ICharacterReceivedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IKeyEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IKeyEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.IKeyEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IKeyEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreComponentFocusable_add_GotFocus_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.ICoreWindowEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.ICoreWindowEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreComponentFocusable_add_LostFocus_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.ICoreWindowEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.ICoreWindowEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Core.ITouchHitTestingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.ITouchHitTestingEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested_Interface
-      ; sender : Windows.UI.Core.ICoreInputSourceBase
-      ; args : Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Core.ICoreInputSourceBase(sender), Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway_Interface
-      ; sender : Windows.UI.Core.ICorePointerRedirector
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo_Interface
-      ; sender : Windows.UI.Core.ICorePointerRedirector
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased_Interface
-      ; sender : Windows.UI.Core.ICorePointerRedirector
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.UI.Core.IPointerEventArgs(args));
+      This.Callback(Windows.UI.Core.ICoreWindow(sender), args);
       return Hr;
    end;
    
@@ -717,23 +717,6 @@ package body Windows.UI.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForCurrentView
-   return Windows.UI.Core.ISystemNavigationManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Core.SystemNavigationManager");
-      m_Factory     : ISystemNavigationManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Core.ISystemNavigationManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISystemNavigationManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetForCurrentThread
    return Windows.UI.Core.ICoreWindow is
       Hr            : Windows.HRESULT := S_OK;
@@ -760,6 +743,23 @@ package body Windows.UI.Core is
       RetVal        : aliased Windows.UI.Core.ICoreWindowResizeManager;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICoreWindowResizeManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.UI.Core.ISystemNavigationManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Core.SystemNavigationManager");
+      m_Factory     : ISystemNavigationManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Core.ISystemNavigationManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISystemNavigationManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;

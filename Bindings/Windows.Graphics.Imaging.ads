@@ -40,6 +40,48 @@ package Windows.Graphics.Imaging is
    -- Enums
    ------------------------------------------------------------------------
    
+   type BitmapAlphaMode is (
+      Premultiplied,
+      Straight,
+      Ignore
+   );
+   for BitmapAlphaMode use (
+      Premultiplied => 0,
+      Straight => 1,
+      Ignore => 2
+   );
+   for BitmapAlphaMode'Size use 32;
+   
+   type BitmapAlphaMode_Ptr is access BitmapAlphaMode;
+   
+   type BitmapBufferAccessMode is (
+      Read,
+      ReadWrite,
+      Write
+   );
+   for BitmapBufferAccessMode use (
+      Read => 0,
+      ReadWrite => 1,
+      Write => 2
+   );
+   for BitmapBufferAccessMode'Size use 32;
+   
+   type BitmapBufferAccessMode_Ptr is access BitmapBufferAccessMode;
+   
+   type BitmapFlip is (
+      None,
+      Horizontal,
+      Vertical
+   );
+   for BitmapFlip use (
+      None => 0,
+      Horizontal => 1,
+      Vertical => 2
+   );
+   for BitmapFlip'Size use 32;
+   
+   type BitmapFlip_Ptr is access BitmapFlip;
+   
    type BitmapInterpolationMode is (
       NearestNeighbor,
       Linear,
@@ -56,19 +98,31 @@ package Windows.Graphics.Imaging is
    
    type BitmapInterpolationMode_Ptr is access BitmapInterpolationMode;
    
-   type BitmapFlip is (
-      None,
-      Horizontal,
-      Vertical
+   type BitmapPixelFormat is (
+      Unknown,
+      Rgba16,
+      Rgba8,
+      Gray16,
+      Gray8,
+      Bgra8,
+      Nv12,
+      P010,
+      Yuy2
    );
-   for BitmapFlip use (
-      None => 0,
-      Horizontal => 1,
-      Vertical => 2
+   for BitmapPixelFormat use (
+      Unknown => 0,
+      Rgba16 => 12,
+      Rgba8 => 30,
+      Gray16 => 57,
+      Gray8 => 62,
+      Bgra8 => 87,
+      Nv12 => 103,
+      P010 => 104,
+      Yuy2 => 107
    );
-   for BitmapFlip'Size use 32;
+   for BitmapPixelFormat'Size use 32;
    
-   type BitmapFlip_Ptr is access BitmapFlip;
+   type BitmapPixelFormat_Ptr is access BitmapPixelFormat;
    
    type BitmapRotation is (
       None,
@@ -109,6 +163,22 @@ package Windows.Graphics.Imaging is
    for ExifOrientationMode'Size use 32;
    
    type ExifOrientationMode_Ptr is access ExifOrientationMode;
+   
+   type JpegSubsamplingMode is (
+      Default,
+      Y4Cb2Cr0,
+      Y4Cb2Cr2,
+      Y4Cb4Cr4
+   );
+   for JpegSubsamplingMode use (
+      Default => 0,
+      Y4Cb2Cr0 => 1,
+      Y4Cb2Cr2 => 2,
+      Y4Cb4Cr4 => 3
+   );
+   for JpegSubsamplingMode'Size use 32;
+   
+   type JpegSubsamplingMode_Ptr is access JpegSubsamplingMode;
    
    type PngFilterMode is (
       Automatic,
@@ -156,76 +226,6 @@ package Windows.Graphics.Imaging is
    
    type TiffCompressionMode_Ptr is access TiffCompressionMode;
    
-   type JpegSubsamplingMode is (
-      Default,
-      Y4Cb2Cr0,
-      Y4Cb2Cr2,
-      Y4Cb4Cr4
-   );
-   for JpegSubsamplingMode use (
-      Default => 0,
-      Y4Cb2Cr0 => 1,
-      Y4Cb2Cr2 => 2,
-      Y4Cb4Cr4 => 3
-   );
-   for JpegSubsamplingMode'Size use 32;
-   
-   type JpegSubsamplingMode_Ptr is access JpegSubsamplingMode;
-   
-   type BitmapPixelFormat is (
-      Unknown,
-      Rgba16,
-      Rgba8,
-      Gray16,
-      Gray8,
-      Bgra8,
-      Nv12,
-      P010,
-      Yuy2
-   );
-   for BitmapPixelFormat use (
-      Unknown => 0,
-      Rgba16 => 12,
-      Rgba8 => 30,
-      Gray16 => 57,
-      Gray8 => 62,
-      Bgra8 => 87,
-      Nv12 => 103,
-      P010 => 104,
-      Yuy2 => 107
-   );
-   for BitmapPixelFormat'Size use 32;
-   
-   type BitmapPixelFormat_Ptr is access BitmapPixelFormat;
-   
-   type BitmapAlphaMode is (
-      Premultiplied,
-      Straight,
-      Ignore
-   );
-   for BitmapAlphaMode use (
-      Premultiplied => 0,
-      Straight => 1,
-      Ignore => 2
-   );
-   for BitmapAlphaMode'Size use 32;
-   
-   type BitmapAlphaMode_Ptr is access BitmapAlphaMode;
-   
-   type BitmapBufferAccessMode is (
-      Read,
-      ReadWrite,
-      Write
-   );
-   for BitmapBufferAccessMode use (
-      Read => 0,
-      ReadWrite => 1,
-      Write => 2
-   );
-   for BitmapBufferAccessMode'Size use 32;
-   
-   type BitmapBufferAccessMode_Ptr is access BitmapBufferAccessMode;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -262,6 +262,15 @@ package Windows.Graphics.Imaging is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IBitmapDecoder_Interface;
+   type AsyncOperationCompletedHandler_IBitmapDecoder is access all AsyncOperationCompletedHandler_IBitmapDecoder_Interface'Class;
+   type AsyncOperationCompletedHandler_IBitmapDecoder_Ptr is access all AsyncOperationCompletedHandler_IBitmapDecoder;
+   type AsyncOperationCompletedHandler_IBitmapEncoder_Interface;
+   type AsyncOperationCompletedHandler_IBitmapEncoder is access all AsyncOperationCompletedHandler_IBitmapEncoder_Interface'Class;
+   type AsyncOperationCompletedHandler_IBitmapEncoder_Ptr is access all AsyncOperationCompletedHandler_IBitmapEncoder;
+   type AsyncOperationCompletedHandler_IBitmapFrame_Interface;
+   type AsyncOperationCompletedHandler_IBitmapFrame is access all AsyncOperationCompletedHandler_IBitmapFrame_Interface'Class;
+   type AsyncOperationCompletedHandler_IBitmapFrame_Ptr is access all AsyncOperationCompletedHandler_IBitmapFrame;
    type AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface;
    type AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue is access all AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface'Class;
    type AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Ptr is access all AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue;
@@ -271,95 +280,20 @@ package Windows.Graphics.Imaging is
    type AsyncOperationCompletedHandler_ISoftwareBitmap_Interface;
    type AsyncOperationCompletedHandler_ISoftwareBitmap is access all AsyncOperationCompletedHandler_ISoftwareBitmap_Interface'Class;
    type AsyncOperationCompletedHandler_ISoftwareBitmap_Ptr is access all AsyncOperationCompletedHandler_ISoftwareBitmap;
-   type AsyncOperationCompletedHandler_IBitmapDecoder_Interface;
-   type AsyncOperationCompletedHandler_IBitmapDecoder is access all AsyncOperationCompletedHandler_IBitmapDecoder_Interface'Class;
-   type AsyncOperationCompletedHandler_IBitmapDecoder_Ptr is access all AsyncOperationCompletedHandler_IBitmapDecoder;
-   type AsyncOperationCompletedHandler_IBitmapFrame_Interface;
-   type AsyncOperationCompletedHandler_IBitmapFrame is access all AsyncOperationCompletedHandler_IBitmapFrame_Interface'Class;
-   type AsyncOperationCompletedHandler_IBitmapFrame_Ptr is access all AsyncOperationCompletedHandler_IBitmapFrame;
-   type AsyncOperationCompletedHandler_IBitmapEncoder_Interface;
-   type AsyncOperationCompletedHandler_IBitmapEncoder is access all AsyncOperationCompletedHandler_IBitmapEncoder_Interface'Class;
-   type AsyncOperationCompletedHandler_IBitmapEncoder_Ptr is access all AsyncOperationCompletedHandler_IBitmapEncoder;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IBitmapTransform_Interface;
-   type IBitmapTransform is access all IBitmapTransform_Interface'Class;
-   type IBitmapTransform_Ptr is access all IBitmapTransform;
-   type IBitmapTypedValue_Interface;
-   type IBitmapTypedValue is access all IBitmapTypedValue_Interface'Class;
-   type IBitmapTypedValue_Ptr is access all IBitmapTypedValue;
-   type IBitmapTypedValueFactory_Interface;
-   type IBitmapTypedValueFactory is access all IBitmapTypedValueFactory_Interface'Class;
-   type IBitmapTypedValueFactory_Ptr is access all IBitmapTypedValueFactory;
-   type IMap_String_BitmapTypedValue_Interface;
-   type IMap_String_BitmapTypedValue is access all IMap_String_BitmapTypedValue_Interface'Class;
-   type IMap_String_BitmapTypedValue_Ptr is access all IMap_String_BitmapTypedValue;
-   type IIterable_BitmapTypedValue_Interface;
-   type IIterable_BitmapTypedValue is access all IIterable_BitmapTypedValue_Interface'Class;
-   type IIterable_BitmapTypedValue_Ptr is access all IIterable_BitmapTypedValue;
-   type IBitmapPropertiesView_Interface;
-   type IBitmapPropertiesView is access all IBitmapPropertiesView_Interface'Class;
-   type IBitmapPropertiesView_Ptr is access all IBitmapPropertiesView;
-   type IBitmapProperties_Interface;
-   type IBitmapProperties is access all IBitmapProperties_Interface'Class;
-   type IBitmapProperties_Ptr is access all IBitmapProperties;
-   type IPixelDataProvider_Interface;
-   type IPixelDataProvider is access all IPixelDataProvider_Interface'Class;
-   type IPixelDataProvider_Ptr is access all IPixelDataProvider;
-   type IBitmapFrame_Interface;
-   type IBitmapFrame is access all IBitmapFrame_Interface'Class;
-   type IBitmapFrame_Ptr is access all IBitmapFrame;
-   type IBitmapFrameWithSoftwareBitmap_Interface;
-   type IBitmapFrameWithSoftwareBitmap is access all IBitmapFrameWithSoftwareBitmap_Interface'Class;
-   type IBitmapFrameWithSoftwareBitmap_Ptr is access all IBitmapFrameWithSoftwareBitmap;
-   type IBitmapCodecInformation_Interface;
-   type IBitmapCodecInformation is access all IBitmapCodecInformation_Interface'Class;
-   type IBitmapCodecInformation_Ptr is access all IBitmapCodecInformation;
-   type IBitmapDecoderStatics_Interface;
-   type IBitmapDecoderStatics is access all IBitmapDecoderStatics_Interface'Class;
-   type IBitmapDecoderStatics_Ptr is access all IBitmapDecoderStatics;
-   type IBitmapDecoder_Interface;
-   type IBitmapDecoder is access all IBitmapDecoder_Interface'Class;
-   type IBitmapDecoder_Ptr is access all IBitmapDecoder;
-   type IBitmapEncoderStatics_Interface;
-   type IBitmapEncoderStatics is access all IBitmapEncoderStatics_Interface'Class;
-   type IBitmapEncoderStatics_Ptr is access all IBitmapEncoderStatics;
-   type IBitmapEncoder_Interface;
-   type IBitmapEncoder is access all IBitmapEncoder_Interface'Class;
-   type IBitmapEncoder_Ptr is access all IBitmapEncoder;
-   type IBitmapEncoderWithSoftwareBitmap_Interface;
-   type IBitmapEncoderWithSoftwareBitmap is access all IBitmapEncoderWithSoftwareBitmap_Interface'Class;
-   type IBitmapEncoderWithSoftwareBitmap_Ptr is access all IBitmapEncoderWithSoftwareBitmap;
-   type ISoftwareBitmap_Interface;
-   type ISoftwareBitmap is access all ISoftwareBitmap_Interface'Class;
-   type ISoftwareBitmap_Ptr is access all ISoftwareBitmap;
-   type ISoftwareBitmapFactory_Interface;
-   type ISoftwareBitmapFactory is access all ISoftwareBitmapFactory_Interface'Class;
-   type ISoftwareBitmapFactory_Ptr is access all ISoftwareBitmapFactory;
-   type ISoftwareBitmapStatics_Interface;
-   type ISoftwareBitmapStatics is access all ISoftwareBitmapStatics_Interface'Class;
-   type ISoftwareBitmapStatics_Ptr is access all ISoftwareBitmapStatics;
-   type IBitmapBuffer_Interface;
-   type IBitmapBuffer is access all IBitmapBuffer_Interface'Class;
-   type IBitmapBuffer_Ptr is access all IBitmapBuffer;
-   type IRandomAccessStreamWithContentType_Imported_Interface;
-   type IRandomAccessStreamWithContentType_Imported is access all IRandomAccessStreamWithContentType_Imported_Interface'Class;
-   type IRandomAccessStreamWithContentType_Imported_Ptr is access all IRandomAccessStreamWithContentType_Imported;
-   type IContentTypeProvider_Imported_Interface;
-   type IContentTypeProvider_Imported is access all IContentTypeProvider_Imported_Interface'Class;
-   type IContentTypeProvider_Imported_Ptr is access all IContentTypeProvider_Imported;
-   type IRandomAccessStream_Imported_Interface;
-   type IRandomAccessStream_Imported is access all IRandomAccessStream_Imported_Interface'Class;
-   type IRandomAccessStream_Imported_Ptr is access all IRandomAccessStream_Imported;
-   type IOutputStream_Imported_Interface;
-   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
-   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
-   type IInputStream_Imported_Interface;
-   type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
-   type IInputStream_Imported_Ptr is access all IInputStream_Imported;
+   type IAsyncOperation_IBitmapDecoder_Interface;
+   type IAsyncOperation_IBitmapDecoder is access all IAsyncOperation_IBitmapDecoder_Interface'Class;
+   type IAsyncOperation_IBitmapDecoder_Ptr is access all IAsyncOperation_IBitmapDecoder;
+   type IAsyncOperation_IBitmapEncoder_Interface;
+   type IAsyncOperation_IBitmapEncoder is access all IAsyncOperation_IBitmapEncoder_Interface'Class;
+   type IAsyncOperation_IBitmapEncoder_Ptr is access all IAsyncOperation_IBitmapEncoder;
+   type IAsyncOperation_IBitmapFrame_Interface;
+   type IAsyncOperation_IBitmapFrame is access all IAsyncOperation_IBitmapFrame_Interface'Class;
+   type IAsyncOperation_IBitmapFrame_Ptr is access all IAsyncOperation_IBitmapFrame;
    type IAsyncOperation_IMap_String_BitmapTypedValue_Interface;
    type IAsyncOperation_IMap_String_BitmapTypedValue is access all IAsyncOperation_IMap_String_BitmapTypedValue_Interface'Class;
    type IAsyncOperation_IMap_String_BitmapTypedValue_Ptr is access all IAsyncOperation_IMap_String_BitmapTypedValue;
@@ -369,42 +303,108 @@ package Windows.Graphics.Imaging is
    type IAsyncOperation_ISoftwareBitmap_Interface;
    type IAsyncOperation_ISoftwareBitmap is access all IAsyncOperation_ISoftwareBitmap_Interface'Class;
    type IAsyncOperation_ISoftwareBitmap_Ptr is access all IAsyncOperation_ISoftwareBitmap;
-   type IIterator_IBitmapCodecInformation_Interface;
-   type IIterator_IBitmapCodecInformation is access all IIterator_IBitmapCodecInformation_Interface'Class;
-   type IIterator_IBitmapCodecInformation_Ptr is access all IIterator_IBitmapCodecInformation;
-   type IIterable_IBitmapCodecInformation_Interface;
-   type IIterable_IBitmapCodecInformation is access all IIterable_IBitmapCodecInformation_Interface'Class;
-   type IIterable_IBitmapCodecInformation_Ptr is access all IIterable_IBitmapCodecInformation;
-   type IVectorView_IBitmapCodecInformation_Interface;
-   type IVectorView_IBitmapCodecInformation is access all IVectorView_IBitmapCodecInformation_Interface'Class;
-   type IVectorView_IBitmapCodecInformation_Ptr is access all IVectorView_IBitmapCodecInformation;
-   type IAsyncOperation_IBitmapDecoder_Interface;
-   type IAsyncOperation_IBitmapDecoder is access all IAsyncOperation_IBitmapDecoder_Interface'Class;
-   type IAsyncOperation_IBitmapDecoder_Ptr is access all IAsyncOperation_IBitmapDecoder;
-   type IAsyncOperation_IBitmapFrame_Interface;
-   type IAsyncOperation_IBitmapFrame is access all IAsyncOperation_IBitmapFrame_Interface'Class;
-   type IAsyncOperation_IBitmapFrame_Ptr is access all IAsyncOperation_IBitmapFrame;
-   type IAsyncOperation_IBitmapEncoder_Interface;
-   type IAsyncOperation_IBitmapEncoder is access all IAsyncOperation_IBitmapEncoder_Interface'Class;
-   type IAsyncOperation_IBitmapEncoder_Ptr is access all IAsyncOperation_IBitmapEncoder;
-   type IReference_BitmapBounds_Interface;
-   type IReference_BitmapBounds is access all IReference_BitmapBounds_Interface'Class;
-   type IReference_BitmapBounds_Ptr is access all IReference_BitmapBounds;
-   type IIterator_BitmapPixelFormat_Interface;
-   type IIterator_BitmapPixelFormat is access all IIterator_BitmapPixelFormat_Interface'Class;
-   type IIterator_BitmapPixelFormat_Ptr is access all IIterator_BitmapPixelFormat;
+   type IBitmapBuffer_Interface;
+   type IBitmapBuffer is access all IBitmapBuffer_Interface'Class;
+   type IBitmapBuffer_Ptr is access all IBitmapBuffer;
+   type IBitmapCodecInformation_Interface;
+   type IBitmapCodecInformation is access all IBitmapCodecInformation_Interface'Class;
+   type IBitmapCodecInformation_Ptr is access all IBitmapCodecInformation;
+   type IBitmapDecoder_Interface;
+   type IBitmapDecoder is access all IBitmapDecoder_Interface'Class;
+   type IBitmapDecoder_Ptr is access all IBitmapDecoder;
+   type IBitmapDecoderStatics_Interface;
+   type IBitmapDecoderStatics is access all IBitmapDecoderStatics_Interface'Class;
+   type IBitmapDecoderStatics_Ptr is access all IBitmapDecoderStatics;
+   type IBitmapEncoder_Interface;
+   type IBitmapEncoder is access all IBitmapEncoder_Interface'Class;
+   type IBitmapEncoder_Ptr is access all IBitmapEncoder;
+   type IBitmapEncoderStatics_Interface;
+   type IBitmapEncoderStatics is access all IBitmapEncoderStatics_Interface'Class;
+   type IBitmapEncoderStatics_Ptr is access all IBitmapEncoderStatics;
+   type IBitmapEncoderWithSoftwareBitmap_Interface;
+   type IBitmapEncoderWithSoftwareBitmap is access all IBitmapEncoderWithSoftwareBitmap_Interface'Class;
+   type IBitmapEncoderWithSoftwareBitmap_Ptr is access all IBitmapEncoderWithSoftwareBitmap;
+   type IBitmapFrame_Interface;
+   type IBitmapFrame is access all IBitmapFrame_Interface'Class;
+   type IBitmapFrame_Ptr is access all IBitmapFrame;
+   type IBitmapFrameWithSoftwareBitmap_Interface;
+   type IBitmapFrameWithSoftwareBitmap is access all IBitmapFrameWithSoftwareBitmap_Interface'Class;
+   type IBitmapFrameWithSoftwareBitmap_Ptr is access all IBitmapFrameWithSoftwareBitmap;
+   type IBitmapProperties_Interface;
+   type IBitmapProperties is access all IBitmapProperties_Interface'Class;
+   type IBitmapProperties_Ptr is access all IBitmapProperties;
+   type IBitmapPropertiesView_Interface;
+   type IBitmapPropertiesView is access all IBitmapPropertiesView_Interface'Class;
+   type IBitmapPropertiesView_Ptr is access all IBitmapPropertiesView;
+   type IBitmapTransform_Interface;
+   type IBitmapTransform is access all IBitmapTransform_Interface'Class;
+   type IBitmapTransform_Ptr is access all IBitmapTransform;
+   type IBitmapTypedValue_Interface;
+   type IBitmapTypedValue is access all IBitmapTypedValue_Interface'Class;
+   type IBitmapTypedValue_Ptr is access all IBitmapTypedValue;
+   type IBitmapTypedValueFactory_Interface;
+   type IBitmapTypedValueFactory is access all IBitmapTypedValueFactory_Interface'Class;
+   type IBitmapTypedValueFactory_Ptr is access all IBitmapTypedValueFactory;
+   type IContentTypeProvider_Imported_Interface;
+   type IContentTypeProvider_Imported is access all IContentTypeProvider_Imported_Interface'Class;
+   type IContentTypeProvider_Imported_Ptr is access all IContentTypeProvider_Imported;
+   type IInputStream_Imported_Interface;
+   type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
+   type IInputStream_Imported_Ptr is access all IInputStream_Imported;
    type IIterable_BitmapPixelFormat_Interface;
    type IIterable_BitmapPixelFormat is access all IIterable_BitmapPixelFormat_Interface'Class;
    type IIterable_BitmapPixelFormat_Ptr is access all IIterable_BitmapPixelFormat;
-   type IVectorView_BitmapPixelFormat_Interface;
-   type IVectorView_BitmapPixelFormat is access all IVectorView_BitmapPixelFormat_Interface'Class;
-   type IVectorView_BitmapPixelFormat_Ptr is access all IVectorView_BitmapPixelFormat;
-   type IIterator_ISoftwareBitmap_Interface;
-   type IIterator_ISoftwareBitmap is access all IIterator_ISoftwareBitmap_Interface'Class;
-   type IIterator_ISoftwareBitmap_Ptr is access all IIterator_ISoftwareBitmap;
+   type IIterable_BitmapTypedValue_Interface;
+   type IIterable_BitmapTypedValue is access all IIterable_BitmapTypedValue_Interface'Class;
+   type IIterable_BitmapTypedValue_Ptr is access all IIterable_BitmapTypedValue;
+   type IIterable_IBitmapCodecInformation_Interface;
+   type IIterable_IBitmapCodecInformation is access all IIterable_IBitmapCodecInformation_Interface'Class;
+   type IIterable_IBitmapCodecInformation_Ptr is access all IIterable_IBitmapCodecInformation;
    type IIterable_ISoftwareBitmap_Interface;
    type IIterable_ISoftwareBitmap is access all IIterable_ISoftwareBitmap_Interface'Class;
    type IIterable_ISoftwareBitmap_Ptr is access all IIterable_ISoftwareBitmap;
+   type IIterator_BitmapPixelFormat_Interface;
+   type IIterator_BitmapPixelFormat is access all IIterator_BitmapPixelFormat_Interface'Class;
+   type IIterator_BitmapPixelFormat_Ptr is access all IIterator_BitmapPixelFormat;
+   type IIterator_IBitmapCodecInformation_Interface;
+   type IIterator_IBitmapCodecInformation is access all IIterator_IBitmapCodecInformation_Interface'Class;
+   type IIterator_IBitmapCodecInformation_Ptr is access all IIterator_IBitmapCodecInformation;
+   type IIterator_ISoftwareBitmap_Interface;
+   type IIterator_ISoftwareBitmap is access all IIterator_ISoftwareBitmap_Interface'Class;
+   type IIterator_ISoftwareBitmap_Ptr is access all IIterator_ISoftwareBitmap;
+   type IMap_String_BitmapTypedValue_Interface;
+   type IMap_String_BitmapTypedValue is access all IMap_String_BitmapTypedValue_Interface'Class;
+   type IMap_String_BitmapTypedValue_Ptr is access all IMap_String_BitmapTypedValue;
+   type IOutputStream_Imported_Interface;
+   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
+   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
+   type IPixelDataProvider_Interface;
+   type IPixelDataProvider is access all IPixelDataProvider_Interface'Class;
+   type IPixelDataProvider_Ptr is access all IPixelDataProvider;
+   type IRandomAccessStream_Imported_Interface;
+   type IRandomAccessStream_Imported is access all IRandomAccessStream_Imported_Interface'Class;
+   type IRandomAccessStream_Imported_Ptr is access all IRandomAccessStream_Imported;
+   type IRandomAccessStreamWithContentType_Imported_Interface;
+   type IRandomAccessStreamWithContentType_Imported is access all IRandomAccessStreamWithContentType_Imported_Interface'Class;
+   type IRandomAccessStreamWithContentType_Imported_Ptr is access all IRandomAccessStreamWithContentType_Imported;
+   type IReference_BitmapBounds_Interface;
+   type IReference_BitmapBounds is access all IReference_BitmapBounds_Interface'Class;
+   type IReference_BitmapBounds_Ptr is access all IReference_BitmapBounds;
+   type ISoftwareBitmap_Interface;
+   type ISoftwareBitmap is access all ISoftwareBitmap_Interface'Class;
+   type ISoftwareBitmap_Ptr is access all ISoftwareBitmap;
+   type ISoftwareBitmapFactory_Interface;
+   type ISoftwareBitmapFactory is access all ISoftwareBitmapFactory_Interface'Class;
+   type ISoftwareBitmapFactory_Ptr is access all ISoftwareBitmapFactory;
+   type ISoftwareBitmapStatics_Interface;
+   type ISoftwareBitmapStatics is access all ISoftwareBitmapStatics_Interface'Class;
+   type ISoftwareBitmapStatics_Ptr is access all ISoftwareBitmapStatics;
+   type IVectorView_BitmapPixelFormat_Interface;
+   type IVectorView_BitmapPixelFormat is access all IVectorView_BitmapPixelFormat_Interface'Class;
+   type IVectorView_BitmapPixelFormat_Ptr is access all IVectorView_BitmapPixelFormat;
+   type IVectorView_IBitmapCodecInformation_Interface;
+   type IVectorView_IBitmapCodecInformation is access all IVectorView_IBitmapCodecInformation_Interface'Class;
+   type IVectorView_IBitmapCodecInformation_Ptr is access all IVectorView_IBitmapCodecInformation;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -412,238 +412,554 @@ package Windows.Graphics.Imaging is
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapTransform : aliased constant Windows.IID := (2926924612, 57960, 19765, (173, 207, 233, 149, 211, 26, 141, 52 ));
+   IID_IAsyncOperation_IBitmapDecoder : aliased constant Windows.IID := (2861881577, 51951, 21494, (130, 61, 145, 182, 232, 52, 5, 16 ));
    
-   type IBitmapTransform_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IBitmapDecoder_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ScaledWidth
+   function put_Completed
    (
-      This       : access IBitmapTransform_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IAsyncOperation_IBitmapDecoder_Interface
+      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapDecoder
    )
    return Windows.HRESULT is abstract;
    
-   function put_ScaledWidth
+   function get_Completed
    (
-      This       : access IBitmapTransform_Interface
-      ; value : Windows.UInt32
+      This       : access IAsyncOperation_IBitmapDecoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapDecoder
    )
    return Windows.HRESULT is abstract;
    
-   function get_ScaledHeight
+   function GetResults
    (
-      This       : access IBitmapTransform_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ScaledHeight
-   (
-      This       : access IBitmapTransform_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_InterpolationMode
-   (
-      This       : access IBitmapTransform_Interface
-      ; RetVal : access Windows.Graphics.Imaging.BitmapInterpolationMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_InterpolationMode
-   (
-      This       : access IBitmapTransform_Interface
-      ; value : Windows.Graphics.Imaging.BitmapInterpolationMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Flip
-   (
-      This       : access IBitmapTransform_Interface
-      ; RetVal : access Windows.Graphics.Imaging.BitmapFlip
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Flip
-   (
-      This       : access IBitmapTransform_Interface
-      ; value : Windows.Graphics.Imaging.BitmapFlip
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Rotation
-   (
-      This       : access IBitmapTransform_Interface
-      ; RetVal : access Windows.Graphics.Imaging.BitmapRotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Rotation
-   (
-      This       : access IBitmapTransform_Interface
-      ; value : Windows.Graphics.Imaging.BitmapRotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Bounds
-   (
-      This       : access IBitmapTransform_Interface
-      ; RetVal : access Windows.Graphics.Imaging.BitmapBounds
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Bounds
-   (
-      This       : access IBitmapTransform_Interface
-      ; value : Windows.Graphics.Imaging.BitmapBounds
+      This       : access IAsyncOperation_IBitmapDecoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapDecoder
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapTypedValue : aliased constant Windows.IID := (3447735465, 9283, 16384, (176, 205, 121, 49, 108, 86, 245, 137 ));
+   IID_IAsyncOperation_IBitmapEncoder : aliased constant Windows.IID := (354144709, 18037, 23285, (162, 137, 0, 30, 220, 102, 184, 106 ));
    
-   type IBitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IBitmapEncoder_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Value
+   function put_Completed
    (
-      This       : access IBitmapTypedValue_Interface
-      ; RetVal : access Windows.Object
+      This       : access IAsyncOperation_IBitmapEncoder_Interface
+      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapEncoder
    )
    return Windows.HRESULT is abstract;
    
-   function get_Type
+   function get_Completed
    (
-      This       : access IBitmapTypedValue_Interface
-      ; RetVal : access Windows.Foundation.PropertyType
+      This       : access IAsyncOperation_IBitmapEncoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapEncoder
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IBitmapTypedValueFactory : aliased constant Windows.IID := (2463872409, 52755, 18107, (149, 69, 203, 58, 63, 99, 235, 139 ));
-   
-   type IBitmapTypedValueFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
+   function GetResults
    (
-      This       : access IBitmapTypedValueFactory_Interface
-      ; value : Windows.Object
-      ; type_x : Windows.Foundation.PropertyType
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapTypedValue
+      This       : access IAsyncOperation_IBitmapEncoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapEncoder
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMap_String_BitmapTypedValue : aliased constant Windows.IID := (745598861, 23884, 20869, (141, 183, 254, 216, 119, 40, 22, 93 ));
+   IID_IAsyncOperation_IBitmapFrame : aliased constant Windows.IID := (3407119313, 5220, 23545, (147, 70, 213, 55, 115, 93, 251, 214 ));
    
-   type IMap_String_BitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IBitmapFrame_Interface is interface and Windows.IInspectable_Interface;
    
-   function Lookup
+   function put_Completed
    (
-      This       : access IMap_String_BitmapTypedValue_Interface
-      ; key : Windows.String
+      This       : access IAsyncOperation_IBitmapFrame_Interface
+      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IBitmapFrame_Interface
+      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IBitmapFrame_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMap_String_BitmapTypedValue : aliased constant Windows.IID := (1179303936, 45553, 21062, (130, 104, 145, 42, 37, 147, 216, 137 ));
+   
+   type IAsyncOperation_IMap_String_BitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IMap_String_BitmapTypedValue_Interface
+      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IMap_String_BitmapTypedValue_Interface
+      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IMap_String_BitmapTypedValue_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IMap_String_BitmapTypedValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPixelDataProvider : aliased constant Windows.IID := (2351824560, 27682, 22627, (136, 216, 133, 193, 251, 199, 86, 151 ));
+   
+   type IAsyncOperation_IPixelDataProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPixelDataProvider_Interface
+      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IPixelDataProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPixelDataProvider_Interface
+      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IPixelDataProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPixelDataProvider_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IPixelDataProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISoftwareBitmap : aliased constant Windows.IID := (3298888064, 29003, 21761, (141, 162, 219, 218, 204, 231, 15, 115 ));
+   
+   type IAsyncOperation_ISoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ISoftwareBitmap_Interface
+      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_ISoftwareBitmap
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ISoftwareBitmap_Interface
+      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_ISoftwareBitmap
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ISoftwareBitmap_Interface
+      ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapBuffer : aliased constant Windows.IID := (2772305092, 14748, 17292, (178, 143, 166, 58, 107, 131, 209, 161 ));
+   
+   type IBitmapBuffer_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetPlaneCount
+   (
+      This       : access IBitmapBuffer_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetPlaneDescription
+   (
+      This       : access IBitmapBuffer_Interface
+      ; index : Windows.Int32
+      ; RetVal : access Windows.Graphics.Imaging.BitmapPlaneDescription
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapCodecInformation : aliased constant Windows.IID := (1074572018, 50352, 17298, (163, 176, 111, 111, 155, 169, 92, 180 ));
+   
+   type IBitmapCodecInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CodecId
+   (
+      This       : access IBitmapCodecInformation_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FileExtensions
+   (
+      This       : access IBitmapCodecInformation_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FriendlyName
+   (
+      This       : access IBitmapCodecInformation_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_MimeTypes
    (
-      This       : access IMap_String_BitmapTypedValue_Interface
+      This       : access IBitmapCodecInformation_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapDecoder : aliased constant Windows.IID := (2901353146, 7540, 19601, (157, 252, 150, 32, 116, 82, 51, 230 ));
+   
+   type IBitmapDecoder_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BitmapContainerProperties
+   (
+      This       : access IBitmapDecoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapPropertiesView
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DecoderInformation
+   (
+      This       : access IBitmapDecoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapCodecInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameCount
+   (
+      This       : access IBitmapDecoder_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function HasKey
+   function GetPreviewAsync
    (
-      This       : access IMap_String_BitmapTypedValue_Interface
-      ; key : Windows.String
+      This       : access IBitmapDecoder_Interface
+      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetFrameAsync
+   (
+      This       : access IBitmapDecoder_Interface
+      ; frameIndex : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapDecoderStatics : aliased constant Windows.IID := (1133300518, 48367, 20117, (186, 214, 35, 168, 34, 229, 141, 1 ));
+   
+   type IBitmapDecoderStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BmpDecoderId
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_JpegDecoderId
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PngDecoderId
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TiffDecoderId
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GifDecoderId
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_JpegXRDecoderId
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IcoDecoderId
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDecoderInformationEnumerator
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateAsync
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithIdAsync
+   (
+      This       : access IBitmapDecoderStatics_Interface
+      ; decoderId : Windows.Guid
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapEncoder : aliased constant Windows.IID := (734292195, 57848, 19284, (149, 232, 50, 145, 149, 81, 206, 98 ));
+   
+   type IBitmapEncoder_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EncoderInformation
+   (
+      This       : access IBitmapEncoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapCodecInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BitmapProperties
+   (
+      This       : access IBitmapEncoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BitmapContainerProperties
+   (
+      This       : access IBitmapEncoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsThumbnailGenerated
+   (
+      This       : access IBitmapEncoder_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function GetView
+   function put_IsThumbnailGenerated
    (
-      This       : access IMap_String_BitmapTypedValue_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapTypedValue
+      This       : access IBitmapEncoder_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function Insert
+   function get_GeneratedThumbnailWidth
    (
-      This       : access IMap_String_BitmapTypedValue_Interface
-      ; key : Windows.String
-      ; value : Windows.String
-      ; RetVal : access Windows.Boolean
+      This       : access IBitmapEncoder_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function Remove
+   function put_GeneratedThumbnailWidth
    (
-      This       : access IMap_String_BitmapTypedValue_Interface
-      ; key : Windows.String
+      This       : access IBitmapEncoder_Interface
+      ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function Clear
+   function get_GeneratedThumbnailHeight
    (
-      This       : access IMap_String_BitmapTypedValue_Interface
+      This       : access IBitmapEncoder_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_BitmapTypedValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_BitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
+   function put_GeneratedThumbnailHeight
    (
-      This       : access IIterable_BitmapTypedValue_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IBitmapEncoder_Interface
+      ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IBitmapPropertiesView : aliased constant Windows.IID := (2114971770, 14960, 18680, (156, 85, 25, 108, 245, 165, 69, 245 ));
-   
-   type IBitmapPropertiesView_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetPropertiesAsync
+   function get_BitmapTransform
    (
-      This       : access IBitmapPropertiesView_Interface
-      ; propertiesToRetrieve : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IMap_String_BitmapTypedValue -- Generic Parameter Type
+      This       : access IBitmapEncoder_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapTransform
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IBitmapProperties : aliased constant Windows.IID := (3936309019, 46341, 17488, (164, 209, 232, 202, 148, 82, 157, 141 ));
-   
-   type IBitmapProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetPropertiesAsync
+   function SetPixelData
    (
-      This       : access IBitmapProperties_Interface
-      ; propertiesToSet : Windows.Address
+      This       : access IBitmapEncoder_Interface
+      ; pixelFormat : Windows.Graphics.Imaging.BitmapPixelFormat
+      ; alphaMode : Windows.Graphics.Imaging.BitmapAlphaMode
+      ; width : Windows.UInt32
+      ; height : Windows.UInt32
+      ; dpiX : Windows.Double
+      ; dpiY : Windows.Double
+      ; pixels : Windows.UInt8_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GoToNextFrameAsync
+   (
+      This       : access IBitmapEncoder_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GoToNextFrameWithEncodingOptionsAsync
+   (
+      This       : access IBitmapEncoder_Interface
+      ; encodingOptions : Windows.Address
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FlushAsync
+   (
+      This       : access IBitmapEncoder_Interface
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPixelDataProvider : aliased constant Windows.IID := (3716357925, 6236, 17813, (159, 185, 204, 190, 110, 193, 138, 111 ));
+   IID_IBitmapEncoderStatics : aliased constant Windows.IID := (2806208167, 42212, 20153, (142, 64, 86, 77, 231, 225, 204, 178 ));
    
-   type IPixelDataProvider_Interface is interface and Windows.IInspectable_Interface;
+   type IBitmapEncoderStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function DetachPixelData
+   function get_BmpEncoderId
    (
-      This       : access IPixelDataProvider_Interface
-      ; RetVal : access UInt8_Ptr -- Array Parameter type
+      This       : access IBitmapEncoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_JpegEncoderId
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PngEncoderId
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TiffEncoderId
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GifEncoderId
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_JpegXREncoderId
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetEncoderInformationEnumerator
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateAsync
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; encoderId : Windows.Guid
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithEncodingOptionsAsync
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; encoderId : Windows.Guid
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; encodingOptions : Windows.Address
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForTranscodingAsync
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForInPlacePropertyEncodingAsync
+   (
+      This       : access IBitmapEncoderStatics_Interface
+      ; bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapEncoderWithSoftwareBitmap : aliased constant Windows.IID := (1751962177, 17200, 19575, (172, 228, 3, 52, 150, 139, 23, 104 ));
+   
+   type IBitmapEncoderWithSoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetSoftwareBitmap
+   (
+      This       : access IBitmapEncoderWithSoftwareBitmap_Interface
+      ; bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
    
@@ -778,371 +1094,512 @@ package Windows.Graphics.Imaging is
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapCodecInformation : aliased constant Windows.IID := (1074572018, 50352, 17298, (163, 176, 111, 111, 155, 169, 92, 180 ));
+   IID_IBitmapProperties : aliased constant Windows.IID := (3936309019, 46341, 17488, (164, 209, 232, 202, 148, 82, 157, 141 ));
    
-   type IBitmapCodecInformation_Interface is interface and Windows.IInspectable_Interface;
+   type IBitmapProperties_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_CodecId
+   function SetPropertiesAsync
    (
-      This       : access IBitmapCodecInformation_Interface
-      ; RetVal : access Windows.Guid
+      This       : access IBitmapProperties_Interface
+      ; propertiesToSet : Windows.Address
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
-   function get_FileExtensions
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapPropertiesView : aliased constant Windows.IID := (2114971770, 14960, 18680, (156, 85, 25, 108, 245, 165, 69, 245 ));
+   
+   type IBitmapPropertiesView_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetPropertiesAsync
    (
-      This       : access IBitmapCodecInformation_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+      This       : access IBitmapPropertiesView_Interface
+      ; propertiesToRetrieve : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IMap_String_BitmapTypedValue -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_FriendlyName
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapTransform : aliased constant Windows.IID := (2926924612, 57960, 19765, (173, 207, 233, 149, 211, 26, 141, 52 ));
+   
+   type IBitmapTransform_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ScaledWidth
    (
-      This       : access IBitmapCodecInformation_Interface
+      This       : access IBitmapTransform_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScaledWidth
+   (
+      This       : access IBitmapTransform_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaledHeight
+   (
+      This       : access IBitmapTransform_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScaledHeight
+   (
+      This       : access IBitmapTransform_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InterpolationMode
+   (
+      This       : access IBitmapTransform_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapInterpolationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InterpolationMode
+   (
+      This       : access IBitmapTransform_Interface
+      ; value : Windows.Graphics.Imaging.BitmapInterpolationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Flip
+   (
+      This       : access IBitmapTransform_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapFlip
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Flip
+   (
+      This       : access IBitmapTransform_Interface
+      ; value : Windows.Graphics.Imaging.BitmapFlip
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rotation
+   (
+      This       : access IBitmapTransform_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapRotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Rotation
+   (
+      This       : access IBitmapTransform_Interface
+      ; value : Windows.Graphics.Imaging.BitmapRotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Bounds
+   (
+      This       : access IBitmapTransform_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapBounds
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Bounds
+   (
+      This       : access IBitmapTransform_Interface
+      ; value : Windows.Graphics.Imaging.BitmapBounds
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapTypedValue : aliased constant Windows.IID := (3447735465, 9283, 16384, (176, 205, 121, 49, 108, 86, 245, 137 ));
+   
+   type IBitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IBitmapTypedValue_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Type
+   (
+      This       : access IBitmapTypedValue_Interface
+      ; RetVal : access Windows.Foundation.PropertyType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapTypedValueFactory : aliased constant Windows.IID := (2463872409, 52755, 18107, (149, 69, 203, 58, 63, 99, 235, 139 ));
+   
+   type IBitmapTypedValueFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IBitmapTypedValueFactory_Interface
+      ; value : Windows.Object
+      ; type_x : Windows.Foundation.PropertyType
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapTypedValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentType
+   (
+      This       : access IContentTypeProvider_Imported_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_MimeTypes
+   ------------------------------------------------------------------------
+   
+   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReadAsync
    (
-      This       : access IBitmapCodecInformation_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+      This       : access IInputStream_Imported_Interface
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; count : Windows.UInt32
+      ; options : Windows.Storage.Streams.InputStreamOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapDecoderStatics : aliased constant Windows.IID := (1133300518, 48367, 20117, (186, 214, 35, 168, 34, 229, 141, 1 ));
+   IID_IIterable_BitmapPixelFormat : aliased constant Windows.IID := (3911506413, 41278, 23515, (158, 216, 101, 161, 71, 77, 194, 116 ));
    
-   type IBitmapDecoderStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_BitmapPixelFormat_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_BmpDecoderId
+   function First
    (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_JpegDecoderId
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PngDecoderId
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TiffDecoderId
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_GifDecoderId
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_JpegXRDecoderId
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IcoDecoderId
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDecoderInformationEnumerator
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateAsync
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; stream : Windows.Storage.Streams.IRandomAccessStream
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithIdAsync
-   (
-      This       : access IBitmapDecoderStatics_Interface
-      ; decoderId : Windows.Guid
-      ; stream : Windows.Storage.Streams.IRandomAccessStream
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder -- Generic Parameter Type
+      This       : access IIterable_BitmapPixelFormat_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IIterator_BitmapPixelFormat
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapDecoder : aliased constant Windows.IID := (2901353146, 7540, 19601, (157, 252, 150, 32, 116, 82, 51, 230 ));
+   IID_IIterable_BitmapTypedValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IBitmapDecoder_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_BitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_BitmapContainerProperties
+   function First
    (
-      This       : access IBitmapDecoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapPropertiesView
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DecoderInformation
-   (
-      This       : access IBitmapDecoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapCodecInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FrameCount
-   (
-      This       : access IBitmapDecoder_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetPreviewAsync
-   (
-      This       : access IBitmapDecoder_Interface
-      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetFrameAsync
-   (
-      This       : access IBitmapDecoder_Interface
-      ; frameIndex : Windows.UInt32
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame -- Generic Parameter Type
+      This       : access IIterable_BitmapTypedValue_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapEncoderStatics : aliased constant Windows.IID := (2806208167, 42212, 20153, (142, 64, 86, 77, 231, 225, 204, 178 ));
+   IID_IIterable_IBitmapCodecInformation : aliased constant Windows.IID := (728488848, 42219, 20802, (181, 130, 60, 203, 30, 220, 87, 137 ));
    
-   type IBitmapEncoderStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IBitmapCodecInformation_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_BmpEncoderId
+   function First
    (
-      This       : access IBitmapEncoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_JpegEncoderId
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PngEncoderId
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TiffEncoderId
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_GifEncoderId
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_JpegXREncoderId
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetEncoderInformationEnumerator
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateAsync
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; encoderId : Windows.Guid
-      ; stream : Windows.Storage.Streams.IRandomAccessStream
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithEncodingOptionsAsync
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; encoderId : Windows.Guid
-      ; stream : Windows.Storage.Streams.IRandomAccessStream
-      ; encodingOptions : Windows.Address
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateForTranscodingAsync
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; stream : Windows.Storage.Streams.IRandomAccessStream
-      ; bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateForInPlacePropertyEncodingAsync
-   (
-      This       : access IBitmapEncoderStatics_Interface
-      ; bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
-      ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
+      This       : access IIterable_IBitmapCodecInformation_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IIterator_IBitmapCodecInformation
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapEncoder : aliased constant Windows.IID := (734292195, 57848, 19284, (149, 232, 50, 145, 149, 81, 206, 98 ));
+   IID_IIterable_ISoftwareBitmap : aliased constant Windows.IID := (584295183, 2200, 24212, (153, 163, 175, 165, 149, 29, 252, 212 ));
    
-   type IBitmapEncoder_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_ISoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_EncoderInformation
+   function First
    (
-      This       : access IBitmapEncoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapCodecInformation
+      This       : access IIterable_ISoftwareBitmap_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IIterator_ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
    
-   function get_BitmapProperties
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_BitmapPixelFormat : aliased constant Windows.IID := (2143478419, 4228, 23877, (184, 184, 147, 225, 6, 146, 188, 200 ));
+   
+   type IIterator_BitmapPixelFormat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
    (
-      This       : access IBitmapEncoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapProperties
+      This       : access IIterator_BitmapPixelFormat_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapPixelFormat
    )
    return Windows.HRESULT is abstract;
    
-   function get_BitmapContainerProperties
+   function get_HasCurrent
    (
-      This       : access IBitmapEncoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsThumbnailGenerated
-   (
-      This       : access IBitmapEncoder_Interface
+      This       : access IIterator_BitmapPixelFormat_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_IsThumbnailGenerated
+   function MoveNext
    (
-      This       : access IBitmapEncoder_Interface
-      ; value : Windows.Boolean
+      This       : access IIterator_BitmapPixelFormat_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_GeneratedThumbnailWidth
+   function GetMany
    (
-      This       : access IBitmapEncoder_Interface
+      This       : access IIterator_BitmapPixelFormat_Interface
+      ; items : Windows.Graphics.Imaging.BitmapPixelFormat_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function put_GeneratedThumbnailWidth
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IBitmapCodecInformation : aliased constant Windows.IID := (1341305563, 37670, 21375, (184, 220, 76, 147, 215, 127, 187, 132 ));
+   
+   type IIterator_IBitmapCodecInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
    (
-      This       : access IBitmapEncoder_Interface
-      ; value : Windows.UInt32
+      This       : access IIterator_IBitmapCodecInformation_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapCodecInformation
    )
    return Windows.HRESULT is abstract;
    
-   function get_GeneratedThumbnailHeight
+   function get_HasCurrent
    (
-      This       : access IBitmapEncoder_Interface
+      This       : access IIterator_IBitmapCodecInformation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IBitmapCodecInformation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IBitmapCodecInformation_Interface
+      ; items : Windows.Graphics.Imaging.IBitmapCodecInformation_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function put_GeneratedThumbnailHeight
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ISoftwareBitmap : aliased constant Windows.IID := (3440567491, 36008, 23526, (182, 75, 32, 74, 1, 79, 198, 32 ));
+   
+   type IIterator_ISoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
    (
-      This       : access IBitmapEncoder_Interface
-      ; value : Windows.UInt32
+      This       : access IIterator_ISoftwareBitmap_Interface
+      ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
    
-   function get_BitmapTransform
+   function get_HasCurrent
    (
-      This       : access IBitmapEncoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapTransform
+      This       : access IIterator_ISoftwareBitmap_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetPixelData
+   function MoveNext
    (
-      This       : access IBitmapEncoder_Interface
-      ; pixelFormat : Windows.Graphics.Imaging.BitmapPixelFormat
-      ; alphaMode : Windows.Graphics.Imaging.BitmapAlphaMode
-      ; width : Windows.UInt32
-      ; height : Windows.UInt32
-      ; dpiX : Windows.Double
-      ; dpiY : Windows.Double
-      ; pixels : Windows.UInt8_Ptr
+      This       : access IIterator_ISoftwareBitmap_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function GoToNextFrameAsync
+   function GetMany
    (
-      This       : access IBitmapEncoder_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IIterator_ISoftwareBitmap_Interface
+      ; items : Windows.Graphics.Imaging.ISoftwareBitmap_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function GoToNextFrameWithEncodingOptionsAsync
+   ------------------------------------------------------------------------
+   
+   IID_IMap_String_BitmapTypedValue : aliased constant Windows.IID := (745598861, 23884, 20869, (141, 183, 254, 216, 119, 40, 22, 93 ));
+   
+   type IMap_String_BitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
    (
-      This       : access IBitmapEncoder_Interface
-      ; encodingOptions : Windows.Address
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IMap_String_BitmapTypedValue_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMap_String_BitmapTypedValue_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMap_String_BitmapTypedValue_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IMap_String_BitmapTypedValue_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IBitmapTypedValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Insert
+   (
+      This       : access IMap_String_BitmapTypedValue_Interface
+      ; key : Windows.String
+      ; value : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Remove
+   (
+      This       : access IMap_String_BitmapTypedValue_Interface
+      ; key : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IMap_String_BitmapTypedValue_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function WriteAsync
+   (
+      This       : access IOutputStream_Imported_Interface
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    function FlushAsync
    (
-      This       : access IBitmapEncoder_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IOutputStream_Imported_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapEncoderWithSoftwareBitmap : aliased constant Windows.IID := (1751962177, 17200, 19575, (172, 228, 3, 52, 150, 139, 23, 104 ));
+   IID_IPixelDataProvider : aliased constant Windows.IID := (3716357925, 6236, 17813, (159, 185, 204, 190, 110, 193, 138, 111 ));
    
-   type IBitmapEncoderWithSoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
+   type IPixelDataProvider_Interface is interface and Windows.IInspectable_Interface;
    
-   function SetSoftwareBitmap
+   function DetachPixelData
    (
-      This       : access IBitmapEncoderWithSoftwareBitmap_Interface
-      ; bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
+      This       : access IPixelDataProvider_Interface
+      ; RetVal : access UInt8_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Size
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Size
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; value : Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetInputStreamAt
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetOutputStreamAt
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+      ; RetVal : access Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Seek
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CloneStream
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanRead
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanWrite
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_BitmapBounds : aliased constant Windows.IID := (2853821040, 57062, 23362, (181, 98, 47, 205, 33, 140, 52, 202 ));
+   
+   type IReference_BitmapBounds_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_BitmapBounds_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapBounds
    )
    return Windows.HRESULT is abstract;
    
@@ -1353,268 +1810,40 @@ package Windows.Graphics.Imaging is
    
    ------------------------------------------------------------------------
    
-   IID_IBitmapBuffer : aliased constant Windows.IID := (2772305092, 14748, 17292, (178, 143, 166, 58, 107, 131, 209, 161 ));
+   IID_IVectorView_BitmapPixelFormat : aliased constant Windows.IID := (1991003074, 49564, 21916, (178, 135, 22, 148, 192, 220, 58, 13 ));
    
-   type IBitmapBuffer_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_BitmapPixelFormat_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetPlaneCount
+   function GetAt
    (
-      This       : access IBitmapBuffer_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IVectorView_BitmapPixelFormat_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Imaging.BitmapPixelFormat
    )
    return Windows.HRESULT is abstract;
-   
-   function GetPlaneDescription
-   (
-      This       : access IBitmapBuffer_Interface
-      ; index : Windows.Int32
-      ; RetVal : access Windows.Graphics.Imaging.BitmapPlaneDescription
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ContentType
-   (
-      This       : access IContentTypeProvider_Imported_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Size
    (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.UInt64
+      This       : access IVectorView_BitmapPixelFormat_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function put_Size
+   function IndexOf
    (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; value : Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetInputStreamAt
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetOutputStreamAt
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-      ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Seek
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CloneStream
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanRead
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanWrite
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function WriteAsync
-   (
-      This       : access IOutputStream_Imported_Interface
-      ; buffer : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FlushAsync
-   (
-      This       : access IOutputStream_Imported_Interface
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReadAsync
-   (
-      This       : access IInputStream_Imported_Interface
-      ; buffer : Windows.Storage.Streams.IBuffer
-      ; count : Windows.UInt32
-      ; options : Windows.Storage.Streams.InputStreamOptions
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IMap_String_BitmapTypedValue : aliased constant Windows.IID := (1179303936, 45553, 21062, (130, 104, 145, 42, 37, 147, 216, 137 ));
-   
-   type IAsyncOperation_IMap_String_BitmapTypedValue_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IMap_String_BitmapTypedValue_Interface
-      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IMap_String_BitmapTypedValue_Interface
-      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IMap_String_BitmapTypedValue_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IMap_String_BitmapTypedValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPixelDataProvider : aliased constant Windows.IID := (2351824560, 27682, 22627, (136, 216, 133, 193, 251, 199, 86, 151 ));
-   
-   type IAsyncOperation_IPixelDataProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPixelDataProvider_Interface
-      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IPixelDataProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPixelDataProvider_Interface
-      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IPixelDataProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPixelDataProvider_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IPixelDataProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ISoftwareBitmap : aliased constant Windows.IID := (3298888064, 29003, 21761, (141, 162, 219, 218, 204, 231, 15, 115 ));
-   
-   type IAsyncOperation_ISoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ISoftwareBitmap_Interface
-      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_ISoftwareBitmap
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ISoftwareBitmap_Interface
-      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_ISoftwareBitmap
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ISoftwareBitmap_Interface
-      ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IBitmapCodecInformation : aliased constant Windows.IID := (1341305563, 37670, 21375, (184, 220, 76, 147, 215, 127, 187, 132 ));
-   
-   type IIterator_IBitmapCodecInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IBitmapCodecInformation_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapCodecInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IBitmapCodecInformation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IBitmapCodecInformation_Interface
+      This       : access IVectorView_BitmapPixelFormat_Interface
+      ; value : Windows.Graphics.Imaging.BitmapPixelFormat
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_IBitmapCodecInformation_Interface
-      ; items : Windows.Graphics.Imaging.IBitmapCodecInformation_Ptr
+      This       : access IVectorView_BitmapPixelFormat_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Graphics.Imaging.BitmapPixelFormat_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IBitmapCodecInformation : aliased constant Windows.IID := (728488848, 42219, 20802, (181, 130, 60, 203, 30, 220, 87, 137 ));
-   
-   type IIterable_IBitmapCodecInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IBitmapCodecInformation_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IIterator_IBitmapCodecInformation
    )
    return Windows.HRESULT is abstract;
    
@@ -1658,237 +1887,47 @@ package Windows.Graphics.Imaging is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IBitmapDecoder : aliased constant Windows.IID := (2861881577, 51951, 21494, (130, 61, 145, 182, 232, 52, 5, 16 ));
-   
-   type IAsyncOperation_IBitmapDecoder_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IBitmapDecoder_Interface
-      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapDecoder
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IBitmapDecoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapDecoder
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBitmapDecoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapDecoder
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IBitmapFrame : aliased constant Windows.IID := (3407119313, 5220, 23545, (147, 70, 213, 55, 115, 93, 251, 214 ));
-   
-   type IAsyncOperation_IBitmapFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IBitmapFrame_Interface
-      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IBitmapFrame_Interface
-      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBitmapFrame_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IBitmapEncoder : aliased constant Windows.IID := (354144709, 18037, 23285, (162, 137, 0, 30, 220, 102, 184, 106 ));
-   
-   type IAsyncOperation_IBitmapEncoder_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IBitmapEncoder_Interface
-      ; handler : Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapEncoder
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IBitmapEncoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.AsyncOperationCompletedHandler_IBitmapEncoder
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBitmapEncoder_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IBitmapEncoder
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReference_BitmapBounds : aliased constant Windows.IID := (2853821040, 57062, 23362, (181, 98, 47, 205, 33, 140, 52, 202 ));
-   
-   type IReference_BitmapBounds_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_BitmapBounds_Interface
-      ; RetVal : access Windows.Graphics.Imaging.BitmapBounds
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_BitmapPixelFormat : aliased constant Windows.IID := (2143478419, 4228, 23877, (184, 184, 147, 225, 6, 146, 188, 200 ));
-   
-   type IIterator_BitmapPixelFormat_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_BitmapPixelFormat_Interface
-      ; RetVal : access Windows.Graphics.Imaging.BitmapPixelFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_BitmapPixelFormat_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_BitmapPixelFormat_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_BitmapPixelFormat_Interface
-      ; items : Windows.Graphics.Imaging.BitmapPixelFormat_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_BitmapPixelFormat : aliased constant Windows.IID := (3911506413, 41278, 23515, (158, 216, 101, 161, 71, 77, 194, 116 ));
-   
-   type IIterable_BitmapPixelFormat_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_BitmapPixelFormat_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IIterator_BitmapPixelFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_BitmapPixelFormat : aliased constant Windows.IID := (1991003074, 49564, 21916, (178, 135, 22, 148, 192, 220, 58, 13 ));
-   
-   type IVectorView_BitmapPixelFormat_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_BitmapPixelFormat_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Graphics.Imaging.BitmapPixelFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_BitmapPixelFormat_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_BitmapPixelFormat_Interface
-      ; value : Windows.Graphics.Imaging.BitmapPixelFormat
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_BitmapPixelFormat_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Graphics.Imaging.BitmapPixelFormat_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_ISoftwareBitmap : aliased constant Windows.IID := (3440567491, 36008, 23526, (182, 75, 32, 74, 1, 79, 198, 32 ));
-   
-   type IIterator_ISoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_ISoftwareBitmap_Interface
-      ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_ISoftwareBitmap_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_ISoftwareBitmap_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_ISoftwareBitmap_Interface
-      ; items : Windows.Graphics.Imaging.ISoftwareBitmap_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ISoftwareBitmap : aliased constant Windows.IID := (584295183, 2200, 24212, (153, 163, 175, 165, 149, 29, 252, 212 ));
-   
-   type IIterable_ISoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ISoftwareBitmap_Interface
-      ; RetVal : access Windows.Graphics.Imaging.IIterator_ISoftwareBitmap
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IBitmapDecoder : aliased constant Windows.IID := (3143963890, 15611, 22127, (130, 188, 96, 170, 189, 48, 45, 83 ));
+   
+   type AsyncOperationCompletedHandler_IBitmapDecoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapDecoder'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBitmapDecoder_Interface
+      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IBitmapEncoder : aliased constant Windows.IID := (1576120261, 18317, 21981, (179, 23, 2, 66, 116, 6, 42, 13 ));
+   
+   type AsyncOperationCompletedHandler_IBitmapEncoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapEncoder'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBitmapEncoder_Interface
+      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IBitmapFrame : aliased constant Windows.IID := (672613722, 38975, 23046, (159, 228, 251, 150, 55, 104, 67, 32 ));
+   
+   type AsyncOperationCompletedHandler_IBitmapFrame_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapFrame'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBitmapFrame_Interface
+      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1930,47 +1969,18 @@ package Windows.Graphics.Imaging is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IBitmapDecoder : aliased constant Windows.IID := (3143963890, 15611, 22127, (130, 188, 96, 170, 189, 48, 45, 83 ));
-   
-   type AsyncOperationCompletedHandler_IBitmapDecoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapDecoder'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBitmapDecoder_Interface
-      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IBitmapFrame : aliased constant Windows.IID := (672613722, 38975, 23046, (159, 228, 251, 150, 55, 104, 67, 32 ));
-   
-   type AsyncOperationCompletedHandler_IBitmapFrame_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapFrame'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBitmapFrame_Interface
-      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IBitmapEncoder : aliased constant Windows.IID := (1576120261, 18317, 21981, (179, 23, 2, 66, 116, 6, 42, 13 ));
-   
-   type AsyncOperationCompletedHandler_IBitmapEncoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapEncoder'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBitmapEncoder_Interface
-      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
+   
+   subtype BitmapBuffer is Windows.Graphics.Imaging.IBitmapBuffer;
+   subtype BitmapCodecInformation is Windows.Graphics.Imaging.IBitmapCodecInformation;
+   subtype BitmapDecoder is Windows.Graphics.Imaging.IBitmapDecoder;
+   subtype BitmapEncoder is Windows.Graphics.Imaging.IBitmapEncoder;
+   subtype BitmapFrame is Windows.Graphics.Imaging.IBitmapFrame;
+   subtype BitmapProperties is Windows.Graphics.Imaging.IBitmapProperties;
+   subtype BitmapPropertiesView is Windows.Graphics.Imaging.IBitmapPropertiesView;
+   subtype BitmapPropertySet is Windows.Graphics.Imaging.IMap_String_BitmapTypedValue;
+   function Create return Windows.Graphics.Imaging.IMap_String_BitmapTypedValue;
    
    subtype BitmapTransform is Windows.Graphics.Imaging.IBitmapTransform;
    function Create return Windows.Graphics.Imaging.IBitmapTransform;
@@ -1983,18 +1993,8 @@ package Windows.Graphics.Imaging is
    )
    return Windows.Graphics.Imaging.IBitmapTypedValue;
    
-   subtype BitmapPropertySet is Windows.Graphics.Imaging.IMap_String_BitmapTypedValue;
-   function Create return Windows.Graphics.Imaging.IMap_String_BitmapTypedValue;
-   
-   subtype BitmapPropertiesView is Windows.Graphics.Imaging.IBitmapPropertiesView;
-   subtype BitmapProperties is Windows.Graphics.Imaging.IBitmapProperties;
-   subtype PixelDataProvider is Windows.Graphics.Imaging.IPixelDataProvider;
    subtype ImageStream is Windows.Storage.Streams.IRandomAccessStreamWithContentType;
-   subtype BitmapFrame is Windows.Graphics.Imaging.IBitmapFrame;
-   subtype BitmapCodecInformation is Windows.Graphics.Imaging.IBitmapCodecInformation;
-   subtype BitmapDecoder is Windows.Graphics.Imaging.IBitmapDecoder;
-   subtype BitmapEncoder is Windows.Graphics.Imaging.IBitmapEncoder;
-   subtype BitmapBuffer is Windows.Graphics.Imaging.IBitmapBuffer;
+   subtype PixelDataProvider is Windows.Graphics.Imaging.IPixelDataProvider;
    subtype SoftwareBitmap is Windows.Graphics.Imaging.ISoftwareBitmap;
    function Create
    (

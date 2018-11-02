@@ -36,20 +36,6 @@ package Windows.Services.Cortana is
    -- Enums
    ------------------------------------------------------------------------
    
-   type CortanaPermissionsChangeResult is (
-      Success,
-      Unavailable,
-      DisabledByPolicy
-   );
-   for CortanaPermissionsChangeResult use (
-      Success => 0,
-      Unavailable => 1,
-      DisabledByPolicy => 2
-   );
-   for CortanaPermissionsChangeResult'Size use 32;
-   
-   type CortanaPermissionsChangeResult_Ptr is access CortanaPermissionsChangeResult;
-   
    type CortanaPermission is (
       BrowsingHistory,
       Calendar,
@@ -80,6 +66,20 @@ package Windows.Services.Cortana is
    
    type CortanaPermission_Ptr is access CortanaPermission;
    
+   type CortanaPermissionsChangeResult is (
+      Success,
+      Unavailable,
+      DisabledByPolicy
+   );
+   for CortanaPermissionsChangeResult use (
+      Success => 0,
+      Unavailable => 1,
+      DisabledByPolicy => 2
+   );
+   for CortanaPermissionsChangeResult'Size use 32;
+   
+   type CortanaPermissionsChangeResult_Ptr is access CortanaPermissionsChangeResult;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -92,6 +92,9 @@ package Windows.Services.Cortana is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_CortanaPermissionsChangeResult_Interface;
+   type IAsyncOperation_CortanaPermissionsChangeResult is access all IAsyncOperation_CortanaPermissionsChangeResult_Interface'Class;
+   type IAsyncOperation_CortanaPermissionsChangeResult_Ptr is access all IAsyncOperation_CortanaPermissionsChangeResult;
    type ICortanaPermissionsManager_Interface;
    type ICortanaPermissionsManager is access all ICortanaPermissionsManager_Interface'Class;
    type ICortanaPermissionsManager_Ptr is access all ICortanaPermissionsManager;
@@ -104,19 +107,43 @@ package Windows.Services.Cortana is
    type ICortanaSettingsStatics_Interface;
    type ICortanaSettingsStatics is access all ICortanaSettingsStatics_Interface'Class;
    type ICortanaSettingsStatics_Ptr is access all ICortanaSettingsStatics;
-   type IIterator_CortanaPermission_Interface;
-   type IIterator_CortanaPermission is access all IIterator_CortanaPermission_Interface'Class;
-   type IIterator_CortanaPermission_Ptr is access all IIterator_CortanaPermission;
    type IIterable_CortanaPermission_Interface;
    type IIterable_CortanaPermission is access all IIterable_CortanaPermission_Interface'Class;
    type IIterable_CortanaPermission_Ptr is access all IIterable_CortanaPermission;
-   type IAsyncOperation_CortanaPermissionsChangeResult_Interface;
-   type IAsyncOperation_CortanaPermissionsChangeResult is access all IAsyncOperation_CortanaPermissionsChangeResult_Interface'Class;
-   type IAsyncOperation_CortanaPermissionsChangeResult_Ptr is access all IAsyncOperation_CortanaPermissionsChangeResult;
+   type IIterator_CortanaPermission_Interface;
+   type IIterator_CortanaPermission is access all IIterator_CortanaPermission_Interface'Class;
+   type IIterator_CortanaPermission_Ptr is access all IIterator_CortanaPermission;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_CortanaPermissionsChangeResult : aliased constant Windows.IID := (2206875088, 61603, 20623, (132, 106, 211, 193, 158, 79, 231, 160 ));
+   
+   type IAsyncOperation_CortanaPermissionsChangeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_CortanaPermissionsChangeResult_Interface
+      ; handler : Windows.Services.Cortana.AsyncOperationCompletedHandler_CortanaPermissionsChangeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_CortanaPermissionsChangeResult_Interface
+      ; RetVal : access Windows.Services.Cortana.AsyncOperationCompletedHandler_CortanaPermissionsChangeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_CortanaPermissionsChangeResult_Interface
+      ; RetVal : access Windows.Services.Cortana.CortanaPermissionsChangeResult
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -217,6 +244,19 @@ package Windows.Services.Cortana is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_CortanaPermission : aliased constant Windows.IID := (916532910, 11812, 24071, (191, 208, 52, 74, 146, 153, 9, 22 ));
+   
+   type IIterable_CortanaPermission_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_CortanaPermission_Interface
+      ; RetVal : access Windows.Services.Cortana.IIterator_CortanaPermission
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_CortanaPermission : aliased constant Windows.IID := (253412156, 20762, 21224, (175, 9, 216, 159, 112, 4, 232, 197 ));
    
    type IIterator_CortanaPermission_Interface is interface and Windows.IInspectable_Interface;
@@ -247,46 +287,6 @@ package Windows.Services.Cortana is
       This       : access IIterator_CortanaPermission_Interface
       ; items : Windows.Services.Cortana.CortanaPermission_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_CortanaPermission : aliased constant Windows.IID := (916532910, 11812, 24071, (191, 208, 52, 74, 146, 153, 9, 22 ));
-   
-   type IIterable_CortanaPermission_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_CortanaPermission_Interface
-      ; RetVal : access Windows.Services.Cortana.IIterator_CortanaPermission
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_CortanaPermissionsChangeResult : aliased constant Windows.IID := (2206875088, 61603, 20623, (132, 106, 211, 193, 158, 79, 231, 160 ));
-   
-   type IAsyncOperation_CortanaPermissionsChangeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_CortanaPermissionsChangeResult_Interface
-      ; handler : Windows.Services.Cortana.AsyncOperationCompletedHandler_CortanaPermissionsChangeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_CortanaPermissionsChangeResult_Interface
-      ; RetVal : access Windows.Services.Cortana.AsyncOperationCompletedHandler_CortanaPermissionsChangeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_CortanaPermissionsChangeResult_Interface
-      ; RetVal : access Windows.Services.Cortana.CortanaPermissionsChangeResult
    )
    return Windows.HRESULT is abstract;
    

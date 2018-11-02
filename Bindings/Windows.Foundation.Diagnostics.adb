@@ -37,19 +37,6 @@ package body Windows.Foundation.Diagnostics is
    
    function Invoke
    (
-      This       : access EventHandler_ITracingStatusChangedEventArgs_Interface
-      ; sender : Windows.Object
-      ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IErrorDetails_Interface
       ; asyncInfo : Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -63,9 +50,9 @@ package body Windows.Foundation.Diagnostics is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface
-      ; sender : Windows.Foundation.Diagnostics.ILoggingChannel
-      ; args : Windows.Object
+      This       : access EventHandler_ITracingStatusChangedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -87,116 +74,41 @@ package body Windows.Foundation.Diagnostics is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface
+      ; sender : Windows.Foundation.Diagnostics.ILoggingChannel
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, args);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Foundation.Diagnostics.IErrorReportingSettings is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.IErrorReportingSettings) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_IErrorReportingSettings'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Foundation.Diagnostics.ILoggingOptions is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingOptions");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.ILoggingOptions) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_ILoggingOptions'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateWithKeywords
-   (
-      keywords : Windows.Int64
-   )
-   return Windows.Foundation.Diagnostics.ILoggingOptions is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingOptions");
-      m_Factory     : Windows.Foundation.Diagnostics.ILoggingOptionsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingOptions := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILoggingOptionsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithKeywords(keywords, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannelOptions");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.ILoggingChannelOptions) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_ILoggingChannelOptions'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function Create
    (
-      group : Windows.Guid
+      name : Windows.String
    )
-   return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
+   return Windows.Foundation.Diagnostics.IFileLoggingSession is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannelOptions");
-      m_Factory     : Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.FileLoggingSession");
+      m_Factory     : Windows.Foundation.Diagnostics.IFileLoggingSessionFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingChannelOptions := null;
+      RetVal        : aliased Windows.Foundation.Diagnostics.IFileLoggingSession := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILoggingChannelOptionsFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IFileLoggingSessionFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(group, RetVal'Access);
+         Hr := m_Factory.Create(name, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.Foundation.Diagnostics.ILoggingFields is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingFields");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.ILoggingFields) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_ILoggingFields'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    function CreateLoggingActivity
@@ -305,6 +217,97 @@ package body Windows.Foundation.Diagnostics is
       return RetVal;
    end;
    
+   function Create return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannelOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.ILoggingChannelOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_ILoggingChannelOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      group : Windows.Guid
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannelOptions");
+      m_Factory     : Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingChannelOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILoggingChannelOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(group, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Foundation.Diagnostics.ILoggingFields is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingFields");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.ILoggingFields) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_ILoggingFields'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Foundation.Diagnostics.ILoggingOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.ILoggingOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_ILoggingOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateWithKeywords
+   (
+      keywords : Windows.Int64
+   )
+   return Windows.Foundation.Diagnostics.ILoggingOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingOptions");
+      m_Factory     : Windows.Foundation.Diagnostics.ILoggingOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILoggingOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithKeywords(keywords, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    (
       name : Windows.String
@@ -325,24 +328,21 @@ package body Windows.Foundation.Diagnostics is
       return RetVal;
    end;
    
-   function Create
-   (
-      name : Windows.String
-   )
-   return Windows.Foundation.Diagnostics.IFileLoggingSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.FileLoggingSession");
-      m_Factory     : Windows.Foundation.Diagnostics.IFileLoggingSessionFactory := null;
+   function Create return Windows.Foundation.Diagnostics.IErrorReportingSettings is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings");
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Diagnostics.IFileLoggingSession := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.IErrorReportingSettings) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileLoggingSessionFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(name, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_IErrorReportingSettings'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

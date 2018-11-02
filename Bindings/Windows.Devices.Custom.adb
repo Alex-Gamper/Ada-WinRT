@@ -83,23 +83,6 @@ package body Windows.Devices.Custom is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Unknown
-   return Windows.UInt16 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Custom.KnownDeviceTypes");
-      m_Factory     : IKnownDeviceTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt16;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownDeviceTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Unknown(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetDeviceSelector
    (
       classGuid : Windows.Guid
@@ -136,6 +119,23 @@ package body Windows.Devices.Custom is
       Hr := RoGetActivationFactory(m_hString, IID_ICustomDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, desiredAccess, sharingMode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Unknown
+   return Windows.UInt16 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Custom.KnownDeviceTypes");
+      m_Factory     : IKnownDeviceTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt16;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownDeviceTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Unknown(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

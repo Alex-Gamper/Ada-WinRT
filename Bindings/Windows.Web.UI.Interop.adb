@@ -44,14 +44,14 @@ package body Windows.Web.UI.Interop is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs
+      This       : access TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface
+      ; sender : Windows.Web.UI.Interop.IWebViewControlProcess
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Web.UI.IWebViewControl(sender), Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs(args));
+      This.Callback(Windows.Web.UI.Interop.IWebViewControlProcess(sender), args);
       return Hr;
    end;
    
@@ -70,14 +70,14 @@ package body Windows.Web.UI.Interop is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface
-      ; sender : Windows.Web.UI.Interop.IWebViewControlProcess
-      ; args : Windows.Object
+      This       : access TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Web.UI.Interop.IWebViewControlProcess(sender), args);
+      This.Callback(Windows.Web.UI.IWebViewControl(sender), Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs(args));
       return Hr;
    end;
    

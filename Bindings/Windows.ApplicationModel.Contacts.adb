@@ -42,47 +42,8 @@ package body Windows.ApplicationModel.Contacts is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IContactStore_Interface
-      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IContact_Interface
       ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContact
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IContactAnnotationStore_Interface
-      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationStore
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IContactAnnotationList_Interface
-      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationList
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -107,14 +68,53 @@ package body Windows.ApplicationModel.Contacts is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IContactStore2_add_ContactChanged_Interface
-      ; sender : Windows.ApplicationModel.Contacts.IContactStore
-      ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs
+      This       : access AsyncOperationCompletedHandler_IContactAnnotationList_Interface
+      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationList
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.Contacts.IContactStore(sender), Windows.ApplicationModel.Contacts.IContactChangedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IContactAnnotationStore_Interface
+      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IContactBatch_Interface
+      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactBatch
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IContactInformation_Interface
+      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactInformation
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -122,6 +122,32 @@ package body Windows.ApplicationModel.Contacts is
    (
       This       : access AsyncOperationCompletedHandler_IContactList_Interface
       ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactList
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IContactStore_Interface
+      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IPinnedContactIdsQueryResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -159,40 +185,14 @@ package body Windows.ApplicationModel.Contacts is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IContactBatch_Interface
-      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactBatch
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IContactPanel_add_Closing_Interface
+      ; sender : Windows.ApplicationModel.Contacts.IContactPanel
+      ; args : Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IContactInformation_Interface
-      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactInformation
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IPinnedContactIdsQueryResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.ApplicationModel.Contacts.IContactPanel(sender), Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs(args));
       return Hr;
    end;
    
@@ -211,14 +211,14 @@ package body Windows.ApplicationModel.Contacts is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IContactPanel_add_Closing_Interface
-      ; sender : Windows.ApplicationModel.Contacts.IContactPanel
-      ; args : Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs
+      This       : access TypedEventHandler_IContactStore2_add_ContactChanged_Interface
+      ; sender : Windows.ApplicationModel.Contacts.IContactStore
+      ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.Contacts.IContactPanel(sender), Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs(args));
+      This.Callback(Windows.ApplicationModel.Contacts.IContactStore(sender), Windows.ApplicationModel.Contacts.IContactChangedEventArgs(args));
       return Hr;
    end;
    
@@ -226,34 +226,34 @@ package body Windows.ApplicationModel.Contacts is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.ApplicationModel.Contacts.IContactCardOptions is
+   function Create return Windows.ApplicationModel.Contacts.IContact is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactCardOptions");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.Contact");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactCardOptions) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContact) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactCardOptions'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContact'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
    end;
    
-   function Create return Windows.ApplicationModel.Contacts.IFullContactCardOptions is
+   function Create return Windows.ApplicationModel.Contacts.IContactAddress is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.FullContactCardOptions");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactAddress");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IFullContactCardOptions) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactAddress) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IFullContactCardOptions'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactAddress'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -277,126 +277,17 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.ApplicationModel.Contacts.IContactQueryOptions is
+   function Create return Windows.ApplicationModel.Contacts.IContactCardOptions is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactQueryOptions");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactCardOptions");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactQueryOptions) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactCardOptions) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactQueryOptions'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateWithText
-   (
-      text : Windows.String
-   )
-   return Windows.ApplicationModel.Contacts.IContactQueryOptions is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactQueryOptions");
-      m_Factory     : Windows.ApplicationModel.Contacts.IContactQueryOptionsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactQueryOptions := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactQueryOptionsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithText(text, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWithTextAndFields
-   (
-      text : Windows.String
-      ; fields : Windows.ApplicationModel.Contacts.ContactQuerySearchFields
-   )
-   return Windows.ApplicationModel.Contacts.IContactQueryOptions is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactQueryOptions");
-      m_Factory     : Windows.ApplicationModel.Contacts.IContactQueryOptionsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactQueryOptions := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactQueryOptionsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithTextAndFields(text, fields, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.ApplicationModel.Contacts.IContactPicker is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactPicker");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactPicker) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactPicker'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Contacts.IContactPhone is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactPhone");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactPhone) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactPhone'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Contacts.IContactEmail is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactEmail");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactEmail) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactEmail'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Contacts.IContactAddress is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactAddress");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactAddress) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactAddress'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactCardOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -437,68 +328,17 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.ApplicationModel.Contacts.IContactJobInfo is
+   function Create return Windows.ApplicationModel.Contacts.IContactEmail is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactJobInfo");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactEmail");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactJobInfo) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactEmail) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactJobInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Contacts.IContactSignificantOther is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactSignificantOther");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactSignificantOther) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactSignificantOther'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Contacts.IContactWebsite is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactWebsite");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactWebsite) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactWebsite'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Contacts.IContact is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.Contact");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContact) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContact'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactEmail'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -571,71 +411,21 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function CreateLocation_Default
-   (
-      unstructuredAddress : Windows.String
-   )
-   return Windows.ApplicationModel.Contacts.IContactLocationField is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLocationField");
-      m_Factory     : Windows.ApplicationModel.Contacts.IContactLocationFieldFactory := null;
+   function Create return Windows.ApplicationModel.Contacts.IContactFieldFactory is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactFieldFactory");
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactLocationField := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactFieldFactory) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateLocation_Default(unstructuredAddress, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactFieldFactory'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateLocation_Category
-   (
-      unstructuredAddress : Windows.String
-      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
-   )
-   return Windows.ApplicationModel.Contacts.IContactLocationField is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLocationField");
-      m_Factory     : Windows.ApplicationModel.Contacts.IContactLocationFieldFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactLocationField := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateLocation_Category(unstructuredAddress, category, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateLocation_All
-   (
-      unstructuredAddress : Windows.String
-      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
-      ; street : Windows.String
-      ; city : Windows.String
-      ; region : Windows.String
-      ; country : Windows.String
-      ; postalCode : Windows.String
-   )
-   return Windows.ApplicationModel.Contacts.IContactLocationField is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLocationField");
-      m_Factory     : Windows.ApplicationModel.Contacts.IContactLocationFieldFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactLocationField := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateLocation_All(unstructuredAddress, category, street, city, region, country, postalCode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInstantMessage_Default
@@ -703,17 +493,227 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function Create return Windows.ApplicationModel.Contacts.IContactFieldFactory is
+   function Create return Windows.ApplicationModel.Contacts.IContactJobInfo is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactFieldFactory");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactJobInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactFieldFactory) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactJobInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactFieldFactory'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactJobInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateLocation_Default
+   (
+      unstructuredAddress : Windows.String
+   )
+   return Windows.ApplicationModel.Contacts.IContactLocationField is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLocationField");
+      m_Factory     : Windows.ApplicationModel.Contacts.IContactLocationFieldFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactLocationField := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateLocation_Default(unstructuredAddress, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateLocation_Category
+   (
+      unstructuredAddress : Windows.String
+      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
+   )
+   return Windows.ApplicationModel.Contacts.IContactLocationField is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLocationField");
+      m_Factory     : Windows.ApplicationModel.Contacts.IContactLocationFieldFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactLocationField := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateLocation_Category(unstructuredAddress, category, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateLocation_All
+   (
+      unstructuredAddress : Windows.String
+      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
+      ; street : Windows.String
+      ; city : Windows.String
+      ; region : Windows.String
+      ; country : Windows.String
+      ; postalCode : Windows.String
+   )
+   return Windows.ApplicationModel.Contacts.IContactLocationField is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLocationField");
+      m_Factory     : Windows.ApplicationModel.Contacts.IContactLocationFieldFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactLocationField := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateLocation_All(unstructuredAddress, category, street, city, region, country, postalCode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.ApplicationModel.Contacts.IContactPhone is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactPhone");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactPhone) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactPhone'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.ApplicationModel.Contacts.IContactPicker is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactPicker");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactPicker) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactPicker'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.ApplicationModel.Contacts.IContactQueryOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactQueryOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactQueryOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactQueryOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateWithText
+   (
+      text : Windows.String
+   )
+   return Windows.ApplicationModel.Contacts.IContactQueryOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactQueryOptions");
+      m_Factory     : Windows.ApplicationModel.Contacts.IContactQueryOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactQueryOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactQueryOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithText(text, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithTextAndFields
+   (
+      text : Windows.String
+      ; fields : Windows.ApplicationModel.Contacts.ContactQuerySearchFields
+   )
+   return Windows.ApplicationModel.Contacts.IContactQueryOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactQueryOptions");
+      m_Factory     : Windows.ApplicationModel.Contacts.IContactQueryOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactQueryOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactQueryOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithTextAndFields(text, fields, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.ApplicationModel.Contacts.IContactSignificantOther is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactSignificantOther");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactSignificantOther) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactSignificantOther'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.ApplicationModel.Contacts.IContactWebsite is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactWebsite");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IContactWebsite) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IContactWebsite'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.ApplicationModel.Contacts.IFullContactCardOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.FullContactCardOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Contacts.IFullContactCardOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Contacts.IID_IFullContactCardOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -727,6 +727,91 @@ package body Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Call
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
+      m_Factory     : IContactLaunchActionVerbsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Call(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Message
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
+      m_Factory     : IContactLaunchActionVerbsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Message(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Map
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
+      m_Factory     : IContactLaunchActionVerbsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Map(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Post
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
+      m_Factory     : IContactLaunchActionVerbsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Post(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoCall
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
+      m_Factory     : IContactLaunchActionVerbsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoCall(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    procedure ShowContactCard
    (
@@ -1140,91 +1225,6 @@ package body Windows.ApplicationModel.Contacts is
       Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestStoreAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Call
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
-      m_Factory     : IContactLaunchActionVerbsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Call(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Message
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
-      m_Factory     : IContactLaunchActionVerbsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Message(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Map
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
-      m_Factory     : IContactLaunchActionVerbsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Map(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Post
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
-      m_Factory     : IContactLaunchActionVerbsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Post(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoCall
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
-      m_Factory     : IContactLaunchActionVerbsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoCall(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

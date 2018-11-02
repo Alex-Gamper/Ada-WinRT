@@ -71,6 +71,23 @@ package body Windows.Gaming.Input.ForceFeedback is
       return RetVal;
    end;
    
+   function Create return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ForceFeedback.ConstantForceEffect");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Gaming.Input.ForceFeedback.IID_IForceFeedbackEffect'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateInstance
    (
       effectKind : Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind
@@ -89,23 +106,6 @@ package body Windows.Gaming.Input.ForceFeedback is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ForceFeedback.ConstantForceEffect");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Gaming.Input.ForceFeedback.IID_IForceFeedbackEffect'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    function CreateRampForceEffect return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect is

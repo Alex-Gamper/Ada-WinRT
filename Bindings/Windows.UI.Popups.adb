@@ -36,18 +36,6 @@ package body Windows.UI.Popups is
    
    function Invoke
    (
-      This       : access UICommandInvokedHandler_Interface
-      ; command : Windows.UI.Popups.IUICommand
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(command);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IUICommand_Interface
       ; asyncInfo : Windows.UI.Popups.IAsyncOperation_IUICommand
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -56,6 +44,18 @@ package body Windows.UI.Popups is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access UICommandInvokedHandler_Interface
+      ; command : Windows.UI.Popups.IUICommand
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(command);
       return Hr;
    end;
    
@@ -102,6 +102,23 @@ package body Windows.UI.Popups is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function Create return Windows.UI.Popups.IPopupMenu is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Popups.PopupMenu");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Popups.IPopupMenu) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Popups.IID_IPopupMenu'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create return Windows.UI.Popups.IUICommand is
@@ -195,23 +212,6 @@ package body Windows.UI.Popups is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Popups.IID_IUICommand'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Popups.IPopupMenu is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Popups.PopupMenu");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Popups.IPopupMenu) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Popups.IID_IPopupMenu'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

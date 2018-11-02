@@ -50,20 +50,6 @@ package Windows.Security.Authentication.Web is
    
    type TokenBindingKeyType_Ptr is access TokenBindingKeyType;
    
-   type WebAuthenticationStatus is (
-      Success,
-      UserCancel,
-      ErrorHttp
-   );
-   for WebAuthenticationStatus use (
-      Success => 0,
-      UserCancel => 1,
-      ErrorHttp => 2
-   );
-   for WebAuthenticationStatus'Size use 32;
-   
-   type WebAuthenticationStatus_Ptr is access WebAuthenticationStatus;
-   
    type WebAuthenticationOptions is (
       None,
       SilentMode,
@@ -82,6 +68,20 @@ package Windows.Security.Authentication.Web is
    
    type WebAuthenticationOptions_Ptr is access WebAuthenticationOptions;
    
+   type WebAuthenticationStatus is (
+      Success,
+      UserCancel,
+      ErrorHttp
+   );
+   for WebAuthenticationStatus use (
+      Success => 0,
+      UserCancel => 1,
+      ErrorHttp => 2
+   );
+   for WebAuthenticationStatus'Size use 32;
+   
+   type WebAuthenticationStatus_Ptr is access WebAuthenticationStatus;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -94,18 +94,18 @@ package Windows.Security.Authentication.Web is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IWebAuthenticationResult_Interface;
-   type IWebAuthenticationResult is access all IWebAuthenticationResult_Interface'Class;
-   type IWebAuthenticationResult_Ptr is access all IWebAuthenticationResult;
+   type IAsyncOperation_IWebAuthenticationResult_Interface;
+   type IAsyncOperation_IWebAuthenticationResult is access all IAsyncOperation_IWebAuthenticationResult_Interface'Class;
+   type IAsyncOperation_IWebAuthenticationResult_Ptr is access all IAsyncOperation_IWebAuthenticationResult;
    type IWebAuthenticationBrokerStatics_Interface;
    type IWebAuthenticationBrokerStatics is access all IWebAuthenticationBrokerStatics_Interface'Class;
    type IWebAuthenticationBrokerStatics_Ptr is access all IWebAuthenticationBrokerStatics;
    type IWebAuthenticationBrokerStatics2_Interface;
    type IWebAuthenticationBrokerStatics2 is access all IWebAuthenticationBrokerStatics2_Interface'Class;
    type IWebAuthenticationBrokerStatics2_Ptr is access all IWebAuthenticationBrokerStatics2;
-   type IAsyncOperation_IWebAuthenticationResult_Interface;
-   type IAsyncOperation_IWebAuthenticationResult is access all IAsyncOperation_IWebAuthenticationResult_Interface'Class;
-   type IAsyncOperation_IWebAuthenticationResult_Ptr is access all IAsyncOperation_IWebAuthenticationResult;
+   type IWebAuthenticationResult_Interface;
+   type IWebAuthenticationResult is access all IWebAuthenticationResult_Interface'Class;
+   type IWebAuthenticationResult_Ptr is access all IWebAuthenticationResult;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -113,28 +113,28 @@ package Windows.Security.Authentication.Web is
    
    ------------------------------------------------------------------------
    
-   IID_IWebAuthenticationResult : aliased constant Windows.IID := (1677732683, 60905, 18186, (165, 205, 3, 35, 250, 246, 226, 98 ));
+   IID_IAsyncOperation_IWebAuthenticationResult : aliased constant Windows.IID := (3007926956, 9822, 22855, (135, 53, 233, 49, 143, 67, 1, 255 ));
    
-   type IWebAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IWebAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ResponseData
+   function put_Completed
    (
-      This       : access IWebAuthenticationResult_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IWebAuthenticationResult_Interface
+      ; handler : Windows.Security.Authentication.Web.AsyncOperationCompletedHandler_IWebAuthenticationResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_ResponseStatus
+   function get_Completed
    (
-      This       : access IWebAuthenticationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.WebAuthenticationStatus
+      This       : access IAsyncOperation_IWebAuthenticationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.AsyncOperationCompletedHandler_IWebAuthenticationResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_ResponseErrorDetail
+   function GetResults
    (
-      This       : access IWebAuthenticationResult_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IAsyncOperation_IWebAuthenticationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.IWebAuthenticationResult
    )
    return Windows.HRESULT is abstract;
    
@@ -220,28 +220,28 @@ package Windows.Security.Authentication.Web is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IWebAuthenticationResult : aliased constant Windows.IID := (3007926956, 9822, 22855, (135, 53, 233, 49, 143, 67, 1, 255 ));
+   IID_IWebAuthenticationResult : aliased constant Windows.IID := (1677732683, 60905, 18186, (165, 205, 3, 35, 250, 246, 226, 98 ));
    
-   type IAsyncOperation_IWebAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
+   type IWebAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_ResponseData
    (
-      This       : access IAsyncOperation_IWebAuthenticationResult_Interface
-      ; handler : Windows.Security.Authentication.Web.AsyncOperationCompletedHandler_IWebAuthenticationResult
+      This       : access IWebAuthenticationResult_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_ResponseStatus
    (
-      This       : access IAsyncOperation_IWebAuthenticationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.AsyncOperationCompletedHandler_IWebAuthenticationResult
+      This       : access IWebAuthenticationResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.WebAuthenticationStatus
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function get_ResponseErrorDetail
    (
-      This       : access IAsyncOperation_IWebAuthenticationResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.IWebAuthenticationResult
+      This       : access IWebAuthenticationResult_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    

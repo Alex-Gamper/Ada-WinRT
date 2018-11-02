@@ -38,19 +38,6 @@ package body Windows.ApplicationModel.Search is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface
-      ; sender : Windows.ApplicationModel.Search.ISearchPane
-      ; args : Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Search.ISearchPane(sender), Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_ISearchPane_add_QueryChanged_Interface
       ; sender : Windows.ApplicationModel.Search.ISearchPane
       ; args : Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs
@@ -59,19 +46,6 @@ package body Windows.ApplicationModel.Search is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Search.ISearchPane(sender), Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface
-      ; sender : Windows.ApplicationModel.Search.ISearchPane
-      ; args : Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Search.ISearchPane(sender), Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs(args));
       return Hr;
    end;
    
@@ -98,6 +72,32 @@ package body Windows.ApplicationModel.Search is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Search.ISearchPane(sender), Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface
+      ; sender : Windows.ApplicationModel.Search.ISearchPane
+      ; args : Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Search.ISearchPane(sender), Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface
+      ; sender : Windows.ApplicationModel.Search.ISearchPane
+      ; args : Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Search.ISearchPane(sender), Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs(args));
       return Hr;
    end;
    

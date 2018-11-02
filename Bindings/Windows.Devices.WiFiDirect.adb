@@ -53,19 +53,6 @@ package body Windows.Devices.WiFiDirect is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface
-      ; sender : Windows.Devices.WiFiDirect.IWiFiDirectDevice
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.WiFiDirect.IWiFiDirectDevice(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged_Interface
       ; sender : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher
       ; args : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisherStatusChangedEventArgs
@@ -90,43 +77,22 @@ package body Windows.Devices.WiFiDirect is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface
+      ; sender : Windows.Devices.WiFiDirect.IWiFiDirectDevice
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.WiFiDirect.IWiFiDirectDevice(sender), args);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.WiFiDirect.IID_IWiFiDirectConnectionParameters'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Devices.WiFiDirect.IWiFiDirectInformationElement is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectInformationElement");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.WiFiDirect.IWiFiDirectInformationElement) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.WiFiDirect.IID_IWiFiDirectInformationElement'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create return Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher is
       Hr            : Windows.HResult := S_OK;
@@ -162,6 +128,40 @@ package body Windows.Devices.WiFiDirect is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.WiFiDirect.IID_IWiFiDirectConnectionParameters'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Devices.WiFiDirect.IWiFiDirectInformationElement is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectInformationElement");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.WiFiDirect.IWiFiDirectInformationElement) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.WiFiDirect.IID_IWiFiDirectInformationElement'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -169,6 +169,26 @@ package body Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDevicePairingKinds
+   (
+      configurationMethod : Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod
+   )
+   return Windows.Devices.Enumeration.DevicePairingKinds is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters");
+      m_Factory     : IWiFiDirectConnectionParametersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.DevicePairingKinds;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWiFiDirectConnectionParametersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDevicePairingKinds(configurationMethod, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetDeviceSelector
    return Windows.String is
@@ -242,26 +262,6 @@ package body Windows.Devices.WiFiDirect is
       Hr := RoGetActivationFactory(m_hString, IID_IWiFiDirectDeviceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, connectionParameters, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDevicePairingKinds
-   (
-      configurationMethod : Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod
-   )
-   return Windows.Devices.Enumeration.DevicePairingKinds is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters");
-      m_Factory     : IWiFiDirectConnectionParametersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.DevicePairingKinds;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWiFiDirectConnectionParametersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDevicePairingKinds(configurationMethod, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

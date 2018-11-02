@@ -91,64 +91,100 @@ package Windows.Graphics.Printing.Workflow is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IActivatedEventArgs_Imported_Interface;
+   type IActivatedEventArgs_Imported is access all IActivatedEventArgs_Imported_Interface'Class;
+   type IActivatedEventArgs_Imported_Ptr is access all IActivatedEventArgs_Imported;
+   type IActivatedEventArgsWithUser_Imported_Interface;
+   type IActivatedEventArgsWithUser_Imported is access all IActivatedEventArgsWithUser_Imported_Interface'Class;
+   type IActivatedEventArgsWithUser_Imported_Ptr is access all IActivatedEventArgsWithUser_Imported;
    type IPrintWorkflowBackgroundSession_Interface;
    type IPrintWorkflowBackgroundSession is access all IPrintWorkflowBackgroundSession_Interface'Class;
    type IPrintWorkflowBackgroundSession_Ptr is access all IPrintWorkflowBackgroundSession;
+   type IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface;
+   type IPrintWorkflowBackgroundSetupRequestedEventArgs is access all IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface'Class;
+   type IPrintWorkflowBackgroundSetupRequestedEventArgs_Ptr is access all IPrintWorkflowBackgroundSetupRequestedEventArgs;
    type IPrintWorkflowConfiguration_Interface;
    type IPrintWorkflowConfiguration is access all IPrintWorkflowConfiguration_Interface'Class;
    type IPrintWorkflowConfiguration_Ptr is access all IPrintWorkflowConfiguration;
    type IPrintWorkflowForegroundSession_Interface;
    type IPrintWorkflowForegroundSession is access all IPrintWorkflowForegroundSession_Interface'Class;
    type IPrintWorkflowForegroundSession_Ptr is access all IPrintWorkflowForegroundSession;
-   type IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface;
-   type IPrintWorkflowBackgroundSetupRequestedEventArgs is access all IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface'Class;
-   type IPrintWorkflowBackgroundSetupRequestedEventArgs_Ptr is access all IPrintWorkflowBackgroundSetupRequestedEventArgs;
    type IPrintWorkflowForegroundSetupRequestedEventArgs_Interface;
    type IPrintWorkflowForegroundSetupRequestedEventArgs is access all IPrintWorkflowForegroundSetupRequestedEventArgs_Interface'Class;
    type IPrintWorkflowForegroundSetupRequestedEventArgs_Ptr is access all IPrintWorkflowForegroundSetupRequestedEventArgs;
-   type IPrintWorkflowSubmittedOperation_Interface;
-   type IPrintWorkflowSubmittedOperation is access all IPrintWorkflowSubmittedOperation_Interface'Class;
-   type IPrintWorkflowSubmittedOperation_Ptr is access all IPrintWorkflowSubmittedOperation;
-   type IPrintWorkflowSubmittedEventArgs_Interface;
-   type IPrintWorkflowSubmittedEventArgs is access all IPrintWorkflowSubmittedEventArgs_Interface'Class;
-   type IPrintWorkflowSubmittedEventArgs_Ptr is access all IPrintWorkflowSubmittedEventArgs;
-   type IPrintWorkflowTarget_Interface;
-   type IPrintWorkflowTarget is access all IPrintWorkflowTarget_Interface'Class;
-   type IPrintWorkflowTarget_Ptr is access all IPrintWorkflowTarget;
-   type IPrintWorkflowUIActivatedEventArgs_Interface;
-   type IPrintWorkflowUIActivatedEventArgs is access all IPrintWorkflowUIActivatedEventArgs_Interface'Class;
-   type IPrintWorkflowUIActivatedEventArgs_Ptr is access all IPrintWorkflowUIActivatedEventArgs;
-   type IPrintWorkflowXpsDataAvailableEventArgs_Interface;
-   type IPrintWorkflowXpsDataAvailableEventArgs is access all IPrintWorkflowXpsDataAvailableEventArgs_Interface'Class;
-   type IPrintWorkflowXpsDataAvailableEventArgs_Ptr is access all IPrintWorkflowXpsDataAvailableEventArgs;
+   type IPrintWorkflowObjectModelSourceFileContent_Interface;
+   type IPrintWorkflowObjectModelSourceFileContent is access all IPrintWorkflowObjectModelSourceFileContent_Interface'Class;
+   type IPrintWorkflowObjectModelSourceFileContent_Ptr is access all IPrintWorkflowObjectModelSourceFileContent;
+   type IPrintWorkflowObjectModelTargetPackage_Interface;
+   type IPrintWorkflowObjectModelTargetPackage is access all IPrintWorkflowObjectModelTargetPackage_Interface'Class;
+   type IPrintWorkflowObjectModelTargetPackage_Ptr is access all IPrintWorkflowObjectModelTargetPackage;
    type IPrintWorkflowSourceContent_Interface;
    type IPrintWorkflowSourceContent is access all IPrintWorkflowSourceContent_Interface'Class;
    type IPrintWorkflowSourceContent_Ptr is access all IPrintWorkflowSourceContent;
    type IPrintWorkflowSpoolStreamContent_Interface;
    type IPrintWorkflowSpoolStreamContent is access all IPrintWorkflowSpoolStreamContent_Interface'Class;
    type IPrintWorkflowSpoolStreamContent_Ptr is access all IPrintWorkflowSpoolStreamContent;
-   type IPrintWorkflowObjectModelSourceFileContent_Interface;
-   type IPrintWorkflowObjectModelSourceFileContent is access all IPrintWorkflowObjectModelSourceFileContent_Interface'Class;
-   type IPrintWorkflowObjectModelSourceFileContent_Ptr is access all IPrintWorkflowObjectModelSourceFileContent;
    type IPrintWorkflowStreamTarget_Interface;
    type IPrintWorkflowStreamTarget is access all IPrintWorkflowStreamTarget_Interface'Class;
    type IPrintWorkflowStreamTarget_Ptr is access all IPrintWorkflowStreamTarget;
+   type IPrintWorkflowSubmittedEventArgs_Interface;
+   type IPrintWorkflowSubmittedEventArgs is access all IPrintWorkflowSubmittedEventArgs_Interface'Class;
+   type IPrintWorkflowSubmittedEventArgs_Ptr is access all IPrintWorkflowSubmittedEventArgs;
+   type IPrintWorkflowSubmittedOperation_Interface;
+   type IPrintWorkflowSubmittedOperation is access all IPrintWorkflowSubmittedOperation_Interface'Class;
+   type IPrintWorkflowSubmittedOperation_Ptr is access all IPrintWorkflowSubmittedOperation;
+   type IPrintWorkflowTarget_Interface;
+   type IPrintWorkflowTarget is access all IPrintWorkflowTarget_Interface'Class;
+   type IPrintWorkflowTarget_Ptr is access all IPrintWorkflowTarget;
    type IPrintWorkflowTriggerDetails_Interface;
    type IPrintWorkflowTriggerDetails is access all IPrintWorkflowTriggerDetails_Interface'Class;
    type IPrintWorkflowTriggerDetails_Ptr is access all IPrintWorkflowTriggerDetails;
-   type IPrintWorkflowObjectModelTargetPackage_Interface;
-   type IPrintWorkflowObjectModelTargetPackage is access all IPrintWorkflowObjectModelTargetPackage_Interface'Class;
-   type IPrintWorkflowObjectModelTargetPackage_Ptr is access all IPrintWorkflowObjectModelTargetPackage;
-   type IActivatedEventArgsWithUser_Imported_Interface;
-   type IActivatedEventArgsWithUser_Imported is access all IActivatedEventArgsWithUser_Imported_Interface'Class;
-   type IActivatedEventArgsWithUser_Imported_Ptr is access all IActivatedEventArgsWithUser_Imported;
-   type IActivatedEventArgs_Imported_Interface;
-   type IActivatedEventArgs_Imported is access all IActivatedEventArgs_Imported_Interface'Class;
-   type IActivatedEventArgs_Imported_Ptr is access all IActivatedEventArgs_Imported;
+   type IPrintWorkflowUIActivatedEventArgs_Interface;
+   type IPrintWorkflowUIActivatedEventArgs is access all IPrintWorkflowUIActivatedEventArgs_Interface'Class;
+   type IPrintWorkflowUIActivatedEventArgs_Ptr is access all IPrintWorkflowUIActivatedEventArgs;
+   type IPrintWorkflowXpsDataAvailableEventArgs_Interface;
+   type IPrintWorkflowXpsDataAvailableEventArgs is access all IPrintWorkflowXpsDataAvailableEventArgs_Interface'Class;
+   type IPrintWorkflowXpsDataAvailableEventArgs_Ptr is access all IPrintWorkflowXpsDataAvailableEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   type IActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access IActivatedEventArgs_Imported_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.ActivationKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PreviousExecutionState
+   (
+      This       : access IActivatedEventArgs_Imported_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.ApplicationExecutionState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SplashScreen
+   (
+      This       : access IActivatedEventArgs_Imported_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.ISplashScreen
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IActivatedEventArgsWithUser_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IActivatedEventArgsWithUser_Imported_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -196,6 +232,39 @@ package Windows.Graphics.Printing.Workflow is
    function Start
    (
       This       : access IPrintWorkflowBackgroundSession_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowBackgroundSetupRequestedEventArgs : aliased constant Windows.IID := (1139372866, 5968, 22985, (97, 251, 56, 55, 72, 162, 3, 98 ));
+   
+   type IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetUserPrintTicketAsync
+   (
+      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
+      ; RetVal : access Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicket -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Configuration
+   (
+      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetRequiresUI
+   (
+      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    
@@ -277,39 +346,6 @@ package Windows.Graphics.Printing.Workflow is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintWorkflowBackgroundSetupRequestedEventArgs : aliased constant Windows.IID := (1139372866, 5968, 22985, (97, 251, 56, 55, 72, 162, 3, 98 ));
-   
-   type IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetUserPrintTicketAsync
-   (
-      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
-      ; RetVal : access Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicket -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Configuration
-   (
-      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetRequiresUI
-   (
-      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPrintWorkflowForegroundSetupRequestedEventArgs : aliased constant Windows.IID := (3152249415, 39963, 19923, (155, 43, 200, 4, 104, 217, 65, 179 ));
    
    type IPrintWorkflowForegroundSetupRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -337,111 +373,15 @@ package Windows.Graphics.Printing.Workflow is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintWorkflowSubmittedOperation : aliased constant Windows.IID := (776888854, 15329, 24335, (92, 129, 165, 162, 189, 78, 171, 14 ));
+   IID_IPrintWorkflowObjectModelSourceFileContent : aliased constant Windows.IID := (3278670442, 35370, 16794, (179, 195, 32, 144, 230, 191, 171, 47 ));
    
-   type IPrintWorkflowSubmittedOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Complete
-   (
-      This       : access IPrintWorkflowSubmittedOperation_Interface
-      ; status : Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Configuration
-   (
-      This       : access IPrintWorkflowSubmittedOperation_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_XpsContent
-   (
-      This       : access IPrintWorkflowSubmittedOperation_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowSourceContent
-   )
-   return Windows.HRESULT is abstract;
+   type IPrintWorkflowObjectModelSourceFileContent_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
-   IID_IPrintWorkflowSubmittedEventArgs : aliased constant Windows.IID := (987564609, 14228, 21865, (92, 135, 64, 232, 255, 114, 15, 131 ));
+   IID_IPrintWorkflowObjectModelTargetPackage : aliased constant Windows.IID := (2107030644, 39764, 19617, (173, 58, 151, 156, 61, 68, 221, 172 ));
    
-   type IPrintWorkflowSubmittedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Operation
-   (
-      This       : access IPrintWorkflowSubmittedEventArgs_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetTarget
-   (
-      This       : access IPrintWorkflowSubmittedEventArgs_Interface
-      ; jobPrintTicket : Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowTarget
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IPrintWorkflowSubmittedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintWorkflowTarget : aliased constant Windows.IID := (702162796, 2675, 23277, (79, 61, 151, 13, 50, 81, 240, 87 ));
-   
-   type IPrintWorkflowTarget_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TargetAsStream
-   (
-      This       : access IPrintWorkflowTarget_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowStreamTarget
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TargetAsXpsObjectModelPackage
-   (
-      This       : access IPrintWorkflowTarget_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelTargetPackage
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintWorkflowUIActivatedEventArgs : aliased constant Windows.IID := (3163194445, 2539, 22342, (114, 166, 141, 200, 181, 237, 190, 155 ));
-   
-   type IPrintWorkflowUIActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PrintWorkflowSession
-   (
-      This       : access IPrintWorkflowUIActivatedEventArgs_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintWorkflowXpsDataAvailableEventArgs : aliased constant Windows.IID := (1293009713, 21713, 17230, (190, 14, 130, 197, 250, 88, 229, 178 ));
-   
-   type IPrintWorkflowXpsDataAvailableEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Operation
-   (
-      This       : access IPrintWorkflowXpsDataAvailableEventArgs_Interface
-      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IPrintWorkflowXpsDataAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
+   type IPrintWorkflowObjectModelTargetPackage_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -485,12 +425,6 @@ package Windows.Graphics.Printing.Workflow is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintWorkflowObjectModelSourceFileContent : aliased constant Windows.IID := (3278670442, 35370, 16794, (179, 195, 32, 144, 230, 191, 171, 47 ));
-   
-   type IPrintWorkflowObjectModelSourceFileContent_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPrintWorkflowStreamTarget : aliased constant Windows.IID := (2990258820, 34149, 18571, (152, 57, 28, 158, 124, 122, 169, 22 ));
    
    type IPrintWorkflowStreamTarget_Interface is interface and Windows.IInspectable_Interface;
@@ -499,6 +433,81 @@ package Windows.Graphics.Printing.Workflow is
    (
       This       : access IPrintWorkflowStreamTarget_Interface
       ; RetVal : access Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowSubmittedEventArgs : aliased constant Windows.IID := (987564609, 14228, 21865, (92, 135, 64, 232, 255, 114, 15, 131 ));
+   
+   type IPrintWorkflowSubmittedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Operation
+   (
+      This       : access IPrintWorkflowSubmittedEventArgs_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetTarget
+   (
+      This       : access IPrintWorkflowSubmittedEventArgs_Interface
+      ; jobPrintTicket : Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowTarget
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IPrintWorkflowSubmittedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowSubmittedOperation : aliased constant Windows.IID := (776888854, 15329, 24335, (92, 129, 165, 162, 189, 78, 171, 14 ));
+   
+   type IPrintWorkflowSubmittedOperation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Complete
+   (
+      This       : access IPrintWorkflowSubmittedOperation_Interface
+      ; status : Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Configuration
+   (
+      This       : access IPrintWorkflowSubmittedOperation_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XpsContent
+   (
+      This       : access IPrintWorkflowSubmittedOperation_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowSourceContent
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowTarget : aliased constant Windows.IID := (702162796, 2675, 23277, (79, 61, 151, 13, 50, 81, 240, 87 ));
+   
+   type IPrintWorkflowTarget_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TargetAsStream
+   (
+      This       : access IPrintWorkflowTarget_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowStreamTarget
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TargetAsXpsObjectModelPackage
+   (
+      This       : access IPrintWorkflowTarget_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelTargetPackage
    )
    return Windows.HRESULT is abstract;
    
@@ -517,43 +526,34 @@ package Windows.Graphics.Printing.Workflow is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintWorkflowObjectModelTargetPackage : aliased constant Windows.IID := (2107030644, 39764, 19617, (173, 58, 151, 156, 61, 68, 221, 172 ));
+   IID_IPrintWorkflowUIActivatedEventArgs : aliased constant Windows.IID := (3163194445, 2539, 22342, (114, 166, 141, 200, 181, 237, 190, 155 ));
    
-   type IPrintWorkflowObjectModelTargetPackage_Interface is interface and Windows.IInspectable_Interface;
+   type IPrintWorkflowUIActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   ------------------------------------------------------------------------
-   
-   type IActivatedEventArgsWithUser_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_User
+   function get_PrintWorkflowSession
    (
-      This       : access IActivatedEventArgsWithUser_Imported_Interface
-      ; RetVal : access Windows.System.IUser
+      This       : access IPrintWorkflowUIActivatedEventArgs_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   type IActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
+   IID_IPrintWorkflowXpsDataAvailableEventArgs : aliased constant Windows.IID := (1293009713, 21713, 17230, (190, 14, 130, 197, 250, 88, 229, 178 ));
    
-   function get_Kind
+   type IPrintWorkflowXpsDataAvailableEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Operation
    (
-      This       : access IActivatedEventArgs_Imported_Interface
-      ; RetVal : access Windows.ApplicationModel.Activation.ActivationKind
+      This       : access IPrintWorkflowXpsDataAvailableEventArgs_Interface
+      ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedOperation
    )
    return Windows.HRESULT is abstract;
    
-   function get_PreviousExecutionState
+   function GetDeferral
    (
-      This       : access IActivatedEventArgs_Imported_Interface
-      ; RetVal : access Windows.ApplicationModel.Activation.ApplicationExecutionState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SplashScreen
-   (
-      This       : access IActivatedEventArgs_Imported_Interface
-      ; RetVal : access Windows.ApplicationModel.Activation.ISplashScreen
+      This       : access IPrintWorkflowXpsDataAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    
@@ -619,20 +619,20 @@ package Windows.Graphics.Printing.Workflow is
    
    subtype PrintWorkflowBackgroundSession is Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession;
    subtype PrintWorkflowBackgroundSetupRequestedEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSetupRequestedEventArgs;
-   subtype PrintWorkflowSubmittedEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs;
+   subtype PrintWorkflowConfiguration is Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration;
    subtype PrintWorkflowForegroundSession is Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession;
    subtype PrintWorkflowForegroundSetupRequestedEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSetupRequestedEventArgs;
-   subtype PrintWorkflowXpsDataAvailableEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs;
-   subtype PrintWorkflowConfiguration is Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration;
+   subtype PrintWorkflowObjectModelSourceFileContent is Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelSourceFileContent;
+   subtype PrintWorkflowObjectModelTargetPackage is Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelTargetPackage;
    subtype PrintWorkflowSourceContent is Windows.Graphics.Printing.Workflow.IPrintWorkflowSourceContent;
+   subtype PrintWorkflowSpoolStreamContent is Windows.Graphics.Printing.Workflow.IPrintWorkflowSpoolStreamContent;
+   subtype PrintWorkflowStreamTarget is Windows.Graphics.Printing.Workflow.IPrintWorkflowStreamTarget;
+   subtype PrintWorkflowSubmittedEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs;
    subtype PrintWorkflowSubmittedOperation is Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedOperation;
    subtype PrintWorkflowTarget is Windows.Graphics.Printing.Workflow.IPrintWorkflowTarget;
-   subtype PrintWorkflowStreamTarget is Windows.Graphics.Printing.Workflow.IPrintWorkflowStreamTarget;
-   subtype PrintWorkflowObjectModelTargetPackage is Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelTargetPackage;
-   subtype PrintWorkflowSpoolStreamContent is Windows.Graphics.Printing.Workflow.IPrintWorkflowSpoolStreamContent;
-   subtype PrintWorkflowObjectModelSourceFileContent is Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelSourceFileContent;
-   subtype PrintWorkflowUIActivatedEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowUIActivatedEventArgs;
    subtype PrintWorkflowTriggerDetails is Windows.Graphics.Printing.Workflow.IPrintWorkflowTriggerDetails;
+   subtype PrintWorkflowUIActivatedEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowUIActivatedEventArgs;
+   subtype PrintWorkflowXpsDataAvailableEventArgs is Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

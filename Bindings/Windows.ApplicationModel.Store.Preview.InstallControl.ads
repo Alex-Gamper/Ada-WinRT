@@ -39,22 +39,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    -- Enums
    ------------------------------------------------------------------------
    
-   type GetEntitlementStatus is (
-      Succeeded,
-      NoStoreAccount,
-      NetworkError,
-      ServerError
-   );
-   for GetEntitlementStatus use (
-      Succeeded => 0,
-      NoStoreAccount => 1,
-      NetworkError => 2,
-      ServerError => 3
-   );
-   for GetEntitlementStatus'Size use 32;
-   
-   type GetEntitlementStatus_Ptr is access GetEntitlementStatus;
-   
    type AppInstallState is (
       Pending,
       Starting,
@@ -121,10 +105,32 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    
    type AutoUpdateSetting_Ptr is access AutoUpdateSetting;
    
+   type GetEntitlementStatus is (
+      Succeeded,
+      NoStoreAccount,
+      NetworkError,
+      ServerError
+   );
+   for GetEntitlementStatus use (
+      Succeeded => 0,
+      NoStoreAccount => 1,
+      NetworkError => 2,
+      ServerError => 3
+   );
+   for GetEntitlementStatus'Size use 32;
+   
+   type GetEntitlementStatus_Ptr is access GetEntitlementStatus;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IAppInstallItem_Interface;
+   type AsyncOperationCompletedHandler_IAppInstallItem is access all AsyncOperationCompletedHandler_IAppInstallItem_Interface'Class;
+   type AsyncOperationCompletedHandler_IAppInstallItem_Ptr is access all AsyncOperationCompletedHandler_IAppInstallItem;
+   type AsyncOperationCompletedHandler_IGetEntitlementResult_Interface;
+   type AsyncOperationCompletedHandler_IGetEntitlementResult is access all AsyncOperationCompletedHandler_IGetEntitlementResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IGetEntitlementResult_Ptr is access all AsyncOperationCompletedHandler_IGetEntitlementResult;
    type TypedEventHandler_IAppInstallItem_add_Completed_Interface;
    type TypedEventHandler_IAppInstallItem_add_Completed is access all TypedEventHandler_IAppInstallItem_add_Completed_Interface'Class;
    type TypedEventHandler_IAppInstallItem_add_Completed_Ptr is access all TypedEventHandler_IAppInstallItem_add_Completed;
@@ -137,26 +143,11 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface;
    type TypedEventHandler_IAppInstallManager_add_ItemStatusChanged is access all TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface'Class;
    type TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Ptr is access all TypedEventHandler_IAppInstallManager_add_ItemStatusChanged;
-   type AsyncOperationCompletedHandler_IAppInstallItem_Interface;
-   type AsyncOperationCompletedHandler_IAppInstallItem is access all AsyncOperationCompletedHandler_IAppInstallItem_Interface'Class;
-   type AsyncOperationCompletedHandler_IAppInstallItem_Ptr is access all AsyncOperationCompletedHandler_IAppInstallItem;
-   type AsyncOperationCompletedHandler_IGetEntitlementResult_Interface;
-   type AsyncOperationCompletedHandler_IGetEntitlementResult is access all AsyncOperationCompletedHandler_IGetEntitlementResult_Interface'Class;
-   type AsyncOperationCompletedHandler_IGetEntitlementResult_Ptr is access all AsyncOperationCompletedHandler_IGetEntitlementResult;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IAppInstallStatus_Interface;
-   type IAppInstallStatus is access all IAppInstallStatus_Interface'Class;
-   type IAppInstallStatus_Ptr is access all IAppInstallStatus;
-   type IAppInstallStatus2_Interface;
-   type IAppInstallStatus2 is access all IAppInstallStatus2_Interface'Class;
-   type IAppInstallStatus2_Ptr is access all IAppInstallStatus2;
-   type IAppInstallStatus3_Interface;
-   type IAppInstallStatus3 is access all IAppInstallStatus3_Interface'Class;
-   type IAppInstallStatus3_Ptr is access all IAppInstallStatus3;
    type IAppInstallItem_Interface;
    type IAppInstallItem is access all IAppInstallItem_Interface'Class;
    type IAppInstallItem_Ptr is access all IAppInstallItem;
@@ -169,18 +160,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type IAppInstallItem4_Interface;
    type IAppInstallItem4 is access all IAppInstallItem4_Interface'Class;
    type IAppInstallItem4_Ptr is access all IAppInstallItem4;
-   type IGetEntitlementResult_Interface;
-   type IGetEntitlementResult is access all IGetEntitlementResult_Interface'Class;
-   type IGetEntitlementResult_Ptr is access all IGetEntitlementResult;
-   type IAppInstallManagerItemEventArgs_Interface;
-   type IAppInstallManagerItemEventArgs is access all IAppInstallManagerItemEventArgs_Interface'Class;
-   type IAppInstallManagerItemEventArgs_Ptr is access all IAppInstallManagerItemEventArgs;
-   type IAppUpdateOptions_Interface;
-   type IAppUpdateOptions is access all IAppUpdateOptions_Interface'Class;
-   type IAppUpdateOptions_Ptr is access all IAppUpdateOptions;
-   type IAppInstallOptions_Interface;
-   type IAppInstallOptions is access all IAppInstallOptions_Interface'Class;
-   type IAppInstallOptions_Ptr is access all IAppInstallOptions;
    type IAppInstallManager_Interface;
    type IAppInstallManager is access all IAppInstallManager_Interface'Class;
    type IAppInstallManager_Ptr is access all IAppInstallManager;
@@ -199,99 +178,46 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type IAppInstallManager6_Interface;
    type IAppInstallManager6 is access all IAppInstallManager6_Interface'Class;
    type IAppInstallManager6_Ptr is access all IAppInstallManager6;
-   type IIterator_IAppInstallItem_Interface;
-   type IIterator_IAppInstallItem is access all IIterator_IAppInstallItem_Interface'Class;
-   type IIterator_IAppInstallItem_Ptr is access all IIterator_IAppInstallItem;
-   type IIterable_IAppInstallItem_Interface;
-   type IIterable_IAppInstallItem is access all IIterable_IAppInstallItem_Interface'Class;
-   type IIterable_IAppInstallItem_Ptr is access all IIterable_IAppInstallItem;
-   type IVectorView_IAppInstallItem_Interface;
-   type IVectorView_IAppInstallItem is access all IVectorView_IAppInstallItem_Interface'Class;
-   type IVectorView_IAppInstallItem_Ptr is access all IVectorView_IAppInstallItem;
+   type IAppInstallManagerItemEventArgs_Interface;
+   type IAppInstallManagerItemEventArgs is access all IAppInstallManagerItemEventArgs_Interface'Class;
+   type IAppInstallManagerItemEventArgs_Ptr is access all IAppInstallManagerItemEventArgs;
+   type IAppInstallOptions_Interface;
+   type IAppInstallOptions is access all IAppInstallOptions_Interface'Class;
+   type IAppInstallOptions_Ptr is access all IAppInstallOptions;
+   type IAppInstallStatus_Interface;
+   type IAppInstallStatus is access all IAppInstallStatus_Interface'Class;
+   type IAppInstallStatus_Ptr is access all IAppInstallStatus;
+   type IAppInstallStatus2_Interface;
+   type IAppInstallStatus2 is access all IAppInstallStatus2_Interface'Class;
+   type IAppInstallStatus2_Ptr is access all IAppInstallStatus2;
+   type IAppInstallStatus3_Interface;
+   type IAppInstallStatus3 is access all IAppInstallStatus3_Interface'Class;
+   type IAppInstallStatus3_Ptr is access all IAppInstallStatus3;
+   type IAppUpdateOptions_Interface;
+   type IAppUpdateOptions is access all IAppUpdateOptions_Interface'Class;
+   type IAppUpdateOptions_Ptr is access all IAppUpdateOptions;
    type IAsyncOperation_IAppInstallItem_Interface;
    type IAsyncOperation_IAppInstallItem is access all IAsyncOperation_IAppInstallItem_Interface'Class;
    type IAsyncOperation_IAppInstallItem_Ptr is access all IAsyncOperation_IAppInstallItem;
    type IAsyncOperation_IGetEntitlementResult_Interface;
    type IAsyncOperation_IGetEntitlementResult is access all IAsyncOperation_IGetEntitlementResult_Interface'Class;
    type IAsyncOperation_IGetEntitlementResult_Ptr is access all IAsyncOperation_IGetEntitlementResult;
+   type IGetEntitlementResult_Interface;
+   type IGetEntitlementResult is access all IGetEntitlementResult_Interface'Class;
+   type IGetEntitlementResult_Ptr is access all IGetEntitlementResult;
+   type IIterable_IAppInstallItem_Interface;
+   type IIterable_IAppInstallItem is access all IIterable_IAppInstallItem_Interface'Class;
+   type IIterable_IAppInstallItem_Ptr is access all IIterable_IAppInstallItem;
+   type IIterator_IAppInstallItem_Interface;
+   type IIterator_IAppInstallItem is access all IIterator_IAppInstallItem_Interface'Class;
+   type IIterator_IAppInstallItem_Ptr is access all IIterator_IAppInstallItem;
+   type IVectorView_IAppInstallItem_Interface;
+   type IVectorView_IAppInstallItem is access all IVectorView_IAppInstallItem_Interface'Class;
+   type IVectorView_IAppInstallItem_Ptr is access all IVectorView_IAppInstallItem;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppInstallStatus : aliased constant Windows.IID := (2473446650, 9296, 16678, (136, 177, 97, 39, 166, 68, 221, 92 ));
-   
-   type IAppInstallStatus_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_InstallState
-   (
-      This       : access IAppInstallStatus_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DownloadSizeInBytes
-   (
-      This       : access IAppInstallStatus_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BytesDownloaded
-   (
-      This       : access IAppInstallStatus_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PercentComplete
-   (
-      This       : access IAppInstallStatus_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ErrorCode
-   (
-      This       : access IAppInstallStatus_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppInstallStatus2 : aliased constant Windows.IID := (2531754378, 24210, 19113, (142, 220, 88, 254, 212, 184, 126, 0 ));
-   
-   type IAppInstallStatus2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_User
-   (
-      This       : access IAppInstallStatus2_Interface
-      ; RetVal : access Windows.System.IUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ReadyForLaunch
-   (
-      This       : access IAppInstallStatus2_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppInstallStatus3 : aliased constant Windows.IID := (3414690902, 33659, 19276, (158, 187, 109, 68, 160, 169, 99, 7 ));
-   
-   type IAppInstallStatus3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsStaged
-   (
-      This       : access IAppInstallStatus3_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -445,156 +371,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    function put_LaunchAfterInstall
    (
       This       : access IAppInstallItem4_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGetEntitlementResult : aliased constant Windows.IID := (1962705983, 6814, 17929, (142, 77, 129, 144, 134, 208, 138, 61 ));
-   
-   type IGetEntitlementResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Status
-   (
-      This       : access IGetEntitlementResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppInstallManagerItemEventArgs : aliased constant Windows.IID := (3159381827, 18036, 19921, (149, 126, 194, 86, 130, 8, 106, 20 ));
-   
-   type IAppInstallManagerItemEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Item
-   (
-      This       : access IAppInstallManagerItemEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppUpdateOptions : aliased constant Windows.IID := (653307951, 49907, 19178, (175, 140, 99, 8, 221, 157, 184, 95 ));
-   
-   type IAppUpdateOptions_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CatalogId
-   (
-      This       : access IAppUpdateOptions_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CatalogId
-   (
-      This       : access IAppUpdateOptions_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AllowForcedAppRestart
-   (
-      This       : access IAppUpdateOptions_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AllowForcedAppRestart
-   (
-      This       : access IAppUpdateOptions_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppInstallOptions : aliased constant Windows.IID := (3380642560, 7352, 20150, (140, 159, 106, 48, 198, 74, 91, 81 ));
-   
-   type IAppInstallOptions_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CatalogId
-   (
-      This       : access IAppInstallOptions_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CatalogId
-   (
-      This       : access IAppInstallOptions_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ForceUseOfNonRemovableStorage
-   (
-      This       : access IAppInstallOptions_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ForceUseOfNonRemovableStorage
-   (
-      This       : access IAppInstallOptions_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AllowForcedAppRestart
-   (
-      This       : access IAppInstallOptions_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AllowForcedAppRestart
-   (
-      This       : access IAppInstallOptions_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Repair
-   (
-      This       : access IAppInstallOptions_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Repair
-   (
-      This       : access IAppInstallOptions_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TargetVolume
-   (
-      This       : access IAppInstallOptions_Interface
-      ; RetVal : access Windows.Management.Deployment.IPackageVolume
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TargetVolume
-   (
-      This       : access IAppInstallOptions_Interface
-      ; value : Windows.Management.Deployment.IPackageVolume
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LaunchAfterInstall
-   (
-      This       : access IAppInstallOptions_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_LaunchAfterInstall
-   (
-      This       : access IAppInstallOptions_Interface
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
@@ -1083,88 +859,212 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IAppInstallItem : aliased constant Windows.IID := (3433867291, 27895, 22256, (183, 255, 138, 197, 25, 30, 121, 191 ));
+   IID_IAppInstallManagerItemEventArgs : aliased constant Windows.IID := (3159381827, 18036, 19921, (149, 126, 194, 86, 130, 8, 106, 20 ));
    
-   type IIterator_IAppInstallItem_Interface is interface and Windows.IInspectable_Interface;
+   type IAppInstallManagerItemEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_Item
    (
-      This       : access IIterator_IAppInstallItem_Interface
+      This       : access IAppInstallManagerItemEventArgs_Interface
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IAppInstallItem_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IAppInstallItem_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IAppInstallItem_Interface
-      ; items : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem_Ptr
-      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IAppInstallItem : aliased constant Windows.IID := (2481049032, 20543, 21937, (145, 91, 192, 220, 120, 136, 206, 49 ));
+   IID_IAppInstallOptions : aliased constant Windows.IID := (3380642560, 7352, 20150, (140, 159, 106, 48, 198, 74, 91, 81 ));
    
-   type IIterable_IAppInstallItem_Interface is interface and Windows.IInspectable_Interface;
+   type IAppInstallOptions_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_CatalogId
    (
-      This       : access IIterable_IAppInstallItem_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IIterator_IAppInstallItem
+      This       : access IAppInstallOptions_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CatalogId
+   (
+      This       : access IAppInstallOptions_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceUseOfNonRemovableStorage
+   (
+      This       : access IAppInstallOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceUseOfNonRemovableStorage
+   (
+      This       : access IAppInstallOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowForcedAppRestart
+   (
+      This       : access IAppInstallOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowForcedAppRestart
+   (
+      This       : access IAppInstallOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Repair
+   (
+      This       : access IAppInstallOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Repair
+   (
+      This       : access IAppInstallOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TargetVolume
+   (
+      This       : access IAppInstallOptions_Interface
+      ; RetVal : access Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TargetVolume
+   (
+      This       : access IAppInstallOptions_Interface
+      ; value : Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LaunchAfterInstall
+   (
+      This       : access IAppInstallOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LaunchAfterInstall
+   (
+      This       : access IAppInstallOptions_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_IAppInstallItem : aliased constant Windows.IID := (1222113396, 43068, 21979, (178, 230, 148, 11, 233, 86, 152, 105 ));
+   IID_IAppInstallStatus : aliased constant Windows.IID := (2473446650, 9296, 16678, (136, 177, 97, 39, 166, 68, 221, 92 ));
    
-   type IVectorView_IAppInstallItem_Interface is interface and Windows.IInspectable_Interface;
+   type IAppInstallStatus_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetAt
+   function get_InstallState
    (
-      This       : access IVectorView_IAppInstallItem_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
+      This       : access IAppInstallStatus_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_DownloadSizeInBytes
    (
-      This       : access IVectorView_IAppInstallItem_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IAppInstallStatus_Interface
+      ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
    
-   function IndexOf
+   function get_BytesDownloaded
    (
-      This       : access IVectorView_IAppInstallItem_Interface
-      ; value : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
-      ; index : access Windows.UInt32
+      This       : access IAppInstallStatus_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PercentComplete
+   (
+      This       : access IAppInstallStatus_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ErrorCode
+   (
+      This       : access IAppInstallStatus_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInstallStatus2 : aliased constant Windows.IID := (2531754378, 24210, 19113, (142, 220, 88, 254, 212, 184, 126, 0 ));
+   
+   type IAppInstallStatus2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IAppInstallStatus2_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ReadyForLaunch
+   (
+      This       : access IAppInstallStatus2_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function GetMany
+   ------------------------------------------------------------------------
+   
+   IID_IAppInstallStatus3 : aliased constant Windows.IID := (3414690902, 33659, 19276, (158, 187, 109, 68, 160, 169, 99, 7 ));
+   
+   type IAppInstallStatus3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsStaged
    (
-      This       : access IVectorView_IAppInstallItem_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IAppInstallStatus3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppUpdateOptions : aliased constant Windows.IID := (653307951, 49907, 19178, (175, 140, 99, 8, 221, 157, 184, 95 ));
+   
+   type IAppUpdateOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CatalogId
+   (
+      This       : access IAppUpdateOptions_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CatalogId
+   (
+      This       : access IAppUpdateOptions_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowForcedAppRestart
+   (
+      This       : access IAppUpdateOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowForcedAppRestart
+   (
+      This       : access IAppUpdateOptions_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1223,8 +1123,134 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IGetEntitlementResult : aliased constant Windows.IID := (1962705983, 6814, 17929, (142, 77, 129, 144, 134, 208, 138, 61 ));
+   
+   type IGetEntitlementResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IGetEntitlementResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IAppInstallItem : aliased constant Windows.IID := (2481049032, 20543, 21937, (145, 91, 192, 220, 120, 136, 206, 49 ));
+   
+   type IIterable_IAppInstallItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAppInstallItem_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IIterator_IAppInstallItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IAppInstallItem : aliased constant Windows.IID := (3433867291, 27895, 22256, (183, 255, 138, 197, 25, 30, 121, 191 ));
+   
+   type IIterator_IAppInstallItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IAppInstallItem_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IAppInstallItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IAppInstallItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IAppInstallItem_Interface
+      ; items : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAppInstallItem : aliased constant Windows.IID := (1222113396, 43068, 21979, (178, 230, 148, 11, 233, 86, 152, 105 ));
+   
+   type IVectorView_IAppInstallItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IAppInstallItem_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IAppInstallItem_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IAppInstallItem_Interface
+      ; value : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IAppInstallItem_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IAppInstallItem : aliased constant Windows.IID := (2824609003, 3724, 21538, (178, 239, 173, 72, 237, 51, 135, 6 ));
+   
+   type AsyncOperationCompletedHandler_IAppInstallItem_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppInstallItem'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAppInstallItem_Interface
+      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IGetEntitlementResult : aliased constant Windows.IID := (1649778320, 7178, 22280, (146, 48, 3, 166, 88, 101, 45, 179 ));
+   
+   type AsyncOperationCompletedHandler_IGetEntitlementResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGetEntitlementResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1279,48 +1305,22 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IAppInstallItem : aliased constant Windows.IID := (2824609003, 3724, 21538, (178, 239, 173, 72, 237, 51, 135, 6 ));
-   
-   type AsyncOperationCompletedHandler_IAppInstallItem_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppInstallItem'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IAppInstallItem_Interface
-      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IGetEntitlementResult : aliased constant Windows.IID := (1649778320, 7178, 22280, (146, 48, 3, 166, 88, 101, 45, 179 ));
-   
-   type AsyncOperationCompletedHandler_IGetEntitlementResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGetEntitlementResult'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype AppInstallStatus is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus;
    subtype AppInstallItem is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem;
-   subtype GetEntitlementResult is Windows.ApplicationModel.Store.Preview.InstallControl.IGetEntitlementResult;
-   subtype AppInstallManagerItemEventArgs is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs;
-   subtype AppUpdateOptions is Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions;
-   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions;
-   
-   subtype AppInstallOptions is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions;
-   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions;
-   
    subtype AppInstallManager is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager;
    function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager;
    
+   subtype AppInstallManagerItemEventArgs is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs;
+   subtype AppInstallOptions is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions;
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions;
+   
+   subtype AppInstallStatus is Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus;
+   subtype AppUpdateOptions is Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions;
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions;
+   
+   subtype GetEntitlementResult is Windows.ApplicationModel.Store.Preview.InstallControl.IGetEntitlementResult;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

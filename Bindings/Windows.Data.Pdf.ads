@@ -68,28 +68,188 @@ package Windows.Data.Pdf is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IPdfPageDimensions_Interface;
-   type IPdfPageDimensions is access all IPdfPageDimensions_Interface'Class;
-   type IPdfPageDimensions_Ptr is access all IPdfPageDimensions;
-   type IPdfPageRenderOptions_Interface;
-   type IPdfPageRenderOptions is access all IPdfPageRenderOptions_Interface'Class;
-   type IPdfPageRenderOptions_Ptr is access all IPdfPageRenderOptions;
-   type IPdfPage_Interface;
-   type IPdfPage is access all IPdfPage_Interface'Class;
-   type IPdfPage_Ptr is access all IPdfPage;
+   type IAsyncOperation_IPdfDocument_Interface;
+   type IAsyncOperation_IPdfDocument is access all IAsyncOperation_IPdfDocument_Interface'Class;
+   type IAsyncOperation_IPdfDocument_Ptr is access all IAsyncOperation_IPdfDocument;
    type IPdfDocument_Interface;
    type IPdfDocument is access all IPdfDocument_Interface'Class;
    type IPdfDocument_Ptr is access all IPdfDocument;
    type IPdfDocumentStatics_Interface;
    type IPdfDocumentStatics is access all IPdfDocumentStatics_Interface'Class;
    type IPdfDocumentStatics_Ptr is access all IPdfDocumentStatics;
-   type IAsyncOperation_IPdfDocument_Interface;
-   type IAsyncOperation_IPdfDocument is access all IAsyncOperation_IPdfDocument_Interface'Class;
-   type IAsyncOperation_IPdfDocument_Ptr is access all IAsyncOperation_IPdfDocument;
+   type IPdfPage_Interface;
+   type IPdfPage is access all IPdfPage_Interface'Class;
+   type IPdfPage_Ptr is access all IPdfPage;
+   type IPdfPageDimensions_Interface;
+   type IPdfPageDimensions is access all IPdfPageDimensions_Interface'Class;
+   type IPdfPageDimensions_Ptr is access all IPdfPageDimensions;
+   type IPdfPageRenderOptions_Interface;
+   type IPdfPageRenderOptions is access all IPdfPageRenderOptions_Interface'Class;
+   type IPdfPageRenderOptions_Ptr is access all IPdfPageRenderOptions;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPdfDocument : aliased constant Windows.IID := (3601950444, 2458, 24290, (173, 46, 244, 200, 134, 20, 170, 187 ));
+   
+   type IAsyncOperation_IPdfDocument_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPdfDocument_Interface
+      ; handler : Windows.Data.Pdf.AsyncOperationCompletedHandler_IPdfDocument
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPdfDocument_Interface
+      ; RetVal : access Windows.Data.Pdf.AsyncOperationCompletedHandler_IPdfDocument
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPdfDocument_Interface
+      ; RetVal : access Windows.Data.Pdf.IPdfDocument
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPdfDocument : aliased constant Windows.IID := (2893987549, 33018, 16521, (132, 110, 129, 183, 127, 245, 168, 108 ));
+   
+   type IPdfDocument_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetPage
+   (
+      This       : access IPdfDocument_Interface
+      ; pageIndex : Windows.UInt32
+      ; RetVal : access Windows.Data.Pdf.IPdfPage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PageCount
+   (
+      This       : access IPdfDocument_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsPasswordProtected
+   (
+      This       : access IPdfDocument_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPdfDocumentStatics : aliased constant Windows.IID := (1127877471, 49159, 18312, (144, 242, 8, 20, 61, 146, 37, 153 ));
+   
+   type IPdfDocumentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function LoadFromFileAsync
+   (
+      This       : access IPdfDocumentStatics_Interface
+      ; file : Windows.Storage.IStorageFile
+      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromFileWithPasswordAsync
+   (
+      This       : access IPdfDocumentStatics_Interface
+      ; file : Windows.Storage.IStorageFile
+      ; password : Windows.String
+      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromStreamAsync
+   (
+      This       : access IPdfDocumentStatics_Interface
+      ; inputStream : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromStreamWithPasswordAsync
+   (
+      This       : access IPdfDocumentStatics_Interface
+      ; inputStream : Windows.Storage.Streams.IRandomAccessStream
+      ; password : Windows.String
+      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPdfPage : aliased constant Windows.IID := (2645864648, 21280, 19708, (173, 118, 73, 63, 218, 208, 229, 148 ));
+   
+   type IPdfPage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RenderToStreamAsync
+   (
+      This       : access IPdfPage_Interface
+      ; outputStream : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RenderWithOptionsToStreamAsync
+   (
+      This       : access IPdfPage_Interface
+      ; outputStream : Windows.Storage.Streams.IRandomAccessStream
+      ; options : Windows.Data.Pdf.IPdfPageRenderOptions
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PreparePageAsync
+   (
+      This       : access IPdfPage_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Index
+   (
+      This       : access IPdfPage_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IPdfPage_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Dimensions
+   (
+      This       : access IPdfPage_Interface
+      ; RetVal : access Windows.Data.Pdf.IPdfPageDimensions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rotation
+   (
+      This       : access IPdfPage_Interface
+      ; RetVal : access Windows.Data.Pdf.PdfPageRotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PreferredZoom
+   (
+      This       : access IPdfPage_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -223,166 +383,6 @@ package Windows.Data.Pdf is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IPdfPage : aliased constant Windows.IID := (2645864648, 21280, 19708, (173, 118, 73, 63, 218, 208, 229, 148 ));
-   
-   type IPdfPage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RenderToStreamAsync
-   (
-      This       : access IPdfPage_Interface
-      ; outputStream : Windows.Storage.Streams.IRandomAccessStream
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RenderWithOptionsToStreamAsync
-   (
-      This       : access IPdfPage_Interface
-      ; outputStream : Windows.Storage.Streams.IRandomAccessStream
-      ; options : Windows.Data.Pdf.IPdfPageRenderOptions
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function PreparePageAsync
-   (
-      This       : access IPdfPage_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Index
-   (
-      This       : access IPdfPage_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IPdfPage_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Dimensions
-   (
-      This       : access IPdfPage_Interface
-      ; RetVal : access Windows.Data.Pdf.IPdfPageDimensions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Rotation
-   (
-      This       : access IPdfPage_Interface
-      ; RetVal : access Windows.Data.Pdf.PdfPageRotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PreferredZoom
-   (
-      This       : access IPdfPage_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPdfDocument : aliased constant Windows.IID := (2893987549, 33018, 16521, (132, 110, 129, 183, 127, 245, 168, 108 ));
-   
-   type IPdfDocument_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetPage
-   (
-      This       : access IPdfDocument_Interface
-      ; pageIndex : Windows.UInt32
-      ; RetVal : access Windows.Data.Pdf.IPdfPage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PageCount
-   (
-      This       : access IPdfDocument_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsPasswordProtected
-   (
-      This       : access IPdfDocument_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPdfDocumentStatics : aliased constant Windows.IID := (1127877471, 49159, 18312, (144, 242, 8, 20, 61, 146, 37, 153 ));
-   
-   type IPdfDocumentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function LoadFromFileAsync
-   (
-      This       : access IPdfDocumentStatics_Interface
-      ; file : Windows.Storage.IStorageFile
-      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LoadFromFileWithPasswordAsync
-   (
-      This       : access IPdfDocumentStatics_Interface
-      ; file : Windows.Storage.IStorageFile
-      ; password : Windows.String
-      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LoadFromStreamAsync
-   (
-      This       : access IPdfDocumentStatics_Interface
-      ; inputStream : Windows.Storage.Streams.IRandomAccessStream
-      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LoadFromStreamWithPasswordAsync
-   (
-      This       : access IPdfDocumentStatics_Interface
-      ; inputStream : Windows.Storage.Streams.IRandomAccessStream
-      ; password : Windows.String
-      ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPdfDocument : aliased constant Windows.IID := (3601950444, 2458, 24290, (173, 46, 244, 200, 134, 20, 170, 187 ));
-   
-   type IAsyncOperation_IPdfDocument_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPdfDocument_Interface
-      ; handler : Windows.Data.Pdf.AsyncOperationCompletedHandler_IPdfDocument
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPdfDocument_Interface
-      ; RetVal : access Windows.Data.Pdf.AsyncOperationCompletedHandler_IPdfDocument
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPdfDocument_Interface
-      ; RetVal : access Windows.Data.Pdf.IPdfDocument
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -403,12 +403,12 @@ package Windows.Data.Pdf is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype PdfDocument is Windows.Data.Pdf.IPdfDocument;
+   subtype PdfPage is Windows.Data.Pdf.IPdfPage;
+   subtype PdfPageDimensions is Windows.Data.Pdf.IPdfPageDimensions;
    subtype PdfPageRenderOptions is Windows.Data.Pdf.IPdfPageRenderOptions;
    function Create return Windows.Data.Pdf.IPdfPageRenderOptions;
    
-   subtype PdfPageDimensions is Windows.Data.Pdf.IPdfPageDimensions;
-   subtype PdfPage is Windows.Data.Pdf.IPdfPage;
-   subtype PdfDocument is Windows.Data.Pdf.IPdfDocument;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

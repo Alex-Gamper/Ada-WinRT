@@ -62,29 +62,6 @@ package body Windows.Services.Maps.LocalSearch is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function FindLocalLocationsAsync
-   (
-      searchTerm : Windows.String
-      ; searchArea : Windows.Devices.Geolocation.IGeocircle
-      ; localCategory : Windows.String
-      ; maxResults : Windows.UInt32
-   )
-   return Windows.Services.Maps.LocalSearch.IAsyncOperation_ILocalLocationFinderResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.LocalSearch.LocalLocationFinder");
-      m_Factory     : ILocalLocationFinderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Services.Maps.LocalSearch.IAsyncOperation_ILocalLocationFinderResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILocalLocationFinderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindLocalLocationsAsync(searchTerm, searchArea, localCategory, maxResults, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_BankAndCreditUnions
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -215,6 +192,29 @@ package body Windows.Services.Maps.LocalSearch is
       Hr := RoGetActivationFactory(m_hString, IID_ILocalCategoriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Shop(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindLocalLocationsAsync
+   (
+      searchTerm : Windows.String
+      ; searchArea : Windows.Devices.Geolocation.IGeocircle
+      ; localCategory : Windows.String
+      ; maxResults : Windows.UInt32
+   )
+   return Windows.Services.Maps.LocalSearch.IAsyncOperation_ILocalLocationFinderResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.LocalSearch.LocalLocationFinder");
+      m_Factory     : ILocalLocationFinderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Maps.LocalSearch.IAsyncOperation_ILocalLocationFinderResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILocalLocationFinderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindLocalLocationsAsync(searchTerm, searchArea, localCategory, maxResults, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

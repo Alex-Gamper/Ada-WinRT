@@ -42,6 +42,23 @@ package body Windows.System.Profile.SystemManufacturers is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_SerialNumber
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.SystemManufacturers.SmbiosInformation");
+      m_Factory     : ISmbiosInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmbiosInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SerialNumber(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_LocalSystemEdition
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -70,23 +87,6 @@ package body Windows.System.Profile.SystemManufacturers is
       Hr := RoGetActivationFactory(m_hString, IID_ISystemSupportInfoStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_OemSupportInfo(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SerialNumber
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.SystemManufacturers.SmbiosInformation");
-      m_Factory     : ISmbiosInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmbiosInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SerialNumber(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

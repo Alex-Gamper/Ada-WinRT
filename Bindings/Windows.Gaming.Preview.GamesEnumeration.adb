@@ -38,6 +38,19 @@ package body Windows.Gaming.Preview.GamesEnumeration is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IGameListEntry_Interface
+      ; asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access GameListChangedEventHandler_Interface
       ; game : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
    )
@@ -60,19 +73,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGameListEntry_Interface
-      ; asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
@@ -84,23 +84,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function GetDefault
-   return Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration");
-      m_Factory     : IGameModeUserConfigurationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGameModeUserConfigurationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function FindAllAsync
    return Windows.Address is
@@ -288,6 +271,23 @@ package body Windows.Gaming.Preview.GamesEnumeration is
       Hr := RoGetActivationFactory(m_hString, IID_IGameListStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.UnmergeEntryAsync(mergedEntry, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration");
+      m_Factory     : IGameModeUserConfigurationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGameModeUserConfigurationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

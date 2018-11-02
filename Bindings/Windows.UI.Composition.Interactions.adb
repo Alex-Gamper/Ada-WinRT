@@ -109,6 +109,26 @@ package body Windows.UI.Composition.Interactions is
    (
       compositor : Windows.UI.Composition.ICompositor
    )
+   return Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion");
+      m_Factory     : IInteractionTrackerInertiaMotionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInteractionTrackerInertiaMotionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(compositor, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      compositor : Windows.UI.Composition.ICompositor
+   )
    return Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion");
@@ -149,14 +169,14 @@ package body Windows.UI.Composition.Interactions is
    (
       compositor : Windows.UI.Composition.ICompositor
    )
-   return Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion is
+   return Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion");
-      m_Factory     : IInteractionTrackerInertiaMotionStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion");
+      m_Factory     : IInteractionTrackerVector2InertiaNaturalMotionStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion;
+      RetVal        : aliased Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInteractionTrackerInertiaMotionStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IInteractionTrackerVector2InertiaNaturalMotionStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(compositor, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -179,26 +199,6 @@ package body Windows.UI.Composition.Interactions is
       Hr := RoGetActivationFactory(m_hString, IID_IVisualInteractionSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(source, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      compositor : Windows.UI.Composition.ICompositor
-   )
-   return Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion");
-      m_Factory     : IInteractionTrackerVector2InertiaNaturalMotionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInteractionTrackerVector2InertiaNaturalMotionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(compositor, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

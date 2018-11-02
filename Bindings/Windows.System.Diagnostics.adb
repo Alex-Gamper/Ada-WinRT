@@ -44,6 +44,60 @@ package body Windows.System.Diagnostics is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetDefault
+   return Windows.System.Diagnostics.IDiagnosticInvoker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.DiagnosticInvoker");
+      m_Factory     : IDiagnosticInvokerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Diagnostics.IDiagnosticInvoker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDiagnosticInvokerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.Diagnostics.IDiagnosticInvoker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.DiagnosticInvoker");
+      m_Factory     : IDiagnosticInvokerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Diagnostics.IDiagnosticInvoker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDiagnosticInvokerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.DiagnosticInvoker");
+      m_Factory     : IDiagnosticInvokerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDiagnosticInvokerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function TryGetForProcessId
    (
       processId : Windows.UInt32
@@ -109,60 +163,6 @@ package body Windows.System.Diagnostics is
       Hr := RoGetActivationFactory(m_hString, IID_ISystemDiagnosticInfoStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForCurrentSystem(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.System.Diagnostics.IDiagnosticInvoker is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.DiagnosticInvoker");
-      m_Factory     : IDiagnosticInvokerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Diagnostics.IDiagnosticInvoker;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDiagnosticInvokerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.System.Diagnostics.IDiagnosticInvoker is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.DiagnosticInvoker");
-      m_Factory     : IDiagnosticInvokerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Diagnostics.IDiagnosticInvoker;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDiagnosticInvokerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Diagnostics.DiagnosticInvoker");
-      m_Factory     : IDiagnosticInvokerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDiagnosticInvokerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSupported(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

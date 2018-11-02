@@ -37,14 +37,14 @@ package body Windows.Services.Maps.OfflineMaps is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface
-      ; sender : Windows.Services.Maps.OfflineMaps.IOfflineMapPackage
-      ; args : Windows.Object
+      This       : access AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface
+      ; asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageQueryResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Services.Maps.OfflineMaps.IOfflineMapPackage(sender), args);
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -63,14 +63,14 @@ package body Windows.Services.Maps.OfflineMaps is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface
-      ; asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageQueryResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface
+      ; sender : Windows.Services.Maps.OfflineMaps.IOfflineMapPackage
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Services.Maps.OfflineMaps.IOfflineMapPackage(sender), args);
       return Hr;
    end;
    

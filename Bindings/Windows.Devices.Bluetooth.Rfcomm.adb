@@ -41,8 +41,8 @@ package body Windows.Devices.Bluetooth.Rfcomm is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IRfcommDeviceServicesResult_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceServicesResult
+      This       : access AsyncOperationCompletedHandler_IRfcommDeviceService_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -54,8 +54,8 @@ package body Windows.Devices.Bluetooth.Rfcomm is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IRfcommDeviceService_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService
+      This       : access AsyncOperationCompletedHandler_IRfcommDeviceServicesResult_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceServicesResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

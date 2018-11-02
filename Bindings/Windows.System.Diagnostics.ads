@@ -62,6 +62,30 @@ package Windows.System.Diagnostics is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IDiagnosticActionResult_Interface;
+   type IDiagnosticActionResult is access all IDiagnosticActionResult_Interface'Class;
+   type IDiagnosticActionResult_Ptr is access all IDiagnosticActionResult;
+   type IDiagnosticInvoker_Interface;
+   type IDiagnosticInvoker is access all IDiagnosticInvoker_Interface'Class;
+   type IDiagnosticInvoker_Ptr is access all IDiagnosticInvoker;
+   type IDiagnosticInvoker2_Interface;
+   type IDiagnosticInvoker2 is access all IDiagnosticInvoker2_Interface'Class;
+   type IDiagnosticInvoker2_Ptr is access all IDiagnosticInvoker2;
+   type IDiagnosticInvokerStatics_Interface;
+   type IDiagnosticInvokerStatics is access all IDiagnosticInvokerStatics_Interface'Class;
+   type IDiagnosticInvokerStatics_Ptr is access all IDiagnosticInvokerStatics;
+   type IIterable_IProcessDiagnosticInfo_Interface;
+   type IIterable_IProcessDiagnosticInfo is access all IIterable_IProcessDiagnosticInfo_Interface'Class;
+   type IIterable_IProcessDiagnosticInfo_Ptr is access all IIterable_IProcessDiagnosticInfo;
+   type IIterator_IProcessDiagnosticInfo_Interface;
+   type IIterator_IProcessDiagnosticInfo is access all IIterator_IProcessDiagnosticInfo_Interface'Class;
+   type IIterator_IProcessDiagnosticInfo_Ptr is access all IIterator_IProcessDiagnosticInfo;
+   type IProcessCpuUsage_Interface;
+   type IProcessCpuUsage is access all IProcessCpuUsage_Interface'Class;
+   type IProcessCpuUsage_Ptr is access all IProcessCpuUsage;
+   type IProcessCpuUsageReport_Interface;
+   type IProcessCpuUsageReport is access all IProcessCpuUsageReport_Interface'Class;
+   type IProcessCpuUsageReport_Ptr is access all IProcessCpuUsageReport;
    type IProcessDiagnosticInfo_Interface;
    type IProcessDiagnosticInfo is access all IProcessDiagnosticInfo_Interface'Class;
    type IProcessDiagnosticInfo_Ptr is access all IProcessDiagnosticInfo;
@@ -74,24 +98,24 @@ package Windows.System.Diagnostics is
    type IProcessDiagnosticInfoStatics2_Interface;
    type IProcessDiagnosticInfoStatics2 is access all IProcessDiagnosticInfoStatics2_Interface'Class;
    type IProcessDiagnosticInfoStatics2_Ptr is access all IProcessDiagnosticInfoStatics2;
-   type IProcessMemoryUsage_Interface;
-   type IProcessMemoryUsage is access all IProcessMemoryUsage_Interface'Class;
-   type IProcessMemoryUsage_Ptr is access all IProcessMemoryUsage;
-   type IProcessMemoryUsageReport_Interface;
-   type IProcessMemoryUsageReport is access all IProcessMemoryUsageReport_Interface'Class;
-   type IProcessMemoryUsageReport_Ptr is access all IProcessMemoryUsageReport;
    type IProcessDiskUsage_Interface;
    type IProcessDiskUsage is access all IProcessDiskUsage_Interface'Class;
    type IProcessDiskUsage_Ptr is access all IProcessDiskUsage;
    type IProcessDiskUsageReport_Interface;
    type IProcessDiskUsageReport is access all IProcessDiskUsageReport_Interface'Class;
    type IProcessDiskUsageReport_Ptr is access all IProcessDiskUsageReport;
-   type IProcessCpuUsage_Interface;
-   type IProcessCpuUsage is access all IProcessCpuUsage_Interface'Class;
-   type IProcessCpuUsage_Ptr is access all IProcessCpuUsage;
-   type IProcessCpuUsageReport_Interface;
-   type IProcessCpuUsageReport is access all IProcessCpuUsageReport_Interface'Class;
-   type IProcessCpuUsageReport_Ptr is access all IProcessCpuUsageReport;
+   type IProcessMemoryUsage_Interface;
+   type IProcessMemoryUsage is access all IProcessMemoryUsage_Interface'Class;
+   type IProcessMemoryUsage_Ptr is access all IProcessMemoryUsage;
+   type IProcessMemoryUsageReport_Interface;
+   type IProcessMemoryUsageReport is access all IProcessMemoryUsageReport_Interface'Class;
+   type IProcessMemoryUsageReport_Ptr is access all IProcessMemoryUsageReport;
+   type ISystemCpuUsage_Interface;
+   type ISystemCpuUsage is access all ISystemCpuUsage_Interface'Class;
+   type ISystemCpuUsage_Ptr is access all ISystemCpuUsage;
+   type ISystemCpuUsageReport_Interface;
+   type ISystemCpuUsageReport is access all ISystemCpuUsageReport_Interface'Class;
+   type ISystemCpuUsageReport_Ptr is access all ISystemCpuUsageReport;
    type ISystemDiagnosticInfo_Interface;
    type ISystemDiagnosticInfo is access all ISystemDiagnosticInfo_Interface'Class;
    type ISystemDiagnosticInfo_Ptr is access all ISystemDiagnosticInfo;
@@ -104,40 +128,173 @@ package Windows.System.Diagnostics is
    type ISystemMemoryUsageReport_Interface;
    type ISystemMemoryUsageReport is access all ISystemMemoryUsageReport_Interface'Class;
    type ISystemMemoryUsageReport_Ptr is access all ISystemMemoryUsageReport;
-   type ISystemCpuUsage_Interface;
-   type ISystemCpuUsage is access all ISystemCpuUsage_Interface'Class;
-   type ISystemCpuUsage_Ptr is access all ISystemCpuUsage;
-   type ISystemCpuUsageReport_Interface;
-   type ISystemCpuUsageReport is access all ISystemCpuUsageReport_Interface'Class;
-   type ISystemCpuUsageReport_Ptr is access all ISystemCpuUsageReport;
-   type IDiagnosticActionResult_Interface;
-   type IDiagnosticActionResult is access all IDiagnosticActionResult_Interface'Class;
-   type IDiagnosticActionResult_Ptr is access all IDiagnosticActionResult;
-   type IDiagnosticInvokerStatics_Interface;
-   type IDiagnosticInvokerStatics is access all IDiagnosticInvokerStatics_Interface'Class;
-   type IDiagnosticInvokerStatics_Ptr is access all IDiagnosticInvokerStatics;
-   type IDiagnosticInvoker_Interface;
-   type IDiagnosticInvoker is access all IDiagnosticInvoker_Interface'Class;
-   type IDiagnosticInvoker_Ptr is access all IDiagnosticInvoker;
-   type IDiagnosticInvoker2_Interface;
-   type IDiagnosticInvoker2 is access all IDiagnosticInvoker2_Interface'Class;
-   type IDiagnosticInvoker2_Ptr is access all IDiagnosticInvoker2;
-   type IIterator_IProcessDiagnosticInfo_Interface;
-   type IIterator_IProcessDiagnosticInfo is access all IIterator_IProcessDiagnosticInfo_Interface'Class;
-   type IIterator_IProcessDiagnosticInfo_Ptr is access all IIterator_IProcessDiagnosticInfo;
-   type IIterable_IProcessDiagnosticInfo_Interface;
-   type IIterable_IProcessDiagnosticInfo is access all IIterable_IProcessDiagnosticInfo_Interface'Class;
-   type IIterable_IProcessDiagnosticInfo_Ptr is access all IIterable_IProcessDiagnosticInfo;
-   type IVectorView_IProcessDiagnosticInfo_Interface;
-   type IVectorView_IProcessDiagnosticInfo is access all IVectorView_IProcessDiagnosticInfo_Interface'Class;
-   type IVectorView_IProcessDiagnosticInfo_Ptr is access all IVectorView_IProcessDiagnosticInfo;
    type IVector_IProcessDiagnosticInfo_Interface;
    type IVector_IProcessDiagnosticInfo is access all IVector_IProcessDiagnosticInfo_Interface'Class;
    type IVector_IProcessDiagnosticInfo_Ptr is access all IVector_IProcessDiagnosticInfo;
+   type IVectorView_IProcessDiagnosticInfo_Interface;
+   type IVectorView_IProcessDiagnosticInfo is access all IVectorView_IProcessDiagnosticInfo_Interface'Class;
+   type IVectorView_IProcessDiagnosticInfo_Ptr is access all IVectorView_IProcessDiagnosticInfo;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDiagnosticActionResult : aliased constant Windows.IID := (3261440662, 59195, 16535, (178, 143, 52, 66, 240, 61, 216, 49 ));
+   
+   type IDiagnosticActionResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IDiagnosticActionResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Results
+   (
+      This       : access IDiagnosticActionResult_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDiagnosticInvoker : aliased constant Windows.IID := (410724106, 739, 20358, (132, 252, 253, 216, 146, 181, 148, 15 ));
+   
+   type IDiagnosticInvoker_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RunDiagnosticActionAsync
+   (
+      This       : access IDiagnosticInvoker_Interface
+      ; context : Windows.Data.Json.IJsonObject
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDiagnosticInvoker2 : aliased constant Windows.IID := (3820983388, 5466, 19282, (168, 236, 7, 12, 68, 249, 80, 0 ));
+   
+   type IDiagnosticInvoker2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RunDiagnosticActionFromStringAsync
+   (
+      This       : access IDiagnosticInvoker2_Interface
+      ; context : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDiagnosticInvokerStatics : aliased constant Windows.IID := (1559943390, 61788, 17748, (168, 19, 193, 19, 195, 136, 27, 9 ));
+   
+   type IDiagnosticInvokerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IDiagnosticInvokerStatics_Interface
+      ; RetVal : access Windows.System.Diagnostics.IDiagnosticInvoker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetForUser
+   (
+      This       : access IDiagnosticInvokerStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.System.Diagnostics.IDiagnosticInvoker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSupported
+   (
+      This       : access IDiagnosticInvokerStatics_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IProcessDiagnosticInfo : aliased constant Windows.IID := (2545366567, 45718, 20598, (184, 205, 107, 216, 162, 64, 233, 102 ));
+   
+   type IIterable_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IProcessDiagnosticInfo_Interface
+      ; RetVal : access Windows.System.Diagnostics.IIterator_IProcessDiagnosticInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IProcessDiagnosticInfo : aliased constant Windows.IID := (2828747800, 19515, 24393, (185, 87, 120, 86, 151, 201, 154, 191 ));
+   
+   type IIterator_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IProcessDiagnosticInfo_Interface
+      ; RetVal : access Windows.System.Diagnostics.IProcessDiagnosticInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IProcessDiagnosticInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IProcessDiagnosticInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IProcessDiagnosticInfo_Interface
+      ; items : Windows.System.Diagnostics.IProcessDiagnosticInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProcessCpuUsage : aliased constant Windows.IID := (196813938, 51391, 16954, (168, 16, 181, 89, 174, 67, 84, 226 ));
+   
+   type IProcessCpuUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetReport
+   (
+      This       : access IProcessCpuUsage_Interface
+      ; RetVal : access Windows.System.Diagnostics.IProcessCpuUsageReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProcessCpuUsageReport : aliased constant Windows.IID := (2322439340, 14727, 20015, (161, 25, 107, 95, 162, 20, 241, 180 ));
+   
+   type IProcessCpuUsageReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KernelTime
+   (
+      This       : access IProcessCpuUsageReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UserTime
+   (
+      This       : access IProcessCpuUsageReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -250,6 +407,67 @@ package Windows.System.Diagnostics is
    
    ------------------------------------------------------------------------
    
+   IID_IProcessDiskUsage : aliased constant Windows.IID := (1524075517, 32337, 20051, (191, 170, 90, 110, 225, 170, 187, 248 ));
+   
+   type IProcessDiskUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetReport
+   (
+      This       : access IProcessDiskUsage_Interface
+      ; RetVal : access Windows.System.Diagnostics.IProcessDiskUsageReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProcessDiskUsageReport : aliased constant Windows.IID := (1075193853, 21341, 19487, (129, 184, 218, 84, 225, 190, 99, 94 ));
+   
+   type IProcessDiskUsageReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReadOperationCount
+   (
+      This       : access IProcessDiskUsageReport_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WriteOperationCount
+   (
+      This       : access IProcessDiskUsageReport_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OtherOperationCount
+   (
+      This       : access IProcessDiskUsageReport_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BytesReadCount
+   (
+      This       : access IProcessDiskUsageReport_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BytesWrittenCount
+   (
+      This       : access IProcessDiskUsageReport_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OtherBytesCount
+   (
+      This       : access IProcessDiskUsageReport_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IProcessMemoryUsage : aliased constant Windows.IID := (4111147675, 33404, 17079, (176, 124, 14, 50, 98, 126, 107, 62 ));
    
    type IProcessMemoryUsage_Interface is interface and Windows.IInspectable_Interface;
@@ -353,94 +571,40 @@ package Windows.System.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_IProcessDiskUsage : aliased constant Windows.IID := (1524075517, 32337, 20051, (191, 170, 90, 110, 225, 170, 187, 248 ));
+   IID_ISystemCpuUsage : aliased constant Windows.IID := (1614263212, 726, 16948, (131, 98, 127, 227, 173, 200, 31, 95 ));
    
-   type IProcessDiskUsage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetReport
-   (
-      This       : access IProcessDiskUsage_Interface
-      ; RetVal : access Windows.System.Diagnostics.IProcessDiskUsageReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProcessDiskUsageReport : aliased constant Windows.IID := (1075193853, 21341, 19487, (129, 184, 218, 84, 225, 190, 99, 94 ));
-   
-   type IProcessDiskUsageReport_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ReadOperationCount
-   (
-      This       : access IProcessDiskUsageReport_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WriteOperationCount
-   (
-      This       : access IProcessDiskUsageReport_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OtherOperationCount
-   (
-      This       : access IProcessDiskUsageReport_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BytesReadCount
-   (
-      This       : access IProcessDiskUsageReport_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BytesWrittenCount
-   (
-      This       : access IProcessDiskUsageReport_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OtherBytesCount
-   (
-      This       : access IProcessDiskUsageReport_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProcessCpuUsage : aliased constant Windows.IID := (196813938, 51391, 16954, (168, 16, 181, 89, 174, 67, 84, 226 ));
-   
-   type IProcessCpuUsage_Interface is interface and Windows.IInspectable_Interface;
+   type ISystemCpuUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReport
    (
-      This       : access IProcessCpuUsage_Interface
-      ; RetVal : access Windows.System.Diagnostics.IProcessCpuUsageReport
+      This       : access ISystemCpuUsage_Interface
+      ; RetVal : access Windows.System.Diagnostics.ISystemCpuUsageReport
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IProcessCpuUsageReport : aliased constant Windows.IID := (2322439340, 14727, 20015, (161, 25, 107, 95, 162, 20, 241, 180 ));
+   IID_ISystemCpuUsageReport : aliased constant Windows.IID := (740741298, 38019, 20322, (171, 87, 130, 178, 157, 151, 25, 184 ));
    
-   type IProcessCpuUsageReport_Interface is interface and Windows.IInspectable_Interface;
+   type ISystemCpuUsageReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KernelTime
    (
-      This       : access IProcessCpuUsageReport_Interface
+      This       : access ISystemCpuUsageReport_Interface
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
    
    function get_UserTime
    (
-      This       : access IProcessCpuUsageReport_Interface
+      This       : access ISystemCpuUsageReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IdleTime
+   (
+      This       : access ISystemCpuUsageReport_Interface
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
@@ -515,209 +679,6 @@ package Windows.System.Diagnostics is
    (
       This       : access ISystemMemoryUsageReport_Interface
       ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISystemCpuUsage : aliased constant Windows.IID := (1614263212, 726, 16948, (131, 98, 127, 227, 173, 200, 31, 95 ));
-   
-   type ISystemCpuUsage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetReport
-   (
-      This       : access ISystemCpuUsage_Interface
-      ; RetVal : access Windows.System.Diagnostics.ISystemCpuUsageReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISystemCpuUsageReport : aliased constant Windows.IID := (740741298, 38019, 20322, (171, 87, 130, 178, 157, 151, 25, 184 ));
-   
-   type ISystemCpuUsageReport_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_KernelTime
-   (
-      This       : access ISystemCpuUsageReport_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UserTime
-   (
-      This       : access ISystemCpuUsageReport_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IdleTime
-   (
-      This       : access ISystemCpuUsageReport_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDiagnosticActionResult : aliased constant Windows.IID := (3261440662, 59195, 16535, (178, 143, 52, 66, 240, 61, 216, 49 ));
-   
-   type IDiagnosticActionResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExtendedError
-   (
-      This       : access IDiagnosticActionResult_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Results
-   (
-      This       : access IDiagnosticActionResult_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDiagnosticInvokerStatics : aliased constant Windows.IID := (1559943390, 61788, 17748, (168, 19, 193, 19, 195, 136, 27, 9 ));
-   
-   type IDiagnosticInvokerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDefault
-   (
-      This       : access IDiagnosticInvokerStatics_Interface
-      ; RetVal : access Windows.System.Diagnostics.IDiagnosticInvoker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetForUser
-   (
-      This       : access IDiagnosticInvokerStatics_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.System.Diagnostics.IDiagnosticInvoker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsSupported
-   (
-      This       : access IDiagnosticInvokerStatics_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDiagnosticInvoker : aliased constant Windows.IID := (410724106, 739, 20358, (132, 252, 253, 216, 146, 181, 148, 15 ));
-   
-   type IDiagnosticInvoker_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RunDiagnosticActionAsync
-   (
-      This       : access IDiagnosticInvoker_Interface
-      ; context : Windows.Data.Json.IJsonObject
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDiagnosticInvoker2 : aliased constant Windows.IID := (3820983388, 5466, 19282, (168, 236, 7, 12, 68, 249, 80, 0 ));
-   
-   type IDiagnosticInvoker2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RunDiagnosticActionFromStringAsync
-   (
-      This       : access IDiagnosticInvoker2_Interface
-      ; context : Windows.String
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IProcessDiagnosticInfo : aliased constant Windows.IID := (2828747800, 19515, 24393, (185, 87, 120, 86, 151, 201, 154, 191 ));
-   
-   type IIterator_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IProcessDiagnosticInfo_Interface
-      ; RetVal : access Windows.System.Diagnostics.IProcessDiagnosticInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IProcessDiagnosticInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IProcessDiagnosticInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IProcessDiagnosticInfo_Interface
-      ; items : Windows.System.Diagnostics.IProcessDiagnosticInfo_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IProcessDiagnosticInfo : aliased constant Windows.IID := (2545366567, 45718, 20598, (184, 205, 107, 216, 162, 64, 233, 102 ));
-   
-   type IIterable_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IProcessDiagnosticInfo_Interface
-      ; RetVal : access Windows.System.Diagnostics.IIterator_IProcessDiagnosticInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IProcessDiagnosticInfo : aliased constant Windows.IID := (1957373043, 38436, 23046, (144, 37, 109, 145, 230, 34, 191, 142 ));
-   
-   type IVectorView_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IProcessDiagnosticInfo_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.System.Diagnostics.IProcessDiagnosticInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IProcessDiagnosticInfo_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IProcessDiagnosticInfo_Interface
-      ; value : Windows.System.Diagnostics.IProcessDiagnosticInfo
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IProcessDiagnosticInfo_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.System.Diagnostics.IProcessDiagnosticInfo_Ptr
-      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -817,27 +778,78 @@ package Windows.System.Diagnostics is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IProcessDiagnosticInfo : aliased constant Windows.IID := (1957373043, 38436, 23046, (144, 37, 109, 145, 230, 34, 191, 142 ));
+   
+   type IVectorView_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IProcessDiagnosticInfo_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.System.Diagnostics.IProcessDiagnosticInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IProcessDiagnosticInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IProcessDiagnosticInfo_Interface
+      ; value : Windows.System.Diagnostics.IProcessDiagnosticInfo
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IProcessDiagnosticInfo_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.System.Diagnostics.IProcessDiagnosticInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype DiagnosticActionResult is Windows.System.Diagnostics.IDiagnosticActionResult;
+   subtype DiagnosticInvoker is Windows.System.Diagnostics.IDiagnosticInvoker;
+   subtype ProcessCpuUsage is Windows.System.Diagnostics.IProcessCpuUsage;
+   subtype ProcessCpuUsageReport is Windows.System.Diagnostics.IProcessCpuUsageReport;
    subtype ProcessDiagnosticInfo is Windows.System.Diagnostics.IProcessDiagnosticInfo;
    subtype ProcessDiskUsage is Windows.System.Diagnostics.IProcessDiskUsage;
-   subtype ProcessMemoryUsage is Windows.System.Diagnostics.IProcessMemoryUsage;
-   subtype ProcessCpuUsage is Windows.System.Diagnostics.IProcessCpuUsage;
-   subtype ProcessMemoryUsageReport is Windows.System.Diagnostics.IProcessMemoryUsageReport;
    subtype ProcessDiskUsageReport is Windows.System.Diagnostics.IProcessDiskUsageReport;
-   subtype ProcessCpuUsageReport is Windows.System.Diagnostics.IProcessCpuUsageReport;
-   subtype SystemMemoryUsage is Windows.System.Diagnostics.ISystemMemoryUsage;
+   subtype ProcessMemoryUsage is Windows.System.Diagnostics.IProcessMemoryUsage;
+   subtype ProcessMemoryUsageReport is Windows.System.Diagnostics.IProcessMemoryUsageReport;
    subtype SystemCpuUsage is Windows.System.Diagnostics.ISystemCpuUsage;
-   subtype SystemDiagnosticInfo is Windows.System.Diagnostics.ISystemDiagnosticInfo;
-   subtype SystemMemoryUsageReport is Windows.System.Diagnostics.ISystemMemoryUsageReport;
    subtype SystemCpuUsageReport is Windows.System.Diagnostics.ISystemCpuUsageReport;
-   subtype DiagnosticInvoker is Windows.System.Diagnostics.IDiagnosticInvoker;
-   subtype DiagnosticActionResult is Windows.System.Diagnostics.IDiagnosticActionResult;
+   subtype SystemDiagnosticInfo is Windows.System.Diagnostics.ISystemDiagnosticInfo;
+   subtype SystemMemoryUsage is Windows.System.Diagnostics.ISystemMemoryUsage;
+   subtype SystemMemoryUsageReport is Windows.System.Diagnostics.ISystemMemoryUsageReport;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDefault
+   return Windows.System.Diagnostics.IDiagnosticInvoker;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.Diagnostics.IDiagnosticInvoker;
+   
+   function get_IsSupported
+   return Windows.Boolean;
    
    function TryGetForProcessId
    (
@@ -853,17 +865,5 @@ package Windows.System.Diagnostics is
    
    function GetForCurrentSystem
    return Windows.System.Diagnostics.ISystemDiagnosticInfo;
-   
-   function GetDefault
-   return Windows.System.Diagnostics.IDiagnosticInvoker;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.System.Diagnostics.IDiagnosticInvoker;
-   
-   function get_IsSupported
-   return Windows.Boolean;
    
 end;

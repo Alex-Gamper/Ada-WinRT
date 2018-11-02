@@ -117,27 +117,36 @@ package Windows.System.UserProfile is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IAdvertisingManagerStatics_Interface;
-   type IAdvertisingManagerStatics is access all IAdvertisingManagerStatics_Interface'Class;
-   type IAdvertisingManagerStatics_Ptr is access all IAdvertisingManagerStatics;
    type IAdvertisingManagerForUser_Interface;
    type IAdvertisingManagerForUser is access all IAdvertisingManagerForUser_Interface'Class;
    type IAdvertisingManagerForUser_Ptr is access all IAdvertisingManagerForUser;
+   type IAdvertisingManagerStatics_Interface;
+   type IAdvertisingManagerStatics is access all IAdvertisingManagerStatics_Interface'Class;
+   type IAdvertisingManagerStatics_Ptr is access all IAdvertisingManagerStatics;
    type IAdvertisingManagerStatics2_Interface;
    type IAdvertisingManagerStatics2 is access all IAdvertisingManagerStatics2_Interface'Class;
    type IAdvertisingManagerStatics2_Ptr is access all IAdvertisingManagerStatics2;
-   type IDiagnosticsSettingsStatics_Interface;
-   type IDiagnosticsSettingsStatics is access all IDiagnosticsSettingsStatics_Interface'Class;
-   type IDiagnosticsSettingsStatics_Ptr is access all IDiagnosticsSettingsStatics;
+   type IAsyncOperation_SetAccountPictureResult_Interface;
+   type IAsyncOperation_SetAccountPictureResult is access all IAsyncOperation_SetAccountPictureResult_Interface'Class;
+   type IAsyncOperation_SetAccountPictureResult_Ptr is access all IAsyncOperation_SetAccountPictureResult;
+   type IAsyncOperation_SetImageFeedResult_Interface;
+   type IAsyncOperation_SetImageFeedResult is access all IAsyncOperation_SetImageFeedResult_Interface'Class;
+   type IAsyncOperation_SetImageFeedResult_Ptr is access all IAsyncOperation_SetImageFeedResult;
    type IDiagnosticsSettings_Interface;
    type IDiagnosticsSettings is access all IDiagnosticsSettings_Interface'Class;
    type IDiagnosticsSettings_Ptr is access all IDiagnosticsSettings;
-   type IUserProfilePersonalizationSettings_Interface;
-   type IUserProfilePersonalizationSettings is access all IUserProfilePersonalizationSettings_Interface'Class;
-   type IUserProfilePersonalizationSettings_Ptr is access all IUserProfilePersonalizationSettings;
-   type IUserProfilePersonalizationSettingsStatics_Interface;
-   type IUserProfilePersonalizationSettingsStatics is access all IUserProfilePersonalizationSettingsStatics_Interface'Class;
-   type IUserProfilePersonalizationSettingsStatics_Ptr is access all IUserProfilePersonalizationSettingsStatics;
+   type IDiagnosticsSettingsStatics_Interface;
+   type IDiagnosticsSettingsStatics is access all IDiagnosticsSettingsStatics_Interface'Class;
+   type IDiagnosticsSettingsStatics_Ptr is access all IDiagnosticsSettingsStatics;
+   type IFirstSignInSettings_Interface;
+   type IFirstSignInSettings is access all IFirstSignInSettings_Interface'Class;
+   type IFirstSignInSettings_Ptr is access all IFirstSignInSettings;
+   type IFirstSignInSettingsStatics_Interface;
+   type IFirstSignInSettingsStatics is access all IFirstSignInSettingsStatics_Interface'Class;
+   type IFirstSignInSettingsStatics_Ptr is access all IFirstSignInSettingsStatics;
+   type IGlobalizationPreferencesForUser_Interface;
+   type IGlobalizationPreferencesForUser is access all IGlobalizationPreferencesForUser_Interface'Class;
+   type IGlobalizationPreferencesForUser_Ptr is access all IGlobalizationPreferencesForUser;
    type IGlobalizationPreferencesStatics_Interface;
    type IGlobalizationPreferencesStatics is access all IGlobalizationPreferencesStatics_Interface'Class;
    type IGlobalizationPreferencesStatics_Ptr is access all IGlobalizationPreferencesStatics;
@@ -147,53 +156,31 @@ package Windows.System.UserProfile is
    type IGlobalizationPreferencesStatics3_Interface;
    type IGlobalizationPreferencesStatics3 is access all IGlobalizationPreferencesStatics3_Interface'Class;
    type IGlobalizationPreferencesStatics3_Ptr is access all IGlobalizationPreferencesStatics3;
-   type IGlobalizationPreferencesForUser_Interface;
-   type IGlobalizationPreferencesForUser is access all IGlobalizationPreferencesForUser_Interface'Class;
-   type IGlobalizationPreferencesForUser_Ptr is access all IGlobalizationPreferencesForUser;
-   type IFirstSignInSettings_Interface;
-   type IFirstSignInSettings is access all IFirstSignInSettings_Interface'Class;
-   type IFirstSignInSettings_Ptr is access all IFirstSignInSettings;
-   type IFirstSignInSettingsStatics_Interface;
-   type IFirstSignInSettingsStatics is access all IFirstSignInSettingsStatics_Interface'Class;
-   type IFirstSignInSettingsStatics_Ptr is access all IFirstSignInSettingsStatics;
-   type IMapView_String_Object_Interface;
-   type IMapView_String_Object is access all IMapView_String_Object_Interface'Class;
-   type IMapView_String_Object_Ptr is access all IMapView_String_Object;
    type IIterable_IKeyValuePair_Interface;
    type IIterable_IKeyValuePair is access all IIterable_IKeyValuePair_Interface'Class;
    type IIterable_IKeyValuePair_Ptr is access all IIterable_IKeyValuePair;
-   type IUserInformationStatics_Interface;
-   type IUserInformationStatics is access all IUserInformationStatics_Interface'Class;
-   type IUserInformationStatics_Ptr is access all IUserInformationStatics;
-   type ILockScreenStatics_Interface;
-   type ILockScreenStatics is access all ILockScreenStatics_Interface'Class;
-   type ILockScreenStatics_Ptr is access all ILockScreenStatics;
    type ILockScreenImageFeedStatics_Interface;
    type ILockScreenImageFeedStatics is access all ILockScreenImageFeedStatics_Interface'Class;
    type ILockScreenImageFeedStatics_Ptr is access all ILockScreenImageFeedStatics;
-   type IAsyncOperation_SetAccountPictureResult_Interface;
-   type IAsyncOperation_SetAccountPictureResult is access all IAsyncOperation_SetAccountPictureResult_Interface'Class;
-   type IAsyncOperation_SetAccountPictureResult_Ptr is access all IAsyncOperation_SetAccountPictureResult;
-   type IAsyncOperation_SetImageFeedResult_Interface;
-   type IAsyncOperation_SetImageFeedResult is access all IAsyncOperation_SetImageFeedResult_Interface'Class;
-   type IAsyncOperation_SetImageFeedResult_Ptr is access all IAsyncOperation_SetImageFeedResult;
+   type ILockScreenStatics_Interface;
+   type ILockScreenStatics is access all ILockScreenStatics_Interface'Class;
+   type ILockScreenStatics_Ptr is access all ILockScreenStatics;
+   type IMapView_String_Object_Interface;
+   type IMapView_String_Object is access all IMapView_String_Object_Interface'Class;
+   type IMapView_String_Object_Ptr is access all IMapView_String_Object;
+   type IUserInformationStatics_Interface;
+   type IUserInformationStatics is access all IUserInformationStatics_Interface'Class;
+   type IUserInformationStatics_Ptr is access all IUserInformationStatics;
+   type IUserProfilePersonalizationSettings_Interface;
+   type IUserProfilePersonalizationSettings is access all IUserProfilePersonalizationSettings_Interface'Class;
+   type IUserProfilePersonalizationSettings_Ptr is access all IUserProfilePersonalizationSettings;
+   type IUserProfilePersonalizationSettingsStatics_Interface;
+   type IUserProfilePersonalizationSettingsStatics is access all IUserProfilePersonalizationSettingsStatics_Interface'Class;
+   type IUserProfilePersonalizationSettingsStatics_Ptr is access all IUserProfilePersonalizationSettingsStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdvertisingManagerStatics : aliased constant Windows.IID := (2916304524, 41587, 18635, (179, 70, 53, 68, 82, 45, 85, 129 ));
-   
-   type IAdvertisingManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AdvertisingId
-   (
-      This       : access IAdvertisingManagerStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -217,6 +204,19 @@ package Windows.System.UserProfile is
    
    ------------------------------------------------------------------------
    
+   IID_IAdvertisingManagerStatics : aliased constant Windows.IID := (2916304524, 41587, 18635, (179, 70, 53, 68, 82, 45, 85, 129 ));
+   
+   type IAdvertisingManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AdvertisingId
+   (
+      This       : access IAdvertisingManagerStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAdvertisingManagerStatics2 : aliased constant Windows.IID := (3708372911, 6765, 18096, (149, 188, 243, 249, 214, 190, 185, 251 ));
    
    type IAdvertisingManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
@@ -226,6 +226,80 @@ package Windows.System.UserProfile is
       This       : access IAdvertisingManagerStatics2_Interface
       ; user : Windows.System.IUser
       ; RetVal : access Windows.System.UserProfile.IAdvertisingManagerForUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SetAccountPictureResult : aliased constant Windows.IID := (1745478662, 27963, 20836, (143, 50, 184, 69, 176, 120, 20, 5 ));
+   
+   type IAsyncOperation_SetAccountPictureResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_SetAccountPictureResult_Interface
+      ; handler : Windows.System.UserProfile.AsyncOperationCompletedHandler_SetAccountPictureResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_SetAccountPictureResult_Interface
+      ; RetVal : access Windows.System.UserProfile.AsyncOperationCompletedHandler_SetAccountPictureResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_SetAccountPictureResult_Interface
+      ; RetVal : access Windows.System.UserProfile.SetAccountPictureResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SetImageFeedResult : aliased constant Windows.IID := (1398915017, 1856, 21578, (151, 151, 31, 254, 94, 115, 197, 78 ));
+   
+   type IAsyncOperation_SetImageFeedResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_SetImageFeedResult_Interface
+      ; handler : Windows.System.UserProfile.AsyncOperationCompletedHandler_SetImageFeedResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_SetImageFeedResult_Interface
+      ; RetVal : access Windows.System.UserProfile.AsyncOperationCompletedHandler_SetImageFeedResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_SetImageFeedResult_Interface
+      ; RetVal : access Windows.System.UserProfile.SetImageFeedResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDiagnosticsSettings : aliased constant Windows.IID := (3857312973, 10001, 17632, (151, 60, 73, 29, 120, 4, 141, 36 ));
+   
+   type IDiagnosticsSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanUseDiagnosticsToTailorExperiences
+   (
+      This       : access IDiagnosticsSettings_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_User
+   (
+      This       : access IDiagnosticsSettings_Interface
+      ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
    
@@ -252,63 +326,75 @@ package Windows.System.UserProfile is
    
    ------------------------------------------------------------------------
    
-   IID_IDiagnosticsSettings : aliased constant Windows.IID := (3857312973, 10001, 17632, (151, 60, 73, 29, 120, 4, 141, 36 ));
+   IID_IFirstSignInSettings : aliased constant Windows.IID := (1049907539, 14942, 17710, (166, 1, 245, 186, 173, 42, 72, 112 ));
    
-   type IDiagnosticsSettings_Interface is interface and Windows.IInspectable_Interface;
+   type IFirstSignInSettings_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_CanUseDiagnosticsToTailorExperiences
+   ------------------------------------------------------------------------
+   
+   IID_IFirstSignInSettingsStatics : aliased constant Windows.IID := (484544271, 7233, 20128, (183, 162, 111, 12, 28, 126, 132, 56 ));
+   
+   type IFirstSignInSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
    (
-      This       : access IDiagnosticsSettings_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IFirstSignInSettingsStatics_Interface
+      ; RetVal : access Windows.System.UserProfile.IFirstSignInSettings
    )
    return Windows.HRESULT is abstract;
    
+   ------------------------------------------------------------------------
+   
+   IID_IGlobalizationPreferencesForUser : aliased constant Windows.IID := (353306517, 20334, 16570, (160, 16, 226, 125, 129, 189, 167, 245 ));
+   
+   type IGlobalizationPreferencesForUser_Interface is interface and Windows.IInspectable_Interface;
+   
    function get_User
    (
-      This       : access IDiagnosticsSettings_Interface
+      This       : access IGlobalizationPreferencesForUser_Interface
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IUserProfilePersonalizationSettings : aliased constant Windows.IID := (2364398260, 31128, 18133, (141, 211, 24, 79, 28, 95, 154, 185 ));
-   
-   type IUserProfilePersonalizationSettings_Interface is interface and Windows.IInspectable_Interface;
-   
-   function TrySetLockScreenImageAsync
+   function get_Calendars
    (
-      This       : access IUserProfilePersonalizationSettings_Interface
-      ; imageFile : Windows.Storage.IStorageFile
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function TrySetWallpaperImageAsync
+   function get_Clocks
    (
-      This       : access IUserProfilePersonalizationSettings_Interface
-      ; imageFile : Windows.Storage.IStorageFile
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IUserProfilePersonalizationSettingsStatics : aliased constant Windows.IID := (2444015681, 20535, 17739, (152, 131, 187, 119, 45, 8, 221, 22 ));
-   
-   type IUserProfilePersonalizationSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
+   function get_Currencies
    (
-      This       : access IUserProfilePersonalizationSettingsStatics_Interface
-      ; RetVal : access Windows.System.UserProfile.IUserProfilePersonalizationSettings
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function IsSupported
+   function get_Languages
    (
-      This       : access IUserProfilePersonalizationSettingsStatics_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HomeGeographicRegion
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WeekStartsOn
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Globalization.DayOfWeek
    )
    return Windows.HRESULT is abstract;
    
@@ -398,75 +484,71 @@ package Windows.System.UserProfile is
    
    ------------------------------------------------------------------------
    
-   IID_IGlobalizationPreferencesForUser : aliased constant Windows.IID := (353306517, 20334, 16570, (160, 16, 226, 125, 129, 189, 167, 245 ));
+   IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IGlobalizationPreferencesForUser_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IKeyValuePair_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_User
+   function First
    (
-      This       : access IGlobalizationPreferencesForUser_Interface
-      ; RetVal : access Windows.System.IUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Calendars
-   (
-      This       : access IGlobalizationPreferencesForUser_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Clocks
-   (
-      This       : access IGlobalizationPreferencesForUser_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Currencies
-   (
-      This       : access IGlobalizationPreferencesForUser_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Languages
-   (
-      This       : access IGlobalizationPreferencesForUser_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HomeGeographicRegion
-   (
-      This       : access IGlobalizationPreferencesForUser_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WeekStartsOn
-   (
-      This       : access IGlobalizationPreferencesForUser_Interface
-      ; RetVal : access Windows.Globalization.DayOfWeek
+      This       : access IIterable_IKeyValuePair_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IFirstSignInSettings : aliased constant Windows.IID := (1049907539, 14942, 17710, (166, 1, 245, 186, 173, 42, 72, 112 ));
+   IID_ILockScreenImageFeedStatics : aliased constant Windows.IID := (739079158, 937, 16806, (155, 1, 73, 82, 81, 255, 81, 213 ));
    
-   type IFirstSignInSettings_Interface is interface and Windows.IInspectable_Interface;
+   type ILockScreenImageFeedStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestSetImageFeedAsync
+   (
+      This       : access ILockScreenImageFeedStatics_Interface
+      ; syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryRemoveImageFeed
+   (
+      This       : access ILockScreenImageFeedStatics_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IFirstSignInSettingsStatics : aliased constant Windows.IID := (484544271, 7233, 20128, (183, 162, 111, 12, 28, 126, 132, 56 ));
+   IID_ILockScreenStatics : aliased constant Windows.IID := (1055511469, 46599, 16558, (180, 38, 118, 49, 217, 130, 18, 105 ));
    
-   type IFirstSignInSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   type ILockScreenStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDefault
+   function get_OriginalImageFile
    (
-      This       : access IFirstSignInSettingsStatics_Interface
-      ; RetVal : access Windows.System.UserProfile.IFirstSignInSettings
+      This       : access ILockScreenStatics_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetImageStream
+   (
+      This       : access ILockScreenStatics_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetImageFileAsync
+   (
+      This       : access ILockScreenStatics_Interface
+      ; value : Windows.Storage.IStorageFile
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetImageStreamAsync
+   (
+      This       : access ILockScreenStatics_Interface
+      ; value : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
@@ -504,19 +586,6 @@ package Windows.System.UserProfile is
       This       : access IMapView_String_Object_Interface
       ; first : access Windows.Object
       ; second : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IKeyValuePair_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IKeyValuePair_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -643,112 +712,43 @@ package Windows.System.UserProfile is
    
    ------------------------------------------------------------------------
    
-   IID_ILockScreenStatics : aliased constant Windows.IID := (1055511469, 46599, 16558, (180, 38, 118, 49, 217, 130, 18, 105 ));
+   IID_IUserProfilePersonalizationSettings : aliased constant Windows.IID := (2364398260, 31128, 18133, (141, 211, 24, 79, 28, 95, 154, 185 ));
    
-   type ILockScreenStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IUserProfilePersonalizationSettings_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_OriginalImageFile
+   function TrySetLockScreenImageAsync
    (
-      This       : access ILockScreenStatics_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+      This       : access IUserProfilePersonalizationSettings_Interface
+      ; imageFile : Windows.Storage.IStorageFile
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function GetImageStream
+   function TrySetWallpaperImageAsync
    (
-      This       : access ILockScreenStatics_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetImageFileAsync
-   (
-      This       : access ILockScreenStatics_Interface
-      ; value : Windows.Storage.IStorageFile
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetImageStreamAsync
-   (
-      This       : access ILockScreenStatics_Interface
-      ; value : Windows.Storage.Streams.IRandomAccessStream
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IUserProfilePersonalizationSettings_Interface
+      ; imageFile : Windows.Storage.IStorageFile
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ILockScreenImageFeedStatics : aliased constant Windows.IID := (739079158, 937, 16806, (155, 1, 73, 82, 81, 255, 81, 213 ));
+   IID_IUserProfilePersonalizationSettingsStatics : aliased constant Windows.IID := (2444015681, 20535, 17739, (152, 131, 187, 119, 45, 8, 221, 22 ));
    
-   type ILockScreenImageFeedStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IUserProfilePersonalizationSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function RequestSetImageFeedAsync
+   function get_Current
    (
-      This       : access ILockScreenImageFeedStatics_Interface
-      ; syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult -- Generic Parameter Type
+      This       : access IUserProfilePersonalizationSettingsStatics_Interface
+      ; RetVal : access Windows.System.UserProfile.IUserProfilePersonalizationSettings
    )
    return Windows.HRESULT is abstract;
    
-   function TryRemoveImageFeed
+   function IsSupported
    (
-      This       : access ILockScreenImageFeedStatics_Interface
+      This       : access IUserProfilePersonalizationSettingsStatics_Interface
       ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_SetAccountPictureResult : aliased constant Windows.IID := (1745478662, 27963, 20836, (143, 50, 184, 69, 176, 120, 20, 5 ));
-   
-   type IAsyncOperation_SetAccountPictureResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_SetAccountPictureResult_Interface
-      ; handler : Windows.System.UserProfile.AsyncOperationCompletedHandler_SetAccountPictureResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_SetAccountPictureResult_Interface
-      ; RetVal : access Windows.System.UserProfile.AsyncOperationCompletedHandler_SetAccountPictureResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_SetAccountPictureResult_Interface
-      ; RetVal : access Windows.System.UserProfile.SetAccountPictureResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_SetImageFeedResult : aliased constant Windows.IID := (1398915017, 1856, 21578, (151, 151, 31, 254, 94, 115, 197, 78 ));
-   
-   type IAsyncOperation_SetImageFeedResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_SetImageFeedResult_Interface
-      ; handler : Windows.System.UserProfile.AsyncOperationCompletedHandler_SetImageFeedResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_SetImageFeedResult_Interface
-      ; RetVal : access Windows.System.UserProfile.AsyncOperationCompletedHandler_SetImageFeedResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_SetImageFeedResult_Interface
-      ; RetVal : access Windows.System.UserProfile.SetImageFeedResult
    )
    return Windows.HRESULT is abstract;
    
@@ -788,9 +788,9 @@ package Windows.System.UserProfile is
    
    subtype AdvertisingManagerForUser is Windows.System.UserProfile.IAdvertisingManagerForUser;
    subtype DiagnosticsSettings is Windows.System.UserProfile.IDiagnosticsSettings;
-   subtype UserProfilePersonalizationSettings is Windows.System.UserProfile.IUserProfilePersonalizationSettings;
-   subtype GlobalizationPreferencesForUser is Windows.System.UserProfile.IGlobalizationPreferencesForUser;
    subtype FirstSignInSettings is Windows.System.UserProfile.IFirstSignInSettings;
+   subtype GlobalizationPreferencesForUser is Windows.System.UserProfile.IGlobalizationPreferencesForUser;
+   subtype UserProfilePersonalizationSettings is Windows.System.UserProfile.IUserProfilePersonalizationSettings;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -814,11 +814,8 @@ package Windows.System.UserProfile is
    )
    return Windows.System.UserProfile.IDiagnosticsSettings;
    
-   function get_Current
-   return Windows.System.UserProfile.IUserProfilePersonalizationSettings;
-   
-   function IsSupported
-   return Windows.Boolean;
+   function GetDefault
+   return Windows.System.UserProfile.IFirstSignInSettings;
    
    function GetForUser
    (
@@ -856,8 +853,32 @@ package Windows.System.UserProfile is
    function get_WeekStartsOn
    return Windows.Globalization.DayOfWeek;
    
-   function GetDefault
-   return Windows.System.UserProfile.IFirstSignInSettings;
+   function get_OriginalImageFile
+   return Windows.Foundation.IUriRuntimeClass;
+   
+   function GetImageStream
+   return Windows.Storage.Streams.IRandomAccessStream;
+   
+   function SetImageFileAsync
+   (
+      value : Windows.Storage.IStorageFile
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function SetImageStreamAsync
+   (
+      value : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function RequestSetImageFeedAsync
+   (
+      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
+   
+   function TryRemoveImageFeed
+   return Windows.Boolean;
    
    function get_AccountPictureChangeEnabled
    return Windows.Boolean;
@@ -929,31 +950,10 @@ package Windows.System.UserProfile is
    function GetDomainNameAsync
    return Windows.Foundation.IAsyncOperation_String;
    
-   function get_OriginalImageFile
-   return Windows.Foundation.IUriRuntimeClass;
+   function get_Current
+   return Windows.System.UserProfile.IUserProfilePersonalizationSettings;
    
-   function GetImageStream
-   return Windows.Storage.Streams.IRandomAccessStream;
-   
-   function SetImageFileAsync
-   (
-      value : Windows.Storage.IStorageFile
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function SetImageStreamAsync
-   (
-      value : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function RequestSetImageFeedAsync
-   (
-      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
-   
-   function TryRemoveImageFeed
+   function IsSupported
    return Windows.Boolean;
    
 end;

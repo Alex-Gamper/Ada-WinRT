@@ -39,8 +39,8 @@ package body Windows.Security.EnterpriseData is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface
-      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult
+      This       : access AsyncOperationCompletedHandler_FileProtectionStatus_Interface
+      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -52,8 +52,21 @@ package body Windows.Security.EnterpriseData is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_FileProtectionStatus_Interface
-      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus
+      This       : access AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface
+      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IDataProtectionInfo_Interface
+      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -117,8 +130,8 @@ package body Windows.Security.EnterpriseData is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface
-      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult
+      This       : access AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface
+      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -130,22 +143,9 @@ package body Windows.Security.EnterpriseData is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IDataProtectionInfo_Interface
-      ; asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access EventHandler_IProtectedAccessSuspendingEventArgs_Interface
+      This       : access EventHandler_IProtectedAccessResumedEventArgs_Interface
       ; sender : Windows.Object
-      ; args : Windows.Security.EnterpriseData.IProtectedAccessSuspendingEventArgs
+      ; args : Windows.Security.EnterpriseData.IProtectedAccessResumedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -156,9 +156,9 @@ package body Windows.Security.EnterpriseData is
    
    function Invoke
    (
-      This       : access EventHandler_IProtectedAccessResumedEventArgs_Interface
+      This       : access EventHandler_IProtectedAccessSuspendingEventArgs_Interface
       ; sender : Windows.Object
-      ; args : Windows.Security.EnterpriseData.IProtectedAccessResumedEventArgs
+      ; args : Windows.Security.EnterpriseData.IProtectedAccessSuspendingEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -255,6 +255,460 @@ package body Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function ProtectAsync
+   (
+      data : Windows.Storage.Streams.IBuffer
+      ; identity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
+      m_Factory     : IDataProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ProtectAsync(data, identity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function UnprotectAsync
+   (
+      data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
+      m_Factory     : IDataProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.UnprotectAsync(data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ProtectStreamAsync
+   (
+      unprotectedStream : Windows.Storage.Streams.IInputStream
+      ; identity : Windows.String
+      ; protectedStream : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
+      m_Factory     : IDataProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ProtectStreamAsync(unprotectedStream, identity, protectedStream, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function UnprotectStreamAsync
+   (
+      protectedStream : Windows.Storage.Streams.IInputStream
+      ; unprotectedStream : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
+      m_Factory     : IDataProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.UnprotectStreamAsync(protectedStream, unprotectedStream, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetProtectionInfoAsync
+   (
+      protectedData : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
+      m_Factory     : IDataProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetProtectionInfoAsync(protectedData, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStreamProtectionInfoAsync
+   (
+      protectedStream : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
+      m_Factory     : IDataProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStreamProtectionInfoAsync(protectedStream, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ProtectAsync
+   (
+      target : Windows.Storage.IStorageItem
+      ; identity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ProtectAsync(target, identity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CopyProtectionAsync
+   (
+      source : Windows.Storage.IStorageItem
+      ; target : Windows.Storage.IStorageItem
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CopyProtectionAsync(source, target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetProtectionInfoAsync
+   (
+      source : Windows.Storage.IStorageItem
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetProtectionInfoAsync(source, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SaveFileAsContainerAsync
+   (
+      protectedFile : Windows.Storage.IStorageFile
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SaveFileAsContainerAsync(protectedFile, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadFileFromContainerAsync
+   (
+      containerFile : Windows.Storage.IStorageFile
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadFileFromContainerAsync(containerFile, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadFileFromContainerWithTargetAsync
+   (
+      containerFile : Windows.Storage.IStorageFile
+      ; target : Windows.Storage.IStorageItem
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadFileFromContainerWithTargetAsync(containerFile, target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateProtectedAndOpenAsync
+   (
+      parentFolder : Windows.Storage.IStorageFolder
+      ; desiredName : Windows.String
+      ; identity : Windows.String
+      ; collisionOption : Windows.Storage.CreationCollisionOption
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateProtectedAndOpenAsync(parentFolder, desiredName, identity, collisionOption, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function UnprotectAsync
+   (
+      target : Windows.Storage.IStorageItem
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.UnprotectAsync(target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function UnprotectWithOptionsAsync
+   (
+      target : Windows.Storage.IStorageItem
+      ; options : Windows.Security.EnterpriseData.IFileUnprotectOptions
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.UnprotectWithOptionsAsync(target, options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsContainerAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsContainerAsync(file, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadFileFromContainerWithTargetAndNameCollisionOptionAsync
+   (
+      containerFile : Windows.Storage.IStorageFile
+      ; target : Windows.Storage.IStorageItem
+      ; collisionOption : Windows.Storage.NameCollisionOption
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadFileFromContainerWithTargetAndNameCollisionOptionAsync(containerFile, target, collisionOption, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SaveFileAsContainerWithSharingAsync
+   (
+      protectedFile : Windows.Storage.IStorageFile
+      ; sharedWithIdentities : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
+      m_Factory     : IFileProtectionManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SaveFileAsContainerWithSharingAsync(protectedFile, sharedWithIdentities, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ProtectAsync
+   (
+      storageItem : Windows.Storage.IStorageItem
+      ; enterpriseIdentity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
+      m_Factory     : IFileRevocationManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ProtectAsync(storageItem, enterpriseIdentity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CopyProtectionAsync_FileRevocationManager
+   (
+      sourceStorageItem : Windows.Storage.IStorageItem
+      ; targetStorageItem : Windows.Storage.IStorageItem
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
+      m_Factory     : IFileRevocationManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CopyProtectionAsync(sourceStorageItem, targetStorageItem, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure Revoke
+   (
+      enterpriseIdentity : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
+      m_Factory     : IFileRevocationManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Revoke(enterpriseIdentity);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetStatusAsync
+   (
+      storageItem : Windows.Storage.IStorageItem
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
+      m_Factory     : IFileRevocationManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStatusAsync(storageItem, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function RequestAccessWithAuditingInfoAsync
    (
@@ -1064,460 +1518,6 @@ package body Windows.Security.EnterpriseData is
       Hr := RoGetActivationFactory(m_hString, IID_IProtectionPolicyManagerStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetPrimaryManagedIdentityForIdentity(identity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ProtectAsync
-   (
-      storageItem : Windows.Storage.IStorageItem
-      ; enterpriseIdentity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
-      m_Factory     : IFileRevocationManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ProtectAsync(storageItem, enterpriseIdentity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CopyProtectionAsync
-   (
-      sourceStorageItem : Windows.Storage.IStorageItem
-      ; targetStorageItem : Windows.Storage.IStorageItem
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
-      m_Factory     : IFileRevocationManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CopyProtectionAsync(sourceStorageItem, targetStorageItem, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure Revoke
-   (
-      enterpriseIdentity : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
-      m_Factory     : IFileRevocationManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Revoke(enterpriseIdentity);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetStatusAsync
-   (
-      storageItem : Windows.Storage.IStorageItem
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileRevocationManager");
-      m_Factory     : IFileRevocationManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileRevocationManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStatusAsync(storageItem, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ProtectAsync
-   (
-      target : Windows.Storage.IStorageItem
-      ; identity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ProtectAsync(target, identity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CopyProtectionAsync_FileProtectionManager
-   (
-      source : Windows.Storage.IStorageItem
-      ; target : Windows.Storage.IStorageItem
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CopyProtectionAsync(source, target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetProtectionInfoAsync
-   (
-      source : Windows.Storage.IStorageItem
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetProtectionInfoAsync(source, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SaveFileAsContainerAsync
-   (
-      protectedFile : Windows.Storage.IStorageFile
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SaveFileAsContainerAsync(protectedFile, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadFileFromContainerAsync
-   (
-      containerFile : Windows.Storage.IStorageFile
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadFileFromContainerAsync(containerFile, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadFileFromContainerWithTargetAsync
-   (
-      containerFile : Windows.Storage.IStorageFile
-      ; target : Windows.Storage.IStorageItem
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadFileFromContainerWithTargetAsync(containerFile, target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateProtectedAndOpenAsync
-   (
-      parentFolder : Windows.Storage.IStorageFolder
-      ; desiredName : Windows.String
-      ; identity : Windows.String
-      ; collisionOption : Windows.Storage.CreationCollisionOption
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateProtectedAndOpenAsync(parentFolder, desiredName, identity, collisionOption, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function UnprotectAsync
-   (
-      target : Windows.Storage.IStorageItem
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.UnprotectAsync(target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function UnprotectWithOptionsAsync
-   (
-      target : Windows.Storage.IStorageItem
-      ; options : Windows.Security.EnterpriseData.IFileUnprotectOptions
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.UnprotectWithOptionsAsync(target, options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsContainerAsync
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsContainerAsync(file, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadFileFromContainerWithTargetAndNameCollisionOptionAsync
-   (
-      containerFile : Windows.Storage.IStorageFile
-      ; target : Windows.Storage.IStorageItem
-      ; collisionOption : Windows.Storage.NameCollisionOption
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadFileFromContainerWithTargetAndNameCollisionOptionAsync(containerFile, target, collisionOption, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SaveFileAsContainerWithSharingAsync
-   (
-      protectedFile : Windows.Storage.IStorageFile
-      ; sharedWithIdentities : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.FileProtectionManager");
-      m_Factory     : IFileProtectionManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFileProtectionManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SaveFileAsContainerWithSharingAsync(protectedFile, sharedWithIdentities, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ProtectAsync
-   (
-      data : Windows.Storage.Streams.IBuffer
-      ; identity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
-      m_Factory     : IDataProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ProtectAsync(data, identity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function UnprotectAsync
-   (
-      data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
-      m_Factory     : IDataProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.UnprotectAsync(data, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ProtectStreamAsync
-   (
-      unprotectedStream : Windows.Storage.Streams.IInputStream
-      ; identity : Windows.String
-      ; protectedStream : Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
-      m_Factory     : IDataProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ProtectStreamAsync(unprotectedStream, identity, protectedStream, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function UnprotectStreamAsync
-   (
-      protectedStream : Windows.Storage.Streams.IInputStream
-      ; unprotectedStream : Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
-      m_Factory     : IDataProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.UnprotectStreamAsync(protectedStream, unprotectedStream, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetProtectionInfoAsync
-   (
-      protectedData : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
-      m_Factory     : IDataProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetProtectionInfoAsync(protectedData, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStreamProtectionInfoAsync
-   (
-      protectedStream : Windows.Storage.Streams.IInputStream
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.EnterpriseData.DataProtectionManager");
-      m_Factory     : IDataProtectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStreamProtectionInfoAsync(protectedStream, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

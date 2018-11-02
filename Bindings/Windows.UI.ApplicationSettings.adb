@@ -39,31 +39,6 @@ package body Windows.UI.ApplicationSettings is
    
    function Invoke
    (
-      This       : access WebAccountProviderCommandInvokedHandler_Interface
-      ; command : Windows.UI.ApplicationSettings.IWebAccountProviderCommand
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.ApplicationSettings.IWebAccountProviderCommand(command));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access WebAccountCommandInvokedHandler_Interface
-      ; command : Windows.UI.ApplicationSettings.IWebAccountCommand
-      ; args : Windows.UI.ApplicationSettings.IWebAccountInvokedArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.ApplicationSettings.IWebAccountCommand(command), Windows.UI.ApplicationSettings.IWebAccountInvokedArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access CredentialCommandCredentialDeletedHandler_Interface
       ; command : Windows.UI.ApplicationSettings.ICredentialCommand
    )
@@ -100,74 +75,34 @@ package body Windows.UI.ApplicationSettings is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access WebAccountCommandInvokedHandler_Interface
+      ; command : Windows.UI.ApplicationSettings.IWebAccountCommand
+      ; args : Windows.UI.ApplicationSettings.IWebAccountInvokedArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ApplicationSettings.IWebAccountCommand(command), Windows.UI.ApplicationSettings.IWebAccountInvokedArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access WebAccountProviderCommandInvokedHandler_Interface
+      ; command : Windows.UI.ApplicationSettings.IWebAccountProviderCommand
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ApplicationSettings.IWebAccountProviderCommand(command));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function CreateSettingsCommand
-   (
-      settingsCommandId : Windows.Object
-      ; label : Windows.String
-      ; handler : Windows.UI.Popups.UICommandInvokedHandler
-   )
-   return Windows.UI.Popups.IUICommand is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.SettingsCommand");
-      m_Factory     : Windows.UI.ApplicationSettings.ISettingsCommandFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Popups.IUICommand := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISettingsCommandFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateSettingsCommand(settingsCommandId, label, handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWebAccountProviderCommand
-   (
-      webAccountProvider : Windows.Security.Credentials.IWebAccountProvider
-      ; invoked : Windows.UI.ApplicationSettings.WebAccountProviderCommandInvokedHandler
-   )
-   return Windows.UI.ApplicationSettings.IWebAccountProviderCommand is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.WebAccountProviderCommand");
-      m_Factory     : Windows.UI.ApplicationSettings.IWebAccountProviderCommandFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ApplicationSettings.IWebAccountProviderCommand := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountProviderCommandFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWebAccountProviderCommand(webAccountProvider, invoked, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWebAccountCommand
-   (
-      webAccount : Windows.Security.Credentials.IWebAccount
-      ; invoked : Windows.UI.ApplicationSettings.WebAccountCommandInvokedHandler
-      ; actions : Windows.UI.ApplicationSettings.SupportedWebAccountActions
-   )
-   return Windows.UI.ApplicationSettings.IWebAccountCommand is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.WebAccountCommand");
-      m_Factory     : Windows.UI.ApplicationSettings.IWebAccountCommandFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ApplicationSettings.IWebAccountCommand := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountCommandFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWebAccountCommand(webAccount, invoked, actions, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function CreateCredentialCommand
    (
@@ -210,6 +145,71 @@ package body Windows.UI.ApplicationSettings is
       return RetVal;
    end;
    
+   function CreateSettingsCommand
+   (
+      settingsCommandId : Windows.Object
+      ; label : Windows.String
+      ; handler : Windows.UI.Popups.UICommandInvokedHandler
+   )
+   return Windows.UI.Popups.IUICommand is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.SettingsCommand");
+      m_Factory     : Windows.UI.ApplicationSettings.ISettingsCommandFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Popups.IUICommand := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISettingsCommandFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSettingsCommand(settingsCommandId, label, handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWebAccountCommand
+   (
+      webAccount : Windows.Security.Credentials.IWebAccount
+      ; invoked : Windows.UI.ApplicationSettings.WebAccountCommandInvokedHandler
+      ; actions : Windows.UI.ApplicationSettings.SupportedWebAccountActions
+   )
+   return Windows.UI.ApplicationSettings.IWebAccountCommand is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.WebAccountCommand");
+      m_Factory     : Windows.UI.ApplicationSettings.IWebAccountCommandFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ApplicationSettings.IWebAccountCommand := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountCommandFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWebAccountCommand(webAccount, invoked, actions, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWebAccountProviderCommand
+   (
+      webAccountProvider : Windows.Security.Credentials.IWebAccountProvider
+      ; invoked : Windows.UI.ApplicationSettings.WebAccountProviderCommandInvokedHandler
+   )
+   return Windows.UI.ApplicationSettings.IWebAccountProviderCommand is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.WebAccountProviderCommand");
+      m_Factory     : Windows.UI.ApplicationSettings.IWebAccountProviderCommandFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ApplicationSettings.IWebAccountProviderCommand := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountProviderCommandFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWebAccountProviderCommand(webAccountProvider, invoked, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -217,23 +217,6 @@ package body Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_AccountsCommand
-   return Windows.UI.Popups.IUICommand is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.SettingsCommand");
-      m_Factory     : ISettingsCommandStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Popups.IUICommand;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISettingsCommandStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AccountsCommand(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function GetForCurrentView
    return Windows.UI.ApplicationSettings.IAccountsSettingsPane is
@@ -335,6 +318,23 @@ package body Windows.UI.ApplicationSettings is
       Hr := RoGetActivationFactory(m_hString, IID_IAccountsSettingsPaneStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ShowAddAccountForUserAsync(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AccountsCommand
+   return Windows.UI.Popups.IUICommand is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.SettingsCommand");
+      m_Factory     : ISettingsCommandStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Popups.IUICommand;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISettingsCommandStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AccountsCommand(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -36,7 +36,7 @@ package body Windows.System.Threading is
    
    function Invoke
    (
-      This       : access TimerElapsedHandler_Interface
+      This       : access TimerDestroyedHandler_Interface
       ; timer : Windows.System.Threading.IThreadPoolTimer
    )
    return Windows.HRESULT is
@@ -48,7 +48,7 @@ package body Windows.System.Threading is
    
    function Invoke
    (
-      This       : access TimerDestroyedHandler_Interface
+      This       : access TimerElapsedHandler_Interface
       ; timer : Windows.System.Threading.IThreadPoolTimer
    )
    return Windows.HRESULT is
@@ -81,6 +81,69 @@ package body Windows.System.Threading is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function RunAsync
+   (
+      handler : Windows.System.Threading.WorkItemHandler
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Threading.ThreadPool");
+      m_Factory     : IThreadPoolStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IThreadPoolStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RunAsync(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RunWithPriorityAsync
+   (
+      handler : Windows.System.Threading.WorkItemHandler
+      ; priority : Windows.System.Threading.WorkItemPriority
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Threading.ThreadPool");
+      m_Factory     : IThreadPoolStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IThreadPoolStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RunWithPriorityAsync(handler, priority, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RunWithPriorityAndOptionsAsync
+   (
+      handler : Windows.System.Threading.WorkItemHandler
+      ; priority : Windows.System.Threading.WorkItemPriority
+      ; options : Windows.System.Threading.WorkItemOptions
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Threading.ThreadPool");
+      m_Factory     : IThreadPoolStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IThreadPoolStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RunWithPriorityAndOptionsAsync(handler, priority, options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreatePeriodicTimer
    (
@@ -162,69 +225,6 @@ package body Windows.System.Threading is
       Hr := RoGetActivationFactory(m_hString, IID_IThreadPoolTimerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateTimerWithCompletion(handler, delay_x, destroyed, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RunAsync
-   (
-      handler : Windows.System.Threading.WorkItemHandler
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Threading.ThreadPool");
-      m_Factory     : IThreadPoolStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IThreadPoolStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RunAsync(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RunWithPriorityAsync
-   (
-      handler : Windows.System.Threading.WorkItemHandler
-      ; priority : Windows.System.Threading.WorkItemPriority
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Threading.ThreadPool");
-      m_Factory     : IThreadPoolStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IThreadPoolStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RunWithPriorityAsync(handler, priority, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RunWithPriorityAndOptionsAsync
-   (
-      handler : Windows.System.Threading.WorkItemHandler
-      ; priority : Windows.System.Threading.WorkItemPriority
-      ; options : Windows.System.Threading.WorkItemOptions
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Threading.ThreadPool");
-      m_Factory     : IThreadPoolStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IThreadPoolStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RunWithPriorityAndOptionsAsync(handler, priority, options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

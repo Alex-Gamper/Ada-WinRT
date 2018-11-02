@@ -38,6 +38,19 @@ package body Windows.Web.Http.Diagnostics is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface
+      ; sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider
+      ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider(sender), Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface
       ; sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider
       ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs
@@ -59,19 +72,6 @@ package body Windows.Web.Http.Diagnostics is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider(sender), Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface
-      ; sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider
-      ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider(sender), Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs(args));
       return Hr;
    end;
    

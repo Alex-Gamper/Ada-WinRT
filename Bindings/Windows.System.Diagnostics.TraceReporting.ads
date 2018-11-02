@@ -36,6 +36,20 @@ package Windows.System.Diagnostics.TraceReporting is
    -- Enums
    ------------------------------------------------------------------------
    
+   type PlatformDiagnosticActionState is (
+      Success,
+      FreeNetworkNotAvailable,
+      ACPowerNotAvailable
+   );
+   for PlatformDiagnosticActionState use (
+      Success => 0,
+      FreeNetworkNotAvailable => 1,
+      ACPowerNotAvailable => 2
+   );
+   for PlatformDiagnosticActionState'Size use 32;
+   
+   type PlatformDiagnosticActionState_Ptr is access PlatformDiagnosticActionState;
+   
    type PlatformDiagnosticEscalationType is (
       OnCompletion,
       OnFailure
@@ -48,19 +62,19 @@ package Windows.System.Diagnostics.TraceReporting is
    
    type PlatformDiagnosticEscalationType_Ptr is access PlatformDiagnosticEscalationType;
    
-   type PlatformDiagnosticTraceSlotType is (
-      Alternative,
-      AlwaysOn,
-      Mini
+   type PlatformDiagnosticEventBufferLatencies is (
+      Normal,
+      CostDeferred,
+      Realtime
    );
-   for PlatformDiagnosticTraceSlotType use (
-      Alternative => 0,
-      AlwaysOn => 1,
-      Mini => 2
+   for PlatformDiagnosticEventBufferLatencies use (
+      Normal => 1,
+      CostDeferred => 2,
+      Realtime => 4
    );
-   for PlatformDiagnosticTraceSlotType'Size use 32;
+   for PlatformDiagnosticEventBufferLatencies'Size use 32;
    
-   type PlatformDiagnosticTraceSlotType_Ptr is access PlatformDiagnosticTraceSlotType;
+   type PlatformDiagnosticEventBufferLatencies_Ptr is access PlatformDiagnosticEventBufferLatencies;
    
    type PlatformDiagnosticTracePriority is (
       Normal,
@@ -88,59 +102,45 @@ package Windows.System.Diagnostics.TraceReporting is
    
    type PlatformDiagnosticTraceSlotState_Ptr is access PlatformDiagnosticTraceSlotState;
    
-   type PlatformDiagnosticActionState is (
-      Success,
-      FreeNetworkNotAvailable,
-      ACPowerNotAvailable
+   type PlatformDiagnosticTraceSlotType is (
+      Alternative,
+      AlwaysOn,
+      Mini
    );
-   for PlatformDiagnosticActionState use (
-      Success => 0,
-      FreeNetworkNotAvailable => 1,
-      ACPowerNotAvailable => 2
+   for PlatformDiagnosticTraceSlotType use (
+      Alternative => 0,
+      AlwaysOn => 1,
+      Mini => 2
    );
-   for PlatformDiagnosticActionState'Size use 32;
+   for PlatformDiagnosticTraceSlotType'Size use 32;
    
-   type PlatformDiagnosticActionState_Ptr is access PlatformDiagnosticActionState;
-   
-   type PlatformDiagnosticEventBufferLatencies is (
-      Normal,
-      CostDeferred,
-      Realtime
-   );
-   for PlatformDiagnosticEventBufferLatencies use (
-      Normal => 1,
-      CostDeferred => 2,
-      Realtime => 4
-   );
-   for PlatformDiagnosticEventBufferLatencies'Size use 32;
-   
-   type PlatformDiagnosticEventBufferLatencies_Ptr is access PlatformDiagnosticEventBufferLatencies;
+   type PlatformDiagnosticTraceSlotType_Ptr is access PlatformDiagnosticTraceSlotType;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface;
+   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario is access all IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface'Class;
+   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Ptr is access all IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario;
+   type IIterable_IPlatformDiagnosticTraceInfo_Interface;
+   type IIterable_IPlatformDiagnosticTraceInfo is access all IIterable_IPlatformDiagnosticTraceInfo_Interface'Class;
+   type IIterable_IPlatformDiagnosticTraceInfo_Ptr is access all IIterable_IPlatformDiagnosticTraceInfo;
+   type IIterator_IPlatformDiagnosticTraceInfo_Interface;
+   type IIterator_IPlatformDiagnosticTraceInfo is access all IIterator_IPlatformDiagnosticTraceInfo_Interface'Class;
+   type IIterator_IPlatformDiagnosticTraceInfo_Ptr is access all IIterator_IPlatformDiagnosticTraceInfo;
+   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface;
+   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario is access all IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface'Class;
+   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Ptr is access all IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario;
+   type IPlatformDiagnosticActionsStatics_Interface;
+   type IPlatformDiagnosticActionsStatics is access all IPlatformDiagnosticActionsStatics_Interface'Class;
+   type IPlatformDiagnosticActionsStatics_Ptr is access all IPlatformDiagnosticActionsStatics;
    type IPlatformDiagnosticTraceInfo_Interface;
    type IPlatformDiagnosticTraceInfo is access all IPlatformDiagnosticTraceInfo_Interface'Class;
    type IPlatformDiagnosticTraceInfo_Ptr is access all IPlatformDiagnosticTraceInfo;
    type IPlatformDiagnosticTraceRuntimeInfo_Interface;
    type IPlatformDiagnosticTraceRuntimeInfo is access all IPlatformDiagnosticTraceRuntimeInfo_Interface'Class;
    type IPlatformDiagnosticTraceRuntimeInfo_Ptr is access all IPlatformDiagnosticTraceRuntimeInfo;
-   type IPlatformDiagnosticActionsStatics_Interface;
-   type IPlatformDiagnosticActionsStatics is access all IPlatformDiagnosticActionsStatics_Interface'Class;
-   type IPlatformDiagnosticActionsStatics_Ptr is access all IPlatformDiagnosticActionsStatics;
-   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface;
-   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario is access all IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface'Class;
-   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Ptr is access all IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario;
-   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface;
-   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario is access all IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface'Class;
-   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Ptr is access all IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario;
-   type IIterator_IPlatformDiagnosticTraceInfo_Interface;
-   type IIterator_IPlatformDiagnosticTraceInfo is access all IIterator_IPlatformDiagnosticTraceInfo_Interface'Class;
-   type IIterator_IPlatformDiagnosticTraceInfo_Ptr is access all IIterator_IPlatformDiagnosticTraceInfo;
-   type IIterable_IPlatformDiagnosticTraceInfo_Interface;
-   type IIterable_IPlatformDiagnosticTraceInfo is access all IIterable_IPlatformDiagnosticTraceInfo_Interface'Class;
-   type IIterable_IPlatformDiagnosticTraceInfo_Ptr is access all IIterable_IPlatformDiagnosticTraceInfo;
    type IVectorView_IPlatformDiagnosticTraceInfo_Interface;
    type IVectorView_IPlatformDiagnosticTraceInfo is access all IVectorView_IPlatformDiagnosticTraceInfo_Interface'Class;
    type IVectorView_IPlatformDiagnosticTraceInfo_Ptr is access all IVectorView_IPlatformDiagnosticTraceInfo;
@@ -151,69 +151,99 @@ package Windows.System.Diagnostics.TraceReporting is
    
    ------------------------------------------------------------------------
    
-   IID_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (4168150423, 54679, 19447, (136, 220, 207, 92, 125, 194, 161, 210 ));
+   IID_IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ScenarioId
+   function First
    (
-      This       : access IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProfileHash
-   (
-      This       : access IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsExclusive
-   (
-      This       : access IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsAutoLogger
-   (
-      This       : access IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MaxTraceDurationFileTime
-   (
-      This       : access IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Priority
-   (
-      This       : access IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority
+      This       : access IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPlatformDiagnosticTraceRuntimeInfo : aliased constant Windows.IID := (1028480557, 472, 18280, (133, 84, 30, 177, 202, 97, 9, 134 ));
+   IID_IIterable_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (3971006727, 51579, 21246, (165, 230, 163, 62, 147, 73, 55, 105 ));
    
-   type IPlatformDiagnosticTraceRuntimeInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_RuntimeFileTime
+   function First
    (
-      This       : access IPlatformDiagnosticTraceRuntimeInfo_Interface
-      ; RetVal : access Windows.Int64
+      This       : access IIterable_IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.System.Diagnostics.TraceReporting.IIterator_IPlatformDiagnosticTraceInfo
    )
    return Windows.HRESULT is abstract;
    
-   function get_EtwRuntimeFileTime
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (452221325, 39099, 24145, (132, 43, 207, 105, 25, 37, 182, 194 ));
+   
+   type IIterator_IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
    (
-      This       : access IPlatformDiagnosticTraceRuntimeInfo_Interface
-      ; RetVal : access Windows.Int64
+      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
+      ; items : Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
    
@@ -301,99 +331,69 @@ package Windows.System.Diagnostics.TraceReporting is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (4168150423, 54679, 19447, (136, 220, 207, 92, 125, 194, 161, 210 ));
    
-   type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface is interface and Windows.IInspectable_Interface;
+   type IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_ScenarioId
    (
-      This       : access IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
+      This       : access IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProfileHash
+   (
+      This       : access IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsExclusive
+   (
+      This       : access IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsAutoLogger
+   (
+      This       : access IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxTraceDurationFileTime
+   (
+      This       : access IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Priority
+   (
+      This       : access IPlatformDiagnosticTraceInfo_Interface
+      ; RetVal : access Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   IID_IPlatformDiagnosticTraceRuntimeInfo : aliased constant Windows.IID := (1028480557, 472, 18280, (133, 84, 30, 177, 202, 97, 9, 134 ));
    
-   type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface is interface and Windows.IInspectable_Interface;
+   type IPlatformDiagnosticTraceRuntimeInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function Lookup
+   function get_RuntimeFileTime
    (
-      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
+      This       : access IPlatformDiagnosticTraceRuntimeInfo_Interface
+      ; RetVal : access Windows.Int64
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_EtwRuntimeFileTime
    (
-      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (452221325, 39099, 24145, (132, 43, 207, 105, 25, 37, 182, 194 ));
-   
-   type IIterator_IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPlatformDiagnosticTraceInfo_Interface
-      ; items : Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (3971006727, 51579, 21246, (165, 230, 163, 62, 147, 73, 55, 105 ));
-   
-   type IIterable_IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IPlatformDiagnosticTraceInfo_Interface
-      ; RetVal : access Windows.System.Diagnostics.TraceReporting.IIterator_IPlatformDiagnosticTraceInfo
+      This       : access IPlatformDiagnosticTraceRuntimeInfo_Interface
+      ; RetVal : access Windows.Int64
    )
    return Windows.HRESULT is abstract;
    

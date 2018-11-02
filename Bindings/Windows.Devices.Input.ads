@@ -88,48 +88,48 @@ package Windows.Devices.Input is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IMouseCapabilities_Interface;
-   type IMouseCapabilities is access all IMouseCapabilities_Interface'Class;
-   type IMouseCapabilities_Ptr is access all IMouseCapabilities;
+   type IIterable_IPointerDevice_Interface;
+   type IIterable_IPointerDevice is access all IIterable_IPointerDevice_Interface'Class;
+   type IIterable_IPointerDevice_Ptr is access all IIterable_IPointerDevice;
+   type IIterable_PointerDeviceUsage_Interface;
+   type IIterable_PointerDeviceUsage is access all IIterable_PointerDeviceUsage_Interface'Class;
+   type IIterable_PointerDeviceUsage_Ptr is access all IIterable_PointerDeviceUsage;
+   type IIterator_IPointerDevice_Interface;
+   type IIterator_IPointerDevice is access all IIterator_IPointerDevice_Interface'Class;
+   type IIterator_IPointerDevice_Ptr is access all IIterator_IPointerDevice;
+   type IIterator_PointerDeviceUsage_Interface;
+   type IIterator_PointerDeviceUsage is access all IIterator_PointerDeviceUsage_Interface'Class;
+   type IIterator_PointerDeviceUsage_Ptr is access all IIterator_PointerDeviceUsage;
    type IKeyboardCapabilities_Interface;
    type IKeyboardCapabilities is access all IKeyboardCapabilities_Interface'Class;
    type IKeyboardCapabilities_Ptr is access all IKeyboardCapabilities;
-   type ITouchCapabilities_Interface;
-   type ITouchCapabilities is access all ITouchCapabilities_Interface'Class;
-   type ITouchCapabilities_Ptr is access all ITouchCapabilities;
-   type IPointerDeviceStatics_Interface;
-   type IPointerDeviceStatics is access all IPointerDeviceStatics_Interface'Class;
-   type IPointerDeviceStatics_Ptr is access all IPointerDeviceStatics;
-   type IPointerDevice_Interface;
-   type IPointerDevice is access all IPointerDevice_Interface'Class;
-   type IPointerDevice_Ptr is access all IPointerDevice;
-   type IPointerDevice2_Interface;
-   type IPointerDevice2 is access all IPointerDevice2_Interface'Class;
-   type IPointerDevice2_Ptr is access all IPointerDevice2;
-   type IMouseEventArgs_Interface;
-   type IMouseEventArgs is access all IMouseEventArgs_Interface'Class;
-   type IMouseEventArgs_Ptr is access all IMouseEventArgs;
+   type IMouseCapabilities_Interface;
+   type IMouseCapabilities is access all IMouseCapabilities_Interface'Class;
+   type IMouseCapabilities_Ptr is access all IMouseCapabilities;
    type IMouseDevice_Interface;
    type IMouseDevice is access all IMouseDevice_Interface'Class;
    type IMouseDevice_Ptr is access all IMouseDevice;
    type IMouseDeviceStatics_Interface;
    type IMouseDeviceStatics is access all IMouseDeviceStatics_Interface'Class;
    type IMouseDeviceStatics_Ptr is access all IMouseDeviceStatics;
-   type IIterator_IPointerDevice_Interface;
-   type IIterator_IPointerDevice is access all IIterator_IPointerDevice_Interface'Class;
-   type IIterator_IPointerDevice_Ptr is access all IIterator_IPointerDevice;
-   type IIterable_IPointerDevice_Interface;
-   type IIterable_IPointerDevice is access all IIterable_IPointerDevice_Interface'Class;
-   type IIterable_IPointerDevice_Ptr is access all IIterable_IPointerDevice;
+   type IMouseEventArgs_Interface;
+   type IMouseEventArgs is access all IMouseEventArgs_Interface'Class;
+   type IMouseEventArgs_Ptr is access all IMouseEventArgs;
+   type IPointerDevice_Interface;
+   type IPointerDevice is access all IPointerDevice_Interface'Class;
+   type IPointerDevice_Ptr is access all IPointerDevice;
+   type IPointerDevice2_Interface;
+   type IPointerDevice2 is access all IPointerDevice2_Interface'Class;
+   type IPointerDevice2_Ptr is access all IPointerDevice2;
+   type IPointerDeviceStatics_Interface;
+   type IPointerDeviceStatics is access all IPointerDeviceStatics_Interface'Class;
+   type IPointerDeviceStatics_Ptr is access all IPointerDeviceStatics;
+   type ITouchCapabilities_Interface;
+   type ITouchCapabilities is access all ITouchCapabilities_Interface'Class;
+   type ITouchCapabilities_Ptr is access all ITouchCapabilities;
    type IVectorView_IPointerDevice_Interface;
    type IVectorView_IPointerDevice is access all IVectorView_IPointerDevice_Interface'Class;
    type IVectorView_IPointerDevice_Ptr is access all IVectorView_IPointerDevice;
-   type IIterator_PointerDeviceUsage_Interface;
-   type IIterator_PointerDeviceUsage is access all IIterator_PointerDeviceUsage_Interface'Class;
-   type IIterator_PointerDeviceUsage_Ptr is access all IIterator_PointerDeviceUsage;
-   type IIterable_PointerDeviceUsage_Interface;
-   type IIterable_PointerDeviceUsage is access all IIterable_PointerDeviceUsage_Interface'Class;
-   type IIterable_PointerDeviceUsage_Ptr is access all IIterable_PointerDeviceUsage;
    type IVectorView_PointerDeviceUsage_Interface;
    type IVectorView_PointerDeviceUsage is access all IVectorView_PointerDeviceUsage_Interface'Class;
    type IVectorView_PointerDeviceUsage_Ptr is access all IVectorView_PointerDeviceUsage;
@@ -137,6 +137,115 @@ package Windows.Devices.Input is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPointerDevice : aliased constant Windows.IID := (2904974892, 33883, 23661, (174, 170, 64, 111, 72, 194, 26, 233 ));
+   
+   type IIterable_IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IPointerDevice_Interface
+      ; RetVal : access Windows.Devices.Input.IIterator_IPointerDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_PointerDeviceUsage : aliased constant Windows.IID := (1496147480, 60075, 23161, (164, 122, 199, 252, 11, 116, 154, 78 ));
+   
+   type IIterable_PointerDeviceUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_PointerDeviceUsage_Interface
+      ; RetVal : access Windows.Devices.Input.IIterator_PointerDeviceUsage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPointerDevice : aliased constant Windows.IID := (3734266908, 31072, 24525, (171, 232, 214, 186, 96, 158, 247, 211 ));
+   
+   type IIterator_IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPointerDevice_Interface
+      ; RetVal : access Windows.Devices.Input.IPointerDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPointerDevice_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPointerDevice_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPointerDevice_Interface
+      ; items : Windows.Devices.Input.IPointerDevice_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_PointerDeviceUsage : aliased constant Windows.IID := (2595362317, 4591, 24266, (141, 217, 62, 19, 170, 78, 95, 153 ));
+   
+   type IIterator_PointerDeviceUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_PointerDeviceUsage_Interface
+      ; RetVal : access Windows.Devices.Input.PointerDeviceUsage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_PointerDeviceUsage_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_PointerDeviceUsage_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_PointerDeviceUsage_Interface
+      ; items : Windows.Devices.Input.PointerDeviceUsage_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IKeyboardCapabilities : aliased constant Windows.IID := (977247062, 26520, 19388, (131, 62, 15, 52, 177, 124, 101, 255 ));
+   
+   type IKeyboardCapabilities_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyboardPresent
+   (
+      This       : access IKeyboardCapabilities_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -181,55 +290,48 @@ package Windows.Devices.Input is
    
    ------------------------------------------------------------------------
    
-   IID_IKeyboardCapabilities : aliased constant Windows.IID := (977247062, 26520, 19388, (131, 62, 15, 52, 177, 124, 101, 255 ));
+   IID_IMouseDevice : aliased constant Windows.IID := (2297295960, 62152, 18932, (190, 31, 194, 86, 179, 136, 188, 17 ));
    
-   type IKeyboardCapabilities_Interface is interface and Windows.IInspectable_Interface;
+   type IMouseDevice_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_KeyboardPresent
+   function add_MouseMoved
    (
-      This       : access IKeyboardCapabilities_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IMouseDevice_Interface
+      ; handler : TypedEventHandler_IMouseDevice_add_MouseMoved
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_MouseMoved
+   (
+      This       : access IMouseDevice_Interface
+      ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ITouchCapabilities : aliased constant Windows.IID := (551376377, 5105, 18120, (146, 133, 44, 5, 250, 62, 218, 111 ));
+   IID_IMouseDeviceStatics : aliased constant Windows.IID := (1212846149, 28016, 18907, (142, 104, 70, 255, 189, 23, 211, 141 ));
    
-   type ITouchCapabilities_Interface is interface and Windows.IInspectable_Interface;
+   type IMouseDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_TouchPresent
+   function GetForCurrentView
    (
-      This       : access ITouchCapabilities_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Contacts
-   (
-      This       : access ITouchCapabilities_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IMouseDeviceStatics_Interface
+      ; RetVal : access Windows.Devices.Input.IMouseDevice
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPointerDeviceStatics : aliased constant Windows.IID := (3635976865, 53702, 16750, (189, 141, 87, 144, 145, 77, 197, 99 ));
+   IID_IMouseEventArgs : aliased constant Windows.IID := (4129663581, 9044, 19655, (146, 48, 150, 148, 28, 150, 159, 222 ));
    
-   type IPointerDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IMouseEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetPointerDevice
+   function get_MouseDelta
    (
-      This       : access IPointerDeviceStatics_Interface
-      ; pointerId : Windows.UInt32
-      ; RetVal : access Windows.Devices.Input.IPointerDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetPointerDevices
-   (
-      This       : access IPointerDeviceStatics_Interface
-      ; RetVal : access Windows.Devices.Input.IVectorView_IPointerDevice -- Generic Parameter Type
+      This       : access IMouseEventArgs_Interface
+      ; RetVal : access Windows.Devices.Input.MouseDelta
    )
    return Windows.HRESULT is abstract;
    
@@ -296,96 +398,42 @@ package Windows.Devices.Input is
    
    ------------------------------------------------------------------------
    
-   IID_IMouseEventArgs : aliased constant Windows.IID := (4129663581, 9044, 19655, (146, 48, 150, 148, 28, 150, 159, 222 ));
+   IID_IPointerDeviceStatics : aliased constant Windows.IID := (3635976865, 53702, 16750, (189, 141, 87, 144, 145, 77, 197, 99 ));
    
-   type IMouseEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IPointerDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_MouseDelta
+   function GetPointerDevice
    (
-      This       : access IMouseEventArgs_Interface
-      ; RetVal : access Windows.Devices.Input.MouseDelta
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMouseDevice : aliased constant Windows.IID := (2297295960, 62152, 18932, (190, 31, 194, 86, 179, 136, 188, 17 ));
-   
-   type IMouseDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_MouseMoved
-   (
-      This       : access IMouseDevice_Interface
-      ; handler : TypedEventHandler_IMouseDevice_add_MouseMoved
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_MouseMoved
-   (
-      This       : access IMouseDevice_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMouseDeviceStatics : aliased constant Windows.IID := (1212846149, 28016, 18907, (142, 104, 70, 255, 189, 23, 211, 141 ));
-   
-   type IMouseDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetForCurrentView
-   (
-      This       : access IMouseDeviceStatics_Interface
-      ; RetVal : access Windows.Devices.Input.IMouseDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IPointerDevice : aliased constant Windows.IID := (3734266908, 31072, 24525, (171, 232, 214, 186, 96, 158, 247, 211 ));
-   
-   type IIterator_IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IPointerDevice_Interface
+      This       : access IPointerDeviceStatics_Interface
+      ; pointerId : Windows.UInt32
       ; RetVal : access Windows.Devices.Input.IPointerDevice
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function GetPointerDevices
    (
-      This       : access IIterator_IPointerDevice_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPointerDevice_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPointerDevice_Interface
-      ; items : Windows.Devices.Input.IPointerDevice_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IPointerDeviceStatics_Interface
+      ; RetVal : access Windows.Devices.Input.IVectorView_IPointerDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IPointerDevice : aliased constant Windows.IID := (2904974892, 33883, 23661, (174, 170, 64, 111, 72, 194, 26, 233 ));
+   IID_ITouchCapabilities : aliased constant Windows.IID := (551376377, 5105, 18120, (146, 133, 44, 5, 250, 62, 218, 111 ));
    
-   type IIterable_IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
+   type ITouchCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_TouchPresent
    (
-      This       : access IIterable_IPointerDevice_Interface
-      ; RetVal : access Windows.Devices.Input.IIterator_IPointerDevice
+      This       : access ITouchCapabilities_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Contacts
+   (
+      This       : access ITouchCapabilities_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -425,54 +473,6 @@ package Windows.Devices.Input is
       ; startIndex : Windows.UInt32
       ; items : Windows.Devices.Input.IPointerDevice_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_PointerDeviceUsage : aliased constant Windows.IID := (2595362317, 4591, 24266, (141, 217, 62, 19, 170, 78, 95, 153 ));
-   
-   type IIterator_PointerDeviceUsage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_PointerDeviceUsage_Interface
-      ; RetVal : access Windows.Devices.Input.PointerDeviceUsage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_PointerDeviceUsage_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_PointerDeviceUsage_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_PointerDeviceUsage_Interface
-      ; items : Windows.Devices.Input.PointerDeviceUsage_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_PointerDeviceUsage : aliased constant Windows.IID := (1496147480, 60075, 23161, (164, 122, 199, 252, 11, 116, 154, 78 ));
-   
-   type IIterable_PointerDeviceUsage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_PointerDeviceUsage_Interface
-      ; RetVal : access Windows.Devices.Input.IIterator_PointerDeviceUsage
    )
    return Windows.HRESULT is abstract;
    
@@ -536,15 +536,15 @@ package Windows.Devices.Input is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PointerDevice is Windows.Devices.Input.IPointerDevice;
-   subtype MouseDevice is Windows.Devices.Input.IMouseDevice;
-   subtype MouseEventArgs is Windows.Devices.Input.IMouseEventArgs;
-   subtype MouseCapabilities is Windows.Devices.Input.IMouseCapabilities;
-   function Create return Windows.Devices.Input.IMouseCapabilities;
-   
    subtype KeyboardCapabilities is Windows.Devices.Input.IKeyboardCapabilities;
    function Create return Windows.Devices.Input.IKeyboardCapabilities;
    
+   subtype MouseCapabilities is Windows.Devices.Input.IMouseCapabilities;
+   function Create return Windows.Devices.Input.IMouseCapabilities;
+   
+   subtype MouseDevice is Windows.Devices.Input.IMouseDevice;
+   subtype MouseEventArgs is Windows.Devices.Input.IMouseEventArgs;
+   subtype PointerDevice is Windows.Devices.Input.IPointerDevice;
    subtype TouchCapabilities is Windows.Devices.Input.ITouchCapabilities;
    function Create return Windows.Devices.Input.ITouchCapabilities;
    
@@ -552,6 +552,9 @@ package Windows.Devices.Input is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetForCurrentView
+   return Windows.Devices.Input.IMouseDevice;
    
    function GetPointerDevice
    (
@@ -561,8 +564,5 @@ package Windows.Devices.Input is
    
    function GetPointerDevices
    return Windows.Devices.Input.IVectorView_IPointerDevice;
-   
-   function GetForCurrentView
-   return Windows.Devices.Input.IMouseDevice;
    
 end;

@@ -34,32 +34,6 @@ package Windows.Foundation.Metadata is
    -- Enums
    ------------------------------------------------------------------------
    
-   type GCPressureAmount is (
-      Low,
-      Medium,
-      High
-   );
-   for GCPressureAmount use (
-      Low => 0,
-      Medium => 1,
-      High => 2
-   );
-   for GCPressureAmount'Size use 32;
-   
-   type GCPressureAmount_Ptr is access GCPressureAmount;
-   
-   type Platform is (
-      Windows_x,
-      WindowsPhone
-   );
-   for Platform use (
-      Windows_x => 0,
-      WindowsPhone => 1
-   );
-   for Platform'Size use 32;
-   
-   type Platform_Ptr is access Platform;
-   
    type AttributeTargets is (
       Delegate,
       Enum,
@@ -94,6 +68,30 @@ package Windows.Foundation.Metadata is
    
    type AttributeTargets_Ptr is access AttributeTargets;
    
+   type CompositionType is (
+      Protected_x,
+      Public
+   );
+   for CompositionType use (
+      Protected_x => 1,
+      Public => 2
+   );
+   for CompositionType'Size use 32;
+   
+   type CompositionType_Ptr is access CompositionType;
+   
+   type DeprecationType is (
+      Deprecate,
+      Remove
+   );
+   for DeprecationType use (
+      Deprecate => 0,
+      Remove => 1
+   );
+   for DeprecationType'Size use 32;
+   
+   type DeprecationType_Ptr is access DeprecationType;
+   
    type FeatureStage is (
       AlwaysDisabled,
       DisabledByDefault,
@@ -110,33 +108,19 @@ package Windows.Foundation.Metadata is
    
    type FeatureStage_Ptr is access FeatureStage;
    
-   type CompositionType is (
-      Protected_x,
-      Public
+   type GCPressureAmount is (
+      Low,
+      Medium,
+      High
    );
-   for CompositionType use (
-      Protected_x => 1,
-      Public => 2
+   for GCPressureAmount use (
+      Low => 0,
+      Medium => 1,
+      High => 2
    );
-   for CompositionType'Size use 32;
+   for GCPressureAmount'Size use 32;
    
-   type CompositionType_Ptr is access CompositionType;
-   
-   type ThreadingModel is (
-      InvalidThreading,
-      STA,
-      MTA,
-      Both
-   );
-   for ThreadingModel use (
-      InvalidThreading => 0,
-      STA => 1,
-      MTA => 2,
-      Both => 3
-   );
-   for ThreadingModel'Size use 32;
-   
-   type ThreadingModel_Ptr is access ThreadingModel;
+   type GCPressureAmount_Ptr is access GCPressureAmount;
    
    type MarshalingType is (
       InvalidMarshaling,
@@ -154,17 +138,33 @@ package Windows.Foundation.Metadata is
    
    type MarshalingType_Ptr is access MarshalingType;
    
-   type DeprecationType is (
-      Deprecate,
-      Remove
+   type Platform is (
+      Windows_x,
+      WindowsPhone
    );
-   for DeprecationType use (
-      Deprecate => 0,
-      Remove => 1
+   for Platform use (
+      Windows_x => 0,
+      WindowsPhone => 1
    );
-   for DeprecationType'Size use 32;
+   for Platform'Size use 32;
    
-   type DeprecationType_Ptr is access DeprecationType;
+   type Platform_Ptr is access Platform;
+   
+   type ThreadingModel is (
+      InvalidThreading,
+      STA,
+      MTA,
+      Both
+   );
+   for ThreadingModel use (
+      InvalidThreading => 0,
+      STA => 1,
+      MTA => 2,
+      Both => 3
+   );
+   for ThreadingModel'Size use 32;
+   
+   type ThreadingModel_Ptr is access ThreadingModel;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces

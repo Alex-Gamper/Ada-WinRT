@@ -43,6 +43,20 @@ package Windows.ApplicationModel.UserDataAccounts is
    -- Enums
    ------------------------------------------------------------------------
    
+   type UserDataAccountContentKinds is (
+      Email,
+      Contact,
+      Appointment
+   );
+   for UserDataAccountContentKinds use (
+      Email => 1,
+      Contact => 2,
+      Appointment => 4
+   );
+   for UserDataAccountContentKinds'Size use 32;
+   
+   type UserDataAccountContentKinds_Ptr is access UserDataAccountContentKinds;
+   
    type UserDataAccountOtherAppReadAccess is (
       SystemOnly,
       Full,
@@ -69,20 +83,6 @@ package Windows.ApplicationModel.UserDataAccounts is
    
    type UserDataAccountStoreAccessType_Ptr is access UserDataAccountStoreAccessType;
    
-   type UserDataAccountContentKinds is (
-      Email,
-      Contact,
-      Appointment
-   );
-   for UserDataAccountContentKinds use (
-      Email => 1,
-      Contact => 2,
-      Appointment => 4
-   );
-   for UserDataAccountContentKinds'Size use 32;
-   
-   type UserDataAccountContentKinds_Ptr is access UserDataAccountContentKinds;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -90,17 +90,23 @@ package Windows.ApplicationModel.UserDataAccounts is
    type AsyncOperationCompletedHandler_IUserDataAccount_Interface;
    type AsyncOperationCompletedHandler_IUserDataAccount is access all AsyncOperationCompletedHandler_IUserDataAccount_Interface'Class;
    type AsyncOperationCompletedHandler_IUserDataAccount_Ptr is access all AsyncOperationCompletedHandler_IUserDataAccount;
-   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface;
-   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged is access all TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface'Class;
-   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Ptr is access all TypedEventHandler_IUserDataAccountStore2_add_StoreChanged;
    type AsyncOperationCompletedHandler_IUserDataAccountStore_Interface;
    type AsyncOperationCompletedHandler_IUserDataAccountStore is access all AsyncOperationCompletedHandler_IUserDataAccountStore_Interface'Class;
    type AsyncOperationCompletedHandler_IUserDataAccountStore_Ptr is access all AsyncOperationCompletedHandler_IUserDataAccountStore;
+   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface;
+   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged is access all TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface'Class;
+   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Ptr is access all TypedEventHandler_IUserDataAccountStore2_add_StoreChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IUserDataAccount_Interface;
+   type IAsyncOperation_IUserDataAccount is access all IAsyncOperation_IUserDataAccount_Interface'Class;
+   type IAsyncOperation_IUserDataAccount_Ptr is access all IAsyncOperation_IUserDataAccount;
+   type IAsyncOperation_IUserDataAccountStore_Interface;
+   type IAsyncOperation_IUserDataAccountStore is access all IAsyncOperation_IUserDataAccountStore_Interface'Class;
+   type IAsyncOperation_IUserDataAccountStore_Ptr is access all IAsyncOperation_IUserDataAccountStore;
    type IUserDataAccount_Interface;
    type IUserDataAccount is access all IUserDataAccount_Interface'Class;
    type IUserDataAccount_Ptr is access all IUserDataAccount;
@@ -113,6 +119,15 @@ package Windows.ApplicationModel.UserDataAccounts is
    type IUserDataAccount4_Interface;
    type IUserDataAccount4 is access all IUserDataAccount4_Interface'Class;
    type IUserDataAccount4_Ptr is access all IUserDataAccount4;
+   type IUserDataAccountManagerForUser_Interface;
+   type IUserDataAccountManagerForUser is access all IUserDataAccountManagerForUser_Interface'Class;
+   type IUserDataAccountManagerForUser_Ptr is access all IUserDataAccountManagerForUser;
+   type IUserDataAccountManagerStatics_Interface;
+   type IUserDataAccountManagerStatics is access all IUserDataAccountManagerStatics_Interface'Class;
+   type IUserDataAccountManagerStatics_Ptr is access all IUserDataAccountManagerStatics;
+   type IUserDataAccountManagerStatics2_Interface;
+   type IUserDataAccountManagerStatics2 is access all IUserDataAccountManagerStatics2_Interface'Class;
+   type IUserDataAccountManagerStatics2_Ptr is access all IUserDataAccountManagerStatics2;
    type IUserDataAccountStore_Interface;
    type IUserDataAccountStore is access all IUserDataAccountStore_Interface'Class;
    type IUserDataAccountStore_Ptr is access all IUserDataAccountStore;
@@ -122,28 +137,67 @@ package Windows.ApplicationModel.UserDataAccounts is
    type IUserDataAccountStore3_Interface;
    type IUserDataAccountStore3 is access all IUserDataAccountStore3_Interface'Class;
    type IUserDataAccountStore3_Ptr is access all IUserDataAccountStore3;
-   type IUserDataAccountManagerStatics_Interface;
-   type IUserDataAccountManagerStatics is access all IUserDataAccountManagerStatics_Interface'Class;
-   type IUserDataAccountManagerStatics_Ptr is access all IUserDataAccountManagerStatics;
-   type IUserDataAccountManagerStatics2_Interface;
-   type IUserDataAccountManagerStatics2 is access all IUserDataAccountManagerStatics2_Interface'Class;
-   type IUserDataAccountManagerStatics2_Ptr is access all IUserDataAccountManagerStatics2;
-   type IUserDataAccountManagerForUser_Interface;
-   type IUserDataAccountManagerForUser is access all IUserDataAccountManagerForUser_Interface'Class;
-   type IUserDataAccountManagerForUser_Ptr is access all IUserDataAccountManagerForUser;
    type IUserDataAccountStoreChangedEventArgs_Interface;
    type IUserDataAccountStoreChangedEventArgs is access all IUserDataAccountStoreChangedEventArgs_Interface'Class;
    type IUserDataAccountStoreChangedEventArgs_Ptr is access all IUserDataAccountStoreChangedEventArgs;
-   type IAsyncOperation_IUserDataAccount_Interface;
-   type IAsyncOperation_IUserDataAccount is access all IAsyncOperation_IUserDataAccount_Interface'Class;
-   type IAsyncOperation_IUserDataAccount_Ptr is access all IAsyncOperation_IUserDataAccount;
-   type IAsyncOperation_IUserDataAccountStore_Interface;
-   type IAsyncOperation_IUserDataAccountStore is access all IAsyncOperation_IUserDataAccountStore_Interface'Class;
-   type IAsyncOperation_IUserDataAccountStore_Ptr is access all IAsyncOperation_IUserDataAccountStore;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUserDataAccount : aliased constant Windows.IID := (4037980847, 42651, 23722, (162, 131, 50, 230, 151, 166, 93, 49 ));
+   
+   type IAsyncOperation_IUserDataAccount_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IUserDataAccount_Interface
+      ; handler : Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccount
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IUserDataAccount_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccount
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IUserDataAccount_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccount
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUserDataAccountStore : aliased constant Windows.IID := (112627486, 39223, 21142, (165, 94, 212, 61, 216, 167, 84, 92 ));
+   
+   type IAsyncOperation_IUserDataAccountStore_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IUserDataAccountStore_Interface
+      ; handler : Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccountStore
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IUserDataAccountStore_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccountStore
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IUserDataAccountStore_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -360,6 +414,79 @@ package Windows.ApplicationModel.UserDataAccounts is
    
    ------------------------------------------------------------------------
    
+   IID_IUserDataAccountManagerForUser : aliased constant Windows.IID := (1453779163, 56207, 16811, (166, 95, 140, 89, 113, 170, 201, 130 ));
+   
+   type IUserDataAccountManagerForUser_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestStoreAsync
+   (
+      This       : access IUserDataAccountManagerForUser_Interface
+      ; storeAccessType : Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_User
+   (
+      This       : access IUserDataAccountManagerForUser_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountManagerStatics : aliased constant Windows.IID := (228297194, 6440, 18976, (134, 213, 60, 115, 127, 125, 195, 176 ));
+   
+   type IUserDataAccountManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestStoreAsync
+   (
+      This       : access IUserDataAccountManagerStatics_Interface
+      ; storeAccessType : Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAddAccountAsync
+   (
+      This       : access IUserDataAccountManagerStatics_Interface
+      ; contentKinds : Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAccountSettingsAsync
+   (
+      This       : access IUserDataAccountManagerStatics_Interface
+      ; id : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAccountErrorResolverAsync
+   (
+      This       : access IUserDataAccountManagerStatics_Interface
+      ; id : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountManagerStatics2 : aliased constant Windows.IID := (1782443400, 12651, 17246, (181, 52, 247, 212, 180, 183, 219, 166 ));
+   
+   type IUserDataAccountManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUser
+   (
+      This       : access IUserDataAccountManagerStatics2_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerForUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUserDataAccountStore : aliased constant Windows.IID := (544452781, 32010, 20086, (191, 69, 35, 104, 249, 120, 165, 154 ));
    
    type IUserDataAccountStore_Interface is interface and Windows.IInspectable_Interface;
@@ -435,79 +562,6 @@ package Windows.ApplicationModel.UserDataAccounts is
    
    ------------------------------------------------------------------------
    
-   IID_IUserDataAccountManagerStatics : aliased constant Windows.IID := (228297194, 6440, 18976, (134, 213, 60, 115, 127, 125, 195, 176 ));
-   
-   type IUserDataAccountManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RequestStoreAsync
-   (
-      This       : access IUserDataAccountManagerStatics_Interface
-      ; storeAccessType : Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAddAccountAsync
-   (
-      This       : access IUserDataAccountManagerStatics_Interface
-      ; contentKinds : Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAccountSettingsAsync
-   (
-      This       : access IUserDataAccountManagerStatics_Interface
-      ; id : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAccountErrorResolverAsync
-   (
-      This       : access IUserDataAccountManagerStatics_Interface
-      ; id : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserDataAccountManagerStatics2 : aliased constant Windows.IID := (1782443400, 12651, 17246, (181, 52, 247, 212, 180, 183, 219, 166 ));
-   
-   type IUserDataAccountManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetForUser
-   (
-      This       : access IUserDataAccountManagerStatics2_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerForUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserDataAccountManagerForUser : aliased constant Windows.IID := (1453779163, 56207, 16811, (166, 95, 140, 89, 113, 170, 201, 130 ));
-   
-   type IUserDataAccountManagerForUser_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RequestStoreAsync
-   (
-      This       : access IUserDataAccountManagerForUser_Interface
-      ; storeAccessType : Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_User
-   (
-      This       : access IUserDataAccountManagerForUser_Interface
-      ; RetVal : access Windows.System.IUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IUserDataAccountStoreChangedEventArgs : aliased constant Windows.IID := (2229527269, 34848, 17682, (177, 246, 46, 3, 91, 225, 7, 44 ));
    
    type IUserDataAccountStoreChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -516,60 +570,6 @@ package Windows.ApplicationModel.UserDataAccounts is
    (
       This       : access IUserDataAccountStoreChangedEventArgs_Interface
       ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IUserDataAccount : aliased constant Windows.IID := (4037980847, 42651, 23722, (162, 131, 50, 230, 151, 166, 93, 49 ));
-   
-   type IAsyncOperation_IUserDataAccount_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IUserDataAccount_Interface
-      ; handler : Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IUserDataAccount_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IUserDataAccount_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IUserDataAccountStore : aliased constant Windows.IID := (112627486, 39223, 21142, (165, 94, 212, 61, 216, 167, 84, 92 ));
-   
-   type IAsyncOperation_IUserDataAccountStore_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IUserDataAccountStore_Interface
-      ; handler : Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccountStore
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IUserDataAccountStore_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.AsyncOperationCompletedHandler_IUserDataAccountStore
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IUserDataAccountStore_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore
    )
    return Windows.HRESULT is abstract;
    
@@ -592,19 +592,6 @@ package Windows.ApplicationModel.UserDataAccounts is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IUserDataAccountStore2_add_StoreChanged : aliased constant Windows.IID := (2066198216, 1680, 20579, (190, 176, 217, 226, 235, 26, 18, 1 ));
-   
-   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataAccountStore2_add_StoreChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface
-      ; sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore
-      ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_AsyncOperationCompletedHandler_IUserDataAccountStore : aliased constant Windows.IID := (642526377, 10676, 20533, (180, 96, 140, 141, 14, 143, 188, 217 ));
    
    type AsyncOperationCompletedHandler_IUserDataAccountStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserDataAccountStore'access) with null record;
@@ -617,13 +604,26 @@ package Windows.ApplicationModel.UserDataAccounts is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IUserDataAccountStore2_add_StoreChanged : aliased constant Windows.IID := (2066198216, 1680, 20579, (190, 176, 217, 226, 235, 26, 18, 1 ));
+   
+   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataAccountStore2_add_StoreChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface
+      ; sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore
+      ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype UserDataAccount is Windows.ApplicationModel.UserDataAccounts.IUserDataAccount;
+   subtype UserDataAccountManagerForUser is Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerForUser;
    subtype UserDataAccountStore is Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore;
    subtype UserDataAccountStoreChangedEventArgs is Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs;
-   subtype UserDataAccountManagerForUser is Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerForUser;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

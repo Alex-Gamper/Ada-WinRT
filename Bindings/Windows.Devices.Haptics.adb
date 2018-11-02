@@ -36,8 +36,8 @@ package body Windows.Devices.Haptics is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_VibrationAccessStatus_Interface
-      ; asyncInfo : Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus
+      This       : access AsyncOperationCompletedHandler_IVibrationDevice_Interface
+      ; asyncInfo : Windows.Devices.Haptics.IAsyncOperation_IVibrationDevice
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -49,8 +49,8 @@ package body Windows.Devices.Haptics is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IVibrationDevice_Interface
-      ; asyncInfo : Windows.Devices.Haptics.IAsyncOperation_IVibrationDevice
+      This       : access AsyncOperationCompletedHandler_VibrationAccessStatus_Interface
+      ; asyncInfo : Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

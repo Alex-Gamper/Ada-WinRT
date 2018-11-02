@@ -38,6 +38,32 @@ package Windows.Devices.Custom is
    -- Enums
    ------------------------------------------------------------------------
    
+   type DeviceAccessMode is (
+      Read,
+      Write,
+      ReadWrite
+   );
+   for DeviceAccessMode use (
+      Read => 0,
+      Write => 1,
+      ReadWrite => 2
+   );
+   for DeviceAccessMode'Size use 32;
+   
+   type DeviceAccessMode_Ptr is access DeviceAccessMode;
+   
+   type DeviceSharingMode is (
+      Shared,
+      Exclusive
+   );
+   for DeviceSharingMode use (
+      Shared => 0,
+      Exclusive => 1
+   );
+   for DeviceSharingMode'Size use 32;
+   
+   type DeviceSharingMode_Ptr is access DeviceSharingMode;
+   
    type IOControlAccessMode is (
       Any,
       Read,
@@ -70,32 +96,6 @@ package Windows.Devices.Custom is
    
    type IOControlBufferingMethod_Ptr is access IOControlBufferingMethod;
    
-   type DeviceAccessMode is (
-      Read,
-      Write,
-      ReadWrite
-   );
-   for DeviceAccessMode use (
-      Read => 0,
-      Write => 1,
-      ReadWrite => 2
-   );
-   for DeviceAccessMode'Size use 32;
-   
-   type DeviceAccessMode_Ptr is access DeviceAccessMode;
-   
-   type DeviceSharingMode is (
-      Shared,
-      Exclusive
-   );
-   for DeviceSharingMode use (
-      Shared => 0,
-      Exclusive => 1
-   );
-   for DeviceSharingMode'Size use 32;
-   
-   type DeviceSharingMode_Ptr is access DeviceSharingMode;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -117,24 +117,24 @@ package Windows.Devices.Custom is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IKnownDeviceTypesStatics_Interface;
-   type IKnownDeviceTypesStatics is access all IKnownDeviceTypesStatics_Interface'Class;
-   type IKnownDeviceTypesStatics_Ptr is access all IKnownDeviceTypesStatics;
+   type IAsyncOperation_ICustomDevice_Interface;
+   type IAsyncOperation_ICustomDevice is access all IAsyncOperation_ICustomDevice_Interface'Class;
+   type IAsyncOperation_ICustomDevice_Ptr is access all IAsyncOperation_ICustomDevice;
+   type ICustomDevice_Interface;
+   type ICustomDevice is access all ICustomDevice_Interface'Class;
+   type ICustomDevice_Ptr is access all ICustomDevice;
+   type ICustomDeviceStatics_Interface;
+   type ICustomDeviceStatics is access all ICustomDeviceStatics_Interface'Class;
+   type ICustomDeviceStatics_Ptr is access all ICustomDeviceStatics;
    type IIOControlCode_Interface;
    type IIOControlCode is access all IIOControlCode_Interface'Class;
    type IIOControlCode_Ptr is access all IIOControlCode;
    type IIOControlCodeFactory_Interface;
    type IIOControlCodeFactory is access all IIOControlCodeFactory_Interface'Class;
    type IIOControlCodeFactory_Ptr is access all IIOControlCodeFactory;
-   type ICustomDeviceStatics_Interface;
-   type ICustomDeviceStatics is access all ICustomDeviceStatics_Interface'Class;
-   type ICustomDeviceStatics_Ptr is access all ICustomDeviceStatics;
-   type ICustomDevice_Interface;
-   type ICustomDevice is access all ICustomDevice_Interface'Class;
-   type ICustomDevice_Ptr is access all ICustomDevice;
-   type IAsyncOperation_ICustomDevice_Interface;
-   type IAsyncOperation_ICustomDevice is access all IAsyncOperation_ICustomDevice_Interface'Class;
-   type IAsyncOperation_ICustomDevice_Ptr is access all IAsyncOperation_ICustomDevice;
+   type IKnownDeviceTypesStatics_Interface;
+   type IKnownDeviceTypesStatics is access all IKnownDeviceTypesStatics_Interface'Class;
+   type IKnownDeviceTypesStatics_Ptr is access all IKnownDeviceTypesStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -142,14 +142,92 @@ package Windows.Devices.Custom is
    
    ------------------------------------------------------------------------
    
-   IID_IKnownDeviceTypesStatics : aliased constant Windows.IID := (3998513602, 21576, 17882, (173, 27, 36, 148, 140, 35, 144, 148 ));
+   IID_IAsyncOperation_ICustomDevice : aliased constant Windows.IID := (711148714, 1384, 21646, (161, 162, 182, 187, 69, 29, 34, 140 ));
    
-   type IKnownDeviceTypesStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ICustomDevice_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Unknown
+   function put_Completed
    (
-      This       : access IKnownDeviceTypesStatics_Interface
-      ; RetVal : access Windows.UInt16
+      This       : access IAsyncOperation_ICustomDevice_Interface
+      ; handler : Windows.Devices.Custom.AsyncOperationCompletedHandler_ICustomDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ICustomDevice_Interface
+      ; RetVal : access Windows.Devices.Custom.AsyncOperationCompletedHandler_ICustomDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ICustomDevice_Interface
+      ; RetVal : access Windows.Devices.Custom.ICustomDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICustomDevice : aliased constant Windows.IID := (3710919967, 50315, 17341, (188, 177, 222, 200, 143, 21, 20, 62 ));
+   
+   type ICustomDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InputStream
+   (
+      This       : access ICustomDevice_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutputStream
+   (
+      This       : access ICustomDevice_Interface
+      ; RetVal : access Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SendIOControlAsync
+   (
+      This       : access ICustomDevice_Interface
+      ; ioControlCode : Windows.Devices.Custom.IIOControlCode
+      ; inputBuffer : Windows.Storage.Streams.IBuffer
+      ; outputBuffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Foundation.IAsyncOperation_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySendIOControlAsync
+   (
+      This       : access ICustomDevice_Interface
+      ; ioControlCode : Windows.Devices.Custom.IIOControlCode
+      ; inputBuffer : Windows.Storage.Streams.IBuffer
+      ; outputBuffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICustomDeviceStatics : aliased constant Windows.IID := (3357672210, 61260, 18097, (165, 142, 238, 179, 8, 220, 137, 23 ));
+   
+   type ICustomDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelector
+   (
+      This       : access ICustomDeviceStatics_Interface
+      ; classGuid : Windows.Guid
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access ICustomDeviceStatics_Interface
+      ; deviceId : Windows.String
+      ; desiredAccess : Windows.Devices.Custom.DeviceAccessMode
+      ; sharingMode : Windows.Devices.Custom.DeviceSharingMode
+      ; RetVal : access Windows.Devices.Custom.IAsyncOperation_ICustomDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -213,92 +291,14 @@ package Windows.Devices.Custom is
    
    ------------------------------------------------------------------------
    
-   IID_ICustomDeviceStatics : aliased constant Windows.IID := (3357672210, 61260, 18097, (165, 142, 238, 179, 8, 220, 137, 23 ));
+   IID_IKnownDeviceTypesStatics : aliased constant Windows.IID := (3998513602, 21576, 17882, (173, 27, 36, 148, 140, 35, 144, 148 ));
    
-   type ICustomDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IKnownDeviceTypesStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDeviceSelector
+   function get_Unknown
    (
-      This       : access ICustomDeviceStatics_Interface
-      ; classGuid : Windows.Guid
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromIdAsync
-   (
-      This       : access ICustomDeviceStatics_Interface
-      ; deviceId : Windows.String
-      ; desiredAccess : Windows.Devices.Custom.DeviceAccessMode
-      ; sharingMode : Windows.Devices.Custom.DeviceSharingMode
-      ; RetVal : access Windows.Devices.Custom.IAsyncOperation_ICustomDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICustomDevice : aliased constant Windows.IID := (3710919967, 50315, 17341, (188, 177, 222, 200, 143, 21, 20, 62 ));
-   
-   type ICustomDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_InputStream
-   (
-      This       : access ICustomDevice_Interface
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutputStream
-   (
-      This       : access ICustomDevice_Interface
-      ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SendIOControlAsync
-   (
-      This       : access ICustomDevice_Interface
-      ; ioControlCode : Windows.Devices.Custom.IIOControlCode
-      ; inputBuffer : Windows.Storage.Streams.IBuffer
-      ; outputBuffer : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Foundation.IAsyncOperation_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TrySendIOControlAsync
-   (
-      This       : access ICustomDevice_Interface
-      ; ioControlCode : Windows.Devices.Custom.IIOControlCode
-      ; inputBuffer : Windows.Storage.Streams.IBuffer
-      ; outputBuffer : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICustomDevice : aliased constant Windows.IID := (711148714, 1384, 21646, (161, 162, 182, 187, 69, 29, 34, 140 ));
-   
-   type IAsyncOperation_ICustomDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICustomDevice_Interface
-      ; handler : Windows.Devices.Custom.AsyncOperationCompletedHandler_ICustomDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICustomDevice_Interface
-      ; RetVal : access Windows.Devices.Custom.AsyncOperationCompletedHandler_ICustomDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICustomDevice_Interface
-      ; RetVal : access Windows.Devices.Custom.ICustomDevice
+      This       : access IKnownDeviceTypesStatics_Interface
+      ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
    
@@ -323,6 +323,7 @@ package Windows.Devices.Custom is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype CustomDevice is Windows.Devices.Custom.ICustomDevice;
    subtype IOControlCode is Windows.Devices.Custom.IIOControlCode;
    function CreateIOControlCode
    (
@@ -333,14 +334,10 @@ package Windows.Devices.Custom is
    )
    return Windows.Devices.Custom.IIOControlCode;
    
-   subtype CustomDevice is Windows.Devices.Custom.ICustomDevice;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_Unknown
-   return Windows.UInt16;
    
    function GetDeviceSelector
    (
@@ -355,5 +352,8 @@ package Windows.Devices.Custom is
       ; sharingMode : Windows.Devices.Custom.DeviceSharingMode
    )
    return Windows.Devices.Custom.IAsyncOperation_ICustomDevice;
+   
+   function get_Unknown
+   return Windows.UInt16;
    
 end;

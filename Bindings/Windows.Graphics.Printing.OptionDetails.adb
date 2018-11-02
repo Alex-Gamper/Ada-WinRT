@@ -38,19 +38,6 @@ package body Windows.Graphics.Printing.OptionDetails is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface
-      ; sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails
-      ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails(sender), Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface
       ; sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails
       ; args : Windows.Object
@@ -59,6 +46,19 @@ package body Windows.Graphics.Printing.OptionDetails is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface
+      ; sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails
+      ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails(sender), Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs(args));
       return Hr;
    end;
    

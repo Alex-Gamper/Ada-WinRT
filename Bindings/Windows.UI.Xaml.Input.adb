@@ -41,6 +41,19 @@ package body Windows.UI.Xaml.Input is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IFocusMovementResult_Interface
+      ; asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access DoubleTappedEventHandler_Interface
       ; sender : Windows.Object
       ; e : Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs
@@ -208,39 +221,9 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IFocusMovementResult_Interface
-      ; asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IAccessKeyDisplayRequestedEventArgs'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -253,6 +236,23 @@ package body Windows.UI.Xaml.Input is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IAccessKeyDisplayDismissedEventArgs'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IAccessKeyDisplayRequestedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -274,44 +274,6 @@ package body Windows.UI.Xaml.Input is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Input.IManipulationPivot is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationPivot");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Input.IManipulationPivot) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IManipulationPivot'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateInstanceWithCenterAndRadius
-   (
-      center : Windows.Foundation.Point
-      ; radius : Windows.Double
-   )
-   return Windows.UI.Xaml.Input.IManipulationPivot is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationPivot");
-      m_Factory     : Windows.UI.Xaml.Input.IManipulationPivotFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Input.IManipulationPivot := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IManipulationPivotFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithCenterAndRadius(center, radius, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function Create return Windows.UI.Xaml.Input.IContextRequestedEventArgs is
@@ -342,6 +304,23 @@ package body Windows.UI.Xaml.Input is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IDoubleTappedRoutedEventArgs'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Input.IFindNextElementOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FindNextElementOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Input.IFindNextElementOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IFindNextElementOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -470,6 +449,44 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Input.IManipulationPivot is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationPivot");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Input.IManipulationPivot) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IManipulationPivot'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateInstanceWithCenterAndRadius
+   (
+      center : Windows.Foundation.Point
+      ; radius : Windows.Double
+   )
+   return Windows.UI.Xaml.Input.IManipulationPivot is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationPivot");
+      m_Factory     : Windows.UI.Xaml.Input.IManipulationPivotFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Input.IManipulationPivot := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IManipulationPivotFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithCenterAndRadius(center, radius, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create return Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs");
@@ -515,23 +532,6 @@ package body Windows.UI.Xaml.Input is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_ITappedRoutedEventArgs'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Input.IFindNextElementOptions is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FindNextElementOptions");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Input.IFindNextElementOptions) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IFindNextElementOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1022,116 +1022,6 @@ package body Windows.UI.Xaml.Input is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Input.IKeyboardAccelerator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
-      m_Factory     : IKeyboardAcceleratorFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Input.IKeyboardAccelerator;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_KeyProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
-      m_Factory     : IKeyboardAcceleratorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeyProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ModifiersProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
-      m_Factory     : IKeyboardAcceleratorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ModifiersProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
-      m_Factory     : IKeyboardAcceleratorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ScopeOwnerProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
-      m_Factory     : IKeyboardAcceleratorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ScopeOwnerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs");
-      m_Factory     : IManipulationStartedRoutedEventArgsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IManipulationStartedRoutedEventArgsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetFocusedElement
    return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
@@ -1368,6 +1258,116 @@ package body Windows.UI.Xaml.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindNextElementWithOptions(focusNavigationDirection, focusNavigationOptions, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Input.IKeyboardAccelerator is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
+      m_Factory     : IKeyboardAcceleratorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Input.IKeyboardAccelerator;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
+      m_Factory     : IKeyboardAcceleratorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ModifiersProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
+      m_Factory     : IKeyboardAcceleratorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ModifiersProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
+      m_Factory     : IKeyboardAcceleratorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ScopeOwnerProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.KeyboardAccelerator");
+      m_Factory     : IKeyboardAcceleratorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyboardAcceleratorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ScopeOwnerProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs");
+      m_Factory     : IManipulationStartedRoutedEventArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IManipulationStartedRoutedEventArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

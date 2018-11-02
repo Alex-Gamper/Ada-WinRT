@@ -52,19 +52,6 @@ package body Windows.ApplicationModel.Wallet is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWalletItemStore2_add_ItemsChanged_Interface
-      ; sender : Windows.ApplicationModel.Wallet.IWalletItemStore
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Wallet.IWalletItemStore(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IWalletItemStore_Interface
       ; asyncInfo : Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItemStore
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -73,6 +60,19 @@ package body Windows.ApplicationModel.Wallet is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWalletItemStore2_add_ItemsChanged_Interface
+      ; sender : Windows.ApplicationModel.Wallet.IWalletItemStore
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Wallet.IWalletItemStore(sender), args);
       return Hr;
    end;
    
@@ -121,38 +121,25 @@ package body Windows.ApplicationModel.Wallet is
       return RetVal;
    end;
    
-   function Create return Windows.ApplicationModel.Wallet.IWalletTransaction is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletTransaction");
-      Instance      : aliased IInspectable := null;
+   function CreateWalletItem
+   (
+      kind : Windows.ApplicationModel.Wallet.WalletItemKind
+      ; displayName : Windows.String
+   )
+   return Windows.ApplicationModel.Wallet.IWalletItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletItem");
+      m_Factory     : Windows.ApplicationModel.Wallet.IWalletItemFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Wallet.IWalletTransaction) with inline;
+      RetVal        : aliased Windows.ApplicationModel.Wallet.IWalletItem := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IWalletItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Wallet.IID_IWalletTransaction'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateWalletItem(kind, displayName, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Wallet.IWalletRelevantLocation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletRelevantLocation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Wallet.IWalletRelevantLocation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Wallet.IID_IWalletRelevantLocation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function CreateWalletItemCustomProperty
@@ -176,6 +163,40 @@ package body Windows.ApplicationModel.Wallet is
       return RetVal;
    end;
    
+   function Create return Windows.ApplicationModel.Wallet.IWalletRelevantLocation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletRelevantLocation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Wallet.IWalletRelevantLocation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Wallet.IID_IWalletRelevantLocation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.ApplicationModel.Wallet.IWalletTransaction is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletTransaction");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Wallet.IWalletTransaction) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Wallet.IID_IWalletTransaction'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateWalletVerb
    (
       name : Windows.String
@@ -190,27 +211,6 @@ package body Windows.ApplicationModel.Wallet is
       Hr := RoGetActivationFactory(m_hString, IID_IWalletVerbFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWalletVerb(name, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWalletItem
-   (
-      kind : Windows.ApplicationModel.Wallet.WalletItemKind
-      ; displayName : Windows.String
-   )
-   return Windows.ApplicationModel.Wallet.IWalletItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletItem");
-      m_Factory     : Windows.ApplicationModel.Wallet.IWalletItemFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Wallet.IWalletItem := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWalletItemFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWalletItem(kind, displayName, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

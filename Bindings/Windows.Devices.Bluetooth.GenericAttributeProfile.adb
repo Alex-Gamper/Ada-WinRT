@@ -39,60 +39,8 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceServicesResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGattSession_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface
-      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface
-      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession
-      ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession(sender), Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGattDeviceService_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService
+      This       : access AsyncOperationCompletedHandler_GattCommunicationStatus_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattCommunicationStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -130,53 +78,14 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IGattReadResult_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadResult
+      This       : access AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattClientNotificationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_GattCommunicationStatus_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattCommunicationStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface
-      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
-      ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic(sender), Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs(args));
       return Hr;
    end;
    
@@ -195,8 +104,8 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IGattWriteResult_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult
+      This       : access AsyncOperationCompletedHandler_IGattDeviceService_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -208,27 +117,14 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult
+      This       : access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceServicesResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface
-      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider
-      ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider(sender), Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs(args));
       return Hr;
    end;
    
@@ -260,14 +156,105 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface
-      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic
-      ; args : Windows.Object
+      This       : access AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic(sender), args);
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGattReadRequest_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadRequest
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGattReadResult_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGattSession_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGattWriteRequest_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteRequest
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGattWriteResult_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface
+      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
+      ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic(sender), Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs(args));
       return Hr;
    end;
    
@@ -286,6 +273,19 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface
+      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface
       ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic
       ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs
@@ -294,32 +294,6 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic(sender), Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattClientNotificationResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface
-      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient(sender), args);
       return Hr;
    end;
    
@@ -364,6 +338,58 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface
+      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider
+      ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider(sender), Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface
+      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface
+      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession
+      ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession(sender), Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface
+      ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface
       ; sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequest
       ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs
@@ -375,69 +401,9 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGattReadRequest_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadRequest
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGattWriteRequest_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteRequest
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.GenericAttributeProfile.IID_IGattReliableWriteTransaction'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.GenericAttributeProfile.IID_IGattServiceProviderAdvertisingParameters'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicParameters is
       Hr            : Windows.HResult := S_OK;
@@ -473,6 +439,40 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.GenericAttributeProfile.IID_IGattReliableWriteTransaction'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.GenericAttributeProfile.IID_IGattServiceProviderAdvertisingParameters'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -481,501 +481,7 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorFromUuid
-   (
-      serviceUuid : Windows.Guid
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorFromUuid(serviceUuid, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorFromShortId
-   (
-      serviceShortId : Windows.UInt16
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorFromShortId(serviceShortId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function ConvertShortIdToUuid
-   (
-      shortId : Windows.UInt16
-   )
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ConvertShortIdToUuid(shortId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdWithSharingModeAsync
-   (
-      deviceId : Windows.String
-      ; sharingMode : Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode
-   )
-   return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdWithSharingModeAsync(deviceId, sharingMode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorForBluetoothDeviceId
-   (
-      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceId(bluetoothDeviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorForBluetoothDeviceIdWithCacheMode
-   (
-      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
-      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(bluetoothDeviceId, cacheMode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorForBluetoothDeviceIdAndUuid
-   (
-      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
-      ; serviceUuid : Windows.Guid
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceIdAndUuid(bluetoothDeviceId, serviceUuid, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode
-   (
-      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
-      ; serviceUuid : Windows.Guid
-      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
-      m_Factory     : IGattDeviceServiceStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode(bluetoothDeviceId, serviceUuid, cacheMode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InvalidHandle
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InvalidHandle(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ReadNotPermitted
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ReadNotPermitted(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_WriteNotPermitted
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_WriteNotPermitted(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InvalidPdu
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InvalidPdu(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InsufficientAuthentication
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InsufficientAuthentication(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RequestNotSupported
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RequestNotSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InvalidOffset
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InvalidOffset(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InsufficientAuthorization
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InsufficientAuthorization(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PrepareQueueFull
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PrepareQueueFull(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AttributeNotFound
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AttributeNotFound(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AttributeNotLong
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AttributeNotLong(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InsufficientEncryptionKeySize
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InsufficientEncryptionKeySize(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InvalidAttributeValueLength
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InvalidAttributeValueLength(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UnlikelyError
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UnlikelyError(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InsufficientEncryption
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InsufficientEncryption(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UnsupportedGroupType
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UnsupportedGroupType(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InsufficientResources
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
-      m_Factory     : IGattProtocolErrorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InsufficientResources(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromDeviceIdAsync
-   (
-      deviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
-   )
-   return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession");
-      m_Factory     : IGattSessionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattSessionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromDeviceIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ConvertShortIdToUuid_IGattCharacteristic
    (
       shortId : Windows.UInt16
    )
@@ -989,900 +495,6 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ConvertShortIdToUuid(shortId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ConvertShortIdToUuid_IGattDescriptor
-   (
-      shortId : Windows.UInt16
-   )
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor");
-      m_Factory     : IGattDescriptorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattDescriptorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ConvertShortIdToUuid(shortId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromParts
-   (
-      formatType : Windows.UInt8
-      ; exponent : Windows.Int32
-      ; unit : Windows.UInt16
-      ; namespaceId : Windows.UInt8
-      ; description : Windows.UInt16
-   )
-   return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat");
-      m_Factory     : IGattPresentationFormatStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromParts(formatType, exponent, unit, namespaceId, description, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_BluetoothSigAssignedNumbers
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat");
-      m_Factory     : IGattPresentationFormatStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BluetoothSigAssignedNumbers(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Boolean
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Boolean(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Bit2
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Bit2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Nibble
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Nibble(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt8
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt8(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt12
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt12(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt16
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt16(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt24
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt24(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt32
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt32(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt48
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt48(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt64
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt64(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UInt128
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UInt128(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt8
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt8(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt12
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt12(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt16
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt16(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt24
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt24(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt32
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt32(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt48
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt48(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt64
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt64(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SInt128
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SInt128(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Float32
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Float32(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Float64
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Float64(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SFloat
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SFloat(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Float
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Float(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DUInt16
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DUInt16(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Utf8
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Utf8(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Utf16
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Utf16(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Struct
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
-      m_Factory     : IGattPresentationFormatTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Struct(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AlertNotification
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AlertNotification(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CurrentTime
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CurrentTime(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CyclingPower
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CyclingPower(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DeviceInformation
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DeviceInformation(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HumanInterfaceDevice
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HumanInterfaceDevice(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ImmediateAlert
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ImmediateAlert(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LinkLoss
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LinkLoss(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LocationAndNavigation
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LocationAndNavigation(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_NextDstChange
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_NextDstChange(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PhoneAlertStatus
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PhoneAlertStatus(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ReferenceTimeUpdate
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ReferenceTimeUpdate(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ScanParameters
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ScanParameters(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TxPower
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TxPower(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Battery
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Battery(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_BloodPressure
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BloodPressure(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CyclingSpeedAndCadence
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CyclingSpeedAndCadence(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_GenericAccess
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_GenericAccess(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_GenericAttribute
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_GenericAttribute(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Glucose
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Glucose(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HealthThermometer
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HealthThermometer(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HeartRate
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeartRate(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RunningSpeedAndCadence
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RunningSpeedAndCadence(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2042,7 +654,7 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return RetVal;
    end;
    
-   function get_CurrentTime_GattCharacteristicUuids
+   function get_CurrentTime
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
@@ -3266,6 +1878,26 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return RetVal;
    end;
    
+   function ConvertShortIdToUuid_IGattDescriptor
+   (
+      shortId : Windows.UInt16
+   )
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor");
+      m_Factory     : IGattDescriptorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDescriptorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ConvertShortIdToUuid(shortId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_CharacteristicAggregateFormat
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
@@ -3368,6 +2000,980 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return RetVal;
    end;
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorFromUuid
+   (
+      serviceUuid : Windows.Guid
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorFromUuid(serviceUuid, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorFromShortId
+   (
+      serviceShortId : Windows.UInt16
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorFromShortId(serviceShortId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ConvertShortIdToUuid_IGattDeviceService
+   (
+      shortId : Windows.UInt16
+   )
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ConvertShortIdToUuid(shortId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdWithSharingModeAsync
+   (
+      deviceId : Windows.String
+      ; sharingMode : Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode
+   )
+   return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdWithSharingModeAsync(deviceId, sharingMode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorForBluetoothDeviceId
+   (
+      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceId(bluetoothDeviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorForBluetoothDeviceIdWithCacheMode
+   (
+      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
+      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(bluetoothDeviceId, cacheMode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorForBluetoothDeviceIdAndUuid
+   (
+      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
+      ; serviceUuid : Windows.Guid
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceIdAndUuid(bluetoothDeviceId, serviceUuid, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode
+   (
+      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
+      ; serviceUuid : Windows.Guid
+      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService");
+      m_Factory     : IGattDeviceServiceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattDeviceServiceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode(bluetoothDeviceId, serviceUuid, cacheMode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromParts
+   (
+      formatType : Windows.UInt8
+      ; exponent : Windows.Int32
+      ; unit : Windows.UInt16
+      ; namespaceId : Windows.UInt8
+      ; description : Windows.UInt16
+   )
+   return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat");
+      m_Factory     : IGattPresentationFormatStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromParts(formatType, exponent, unit, namespaceId, description, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BluetoothSigAssignedNumbers
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat");
+      m_Factory     : IGattPresentationFormatStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BluetoothSigAssignedNumbers(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Boolean
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Boolean(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Bit2
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Bit2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Nibble
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Nibble(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt8
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt8(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt12
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt12(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt16
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt16(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt24
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt24(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt32
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt32(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt48
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt48(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt64
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt64(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UInt128
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UInt128(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt8
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt8(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt12
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt12(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt16
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt16(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt24
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt24(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt32
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt32(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt48
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt48(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt64
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt64(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SInt128
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SInt128(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Float32
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Float32(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Float64
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Float64(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SFloat
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SFloat(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Float
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Float(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DUInt16
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DUInt16(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Utf8
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Utf8(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Utf16
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Utf16(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Struct
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes");
+      m_Factory     : IGattPresentationFormatTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattPresentationFormatTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Struct(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InvalidHandle
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InvalidHandle(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ReadNotPermitted
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ReadNotPermitted(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_WriteNotPermitted
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_WriteNotPermitted(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InvalidPdu
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InvalidPdu(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InsufficientAuthentication
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InsufficientAuthentication(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RequestNotSupported
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RequestNotSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InvalidOffset
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InvalidOffset(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InsufficientAuthorization
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InsufficientAuthorization(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PrepareQueueFull
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PrepareQueueFull(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AttributeNotFound
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AttributeNotFound(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AttributeNotLong
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AttributeNotLong(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InsufficientEncryptionKeySize
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InsufficientEncryptionKeySize(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InvalidAttributeValueLength
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InvalidAttributeValueLength(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UnlikelyError
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UnlikelyError(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InsufficientEncryption
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InsufficientEncryption(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UnsupportedGroupType
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UnsupportedGroupType(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InsufficientResources
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError");
+      m_Factory     : IGattProtocolErrorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattProtocolErrorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InsufficientResources(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateAsync
    (
       serviceUuid : Windows.Guid
@@ -3382,6 +2988,400 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IGattServiceProviderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateAsync(serviceUuid, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AlertNotification
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AlertNotification(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CurrentTime_GattServiceUuids
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CurrentTime(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CyclingPower
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CyclingPower(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DeviceInformation
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DeviceInformation(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HumanInterfaceDevice
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HumanInterfaceDevice(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ImmediateAlert
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ImmediateAlert(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LinkLoss
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LinkLoss(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LocationAndNavigation
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocationAndNavigation(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_NextDstChange
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NextDstChange(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PhoneAlertStatus
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PhoneAlertStatus(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ReferenceTimeUpdate
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ReferenceTimeUpdate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ScanParameters
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ScanParameters(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TxPower
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TxPower(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Battery
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Battery(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BloodPressure
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BloodPressure(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CyclingSpeedAndCadence
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CyclingSpeedAndCadence(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_GenericAccess
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_GenericAccess(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_GenericAttribute
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_GenericAttribute(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Glucose
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Glucose(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HealthThermometer
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HealthThermometer(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HeartRate
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeartRate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RunningSpeedAndCadence
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RunningSpeedAndCadence(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromDeviceIdAsync
+   (
+      deviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
+   )
+   return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession");
+      m_Factory     : IGattSessionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattSessionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromDeviceIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

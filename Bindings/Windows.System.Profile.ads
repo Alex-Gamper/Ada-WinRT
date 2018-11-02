@@ -38,22 +38,6 @@ package Windows.System.Profile is
    -- Enums
    ------------------------------------------------------------------------
    
-   type SystemIdentificationSource is (
-      None,
-      Tpm,
-      Uefi,
-      Registry
-   );
-   for SystemIdentificationSource use (
-      None => 0,
-      Tpm => 1,
-      Uefi => 2,
-      Registry => 3
-   );
-   for SystemIdentificationSource'Size use 32;
-   
-   type SystemIdentificationSource_Ptr is access SystemIdentificationSource;
-   
    type PlatformDataCollectionLevel is (
       Security,
       Basic,
@@ -69,6 +53,22 @@ package Windows.System.Profile is
    for PlatformDataCollectionLevel'Size use 32;
    
    type PlatformDataCollectionLevel_Ptr is access PlatformDataCollectionLevel;
+   
+   type SystemIdentificationSource is (
+      None,
+      Tpm,
+      Uefi,
+      Registry
+   );
+   for SystemIdentificationSource use (
+      None => 0,
+      Tpm => 1,
+      Uefi => 2,
+      Registry => 3
+   );
+   for SystemIdentificationSource'Size use 32;
+   
+   type SystemIdentificationSource_Ptr is access SystemIdentificationSource;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -93,12 +93,6 @@ package Windows.System.Profile is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISystemIdentificationInfo_Interface;
-   type ISystemIdentificationInfo is access all ISystemIdentificationInfo_Interface'Class;
-   type ISystemIdentificationInfo_Ptr is access all ISystemIdentificationInfo;
-   type ISystemIdentificationStatics_Interface;
-   type ISystemIdentificationStatics is access all ISystemIdentificationStatics_Interface'Class;
-   type ISystemIdentificationStatics_Ptr is access all ISystemIdentificationStatics;
    type IAnalyticsInfoStatics_Interface;
    type IAnalyticsInfoStatics is access all IAnalyticsInfoStatics_Interface'Class;
    type IAnalyticsInfoStatics_Ptr is access all IAnalyticsInfoStatics;
@@ -111,72 +105,37 @@ package Windows.System.Profile is
    type IEducationSettingsStatics_Interface;
    type IEducationSettingsStatics is access all IEducationSettingsStatics_Interface'Class;
    type IEducationSettingsStatics_Ptr is access all IEducationSettingsStatics;
-   type IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface;
-   type IPlatformDiagnosticsAndUsageDataSettingsStatics is access all IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface'Class;
-   type IPlatformDiagnosticsAndUsageDataSettingsStatics_Ptr is access all IPlatformDiagnosticsAndUsageDataSettingsStatics;
-   type IHardwareToken_Interface;
-   type IHardwareToken is access all IHardwareToken_Interface'Class;
-   type IHardwareToken_Ptr is access all IHardwareToken;
    type IHardwareIdentificationStatics_Interface;
    type IHardwareIdentificationStatics is access all IHardwareIdentificationStatics_Interface'Class;
    type IHardwareIdentificationStatics_Ptr is access all IHardwareIdentificationStatics;
-   type IRetailInfoStatics_Interface;
-   type IRetailInfoStatics is access all IRetailInfoStatics_Interface'Class;
-   type IRetailInfoStatics_Ptr is access all IRetailInfoStatics;
+   type IHardwareToken_Interface;
+   type IHardwareToken is access all IHardwareToken_Interface'Class;
+   type IHardwareToken_Ptr is access all IHardwareToken;
    type IKnownRetailInfoPropertiesStatics_Interface;
    type IKnownRetailInfoPropertiesStatics is access all IKnownRetailInfoPropertiesStatics_Interface'Class;
    type IKnownRetailInfoPropertiesStatics_Ptr is access all IKnownRetailInfoPropertiesStatics;
+   type IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface;
+   type IPlatformDiagnosticsAndUsageDataSettingsStatics is access all IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface'Class;
+   type IPlatformDiagnosticsAndUsageDataSettingsStatics_Ptr is access all IPlatformDiagnosticsAndUsageDataSettingsStatics;
+   type IRetailInfoStatics_Interface;
+   type IRetailInfoStatics is access all IRetailInfoStatics_Interface'Class;
+   type IRetailInfoStatics_Ptr is access all IRetailInfoStatics;
    type ISharedModeSettingsStatics_Interface;
    type ISharedModeSettingsStatics is access all ISharedModeSettingsStatics_Interface'Class;
    type ISharedModeSettingsStatics_Ptr is access all ISharedModeSettingsStatics;
    type ISharedModeSettingsStatics2_Interface;
    type ISharedModeSettingsStatics2 is access all ISharedModeSettingsStatics2_Interface'Class;
    type ISharedModeSettingsStatics2_Ptr is access all ISharedModeSettingsStatics2;
+   type ISystemIdentificationInfo_Interface;
+   type ISystemIdentificationInfo is access all ISystemIdentificationInfo_Interface'Class;
+   type ISystemIdentificationInfo_Ptr is access all ISystemIdentificationInfo;
+   type ISystemIdentificationStatics_Interface;
+   type ISystemIdentificationStatics is access all ISystemIdentificationStatics_Interface'Class;
+   type ISystemIdentificationStatics_Ptr is access all ISystemIdentificationStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISystemIdentificationInfo : aliased constant Windows.IID := (207986301, 50114, 19763, (162, 223, 33, 188, 65, 145, 110, 179 ));
-   
-   type ISystemIdentificationInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access ISystemIdentificationInfo_Interface
-      ; RetVal : access Windows.Storage.Streams.IBuffer
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Source
-   (
-      This       : access ISystemIdentificationInfo_Interface
-      ; RetVal : access Windows.System.Profile.SystemIdentificationSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISystemIdentificationStatics : aliased constant Windows.IID := (1434580010, 54239, 19859, (163, 125, 196, 26, 97, 108, 109, 1 ));
-   
-   type ISystemIdentificationStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetSystemIdForPublisher
-   (
-      This       : access ISystemIdentificationStatics_Interface
-      ; RetVal : access Windows.System.Profile.ISystemIdentificationInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetSystemIdForUser
-   (
-      This       : access ISystemIdentificationStatics_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.System.Profile.ISystemIdentificationInfo
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -247,37 +206,15 @@ package Windows.System.Profile is
    
    ------------------------------------------------------------------------
    
-   IID_IPlatformDiagnosticsAndUsageDataSettingsStatics : aliased constant Windows.IID := (3068283931, 31516, 19250, (140, 98, 166, 101, 151, 206, 114, 58 ));
+   IID_IHardwareIdentificationStatics : aliased constant Windows.IID := (2534564064, 61808, 19010, (189, 85, 169, 0, 178, 18, 218, 226 ));
    
-   type IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IHardwareIdentificationStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_CollectionLevel
+   function GetPackageSpecificToken
    (
-      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
-      ; RetVal : access Windows.System.Profile.PlatformDataCollectionLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_CollectionLevelChanged
-   (
-      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
-      ; handler : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_CollectionLevelChanged
-   (
-      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CanCollectDiagnostics
-   (
-      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
-      ; level : Windows.System.Profile.PlatformDataCollectionLevel
-      ; RetVal : access Windows.Boolean
+      This       : access IHardwareIdentificationStatics_Interface
+      ; nonce : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.System.Profile.IHardwareToken
    )
    return Windows.HRESULT is abstract;
    
@@ -305,40 +242,6 @@ package Windows.System.Profile is
    (
       This       : access IHardwareToken_Interface
       ; RetVal : access Windows.Storage.Streams.IBuffer
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHardwareIdentificationStatics : aliased constant Windows.IID := (2534564064, 61808, 19010, (189, 85, 169, 0, 178, 18, 218, 226 ));
-   
-   type IHardwareIdentificationStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetPackageSpecificToken
-   (
-      This       : access IHardwareIdentificationStatics_Interface
-      ; nonce : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.System.Profile.IHardwareToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRetailInfoStatics : aliased constant Windows.IID := (118671032, 35730, 20266, (132, 153, 3, 31, 23, 152, 214, 239 ));
-   
-   type IRetailInfoStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsDemoModeEnabled
-   (
-      This       : access IRetailInfoStatics_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Properties
-   (
-      This       : access IRetailInfoStatics_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -504,6 +407,62 @@ package Windows.System.Profile is
    
    ------------------------------------------------------------------------
    
+   IID_IPlatformDiagnosticsAndUsageDataSettingsStatics : aliased constant Windows.IID := (3068283931, 31516, 19250, (140, 98, 166, 101, 151, 206, 114, 58 ));
+   
+   type IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CollectionLevel
+   (
+      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
+      ; RetVal : access Windows.System.Profile.PlatformDataCollectionLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_CollectionLevelChanged
+   (
+      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_CollectionLevelChanged
+   (
+      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CanCollectDiagnostics
+   (
+      This       : access IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface
+      ; level : Windows.System.Profile.PlatformDataCollectionLevel
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRetailInfoStatics : aliased constant Windows.IID := (118671032, 35730, 20266, (132, 153, 3, 31, 23, 152, 214, 239 ));
+   
+   type IRetailInfoStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDemoModeEnabled
+   (
+      This       : access IRetailInfoStatics_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IRetailInfoStatics_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISharedModeSettingsStatics : aliased constant Windows.IID := (2302538766, 51926, 19792, (140, 73, 111, 207, 192, 62, 219, 41 ));
    
    type ISharedModeSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -529,25 +488,57 @@ package Windows.System.Profile is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_ISystemIdentificationInfo : aliased constant Windows.IID := (207986301, 50114, 19763, (162, 223, 33, 188, 65, 145, 110, 179 ));
+   
+   type ISystemIdentificationInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access ISystemIdentificationInfo_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Source
+   (
+      This       : access ISystemIdentificationInfo_Interface
+      ; RetVal : access Windows.System.Profile.SystemIdentificationSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISystemIdentificationStatics : aliased constant Windows.IID := (1434580010, 54239, 19859, (163, 125, 196, 26, 97, 108, 109, 1 ));
+   
+   type ISystemIdentificationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetSystemIdForPublisher
+   (
+      This       : access ISystemIdentificationStatics_Interface
+      ; RetVal : access Windows.System.Profile.ISystemIdentificationInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetSystemIdForUser
+   (
+      This       : access ISystemIdentificationStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.System.Profile.ISystemIdentificationInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SystemIdentificationInfo is Windows.System.Profile.ISystemIdentificationInfo;
    subtype AnalyticsVersionInfo is Windows.System.Profile.IAnalyticsVersionInfo;
    subtype HardwareToken is Windows.System.Profile.IHardwareToken;
+   subtype SystemIdentificationInfo is Windows.System.Profile.ISystemIdentificationInfo;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function GetSystemIdForPublisher
-   return Windows.System.Profile.ISystemIdentificationInfo;
-   
-   function GetSystemIdForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.System.Profile.ISystemIdentificationInfo;
    
    function GetSystemPropertiesAsync
    (
@@ -564,38 +555,11 @@ package Windows.System.Profile is
    function get_IsEducationEnvironment
    return Windows.Boolean;
    
-   function get_CollectionLevel
-   return Windows.System.Profile.PlatformDataCollectionLevel;
-   
-   function add_CollectionLevelChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_CollectionLevelChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function CanCollectDiagnostics
-   (
-      level : Windows.System.Profile.PlatformDataCollectionLevel
-   )
-   return Windows.Boolean;
-   
    function GetPackageSpecificToken
    (
       nonce : Windows.Storage.Streams.IBuffer
    )
    return Windows.System.Profile.IHardwareToken;
-   
-   function get_IsDemoModeEnabled
-   return Windows.Boolean;
-   
-   function get_Properties
-   return Windows.Address;
    
    function get_RetailAccessCode
    return Windows.String;
@@ -663,10 +627,46 @@ package Windows.System.Profile is
    function get_WindowsEdition
    return Windows.String;
    
+   function get_CollectionLevel
+   return Windows.System.Profile.PlatformDataCollectionLevel;
+   
+   function add_CollectionLevelChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_CollectionLevelChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function CanCollectDiagnostics
+   (
+      level : Windows.System.Profile.PlatformDataCollectionLevel
+   )
+   return Windows.Boolean;
+   
+   function get_IsDemoModeEnabled
+   return Windows.Boolean;
+   
+   function get_Properties
+   return Windows.Address;
+   
    function get_ShouldAvoidLocalStorage
    return Windows.Boolean;
    
    function get_IsEnabled
    return Windows.Boolean;
+   
+   function GetSystemIdForPublisher
+   return Windows.System.Profile.ISystemIdentificationInfo;
+   
+   function GetSystemIdForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.Profile.ISystemIdentificationInfo;
    
 end;

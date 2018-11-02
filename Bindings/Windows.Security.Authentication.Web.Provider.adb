@@ -43,26 +43,6 @@ package body Windows.Security.Authentication.Web.Provider is
    
    function Create
    (
-      webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
-   )
-   return Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse");
-      m_Factory     : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponseFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebProviderTokenResponseFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(webTokenResponse, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
       viewType : Windows.Security.Authentication.Web.Provider.WebAccountClientViewType
       ; applicationCallbackUri : Windows.Foundation.IUriRuntimeClass
    )
@@ -98,6 +78,26 @@ package body Windows.Security.Authentication.Web.Provider is
       Hr := RoGetActivationFactory(m_hString, IID_IWebAccountClientViewFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithPairwiseId(viewType, applicationCallbackUri, accountPairwiseId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
+   )
+   return Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse");
+      m_Factory     : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponseFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebProviderTokenResponseFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(webTokenResponse, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

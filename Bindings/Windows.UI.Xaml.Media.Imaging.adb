@@ -40,6 +40,19 @@ package body Windows.UI.Xaml.Media.Imaging is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface
+      ; asyncInfo : Windows.UI.Xaml.Media.Imaging.IAsyncOperation_SvgImageSourceLoadStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access DownloadProgressEventHandler_Interface
       ; sender : Windows.Object
       ; e : Windows.UI.Xaml.Media.Imaging.IDownloadProgressEventArgs
@@ -77,39 +90,9 @@ package body Windows.UI.Xaml.Media.Imaging is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface
-      ; asyncInfo : Windows.UI.Xaml.Media.Imaging.IAsyncOperation_SvgImageSourceLoadStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_IRenderTargetBitmap'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create return Windows.UI.Xaml.Media.Imaging.IBitmapImage is
       Hr            : Windows.HResult := S_OK;
@@ -146,6 +129,40 @@ package body Windows.UI.Xaml.Media.Imaging is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_IRenderTargetBitmap'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_ISoftwareBitmapSource'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function CreateInstanceWithDimensions
@@ -210,23 +227,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_ISoftwareBitmapSource'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------
@@ -367,208 +367,6 @@ package body Windows.UI.Xaml.Media.Imaging is
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      return Hr;
-   end;
-   
-   
-   ------------------------------------------------------------------------
-   function QueryInterface
-   (
-      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown;
-      RefCount : aliased UInt32 := 0;
-      RetVal : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IXamlRenderingBackgroundTask , Windows.IUnknown); 
-      pragma suppress(Accessibility_Check); -- This can be called from Windows
-   begin
-      if riid.all = IID_IXamlRenderingBackgroundTaskOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject);
-         else
-            if riid.all = IID_IXamlRenderingBackgroundTask then
-               pvObject.all := Convert(This.m_IXamlRenderingBackgroundTask);
-               Hr := S_OK;
-            else
-               Hr := E_NOINTERFACE;
-            end if;
-         end if;
-      end if;
-      return Hr;
-   end;
-   
-   function AddRef
-   (
-      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount + 1;
-      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function Release
-   (
-      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount - 1;
-      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function GetIids
-   (
-      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-   begin
-      return Hr;
-   end;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskOverrides");
-   begin
-      className.all := InterfaceName;
-      return Hr;
-   end;
-   
-   function GetTrustLevel
-   (
-      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-   begin
-      trustLevel.all := FullTrust;
-      return Hr;
-   end;
-   
-   function OnRun
-   (
-      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
-      ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   ------------------------------------------------------------------------
-   function QueryInterface
-   (
-      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown;
-      RefCount : aliased UInt32 := 0;
-      RetVal : aliased IUnknown := null;
-      pragma suppress(Accessibility_Check); -- This can be called from Windows
-   begin
-      if riid.all = IID_IXamlRenderingBackgroundTask or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject);
-         else
-            Hr := E_NOINTERFACE;
-         end if;
-      end if;
-      return Hr;
-   end;
-   
-   function AddRef
-   (
-      This       : access IXamlRenderingBackgroundTask_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount + 1;
-      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function Release
-   (
-      This       : access IXamlRenderingBackgroundTask_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount - 1;
-      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function GetIids
-   (
-      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-   begin
-      return Hr;
-   end;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask");
-   begin
-      className.all := InterfaceName;
-      return Hr;
-   end;
-   
-   function GetTrustLevel
-   (
-      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-   begin
-      trustLevel.all := FullTrust;
       return Hr;
    end;
    
@@ -788,145 +586,211 @@ package body Windows.UI.Xaml.Media.Imaging is
       return Hr;
    end;
    
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IXamlRenderingBackgroundTask , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IXamlRenderingBackgroundTaskOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            if riid.all = IID_IXamlRenderingBackgroundTask then
+               pvObject.all := Convert(This.m_IXamlRenderingBackgroundTask);
+               Hr := S_OK;
+            else
+               Hr := E_NOINTERFACE;
+            end if;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskOverrides");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function OnRun
+   (
+      This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
+      ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IXamlRenderingBackgroundTask or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IXamlRenderingBackgroundTask_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IXamlRenderingBackgroundTask_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IXamlRenderingBackgroundTask_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Imaging.IBitmapSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
-      m_Factory     : IBitmapSourceFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.IBitmapSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PixelWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
-      m_Factory     : IBitmapSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PixelWidthProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PixelHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
-      m_Factory     : IBitmapSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PixelHeightProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PixelWidthProperty_IRenderTargetBitmap
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
-      m_Factory     : IRenderTargetBitmapStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRenderTargetBitmapStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PixelWidthProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PixelHeightProperty_IRenderTargetBitmap
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
-      m_Factory     : IRenderTargetBitmapStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRenderTargetBitmapStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PixelHeightProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstanceWithDimensions
-   (
-      pixelWidth : Windows.Int32
-      ; pixelHeight : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SurfaceImageSource");
-      m_Factory     : ISurfaceImageSourceFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISurfaceImageSourceFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDimensions(pixelWidth, pixelHeight, outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstanceWithDimensionsAndOpacity
-   (
-      pixelWidth : Windows.Int32
-      ; pixelHeight : Windows.Int32
-      ; isOpaque : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SurfaceImageSource");
-      m_Factory     : ISurfaceImageSourceFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISurfaceImageSourceFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function get_DecodePixelTypeProperty
    return Windows.UI.Xaml.IDependencyProperty is
@@ -1069,16 +933,131 @@ package body Windows.UI.Xaml.Media.Imaging is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask is
+   return Windows.UI.Xaml.Media.Imaging.IBitmapSource is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask");
-      m_Factory     : IXamlRenderingBackgroundTaskFactory := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
+      m_Factory     : IBitmapSourceFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask;
+      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.IBitmapSource;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlRenderingBackgroundTaskFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PixelWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
+      m_Factory     : IBitmapSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PixelWidthProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PixelHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
+      m_Factory     : IBitmapSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PixelHeightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PixelWidthProperty_IRenderTargetBitmap
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
+      m_Factory     : IRenderTargetBitmapStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRenderTargetBitmapStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PixelWidthProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PixelHeightProperty_IRenderTargetBitmap
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
+      m_Factory     : IRenderTargetBitmapStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRenderTargetBitmapStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PixelHeightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceWithDimensions
+   (
+      pixelWidth : Windows.Int32
+      ; pixelHeight : Windows.Int32
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SurfaceImageSource");
+      m_Factory     : ISurfaceImageSourceFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISurfaceImageSourceFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithDimensions(pixelWidth, pixelHeight, outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceWithDimensionsAndOpacity
+   (
+      pixelWidth : Windows.Int32
+      ; pixelHeight : Windows.Int32
+      ; isOpaque : Windows.Boolean
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SurfaceImageSource");
+      m_Factory     : ISurfaceImageSourceFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISurfaceImageSourceFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1173,6 +1152,27 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_RasterizePixelHeightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask");
+      m_Factory     : IXamlRenderingBackgroundTaskFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlRenderingBackgroundTaskFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

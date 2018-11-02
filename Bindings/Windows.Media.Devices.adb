@@ -40,6 +40,19 @@ package body Windows.Media.Devices is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IModuleCommandResult_Interface
+      ; asyncInfo : Windows.Media.Devices.IAsyncOperation_IModuleCommandResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access CallControlEventHandler_Interface
       ; sender : Windows.Media.Devices.ICallControl
    )
@@ -65,6 +78,19 @@ package body Windows.Media.Devices is
    
    function Invoke
    (
+      This       : access KeypadPressedEventHandler_Interface
+      ; sender : Windows.Media.Devices.ICallControl
+      ; e : Windows.Media.Devices.IKeypadPressedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Devices.ICallControl(sender), Windows.Media.Devices.IKeypadPressedEventArgs(e));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access RedialRequestedEventHandler_Interface
       ; sender : Windows.Media.Devices.ICallControl
       ; e : Windows.Media.Devices.IRedialRequestedEventArgs
@@ -78,14 +104,14 @@ package body Windows.Media.Devices is
    
    function Invoke
    (
-      This       : access KeypadPressedEventHandler_Interface
-      ; sender : Windows.Media.Devices.ICallControl
-      ; e : Windows.Media.Devices.IKeypadPressedEventArgs
+      This       : access TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface
+      ; sender : Windows.Media.Devices.IAudioDeviceModulesManager
+      ; args : Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Devices.ICallControl(sender), Windows.Media.Devices.IKeypadPressedEventArgs(e));
+      This.Callback(Windows.Media.Devices.IAudioDeviceModulesManager(sender), Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs(args));
       return Hr;
    end;
    
@@ -115,35 +141,26 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IModuleCommandResult_Interface
-      ; asyncInfo : Windows.Media.Devices.IAsyncOperation_IModuleCommandResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface
-      ; sender : Windows.Media.Devices.IAudioDeviceModulesManager
-      ; args : Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Devices.IAudioDeviceModulesManager(sender), Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs(args));
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Media.Devices.IAdvancedPhotoCaptureSettings is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.AdvancedPhotoCaptureSettings");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Devices.IAdvancedPhotoCaptureSettings) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Devices.IID_IAdvancedPhotoCaptureSettings'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create
    (
@@ -163,23 +180,6 @@ package body Windows.Media.Devices is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.Media.Devices.IZoomSettings is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Devices.ZoomSettings");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Devices.IZoomSettings) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Devices.IID_IZoomSettings'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    function Create return Windows.Media.Devices.IFocusSettings is
@@ -216,17 +216,17 @@ package body Windows.Media.Devices is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.Media.Devices.IAdvancedPhotoCaptureSettings is
+   function Create return Windows.Media.Devices.IZoomSettings is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Devices.AdvancedPhotoCaptureSettings");
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.ZoomSettings");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Devices.IAdvancedPhotoCaptureSettings) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Devices.IZoomSettings) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Devices.IID_IAdvancedPhotoCaptureSettings'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Media.Devices.IID_IZoomSettings'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -240,6 +240,43 @@ package body Windows.Media.Devices is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDefault
+   return Windows.Media.Devices.ICallControl is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.CallControl");
+      m_Factory     : ICallControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Devices.ICallControl;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICallControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Media.Devices.ICallControl is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.CallControl");
+      m_Factory     : ICallControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Devices.ICallControl;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICallControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromId(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetAudioCaptureSelector
    return Windows.String is
@@ -406,43 +443,6 @@ package body Windows.Media.Devices is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetDefault
-   return Windows.Media.Devices.ICallControl is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Devices.CallControl");
-      m_Factory     : ICallControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Devices.ICallControl;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICallControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromId
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Media.Devices.ICallControl is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Devices.CallControl");
-      m_Factory     : ICallControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Devices.ICallControl;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICallControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromId(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

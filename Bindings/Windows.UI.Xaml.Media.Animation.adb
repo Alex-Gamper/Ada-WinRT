@@ -56,91 +56,6 @@ package body Windows.UI.Xaml.Media.Animation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_Transition is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.TransitionCollection");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_Transition) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_Transition'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_DoubleKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_ObjectKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_Timeline is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.TimelineCollection");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_Timeline) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_Timeline'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IKeySpline is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.KeySpline");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IKeySpline) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IKeySpline'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function Create return Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition");
@@ -243,6 +158,57 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IColorAnimationUsingKeyFrames'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_ColorKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ICommonNavigationTransitionInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.IContentThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContentThemeTransition");
@@ -260,6 +226,23 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IContinuumNavigationTransitionInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.ICubicEase is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CubicEase");
@@ -271,6 +254,23 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ICubicEase'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDiscreteColorKeyFrame'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -311,6 +311,23 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDiscretePointKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleAnimation");
@@ -345,6 +362,142 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_DoubleKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDragItemThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDragOverThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDrillInNavigationTransitionInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDrillInThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDrillOutThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDropTargetItemThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IEasingColorKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame");
@@ -356,6 +509,23 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IEasingDoubleKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IEasingPointKeyFrame'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -396,6 +566,23 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IEntranceNavigationTransitionInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
@@ -430,6 +617,74 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IFadeInThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IFadeOutThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IKeySpline is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.KeySpline");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IKeySpline) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IKeySpline'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ILinearColorKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame");
@@ -447,6 +702,40 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ILinearPointKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.NavigationThemeTransition");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.INavigationThemeTransition) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_INavigationThemeTransition'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames");
@@ -458,6 +747,23 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IObjectAnimationUsingKeyFrames'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_ObjectKeyFrame'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -492,6 +798,108 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPointAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPointAnimationUsingKeyFrames'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPointerDownThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPointerUpThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_PointKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopInThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPopInThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPopOutThemeAnimation'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -600,6 +1008,23 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IRepositionThemeAnimation'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepositionThemeTransition");
@@ -634,408 +1059,17 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame is
+   function Create return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame");
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ISplineDoubleKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IStoryboard is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IStoryboard) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IStoryboard'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_ColorKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_PointKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IColorAnimationUsingKeyFrames'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDiscreteColorKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDiscretePointKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDragItemThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDragOverThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDrillInThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDrillOutThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDropTargetItemThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IEasingColorKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IEasingPointKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IFadeInThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IFadeOutThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ILinearColorKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ILinearPointKeyFrame'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPointAnimationUsingKeyFrames'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPointerDownThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPointerUpThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopInThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPopInThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IPopOutThemeAnimation'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IRepositionThemeAnimation'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ISlideNavigationTransitionInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1053,6 +1087,23 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ISplineColorKeyFrame'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ISplineDoubleKeyFrame'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1110,6 +1161,40 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.UI.Xaml.Media.Animation.IStoryboard is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IStoryboard) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IStoryboard'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ISuppressNavigationTransitionInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation");
@@ -1144,119 +1229,34 @@ package body Windows.UI.Xaml.Media.Animation is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Timeline is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.TimelineCollection");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_Timeline) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ICommonNavigationTransitionInfo'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_Timeline'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
    end;
    
-   function Create return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo is
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Transition is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.TransitionCollection");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IVector_Transition) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IContinuumNavigationTransitionInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IDrillInNavigationTransitionInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IEntranceNavigationTransitionInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.NavigationThemeTransition");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.INavigationThemeTransition) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_INavigationThemeTransition'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ISlideNavigationTransitionInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_ISuppressNavigationTransitionInfo'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Animation.IID_IVector_Transition'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1266,6 +1266,142 @@ package body Windows.UI.Xaml.Media.Animation is
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IColorKeyFrame or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.IColorKeyFrame");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Value
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Value
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_KeyTime
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_KeyTime
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
    
    ------------------------------------------------------------------------
    function QueryInterface
@@ -1755,6 +1891,142 @@ package body Windows.UI.Xaml.Media.Animation is
    ------------------------------------------------------------------------
    function QueryInterface
    (
+      This       : access IPointKeyFrame_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IPointKeyFrame or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IPointKeyFrame_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IPointKeyFrame_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.IPointKeyFrame");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IPointKeyFrame_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Value
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Value
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_KeyTime
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_KeyTime
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
       This       : access ITimeline_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
       pvObject   : not null access IUnknown
@@ -2000,724 +2272,8 @@ package body Windows.UI.Xaml.Media.Animation is
    end;
    
    ------------------------------------------------------------------------
-   function QueryInterface
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown;
-      RefCount : aliased UInt32 := 0;
-      RetVal : aliased IUnknown := null;
-      pragma suppress(Accessibility_Check); -- This can be called from Windows
-   begin
-      if riid.all = IID_IColorKeyFrame or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject);
-         else
-            Hr := E_NOINTERFACE;
-         end if;
-      end if;
-      return Hr;
-   end;
-   
-   function AddRef
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount + 1;
-      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function Release
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount - 1;
-      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function GetIids
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-   begin
-      return Hr;
-   end;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.IColorKeyFrame");
-   begin
-      className.all := InterfaceName;
-      return Hr;
-   end;
-   
-   function GetTrustLevel
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-   begin
-      trustLevel.all := FullTrust;
-      return Hr;
-   end;
-   
-   function get_Value
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   function put_Value
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   function get_KeyTime
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   function put_KeyTime
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   ------------------------------------------------------------------------
-   function QueryInterface
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown;
-      RefCount : aliased UInt32 := 0;
-      RetVal : aliased IUnknown := null;
-      pragma suppress(Accessibility_Check); -- This can be called from Windows
-   begin
-      if riid.all = IID_IPointKeyFrame or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject);
-         else
-            Hr := E_NOINTERFACE;
-         end if;
-      end if;
-      return Hr;
-   end;
-   
-   function AddRef
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount + 1;
-      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function Release
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount - 1;
-      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function GetIids
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-   begin
-      return Hr;
-   end;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.IPointKeyFrame");
-   begin
-      className.all := InterfaceName;
-      return Hr;
-   end;
-   
-   function GetTrustLevel
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-   begin
-      trustLevel.all := FullTrust;
-      return Hr;
-   end;
-   
-   function get_Value
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   function put_Value
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   function get_KeyTime
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   function put_KeyTime
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromTimeSpan
-   (
-      timeSpan : Windows.Foundation.TimeSpan
-   )
-   return Windows.UI.Xaml.Media.Animation.KeyTime is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.KeyTimeHelper");
-      m_Factory     : IKeyTimeHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.KeyTime;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyTimeHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromTimeSpan(timeSpan, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Forever
-   return Windows.UI.Xaml.Media.Animation.RepeatBehavior is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
-      m_Factory     : IRepeatBehaviorHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.RepeatBehavior;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Forever(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromCount
-   (
-      count : Windows.Double
-   )
-   return Windows.UI.Xaml.Media.Animation.RepeatBehavior is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
-      m_Factory     : IRepeatBehaviorHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.RepeatBehavior;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromCount(count, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromDuration
-   (
-      duration : Windows.Foundation.TimeSpan
-   )
-   return Windows.UI.Xaml.Media.Animation.RepeatBehavior is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
-      m_Factory     : IRepeatBehaviorHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.RepeatBehavior;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromDuration(duration, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetHasCount
-   (
-      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
-      m_Factory     : IRepeatBehaviorHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetHasCount(target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetHasDuration
-   (
-      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
-      m_Factory     : IRepeatBehaviorHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetHasDuration(target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Equals
-   (
-      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
-      m_Factory     : IRepeatBehaviorHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Equals(target, value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame");
-      m_Factory     : IDoubleKeyFrameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDoubleKeyFrameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ValueProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame");
-      m_Factory     : IDoubleKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDoubleKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ValueProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_KeyTimeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame");
-      m_Factory     : IDoubleKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDoubleKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EasingModeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingFunctionBase");
-      m_Factory     : IEasingFunctionBaseStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEasingFunctionBaseStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EasingModeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo");
-      m_Factory     : INavigationTransitionInfoFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INavigationTransitionInfoFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IObjectKeyFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame");
-      m_Factory     : IObjectKeyFrameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IObjectKeyFrameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ValueProperty_IObjectKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame");
-      m_Factory     : IObjectKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IObjectKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ValueProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_KeyTimeProperty_IObjectKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame");
-      m_Factory     : IObjectKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IObjectKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AllowDependentAnimations
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AllowDependentAnimations(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_AllowDependentAnimations
-   (
-      value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_AllowDependentAnimations(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_AutoReverseProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AutoReverseProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_BeginTimeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BeginTimeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DurationProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DurationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SpeedRatioProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SpeedRatioProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FillBehaviorProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FillBehaviorProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RepeatBehaviorProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RepeatBehaviorProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.ITimeline is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
-      m_Factory     : ITimelineFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.ITimeline;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function get_AmplitudeProperty
    return Windows.UI.Xaml.IDependencyProperty is
@@ -2872,6 +2428,168 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
+   function get_EnableDependentAnimationProperty_IColorAnimationUsingKeyFrames
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames");
+      m_Factory     : IColorAnimationUsingKeyFramesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorAnimationUsingKeyFramesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EnableDependentAnimationProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ValueProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
+      m_Factory     : IColorKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ValueProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeyTimeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
+      m_Factory     : IColorKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IColorKeyFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
+      m_Factory     : IColorKeyFrameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsStaggeringEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
+      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsStaggeringEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsStaggerElementProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
+      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsStaggerElementProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIsStaggerElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
+      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIsStaggerElement(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetIsStaggerElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
+      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetIsStaggerElement(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetForCurrentView
+   return Windows.UI.Xaml.Media.Animation.IConnectedAnimationService is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService");
+      m_Factory     : IConnectedAnimationServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IConnectedAnimationServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HorizontalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2904,6 +2622,191 @@ package body Windows.UI.Xaml.Media.Animation is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function get_ExitElementProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExitElementProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsEntranceElementProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsEntranceElementProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIsEntranceElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIsEntranceElement(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetIsEntranceElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetIsEntranceElement(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_IsExitElementProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsExitElementProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIsExitElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIsExitElement(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetIsExitElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetIsExitElement(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_ExitElementContainerProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExitElementContainerProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetExitElementContainer
+   (
+      element : Windows.UI.Xaml.Controls.IListViewBase
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetExitElementContainer(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetExitElementContainer
+   (
+      element : Windows.UI.Xaml.Controls.IListViewBase
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
+      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetExitElementContainer(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_FromProperty_IDoubleAnimation
@@ -3008,622 +2911,62 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
-   function get_EasingFunctionProperty_IEasingDoubleKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame");
-      m_Factory     : IEasingDoubleKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEasingDoubleKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EasingFunctionProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EdgeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition");
-      m_Factory     : IEdgeUIThemeTransitionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEdgeUIThemeTransitionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EdgeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OscillationsProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ElasticEase");
-      m_Factory     : IElasticEaseStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IElasticEaseStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OscillationsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SpringinessProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ElasticEase");
-      m_Factory     : IElasticEaseStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IElasticEaseStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SpringinessProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FromHorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
-      m_Factory     : IEntranceThemeTransitionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEntranceThemeTransitionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FromHorizontalOffsetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FromVerticalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
-      m_Factory     : IEntranceThemeTransitionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEntranceThemeTransitionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FromVerticalOffsetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsStaggeringEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
-      m_Factory     : IEntranceThemeTransitionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEntranceThemeTransitionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsStaggeringEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ExponentProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ExponentialEase");
-      m_Factory     : IExponentialEaseStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IExponentialEaseStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ExponentProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EnableDependentAnimationProperty_IObjectAnimationUsingKeyFrames
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames");
-      m_Factory     : IObjectAnimationUsingKeyFramesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IObjectAnimationUsingKeyFramesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EnableDependentAnimationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EdgeProperty_IPaneThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PaneThemeTransition");
-      m_Factory     : IPaneThemeTransitionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPaneThemeTransitionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EdgeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FromProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
-      m_Factory     : IPointAnimationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FromProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ToProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
-      m_Factory     : IPointAnimationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ToProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ByProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
-      m_Factory     : IPointAnimationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ByProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EasingFunctionProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
-      m_Factory     : IPointAnimationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EasingFunctionProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EnableDependentAnimationProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
-      m_Factory     : IPointAnimationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EnableDependentAnimationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FromHorizontalOffsetProperty_IPopupThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopupThemeTransition");
-      m_Factory     : IPopupThemeTransitionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPopupThemeTransitionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FromHorizontalOffsetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FromVerticalOffsetProperty_IPopupThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopupThemeTransition");
-      m_Factory     : IPopupThemeTransitionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPopupThemeTransitionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FromVerticalOffsetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PowerProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PowerEase");
-      m_Factory     : IPowerEaseStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPowerEaseStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PowerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsStaggeringEnabledProperty_IRepositionThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepositionThemeTransition");
-      m_Factory     : IRepositionThemeTransitionStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRepositionThemeTransitionStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsStaggeringEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_KeySplineProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame");
-      m_Factory     : ISplineDoubleKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISplineDoubleKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeySplineProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TargetPropertyProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      m_Factory     : IStoryboardStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TargetPropertyProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetTargetProperty
+   function CreateInstance
    (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      outer : Windows.Object
+      ; inner : access Windows.Object
    )
-   return Windows.String is
+   return Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      m_Factory     : IStoryboardStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame");
+      m_Factory     : IDoubleKeyFrameFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IDoubleKeyFrameFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetTargetProperty(element, RetVal'Access);
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure SetTargetProperty
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; path : Windows.String
-   )
-   is
+   function get_ValueProperty_IDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      m_Factory     : IStoryboardStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame");
+      m_Factory     : IDoubleKeyFrameStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IDoubleKeyFrameStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetTargetProperty(element, path);
+         Hr := m_Factory.get_ValueProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeyTimeProperty_IDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame");
+      m_Factory     : IDoubleKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDoubleKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function get_TargetNameProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      m_Factory     : IStoryboardStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TargetNameProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetTargetName
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      m_Factory     : IStoryboardStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetTargetName(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetTargetName
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; name : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      m_Factory     : IStoryboardStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetTargetName(element, name);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure SetTarget
-   (
-      timeline : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; target : Windows.UI.Xaml.IDependencyObject
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
-      m_Factory     : IStoryboardStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetTarget(timeline, target);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetForCurrentView
-   return Windows.UI.Xaml.Media.Animation.IConnectedAnimationService is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService");
-      m_Factory     : IConnectedAnimationServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IConnectedAnimationServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ValueProperty_IColorKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
-      m_Factory     : IColorKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ValueProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_KeyTimeProperty_IColorKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
-      m_Factory     : IColorKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IColorKeyFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorKeyFrame");
-      m_Factory     : IColorKeyFrameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorKeyFrameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ValueProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
-      m_Factory     : IPointKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ValueProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_KeyTimeProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
-      m_Factory     : IPointKeyFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IPointKeyFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
-      m_Factory     : IPointKeyFrameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EnableDependentAnimationProperty_IColorAnimationUsingKeyFrames
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames");
-      m_Factory     : IColorAnimationUsingKeyFramesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorAnimationUsingKeyFramesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EnableDependentAnimationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TargetNameProperty_IDragItemThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation");
@@ -3861,6 +3204,40 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
+   function get_EasingFunctionProperty_IEasingDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame");
+      m_Factory     : IEasingDoubleKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEasingDoubleKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EasingFunctionProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EasingModeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EasingFunctionBase");
+      m_Factory     : IEasingFunctionBaseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEasingFunctionBaseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EasingModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_EasingFunctionProperty_IEasingPointKeyFrame
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3872,6 +3249,181 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoGetActivationFactory(m_hString, IID_IEasingPointKeyFrameStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_EasingFunctionProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EdgeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition");
+      m_Factory     : IEdgeUIThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEdgeUIThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EdgeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OscillationsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ElasticEase");
+      m_Factory     : IElasticEaseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElasticEaseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OscillationsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SpringinessProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ElasticEase");
+      m_Factory     : IElasticEaseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElasticEaseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SpringinessProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsTargetElementProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
+      m_Factory     : IEntranceNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEntranceNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTargetElementProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIsTargetElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
+      m_Factory     : IEntranceNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEntranceNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIsTargetElement(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetIsTargetElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
+      m_Factory     : IEntranceNavigationTransitionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEntranceNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetIsTargetElement(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_FromHorizontalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
+      m_Factory     : IEntranceThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEntranceThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FromHorizontalOffsetProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FromVerticalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
+      m_Factory     : IEntranceThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEntranceThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FromVerticalOffsetProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsStaggeringEnabledProperty_IEntranceThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition");
+      m_Factory     : IEntranceThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEntranceThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsStaggeringEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ExponentProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ExponentialEase");
+      m_Factory     : IExponentialEaseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IExponentialEaseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExponentProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3906,6 +3458,238 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoGetActivationFactory(m_hString, IID_IFadeOutThemeAnimationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TargetNameProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromTimeSpan
+   (
+      timeSpan : Windows.Foundation.TimeSpan
+   )
+   return Windows.UI.Xaml.Media.Animation.KeyTime is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.KeyTimeHelper");
+      m_Factory     : IKeyTimeHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.KeyTime;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyTimeHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromTimeSpan(timeSpan, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DefaultNavigationTransitionInfoProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.NavigationThemeTransition");
+      m_Factory     : INavigationThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DefaultNavigationTransitionInfoProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo");
+      m_Factory     : INavigationTransitionInfoFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationTransitionInfoFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EnableDependentAnimationProperty_IObjectAnimationUsingKeyFrames
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames");
+      m_Factory     : IObjectAnimationUsingKeyFramesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IObjectAnimationUsingKeyFramesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EnableDependentAnimationProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IObjectKeyFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame");
+      m_Factory     : IObjectKeyFrameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IObjectKeyFrameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ValueProperty_IObjectKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame");
+      m_Factory     : IObjectKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IObjectKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ValueProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeyTimeProperty_IObjectKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame");
+      m_Factory     : IObjectKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IObjectKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EdgeProperty_IPaneThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PaneThemeTransition");
+      m_Factory     : IPaneThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPaneThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EdgeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FromProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
+      m_Factory     : IPointAnimationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FromProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ToProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
+      m_Factory     : IPointAnimationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ToProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ByProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
+      m_Factory     : IPointAnimationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ByProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EasingFunctionProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
+      m_Factory     : IPointAnimationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EasingFunctionProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EnableDependentAnimationProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointAnimation");
+      m_Factory     : IPointAnimationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointAnimationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EnableDependentAnimationProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3957,6 +3741,61 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := RoGetActivationFactory(m_hString, IID_IPointerUpThemeAnimationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TargetNameProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ValueProperty_IPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
+      m_Factory     : IPointKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ValueProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeyTimeProperty_IPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
+      m_Factory     : IPointKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeyTimeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IPointKeyFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PointKeyFrame");
+      m_Factory     : IPointKeyFrameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointKeyFrameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4031,6 +3870,175 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
+   function get_FromHorizontalOffsetProperty_IPopupThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopupThemeTransition");
+      m_Factory     : IPopupThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPopupThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FromHorizontalOffsetProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FromVerticalOffsetProperty_IPopupThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PopupThemeTransition");
+      m_Factory     : IPopupThemeTransitionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPopupThemeTransitionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FromVerticalOffsetProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PowerProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.PowerEase");
+      m_Factory     : IPowerEaseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPowerEaseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PowerProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Forever
+   return Windows.UI.Xaml.Media.Animation.RepeatBehavior is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
+      m_Factory     : IRepeatBehaviorHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Forever(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromCount
+   (
+      count : Windows.Double
+   )
+   return Windows.UI.Xaml.Media.Animation.RepeatBehavior is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
+      m_Factory     : IRepeatBehaviorHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromCount(count, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromDuration
+   (
+      duration : Windows.Foundation.TimeSpan
+   )
+   return Windows.UI.Xaml.Media.Animation.RepeatBehavior is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
+      m_Factory     : IRepeatBehaviorHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromDuration(duration, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetHasCount
+   (
+      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
+      m_Factory     : IRepeatBehaviorHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetHasCount(target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetHasDuration
+   (
+      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
+      m_Factory     : IRepeatBehaviorHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetHasDuration(target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Equals
+   (
+      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper");
+      m_Factory     : IRepeatBehaviorHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRepeatBehaviorHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Equals(target, value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_TargetNameProperty_IRepositionThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4082,7 +4090,24 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
-   function get_KeySplineProperty_ISplineColorKeyFrame
+   function get_IsStaggeringEnabledProperty_IRepositionThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.RepositionThemeTransition");
+      m_Factory     : IRepositionThemeTransitionStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRepositionThemeTransitionStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsStaggeringEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeySplineProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame");
@@ -4091,6 +4116,23 @@ package body Windows.UI.Xaml.Media.Animation is
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISplineColorKeyFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KeySplineProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KeySplineProperty_ISplineDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame");
+      m_Factory     : ISplineDoubleKeyFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISplineDoubleKeyFrameStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_KeySplineProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -4490,6 +4532,137 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
+   function get_TargetPropertyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      m_Factory     : IStoryboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TargetPropertyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTargetProperty
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      m_Factory     : IStoryboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTargetProperty(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetTargetProperty
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; path : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      m_Factory     : IStoryboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetTargetProperty(element, path);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_TargetNameProperty_IStoryboard
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      m_Factory     : IStoryboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TargetNameProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTargetName
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      m_Factory     : IStoryboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTargetName(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetTargetName
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; name : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      m_Factory     : IStoryboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetTargetName(element, name);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetTarget
+   (
+      timeline : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; target : Windows.UI.Xaml.IDependencyObject
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Storyboard");
+      m_Factory     : IStoryboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoryboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetTarget(timeline, target);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function get_TargetNameProperty_ISwipeBackThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4592,331 +4765,158 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
-   function get_IsStaggeringEnabledProperty_ICommonNavigationTransitionInfo
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
-      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsStaggeringEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsStaggerElementProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
-      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsStaggerElementProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetIsStaggerElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
+   function get_AllowDependentAnimations
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
-      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Boolean;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetIsStaggerElement(element, RetVal'Access);
+         Hr := m_Factory.get_AllowDependentAnimations(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure SetIsStaggerElement
+   procedure put_AllowDependentAnimations
    (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
+      value : Windows.Boolean
    )
    is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo");
-      m_Factory     : ICommonNavigationTransitionInfoStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommonNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetIsStaggerElement(element, value);
+         Hr := m_Factory.put_AllowDependentAnimations(value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_ExitElementProperty
+   function get_AutoReverseProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ExitElementProperty(RetVal'Access);
+         Hr := m_Factory.get_AutoReverseProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_IsEntranceElementProperty
+   function get_BeginTimeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsEntranceElementProperty(RetVal'Access);
+         Hr := m_Factory.get_BeginTimeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetIsEntranceElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetIsEntranceElement(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetIsEntranceElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetIsEntranceElement(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_IsExitElementProperty
+   function get_DurationProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsExitElementProperty(RetVal'Access);
+         Hr := m_Factory.get_DurationProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetIsExitElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetIsExitElement(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetIsExitElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetIsExitElement(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_ExitElementContainerProperty
+   function get_SpeedRatioProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ExitElementContainerProperty(RetVal'Access);
+         Hr := m_Factory.get_SpeedRatioProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetExitElementContainer
-   (
-      element : Windows.UI.Xaml.Controls.IListViewBase
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetExitElementContainer(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetExitElementContainer
-   (
-      element : Windows.UI.Xaml.Controls.IListViewBase
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo");
-      m_Factory     : IContinuumNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContinuumNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetExitElementContainer(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_IsTargetElementProperty
+   function get_FillBehaviorProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
-      m_Factory     : IEntranceNavigationTransitionInfoStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEntranceNavigationTransitionInfoStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsTargetElementProperty(RetVal'Access);
+         Hr := m_Factory.get_FillBehaviorProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetIsTargetElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
-      m_Factory     : IEntranceNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEntranceNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetIsTargetElement(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetIsTargetElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo");
-      m_Factory     : IEntranceNavigationTransitionInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEntranceNavigationTransitionInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetIsTargetElement(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_DefaultNavigationTransitionInfoProperty
+   function get_RepeatBehaviorProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.NavigationThemeTransition");
-      m_Factory     : INavigationThemeTransitionStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_INavigationThemeTransitionStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_DefaultNavigationTransitionInfoProperty(RetVal'Access);
+         Hr := m_Factory.get_RepeatBehaviorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.ITimeline is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Animation.Timeline");
+      m_Factory     : ITimelineFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Animation.ITimeline;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

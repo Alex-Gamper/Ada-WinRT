@@ -50,19 +50,34 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access DeferralCompletedHandler_Interface
+      This       : access AsyncActionProgressHandler_Double_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
+      ; progressInfo : Windows.Double
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback.all;
+      This.Callback(asyncInfo, progressInfo);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_Object_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Object
+      This       : access AsyncActionProgressHandler_UInt64_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
+      ; progressInfo : Windows.UInt64
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, progressInfo);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncActionWithProgressCompletedHandler_Double_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -74,8 +89,8 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt8_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt8
+      This       : access AsyncActionWithProgressCompletedHandler_UInt64_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -87,8 +102,8 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt16_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt16
+      This       : access AsyncOperationCompletedHandler_Boolean_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Boolean
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -100,8 +115,8 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt32_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt32
+      This       : access AsyncOperationCompletedHandler_DateTime_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_DateTime
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -113,8 +128,8 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt64_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt64
+      This       : access AsyncOperationCompletedHandler_Double_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Double
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -126,8 +141,8 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_Int8_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Int8
+      This       : access AsyncOperationCompletedHandler_Guid_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Guid
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -178,8 +193,34 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_Guid_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Guid
+      This       : access AsyncOperationCompletedHandler_Int8_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Int8
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IUriRuntimeClass_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_Object_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Object
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -204,47 +245,8 @@ package body Windows.Foundation is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_Double_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Double
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_String_Interface
       ; asyncInfo : Windows.Foundation.IAsyncOperation_String
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_Boolean_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Boolean
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_DateTime_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_DateTime
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -264,6 +266,69 @@ package body Windows.Foundation is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt16_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt16
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt32_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt32
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt64_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt64
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt8_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt8
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access DeferralCompletedHandler_Interface
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback.all;
       return Hr;
    end;
    
@@ -290,71 +355,6 @@ package body Windows.Foundation is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IUriRuntimeClass_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncActionProgressHandler_Double_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
-      ; progressInfo : Windows.Double
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, progressInfo);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncActionWithProgressCompletedHandler_Double_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncActionProgressHandler_UInt64_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
-      ; progressInfo : Windows.UInt64
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, progressInfo);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncActionWithProgressCompletedHandler_UInt64_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -415,26 +415,6 @@ package body Windows.Foundation is
       return RetVal;
    end;
    
-   function CreateWwwFormUrlDecoder
-   (
-      query : Windows.String
-   )
-   return Windows.Foundation.IWwwFormUrlDecoderRuntimeClass is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.WwwFormUrlDecoder");
-      m_Factory     : Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IWwwFormUrlDecoderRuntimeClass := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWwwFormUrlDecoderRuntimeClassFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWwwFormUrlDecoder(query, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateUri
    (
       uri : Windows.String
@@ -470,6 +450,26 @@ package body Windows.Foundation is
       Hr := RoGetActivationFactory(m_hString, IID_IUriRuntimeClassFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithRelativeUri(baseUri, relativeUri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWwwFormUrlDecoder
+   (
+      query : Windows.String
+   )
+   return Windows.Foundation.IWwwFormUrlDecoderRuntimeClass is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.WwwFormUrlDecoder");
+      m_Factory     : Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IWwwFormUrlDecoderRuntimeClass := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWwwFormUrlDecoderRuntimeClassFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWwwFormUrlDecoder(query, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

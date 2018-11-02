@@ -42,22 +42,6 @@ package Windows.Web.Http is
    -- Enums
    ------------------------------------------------------------------------
    
-   type HttpVersion is (
-      None,
-      Http10,
-      Http11,
-      Http20
-   );
-   for HttpVersion use (
-      None => 0,
-      Http10 => 1,
-      Http11 => 2,
-      Http20 => 3
-   );
-   for HttpVersion'Size use 32;
-   
-   type HttpVersion_Ptr is access HttpVersion;
-   
    type HttpCompletionOption is (
       ResponseContentRead,
       ResponseHeadersRead
@@ -69,6 +53,48 @@ package Windows.Web.Http is
    for HttpCompletionOption'Size use 32;
    
    type HttpCompletionOption_Ptr is access HttpCompletionOption;
+   
+   type HttpProgressStage is (
+      None,
+      DetectingProxy,
+      ResolvingName,
+      ConnectingToServer,
+      NegotiatingSsl,
+      SendingHeaders,
+      SendingContent,
+      WaitingForResponse,
+      ReceivingHeaders,
+      ReceivingContent
+   );
+   for HttpProgressStage use (
+      None => 0,
+      DetectingProxy => 10,
+      ResolvingName => 20,
+      ConnectingToServer => 30,
+      NegotiatingSsl => 40,
+      SendingHeaders => 50,
+      SendingContent => 60,
+      WaitingForResponse => 70,
+      ReceivingHeaders => 80,
+      ReceivingContent => 90
+   );
+   for HttpProgressStage'Size use 32;
+   
+   type HttpProgressStage_Ptr is access HttpProgressStage;
+   
+   type HttpResponseMessageSource is (
+      None,
+      Cache,
+      Network
+   );
+   for HttpResponseMessageSource use (
+      None => 0,
+      Cache => 1,
+      Network => 2
+   );
+   for HttpResponseMessageSource'Size use 32;
+   
+   type HttpResponseMessageSource_Ptr is access HttpResponseMessageSource;
    
    type HttpStatusCode is (
       None,
@@ -194,47 +220,21 @@ package Windows.Web.Http is
    
    type HttpStatusCode_Ptr is access HttpStatusCode;
    
-   type HttpProgressStage is (
+   type HttpVersion is (
       None,
-      DetectingProxy,
-      ResolvingName,
-      ConnectingToServer,
-      NegotiatingSsl,
-      SendingHeaders,
-      SendingContent,
-      WaitingForResponse,
-      ReceivingHeaders,
-      ReceivingContent
+      Http10,
+      Http11,
+      Http20
    );
-   for HttpProgressStage use (
+   for HttpVersion use (
       None => 0,
-      DetectingProxy => 10,
-      ResolvingName => 20,
-      ConnectingToServer => 30,
-      NegotiatingSsl => 40,
-      SendingHeaders => 50,
-      SendingContent => 60,
-      WaitingForResponse => 70,
-      ReceivingHeaders => 80,
-      ReceivingContent => 90
+      Http10 => 1,
+      Http11 => 2,
+      Http20 => 3
    );
-   for HttpProgressStage'Size use 32;
+   for HttpVersion'Size use 32;
    
-   type HttpProgressStage_Ptr is access HttpProgressStage;
-   
-   type HttpResponseMessageSource is (
-      None,
-      Cache,
-      Network
-   );
-   for HttpResponseMessageSource use (
-      None => 0,
-      Cache => 1,
-      Network => 2
-   );
-   for HttpResponseMessageSource'Size use 32;
-   
-   type HttpResponseMessageSource_Ptr is access HttpResponseMessageSource;
+   type HttpVersion_Ptr is access HttpVersion;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -256,93 +256,93 @@ package Windows.Web.Http is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IHttpClientFactory_Interface;
-   type IHttpClientFactory is access all IHttpClientFactory_Interface'Class;
-   type IHttpClientFactory_Ptr is access all IHttpClientFactory;
-   type IHttpClient_Interface;
-   type IHttpClient is access all IHttpClient_Interface'Class;
-   type IHttpClient_Ptr is access all IHttpClient;
-   type IHttpContent_Interface;
-   type IHttpContent is access all IHttpContent_Interface'Class;
-   type IHttpContent_Ptr is access all IHttpContent;
-   type IHttpCookieManager_Interface;
-   type IHttpCookieManager is access all IHttpCookieManager_Interface'Class;
-   type IHttpCookieManager_Ptr is access all IHttpCookieManager;
-   type IVectorView_HttpCookie_Interface;
-   type IVectorView_HttpCookie is access all IVectorView_HttpCookie_Interface'Class;
-   type IVectorView_HttpCookie_Ptr is access all IVectorView_HttpCookie;
-   type IIterable_HttpCookie_Interface;
-   type IIterable_HttpCookie is access all IIterable_HttpCookie_Interface'Class;
-   type IIterable_HttpCookie_Ptr is access all IIterable_HttpCookie;
-   type IHttpCookieFactory_Interface;
-   type IHttpCookieFactory is access all IHttpCookieFactory_Interface'Class;
-   type IHttpCookieFactory_Ptr is access all IHttpCookieFactory;
-   type IHttpCookie_Interface;
-   type IHttpCookie is access all IHttpCookie_Interface'Class;
-   type IHttpCookie_Ptr is access all IHttpCookie;
-   type IHttpMethodStatics_Interface;
-   type IHttpMethodStatics is access all IHttpMethodStatics_Interface'Class;
-   type IHttpMethodStatics_Ptr is access all IHttpMethodStatics;
-   type IHttpMethodFactory_Interface;
-   type IHttpMethodFactory is access all IHttpMethodFactory_Interface'Class;
-   type IHttpMethodFactory_Ptr is access all IHttpMethodFactory;
-   type IHttpMethod_Interface;
-   type IHttpMethod is access all IHttpMethod_Interface'Class;
-   type IHttpMethod_Ptr is access all IHttpMethod;
-   type IHttpTransportInformation_Interface;
-   type IHttpTransportInformation is access all IHttpTransportInformation_Interface'Class;
-   type IHttpTransportInformation_Ptr is access all IHttpTransportInformation;
-   type IHttpRequestMessageFactory_Interface;
-   type IHttpRequestMessageFactory is access all IHttpRequestMessageFactory_Interface'Class;
-   type IHttpRequestMessageFactory_Ptr is access all IHttpRequestMessageFactory;
-   type IHttpRequestMessage_Interface;
-   type IHttpRequestMessage is access all IHttpRequestMessage_Interface'Class;
-   type IHttpRequestMessage_Ptr is access all IHttpRequestMessage;
-   type IHttpResponseMessageFactory_Interface;
-   type IHttpResponseMessageFactory is access all IHttpResponseMessageFactory_Interface'Class;
-   type IHttpResponseMessageFactory_Ptr is access all IHttpResponseMessageFactory;
-   type IHttpResponseMessage_Interface;
-   type IHttpResponseMessage is access all IHttpResponseMessage_Interface'Class;
-   type IHttpResponseMessage_Ptr is access all IHttpResponseMessage;
-   type IHttpStringContentFactory_Interface;
-   type IHttpStringContentFactory is access all IHttpStringContentFactory_Interface'Class;
-   type IHttpStringContentFactory_Ptr is access all IHttpStringContentFactory;
    type IHttpBufferContentFactory_Interface;
    type IHttpBufferContentFactory is access all IHttpBufferContentFactory_Interface'Class;
    type IHttpBufferContentFactory_Ptr is access all IHttpBufferContentFactory;
-   type IHttpStreamContentFactory_Interface;
-   type IHttpStreamContentFactory is access all IHttpStreamContentFactory_Interface'Class;
-   type IHttpStreamContentFactory_Ptr is access all IHttpStreamContentFactory;
+   type IHttpClient_Interface;
+   type IHttpClient is access all IHttpClient_Interface'Class;
+   type IHttpClient_Ptr is access all IHttpClient;
+   type IHttpClientFactory_Interface;
+   type IHttpClientFactory is access all IHttpClientFactory_Interface'Class;
+   type IHttpClientFactory_Ptr is access all IHttpClientFactory;
+   type IHttpContent_Interface;
+   type IHttpContent is access all IHttpContent_Interface'Class;
+   type IHttpContent_Ptr is access all IHttpContent;
+   type IHttpCookie_Interface;
+   type IHttpCookie is access all IHttpCookie_Interface'Class;
+   type IHttpCookie_Ptr is access all IHttpCookie;
+   type IHttpCookieFactory_Interface;
+   type IHttpCookieFactory is access all IHttpCookieFactory_Interface'Class;
+   type IHttpCookieFactory_Ptr is access all IHttpCookieFactory;
+   type IHttpCookieManager_Interface;
+   type IHttpCookieManager is access all IHttpCookieManager_Interface'Class;
+   type IHttpCookieManager_Ptr is access all IHttpCookieManager;
    type IHttpFormUrlEncodedContentFactory_Interface;
    type IHttpFormUrlEncodedContentFactory is access all IHttpFormUrlEncodedContentFactory_Interface'Class;
    type IHttpFormUrlEncodedContentFactory_Ptr is access all IHttpFormUrlEncodedContentFactory;
-   type IHttpMultipartContentFactory_Interface;
-   type IHttpMultipartContentFactory is access all IHttpMultipartContentFactory_Interface'Class;
-   type IHttpMultipartContentFactory_Ptr is access all IHttpMultipartContentFactory;
-   type IIterable_IHttpContent_Interface;
-   type IIterable_IHttpContent is access all IIterable_IHttpContent_Interface'Class;
-   type IIterable_IHttpContent_Ptr is access all IIterable_IHttpContent;
+   type IHttpMethod_Interface;
+   type IHttpMethod is access all IHttpMethod_Interface'Class;
+   type IHttpMethod_Ptr is access all IHttpMethod;
+   type IHttpMethodFactory_Interface;
+   type IHttpMethodFactory is access all IHttpMethodFactory_Interface'Class;
+   type IHttpMethodFactory_Ptr is access all IHttpMethodFactory;
+   type IHttpMethodStatics_Interface;
+   type IHttpMethodStatics is access all IHttpMethodStatics_Interface'Class;
+   type IHttpMethodStatics_Ptr is access all IHttpMethodStatics;
    type IHttpMultipartContent_Interface;
    type IHttpMultipartContent is access all IHttpMultipartContent_Interface'Class;
    type IHttpMultipartContent_Ptr is access all IHttpMultipartContent;
-   type IHttpMultipartFormDataContentFactory_Interface;
-   type IHttpMultipartFormDataContentFactory is access all IHttpMultipartFormDataContentFactory_Interface'Class;
-   type IHttpMultipartFormDataContentFactory_Ptr is access all IHttpMultipartFormDataContentFactory;
+   type IHttpMultipartContentFactory_Interface;
+   type IHttpMultipartContentFactory is access all IHttpMultipartContentFactory_Interface'Class;
+   type IHttpMultipartContentFactory_Ptr is access all IHttpMultipartContentFactory;
    type IHttpMultipartFormDataContent_Interface;
    type IHttpMultipartFormDataContent is access all IHttpMultipartFormDataContent_Interface'Class;
    type IHttpMultipartFormDataContent_Ptr is access all IHttpMultipartFormDataContent;
-   type IIterator_IHttpCookie_Interface;
-   type IIterator_IHttpCookie is access all IIterator_IHttpCookie_Interface'Class;
-   type IIterator_IHttpCookie_Ptr is access all IIterator_IHttpCookie;
+   type IHttpMultipartFormDataContentFactory_Interface;
+   type IHttpMultipartFormDataContentFactory is access all IHttpMultipartFormDataContentFactory_Interface'Class;
+   type IHttpMultipartFormDataContentFactory_Ptr is access all IHttpMultipartFormDataContentFactory;
+   type IHttpRequestMessage_Interface;
+   type IHttpRequestMessage is access all IHttpRequestMessage_Interface'Class;
+   type IHttpRequestMessage_Ptr is access all IHttpRequestMessage;
+   type IHttpRequestMessageFactory_Interface;
+   type IHttpRequestMessageFactory is access all IHttpRequestMessageFactory_Interface'Class;
+   type IHttpRequestMessageFactory_Ptr is access all IHttpRequestMessageFactory;
+   type IHttpResponseMessage_Interface;
+   type IHttpResponseMessage is access all IHttpResponseMessage_Interface'Class;
+   type IHttpResponseMessage_Ptr is access all IHttpResponseMessage;
+   type IHttpResponseMessageFactory_Interface;
+   type IHttpResponseMessageFactory is access all IHttpResponseMessageFactory_Interface'Class;
+   type IHttpResponseMessageFactory_Ptr is access all IHttpResponseMessageFactory;
+   type IHttpStreamContentFactory_Interface;
+   type IHttpStreamContentFactory is access all IHttpStreamContentFactory_Interface'Class;
+   type IHttpStreamContentFactory_Ptr is access all IHttpStreamContentFactory;
+   type IHttpStringContentFactory_Interface;
+   type IHttpStringContentFactory is access all IHttpStringContentFactory_Interface'Class;
+   type IHttpStringContentFactory_Ptr is access all IHttpStringContentFactory;
+   type IHttpTransportInformation_Interface;
+   type IHttpTransportInformation is access all IHttpTransportInformation_Interface'Class;
+   type IHttpTransportInformation_Ptr is access all IHttpTransportInformation;
+   type IIterable_HttpCookie_Interface;
+   type IIterable_HttpCookie is access all IIterable_HttpCookie_Interface'Class;
+   type IIterable_HttpCookie_Ptr is access all IIterable_HttpCookie;
+   type IIterable_IHttpContent_Interface;
+   type IIterable_IHttpContent is access all IIterable_IHttpContent_Interface'Class;
+   type IIterable_IHttpContent_Ptr is access all IIterable_IHttpContent;
    type IIterable_IHttpCookie_Interface;
    type IIterable_IHttpCookie is access all IIterable_IHttpCookie_Interface'Class;
    type IIterable_IHttpCookie_Ptr is access all IIterable_IHttpCookie;
-   type IVectorView_IHttpCookie_Interface;
-   type IVectorView_IHttpCookie is access all IVectorView_IHttpCookie_Interface'Class;
-   type IVectorView_IHttpCookie_Ptr is access all IVectorView_IHttpCookie;
+   type IIterator_IHttpCookie_Interface;
+   type IIterator_IHttpCookie is access all IIterator_IHttpCookie_Interface'Class;
+   type IIterator_IHttpCookie_Ptr is access all IIterator_IHttpCookie;
    type IVector_IHttpCookie_Interface;
    type IVector_IHttpCookie is access all IVector_IHttpCookie_Interface'Class;
    type IVector_IHttpCookie_Ptr is access all IVector_IHttpCookie;
+   type IVectorView_HttpCookie_Interface;
+   type IVectorView_HttpCookie is access all IVectorView_HttpCookie_Interface'Class;
+   type IVectorView_HttpCookie_Ptr is access all IVectorView_HttpCookie;
+   type IVectorView_IHttpCookie_Interface;
+   type IVectorView_IHttpCookie is access all IVectorView_IHttpCookie_Interface'Class;
+   type IVectorView_IHttpCookie_Ptr is access all IVectorView_IHttpCookie;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -350,15 +350,25 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpClientFactory : aliased constant Windows.IID := (3272363722, 58362, 20377, (175, 180, 99, 204, 101, 0, 148, 98 ));
+   IID_IHttpBufferContentFactory : aliased constant Windows.IID := (3156263315, 50207, 20471, (145, 35, 100, 53, 115, 110, 173, 194 ));
    
-   type IHttpClientFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpBufferContentFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function CreateFromBuffer
    (
-      This       : access IHttpClientFactory_Interface
-      ; filter : Windows.Web.Http.Filters.IHttpFilter
-      ; RetVal : access Windows.Web.Http.IHttpClient
+      This       : access IHttpBufferContentFactory_Interface
+      ; content : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Web.Http.IHttpContent
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBufferWithOffset
+   (
+      This       : access IHttpBufferContentFactory_Interface
+      ; content : Windows.Storage.Streams.IBuffer
+      ; offset : Windows.UInt32
+      ; count : Windows.UInt32
+      ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
    
@@ -461,6 +471,20 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
+   IID_IHttpClientFactory : aliased constant Windows.IID := (3272363722, 58362, 20377, (175, 180, 99, 204, 101, 0, 148, 98 ));
+   
+   type IHttpClientFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IHttpClientFactory_Interface
+      ; filter : Windows.Web.Http.Filters.IHttpFilter
+      ; RetVal : access Windows.Web.Http.IHttpClient
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IHttpContent : aliased constant Windows.IID := (1796514881, 64423, 19410, (175, 10, 131, 157, 231, 194, 149, 218 ));
    
    type IHttpContent_Interface is interface and Windows.IInspectable_Interface;
@@ -513,112 +537,6 @@ package Windows.Web.Http is
       This       : access IHttpContent_Interface
       ; outputStream : Windows.Storage.Streams.IOutputStream
       ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpCookieManager : aliased constant Windows.IID := (2051217280, 52559, 20055, (168, 74, 91, 10, 83, 214, 187, 150 ));
-   
-   type IHttpCookieManager_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetCookie
-   (
-      This       : access IHttpCookieManager_Interface
-      ; cookie : Windows.Web.Http.IHttpCookie
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetCookieWithThirdParty
-   (
-      This       : access IHttpCookieManager_Interface
-      ; cookie : Windows.Web.Http.IHttpCookie
-      ; thirdParty : Windows.Boolean
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DeleteCookie
-   (
-      This       : access IHttpCookieManager_Interface
-      ; cookie : Windows.Web.Http.IHttpCookie
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetCookies
-   (
-      This       : access IHttpCookieManager_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Web.Http.IVectorView_HttpCookie
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_HttpCookie : aliased constant Windows.IID := (6604022, 16330, 22563, (157, 146, 134, 196, 11, 40, 173, 188 ));
-   
-   type IVectorView_HttpCookie_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_HttpCookie_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Web.Http.IHttpCookie
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_HttpCookie_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_HttpCookie_Interface
-      ; value : Windows.Web.Http.IHttpCookie
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_HttpCookie_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Web.Http.IHttpCookie_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_HttpCookie : aliased constant Windows.IID := (247069238, 35038, 22797, (142, 160, 182, 19, 208, 171, 1, 95 ));
-   
-   type IIterable_HttpCookie_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_HttpCookie_Interface
-      ; RetVal : access Windows.Web.Http.IHttpCookie
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpCookieFactory : aliased constant Windows.IID := (1778746793, 37660, 19665, (169, 109, 194, 23, 1, 120, 92, 95 ));
-   
-   type IHttpCookieFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IHttpCookieFactory_Interface
-      ; name : Windows.String
-      ; domain : Windows.String
-      ; path : Windows.String
-      ; RetVal : access Windows.Web.Http.IHttpCookie
    )
    return Windows.HRESULT is abstract;
    
@@ -707,6 +625,101 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
+   IID_IHttpCookieFactory : aliased constant Windows.IID := (1778746793, 37660, 19665, (169, 109, 194, 23, 1, 120, 92, 95 ));
+   
+   type IHttpCookieFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IHttpCookieFactory_Interface
+      ; name : Windows.String
+      ; domain : Windows.String
+      ; path : Windows.String
+      ; RetVal : access Windows.Web.Http.IHttpCookie
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpCookieManager : aliased constant Windows.IID := (2051217280, 52559, 20055, (168, 74, 91, 10, 83, 214, 187, 150 ));
+   
+   type IHttpCookieManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetCookie
+   (
+      This       : access IHttpCookieManager_Interface
+      ; cookie : Windows.Web.Http.IHttpCookie
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetCookieWithThirdParty
+   (
+      This       : access IHttpCookieManager_Interface
+      ; cookie : Windows.Web.Http.IHttpCookie
+      ; thirdParty : Windows.Boolean
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DeleteCookie
+   (
+      This       : access IHttpCookieManager_Interface
+      ; cookie : Windows.Web.Http.IHttpCookie
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCookies
+   (
+      This       : access IHttpCookieManager_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Web.Http.IVectorView_HttpCookie
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpFormUrlEncodedContentFactory : aliased constant Windows.IID := (1139807116, 12147, 17154, (181, 243, 234, 233, 35, 138, 94, 1 ));
+   
+   type IHttpFormUrlEncodedContentFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IHttpFormUrlEncodedContentFactory_Interface
+      ; content : Windows.Address
+      ; RetVal : access Windows.Web.Http.IHttpContent
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpMethod : aliased constant Windows.IID := (1921859618, 28685, 20448, (175, 165, 64, 41, 156, 88, 219, 253 ));
+   
+   type IHttpMethod_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Method
+   (
+      This       : access IHttpMethod_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpMethodFactory : aliased constant Windows.IID := (1011994893, 14039, 16632, (168, 109, 231, 89, 202, 242, 248, 63 ));
+   
+   type IHttpMethodFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IHttpMethodFactory_Interface
+      ; method : Windows.String
+      ; RetVal : access Windows.Web.Http.IHttpMethod
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IHttpMethodStatics : aliased constant Windows.IID := (1691447792, 55706, 16723, (141, 198, 214, 140, 196, 204, 227, 23 ));
    
    type IHttpMethodStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -762,77 +775,81 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpMethodFactory : aliased constant Windows.IID := (1011994893, 14039, 16632, (168, 109, 231, 89, 202, 242, 248, 63 ));
+   IID_IHttpMultipartContent : aliased constant Windows.IID := (3750849279, 39206, 19145, (170, 241, 224, 208, 78, 240, 155, 185 ));
    
-   type IHttpMethodFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpMultipartContent_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function Add
    (
-      This       : access IHttpMethodFactory_Interface
-      ; method : Windows.String
-      ; RetVal : access Windows.Web.Http.IHttpMethod
+      This       : access IHttpMultipartContent_Interface
+      ; content : Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IHttpMethod : aliased constant Windows.IID := (1921859618, 28685, 20448, (175, 165, 64, 41, 156, 88, 219, 253 ));
+   IID_IHttpMultipartContentFactory : aliased constant Windows.IID := (2125737570, 546, 20256, (179, 114, 71, 213, 219, 93, 51, 180 ));
    
-   type IHttpMethod_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpMultipartContentFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Method
+   function CreateWithSubtype
    (
-      This       : access IHttpMethod_Interface
-      ; RetVal : access Windows.String
+      This       : access IHttpMultipartContentFactory_Interface
+      ; subtype_x : Windows.String
+      ; RetVal : access Windows.Web.Http.IHttpContent
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithSubtypeAndBoundary
+   (
+      This       : access IHttpMultipartContentFactory_Interface
+      ; subtype_x : Windows.String
+      ; boundary : Windows.String
+      ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IHttpTransportInformation : aliased constant Windows.IID := (1880256920, 50855, 20176, (131, 58, 131, 253, 139, 143, 23, 141 ));
+   IID_IHttpMultipartFormDataContent : aliased constant Windows.IID := (1691564002, 59751, 17956, (182, 209, 207, 116, 96, 74, 74, 66 ));
    
-   type IHttpTransportInformation_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpMultipartFormDataContent_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ServerCertificate
+   function Add
    (
-      This       : access IHttpTransportInformation_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
+      This       : access IHttpMultipartFormDataContent_Interface
+      ; content : Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
    
-   function get_ServerCertificateErrorSeverity
+   function AddWithName
    (
-      This       : access IHttpTransportInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
+      This       : access IHttpMultipartFormDataContent_Interface
+      ; content : Windows.Web.Http.IHttpContent
+      ; name : Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_ServerCertificateErrors
+   function AddWithNameAndFileName
    (
-      This       : access IHttpTransportInformation_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerIntermediateCertificates
-   (
-      This       : access IHttpTransportInformation_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
+      This       : access IHttpMultipartFormDataContent_Interface
+      ; content : Windows.Web.Http.IHttpContent
+      ; name : Windows.String
+      ; fileName : Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IHttpRequestMessageFactory : aliased constant Windows.IID := (1538038094, 14470, 16686, (174, 195, 82, 236, 127, 37, 97, 111 ));
+   IID_IHttpMultipartFormDataContentFactory : aliased constant Windows.IID := (2689430289, 20503, 17954, (147, 168, 73, 178, 74, 79, 203, 252 ));
    
-   type IHttpRequestMessageFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpMultipartFormDataContentFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function CreateWithBoundary
    (
-      This       : access IHttpRequestMessageFactory_Interface
-      ; method : Windows.Web.Http.IHttpMethod
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+      This       : access IHttpMultipartFormDataContentFactory_Interface
+      ; boundary : Windows.String
+      ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
    
@@ -907,15 +924,16 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpResponseMessageFactory : aliased constant Windows.IID := (1386786713, 61589, 17370, (182, 15, 124, 252, 43, 199, 234, 47 ));
+   IID_IHttpRequestMessageFactory : aliased constant Windows.IID := (1538038094, 14470, 16686, (174, 195, 82, 236, 127, 37, 97, 111 ));
    
-   type IHttpResponseMessageFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpRequestMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
    (
-      This       : access IHttpResponseMessageFactory_Interface
-      ; statusCode : Windows.Web.Http.HttpStatusCode
-      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+      This       : access IHttpRequestMessageFactory_Interface
+      ; method : Windows.Web.Http.IHttpMethod
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
    )
    return Windows.HRESULT is abstract;
    
@@ -1032,6 +1050,34 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
+   IID_IHttpResponseMessageFactory : aliased constant Windows.IID := (1386786713, 61589, 17370, (182, 15, 124, 252, 43, 199, 234, 47 ));
+   
+   type IHttpResponseMessageFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IHttpResponseMessageFactory_Interface
+      ; statusCode : Windows.Web.Http.HttpStatusCode
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpStreamContentFactory : aliased constant Windows.IID := (4091956637, 63269, 16510, (148, 47, 14, 218, 24, 152, 9, 244 ));
+   
+   type IHttpStreamContentFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromInputStream
+   (
+      This       : access IHttpStreamContentFactory_Interface
+      ; content : Windows.Storage.Streams.IInputStream
+      ; RetVal : access Windows.Web.Http.IHttpContent
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IHttpStringContentFactory : aliased constant Windows.IID := (1180999003, 11923, 18667, (142, 97, 25, 103, 120, 120, 229, 127 ));
    
    type IHttpStringContentFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -1065,76 +1111,48 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpBufferContentFactory : aliased constant Windows.IID := (3156263315, 50207, 20471, (145, 35, 100, 53, 115, 110, 173, 194 ));
+   IID_IHttpTransportInformation : aliased constant Windows.IID := (1880256920, 50855, 20176, (131, 58, 131, 253, 139, 143, 23, 141 ));
    
-   type IHttpBufferContentFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpTransportInformation_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreateFromBuffer
+   function get_ServerCertificate
    (
-      This       : access IHttpBufferContentFactory_Interface
-      ; content : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Web.Http.IHttpContent
+      This       : access IHttpTransportInformation_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
    
-   function CreateFromBufferWithOffset
+   function get_ServerCertificateErrorSeverity
    (
-      This       : access IHttpBufferContentFactory_Interface
-      ; content : Windows.Storage.Streams.IBuffer
-      ; offset : Windows.UInt32
-      ; count : Windows.UInt32
-      ; RetVal : access Windows.Web.Http.IHttpContent
+      This       : access IHttpTransportInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IHttpStreamContentFactory : aliased constant Windows.IID := (4091956637, 63269, 16510, (148, 47, 14, 218, 24, 152, 9, 244 ));
-   
-   type IHttpStreamContentFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateFromInputStream
+   function get_ServerCertificateErrors
    (
-      This       : access IHttpStreamContentFactory_Interface
-      ; content : Windows.Storage.Streams.IInputStream
-      ; RetVal : access Windows.Web.Http.IHttpContent
+      This       : access IHttpTransportInformation_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerIntermediateCertificates
+   (
+      This       : access IHttpTransportInformation_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IHttpFormUrlEncodedContentFactory : aliased constant Windows.IID := (1139807116, 12147, 17154, (181, 243, 234, 233, 35, 138, 94, 1 ));
+   IID_IIterable_HttpCookie : aliased constant Windows.IID := (247069238, 35038, 22797, (142, 160, 182, 19, 208, 171, 1, 95 ));
    
-   type IHttpFormUrlEncodedContentFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_HttpCookie_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function First
    (
-      This       : access IHttpFormUrlEncodedContentFactory_Interface
-      ; content : Windows.Address
-      ; RetVal : access Windows.Web.Http.IHttpContent
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpMultipartContentFactory : aliased constant Windows.IID := (2125737570, 546, 20256, (179, 114, 71, 213, 219, 93, 51, 180 ));
-   
-   type IHttpMultipartContentFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateWithSubtype
-   (
-      This       : access IHttpMultipartContentFactory_Interface
-      ; subtype_x : Windows.String
-      ; RetVal : access Windows.Web.Http.IHttpContent
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithSubtypeAndBoundary
-   (
-      This       : access IHttpMultipartContentFactory_Interface
-      ; subtype_x : Windows.String
-      ; boundary : Windows.String
-      ; RetVal : access Windows.Web.Http.IHttpContent
+      This       : access IIterable_HttpCookie_Interface
+      ; RetVal : access Windows.Web.Http.IHttpCookie
    )
    return Windows.HRESULT is abstract;
    
@@ -1153,58 +1171,14 @@ package Windows.Web.Http is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpMultipartContent : aliased constant Windows.IID := (3750849279, 39206, 19145, (170, 241, 224, 208, 78, 240, 155, 185 ));
+   IID_IIterable_IHttpCookie : aliased constant Windows.IID := (247069238, 35038, 22797, (142, 160, 182, 19, 208, 171, 1, 95 ));
    
-   type IHttpMultipartContent_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IHttpCookie_Interface is interface and Windows.IInspectable_Interface;
    
-   function Add
+   function First
    (
-      This       : access IHttpMultipartContent_Interface
-      ; content : Windows.Web.Http.IHttpContent
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpMultipartFormDataContentFactory : aliased constant Windows.IID := (2689430289, 20503, 17954, (147, 168, 73, 178, 74, 79, 203, 252 ));
-   
-   type IHttpMultipartFormDataContentFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateWithBoundary
-   (
-      This       : access IHttpMultipartFormDataContentFactory_Interface
-      ; boundary : Windows.String
-      ; RetVal : access Windows.Web.Http.IHttpContent
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpMultipartFormDataContent : aliased constant Windows.IID := (1691564002, 59751, 17956, (182, 209, 207, 116, 96, 74, 74, 66 ));
-   
-   type IHttpMultipartFormDataContent_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Add
-   (
-      This       : access IHttpMultipartFormDataContent_Interface
-      ; content : Windows.Web.Http.IHttpContent
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddWithName
-   (
-      This       : access IHttpMultipartFormDataContent_Interface
-      ; content : Windows.Web.Http.IHttpContent
-      ; name : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddWithNameAndFileName
-   (
-      This       : access IHttpMultipartFormDataContent_Interface
-      ; content : Windows.Web.Http.IHttpContent
-      ; name : Windows.String
-      ; fileName : Windows.String
+      This       : access IIterable_IHttpCookie_Interface
+      ; RetVal : access Windows.Web.Http.IIterator_IHttpCookie
    )
    return Windows.HRESULT is abstract;
    
@@ -1238,58 +1212,6 @@ package Windows.Web.Http is
    function GetMany
    (
       This       : access IIterator_IHttpCookie_Interface
-      ; items : Windows.Web.Http.IHttpCookie_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IHttpCookie : aliased constant Windows.IID := (247069238, 35038, 22797, (142, 160, 182, 19, 208, 171, 1, 95 ));
-   
-   type IIterable_IHttpCookie_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IHttpCookie_Interface
-      ; RetVal : access Windows.Web.Http.IIterator_IHttpCookie
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IHttpCookie : aliased constant Windows.IID := (6604022, 16330, 22563, (157, 146, 134, 196, 11, 40, 173, 188 ));
-   
-   type IVectorView_IHttpCookie_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IHttpCookie_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Web.Http.IHttpCookie
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IHttpCookie_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IHttpCookie_Interface
-      ; value : Windows.Web.Http.IHttpCookie
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IHttpCookie_Interface
-      ; startIndex : Windows.UInt32
       ; items : Windows.Web.Http.IHttpCookie_Ptr
       ; RetVal : access Windows.UInt32
    )
@@ -1391,27 +1313,101 @@ package Windows.Web.Http is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_HttpCookie : aliased constant Windows.IID := (6604022, 16330, 22563, (157, 146, 134, 196, 11, 40, 173, 188 ));
+   
+   type IVectorView_HttpCookie_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_HttpCookie_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Web.Http.IHttpCookie
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_HttpCookie_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_HttpCookie_Interface
+      ; value : Windows.Web.Http.IHttpCookie
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_HttpCookie_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Web.Http.IHttpCookie_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHttpCookie : aliased constant Windows.IID := (6604022, 16330, 22563, (157, 146, 134, 196, 11, 40, 173, 188 ));
+   
+   type IVectorView_IHttpCookie_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IHttpCookie_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Web.Http.IHttpCookie
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IHttpCookie_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IHttpCookie_Interface
+      ; value : Windows.Web.Http.IHttpCookie
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IHttpCookie_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Web.Http.IHttpCookie_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype HttpRequestMessage is Windows.Web.Http.IHttpRequestMessage;
-   function Create return Windows.Web.Http.IHttpRequestMessage;
-   
-   function Create
+   subtype HttpBufferContent is Windows.Web.Http.IHttpContent;
+   function CreateFromBuffer
    (
-      method : Windows.Web.Http.IHttpMethod
-      ; uri : Windows.Foundation.IUriRuntimeClass
+      content : Windows.Storage.Streams.IBuffer
    )
-   return Windows.Web.Http.IHttpRequestMessage;
+   return Windows.Web.Http.IHttpContent;
    
-   subtype HttpResponseMessage is Windows.Web.Http.IHttpResponseMessage;
-   function Create return Windows.Web.Http.IHttpResponseMessage;
-   
-   function Create
+   function CreateFromBufferWithOffset
    (
-      statusCode : Windows.Web.Http.HttpStatusCode
+      content : Windows.Storage.Streams.IBuffer
+      ; offset : Windows.UInt32
+      ; count : Windows.UInt32
    )
-   return Windows.Web.Http.IHttpResponseMessage;
+   return Windows.Web.Http.IHttpContent;
    
    subtype HttpClient is Windows.Web.Http.IHttpClient;
    function Create return Windows.Web.Http.IHttpClient;
@@ -1432,64 +1428,20 @@ package Windows.Web.Http is
    return Windows.Web.Http.IHttpCookie;
    
    subtype HttpCookieCollection is Windows.Web.Http.IVectorView_HttpCookie;
-   subtype HttpMethod is Windows.Web.Http.IHttpMethod;
-   function Create
-   (
-      method : Windows.String
-   )
-   return Windows.Web.Http.IHttpMethod;
-   
-   subtype HttpTransportInformation is Windows.Web.Http.IHttpTransportInformation;
-   subtype HttpStringContent is Windows.Web.Http.IHttpContent;
-   function CreateFromString
-   (
-      content : Windows.String
-   )
-   return Windows.Web.Http.IHttpContent;
-   
-   function CreateFromStringWithEncoding
-   (
-      content : Windows.String
-      ; encoding : Windows.Storage.Streams.UnicodeEncoding
-   )
-   return Windows.Web.Http.IHttpContent;
-   
-   function CreateFromStringWithEncodingAndMediaType
-   (
-      content : Windows.String
-      ; encoding : Windows.Storage.Streams.UnicodeEncoding
-      ; mediaType : Windows.String
-   )
-   return Windows.Web.Http.IHttpContent;
-   
-   subtype HttpBufferContent is Windows.Web.Http.IHttpContent;
-   function CreateFromBuffer
-   (
-      content : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Web.Http.IHttpContent;
-   
-   function CreateFromBufferWithOffset
-   (
-      content : Windows.Storage.Streams.IBuffer
-      ; offset : Windows.UInt32
-      ; count : Windows.UInt32
-   )
-   return Windows.Web.Http.IHttpContent;
-   
-   subtype HttpStreamContent is Windows.Web.Http.IHttpContent;
-   function CreateFromInputStream
-   (
-      content : Windows.Storage.Streams.IInputStream
-   )
-   return Windows.Web.Http.IHttpContent;
-   
+   subtype HttpCookieManager is Windows.Web.Http.IHttpCookieManager;
    subtype HttpFormUrlEncodedContent is Windows.Web.Http.IHttpContent;
    function Create
    (
       content : Windows.Address
    )
    return Windows.Web.Http.IHttpContent;
+   
+   subtype HttpMethod is Windows.Web.Http.IHttpMethod;
+   function Create
+   (
+      method : Windows.String
+   )
+   return Windows.Web.Http.IHttpMethod;
    
    subtype HttpMultipartContent is Windows.Web.Http.IHttpContent;
    function Create return Windows.Web.Http.IHttpContent;
@@ -1516,7 +1468,55 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   subtype HttpCookieManager is Windows.Web.Http.IHttpCookieManager;
+   subtype HttpRequestMessage is Windows.Web.Http.IHttpRequestMessage;
+   function Create return Windows.Web.Http.IHttpRequestMessage;
+   
+   function Create
+   (
+      method : Windows.Web.Http.IHttpMethod
+      ; uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Web.Http.IHttpRequestMessage;
+   
+   subtype HttpResponseMessage is Windows.Web.Http.IHttpResponseMessage;
+   function Create return Windows.Web.Http.IHttpResponseMessage;
+   
+   function Create
+   (
+      statusCode : Windows.Web.Http.HttpStatusCode
+   )
+   return Windows.Web.Http.IHttpResponseMessage;
+   
+   subtype HttpStreamContent is Windows.Web.Http.IHttpContent;
+   function CreateFromInputStream
+   (
+      content : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.Web.Http.IHttpContent;
+   
+   subtype HttpStringContent is Windows.Web.Http.IHttpContent;
+   function CreateFromString
+   (
+      content : Windows.String
+   )
+   return Windows.Web.Http.IHttpContent;
+   
+   function CreateFromStringWithEncoding
+   (
+      content : Windows.String
+      ; encoding : Windows.Storage.Streams.UnicodeEncoding
+   )
+   return Windows.Web.Http.IHttpContent;
+   
+   function CreateFromStringWithEncodingAndMediaType
+   (
+      content : Windows.String
+      ; encoding : Windows.Storage.Streams.UnicodeEncoding
+      ; mediaType : Windows.String
+   )
+   return Windows.Web.Http.IHttpContent;
+   
+   subtype HttpTransportInformation is Windows.Web.Http.IHttpTransportInformation;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

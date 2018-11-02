@@ -37,8 +37,8 @@ package body Windows.Graphics.Printing.PrintTicket is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface
-      ; asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicketValidationResult
+      This       : access AsyncOperationCompletedHandler_IWorkflowPrintTicket_Interface
+      ; asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicket
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -50,8 +50,8 @@ package body Windows.Graphics.Printing.PrintTicket is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IWorkflowPrintTicket_Interface
-      ; asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicket
+      This       : access AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface
+      ; asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicketValidationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

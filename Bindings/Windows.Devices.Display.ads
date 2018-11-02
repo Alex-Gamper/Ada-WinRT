@@ -53,6 +53,18 @@ package Windows.Devices.Display is
    
    type DisplayMonitorConnectionKind_Ptr is access DisplayMonitorConnectionKind;
    
+   type DisplayMonitorDescriptorKind is (
+      Edid,
+      DisplayId
+   );
+   for DisplayMonitorDescriptorKind use (
+      Edid => 0,
+      DisplayId => 1
+   );
+   for DisplayMonitorDescriptorKind'Size use 32;
+   
+   type DisplayMonitorDescriptorKind_Ptr is access DisplayMonitorDescriptorKind;
+   
    type DisplayMonitorPhysicalConnectorKind is (
       Unknown,
       HD15,
@@ -76,18 +88,6 @@ package Windows.Devices.Display is
    for DisplayMonitorPhysicalConnectorKind'Size use 32;
    
    type DisplayMonitorPhysicalConnectorKind_Ptr is access DisplayMonitorPhysicalConnectorKind;
-   
-   type DisplayMonitorDescriptorKind is (
-      Edid,
-      DisplayId
-   );
-   for DisplayMonitorDescriptorKind use (
-      Edid => 0,
-      DisplayId => 1
-   );
-   for DisplayMonitorDescriptorKind'Size use 32;
-   
-   type DisplayMonitorDescriptorKind_Ptr is access DisplayMonitorDescriptorKind;
    
    type DisplayMonitorUsageKind is (
       Standard_x,
@@ -115,19 +115,46 @@ package Windows.Devices.Display is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IDisplayMonitor_Interface;
+   type IAsyncOperation_IDisplayMonitor is access all IAsyncOperation_IDisplayMonitor_Interface'Class;
+   type IAsyncOperation_IDisplayMonitor_Ptr is access all IAsyncOperation_IDisplayMonitor;
    type IDisplayMonitor_Interface;
    type IDisplayMonitor is access all IDisplayMonitor_Interface'Class;
    type IDisplayMonitor_Ptr is access all IDisplayMonitor;
    type IDisplayMonitorStatics_Interface;
    type IDisplayMonitorStatics is access all IDisplayMonitorStatics_Interface'Class;
    type IDisplayMonitorStatics_Ptr is access all IDisplayMonitorStatics;
-   type IAsyncOperation_IDisplayMonitor_Interface;
-   type IAsyncOperation_IDisplayMonitor is access all IAsyncOperation_IDisplayMonitor_Interface'Class;
-   type IAsyncOperation_IDisplayMonitor_Ptr is access all IAsyncOperation_IDisplayMonitor;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDisplayMonitor : aliased constant Windows.IID := (683730467, 20038, 22723, (173, 130, 80, 43, 222, 204, 67, 69 ));
+   
+   type IAsyncOperation_IDisplayMonitor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IDisplayMonitor_Interface
+      ; handler : Windows.Devices.Display.AsyncOperationCompletedHandler_IDisplayMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IDisplayMonitor_Interface
+      ; RetVal : access Windows.Devices.Display.AsyncOperationCompletedHandler_IDisplayMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IDisplayMonitor_Interface
+      ; RetVal : access Windows.Devices.Display.IDisplayMonitor
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -302,33 +329,6 @@ package Windows.Devices.Display is
       This       : access IDisplayMonitorStatics_Interface
       ; deviceInterfaceId : Windows.String
       ; RetVal : access Windows.Devices.Display.IAsyncOperation_IDisplayMonitor -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IDisplayMonitor : aliased constant Windows.IID := (683730467, 20038, 22723, (173, 130, 80, 43, 222, 204, 67, 69 ));
-   
-   type IAsyncOperation_IDisplayMonitor_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IDisplayMonitor_Interface
-      ; handler : Windows.Devices.Display.AsyncOperationCompletedHandler_IDisplayMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IDisplayMonitor_Interface
-      ; RetVal : access Windows.Devices.Display.AsyncOperationCompletedHandler_IDisplayMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IDisplayMonitor_Interface
-      ; RetVal : access Windows.Devices.Display.IDisplayMonitor
    )
    return Windows.HRESULT is abstract;
    

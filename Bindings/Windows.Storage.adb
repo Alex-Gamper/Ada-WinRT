@@ -41,18 +41,6 @@ package body Windows.Storage is
    
    function Invoke
    (
-      This       : access StreamedFileDataRequestedHandler_Interface
-      ; stream : Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Storage.Streams.IOutputStream(stream));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access ApplicationDataSetVersionHandler_Interface
       ; setVersionRequest : Windows.Storage.ISetVersionRequest
    )
@@ -65,8 +53,21 @@ package body Windows.Storage is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IStorageLibrary_Interface
-      ; asyncInfo : Windows.Storage.IAsyncOperation_IStorageLibrary
+      This       : access AsyncOperationCompletedHandler_IApplicationData_Interface
+      ; asyncInfo : Windows.Storage.IAsyncOperation_IApplicationData
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IStorageFile_Interface
+      ; asyncInfo : Windows.Storage.IAsyncOperation_IStorageFile
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -91,34 +92,8 @@ package body Windows.Storage is
    
    function Invoke
    (
-      This       : access VectorChangedEventHandler_IStorageFolder_Interface
-      ; sender : Windows.Storage.IObservableVector_IStorageFolder
-      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, event);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IStorageLibrary_add_DefinitionChanged_Interface
-      ; sender : Windows.Storage.IStorageLibrary
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Storage.IStorageLibrary(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IStorageFile_Interface
-      ; asyncInfo : Windows.Storage.IAsyncOperation_IStorageFile
+      This       : access AsyncOperationCompletedHandler_IStorageItem_Interface
+      ; asyncInfo : Windows.Storage.IAsyncOperation_IStorageItem
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -130,8 +105,8 @@ package body Windows.Storage is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IStorageItem_Interface
-      ; asyncInfo : Windows.Storage.IAsyncOperation_IStorageItem
+      This       : access AsyncOperationCompletedHandler_IStorageLibrary_Interface
+      ; asyncInfo : Windows.Storage.IAsyncOperation_IStorageLibrary
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -156,14 +131,13 @@ package body Windows.Storage is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IApplicationData_Interface
-      ; asyncInfo : Windows.Storage.IAsyncOperation_IApplicationData
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access StreamedFileDataRequestedHandler_Interface
+      ; stream : Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Storage.Streams.IOutputStream(stream));
       return Hr;
    end;
    
@@ -177,6 +151,32 @@ package body Windows.Storage is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Storage.IApplicationData(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStorageLibrary_add_DefinitionChanged_Interface
+      ; sender : Windows.Storage.IStorageLibrary
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Storage.IStorageLibrary(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access VectorChangedEventHandler_IStorageFolder_Interface
+      ; sender : Windows.Storage.IObservableVector_IStorageFolder
+      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, event);
       return Hr;
    end;
    
@@ -209,346 +209,6 @@ package body Windows.Storage is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetLibraryAsync
-   (
-      libraryId : Windows.Storage.KnownLibraryId
-   )
-   return Windows.Storage.IAsyncOperation_IStorageLibrary is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageLibrary");
-      m_Factory     : IStorageLibraryStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageLibrary;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageLibraryStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetLibraryAsync(libraryId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetLibraryForUserAsync
-   (
-      user : Windows.System.IUser
-      ; libraryId : Windows.Storage.KnownLibraryId
-   )
-   return Windows.Storage.IAsyncOperation_IStorageLibrary is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageLibrary");
-      m_Factory     : IStorageLibraryStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageLibrary;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageLibraryStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetLibraryForUserAsync(user, libraryId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetFolderFromPathAsync
-   (
-      path : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageFolder");
-      m_Factory     : IStorageFolderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageFolderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetFolderFromPathAsync(path, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Playlists
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersPlaylistsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersPlaylistsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Playlists(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SavedPictures
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersSavedPicturesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersSavedPicturesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SavedPictures(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Objects3D
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Objects3D(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AppCaptures
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AppCaptures(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RecordedCalls
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RecordedCalls(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CameraRoll
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersCameraRollStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersCameraRollStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CameraRoll(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MusicLibrary
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MusicLibrary(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PicturesLibrary
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PicturesLibrary(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideosLibrary
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideosLibrary(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DocumentsLibrary
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DocumentsLibrary(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HomeGroup
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HomeGroup(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RemovableDevices
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RemovableDevices(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MediaServerDevices
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MediaServerDevices(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetFolderForUserAsync
-   (
-      user : Windows.System.IUser
-      ; folderId : Windows.Storage.KnownFolderId
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetFolderForUserAsync(user, folderId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Storage.IUserDataPaths is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.UserDataPaths");
-      m_Factory     : IUserDataPathsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IUserDataPaths;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserDataPathsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Storage.IUserDataPaths is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.UserDataPaths");
-      m_Factory     : IUserDataPathsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IUserDataPaths;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserDataPathsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetForUser
    (
       user : Windows.System.IUser
@@ -586,145 +246,75 @@ package body Windows.Storage is
       return RetVal;
    end;
    
-   function GetDefault
-   return Windows.Storage.ISystemDataPaths is
+   function get_Current
+   return Windows.Storage.IApplicationData is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.SystemDataPaths");
-      m_Factory     : ISystemDataPathsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.ApplicationData");
+      m_Factory     : IApplicationDataStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.ISystemDataPaths;
+      RetVal        : aliased Windows.Storage.IApplicationData;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISystemDataPathsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationDataStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
+         Hr := m_Factory.get_Current(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetFileFromPathAsync
+   function GetForUserAsync
    (
-      path : Windows.String
+      user : Windows.System.IUser
    )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
+   return Windows.Storage.IAsyncOperation_IApplicationData is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
-      m_Factory     : IStorageFileStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.ApplicationData");
+      m_Factory     : IApplicationDataStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IApplicationData;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationDataStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetFileFromPathAsync(path, RetVal'Access);
+         Hr := m_Factory.GetForUserAsync(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetFileFromApplicationUriAsync
+   procedure DeferUpdates
    (
-      uri : Windows.Foundation.IUriRuntimeClass
+      file : Windows.Storage.IStorageFile
    )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
+   is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
-      m_Factory     : IStorageFileStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.CachedFileManager");
+      m_Factory     : ICachedFileManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICachedFileManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetFileFromApplicationUriAsync(uri, RetVal'Access);
+         Hr := m_Factory.DeferUpdates(file);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
-   function CreateStreamedFileAsync
+   function CompleteUpdatesAsync
    (
-      displayNameWithExtension : Windows.String
-      ; dataRequested : Windows.Storage.StreamedFileDataRequestedHandler
-      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
+      file : Windows.Storage.IStorageFile
    )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
+   return Windows.Storage.Provider.IAsyncOperation_FileUpdateStatus is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
-      m_Factory     : IStorageFileStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.CachedFileManager");
+      m_Factory     : ICachedFileManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+      RetVal        : aliased Windows.Storage.Provider.IAsyncOperation_FileUpdateStatus;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICachedFileManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateStreamedFileAsync(displayNameWithExtension, dataRequested, thumbnail, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ReplaceWithStreamedFileAsync
-   (
-      fileToReplace : Windows.Storage.IStorageFile
-      ; dataRequested : Windows.Storage.StreamedFileDataRequestedHandler
-      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
-      m_Factory     : IStorageFileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ReplaceWithStreamedFileAsync(fileToReplace, dataRequested, thumbnail, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateStreamedFileFromUriAsync
-   (
-      displayNameWithExtension : Windows.String
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
-      m_Factory     : IStorageFileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateStreamedFileFromUriAsync(displayNameWithExtension, uri, thumbnail, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ReplaceWithStreamedFileFromUriAsync
-   (
-      fileToReplace : Windows.Storage.IStorageFile
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
-      m_Factory     : IStorageFileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ReplaceWithStreamedFileFromUriAsync(fileToReplace, uri, thumbnail, RetVal'Access);
+         Hr := m_Factory.CompleteUpdatesAsync(file, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1215,6 +805,248 @@ package body Windows.Storage is
       return RetVal;
    end;
    
+   function get_Playlists
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersPlaylistsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersPlaylistsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Playlists(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SavedPictures
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersSavedPicturesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersSavedPicturesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SavedPictures(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Objects3D
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Objects3D(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AppCaptures
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AppCaptures(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RecordedCalls
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RecordedCalls(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CameraRoll
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersCameraRollStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersCameraRollStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CameraRoll(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MusicLibrary
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MusicLibrary(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PicturesLibrary
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PicturesLibrary(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideosLibrary
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideosLibrary(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DocumentsLibrary
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DocumentsLibrary(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HomeGroup
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HomeGroup(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RemovableDevices
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RemovableDevices(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MediaServerDevices
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MediaServerDevices(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFolderForUserAsync
+   (
+      user : Windows.System.IUser
+      ; folderId : Windows.Storage.KnownFolderId
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFolderForUserAsync(user, folderId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function ReadTextAsync
    (
       absolutePath : Windows.String
@@ -1531,38 +1363,206 @@ package body Windows.Storage is
       return RetVal;
    end;
    
-   procedure DeferUpdates
+   function GetFileFromPathAsync
    (
-      file : Windows.Storage.IStorageFile
+      path : Windows.String
    )
-   is
+   return Windows.Storage.IAsyncOperation_IStorageFile is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.CachedFileManager");
-      m_Factory     : ICachedFileManagerStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
+      m_Factory     : IStorageFileStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICachedFileManagerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.DeferUpdates(file);
+         Hr := m_Factory.GetFileFromPathAsync(path, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
-   function CompleteUpdatesAsync
+   function GetFileFromApplicationUriAsync
    (
-      file : Windows.Storage.IStorageFile
+      uri : Windows.Foundation.IUriRuntimeClass
    )
-   return Windows.Storage.Provider.IAsyncOperation_FileUpdateStatus is
+   return Windows.Storage.IAsyncOperation_IStorageFile is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.CachedFileManager");
-      m_Factory     : ICachedFileManagerStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
+      m_Factory     : IStorageFileStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Provider.IAsyncOperation_FileUpdateStatus;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICachedFileManagerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CompleteUpdatesAsync(file, RetVal'Access);
+         Hr := m_Factory.GetFileFromApplicationUriAsync(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateStreamedFileAsync
+   (
+      displayNameWithExtension : Windows.String
+      ; dataRequested : Windows.Storage.StreamedFileDataRequestedHandler
+      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
+      m_Factory     : IStorageFileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateStreamedFileAsync(displayNameWithExtension, dataRequested, thumbnail, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ReplaceWithStreamedFileAsync
+   (
+      fileToReplace : Windows.Storage.IStorageFile
+      ; dataRequested : Windows.Storage.StreamedFileDataRequestedHandler
+      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
+      m_Factory     : IStorageFileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ReplaceWithStreamedFileAsync(fileToReplace, dataRequested, thumbnail, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateStreamedFileFromUriAsync
+   (
+      displayNameWithExtension : Windows.String
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
+      m_Factory     : IStorageFileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateStreamedFileFromUriAsync(displayNameWithExtension, uri, thumbnail, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ReplaceWithStreamedFileFromUriAsync
+   (
+      fileToReplace : Windows.Storage.IStorageFile
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
+      m_Factory     : IStorageFileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ReplaceWithStreamedFileFromUriAsync(fileToReplace, uri, thumbnail, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFolderFromPathAsync
+   (
+      path : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFolder");
+      m_Factory     : IStorageFolderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFolderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFolderFromPathAsync(path, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetLibraryAsync
+   (
+      libraryId : Windows.Storage.KnownLibraryId
+   )
+   return Windows.Storage.IAsyncOperation_IStorageLibrary is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageLibrary");
+      m_Factory     : IStorageLibraryStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageLibrary;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageLibraryStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetLibraryAsync(libraryId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetLibraryForUserAsync
+   (
+      user : Windows.System.IUser
+      ; libraryId : Windows.Storage.KnownLibraryId
+   )
+   return Windows.Storage.IAsyncOperation_IStorageLibrary is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageLibrary");
+      m_Factory     : IStorageLibraryStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageLibrary;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageLibraryStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetLibraryForUserAsync(user, libraryId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Storage.ISystemDataPaths is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.SystemDataPaths");
+      m_Factory     : ISystemDataPathsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.ISystemDataPaths;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISystemDataPathsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1790,37 +1790,37 @@ package body Windows.Storage is
       return RetVal;
    end;
    
-   function get_Current
-   return Windows.Storage.IApplicationData is
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.IUserDataPaths is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.ApplicationData");
-      m_Factory     : IApplicationDataStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.UserDataPaths");
+      m_Factory     : IUserDataPathsStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IApplicationData;
+      RetVal        : aliased Windows.Storage.IUserDataPaths;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationDataStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUserDataPathsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Current(RetVal'Access);
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetForUserAsync
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Storage.IAsyncOperation_IApplicationData is
+   function GetDefault
+   return Windows.Storage.IUserDataPaths is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.ApplicationData");
-      m_Factory     : IApplicationDataStatics2 := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.UserDataPaths");
+      m_Factory     : IUserDataPathsStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IApplicationData;
+      RetVal        : aliased Windows.Storage.IUserDataPaths;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationDataStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUserDataPathsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetForUserAsync(user, RetVal'Access);
+         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

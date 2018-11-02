@@ -65,35 +65,20 @@ package Windows.UI.Xaml.Hosting is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface;
-   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited is access all TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface'Class;
-   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Ptr is access all TypedEventHandler_IDesignerAppManager_add_DesignerAppExited;
    type AsyncOperationCompletedHandler_IDesignerAppView_Interface;
    type AsyncOperationCompletedHandler_IDesignerAppView is access all AsyncOperationCompletedHandler_IDesignerAppView_Interface'Class;
    type AsyncOperationCompletedHandler_IDesignerAppView_Ptr is access all AsyncOperationCompletedHandler_IDesignerAppView;
+   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface;
+   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited is access all TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface'Class;
+   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Ptr is access all TypedEventHandler_IDesignerAppManager_add_DesignerAppExited;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IElementCompositionPreview_Interface;
-   type IElementCompositionPreview is access all IElementCompositionPreview_Interface'Class;
-   type IElementCompositionPreview_Ptr is access all IElementCompositionPreview;
-   type IElementCompositionPreviewStatics_Interface;
-   type IElementCompositionPreviewStatics is access all IElementCompositionPreviewStatics_Interface'Class;
-   type IElementCompositionPreviewStatics_Ptr is access all IElementCompositionPreviewStatics;
-   type IElementCompositionPreviewStatics2_Interface;
-   type IElementCompositionPreviewStatics2 is access all IElementCompositionPreviewStatics2_Interface'Class;
-   type IElementCompositionPreviewStatics2_Ptr is access all IElementCompositionPreviewStatics2;
-   type IXamlUIPresenterHost_Interface;
-   type IXamlUIPresenterHost is access all IXamlUIPresenterHost_Interface'Class;
-   type IXamlUIPresenterHost_Ptr is access all IXamlUIPresenterHost;
-   type IXamlUIPresenterHost2_Interface;
-   type IXamlUIPresenterHost2 is access all IXamlUIPresenterHost2_Interface'Class;
-   type IXamlUIPresenterHost2_Ptr is access all IXamlUIPresenterHost2;
-   type IXamlUIPresenterHost3_Interface;
-   type IXamlUIPresenterHost3 is access all IXamlUIPresenterHost3_Interface'Class;
-   type IXamlUIPresenterHost3_Ptr is access all IXamlUIPresenterHost3;
+   type IAsyncOperation_IDesignerAppView_Interface;
+   type IAsyncOperation_IDesignerAppView is access all IAsyncOperation_IDesignerAppView_Interface'Class;
+   type IAsyncOperation_IDesignerAppView_Ptr is access all IAsyncOperation_IDesignerAppView;
    type IDesignerAppExitedEventArgs_Interface;
    type IDesignerAppExitedEventArgs is access all IDesignerAppExitedEventArgs_Interface'Class;
    type IDesignerAppExitedEventArgs_Ptr is access all IDesignerAppExitedEventArgs;
@@ -106,18 +91,33 @@ package Windows.UI.Xaml.Hosting is
    type IDesignerAppView_Interface;
    type IDesignerAppView is access all IDesignerAppView_Interface'Class;
    type IDesignerAppView_Ptr is access all IDesignerAppView;
+   type IElementCompositionPreview_Interface;
+   type IElementCompositionPreview is access all IElementCompositionPreview_Interface'Class;
+   type IElementCompositionPreview_Ptr is access all IElementCompositionPreview;
+   type IElementCompositionPreviewStatics_Interface;
+   type IElementCompositionPreviewStatics is access all IElementCompositionPreviewStatics_Interface'Class;
+   type IElementCompositionPreviewStatics_Ptr is access all IElementCompositionPreviewStatics;
+   type IElementCompositionPreviewStatics2_Interface;
+   type IElementCompositionPreviewStatics2 is access all IElementCompositionPreviewStatics2_Interface'Class;
+   type IElementCompositionPreviewStatics2_Ptr is access all IElementCompositionPreviewStatics2;
    type IXamlUIPresenter_Interface;
    type IXamlUIPresenter is access all IXamlUIPresenter_Interface'Class;
    type IXamlUIPresenter_Ptr is access all IXamlUIPresenter;
+   type IXamlUIPresenterHost_Interface;
+   type IXamlUIPresenterHost is access all IXamlUIPresenterHost_Interface'Class;
+   type IXamlUIPresenterHost_Ptr is access all IXamlUIPresenterHost;
+   type IXamlUIPresenterHost2_Interface;
+   type IXamlUIPresenterHost2 is access all IXamlUIPresenterHost2_Interface'Class;
+   type IXamlUIPresenterHost2_Ptr is access all IXamlUIPresenterHost2;
+   type IXamlUIPresenterHost3_Interface;
+   type IXamlUIPresenterHost3 is access all IXamlUIPresenterHost3_Interface'Class;
+   type IXamlUIPresenterHost3_Ptr is access all IXamlUIPresenterHost3;
    type IXamlUIPresenterStatics_Interface;
    type IXamlUIPresenterStatics is access all IXamlUIPresenterStatics_Interface'Class;
    type IXamlUIPresenterStatics_Ptr is access all IXamlUIPresenterStatics;
    type IXamlUIPresenterStatics2_Interface;
    type IXamlUIPresenterStatics2 is access all IXamlUIPresenterStatics2_Interface'Class;
    type IXamlUIPresenterStatics2_Ptr is access all IXamlUIPresenterStatics2;
-   type IAsyncOperation_IDesignerAppView_Interface;
-   type IAsyncOperation_IDesignerAppView is access all IAsyncOperation_IDesignerAppView_Interface'Class;
-   type IAsyncOperation_IDesignerAppView_Ptr is access all IAsyncOperation_IDesignerAppView;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -125,126 +125,28 @@ package Windows.UI.Xaml.Hosting is
    
    ------------------------------------------------------------------------
    
-   IID_IElementCompositionPreview : aliased constant Windows.IID := (3069290102, 53222, 18092, (172, 246, 196, 104, 123, 182, 94, 96 ));
+   IID_IAsyncOperation_IDesignerAppView : aliased constant Windows.IID := (1237763672, 7122, 22558, (163, 133, 110, 179, 253, 155, 254, 227 ));
    
-   type IElementCompositionPreview_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IDesignerAppView_Interface is interface and Windows.IInspectable_Interface;
    
-   ------------------------------------------------------------------------
-   
-   IID_IElementCompositionPreviewStatics : aliased constant Windows.IID := (147401528, 60569, 19541, (188, 133, 161, 193, 128, 178, 118, 70 ));
-   
-   type IElementCompositionPreviewStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetElementVisual
+   function put_Completed
    (
-      This       : access IElementCompositionPreviewStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Composition.IVisual
+      This       : access IAsyncOperation_IDesignerAppView_Interface
+      ; handler : Windows.UI.Xaml.Hosting.AsyncOperationCompletedHandler_IDesignerAppView
    )
    return Windows.HRESULT is abstract;
    
-   function GetElementChildVisual
+   function get_Completed
    (
-      This       : access IElementCompositionPreviewStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Composition.IVisual
+      This       : access IAsyncOperation_IDesignerAppView_Interface
+      ; RetVal : access Windows.UI.Xaml.Hosting.AsyncOperationCompletedHandler_IDesignerAppView
    )
    return Windows.HRESULT is abstract;
    
-   function SetElementChildVisual
+   function GetResults
    (
-      This       : access IElementCompositionPreviewStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; visual : Windows.UI.Composition.IVisual
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetScrollViewerManipulationPropertySet
-   (
-      This       : access IElementCompositionPreviewStatics_Interface
-      ; scrollViewer : Windows.UI.Xaml.Controls.IScrollViewer
-      ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IElementCompositionPreviewStatics2 : aliased constant Windows.IID := (605327291, 9174, 20279, (186, 12, 7, 51, 231, 153, 114, 45 ));
-   
-   type IElementCompositionPreviewStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetImplicitShowAnimation
-   (
-      This       : access IElementCompositionPreviewStatics2_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; animation : Windows.UI.Composition.ICompositionAnimationBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetImplicitHideAnimation
-   (
-      This       : access IElementCompositionPreviewStatics2_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; animation : Windows.UI.Composition.ICompositionAnimationBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetIsTranslationEnabled
-   (
-      This       : access IElementCompositionPreviewStatics2_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetPointerPositionPropertySet
-   (
-      This       : access IElementCompositionPreviewStatics2_Interface
-      ; targetElement : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlUIPresenterHost : aliased constant Windows.IID := (2868610253, 40813, 20352, (172, 44, 14, 108, 185, 243, 22, 89 ));
-   
-   type IXamlUIPresenterHost_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ResolveFileResource
-   (
-      This       : access IXamlUIPresenterHost_Interface
-      ; path : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlUIPresenterHost2 : aliased constant Windows.IID := (1633244786, 31908, 18977, (181, 106, 136, 244, 129, 35, 136, 202 ));
-   
-   type IXamlUIPresenterHost2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetGenericXamlFilePath
-   (
-      This       : access IXamlUIPresenterHost2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlUIPresenterHost3 : aliased constant Windows.IID := (2973930175, 29472, 16827, (159, 38, 77, 111, 211, 77, 180, 90 ));
-   
-   type IXamlUIPresenterHost3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ResolveDictionaryResource
-   (
-      This       : access IXamlUIPresenterHost3_Interface
-      ; dictionary : Windows.UI.Xaml.IResourceDictionary
-      ; dictionaryKey : Windows.Object
-      ; suggestedValue : Windows.Object
-      ; RetVal : access Windows.Object
+      This       : access IAsyncOperation_IDesignerAppView_Interface
+      ; RetVal : access Windows.UI.Xaml.Hosting.IDesignerAppView
    )
    return Windows.HRESULT is abstract;
    
@@ -367,6 +269,88 @@ package Windows.UI.Xaml.Hosting is
    
    ------------------------------------------------------------------------
    
+   IID_IElementCompositionPreview : aliased constant Windows.IID := (3069290102, 53222, 18092, (172, 246, 196, 104, 123, 182, 94, 96 ));
+   
+   type IElementCompositionPreview_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementCompositionPreviewStatics : aliased constant Windows.IID := (147401528, 60569, 19541, (188, 133, 161, 193, 128, 178, 118, 70 ));
+   
+   type IElementCompositionPreviewStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetElementVisual
+   (
+      This       : access IElementCompositionPreviewStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetElementChildVisual
+   (
+      This       : access IElementCompositionPreviewStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetElementChildVisual
+   (
+      This       : access IElementCompositionPreviewStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; visual : Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetScrollViewerManipulationPropertySet
+   (
+      This       : access IElementCompositionPreviewStatics_Interface
+      ; scrollViewer : Windows.UI.Xaml.Controls.IScrollViewer
+      ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementCompositionPreviewStatics2 : aliased constant Windows.IID := (605327291, 9174, 20279, (186, 12, 7, 51, 231, 153, 114, 45 ));
+   
+   type IElementCompositionPreviewStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetImplicitShowAnimation
+   (
+      This       : access IElementCompositionPreviewStatics2_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetImplicitHideAnimation
+   (
+      This       : access IElementCompositionPreviewStatics2_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetIsTranslationEnabled
+   (
+      This       : access IElementCompositionPreviewStatics2_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetPointerPositionPropertySet
+   (
+      This       : access IElementCompositionPreviewStatics2_Interface
+      ; targetElement : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IXamlUIPresenter : aliased constant Windows.IID := (2803143754, 5657, 20422, (179, 27, 137, 81, 46, 240, 34, 162 ));
    
    type IXamlUIPresenter_Interface is interface and Windows.IInspectable_Interface;
@@ -435,6 +419,49 @@ package Windows.UI.Xaml.Hosting is
    
    ------------------------------------------------------------------------
    
+   IID_IXamlUIPresenterHost : aliased constant Windows.IID := (2868610253, 40813, 20352, (172, 44, 14, 108, 185, 243, 22, 89 ));
+   
+   type IXamlUIPresenterHost_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ResolveFileResource
+   (
+      This       : access IXamlUIPresenterHost_Interface
+      ; path : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlUIPresenterHost2 : aliased constant Windows.IID := (1633244786, 31908, 18977, (181, 106, 136, 244, 129, 35, 136, 202 ));
+   
+   type IXamlUIPresenterHost2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetGenericXamlFilePath
+   (
+      This       : access IXamlUIPresenterHost2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlUIPresenterHost3 : aliased constant Windows.IID := (2973930175, 29472, 16827, (159, 38, 77, 111, 211, 77, 180, 90 ));
+   
+   type IXamlUIPresenterHost3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ResolveDictionaryResource
+   (
+      This       : access IXamlUIPresenterHost3_Interface
+      ; dictionary : Windows.UI.Xaml.IResourceDictionary
+      ; dictionaryKey : Windows.Object
+      ; suggestedValue : Windows.Object
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IXamlUIPresenterStatics : aliased constant Windows.IID := (1911220936, 17889, 16786, (133, 170, 58, 66, 46, 221, 35, 207 ));
    
    type IXamlUIPresenterStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -498,48 +525,8 @@ package Windows.UI.Xaml.Hosting is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IDesignerAppView : aliased constant Windows.IID := (1237763672, 7122, 22558, (163, 133, 110, 179, 253, 155, 254, 227 ));
-   
-   type IAsyncOperation_IDesignerAppView_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IDesignerAppView_Interface
-      ; handler : Windows.UI.Xaml.Hosting.AsyncOperationCompletedHandler_IDesignerAppView
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IDesignerAppView_Interface
-      ; RetVal : access Windows.UI.Xaml.Hosting.AsyncOperationCompletedHandler_IDesignerAppView
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IDesignerAppView_Interface
-      ; RetVal : access Windows.UI.Xaml.Hosting.IDesignerAppView
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IDesignerAppManager_add_DesignerAppExited : aliased constant Windows.IID := (930270872, 39840, 20555, (138, 13, 54, 183, 248, 22, 161, 194 ));
-   
-   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Hosting.IDesignerAppManager ; args : Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDesignerAppManager_add_DesignerAppExited'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface
-      ; sender : Windows.UI.Xaml.Hosting.IDesignerAppManager
-      ; args : Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -555,10 +542,22 @@ package Windows.UI.Xaml.Hosting is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IDesignerAppManager_add_DesignerAppExited : aliased constant Windows.IID := (930270872, 39840, 20555, (138, 13, 54, 183, 248, 22, 161, 194 ));
+   
+   type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Hosting.IDesignerAppManager ; args : Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDesignerAppManager_add_DesignerAppExited'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface
+      ; sender : Windows.UI.Xaml.Hosting.IDesignerAppManager
+      ; args : Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype ElementCompositionPreview is Windows.UI.Xaml.Hosting.IElementCompositionPreview;
    subtype DesignerAppExitedEventArgs is Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs;
    subtype DesignerAppManager is Windows.UI.Xaml.Hosting.IDesignerAppManager;
    function Create
@@ -568,6 +567,7 @@ package Windows.UI.Xaml.Hosting is
    return Windows.UI.Xaml.Hosting.IDesignerAppManager;
    
    subtype DesignerAppView is Windows.UI.Xaml.Hosting.IDesignerAppView;
+   subtype ElementCompositionPreview is Windows.UI.Xaml.Hosting.IElementCompositionPreview;
    subtype XamlUIPresenter is Windows.UI.Xaml.Hosting.IXamlUIPresenter;
    
    ------------------------------------------------------------------------

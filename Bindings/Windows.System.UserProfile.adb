@@ -150,34 +150,17 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-   function get_Current
-   return Windows.System.UserProfile.IUserProfilePersonalizationSettings is
+   function GetDefault
+   return Windows.System.UserProfile.IFirstSignInSettings is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserProfilePersonalizationSettings");
-      m_Factory     : IUserProfilePersonalizationSettingsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.FirstSignInSettings");
+      m_Factory     : IFirstSignInSettingsStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IUserProfilePersonalizationSettings;
+      RetVal        : aliased Windows.System.UserProfile.IFirstSignInSettings;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserProfilePersonalizationSettingsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IFirstSignInSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Current(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserProfilePersonalizationSettings");
-      m_Factory     : IUserProfilePersonalizationSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserProfilePersonalizationSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsSupported(RetVal'Access);
+         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -346,17 +329,111 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-   function GetDefault
-   return Windows.System.UserProfile.IFirstSignInSettings is
+   function get_OriginalImageFile
+   return Windows.Foundation.IUriRuntimeClass is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.FirstSignInSettings");
-      m_Factory     : IFirstSignInSettingsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IFirstSignInSettings;
+      RetVal        : aliased Windows.Foundation.IUriRuntimeClass;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFirstSignInSettingsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
+         Hr := m_Factory.get_OriginalImageFile(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetImageStream
+   return Windows.Storage.Streams.IRandomAccessStream is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStream;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetImageStream(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SetImageFileAsync
+   (
+      value : Windows.Storage.IStorageFile
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetImageFileAsync(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SetImageStreamAsync
+   (
+      value : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetImageStreamAsync(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestSetImageFeedAsync
+   (
+      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenImageFeedStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestSetImageFeedAsync(syndicationFeedUri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryRemoveImageFeed
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenImageFeedStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryRemoveImageFeed(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -641,111 +718,34 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-   function get_OriginalImageFile
-   return Windows.Foundation.IUriRuntimeClass is
+   function get_Current
+   return Windows.System.UserProfile.IUserProfilePersonalizationSettings is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenStatics := null;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserProfilePersonalizationSettings");
+      m_Factory     : IUserProfilePersonalizationSettingsStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IUriRuntimeClass;
+      RetVal        : aliased Windows.System.UserProfile.IUserProfilePersonalizationSettings;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUserProfilePersonalizationSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_OriginalImageFile(RetVal'Access);
+         Hr := m_Factory.get_Current(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetImageStream
-   return Windows.Storage.Streams.IRandomAccessStream is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStream;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetImageStream(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SetImageFileAsync
-   (
-      value : Windows.Storage.IStorageFile
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetImageFileAsync(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SetImageStreamAsync
-   (
-      value : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetImageStreamAsync(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestSetImageFeedAsync
-   (
-      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenImageFeedStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestSetImageFeedAsync(syndicationFeedUri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryRemoveImageFeed
+   function IsSupported
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenImageFeedStatics := null;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserProfilePersonalizationSettings");
+      m_Factory     : IUserProfilePersonalizationSettingsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Boolean;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUserProfilePersonalizationSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.TryRemoveImageFeed(RetVal'Access);
+         Hr := m_Factory.IsSupported(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

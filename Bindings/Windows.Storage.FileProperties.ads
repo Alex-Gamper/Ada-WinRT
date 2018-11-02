@@ -39,6 +39,32 @@ package Windows.Storage.FileProperties is
    -- Enums
    ------------------------------------------------------------------------
    
+   type PhotoOrientation is (
+      Unspecified,
+      Normal,
+      FlipHorizontal,
+      Rotate180,
+      FlipVertical,
+      Transpose,
+      Rotate270,
+      Transverse,
+      Rotate90
+   );
+   for PhotoOrientation use (
+      Unspecified => 0,
+      Normal => 1,
+      FlipHorizontal => 2,
+      Rotate180 => 3,
+      FlipVertical => 4,
+      Transpose => 5,
+      Rotate270 => 6,
+      Transverse => 7,
+      Rotate90 => 8
+   );
+   for PhotoOrientation'Size use 32;
+   
+   type PhotoOrientation_Ptr is access PhotoOrientation;
+   
    type PropertyPrefetchOptions is (
       None,
       MusicProperties_x,
@@ -58,18 +84,6 @@ package Windows.Storage.FileProperties is
    for PropertyPrefetchOptions'Size use 32;
    
    type PropertyPrefetchOptions_Ptr is access PropertyPrefetchOptions;
-   
-   type ThumbnailType is (
-      Image,
-      Icon
-   );
-   for ThumbnailType use (
-      Image => 0,
-      Icon => 1
-   );
-   for ThumbnailType'Size use 32;
-   
-   type ThumbnailType_Ptr is access ThumbnailType;
    
    type ThumbnailMode is (
       PicturesView,
@@ -107,31 +121,17 @@ package Windows.Storage.FileProperties is
    
    type ThumbnailOptions_Ptr is access ThumbnailOptions;
    
-   type PhotoOrientation is (
-      Unspecified,
-      Normal,
-      FlipHorizontal,
-      Rotate180,
-      FlipVertical,
-      Transpose,
-      Rotate270,
-      Transverse,
-      Rotate90
+   type ThumbnailType is (
+      Image,
+      Icon
    );
-   for PhotoOrientation use (
-      Unspecified => 0,
-      Normal => 1,
-      FlipHorizontal => 2,
-      Rotate180 => 3,
-      FlipVertical => 4,
-      Transpose => 5,
-      Rotate270 => 6,
-      Transverse => 7,
-      Rotate90 => 8
+   for ThumbnailType use (
+      Image => 0,
+      Icon => 1
    );
-   for PhotoOrientation'Size use 32;
+   for ThumbnailType'Size use 32;
    
-   type PhotoOrientation_Ptr is access PhotoOrientation;
+   type ThumbnailType_Ptr is access ThumbnailType;
    
    type VideoOrientation is (
       Normal,
@@ -153,87 +153,308 @@ package Windows.Storage.FileProperties is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IBasicProperties_Interface;
+   type AsyncOperationCompletedHandler_IBasicProperties is access all AsyncOperationCompletedHandler_IBasicProperties_Interface'Class;
+   type AsyncOperationCompletedHandler_IBasicProperties_Ptr is access all AsyncOperationCompletedHandler_IBasicProperties;
+   type AsyncOperationCompletedHandler_IDocumentProperties_Interface;
+   type AsyncOperationCompletedHandler_IDocumentProperties is access all AsyncOperationCompletedHandler_IDocumentProperties_Interface'Class;
+   type AsyncOperationCompletedHandler_IDocumentProperties_Ptr is access all AsyncOperationCompletedHandler_IDocumentProperties;
+   type AsyncOperationCompletedHandler_IImageProperties_Interface;
+   type AsyncOperationCompletedHandler_IImageProperties is access all AsyncOperationCompletedHandler_IImageProperties_Interface'Class;
+   type AsyncOperationCompletedHandler_IImageProperties_Ptr is access all AsyncOperationCompletedHandler_IImageProperties;
    type AsyncOperationCompletedHandler_IMusicProperties_Interface;
    type AsyncOperationCompletedHandler_IMusicProperties is access all AsyncOperationCompletedHandler_IMusicProperties_Interface'Class;
    type AsyncOperationCompletedHandler_IMusicProperties_Ptr is access all AsyncOperationCompletedHandler_IMusicProperties;
    type AsyncOperationCompletedHandler_IVideoProperties_Interface;
    type AsyncOperationCompletedHandler_IVideoProperties is access all AsyncOperationCompletedHandler_IVideoProperties_Interface'Class;
    type AsyncOperationCompletedHandler_IVideoProperties_Ptr is access all AsyncOperationCompletedHandler_IVideoProperties;
-   type AsyncOperationCompletedHandler_IImageProperties_Interface;
-   type AsyncOperationCompletedHandler_IImageProperties is access all AsyncOperationCompletedHandler_IImageProperties_Interface'Class;
-   type AsyncOperationCompletedHandler_IImageProperties_Ptr is access all AsyncOperationCompletedHandler_IImageProperties;
-   type AsyncOperationCompletedHandler_IDocumentProperties_Interface;
-   type AsyncOperationCompletedHandler_IDocumentProperties is access all AsyncOperationCompletedHandler_IDocumentProperties_Interface'Class;
-   type AsyncOperationCompletedHandler_IDocumentProperties_Ptr is access all AsyncOperationCompletedHandler_IDocumentProperties;
-   type AsyncOperationCompletedHandler_IBasicProperties_Interface;
-   type AsyncOperationCompletedHandler_IBasicProperties is access all AsyncOperationCompletedHandler_IBasicProperties_Interface'Class;
-   type AsyncOperationCompletedHandler_IBasicProperties_Ptr is access all AsyncOperationCompletedHandler_IBasicProperties;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IGeotagHelperStatics_Interface;
-   type IGeotagHelperStatics is access all IGeotagHelperStatics_Interface'Class;
-   type IGeotagHelperStatics_Ptr is access all IGeotagHelperStatics;
-   type IThumbnailProperties_Interface;
-   type IThumbnailProperties is access all IThumbnailProperties_Interface'Class;
-   type IThumbnailProperties_Ptr is access all IThumbnailProperties;
-   type IStorageItemExtraProperties_Interface;
-   type IStorageItemExtraProperties is access all IStorageItemExtraProperties_Interface'Class;
-   type IStorageItemExtraProperties_Ptr is access all IStorageItemExtraProperties;
-   type IStorageItemContentProperties_Interface;
-   type IStorageItemContentProperties is access all IStorageItemContentProperties_Interface'Class;
-   type IStorageItemContentProperties_Ptr is access all IStorageItemContentProperties;
-   type IMusicProperties_Interface;
-   type IMusicProperties is access all IMusicProperties_Interface'Class;
-   type IMusicProperties_Ptr is access all IMusicProperties;
-   type IImageProperties_Interface;
-   type IImageProperties is access all IImageProperties_Interface'Class;
-   type IImageProperties_Ptr is access all IImageProperties;
-   type IVideoProperties_Interface;
-   type IVideoProperties is access all IVideoProperties_Interface'Class;
-   type IVideoProperties_Ptr is access all IVideoProperties;
-   type IDocumentProperties_Interface;
-   type IDocumentProperties is access all IDocumentProperties_Interface'Class;
-   type IDocumentProperties_Ptr is access all IDocumentProperties;
-   type IBasicProperties_Interface;
-   type IBasicProperties is access all IBasicProperties_Interface'Class;
-   type IBasicProperties_Ptr is access all IBasicProperties;
-   type IRandomAccessStreamWithContentType_Imported_Interface;
-   type IRandomAccessStreamWithContentType_Imported is access all IRandomAccessStreamWithContentType_Imported_Interface'Class;
-   type IRandomAccessStreamWithContentType_Imported_Ptr is access all IRandomAccessStreamWithContentType_Imported;
-   type IContentTypeProvider_Imported_Interface;
-   type IContentTypeProvider_Imported is access all IContentTypeProvider_Imported_Interface'Class;
-   type IContentTypeProvider_Imported_Ptr is access all IContentTypeProvider_Imported;
-   type IRandomAccessStream_Imported_Interface;
-   type IRandomAccessStream_Imported is access all IRandomAccessStream_Imported_Interface'Class;
-   type IRandomAccessStream_Imported_Ptr is access all IRandomAccessStream_Imported;
-   type IOutputStream_Imported_Interface;
-   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
-   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
-   type IInputStream_Imported_Interface;
-   type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
-   type IInputStream_Imported_Ptr is access all IInputStream_Imported;
+   type IAsyncOperation_IBasicProperties_Interface;
+   type IAsyncOperation_IBasicProperties is access all IAsyncOperation_IBasicProperties_Interface'Class;
+   type IAsyncOperation_IBasicProperties_Ptr is access all IAsyncOperation_IBasicProperties;
+   type IAsyncOperation_IDocumentProperties_Interface;
+   type IAsyncOperation_IDocumentProperties is access all IAsyncOperation_IDocumentProperties_Interface'Class;
+   type IAsyncOperation_IDocumentProperties_Ptr is access all IAsyncOperation_IDocumentProperties;
+   type IAsyncOperation_IImageProperties_Interface;
+   type IAsyncOperation_IImageProperties is access all IAsyncOperation_IImageProperties_Interface'Class;
+   type IAsyncOperation_IImageProperties_Ptr is access all IAsyncOperation_IImageProperties;
    type IAsyncOperation_IMusicProperties_Interface;
    type IAsyncOperation_IMusicProperties is access all IAsyncOperation_IMusicProperties_Interface'Class;
    type IAsyncOperation_IMusicProperties_Ptr is access all IAsyncOperation_IMusicProperties;
    type IAsyncOperation_IVideoProperties_Interface;
    type IAsyncOperation_IVideoProperties is access all IAsyncOperation_IVideoProperties_Interface'Class;
    type IAsyncOperation_IVideoProperties_Ptr is access all IAsyncOperation_IVideoProperties;
-   type IAsyncOperation_IImageProperties_Interface;
-   type IAsyncOperation_IImageProperties is access all IAsyncOperation_IImageProperties_Interface'Class;
-   type IAsyncOperation_IImageProperties_Ptr is access all IAsyncOperation_IImageProperties;
-   type IAsyncOperation_IDocumentProperties_Interface;
-   type IAsyncOperation_IDocumentProperties is access all IAsyncOperation_IDocumentProperties_Interface'Class;
-   type IAsyncOperation_IDocumentProperties_Ptr is access all IAsyncOperation_IDocumentProperties;
-   type IAsyncOperation_IBasicProperties_Interface;
-   type IAsyncOperation_IBasicProperties is access all IAsyncOperation_IBasicProperties_Interface'Class;
-   type IAsyncOperation_IBasicProperties_Ptr is access all IAsyncOperation_IBasicProperties;
+   type IBasicProperties_Interface;
+   type IBasicProperties is access all IBasicProperties_Interface'Class;
+   type IBasicProperties_Ptr is access all IBasicProperties;
+   type IContentTypeProvider_Imported_Interface;
+   type IContentTypeProvider_Imported is access all IContentTypeProvider_Imported_Interface'Class;
+   type IContentTypeProvider_Imported_Ptr is access all IContentTypeProvider_Imported;
+   type IDocumentProperties_Interface;
+   type IDocumentProperties is access all IDocumentProperties_Interface'Class;
+   type IDocumentProperties_Ptr is access all IDocumentProperties;
+   type IGeotagHelperStatics_Interface;
+   type IGeotagHelperStatics is access all IGeotagHelperStatics_Interface'Class;
+   type IGeotagHelperStatics_Ptr is access all IGeotagHelperStatics;
+   type IImageProperties_Interface;
+   type IImageProperties is access all IImageProperties_Interface'Class;
+   type IImageProperties_Ptr is access all IImageProperties;
+   type IInputStream_Imported_Interface;
+   type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
+   type IInputStream_Imported_Ptr is access all IInputStream_Imported;
+   type IMusicProperties_Interface;
+   type IMusicProperties is access all IMusicProperties_Interface'Class;
+   type IMusicProperties_Ptr is access all IMusicProperties;
+   type IOutputStream_Imported_Interface;
+   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
+   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
+   type IRandomAccessStream_Imported_Interface;
+   type IRandomAccessStream_Imported is access all IRandomAccessStream_Imported_Interface'Class;
+   type IRandomAccessStream_Imported_Ptr is access all IRandomAccessStream_Imported;
+   type IRandomAccessStreamWithContentType_Imported_Interface;
+   type IRandomAccessStreamWithContentType_Imported is access all IRandomAccessStreamWithContentType_Imported_Interface'Class;
+   type IRandomAccessStreamWithContentType_Imported_Ptr is access all IRandomAccessStreamWithContentType_Imported;
+   type IStorageItemContentProperties_Interface;
+   type IStorageItemContentProperties is access all IStorageItemContentProperties_Interface'Class;
+   type IStorageItemContentProperties_Ptr is access all IStorageItemContentProperties;
+   type IStorageItemExtraProperties_Interface;
+   type IStorageItemExtraProperties is access all IStorageItemExtraProperties_Interface'Class;
+   type IStorageItemExtraProperties_Ptr is access all IStorageItemExtraProperties;
+   type IThumbnailProperties_Interface;
+   type IThumbnailProperties is access all IThumbnailProperties_Interface'Class;
+   type IThumbnailProperties_Ptr is access all IThumbnailProperties;
+   type IVideoProperties_Interface;
+   type IVideoProperties is access all IVideoProperties_Interface'Class;
+   type IVideoProperties_Ptr is access all IVideoProperties;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBasicProperties : aliased constant Windows.IID := (1367741210, 17511, 20555, (151, 122, 7, 133, 168, 35, 4, 133 ));
+   
+   type IAsyncOperation_IBasicProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IBasicProperties_Interface
+      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IBasicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IBasicProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IBasicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IBasicProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IBasicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDocumentProperties : aliased constant Windows.IID := (1820780924, 22169, 22272, (141, 53, 211, 80, 173, 62, 77, 242 ));
+   
+   type IAsyncOperation_IDocumentProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IDocumentProperties_Interface
+      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IDocumentProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IDocumentProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IDocumentProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IDocumentProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IDocumentProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IImageProperties : aliased constant Windows.IID := (4241519889, 59384, 23514, (140, 4, 121, 90, 99, 157, 174, 143 ));
+   
+   type IAsyncOperation_IImageProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IImageProperties_Interface
+      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IImageProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IImageProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IImageProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IImageProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IImageProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMusicProperties : aliased constant Windows.IID := (218250102, 8359, 22259, (132, 171, 206, 49, 230, 84, 75, 113 ));
+   
+   type IAsyncOperation_IMusicProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IMusicProperties_Interface
+      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IMusicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IMusicProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IMusicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IMusicProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IMusicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IVideoProperties : aliased constant Windows.IID := (1149060496, 54265, 22719, (172, 88, 111, 154, 80, 131, 158, 254 ));
+   
+   type IAsyncOperation_IVideoProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IVideoProperties_Interface
+      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IVideoProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IVideoProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IVideoProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IVideoProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IVideoProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBasicProperties : aliased constant Windows.IID := (3495777755, 30814, 19046, (190, 2, 155, 238, 197, 138, 234, 129 ));
+   
+   type IBasicProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Size
+   (
+      This       : access IBasicProperties_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DateModified
+   (
+      This       : access IBasicProperties_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemDate
+   (
+      This       : access IBasicProperties_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentType
+   (
+      This       : access IContentTypeProvider_Imported_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDocumentProperties : aliased constant Windows.IID := (2125142460, 6177, 18723, (180, 169, 10, 234, 64, 77, 0, 112 ));
+   
+   type IDocumentProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Author
+   (
+      This       : access IDocumentProperties_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Title
+   (
+      This       : access IDocumentProperties_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Title
+   (
+      This       : access IDocumentProperties_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Keywords
+   (
+      This       : access IDocumentProperties_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Comment
+   (
+      This       : access IDocumentProperties_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Comment
+   (
+      This       : access IDocumentProperties_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -269,98 +490,140 @@ package Windows.Storage.FileProperties is
    
    ------------------------------------------------------------------------
    
-   IID_IThumbnailProperties : aliased constant Windows.IID := (1765659695, 56295, 18869, (179, 179, 40, 147, 172, 93, 52, 35 ));
+   IID_IImageProperties : aliased constant Windows.IID := (1379701796, 64767, 17013, (175, 238, 236, 219, 154, 180, 121, 115 ));
    
-   type IThumbnailProperties_Interface is interface and Windows.IInspectable_Interface;
+   type IImageProperties_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_OriginalWidth
+   function get_Rating
    (
-      This       : access IThumbnailProperties_Interface
+      This       : access IImageProperties_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_OriginalHeight
+   function put_Rating
    (
-      This       : access IThumbnailProperties_Interface
+      This       : access IImageProperties_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Keywords
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DateTaken
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DateTaken
+   (
+      This       : access IImageProperties_Interface
+      ; value : Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Width
+   (
+      This       : access IImageProperties_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_ReturnedSmallerCachedSize
+   function get_Height
    (
-      This       : access IThumbnailProperties_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_Type
+   function get_Title
    (
-      This       : access IThumbnailProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.ThumbnailType
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Title
+   (
+      This       : access IImageProperties_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Latitude
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Longitude
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CameraManufacturer
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CameraManufacturer
+   (
+      This       : access IImageProperties_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CameraModel
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CameraModel
+   (
+      This       : access IImageProperties_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Orientation
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.PhotoOrientation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PeopleNames
+   (
+      This       : access IImageProperties_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStorageItemExtraProperties : aliased constant Windows.IID := (3309527474, 21709, 17195, (189, 188, 75, 25, 196, 180, 112, 215 ));
+   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
-   type IStorageItemExtraProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RetrievePropertiesAsync
+   function ReadAsync
    (
-      This       : access IStorageItemExtraProperties_Interface
-      ; propertiesToRetrieve : Windows.Foundation.Collections.IIterable_String
+      This       : access IInputStream_Imported_Interface
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; count : Windows.UInt32
+      ; options : Windows.Storage.Streams.InputStreamOptions
       ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SavePropertiesAsync
-   (
-      This       : access IStorageItemExtraProperties_Interface
-      ; propertiesToSave : Windows.Address
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SavePropertiesAsyncOverloadDefault
-   (
-      This       : access IStorageItemExtraProperties_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStorageItemContentProperties : aliased constant Windows.IID := (86592429, 48184, 18623, (133, 215, 119, 14, 14, 42, 224, 186 ));
-   
-   type IStorageItemContentProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetMusicPropertiesAsync
-   (
-      This       : access IStorageItemContentProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IMusicProperties -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetVideoPropertiesAsync
-   (
-      This       : access IStorageItemContentProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IVideoProperties -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetImagePropertiesAsync
-   (
-      This       : access IStorageItemContentProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IImageProperties -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDocumentPropertiesAsync
-   (
-      This       : access IStorageItemContentProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -547,126 +810,190 @@ package Windows.Storage.FileProperties is
    
    ------------------------------------------------------------------------
    
-   IID_IImageProperties : aliased constant Windows.IID := (1379701796, 64767, 17013, (175, 238, 236, 219, 154, 180, 121, 115 ));
+   type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
-   type IImageProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Rating
+   function WriteAsync
    (
-      This       : access IImageProperties_Interface
+      This       : access IOutputStream_Imported_Interface
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FlushAsync
+   (
+      This       : access IOutputStream_Imported_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Size
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Size
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; value : Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetInputStreamAt
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetOutputStreamAt
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+      ; RetVal : access Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Seek
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CloneStream
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanRead
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanWrite
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageItemContentProperties : aliased constant Windows.IID := (86592429, 48184, 18623, (133, 215, 119, 14, 14, 42, 224, 186 ));
+   
+   type IStorageItemContentProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetMusicPropertiesAsync
+   (
+      This       : access IStorageItemContentProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IMusicProperties -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetVideoPropertiesAsync
+   (
+      This       : access IStorageItemContentProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IVideoProperties -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetImagePropertiesAsync
+   (
+      This       : access IStorageItemContentProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IImageProperties -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDocumentPropertiesAsync
+   (
+      This       : access IStorageItemContentProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageItemExtraProperties : aliased constant Windows.IID := (3309527474, 21709, 17195, (189, 188, 75, 25, 196, 180, 112, 215 ));
+   
+   type IStorageItemExtraProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RetrievePropertiesAsync
+   (
+      This       : access IStorageItemExtraProperties_Interface
+      ; propertiesToRetrieve : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SavePropertiesAsync
+   (
+      This       : access IStorageItemExtraProperties_Interface
+      ; propertiesToSave : Windows.Address
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SavePropertiesAsyncOverloadDefault
+   (
+      This       : access IStorageItemExtraProperties_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IThumbnailProperties : aliased constant Windows.IID := (1765659695, 56295, 18869, (179, 179, 40, 147, 172, 93, 52, 35 ));
+   
+   type IThumbnailProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OriginalWidth
+   (
+      This       : access IThumbnailProperties_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function put_Rating
+   function get_OriginalHeight
    (
-      This       : access IImageProperties_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Keywords
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DateTaken
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DateTaken
-   (
-      This       : access IImageProperties_Interface
-      ; value : Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Width
-   (
-      This       : access IImageProperties_Interface
+      This       : access IThumbnailProperties_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_Height
+   function get_ReturnedSmallerCachedSize
    (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IThumbnailProperties_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Title
+   function get_Type
    (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Title
-   (
-      This       : access IImageProperties_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Latitude
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Longitude
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CameraManufacturer
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CameraManufacturer
-   (
-      This       : access IImageProperties_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CameraModel
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CameraModel
-   (
-      This       : access IImageProperties_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Orientation
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.PhotoOrientation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PeopleNames
-   (
-      This       : access IImageProperties_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+      This       : access IThumbnailProperties_Interface
+      ; RetVal : access Windows.Storage.FileProperties.ThumbnailType
    )
    return Windows.HRESULT is abstract;
    
@@ -824,335 +1151,47 @@ package Windows.Storage.FileProperties is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IDocumentProperties : aliased constant Windows.IID := (2125142460, 6177, 18723, (180, 169, 10, 234, 64, 77, 0, 112 ));
-   
-   type IDocumentProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Author
-   (
-      This       : access IDocumentProperties_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Title
-   (
-      This       : access IDocumentProperties_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Title
-   (
-      This       : access IDocumentProperties_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Keywords
-   (
-      This       : access IDocumentProperties_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Comment
-   (
-      This       : access IDocumentProperties_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Comment
-   (
-      This       : access IDocumentProperties_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBasicProperties : aliased constant Windows.IID := (3495777755, 30814, 19046, (190, 2, 155, 238, 197, 138, 234, 129 ));
-   
-   type IBasicProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Size
-   (
-      This       : access IBasicProperties_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DateModified
-   (
-      This       : access IBasicProperties_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ItemDate
-   (
-      This       : access IBasicProperties_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ContentType
-   (
-      This       : access IContentTypeProvider_Imported_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Size
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Size
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; value : Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetInputStreamAt
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetOutputStreamAt
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-      ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Seek
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CloneStream
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanRead
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanWrite
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function WriteAsync
-   (
-      This       : access IOutputStream_Imported_Interface
-      ; buffer : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FlushAsync
-   (
-      This       : access IOutputStream_Imported_Interface
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReadAsync
-   (
-      This       : access IInputStream_Imported_Interface
-      ; buffer : Windows.Storage.Streams.IBuffer
-      ; count : Windows.UInt32
-      ; options : Windows.Storage.Streams.InputStreamOptions
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IMusicProperties : aliased constant Windows.IID := (218250102, 8359, 22259, (132, 171, 206, 49, 230, 84, 75, 113 ));
-   
-   type IAsyncOperation_IMusicProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IMusicProperties_Interface
-      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IMusicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IMusicProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IMusicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IMusicProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IMusicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IVideoProperties : aliased constant Windows.IID := (1149060496, 54265, 22719, (172, 88, 111, 154, 80, 131, 158, 254 ));
-   
-   type IAsyncOperation_IVideoProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IVideoProperties_Interface
-      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IVideoProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IVideoProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IVideoProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IVideoProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IVideoProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IImageProperties : aliased constant Windows.IID := (4241519889, 59384, 23514, (140, 4, 121, 90, 99, 157, 174, 143 ));
-   
-   type IAsyncOperation_IImageProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IImageProperties_Interface
-      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IImageProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IImageProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IImageProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IImageProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IImageProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IDocumentProperties : aliased constant Windows.IID := (1820780924, 22169, 22272, (141, 53, 211, 80, 173, 62, 77, 242 ));
-   
-   type IAsyncOperation_IDocumentProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IDocumentProperties_Interface
-      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IDocumentProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IDocumentProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IDocumentProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IDocumentProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IDocumentProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IBasicProperties : aliased constant Windows.IID := (1367741210, 17511, 20555, (151, 122, 7, 133, 168, 35, 4, 133 ));
-   
-   type IAsyncOperation_IBasicProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IBasicProperties_Interface
-      ; handler : Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IBasicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IBasicProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.AsyncOperationCompletedHandler_IBasicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBasicProperties_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IBasicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IBasicProperties : aliased constant Windows.IID := (3362101934, 18726, 21165, (143, 96, 216, 159, 229, 168, 223, 95 ));
+   
+   type AsyncOperationCompletedHandler_IBasicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBasicProperties'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBasicProperties_Interface
+      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IDocumentProperties : aliased constant Windows.IID := (1146285388, 25643, 20507, (150, 23, 125, 104, 180, 172, 60, 102 ));
+   
+   type AsyncOperationCompletedHandler_IDocumentProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDocumentProperties'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IDocumentProperties_Interface
+      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IImageProperties : aliased constant Windows.IID := (3325503932, 58563, 22092, (177, 55, 44, 180, 245, 150, 106, 131 ));
+   
+   type AsyncOperationCompletedHandler_IImageProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IImageProperties'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IImageProperties_Interface
+      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1181,55 +1220,16 @@ package Windows.Storage.FileProperties is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IImageProperties : aliased constant Windows.IID := (3325503932, 58563, 22092, (177, 55, 44, 180, 245, 150, 106, 131 ));
-   
-   type AsyncOperationCompletedHandler_IImageProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IImageProperties'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IImageProperties_Interface
-      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IDocumentProperties : aliased constant Windows.IID := (1146285388, 25643, 20507, (150, 23, 125, 104, 180, 172, 60, 102 ));
-   
-   type AsyncOperationCompletedHandler_IDocumentProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDocumentProperties'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IDocumentProperties_Interface
-      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IBasicProperties : aliased constant Windows.IID := (3362101934, 18726, 21165, (143, 96, 216, 159, 229, 168, 223, 95 ));
-   
-   type AsyncOperationCompletedHandler_IBasicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBasicProperties'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBasicProperties_Interface
-      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype StorageItemThumbnail is Windows.Storage.Streams.IRandomAccessStreamWithContentType;
-   subtype MusicProperties is Windows.Storage.FileProperties.IMusicProperties;
-   subtype VideoProperties is Windows.Storage.FileProperties.IVideoProperties;
-   subtype ImageProperties is Windows.Storage.FileProperties.IImageProperties;
-   subtype DocumentProperties is Windows.Storage.FileProperties.IDocumentProperties;
-   subtype StorageItemContentProperties is Windows.Storage.FileProperties.IStorageItemContentProperties;
    subtype BasicProperties is Windows.Storage.FileProperties.IBasicProperties;
+   subtype DocumentProperties is Windows.Storage.FileProperties.IDocumentProperties;
+   subtype ImageProperties is Windows.Storage.FileProperties.IImageProperties;
+   subtype MusicProperties is Windows.Storage.FileProperties.IMusicProperties;
+   subtype StorageItemContentProperties is Windows.Storage.FileProperties.IStorageItemContentProperties;
+   subtype StorageItemThumbnail is Windows.Storage.Streams.IRandomAccessStreamWithContentType;
+   subtype VideoProperties is Windows.Storage.FileProperties.IVideoProperties;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

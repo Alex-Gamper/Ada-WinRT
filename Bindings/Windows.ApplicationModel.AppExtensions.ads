@@ -41,53 +41,53 @@ package Windows.ApplicationModel.AppExtensions is
    type TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface;
    type TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled is access all TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface'Class;
    type TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface'Class;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface'Class;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface'Class;
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling;
    type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface;
    type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged is access all TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface'Class;
    type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface'Class;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface'Class;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface'Class;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Ptr is access all TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IAppExtensionCatalogStatics_Interface;
-   type IAppExtensionCatalogStatics is access all IAppExtensionCatalogStatics_Interface'Class;
-   type IAppExtensionCatalogStatics_Ptr is access all IAppExtensionCatalogStatics;
-   type IAppExtensionCatalog_Interface;
-   type IAppExtensionCatalog is access all IAppExtensionCatalog_Interface'Class;
-   type IAppExtensionCatalog_Ptr is access all IAppExtensionCatalog;
    type IAppExtension_Interface;
    type IAppExtension is access all IAppExtension_Interface'Class;
    type IAppExtension_Ptr is access all IAppExtension;
+   type IAppExtensionCatalog_Interface;
+   type IAppExtensionCatalog is access all IAppExtensionCatalog_Interface'Class;
+   type IAppExtensionCatalog_Ptr is access all IAppExtensionCatalog;
+   type IAppExtensionCatalogStatics_Interface;
+   type IAppExtensionCatalogStatics is access all IAppExtensionCatalogStatics_Interface'Class;
+   type IAppExtensionCatalogStatics_Ptr is access all IAppExtensionCatalogStatics;
    type IAppExtensionPackageInstalledEventArgs_Interface;
    type IAppExtensionPackageInstalledEventArgs is access all IAppExtensionPackageInstalledEventArgs_Interface'Class;
    type IAppExtensionPackageInstalledEventArgs_Ptr is access all IAppExtensionPackageInstalledEventArgs;
-   type IAppExtensionPackageUpdatingEventArgs_Interface;
-   type IAppExtensionPackageUpdatingEventArgs is access all IAppExtensionPackageUpdatingEventArgs_Interface'Class;
-   type IAppExtensionPackageUpdatingEventArgs_Ptr is access all IAppExtensionPackageUpdatingEventArgs;
-   type IAppExtensionPackageUpdatedEventArgs_Interface;
-   type IAppExtensionPackageUpdatedEventArgs is access all IAppExtensionPackageUpdatedEventArgs_Interface'Class;
-   type IAppExtensionPackageUpdatedEventArgs_Ptr is access all IAppExtensionPackageUpdatedEventArgs;
-   type IAppExtensionPackageUninstallingEventArgs_Interface;
-   type IAppExtensionPackageUninstallingEventArgs is access all IAppExtensionPackageUninstallingEventArgs_Interface'Class;
-   type IAppExtensionPackageUninstallingEventArgs_Ptr is access all IAppExtensionPackageUninstallingEventArgs;
    type IAppExtensionPackageStatusChangedEventArgs_Interface;
    type IAppExtensionPackageStatusChangedEventArgs is access all IAppExtensionPackageStatusChangedEventArgs_Interface'Class;
    type IAppExtensionPackageStatusChangedEventArgs_Ptr is access all IAppExtensionPackageStatusChangedEventArgs;
-   type IIterator_IAppExtension_Interface;
-   type IIterator_IAppExtension is access all IIterator_IAppExtension_Interface'Class;
-   type IIterator_IAppExtension_Ptr is access all IIterator_IAppExtension;
+   type IAppExtensionPackageUninstallingEventArgs_Interface;
+   type IAppExtensionPackageUninstallingEventArgs is access all IAppExtensionPackageUninstallingEventArgs_Interface'Class;
+   type IAppExtensionPackageUninstallingEventArgs_Ptr is access all IAppExtensionPackageUninstallingEventArgs;
+   type IAppExtensionPackageUpdatedEventArgs_Interface;
+   type IAppExtensionPackageUpdatedEventArgs is access all IAppExtensionPackageUpdatedEventArgs_Interface'Class;
+   type IAppExtensionPackageUpdatedEventArgs_Ptr is access all IAppExtensionPackageUpdatedEventArgs;
+   type IAppExtensionPackageUpdatingEventArgs_Interface;
+   type IAppExtensionPackageUpdatingEventArgs is access all IAppExtensionPackageUpdatingEventArgs_Interface'Class;
+   type IAppExtensionPackageUpdatingEventArgs_Ptr is access all IAppExtensionPackageUpdatingEventArgs;
    type IIterable_IAppExtension_Interface;
    type IIterable_IAppExtension is access all IIterable_IAppExtension_Interface'Class;
    type IIterable_IAppExtension_Ptr is access all IIterable_IAppExtension;
+   type IIterator_IAppExtension_Interface;
+   type IIterator_IAppExtension is access all IIterator_IAppExtension_Interface'Class;
+   type IIterator_IAppExtension_Ptr is access all IIterator_IAppExtension;
    type IVectorView_IAppExtension_Interface;
    type IVectorView_IAppExtension is access all IVectorView_IAppExtension_Interface'Class;
    type IVectorView_IAppExtension_Ptr is access all IVectorView_IAppExtension;
@@ -98,15 +98,56 @@ package Windows.ApplicationModel.AppExtensions is
    
    ------------------------------------------------------------------------
    
-   IID_IAppExtensionCatalogStatics : aliased constant Windows.IID := (1010198154, 24344, 20235, (156, 229, 202, 182, 29, 25, 111, 17 ));
+   IID_IAppExtension : aliased constant Windows.IID := (2219872300, 5613, 20399, (147, 234, 34, 55, 187, 248, 203, 214 ));
    
-   type IAppExtensionCatalogStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAppExtension_Interface is interface and Windows.IInspectable_Interface;
    
-   function Open
+   function get_Id
    (
-      This       : access IAppExtensionCatalogStatics_Interface
-      ; appExtensionName : Windows.String
-      ; RetVal : access Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
+      This       : access IAppExtension_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayName
+   (
+      This       : access IAppExtension_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IAppExtension_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Package
+   (
+      This       : access IAppExtension_Interface
+      ; RetVal : access Windows.ApplicationModel.IPackage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AppInfo
+   (
+      This       : access IAppExtension_Interface
+      ; RetVal : access Windows.ApplicationModel.IAppInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetExtensionPropertiesAsync
+   (
+      This       : access IAppExtension_Interface
+      ; RetVal : access Windows.Foundation.Collections.IAsyncOperation_IPropertySet -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetPublicFolderAsync
+   (
+      This       : access IAppExtension_Interface
+      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -208,56 +249,15 @@ package Windows.ApplicationModel.AppExtensions is
    
    ------------------------------------------------------------------------
    
-   IID_IAppExtension : aliased constant Windows.IID := (2219872300, 5613, 20399, (147, 234, 34, 55, 187, 248, 203, 214 ));
+   IID_IAppExtensionCatalogStatics : aliased constant Windows.IID := (1010198154, 24344, 20235, (156, 229, 202, 182, 29, 25, 111, 17 ));
    
-   type IAppExtension_Interface is interface and Windows.IInspectable_Interface;
+   type IAppExtensionCatalogStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Id
+   function Open
    (
-      This       : access IAppExtension_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DisplayName
-   (
-      This       : access IAppExtension_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IAppExtension_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Package
-   (
-      This       : access IAppExtension_Interface
-      ; RetVal : access Windows.ApplicationModel.IPackage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AppInfo
-   (
-      This       : access IAppExtension_Interface
-      ; RetVal : access Windows.ApplicationModel.IAppInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetExtensionPropertiesAsync
-   (
-      This       : access IAppExtension_Interface
-      ; RetVal : access Windows.Foundation.Collections.IAsyncOperation_IPropertySet -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetPublicFolderAsync
-   (
-      This       : access IAppExtension_Interface
-      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
+      This       : access IAppExtensionCatalogStatics_Interface
+      ; appExtensionName : Windows.String
+      ; RetVal : access Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
    )
    return Windows.HRESULT is abstract;
    
@@ -290,20 +290,40 @@ package Windows.ApplicationModel.AppExtensions is
    
    ------------------------------------------------------------------------
    
-   IID_IAppExtensionPackageUpdatingEventArgs : aliased constant Windows.IID := (2127926057, 6757, 18432, (167, 0, 179, 33, 0, 158, 48, 106 ));
+   IID_IAppExtensionPackageStatusChangedEventArgs : aliased constant Windows.IID := (484537395, 4435, 17661, (135, 177, 138, 225, 5, 3, 3, 223 ));
    
-   type IAppExtensionPackageUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IAppExtensionPackageStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppExtensionName
    (
-      This       : access IAppExtensionPackageUpdatingEventArgs_Interface
+      This       : access IAppExtensionPackageStatusChangedEventArgs_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function get_Package
    (
-      This       : access IAppExtensionPackageUpdatingEventArgs_Interface
+      This       : access IAppExtensionPackageStatusChangedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.IPackage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppExtensionPackageUninstallingEventArgs : aliased constant Windows.IID := (1626431685, 5918, 16639, (174, 152, 171, 44, 32, 221, 77, 117 ));
+   
+   type IAppExtensionPackageUninstallingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AppExtensionName
+   (
+      This       : access IAppExtensionPackageUninstallingEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Package
+   (
+      This       : access IAppExtensionPackageUninstallingEventArgs_Interface
       ; RetVal : access Windows.ApplicationModel.IPackage
    )
    return Windows.HRESULT is abstract;
@@ -337,41 +357,34 @@ package Windows.ApplicationModel.AppExtensions is
    
    ------------------------------------------------------------------------
    
-   IID_IAppExtensionPackageUninstallingEventArgs : aliased constant Windows.IID := (1626431685, 5918, 16639, (174, 152, 171, 44, 32, 221, 77, 117 ));
+   IID_IAppExtensionPackageUpdatingEventArgs : aliased constant Windows.IID := (2127926057, 6757, 18432, (167, 0, 179, 33, 0, 158, 48, 106 ));
    
-   type IAppExtensionPackageUninstallingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IAppExtensionPackageUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppExtensionName
    (
-      This       : access IAppExtensionPackageUninstallingEventArgs_Interface
+      This       : access IAppExtensionPackageUpdatingEventArgs_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function get_Package
    (
-      This       : access IAppExtensionPackageUninstallingEventArgs_Interface
+      This       : access IAppExtensionPackageUpdatingEventArgs_Interface
       ; RetVal : access Windows.ApplicationModel.IPackage
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAppExtensionPackageStatusChangedEventArgs : aliased constant Windows.IID := (484537395, 4435, 17661, (135, 177, 138, 225, 5, 3, 3, 223 ));
+   IID_IIterable_IAppExtension : aliased constant Windows.IID := (995091286, 6931, 22987, (171, 31, 196, 102, 122, 116, 117, 107 ));
    
-   type IAppExtensionPackageStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IAppExtension_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_AppExtensionName
+   function First
    (
-      This       : access IAppExtensionPackageStatusChangedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Package
-   (
-      This       : access IAppExtensionPackageStatusChangedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.IPackage
+      This       : access IIterable_IAppExtension_Interface
+      ; RetVal : access Windows.ApplicationModel.AppExtensions.IIterator_IAppExtension
    )
    return Windows.HRESULT is abstract;
    
@@ -407,19 +420,6 @@ package Windows.ApplicationModel.AppExtensions is
       This       : access IIterator_IAppExtension_Interface
       ; items : Windows.ApplicationModel.AppExtensions.IAppExtension_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IAppExtension : aliased constant Windows.IID := (995091286, 6931, 22987, (171, 31, 196, 102, 122, 116, 117, 107 ));
-   
-   type IIterable_IAppExtension_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IAppExtension_Interface
-      ; RetVal : access Windows.ApplicationModel.AppExtensions.IIterator_IAppExtension
    )
    return Windows.HRESULT is abstract;
    
@@ -481,27 +481,14 @@ package Windows.ApplicationModel.AppExtensions is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating : aliased constant Windows.IID := (2448689424, 27343, 20749, (141, 123, 11, 208, 91, 131, 88, 131 ));
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged : aliased constant Windows.IID := (1638050240, 54203, 22867, (141, 247, 89, 31, 221, 91, 215, 74 ));
    
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating'access) with null record;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface
+      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface
       ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
-      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated : aliased constant Windows.IID := (2816531467, 21086, 21169, (177, 217, 45, 91, 75, 82, 148, 165 ));
-   
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface
-      ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
-      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs
+      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -520,14 +507,27 @@ package Windows.ApplicationModel.AppExtensions is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged : aliased constant Windows.IID := (1638050240, 54203, 22867, (141, 247, 89, 31, 221, 91, 215, 74 ));
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated : aliased constant Windows.IID := (2816531467, 21086, 21169, (177, 217, 45, 91, 75, 82, 148, 165 ));
    
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged'access) with null record;
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface
+      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface
       ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
-      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs
+      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating : aliased constant Windows.IID := (2448689424, 27343, 20749, (141, 123, 11, 208, 91, 131, 88, 131 ));
+   
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface
+      ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
+      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs
    )
    return Windows.HRESULT;
    
@@ -535,13 +535,13 @@ package Windows.ApplicationModel.AppExtensions is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype AppExtensionCatalog is Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog;
    subtype AppExtension is Windows.ApplicationModel.AppExtensions.IAppExtension;
+   subtype AppExtensionCatalog is Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog;
    subtype AppExtensionPackageInstalledEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageInstalledEventArgs;
-   subtype AppExtensionPackageUpdatingEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs;
-   subtype AppExtensionPackageUpdatedEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs;
-   subtype AppExtensionPackageUninstallingEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUninstallingEventArgs;
    subtype AppExtensionPackageStatusChangedEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs;
+   subtype AppExtensionPackageUninstallingEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUninstallingEventArgs;
+   subtype AppExtensionPackageUpdatedEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs;
+   subtype AppExtensionPackageUpdatingEventArgs is Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

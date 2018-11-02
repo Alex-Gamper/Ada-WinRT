@@ -75,77 +75,6 @@ package body Windows.Media.FaceAnalysis is
    ------------------------------------------------------------------------
    
    function CreateAsync
-   return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
-      m_Factory     : IFaceTrackerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetSupportedBitmapPixelFormats
-   return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
-      m_Factory     : IFaceTrackerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetSupportedBitmapPixelFormats(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsBitmapPixelFormatSupported
-   (
-      bitmapPixelFormat : Windows.Graphics.Imaging.BitmapPixelFormat
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
-      m_Factory     : IFaceTrackerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsBitmapPixelFormatSupported(bitmapPixelFormat, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
-      m_Factory     : IFaceTrackerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateAsync
    return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceDetector is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceDetector");
@@ -162,7 +91,7 @@ package body Windows.Media.FaceAnalysis is
       return RetVal;
    end;
    
-   function GetSupportedBitmapPixelFormats_IFaceDetector
+   function GetSupportedBitmapPixelFormats
    return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceDetector");
@@ -179,7 +108,7 @@ package body Windows.Media.FaceAnalysis is
       return RetVal;
    end;
    
-   function IsBitmapPixelFormatSupported_IFaceDetector
+   function IsBitmapPixelFormatSupported
    (
       bitmapPixelFormat : Windows.Graphics.Imaging.BitmapPixelFormat
    )
@@ -199,7 +128,7 @@ package body Windows.Media.FaceAnalysis is
       return RetVal;
    end;
    
-   function get_IsSupported_IFaceDetector
+   function get_IsSupported
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceDetector");
@@ -208,6 +137,77 @@ package body Windows.Media.FaceAnalysis is
       RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IFaceDetectorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateAsync
+   return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
+      m_Factory     : IFaceTrackerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetSupportedBitmapPixelFormats_IFaceTracker
+   return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
+      m_Factory     : IFaceTrackerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetSupportedBitmapPixelFormats(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsBitmapPixelFormatSupported_IFaceTracker
+   (
+      bitmapPixelFormat : Windows.Graphics.Imaging.BitmapPixelFormat
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
+      m_Factory     : IFaceTrackerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsBitmapPixelFormatSupported(bitmapPixelFormat, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsSupported_IFaceTracker
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.FaceAnalysis.FaceTracker");
+      m_Factory     : IFaceTrackerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFaceTrackerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsSupported(RetVal'Access);
          RefCount := m_Factory.Release;

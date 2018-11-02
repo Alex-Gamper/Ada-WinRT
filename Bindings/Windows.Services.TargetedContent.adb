@@ -37,19 +37,6 @@ package body Windows.Services.TargetedContent is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ITargetedContentSubscription_Interface
-      ; asyncInfo : Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentSubscription
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_ITargetedContentContainer_Interface
       ; asyncInfo : Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentContainer
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -63,14 +50,14 @@ package body Windows.Services.TargetedContent is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ITargetedContentSubscription_add_ContentChanged_Interface
-      ; sender : Windows.Services.TargetedContent.ITargetedContentSubscription
-      ; args : Windows.Services.TargetedContent.ITargetedContentChangedEventArgs
+      This       : access AsyncOperationCompletedHandler_ITargetedContentSubscription_Interface
+      ; asyncInfo : Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentSubscription
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Services.TargetedContent.ITargetedContentSubscription(sender), Windows.Services.TargetedContent.ITargetedContentChangedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -84,6 +71,19 @@ package body Windows.Services.TargetedContent is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Services.TargetedContent.ITargetedContentSubscription(sender), Windows.Services.TargetedContent.ITargetedContentAvailabilityChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ITargetedContentSubscription_add_ContentChanged_Interface
+      ; sender : Windows.Services.TargetedContent.ITargetedContentSubscription
+      ; args : Windows.Services.TargetedContent.ITargetedContentChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Services.TargetedContent.ITargetedContentSubscription(sender), Windows.Services.TargetedContent.ITargetedContentChangedEventArgs(args));
       return Hr;
    end;
    
@@ -111,6 +111,26 @@ package body Windows.Services.TargetedContent is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetAsync
+   (
+      contentId : Windows.String
+   )
+   return Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentContainer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.TargetedContent.TargetedContentContainer");
+      m_Factory     : ITargetedContentContainerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentContainer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITargetedContentContainerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetAsync(contentId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetAsync
    (
@@ -146,26 +166,6 @@ package body Windows.Services.TargetedContent is
       Hr := RoGetActivationFactory(m_hString, IID_ITargetedContentSubscriptionStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetOptions(subscriptionId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetAsync
-   (
-      contentId : Windows.String
-   )
-   return Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentContainer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.TargetedContent.TargetedContentContainer");
-      m_Factory     : ITargetedContentContainerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentContainer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITargetedContentContainerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetAsync(contentId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

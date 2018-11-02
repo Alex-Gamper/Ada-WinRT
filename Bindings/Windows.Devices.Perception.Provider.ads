@@ -51,63 +51,63 @@ package Windows.Devices.Perception.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IIterable_IPerceptionCorrelation_Interface;
+   type IIterable_IPerceptionCorrelation is access all IIterable_IPerceptionCorrelation_Interface'Class;
+   type IIterable_IPerceptionCorrelation_Ptr is access all IIterable_IPerceptionCorrelation;
+   type IIterator_IPerceptionCorrelation_Interface;
+   type IIterator_IPerceptionCorrelation is access all IIterator_IPerceptionCorrelation_Interface'Class;
+   type IIterator_IPerceptionCorrelation_Ptr is access all IIterator_IPerceptionCorrelation;
    type IKnownPerceptionFrameKindStatics_Interface;
    type IKnownPerceptionFrameKindStatics is access all IKnownPerceptionFrameKindStatics_Interface'Class;
    type IKnownPerceptionFrameKindStatics_Ptr is access all IKnownPerceptionFrameKindStatics;
-   type IPerceptionFrameProviderManagerServiceStatics_Interface;
-   type IPerceptionFrameProviderManagerServiceStatics is access all IPerceptionFrameProviderManagerServiceStatics_Interface'Class;
-   type IPerceptionFrameProviderManagerServiceStatics_Ptr is access all IPerceptionFrameProviderManagerServiceStatics;
-   type IPerceptionFrameProviderManager_Interface;
-   type IPerceptionFrameProviderManager is access all IPerceptionFrameProviderManager_Interface'Class;
-   type IPerceptionFrameProviderManager_Ptr is access all IPerceptionFrameProviderManager;
+   type IPerceptionControlGroup_Interface;
+   type IPerceptionControlGroup is access all IPerceptionControlGroup_Interface'Class;
+   type IPerceptionControlGroup_Ptr is access all IPerceptionControlGroup;
+   type IPerceptionControlGroupFactory_Interface;
+   type IPerceptionControlGroupFactory is access all IPerceptionControlGroupFactory_Interface'Class;
+   type IPerceptionControlGroupFactory_Ptr is access all IPerceptionControlGroupFactory;
+   type IPerceptionCorrelation_Interface;
+   type IPerceptionCorrelation is access all IPerceptionCorrelation_Interface'Class;
+   type IPerceptionCorrelation_Ptr is access all IPerceptionCorrelation;
+   type IPerceptionCorrelationFactory_Interface;
+   type IPerceptionCorrelationFactory is access all IPerceptionCorrelationFactory_Interface'Class;
+   type IPerceptionCorrelationFactory_Ptr is access all IPerceptionCorrelationFactory;
+   type IPerceptionCorrelationGroup_Interface;
+   type IPerceptionCorrelationGroup is access all IPerceptionCorrelationGroup_Interface'Class;
+   type IPerceptionCorrelationGroup_Ptr is access all IPerceptionCorrelationGroup;
+   type IPerceptionCorrelationGroupFactory_Interface;
+   type IPerceptionCorrelationGroupFactory is access all IPerceptionCorrelationGroupFactory_Interface'Class;
+   type IPerceptionCorrelationGroupFactory_Ptr is access all IPerceptionCorrelationGroupFactory;
+   type IPerceptionFaceAuthenticationGroup_Interface;
+   type IPerceptionFaceAuthenticationGroup is access all IPerceptionFaceAuthenticationGroup_Interface'Class;
+   type IPerceptionFaceAuthenticationGroup_Ptr is access all IPerceptionFaceAuthenticationGroup;
+   type IPerceptionFaceAuthenticationGroupFactory_Interface;
+   type IPerceptionFaceAuthenticationGroupFactory is access all IPerceptionFaceAuthenticationGroupFactory_Interface'Class;
+   type IPerceptionFaceAuthenticationGroupFactory_Ptr is access all IPerceptionFaceAuthenticationGroupFactory;
+   type IPerceptionFrame_Interface;
+   type IPerceptionFrame is access all IPerceptionFrame_Interface'Class;
+   type IPerceptionFrame_Ptr is access all IPerceptionFrame;
    type IPerceptionFrameProvider_Interface;
    type IPerceptionFrameProvider is access all IPerceptionFrameProvider_Interface'Class;
    type IPerceptionFrameProvider_Ptr is access all IPerceptionFrameProvider;
    type IPerceptionFrameProviderInfo_Interface;
    type IPerceptionFrameProviderInfo is access all IPerceptionFrameProviderInfo_Interface'Class;
    type IPerceptionFrameProviderInfo_Ptr is access all IPerceptionFrameProviderInfo;
-   type IPerceptionControlGroupFactory_Interface;
-   type IPerceptionControlGroupFactory is access all IPerceptionControlGroupFactory_Interface'Class;
-   type IPerceptionControlGroupFactory_Ptr is access all IPerceptionControlGroupFactory;
-   type IPerceptionControlGroup_Interface;
-   type IPerceptionControlGroup is access all IPerceptionControlGroup_Interface'Class;
-   type IPerceptionControlGroup_Ptr is access all IPerceptionControlGroup;
-   type IPerceptionFaceAuthenticationGroupFactory_Interface;
-   type IPerceptionFaceAuthenticationGroupFactory is access all IPerceptionFaceAuthenticationGroupFactory_Interface'Class;
-   type IPerceptionFaceAuthenticationGroupFactory_Ptr is access all IPerceptionFaceAuthenticationGroupFactory;
-   type IPerceptionFaceAuthenticationGroup_Interface;
-   type IPerceptionFaceAuthenticationGroup is access all IPerceptionFaceAuthenticationGroup_Interface'Class;
-   type IPerceptionFaceAuthenticationGroup_Ptr is access all IPerceptionFaceAuthenticationGroup;
-   type IPerceptionCorrelationFactory_Interface;
-   type IPerceptionCorrelationFactory is access all IPerceptionCorrelationFactory_Interface'Class;
-   type IPerceptionCorrelationFactory_Ptr is access all IPerceptionCorrelationFactory;
-   type IPerceptionCorrelation_Interface;
-   type IPerceptionCorrelation is access all IPerceptionCorrelation_Interface'Class;
-   type IPerceptionCorrelation_Ptr is access all IPerceptionCorrelation;
-   type IPerceptionCorrelationGroupFactory_Interface;
-   type IPerceptionCorrelationGroupFactory is access all IPerceptionCorrelationGroupFactory_Interface'Class;
-   type IPerceptionCorrelationGroupFactory_Ptr is access all IPerceptionCorrelationGroupFactory;
-   type IPerceptionCorrelationGroup_Interface;
-   type IPerceptionCorrelationGroup is access all IPerceptionCorrelationGroup_Interface'Class;
-   type IPerceptionCorrelationGroup_Ptr is access all IPerceptionCorrelationGroup;
-   type IPerceptionFrame_Interface;
-   type IPerceptionFrame is access all IPerceptionFrame_Interface'Class;
-   type IPerceptionFrame_Ptr is access all IPerceptionFrame;
-   type IPerceptionVideoFrameAllocatorFactory_Interface;
-   type IPerceptionVideoFrameAllocatorFactory is access all IPerceptionVideoFrameAllocatorFactory_Interface'Class;
-   type IPerceptionVideoFrameAllocatorFactory_Ptr is access all IPerceptionVideoFrameAllocatorFactory;
-   type IPerceptionVideoFrameAllocator_Interface;
-   type IPerceptionVideoFrameAllocator is access all IPerceptionVideoFrameAllocator_Interface'Class;
-   type IPerceptionVideoFrameAllocator_Ptr is access all IPerceptionVideoFrameAllocator;
+   type IPerceptionFrameProviderManager_Interface;
+   type IPerceptionFrameProviderManager is access all IPerceptionFrameProviderManager_Interface'Class;
+   type IPerceptionFrameProviderManager_Ptr is access all IPerceptionFrameProviderManager;
+   type IPerceptionFrameProviderManagerServiceStatics_Interface;
+   type IPerceptionFrameProviderManagerServiceStatics is access all IPerceptionFrameProviderManagerServiceStatics_Interface'Class;
+   type IPerceptionFrameProviderManagerServiceStatics_Ptr is access all IPerceptionFrameProviderManagerServiceStatics;
    type IPerceptionPropertyChangeRequest_Interface;
    type IPerceptionPropertyChangeRequest is access all IPerceptionPropertyChangeRequest_Interface'Class;
    type IPerceptionPropertyChangeRequest_Ptr is access all IPerceptionPropertyChangeRequest;
-   type IIterator_IPerceptionCorrelation_Interface;
-   type IIterator_IPerceptionCorrelation is access all IIterator_IPerceptionCorrelation_Interface'Class;
-   type IIterator_IPerceptionCorrelation_Ptr is access all IIterator_IPerceptionCorrelation;
-   type IIterable_IPerceptionCorrelation_Interface;
-   type IIterable_IPerceptionCorrelation is access all IIterable_IPerceptionCorrelation_Interface'Class;
-   type IIterable_IPerceptionCorrelation_Ptr is access all IIterable_IPerceptionCorrelation;
+   type IPerceptionVideoFrameAllocator_Interface;
+   type IPerceptionVideoFrameAllocator is access all IPerceptionVideoFrameAllocator_Interface'Class;
+   type IPerceptionVideoFrameAllocator_Ptr is access all IPerceptionVideoFrameAllocator;
+   type IPerceptionVideoFrameAllocatorFactory_Interface;
+   type IPerceptionVideoFrameAllocatorFactory is access all IPerceptionVideoFrameAllocatorFactory_Interface'Class;
+   type IPerceptionVideoFrameAllocatorFactory_Ptr is access all IPerceptionVideoFrameAllocatorFactory;
    type IVectorView_IPerceptionCorrelation_Interface;
    type IVectorView_IPerceptionCorrelation is access all IVectorView_IPerceptionCorrelation_Interface'Class;
    type IVectorView_IPerceptionCorrelation_Ptr is access all IVectorView_IPerceptionCorrelation;
@@ -115,6 +115,54 @@ package Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPerceptionCorrelation : aliased constant Windows.IID := (3396073598, 5957, 23760, (174, 226, 89, 115, 111, 90, 32, 109 ));
+   
+   type IIterable_IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IPerceptionCorrelation_Interface
+      ; RetVal : access Windows.Devices.Perception.Provider.IIterator_IPerceptionCorrelation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPerceptionCorrelation : aliased constant Windows.IID := (3302690963, 55045, 21763, (139, 206, 104, 83, 92, 212, 47, 250 ));
+   
+   type IIterator_IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPerceptionCorrelation_Interface
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPerceptionCorrelation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPerceptionCorrelation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPerceptionCorrelation_Interface
+      ; items : Windows.Devices.Perception.Provider.IPerceptionCorrelation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -145,101 +193,161 @@ package Windows.Devices.Perception.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IPerceptionFrameProviderManagerServiceStatics : aliased constant Windows.IID := (2927855334, 51929, 17241, (143, 150, 142, 174, 81, 129, 5, 38 ));
+   IID_IPerceptionControlGroup : aliased constant Windows.IID := (388778114, 12249, 19534, (186, 52, 253, 242, 10, 115, 221, 229 ));
    
-   type IPerceptionFrameProviderManagerServiceStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IPerceptionControlGroup_Interface is interface and Windows.IInspectable_Interface;
    
-   function RegisterFrameProviderInfo
+   function get_FrameProviderIds
    (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UnregisterFrameProviderInfo
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RegisterFaceAuthenticationGroup
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UnregisterFaceAuthenticationGroup
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RegisterControlGroup
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UnregisterControlGroup
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RegisterCorrelationGroup
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; correlationGroup : Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UnregisterCorrelationGroup
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; correlationGroup : Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UpdateAvailabilityForProvider
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
-      ; available : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function PublishFrameForProvider
-   (
-      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
-      ; provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
-      ; frame : Windows.Devices.Perception.Provider.IPerceptionFrame
+      This       : access IPerceptionControlGroup_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPerceptionFrameProviderManager : aliased constant Windows.IID := (2841234951, 60115, 13279, (142, 193, 185, 36, 171, 224, 25, 196 ));
+   IID_IPerceptionControlGroupFactory : aliased constant Windows.IID := (790295264, 47857, 17723, (190, 212, 205, 157, 70, 25, 21, 76 ));
    
-   type IPerceptionFrameProviderManager_Interface is interface and Windows.IInspectable_Interface;
+   type IPerceptionControlGroupFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetFrameProvider
+   function Create
    (
-      This       : access IPerceptionFrameProviderManager_Interface
-      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrameProvider
+      This       : access IPerceptionControlGroupFactory_Interface
+      ; ids : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionControlGroup
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelation : aliased constant Windows.IID := (3021150850, 57333, 16455, (138, 25, 59, 77, 128, 95, 113, 118 ));
+   
+   type IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TargetId
+   (
+      This       : access IPerceptionCorrelation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IPerceptionCorrelation_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Orientation
+   (
+      This       : access IPerceptionCorrelation_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelationFactory : aliased constant Windows.IID := (3567698981, 10372, 19087, (129, 52, 40, 53, 215, 40, 108, 191 ));
+   
+   type IPerceptionCorrelationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IPerceptionCorrelationFactory_Interface
+      ; targetId : Windows.String
+      ; position : Windows.Foundation.Numerics.Vector3
+      ; orientation : Windows.Foundation.Numerics.Quaternion
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelationGroup : aliased constant Windows.IID := (1965689094, 13991, 18363, (155, 121, 86, 204, 107, 116, 103, 112 ));
+   
+   type IPerceptionCorrelationGroup_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RelativeLocations
+   (
+      This       : access IPerceptionCorrelationGroup_Interface
+      ; RetVal : access Windows.Devices.Perception.Provider.IVectorView_IPerceptionCorrelation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelationGroupFactory : aliased constant Windows.IID := (2113806472, 25567, 18669, (131, 177, 74, 184, 41, 19, 41, 149 ));
+   
+   type IPerceptionCorrelationGroupFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IPerceptionCorrelationGroupFactory_Interface
+      ; relativeLocations : Windows.Devices.Perception.Provider.IIterable_IPerceptionCorrelation
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionFaceAuthenticationGroup : aliased constant Windows.IID := (3892418580, 19089, 16816, (131, 166, 136, 26, 23, 117, 53, 62 ));
+   
+   type IPerceptionFaceAuthenticationGroup_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameProviderIds
+   (
+      This       : access IPerceptionFaceAuthenticationGroup_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionFaceAuthenticationGroupFactory : aliased constant Windows.IID := (3867805140, 46604, 16628, (188, 185, 242, 77, 70, 70, 115, 32 ));
+   
+   type IPerceptionFaceAuthenticationGroupFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IPerceptionFaceAuthenticationGroupFactory_Interface
+      ; ids : Windows.Foundation.Collections.IIterable_String
+      ; startHandler : Windows.Devices.Perception.Provider.PerceptionStartFaceAuthenticationHandler
+      ; stopHandler : Windows.Devices.Perception.Provider.PerceptionStopFaceAuthenticationHandler
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionFrame : aliased constant Windows.IID := (2097051685, 21691, 19869, (190, 197, 142, 246, 97, 81, 210, 172 ));
+   
+   type IPerceptionFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RelativeTime
+   (
+      This       : access IPerceptionFrame_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RelativeTime
+   (
+      This       : access IPerceptionFrame_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IPerceptionFrame_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameData
+   (
+      This       : access IPerceptionFrame_Interface
+      ; RetVal : access Windows.Foundation.IMemoryBuffer
    )
    return Windows.HRESULT is abstract;
    
@@ -367,199 +475,101 @@ package Windows.Devices.Perception.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IPerceptionControlGroupFactory : aliased constant Windows.IID := (790295264, 47857, 17723, (190, 212, 205, 157, 70, 25, 21, 76 ));
+   IID_IPerceptionFrameProviderManager : aliased constant Windows.IID := (2841234951, 60115, 13279, (142, 193, 185, 36, 171, 224, 25, 196 ));
    
-   type IPerceptionControlGroupFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IPerceptionFrameProviderManager_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function GetFrameProvider
    (
-      This       : access IPerceptionControlGroupFactory_Interface
-      ; ids : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionControlGroup
+      This       : access IPerceptionFrameProviderManager_Interface
+      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrameProvider
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPerceptionControlGroup : aliased constant Windows.IID := (388778114, 12249, 19534, (186, 52, 253, 242, 10, 115, 221, 229 ));
+   IID_IPerceptionFrameProviderManagerServiceStatics : aliased constant Windows.IID := (2927855334, 51929, 17241, (143, 150, 142, 174, 81, 129, 5, 38 ));
    
-   type IPerceptionControlGroup_Interface is interface and Windows.IInspectable_Interface;
+   type IPerceptionFrameProviderManagerServiceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_FrameProviderIds
+   function RegisterFrameProviderInfo
    (
-      This       : access IPerceptionControlGroup_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionFaceAuthenticationGroupFactory : aliased constant Windows.IID := (3867805140, 46604, 16628, (188, 185, 242, 77, 70, 70, 115, 32 ));
-   
-   type IPerceptionFaceAuthenticationGroupFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
+   function UnregisterFrameProviderInfo
    (
-      This       : access IPerceptionFaceAuthenticationGroupFactory_Interface
-      ; ids : Windows.Foundation.Collections.IIterable_String
-      ; startHandler : Windows.Devices.Perception.Provider.PerceptionStartFaceAuthenticationHandler
-      ; stopHandler : Windows.Devices.Perception.Provider.PerceptionStopFaceAuthenticationHandler
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionFaceAuthenticationGroup : aliased constant Windows.IID := (3892418580, 19089, 16816, (131, 166, 136, 26, 23, 117, 53, 62 ));
-   
-   type IPerceptionFaceAuthenticationGroup_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FrameProviderIds
+   function RegisterFaceAuthenticationGroup
    (
-      This       : access IPerceptionFaceAuthenticationGroup_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionCorrelationFactory : aliased constant Windows.IID := (3567698981, 10372, 19087, (129, 52, 40, 53, 215, 40, 108, 191 ));
-   
-   type IPerceptionCorrelationFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
+   function UnregisterFaceAuthenticationGroup
    (
-      This       : access IPerceptionCorrelationFactory_Interface
-      ; targetId : Windows.String
-      ; position : Windows.Foundation.Numerics.Vector3
-      ; orientation : Windows.Foundation.Numerics.Quaternion
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelation
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionCorrelation : aliased constant Windows.IID := (3021150850, 57333, 16455, (138, 25, 59, 77, 128, 95, 113, 118 ));
-   
-   type IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TargetId
+   function RegisterControlGroup
    (
-      This       : access IPerceptionCorrelation_Interface
-      ; RetVal : access Windows.String
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
    )
    return Windows.HRESULT is abstract;
    
-   function get_Position
+   function UnregisterControlGroup
    (
-      This       : access IPerceptionCorrelation_Interface
-      ; RetVal : access Windows.Foundation.Numerics.Vector3
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
    )
    return Windows.HRESULT is abstract;
    
-   function get_Orientation
+   function RegisterCorrelationGroup
    (
-      This       : access IPerceptionCorrelation_Interface
-      ; RetVal : access Windows.Foundation.Numerics.Quaternion
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; correlationGroup : Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionCorrelationGroupFactory : aliased constant Windows.IID := (2113806472, 25567, 18669, (131, 177, 74, 184, 41, 19, 41, 149 ));
-   
-   type IPerceptionCorrelationGroupFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
+   function UnregisterCorrelationGroup
    (
-      This       : access IPerceptionCorrelationGroupFactory_Interface
-      ; relativeLocations : Windows.Devices.Perception.Provider.IIterable_IPerceptionCorrelation
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; correlationGroup : Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionCorrelationGroup : aliased constant Windows.IID := (1965689094, 13991, 18363, (155, 121, 86, 204, 107, 116, 103, 112 ));
-   
-   type IPerceptionCorrelationGroup_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RelativeLocations
+   function UpdateAvailabilityForProvider
    (
-      This       : access IPerceptionCorrelationGroup_Interface
-      ; RetVal : access Windows.Devices.Perception.Provider.IVectorView_IPerceptionCorrelation -- Generic Parameter Type
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
+      ; available : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionFrame : aliased constant Windows.IID := (2097051685, 21691, 19869, (190, 197, 142, 246, 97, 81, 210, 172 ));
-   
-   type IPerceptionFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RelativeTime
+   function PublishFrameForProvider
    (
-      This       : access IPerceptionFrame_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RelativeTime
-   (
-      This       : access IPerceptionFrame_Interface
-      ; value : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Properties
-   (
-      This       : access IPerceptionFrame_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FrameData
-   (
-      This       : access IPerceptionFrame_Interface
-      ; RetVal : access Windows.Foundation.IMemoryBuffer
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionVideoFrameAllocatorFactory : aliased constant Windows.IID := (442020065, 59674, 18462, (184, 118, 168, 158, 43, 188, 107, 51 ));
-   
-   type IPerceptionVideoFrameAllocatorFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IPerceptionVideoFrameAllocatorFactory_Interface
-      ; maxOutstandingFrameCountForWrite : Windows.UInt32
-      ; format : Windows.Graphics.Imaging.BitmapPixelFormat
-      ; resolution : Windows.Foundation.Size
-      ; alpha : Windows.Graphics.Imaging.BitmapAlphaMode
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocator
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPerceptionVideoFrameAllocator : aliased constant Windows.IID := (1278781402, 64984, 20180, (160, 57, 42, 111, 155, 35, 80, 56 ));
-   
-   type IPerceptionVideoFrameAllocator_Interface is interface and Windows.IInspectable_Interface;
-   
-   function AllocateFrame
-   (
-      This       : access IPerceptionVideoFrameAllocator_Interface
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CopyFromVideoFrame
-   (
-      This       : access IPerceptionVideoFrameAllocator_Interface
-      ; frame : Windows.Media.IVideoFrame
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrame
+      This       : access IPerceptionFrameProviderManagerServiceStatics_Interface
+      ; provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
+      ; frame : Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    return Windows.HRESULT is abstract;
    
@@ -606,49 +616,39 @@ package Windows.Devices.Perception.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IPerceptionCorrelation : aliased constant Windows.IID := (3302690963, 55045, 21763, (139, 206, 104, 83, 92, 212, 47, 250 ));
+   IID_IPerceptionVideoFrameAllocator : aliased constant Windows.IID := (1278781402, 64984, 20180, (160, 57, 42, 111, 155, 35, 80, 56 ));
    
-   type IIterator_IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
+   type IPerceptionVideoFrameAllocator_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function AllocateFrame
    (
-      This       : access IIterator_IPerceptionCorrelation_Interface
-      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelation
+      This       : access IPerceptionVideoFrameAllocator_Interface
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function CopyFromVideoFrame
    (
-      This       : access IIterator_IPerceptionCorrelation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPerceptionCorrelation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPerceptionCorrelation_Interface
-      ; items : Windows.Devices.Perception.Provider.IPerceptionCorrelation_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IPerceptionVideoFrameAllocator_Interface
+      ; frame : Windows.Media.IVideoFrame
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IPerceptionCorrelation : aliased constant Windows.IID := (3396073598, 5957, 23760, (174, 226, 89, 115, 111, 90, 32, 109 ));
+   IID_IPerceptionVideoFrameAllocatorFactory : aliased constant Windows.IID := (442020065, 59674, 18462, (184, 118, 168, 158, 43, 188, 107, 51 ));
    
-   type IIterable_IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
+   type IPerceptionVideoFrameAllocatorFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function Create
    (
-      This       : access IIterable_IPerceptionCorrelation_Interface
-      ; RetVal : access Windows.Devices.Perception.Provider.IIterator_IPerceptionCorrelation
+      This       : access IPerceptionVideoFrameAllocatorFactory_Interface
+      ; maxOutstandingFrameCountForWrite : Windows.UInt32
+      ; format : Windows.Graphics.Imaging.BitmapPixelFormat
+      ; resolution : Windows.Foundation.Size
+      ; alpha : Windows.Graphics.Imaging.BitmapAlphaMode
+      ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocator
    )
    return Windows.HRESULT is abstract;
    
@@ -724,19 +724,6 @@ package Windows.Devices.Perception.Provider is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PerceptionFrameProviderInfo is Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
-   function Create return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
-   
-   subtype PerceptionPropertyChangeRequest is Windows.Devices.Perception.Provider.IPerceptionPropertyChangeRequest;
-   subtype PerceptionFaceAuthenticationGroup is Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup;
-   function Create
-   (
-      ids : Windows.Foundation.Collections.IIterable_String
-      ; startHandler : Windows.Devices.Perception.Provider.PerceptionStartFaceAuthenticationHandler
-      ; stopHandler : Windows.Devices.Perception.Provider.PerceptionStopFaceAuthenticationHandler
-   )
-   return Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup;
-   
    subtype PerceptionControlGroup is Windows.Devices.Perception.Provider.IPerceptionControlGroup;
    function Create
    (
@@ -744,14 +731,6 @@ package Windows.Devices.Perception.Provider is
    )
    return Windows.Devices.Perception.Provider.IPerceptionControlGroup;
    
-   subtype PerceptionCorrelationGroup is Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup;
-   function Create
-   (
-      relativeLocations : Windows.Devices.Perception.Provider.IIterable_IPerceptionCorrelation
-   )
-   return Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup;
-   
-   subtype PerceptionFrame is Windows.Devices.Perception.Provider.IPerceptionFrame;
    subtype PerceptionCorrelation is Windows.Devices.Perception.Provider.IPerceptionCorrelation;
    function Create
    (
@@ -761,6 +740,27 @@ package Windows.Devices.Perception.Provider is
    )
    return Windows.Devices.Perception.Provider.IPerceptionCorrelation;
    
+   subtype PerceptionCorrelationGroup is Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup;
+   function Create
+   (
+      relativeLocations : Windows.Devices.Perception.Provider.IIterable_IPerceptionCorrelation
+   )
+   return Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup;
+   
+   subtype PerceptionFaceAuthenticationGroup is Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup;
+   function Create
+   (
+      ids : Windows.Foundation.Collections.IIterable_String
+      ; startHandler : Windows.Devices.Perception.Provider.PerceptionStartFaceAuthenticationHandler
+      ; stopHandler : Windows.Devices.Perception.Provider.PerceptionStopFaceAuthenticationHandler
+   )
+   return Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup;
+   
+   subtype PerceptionFrame is Windows.Devices.Perception.Provider.IPerceptionFrame;
+   subtype PerceptionFrameProviderInfo is Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
+   function Create return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
+   
+   subtype PerceptionPropertyChangeRequest is Windows.Devices.Perception.Provider.IPerceptionPropertyChangeRequest;
    subtype PerceptionVideoFrameAllocator is Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocator;
    function Create
    (
@@ -775,6 +775,15 @@ package Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Color
+   return Windows.String;
+   
+   function get_Depth
+   return Windows.String;
+   
+   function get_Infrared
+   return Windows.String;
    
    procedure RegisterFrameProviderInfo
    (
@@ -845,14 +854,5 @@ package Windows.Devices.Perception.Provider is
       ; frame : Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    ;
-   
-   function get_Color
-   return Windows.String;
-   
-   function get_Depth
-   return Windows.String;
-   
-   function get_Infrared
-   return Windows.String;
    
 end;

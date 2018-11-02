@@ -79,6 +79,9 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface;
+   type AsyncOperationCompletedHandler_IDnssdRegistrationResult is access all AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Ptr is access all AsyncOperationCompletedHandler_IDnssdRegistrationResult;
    type TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface;
    type TypedEventHandler_IDnssdServiceWatcher_add_Added is access all TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface'Class;
    type TypedEventHandler_IDnssdServiceWatcher_add_Added_Ptr is access all TypedEventHandler_IDnssdServiceWatcher_add_Added;
@@ -88,35 +91,32 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    type TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Interface;
    type TypedEventHandler_IDnssdServiceWatcher_add_Stopped is access all TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Interface'Class;
    type TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Ptr is access all TypedEventHandler_IDnssdServiceWatcher_add_Stopped;
-   type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface;
-   type AsyncOperationCompletedHandler_IDnssdRegistrationResult is access all AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface'Class;
-   type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Ptr is access all AsyncOperationCompletedHandler_IDnssdRegistrationResult;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IDnssdServiceWatcher_Interface;
-   type IDnssdServiceWatcher is access all IDnssdServiceWatcher_Interface'Class;
-   type IDnssdServiceWatcher_Ptr is access all IDnssdServiceWatcher;
-   type IDnssdRegistrationResult_Interface;
-   type IDnssdRegistrationResult is access all IDnssdRegistrationResult_Interface'Class;
-   type IDnssdRegistrationResult_Ptr is access all IDnssdRegistrationResult;
-   type IDnssdServiceInstanceFactory_Interface;
-   type IDnssdServiceInstanceFactory is access all IDnssdServiceInstanceFactory_Interface'Class;
-   type IDnssdServiceInstanceFactory_Ptr is access all IDnssdServiceInstanceFactory;
-   type IDnssdServiceInstance_Interface;
-   type IDnssdServiceInstance is access all IDnssdServiceInstance_Interface'Class;
-   type IDnssdServiceInstance_Ptr is access all IDnssdServiceInstance;
-   type IVectorView_DnssdServiceInstance_Interface;
-   type IVectorView_DnssdServiceInstance is access all IVectorView_DnssdServiceInstance_Interface'Class;
-   type IVectorView_DnssdServiceInstance_Ptr is access all IVectorView_DnssdServiceInstance;
-   type IIterable_DnssdServiceInstance_Interface;
-   type IIterable_DnssdServiceInstance is access all IIterable_DnssdServiceInstance_Interface'Class;
-   type IIterable_DnssdServiceInstance_Ptr is access all IIterable_DnssdServiceInstance;
    type IAsyncOperation_IDnssdRegistrationResult_Interface;
    type IAsyncOperation_IDnssdRegistrationResult is access all IAsyncOperation_IDnssdRegistrationResult_Interface'Class;
    type IAsyncOperation_IDnssdRegistrationResult_Ptr is access all IAsyncOperation_IDnssdRegistrationResult;
+   type IDnssdRegistrationResult_Interface;
+   type IDnssdRegistrationResult is access all IDnssdRegistrationResult_Interface'Class;
+   type IDnssdRegistrationResult_Ptr is access all IDnssdRegistrationResult;
+   type IDnssdServiceInstance_Interface;
+   type IDnssdServiceInstance is access all IDnssdServiceInstance_Interface'Class;
+   type IDnssdServiceInstance_Ptr is access all IDnssdServiceInstance;
+   type IDnssdServiceInstanceFactory_Interface;
+   type IDnssdServiceInstanceFactory is access all IDnssdServiceInstanceFactory_Interface'Class;
+   type IDnssdServiceInstanceFactory_Ptr is access all IDnssdServiceInstanceFactory;
+   type IDnssdServiceWatcher_Interface;
+   type IDnssdServiceWatcher is access all IDnssdServiceWatcher_Interface'Class;
+   type IDnssdServiceWatcher_Ptr is access all IDnssdServiceWatcher;
+   type IIterable_DnssdServiceInstance_Interface;
+   type IIterable_DnssdServiceInstance is access all IIterable_DnssdServiceInstance_Interface'Class;
+   type IIterable_DnssdServiceInstance_Ptr is access all IIterable_DnssdServiceInstance;
+   type IVectorView_DnssdServiceInstance_Interface;
+   type IVectorView_DnssdServiceInstance is access all IVectorView_DnssdServiceInstance_Interface'Class;
+   type IVectorView_DnssdServiceInstance_Ptr is access all IVectorView_DnssdServiceInstance;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -124,71 +124,28 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    
    ------------------------------------------------------------------------
    
-   IID_IDnssdServiceWatcher : aliased constant Windows.IID := (3426015681, 56189, 19305, (152, 61, 198, 248, 63, 32, 86, 130 ));
+   IID_IAsyncOperation_IDnssdRegistrationResult : aliased constant Windows.IID := (203759219, 21193, 20518, (168, 117, 246, 133, 165, 12, 191, 253 ));
    
-   type IDnssdServiceWatcher_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IDnssdRegistrationResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function add_Added
+   function put_Completed
    (
-      This       : access IDnssdServiceWatcher_Interface
-      ; handler : TypedEventHandler_IDnssdServiceWatcher_add_Added
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access IAsyncOperation_IDnssdRegistrationResult_Interface
+      ; handler : Windows.Networking.ServiceDiscovery.Dnssd.AsyncOperationCompletedHandler_IDnssdRegistrationResult
    )
    return Windows.HRESULT is abstract;
    
-   function remove_Added
+   function get_Completed
    (
-      This       : access IDnssdServiceWatcher_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
+      This       : access IAsyncOperation_IDnssdRegistrationResult_Interface
+      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.AsyncOperationCompletedHandler_IDnssdRegistrationResult
    )
    return Windows.HRESULT is abstract;
    
-   function add_EnumerationCompleted
+   function GetResults
    (
-      This       : access IDnssdServiceWatcher_Interface
-      ; handler : TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_EnumerationCompleted
-   (
-      This       : access IDnssdServiceWatcher_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Stopped
-   (
-      This       : access IDnssdServiceWatcher_Interface
-      ; handler : TypedEventHandler_IDnssdServiceWatcher_add_Stopped
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Stopped
-   (
-      This       : access IDnssdServiceWatcher_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Status
-   (
-      This       : access IDnssdServiceWatcher_Interface
-      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Start
-   (
-      This       : access IDnssdServiceWatcher_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Stop
-   (
-      This       : access IDnssdServiceWatcher_Interface
+      This       : access IAsyncOperation_IDnssdRegistrationResult_Interface
+      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult
    )
    return Windows.HRESULT is abstract;
    
@@ -216,22 +173,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    (
       This       : access IDnssdRegistrationResult_Interface
       ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDnssdServiceInstanceFactory : aliased constant Windows.IID := (1823498657, 50296, 17201, (150, 132, 74, 242, 24, 108, 10, 43 ));
-   
-   type IDnssdServiceInstanceFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IDnssdServiceInstanceFactory_Interface
-      ; dnssdServiceInstanceName : Windows.String
-      ; hostName : Windows.Networking.IHostName
-      ; port : Windows.UInt16
-      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance
    )
    return Windows.HRESULT is abstract;
    
@@ -354,6 +295,105 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    
    ------------------------------------------------------------------------
    
+   IID_IDnssdServiceInstanceFactory : aliased constant Windows.IID := (1823498657, 50296, 17201, (150, 132, 74, 242, 24, 108, 10, 43 ));
+   
+   type IDnssdServiceInstanceFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IDnssdServiceInstanceFactory_Interface
+      ; dnssdServiceInstanceName : Windows.String
+      ; hostName : Windows.Networking.IHostName
+      ; port : Windows.UInt16
+      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDnssdServiceWatcher : aliased constant Windows.IID := (3426015681, 56189, 19305, (152, 61, 198, 248, 63, 32, 86, 130 ));
+   
+   type IDnssdServiceWatcher_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Added
+   (
+      This       : access IDnssdServiceWatcher_Interface
+      ; handler : TypedEventHandler_IDnssdServiceWatcher_add_Added
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Added
+   (
+      This       : access IDnssdServiceWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_EnumerationCompleted
+   (
+      This       : access IDnssdServiceWatcher_Interface
+      ; handler : TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_EnumerationCompleted
+   (
+      This       : access IDnssdServiceWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Stopped
+   (
+      This       : access IDnssdServiceWatcher_Interface
+      ; handler : TypedEventHandler_IDnssdServiceWatcher_add_Stopped
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Stopped
+   (
+      This       : access IDnssdServiceWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access IDnssdServiceWatcher_Interface
+      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Start
+   (
+      This       : access IDnssdServiceWatcher_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IDnssdServiceWatcher_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_DnssdServiceInstance : aliased constant Windows.IID := (501457893, 14462, 21288, (184, 100, 63, 14, 52, 117, 211, 67 ));
+   
+   type IIterable_DnssdServiceInstance_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_DnssdServiceInstance_Interface
+      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_DnssdServiceInstance : aliased constant Windows.IID := (4150261802, 32272, 23798, (128, 100, 106, 229, 133, 224, 189, 141 ));
    
    type IVectorView_DnssdServiceInstance_Interface is interface and Windows.IInspectable_Interface;
@@ -392,48 +432,21 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IIterable_DnssdServiceInstance : aliased constant Windows.IID := (501457893, 14462, 21288, (184, 100, 63, 14, 52, 117, 211, 67 ));
-   
-   type IIterable_DnssdServiceInstance_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_DnssdServiceInstance_Interface
-      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IDnssdRegistrationResult : aliased constant Windows.IID := (203759219, 21193, 20518, (168, 117, 246, 133, 165, 12, 191, 253 ));
-   
-   type IAsyncOperation_IDnssdRegistrationResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IDnssdRegistrationResult_Interface
-      ; handler : Windows.Networking.ServiceDiscovery.Dnssd.AsyncOperationCompletedHandler_IDnssdRegistrationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IDnssdRegistrationResult_Interface
-      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.AsyncOperationCompletedHandler_IDnssdRegistrationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IDnssdRegistrationResult_Interface
-      ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IDnssdRegistrationResult : aliased constant Windows.IID := (4083363666, 35146, 21317, (155, 230, 131, 137, 117, 28, 81, 137 ));
+   
+   type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDnssdRegistrationResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface
+      ; asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -475,23 +488,12 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IDnssdRegistrationResult : aliased constant Windows.IID := (4083363666, 35146, 21317, (155, 230, 131, 137, 117, 28, 81, 137 ));
-   
-   type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDnssdRegistrationResult'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface
-      ; asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype DnssdServiceWatcher is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher;
+   subtype DnssdRegistrationResult is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
+   function Create return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
+   
    subtype DnssdServiceInstance is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance;
    function Create
    (
@@ -501,10 +503,8 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    )
    return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance;
    
-   subtype DnssdRegistrationResult is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
-   function Create return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
-   
    subtype DnssdServiceInstanceCollection is Windows.Networking.ServiceDiscovery.Dnssd.IVectorView_DnssdServiceInstance;
+   subtype DnssdServiceWatcher is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

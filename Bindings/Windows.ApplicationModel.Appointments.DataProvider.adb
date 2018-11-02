@@ -37,14 +37,14 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested_Interface
+      This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested_Interface
       ; sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection
-      ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs
+      ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection(sender), Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs(args));
+      This.Callback(Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection(sender), Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs(args));
       return Hr;
    end;
    
@@ -58,19 +58,6 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection(sender), Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested_Interface
-      ; sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection
-      ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection(sender), Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs(args));
       return Hr;
    end;
    
@@ -97,6 +84,19 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection(sender), Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested_Interface
+      ; sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection
+      ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection(sender), Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs(args));
       return Hr;
    end;
    

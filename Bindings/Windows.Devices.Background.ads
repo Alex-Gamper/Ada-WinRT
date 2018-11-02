@@ -35,36 +35,16 @@ package Windows.Devices.Background is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IDeviceUseDetails_Interface;
-   type IDeviceUseDetails is access all IDeviceUseDetails_Interface'Class;
-   type IDeviceUseDetails_Ptr is access all IDeviceUseDetails;
    type IDeviceServicingDetails_Interface;
    type IDeviceServicingDetails is access all IDeviceServicingDetails_Interface'Class;
    type IDeviceServicingDetails_Ptr is access all IDeviceServicingDetails;
+   type IDeviceUseDetails_Interface;
+   type IDeviceUseDetails is access all IDeviceUseDetails_Interface'Class;
+   type IDeviceUseDetails_Ptr is access all IDeviceUseDetails;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDeviceUseDetails : aliased constant Windows.IID := (2102808897, 21886, 16724, (185, 148, 228, 247, 161, 31, 179, 35 ));
-   
-   type IDeviceUseDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DeviceId
-   (
-      This       : access IDeviceUseDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Arguments
-   (
-      This       : access IDeviceUseDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -94,11 +74,31 @@ package Windows.Devices.Background is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IDeviceUseDetails : aliased constant Windows.IID := (2102808897, 21886, 16724, (185, 148, 228, 247, 161, 31, 179, 35 ));
+   
+   type IDeviceUseDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceId
+   (
+      This       : access IDeviceUseDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Arguments
+   (
+      This       : access IDeviceUseDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype DeviceUseDetails is Windows.Devices.Background.IDeviceUseDetails;
    subtype DeviceServicingDetails is Windows.Devices.Background.IDeviceServicingDetails;
+   subtype DeviceUseDetails is Windows.Devices.Background.IDeviceUseDetails;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

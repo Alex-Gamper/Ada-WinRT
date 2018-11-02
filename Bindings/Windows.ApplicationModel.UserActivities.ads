@@ -67,81 +67,81 @@ package Windows.ApplicationModel.UserActivities is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IUserActivityAttributionFactory_Interface;
-   type IUserActivityAttributionFactory is access all IUserActivityAttributionFactory_Interface'Class;
-   type IUserActivityAttributionFactory_Ptr is access all IUserActivityAttributionFactory;
-   type IUserActivityAttribution_Interface;
-   type IUserActivityAttribution is access all IUserActivityAttribution_Interface'Class;
-   type IUserActivityAttribution_Ptr is access all IUserActivityAttribution;
-   type IUserActivityContentInfo_Interface;
-   type IUserActivityContentInfo is access all IUserActivityContentInfo_Interface'Class;
-   type IUserActivityContentInfo_Ptr is access all IUserActivityContentInfo;
-   type IUserActivityContentInfoStatics_Interface;
-   type IUserActivityContentInfoStatics is access all IUserActivityContentInfoStatics_Interface'Class;
-   type IUserActivityContentInfoStatics_Ptr is access all IUserActivityContentInfoStatics;
-   type IUserActivityVisualElements_Interface;
-   type IUserActivityVisualElements is access all IUserActivityVisualElements_Interface'Class;
-   type IUserActivityVisualElements_Ptr is access all IUserActivityVisualElements;
-   type IUserActivityVisualElements2_Interface;
-   type IUserActivityVisualElements2 is access all IUserActivityVisualElements2_Interface'Class;
-   type IUserActivityVisualElements2_Ptr is access all IUserActivityVisualElements2;
-   type IUserActivitySession_Interface;
-   type IUserActivitySession is access all IUserActivitySession_Interface'Class;
-   type IUserActivitySession_Ptr is access all IUserActivitySession;
+   type IAsyncOperation_IUserActivity_Interface;
+   type IAsyncOperation_IUserActivity is access all IAsyncOperation_IUserActivity_Interface'Class;
+   type IAsyncOperation_IUserActivity_Ptr is access all IAsyncOperation_IUserActivity;
+   type IIterable_IUserActivity_Interface;
+   type IIterable_IUserActivity is access all IIterable_IUserActivity_Interface'Class;
+   type IIterable_IUserActivity_Ptr is access all IIterable_IUserActivity;
+   type IIterator_IUserActivity_Interface;
+   type IIterator_IUserActivity is access all IIterator_IUserActivity_Interface'Class;
+   type IIterator_IUserActivity_Ptr is access all IIterator_IUserActivity;
    type IUserActivity_Interface;
    type IUserActivity is access all IUserActivity_Interface'Class;
    type IUserActivity_Ptr is access all IUserActivity;
    type IUserActivity2_Interface;
    type IUserActivity2 is access all IUserActivity2_Interface'Class;
    type IUserActivity2_Ptr is access all IUserActivity2;
-   type IUserActivityStatics_Interface;
-   type IUserActivityStatics is access all IUserActivityStatics_Interface'Class;
-   type IUserActivityStatics_Ptr is access all IUserActivityStatics;
-   type IUserActivityFactory_Interface;
-   type IUserActivityFactory is access all IUserActivityFactory_Interface'Class;
-   type IUserActivityFactory_Ptr is access all IUserActivityFactory;
+   type IUserActivityAttribution_Interface;
+   type IUserActivityAttribution is access all IUserActivityAttribution_Interface'Class;
+   type IUserActivityAttribution_Ptr is access all IUserActivityAttribution;
+   type IUserActivityAttributionFactory_Interface;
+   type IUserActivityAttributionFactory is access all IUserActivityAttributionFactory_Interface'Class;
+   type IUserActivityAttributionFactory_Ptr is access all IUserActivityAttributionFactory;
+   type IUserActivityChannel_Interface;
+   type IUserActivityChannel is access all IUserActivityChannel_Interface'Class;
+   type IUserActivityChannel_Ptr is access all IUserActivityChannel;
+   type IUserActivityChannel2_Interface;
+   type IUserActivityChannel2 is access all IUserActivityChannel2_Interface'Class;
+   type IUserActivityChannel2_Ptr is access all IUserActivityChannel2;
    type IUserActivityChannelStatics_Interface;
    type IUserActivityChannelStatics is access all IUserActivityChannelStatics_Interface'Class;
    type IUserActivityChannelStatics_Ptr is access all IUserActivityChannelStatics;
    type IUserActivityChannelStatics2_Interface;
    type IUserActivityChannelStatics2 is access all IUserActivityChannelStatics2_Interface'Class;
    type IUserActivityChannelStatics2_Ptr is access all IUserActivityChannelStatics2;
-   type IUserActivityChannel2_Interface;
-   type IUserActivityChannel2 is access all IUserActivityChannel2_Interface'Class;
-   type IUserActivityChannel2_Ptr is access all IUserActivityChannel2;
-   type IUserActivityChannel_Interface;
-   type IUserActivityChannel is access all IUserActivityChannel_Interface'Class;
-   type IUserActivityChannel_Ptr is access all IUserActivityChannel;
-   type IUserActivitySessionHistoryItem_Interface;
-   type IUserActivitySessionHistoryItem is access all IUserActivitySessionHistoryItem_Interface'Class;
-   type IUserActivitySessionHistoryItem_Ptr is access all IUserActivitySessionHistoryItem;
-   type IUserActivityRequestedEventArgs_Interface;
-   type IUserActivityRequestedEventArgs is access all IUserActivityRequestedEventArgs_Interface'Class;
-   type IUserActivityRequestedEventArgs_Ptr is access all IUserActivityRequestedEventArgs;
+   type IUserActivityContentInfo_Interface;
+   type IUserActivityContentInfo is access all IUserActivityContentInfo_Interface'Class;
+   type IUserActivityContentInfo_Ptr is access all IUserActivityContentInfo;
+   type IUserActivityContentInfoStatics_Interface;
+   type IUserActivityContentInfoStatics is access all IUserActivityContentInfoStatics_Interface'Class;
+   type IUserActivityContentInfoStatics_Ptr is access all IUserActivityContentInfoStatics;
+   type IUserActivityFactory_Interface;
+   type IUserActivityFactory is access all IUserActivityFactory_Interface'Class;
+   type IUserActivityFactory_Ptr is access all IUserActivityFactory;
    type IUserActivityRequest_Interface;
    type IUserActivityRequest is access all IUserActivityRequest_Interface'Class;
    type IUserActivityRequest_Ptr is access all IUserActivityRequest;
+   type IUserActivityRequestedEventArgs_Interface;
+   type IUserActivityRequestedEventArgs is access all IUserActivityRequestedEventArgs_Interface'Class;
+   type IUserActivityRequestedEventArgs_Ptr is access all IUserActivityRequestedEventArgs;
    type IUserActivityRequestManager_Interface;
    type IUserActivityRequestManager is access all IUserActivityRequestManager_Interface'Class;
    type IUserActivityRequestManager_Ptr is access all IUserActivityRequestManager;
    type IUserActivityRequestManagerStatics_Interface;
    type IUserActivityRequestManagerStatics is access all IUserActivityRequestManagerStatics_Interface'Class;
    type IUserActivityRequestManagerStatics_Ptr is access all IUserActivityRequestManagerStatics;
-   type IIterator_IUserActivity_Interface;
-   type IIterator_IUserActivity is access all IIterator_IUserActivity_Interface'Class;
-   type IIterator_IUserActivity_Ptr is access all IIterator_IUserActivity;
-   type IIterable_IUserActivity_Interface;
-   type IIterable_IUserActivity is access all IIterable_IUserActivity_Interface'Class;
-   type IIterable_IUserActivity_Ptr is access all IIterable_IUserActivity;
-   type IVectorView_IUserActivity_Interface;
-   type IVectorView_IUserActivity is access all IVectorView_IUserActivity_Interface'Class;
-   type IVectorView_IUserActivity_Ptr is access all IVectorView_IUserActivity;
+   type IUserActivitySession_Interface;
+   type IUserActivitySession is access all IUserActivitySession_Interface'Class;
+   type IUserActivitySession_Ptr is access all IUserActivitySession;
+   type IUserActivitySessionHistoryItem_Interface;
+   type IUserActivitySessionHistoryItem is access all IUserActivitySessionHistoryItem_Interface'Class;
+   type IUserActivitySessionHistoryItem_Ptr is access all IUserActivitySessionHistoryItem;
+   type IUserActivityStatics_Interface;
+   type IUserActivityStatics is access all IUserActivityStatics_Interface'Class;
+   type IUserActivityStatics_Ptr is access all IUserActivityStatics;
+   type IUserActivityVisualElements_Interface;
+   type IUserActivityVisualElements is access all IUserActivityVisualElements_Interface'Class;
+   type IUserActivityVisualElements_Ptr is access all IUserActivityVisualElements;
+   type IUserActivityVisualElements2_Interface;
+   type IUserActivityVisualElements2 is access all IUserActivityVisualElements2_Interface'Class;
+   type IUserActivityVisualElements2_Ptr is access all IUserActivityVisualElements2;
    type IVector_IUserActivity_Interface;
    type IVector_IUserActivity is access all IVector_IUserActivity_Interface'Class;
    type IVector_IUserActivity_Ptr is access all IVector_IUserActivity;
-   type IAsyncOperation_IUserActivity_Interface;
-   type IAsyncOperation_IUserActivity is access all IAsyncOperation_IUserActivity_Interface'Class;
-   type IAsyncOperation_IUserActivity_Ptr is access all IAsyncOperation_IUserActivity;
+   type IVectorView_IUserActivity_Interface;
+   type IVectorView_IUserActivity is access all IVectorView_IUserActivity_Interface'Class;
+   type IVectorView_IUserActivity_Ptr is access all IVectorView_IUserActivity;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -149,199 +149,76 @@ package Windows.ApplicationModel.UserActivities is
    
    ------------------------------------------------------------------------
    
-   IID_IUserActivityAttributionFactory : aliased constant Windows.IID := (3861631570, 50534, 20290, (153, 116, 145, 108, 77, 118, 55, 126 ));
+   IID_IAsyncOperation_IUserActivity : aliased constant Windows.IID := (889805187, 30608, 22900, (166, 96, 28, 45, 189, 210, 239, 167 ));
    
-   type IUserActivityAttributionFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreateWithUri
+   function put_Completed
    (
-      This       : access IUserActivityAttributionFactory_Interface
-      ; iconUri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityAttribution
+      This       : access IAsyncOperation_IUserActivity_Interface
+      ; handler : Windows.ApplicationModel.UserActivities.AsyncOperationCompletedHandler_IUserActivity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IUserActivity_Interface
+      ; RetVal : access Windows.ApplicationModel.UserActivities.AsyncOperationCompletedHandler_IUserActivity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IUserActivity_Interface
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IUserActivityAttribution : aliased constant Windows.IID := (883280053, 34525, 19180, (164, 145, 106, 79, 174, 165, 210, 46 ));
+   IID_IIterable_IUserActivity : aliased constant Windows.IID := (937864021, 7984, 22050, (151, 120, 27, 220, 7, 172, 121, 159 ));
    
-   type IUserActivityAttribution_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_IconUri
+   function First
    (
-      This       : access IUserActivityAttribution_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+      This       : access IIterable_IUserActivity_Interface
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IIterator_IUserActivity
    )
    return Windows.HRESULT is abstract;
    
-   function put_IconUri
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IUserActivity : aliased constant Windows.IID := (748708667, 1285, 24456, (169, 143, 142, 124, 91, 8, 242, 91 ));
+   
+   type IIterator_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
    (
-      This       : access IUserActivityAttribution_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
+      This       : access IIterator_IUserActivity_Interface
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
    )
    return Windows.HRESULT is abstract;
    
-   function get_AlternateText
+   function get_HasCurrent
    (
-      This       : access IUserActivityAttribution_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AlternateText
-   (
-      This       : access IUserActivityAttribution_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AddImageQuery
-   (
-      This       : access IUserActivityAttribution_Interface
+      This       : access IIterator_IUserActivity_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_AddImageQuery
+   function MoveNext
    (
-      This       : access IUserActivityAttribution_Interface
-      ; value : Windows.Boolean
+      This       : access IIterator_IUserActivity_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IUserActivityContentInfo : aliased constant Windows.IID := (3013207469, 4991, 16541, (130, 45, 225, 175, 39, 206, 8, 220 ));
-   
-   type IUserActivityContentInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ToJson
+   function GetMany
    (
-      This       : access IUserActivityContentInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserActivityContentInfoStatics : aliased constant Windows.IID := (2575876939, 902, 19401, (150, 138, 130, 0, 176, 4, 20, 79 ));
-   
-   type IUserActivityContentInfoStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromJson
-   (
-      This       : access IUserActivityContentInfoStatics_Interface
-      ; value : Windows.String
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityContentInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserActivityVisualElements : aliased constant Windows.IID := (2490725651, 9775, 18927, (187, 191, 155, 117, 210, 232, 82, 80 ));
-   
-   type IUserActivityVisualElements_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DisplayText
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DisplayText
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BackgroundColor
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_BackgroundColor
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Attribution
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityAttribution
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Attribution
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; value : Windows.ApplicationModel.UserActivities.IUserActivityAttribution
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Content
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; value : Windows.UI.Shell.IAdaptiveCard
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Content
-   (
-      This       : access IUserActivityVisualElements_Interface
-      ; RetVal : access Windows.UI.Shell.IAdaptiveCard
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserActivityVisualElements2 : aliased constant Windows.IID := (3400433607, 16111, 17241, (130, 92, 157, 81, 185, 34, 13, 227 ));
-   
-   type IUserActivityVisualElements2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AttributionDisplayText
-   (
-      This       : access IUserActivityVisualElements2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AttributionDisplayText
-   (
-      This       : access IUserActivityVisualElements2_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserActivitySession : aliased constant Windows.IID := (2923646328, 9466, 17571, (173, 72, 110, 218, 97, 170, 25, 36 ));
-   
-   type IUserActivitySession_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ActivityId
-   (
-      This       : access IUserActivitySession_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_IUserActivity_Interface
+      ; items : Windows.ApplicationModel.UserActivities.IUserActivity_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -471,45 +348,115 @@ package Windows.ApplicationModel.UserActivities is
    
    ------------------------------------------------------------------------
    
-   IID_IUserActivityStatics : aliased constant Windows.IID := (2358235955, 3593, 18422, (154, 199, 149, 207, 92, 57, 54, 123 ));
+   IID_IUserActivityAttribution : aliased constant Windows.IID := (883280053, 34525, 19180, (164, 145, 106, 79, 174, 165, 210, 46 ));
    
-   type IUserActivityStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivityAttribution_Interface is interface and Windows.IInspectable_Interface;
    
-   function TryParseFromJson
+   function get_IconUri
    (
-      This       : access IUserActivityStatics_Interface
-      ; json : Windows.String
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
+      This       : access IUserActivityAttribution_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function TryParseFromJsonArray
+   function put_IconUri
    (
-      This       : access IUserActivityStatics_Interface
-      ; json : Windows.String
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IVector_IUserActivity -- Generic Parameter Type
+      This       : access IUserActivityAttribution_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function ToJsonArray
+   function get_AlternateText
    (
-      This       : access IUserActivityStatics_Interface
-      ; activities : Windows.ApplicationModel.UserActivities.IIterable_IUserActivity
+      This       : access IUserActivityAttribution_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AlternateText
+   (
+      This       : access IUserActivityAttribution_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AddImageQuery
+   (
+      This       : access IUserActivityAttribution_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AddImageQuery
+   (
+      This       : access IUserActivityAttribution_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IUserActivityFactory : aliased constant Windows.IID := (2084067160, 13853, 19047, (138, 59, 52, 202, 41, 120, 249, 163 ));
+   IID_IUserActivityAttributionFactory : aliased constant Windows.IID := (3861631570, 50534, 20290, (153, 116, 145, 108, 77, 118, 55, 126 ));
    
-   type IUserActivityFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivityAttributionFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreateWithActivityId
+   function CreateWithUri
    (
-      This       : access IUserActivityFactory_Interface
+      This       : access IUserActivityAttributionFactory_Interface
+      ; iconUri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityAttribution
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserActivityChannel : aliased constant Windows.IID := (3133208760, 41188, 18491, (185, 72, 156, 186, 189, 6, 7, 12 ));
+   
+   type IUserActivityChannel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetOrCreateUserActivityAsync
+   (
+      This       : access IUserActivityChannel_Interface
       ; activityId : Windows.String
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IAsyncOperation_IUserActivity -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DeleteActivityAsync
+   (
+      This       : access IUserActivityChannel_Interface
+      ; activityId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DeleteAllActivitiesAsync
+   (
+      This       : access IUserActivityChannel_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserActivityChannel2 : aliased constant Windows.IID := (379118427, 60286, 20128, (191, 23, 164, 89, 232, 190, 112, 108 ));
+   
+   type IUserActivityChannel2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetRecentUserActivitiesAsync
+   (
+      This       : access IUserActivityChannel2_Interface
+      ; maxUniqueActivities : Windows.Int32
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetSessionHistoryItemsForUserActivityAsync
+   (
+      This       : access IUserActivityChannel2_Interface
+      ; activityId : Windows.String
+      ; startTime : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -548,80 +495,55 @@ package Windows.ApplicationModel.UserActivities is
    
    ------------------------------------------------------------------------
    
-   IID_IUserActivityChannel2 : aliased constant Windows.IID := (379118427, 60286, 20128, (191, 23, 164, 89, 232, 190, 112, 108 ));
+   IID_IUserActivityContentInfo : aliased constant Windows.IID := (3013207469, 4991, 16541, (130, 45, 225, 175, 39, 206, 8, 220 ));
    
-   type IUserActivityChannel2_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivityContentInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetRecentUserActivitiesAsync
+   function ToJson
    (
-      This       : access IUserActivityChannel2_Interface
-      ; maxUniqueActivities : Windows.Int32
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetSessionHistoryItemsForUserActivityAsync
-   (
-      This       : access IUserActivityChannel2_Interface
-      ; activityId : Windows.String
-      ; startTime : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IUserActivityContentInfo_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IUserActivityChannel : aliased constant Windows.IID := (3133208760, 41188, 18491, (185, 72, 156, 186, 189, 6, 7, 12 ));
+   IID_IUserActivityContentInfoStatics : aliased constant Windows.IID := (2575876939, 902, 19401, (150, 138, 130, 0, 176, 4, 20, 79 ));
    
-   type IUserActivityChannel_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivityContentInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetOrCreateUserActivityAsync
+   function FromJson
    (
-      This       : access IUserActivityChannel_Interface
-      ; activityId : Windows.String
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IAsyncOperation_IUserActivity -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DeleteActivityAsync
-   (
-      This       : access IUserActivityChannel_Interface
-      ; activityId : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DeleteAllActivitiesAsync
-   (
-      This       : access IUserActivityChannel_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IUserActivityContentInfoStatics_Interface
+      ; value : Windows.String
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityContentInfo
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IUserActivitySessionHistoryItem : aliased constant Windows.IID := (3906313171, 15965, 18941, (152, 215, 109, 169, 117, 33, 226, 85 ));
+   IID_IUserActivityFactory : aliased constant Windows.IID := (2084067160, 13853, 19047, (138, 59, 52, 202, 41, 120, 249, 163 ));
    
-   type IUserActivitySessionHistoryItem_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivityFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_UserActivity
+   function CreateWithActivityId
    (
-      This       : access IUserActivitySessionHistoryItem_Interface
+      This       : access IUserActivityFactory_Interface
+      ; activityId : Windows.String
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
    )
    return Windows.HRESULT is abstract;
    
-   function get_StartTime
-   (
-      This       : access IUserActivitySessionHistoryItem_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
+   ------------------------------------------------------------------------
    
-   function get_EndTime
+   IID_IUserActivityRequest : aliased constant Windows.IID := (2700043093, 53045, 20464, (136, 51, 80, 203, 75, 114, 224, 109 ));
+   
+   type IUserActivityRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetUserActivity
    (
-      This       : access IUserActivitySessionHistoryItem_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+      This       : access IUserActivityRequest_Interface
+      ; activity : Windows.ApplicationModel.UserActivities.IUserActivity
    )
    return Windows.HRESULT is abstract;
    
@@ -642,19 +564,6 @@ package Windows.ApplicationModel.UserActivities is
    (
       This       : access IUserActivityRequestedEventArgs_Interface
       ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserActivityRequest : aliased constant Windows.IID := (2700043093, 53045, 20464, (136, 51, 80, 203, 75, 114, 224, 109 ));
-   
-   type IUserActivityRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetUserActivity
-   (
-      This       : access IUserActivityRequest_Interface
-      ; activity : Windows.ApplicationModel.UserActivities.IUserActivity
    )
    return Windows.HRESULT is abstract;
    
@@ -694,88 +603,167 @@ package Windows.ApplicationModel.UserActivities is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IUserActivity : aliased constant Windows.IID := (748708667, 1285, 24456, (169, 143, 142, 124, 91, 8, 242, 91 ));
+   IID_IUserActivitySession : aliased constant Windows.IID := (2923646328, 9466, 17571, (173, 72, 110, 218, 97, 170, 25, 36 ));
    
-   type IIterator_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivitySession_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_ActivityId
    (
-      This       : access IIterator_IUserActivity_Interface
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IUserActivity_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IUserActivity_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IUserActivity_Interface
-      ; items : Windows.ApplicationModel.UserActivities.IUserActivity_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IUserActivitySession_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IUserActivity : aliased constant Windows.IID := (937864021, 7984, 22050, (151, 120, 27, 220, 7, 172, 121, 159 ));
+   IID_IUserActivitySessionHistoryItem : aliased constant Windows.IID := (3906313171, 15965, 18941, (152, 215, 109, 169, 117, 33, 226, 85 ));
    
-   type IIterable_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivitySessionHistoryItem_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_UserActivity
    (
-      This       : access IIterable_IUserActivity_Interface
-      ; RetVal : access Windows.ApplicationModel.UserActivities.IIterator_IUserActivity
+      This       : access IUserActivitySessionHistoryItem_Interface
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StartTime
+   (
+      This       : access IUserActivitySessionHistoryItem_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndTime
+   (
+      This       : access IUserActivitySessionHistoryItem_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_IUserActivity : aliased constant Windows.IID := (422203670, 25046, 24088, (134, 121, 10, 244, 247, 9, 8, 22 ));
+   IID_IUserActivityStatics : aliased constant Windows.IID := (2358235955, 3593, 18422, (154, 199, 149, 207, 92, 57, 54, 123 ));
    
-   type IVectorView_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
+   type IUserActivityStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetAt
+   function TryParseFromJson
    (
-      This       : access IVectorView_IUserActivity_Interface
-      ; index : Windows.UInt32
+      This       : access IUserActivityStatics_Interface
+      ; json : Windows.String
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function TryParseFromJsonArray
    (
-      This       : access IVectorView_IUserActivity_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IUserActivityStatics_Interface
+      ; json : Windows.String
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IVector_IUserActivity -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function IndexOf
+   function ToJsonArray
    (
-      This       : access IVectorView_IUserActivity_Interface
-      ; value : Windows.ApplicationModel.UserActivities.IUserActivity
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
+      This       : access IUserActivityStatics_Interface
+      ; activities : Windows.ApplicationModel.UserActivities.IIterable_IUserActivity
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetMany
+   ------------------------------------------------------------------------
+   
+   IID_IUserActivityVisualElements : aliased constant Windows.IID := (2490725651, 9775, 18927, (187, 191, 155, 117, 210, 232, 82, 80 ));
+   
+   type IUserActivityVisualElements_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DisplayText
    (
-      This       : access IVectorView_IUserActivity_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.ApplicationModel.UserActivities.IUserActivity_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IUserActivityVisualElements_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DisplayText
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackgroundColor
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundColor
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Attribution
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityAttribution
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Attribution
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; value : Windows.ApplicationModel.UserActivities.IUserActivityAttribution
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Content
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; value : Windows.UI.Shell.IAdaptiveCard
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Content
+   (
+      This       : access IUserActivityVisualElements_Interface
+      ; RetVal : access Windows.UI.Shell.IAdaptiveCard
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserActivityVisualElements2 : aliased constant Windows.IID := (3400433607, 16111, 17241, (130, 92, 157, 81, 185, 34, 13, 227 ));
+   
+   type IUserActivityVisualElements2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AttributionDisplayText
+   (
+      This       : access IUserActivityVisualElements2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AttributionDisplayText
+   (
+      This       : access IUserActivityVisualElements2_Interface
+      ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -876,28 +864,40 @@ package Windows.ApplicationModel.UserActivities is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IUserActivity : aliased constant Windows.IID := (889805187, 30608, 22900, (166, 96, 28, 45, 189, 210, 239, 167 ));
+   IID_IVectorView_IUserActivity : aliased constant Windows.IID := (422203670, 25046, 24088, (134, 121, 10, 244, 247, 9, 8, 22 ));
    
-   type IAsyncOperation_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IUserActivity_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetAt
    (
-      This       : access IAsyncOperation_IUserActivity_Interface
-      ; handler : Windows.ApplicationModel.UserActivities.AsyncOperationCompletedHandler_IUserActivity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IUserActivity_Interface
-      ; RetVal : access Windows.ApplicationModel.UserActivities.AsyncOperationCompletedHandler_IUserActivity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IUserActivity_Interface
+      This       : access IVectorView_IUserActivity_Interface
+      ; index : Windows.UInt32
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IUserActivity_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IUserActivity_Interface
+      ; value : Windows.ApplicationModel.UserActivities.IUserActivity
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IUserActivity_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.UserActivities.IUserActivity_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -935,6 +935,13 @@ package Windows.ApplicationModel.UserActivities is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype UserActivity is Windows.ApplicationModel.UserActivities.IUserActivity;
+   function CreateWithActivityId
+   (
+      activityId : Windows.String
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivity;
+   
    subtype UserActivityAttribution is Windows.ApplicationModel.UserActivities.IUserActivityAttribution;
    function Create return Windows.ApplicationModel.UserActivities.IUserActivityAttribution;
    
@@ -944,31 +951,18 @@ package Windows.ApplicationModel.UserActivities is
    )
    return Windows.ApplicationModel.UserActivities.IUserActivityAttribution;
    
-   subtype UserActivityContentInfo is Windows.ApplicationModel.UserActivities.IUserActivityContentInfo;
-   subtype UserActivityVisualElements is Windows.ApplicationModel.UserActivities.IUserActivityVisualElements;
-   subtype UserActivitySession is Windows.ApplicationModel.UserActivities.IUserActivitySession;
-   subtype UserActivity is Windows.ApplicationModel.UserActivities.IUserActivity;
-   function CreateWithActivityId
-   (
-      activityId : Windows.String
-   )
-   return Windows.ApplicationModel.UserActivities.IUserActivity;
-   
    subtype UserActivityChannel is Windows.ApplicationModel.UserActivities.IUserActivityChannel;
-   subtype UserActivitySessionHistoryItem is Windows.ApplicationModel.UserActivities.IUserActivitySessionHistoryItem;
+   subtype UserActivityContentInfo is Windows.ApplicationModel.UserActivities.IUserActivityContentInfo;
    subtype UserActivityRequest is Windows.ApplicationModel.UserActivities.IUserActivityRequest;
    subtype UserActivityRequestedEventArgs is Windows.ApplicationModel.UserActivities.IUserActivityRequestedEventArgs;
    subtype UserActivityRequestManager is Windows.ApplicationModel.UserActivities.IUserActivityRequestManager;
+   subtype UserActivitySession is Windows.ApplicationModel.UserActivities.IUserActivitySession;
+   subtype UserActivitySessionHistoryItem is Windows.ApplicationModel.UserActivities.IUserActivitySessionHistoryItem;
+   subtype UserActivityVisualElements is Windows.ApplicationModel.UserActivities.IUserActivityVisualElements;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromJson
-   (
-      value : Windows.String
-   )
-   return Windows.ApplicationModel.UserActivities.IUserActivityContentInfo;
    
    function TryParseFromJson
    (
@@ -999,6 +993,12 @@ package Windows.ApplicationModel.UserActivities is
    
    function GetDefault
    return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
+   
+   function FromJson
+   (
+      value : Windows.String
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivityContentInfo;
    
    function GetForCurrentView
    return Windows.ApplicationModel.UserActivities.IUserActivityRequestManager;

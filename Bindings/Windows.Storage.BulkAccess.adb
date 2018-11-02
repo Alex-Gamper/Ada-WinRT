@@ -40,7 +40,7 @@ package body Windows.Storage.BulkAccess is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface
+      This       : access TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface
       ; sender : Windows.Storage.BulkAccess.IStorageItemInformation
       ; args : Windows.Object
    )
@@ -53,7 +53,7 @@ package body Windows.Storage.BulkAccess is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface
+      This       : access TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface
       ; sender : Windows.Storage.BulkAccess.IStorageItemInformation
       ; args : Windows.Object
    )

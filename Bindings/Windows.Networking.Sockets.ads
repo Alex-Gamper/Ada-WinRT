@@ -44,6 +44,34 @@ package Windows.Networking.Sockets is
    -- Enums
    ------------------------------------------------------------------------
    
+   type ControlChannelTriggerResetReason is (
+      FastUserSwitched,
+      LowPowerExit,
+      QuietHoursExit,
+      ApplicationRestart
+   );
+   for ControlChannelTriggerResetReason use (
+      FastUserSwitched => 0,
+      LowPowerExit => 1,
+      QuietHoursExit => 2,
+      ApplicationRestart => 3
+   );
+   for ControlChannelTriggerResetReason'Size use 32;
+   
+   type ControlChannelTriggerResetReason_Ptr is access ControlChannelTriggerResetReason;
+   
+   type ControlChannelTriggerResourceType is (
+      RequestSoftwareSlot,
+      RequestHardwareSlot
+   );
+   for ControlChannelTriggerResourceType use (
+      RequestSoftwareSlot => 0,
+      RequestHardwareSlot => 1
+   );
+   for ControlChannelTriggerResourceType'Size use 32;
+   
+   type ControlChannelTriggerResourceType_Ptr is access ControlChannelTriggerResourceType;
+   
    type ControlChannelTriggerStatus is (
       HardwareSlotRequested,
       SoftwareSlotAllocated,
@@ -66,53 +94,63 @@ package Windows.Networking.Sockets is
    
    type ControlChannelTriggerStatus_Ptr is access ControlChannelTriggerStatus;
    
-   type SocketMessageType is (
-      Binary,
-      Utf8
+   type MessageWebSocketReceiveMode is (
+      FullMessage,
+      PartialMessage
    );
-   for SocketMessageType use (
-      Binary => 0,
-      Utf8 => 1
+   for MessageWebSocketReceiveMode use (
+      FullMessage => 0,
+      PartialMessage => 1
    );
-   for SocketMessageType'Size use 32;
+   for MessageWebSocketReceiveMode'Size use 32;
    
-   type SocketMessageType_Ptr is access SocketMessageType;
+   type MessageWebSocketReceiveMode_Ptr is access MessageWebSocketReceiveMode;
    
-   type SocketProtectionLevel is (
-      PlainSocket,
-      SslAllowNullEncryption,
-      BluetoothEncryptionAllowNullAuthentication,
-      BluetoothEncryptionWithAuthentication,
-      Tls10,
-      Tls11,
-      Tls12,
-      Unspecified
+   type SocketActivityConnectedStandbyAction is (
+      DoNotWake,
+      Wake
    );
-   for SocketProtectionLevel use (
-      PlainSocket => 0,
-      SslAllowNullEncryption => 2,
-      BluetoothEncryptionAllowNullAuthentication => 3,
-      BluetoothEncryptionWithAuthentication => 4,
-      Tls10 => 6,
-      Tls11 => 7,
-      Tls12 => 8,
-      Unspecified => 9
+   for SocketActivityConnectedStandbyAction use (
+      DoNotWake => 0,
+      Wake => 1
    );
-   for SocketProtectionLevel'Size use 32;
+   for SocketActivityConnectedStandbyAction'Size use 32;
    
-   type SocketProtectionLevel_Ptr is access SocketProtectionLevel;
+   type SocketActivityConnectedStandbyAction_Ptr is access SocketActivityConnectedStandbyAction;
    
-   type SocketQualityOfService is (
-      Normal,
-      LowLatency
+   type SocketActivityKind is (
+      None,
+      StreamSocketListener_x,
+      DatagramSocket_x,
+      StreamSocket_x
    );
-   for SocketQualityOfService use (
-      Normal => 0,
-      LowLatency => 1
+   for SocketActivityKind use (
+      None => 0,
+      StreamSocketListener_x => 1,
+      DatagramSocket_x => 2,
+      StreamSocket_x => 3
    );
-   for SocketQualityOfService'Size use 32;
+   for SocketActivityKind'Size use 32;
    
-   type SocketQualityOfService_Ptr is access SocketQualityOfService;
+   type SocketActivityKind_Ptr is access SocketActivityKind;
+   
+   type SocketActivityTriggerReason is (
+      None,
+      SocketActivity,
+      ConnectionAccepted,
+      KeepAliveTimerExpired,
+      SocketClosed
+   );
+   for SocketActivityTriggerReason use (
+      None => 0,
+      SocketActivity => 1,
+      ConnectionAccepted => 2,
+      KeepAliveTimerExpired => 3,
+      SocketClosed => 4
+   );
+   for SocketActivityTriggerReason'Size use 32;
+   
+   type SocketActivityTriggerReason_Ptr is access SocketActivityTriggerReason;
    
    type SocketErrorStatus is (
       Unknown,
@@ -184,6 +222,54 @@ package Windows.Networking.Sockets is
    
    type SocketErrorStatus_Ptr is access SocketErrorStatus;
    
+   type SocketMessageType is (
+      Binary,
+      Utf8
+   );
+   for SocketMessageType use (
+      Binary => 0,
+      Utf8 => 1
+   );
+   for SocketMessageType'Size use 32;
+   
+   type SocketMessageType_Ptr is access SocketMessageType;
+   
+   type SocketProtectionLevel is (
+      PlainSocket,
+      SslAllowNullEncryption,
+      BluetoothEncryptionAllowNullAuthentication,
+      BluetoothEncryptionWithAuthentication,
+      Tls10,
+      Tls11,
+      Tls12,
+      Unspecified
+   );
+   for SocketProtectionLevel use (
+      PlainSocket => 0,
+      SslAllowNullEncryption => 2,
+      BluetoothEncryptionAllowNullAuthentication => 3,
+      BluetoothEncryptionWithAuthentication => 4,
+      Tls10 => 6,
+      Tls11 => 7,
+      Tls12 => 8,
+      Unspecified => 9
+   );
+   for SocketProtectionLevel'Size use 32;
+   
+   type SocketProtectionLevel_Ptr is access SocketProtectionLevel;
+   
+   type SocketQualityOfService is (
+      Normal,
+      LowLatency
+   );
+   for SocketQualityOfService use (
+      Normal => 0,
+      LowLatency => 1
+   );
+   for SocketQualityOfService'Size use 32;
+   
+   type SocketQualityOfService_Ptr is access SocketQualityOfService;
+   
    type SocketSslErrorSeverity is (
       None,
       Ignorable,
@@ -197,92 +283,6 @@ package Windows.Networking.Sockets is
    for SocketSslErrorSeverity'Size use 32;
    
    type SocketSslErrorSeverity_Ptr is access SocketSslErrorSeverity;
-   
-   type SocketActivityKind is (
-      None,
-      StreamSocketListener_x,
-      DatagramSocket_x,
-      StreamSocket_x
-   );
-   for SocketActivityKind use (
-      None => 0,
-      StreamSocketListener_x => 1,
-      DatagramSocket_x => 2,
-      StreamSocket_x => 3
-   );
-   for SocketActivityKind'Size use 32;
-   
-   type SocketActivityKind_Ptr is access SocketActivityKind;
-   
-   type SocketActivityTriggerReason is (
-      None,
-      SocketActivity,
-      ConnectionAccepted,
-      KeepAliveTimerExpired,
-      SocketClosed
-   );
-   for SocketActivityTriggerReason use (
-      None => 0,
-      SocketActivity => 1,
-      ConnectionAccepted => 2,
-      KeepAliveTimerExpired => 3,
-      SocketClosed => 4
-   );
-   for SocketActivityTriggerReason'Size use 32;
-   
-   type SocketActivityTriggerReason_Ptr is access SocketActivityTriggerReason;
-   
-   type SocketActivityConnectedStandbyAction is (
-      DoNotWake,
-      Wake
-   );
-   for SocketActivityConnectedStandbyAction use (
-      DoNotWake => 0,
-      Wake => 1
-   );
-   for SocketActivityConnectedStandbyAction'Size use 32;
-   
-   type SocketActivityConnectedStandbyAction_Ptr is access SocketActivityConnectedStandbyAction;
-   
-   type MessageWebSocketReceiveMode is (
-      FullMessage,
-      PartialMessage
-   );
-   for MessageWebSocketReceiveMode use (
-      FullMessage => 0,
-      PartialMessage => 1
-   );
-   for MessageWebSocketReceiveMode'Size use 32;
-   
-   type MessageWebSocketReceiveMode_Ptr is access MessageWebSocketReceiveMode;
-   
-   type ControlChannelTriggerResourceType is (
-      RequestSoftwareSlot,
-      RequestHardwareSlot
-   );
-   for ControlChannelTriggerResourceType use (
-      RequestSoftwareSlot => 0,
-      RequestHardwareSlot => 1
-   );
-   for ControlChannelTriggerResourceType'Size use 32;
-   
-   type ControlChannelTriggerResourceType_Ptr is access ControlChannelTriggerResourceType;
-   
-   type ControlChannelTriggerResetReason is (
-      FastUserSwitched,
-      LowPowerExit,
-      QuietHoursExit,
-      ApplicationRestart
-   );
-   for ControlChannelTriggerResetReason use (
-      FastUserSwitched => 0,
-      LowPowerExit => 1,
-      QuietHoursExit => 2,
-      ApplicationRestart => 3
-   );
-   for ControlChannelTriggerResetReason'Size use 32;
-   
-   type ControlChannelTriggerResetReason_Ptr is access ControlChannelTriggerResetReason;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -325,77 +325,56 @@ package Windows.Networking.Sockets is
    type TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface;
    type TypedEventHandler_IDatagramSocket_add_MessageReceived is access all TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface'Class;
    type TypedEventHandler_IDatagramSocket_add_MessageReceived_Ptr is access all TypedEventHandler_IDatagramSocket_add_MessageReceived;
-   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface;
-   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived is access all TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface'Class;
-   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Ptr is access all TypedEventHandler_IStreamSocketListener_add_ConnectionReceived;
-   type TypedEventHandler_IWebSocket_add_Closed_Interface;
-   type TypedEventHandler_IWebSocket_add_Closed is access all TypedEventHandler_IWebSocket_add_Closed_Interface'Class;
-   type TypedEventHandler_IWebSocket_add_Closed_Ptr is access all TypedEventHandler_IWebSocket_add_Closed;
    type TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface;
    type TypedEventHandler_IMessageWebSocket_add_MessageReceived is access all TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface'Class;
    type TypedEventHandler_IMessageWebSocket_add_MessageReceived_Ptr is access all TypedEventHandler_IMessageWebSocket_add_MessageReceived;
    type TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface;
    type TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested is access all TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface'Class;
    type TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Ptr is access all TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested;
-   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface;
-   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested is access all TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface'Class;
-   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Ptr is access all TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested;
-   type TypedEventHandler_IServerMessageWebSocket_add_MessageReceived_Interface;
-   type TypedEventHandler_IServerMessageWebSocket_add_MessageReceived is access all TypedEventHandler_IServerMessageWebSocket_add_MessageReceived_Interface'Class;
-   type TypedEventHandler_IServerMessageWebSocket_add_MessageReceived_Ptr is access all TypedEventHandler_IServerMessageWebSocket_add_MessageReceived;
    type TypedEventHandler_IServerMessageWebSocket_add_Closed_Interface;
    type TypedEventHandler_IServerMessageWebSocket_add_Closed is access all TypedEventHandler_IServerMessageWebSocket_add_Closed_Interface'Class;
    type TypedEventHandler_IServerMessageWebSocket_add_Closed_Ptr is access all TypedEventHandler_IServerMessageWebSocket_add_Closed;
+   type TypedEventHandler_IServerMessageWebSocket_add_MessageReceived_Interface;
+   type TypedEventHandler_IServerMessageWebSocket_add_MessageReceived is access all TypedEventHandler_IServerMessageWebSocket_add_MessageReceived_Interface'Class;
+   type TypedEventHandler_IServerMessageWebSocket_add_MessageReceived_Ptr is access all TypedEventHandler_IServerMessageWebSocket_add_MessageReceived;
    type TypedEventHandler_IServerStreamWebSocket_add_Closed_Interface;
    type TypedEventHandler_IServerStreamWebSocket_add_Closed is access all TypedEventHandler_IServerStreamWebSocket_add_Closed_Interface'Class;
    type TypedEventHandler_IServerStreamWebSocket_add_Closed_Ptr is access all TypedEventHandler_IServerStreamWebSocket_add_Closed;
+   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface;
+   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived is access all TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface'Class;
+   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Ptr is access all TypedEventHandler_IStreamSocketListener_add_ConnectionReceived;
+   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface;
+   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested is access all TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface'Class;
+   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Ptr is access all TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested;
+   type TypedEventHandler_IWebSocket_add_Closed_Interface;
+   type TypedEventHandler_IWebSocket_add_Closed is access all TypedEventHandler_IWebSocket_add_Closed_Interface'Class;
+   type TypedEventHandler_IWebSocket_add_Closed_Ptr is access all TypedEventHandler_IWebSocket_add_Closed;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISocketActivityInformation_Interface;
-   type ISocketActivityInformation is access all ISocketActivityInformation_Interface'Class;
-   type ISocketActivityInformation_Ptr is access all ISocketActivityInformation;
-   type ISocketActivityTriggerDetails_Interface;
-   type ISocketActivityTriggerDetails is access all ISocketActivityTriggerDetails_Interface'Class;
-   type ISocketActivityTriggerDetails_Ptr is access all ISocketActivityTriggerDetails;
-   type ISocketActivityInformationStatics_Interface;
-   type ISocketActivityInformationStatics is access all ISocketActivityInformationStatics_Interface'Class;
-   type ISocketActivityInformationStatics_Ptr is access all ISocketActivityInformationStatics;
-   type ISocketActivityContext_Interface;
-   type ISocketActivityContext is access all ISocketActivityContext_Interface'Class;
-   type ISocketActivityContext_Ptr is access all ISocketActivityContext;
-   type ISocketActivityContextFactory_Interface;
-   type ISocketActivityContextFactory is access all ISocketActivityContextFactory_Interface'Class;
-   type ISocketActivityContextFactory_Ptr is access all ISocketActivityContextFactory;
-   type IDatagramSocketMessageReceivedEventArgs_Interface;
-   type IDatagramSocketMessageReceivedEventArgs is access all IDatagramSocketMessageReceivedEventArgs_Interface'Class;
-   type IDatagramSocketMessageReceivedEventArgs_Ptr is access all IDatagramSocketMessageReceivedEventArgs;
-   type IMessageWebSocketMessageReceivedEventArgs_Interface;
-   type IMessageWebSocketMessageReceivedEventArgs is access all IMessageWebSocketMessageReceivedEventArgs_Interface'Class;
-   type IMessageWebSocketMessageReceivedEventArgs_Ptr is access all IMessageWebSocketMessageReceivedEventArgs;
-   type IMessageWebSocketMessageReceivedEventArgs2_Interface;
-   type IMessageWebSocketMessageReceivedEventArgs2 is access all IMessageWebSocketMessageReceivedEventArgs2_Interface'Class;
-   type IMessageWebSocketMessageReceivedEventArgs2_Ptr is access all IMessageWebSocketMessageReceivedEventArgs2;
-   type IWebSocketClosedEventArgs_Interface;
-   type IWebSocketClosedEventArgs is access all IWebSocketClosedEventArgs_Interface'Class;
-   type IWebSocketClosedEventArgs_Ptr is access all IWebSocketClosedEventArgs;
-   type IDatagramSocketInformation_Interface;
-   type IDatagramSocketInformation is access all IDatagramSocketInformation_Interface'Class;
-   type IDatagramSocketInformation_Ptr is access all IDatagramSocketInformation;
-   type IDatagramSocketControl_Interface;
-   type IDatagramSocketControl is access all IDatagramSocketControl_Interface'Class;
-   type IDatagramSocketControl_Ptr is access all IDatagramSocketControl;
-   type IDatagramSocketControl2_Interface;
-   type IDatagramSocketControl2 is access all IDatagramSocketControl2_Interface'Class;
-   type IDatagramSocketControl2_Ptr is access all IDatagramSocketControl2;
-   type IDatagramSocketControl3_Interface;
-   type IDatagramSocketControl3 is access all IDatagramSocketControl3_Interface'Class;
-   type IDatagramSocketControl3_Ptr is access all IDatagramSocketControl3;
-   type IDatagramSocketStatics_Interface;
-   type IDatagramSocketStatics is access all IDatagramSocketStatics_Interface'Class;
-   type IDatagramSocketStatics_Ptr is access all IDatagramSocketStatics;
+   type IAsyncOperation_IStreamSocket_Interface;
+   type IAsyncOperation_IStreamSocket is access all IAsyncOperation_IStreamSocket_Interface'Class;
+   type IAsyncOperation_IStreamSocket_Ptr is access all IAsyncOperation_IStreamSocket;
+   type IBackgroundTask_Imported_Interface;
+   type IBackgroundTask_Imported is access all IBackgroundTask_Imported_Interface'Class;
+   type IBackgroundTask_Imported_Ptr is access all IBackgroundTask_Imported;
+   type IControlChannelTrigger_Interface;
+   type IControlChannelTrigger is access all IControlChannelTrigger_Interface'Class;
+   type IControlChannelTrigger_Ptr is access all IControlChannelTrigger;
+   type IControlChannelTrigger2_Interface;
+   type IControlChannelTrigger2 is access all IControlChannelTrigger2_Interface'Class;
+   type IControlChannelTrigger2_Ptr is access all IControlChannelTrigger2;
+   type IControlChannelTriggerEventDetails_Interface;
+   type IControlChannelTriggerEventDetails is access all IControlChannelTriggerEventDetails_Interface'Class;
+   type IControlChannelTriggerEventDetails_Ptr is access all IControlChannelTriggerEventDetails;
+   type IControlChannelTriggerFactory_Interface;
+   type IControlChannelTriggerFactory is access all IControlChannelTriggerFactory_Interface'Class;
+   type IControlChannelTriggerFactory_Ptr is access all IControlChannelTriggerFactory;
+   type IControlChannelTriggerResetEventDetails_Interface;
+   type IControlChannelTriggerResetEventDetails is access all IControlChannelTriggerResetEventDetails_Interface'Class;
+   type IControlChannelTriggerResetEventDetails_Ptr is access all IControlChannelTriggerResetEventDetails;
    type IDatagramSocket_Interface;
    type IDatagramSocket is access all IDatagramSocket_Interface'Class;
    type IDatagramSocket_Ptr is access all IDatagramSocket;
@@ -405,12 +384,87 @@ package Windows.Networking.Sockets is
    type IDatagramSocket3_Interface;
    type IDatagramSocket3 is access all IDatagramSocket3_Interface'Class;
    type IDatagramSocket3_Ptr is access all IDatagramSocket3;
-   type IStreamSocketInformation_Interface;
-   type IStreamSocketInformation is access all IStreamSocketInformation_Interface'Class;
-   type IStreamSocketInformation_Ptr is access all IStreamSocketInformation;
-   type IStreamSocketInformation2_Interface;
-   type IStreamSocketInformation2 is access all IStreamSocketInformation2_Interface'Class;
-   type IStreamSocketInformation2_Ptr is access all IStreamSocketInformation2;
+   type IDatagramSocketControl_Interface;
+   type IDatagramSocketControl is access all IDatagramSocketControl_Interface'Class;
+   type IDatagramSocketControl_Ptr is access all IDatagramSocketControl;
+   type IDatagramSocketControl2_Interface;
+   type IDatagramSocketControl2 is access all IDatagramSocketControl2_Interface'Class;
+   type IDatagramSocketControl2_Ptr is access all IDatagramSocketControl2;
+   type IDatagramSocketControl3_Interface;
+   type IDatagramSocketControl3 is access all IDatagramSocketControl3_Interface'Class;
+   type IDatagramSocketControl3_Ptr is access all IDatagramSocketControl3;
+   type IDatagramSocketInformation_Interface;
+   type IDatagramSocketInformation is access all IDatagramSocketInformation_Interface'Class;
+   type IDatagramSocketInformation_Ptr is access all IDatagramSocketInformation;
+   type IDatagramSocketMessageReceivedEventArgs_Interface;
+   type IDatagramSocketMessageReceivedEventArgs is access all IDatagramSocketMessageReceivedEventArgs_Interface'Class;
+   type IDatagramSocketMessageReceivedEventArgs_Ptr is access all IDatagramSocketMessageReceivedEventArgs;
+   type IDatagramSocketStatics_Interface;
+   type IDatagramSocketStatics is access all IDatagramSocketStatics_Interface'Class;
+   type IDatagramSocketStatics_Ptr is access all IDatagramSocketStatics;
+   type IMessageWebSocket_Interface;
+   type IMessageWebSocket is access all IMessageWebSocket_Interface'Class;
+   type IMessageWebSocket_Ptr is access all IMessageWebSocket;
+   type IMessageWebSocket2_Interface;
+   type IMessageWebSocket2 is access all IMessageWebSocket2_Interface'Class;
+   type IMessageWebSocket2_Ptr is access all IMessageWebSocket2;
+   type IMessageWebSocket3_Interface;
+   type IMessageWebSocket3 is access all IMessageWebSocket3_Interface'Class;
+   type IMessageWebSocket3_Ptr is access all IMessageWebSocket3;
+   type IMessageWebSocketControl_Interface;
+   type IMessageWebSocketControl is access all IMessageWebSocketControl_Interface'Class;
+   type IMessageWebSocketControl_Ptr is access all IMessageWebSocketControl;
+   type IMessageWebSocketControl2_Interface;
+   type IMessageWebSocketControl2 is access all IMessageWebSocketControl2_Interface'Class;
+   type IMessageWebSocketControl2_Ptr is access all IMessageWebSocketControl2;
+   type IMessageWebSocketMessageReceivedEventArgs_Interface;
+   type IMessageWebSocketMessageReceivedEventArgs is access all IMessageWebSocketMessageReceivedEventArgs_Interface'Class;
+   type IMessageWebSocketMessageReceivedEventArgs_Ptr is access all IMessageWebSocketMessageReceivedEventArgs;
+   type IMessageWebSocketMessageReceivedEventArgs2_Interface;
+   type IMessageWebSocketMessageReceivedEventArgs2 is access all IMessageWebSocketMessageReceivedEventArgs2_Interface'Class;
+   type IMessageWebSocketMessageReceivedEventArgs2_Ptr is access all IMessageWebSocketMessageReceivedEventArgs2;
+   type IServerMessageWebSocket_Interface;
+   type IServerMessageWebSocket is access all IServerMessageWebSocket_Interface'Class;
+   type IServerMessageWebSocket_Ptr is access all IServerMessageWebSocket;
+   type IServerMessageWebSocketControl_Interface;
+   type IServerMessageWebSocketControl is access all IServerMessageWebSocketControl_Interface'Class;
+   type IServerMessageWebSocketControl_Ptr is access all IServerMessageWebSocketControl;
+   type IServerMessageWebSocketInformation_Interface;
+   type IServerMessageWebSocketInformation is access all IServerMessageWebSocketInformation_Interface'Class;
+   type IServerMessageWebSocketInformation_Ptr is access all IServerMessageWebSocketInformation;
+   type IServerStreamWebSocket_Interface;
+   type IServerStreamWebSocket is access all IServerStreamWebSocket_Interface'Class;
+   type IServerStreamWebSocket_Ptr is access all IServerStreamWebSocket;
+   type IServerStreamWebSocketInformation_Interface;
+   type IServerStreamWebSocketInformation is access all IServerStreamWebSocketInformation_Interface'Class;
+   type IServerStreamWebSocketInformation_Ptr is access all IServerStreamWebSocketInformation;
+   type ISocketActivityContext_Interface;
+   type ISocketActivityContext is access all ISocketActivityContext_Interface'Class;
+   type ISocketActivityContext_Ptr is access all ISocketActivityContext;
+   type ISocketActivityContextFactory_Interface;
+   type ISocketActivityContextFactory is access all ISocketActivityContextFactory_Interface'Class;
+   type ISocketActivityContextFactory_Ptr is access all ISocketActivityContextFactory;
+   type ISocketActivityInformation_Interface;
+   type ISocketActivityInformation is access all ISocketActivityInformation_Interface'Class;
+   type ISocketActivityInformation_Ptr is access all ISocketActivityInformation;
+   type ISocketActivityInformationStatics_Interface;
+   type ISocketActivityInformationStatics is access all ISocketActivityInformationStatics_Interface'Class;
+   type ISocketActivityInformationStatics_Ptr is access all ISocketActivityInformationStatics;
+   type ISocketActivityTriggerDetails_Interface;
+   type ISocketActivityTriggerDetails is access all ISocketActivityTriggerDetails_Interface'Class;
+   type ISocketActivityTriggerDetails_Ptr is access all ISocketActivityTriggerDetails;
+   type ISocketErrorStatics_Interface;
+   type ISocketErrorStatics is access all ISocketErrorStatics_Interface'Class;
+   type ISocketErrorStatics_Ptr is access all ISocketErrorStatics;
+   type IStreamSocket_Interface;
+   type IStreamSocket is access all IStreamSocket_Interface'Class;
+   type IStreamSocket_Ptr is access all IStreamSocket;
+   type IStreamSocket2_Interface;
+   type IStreamSocket2 is access all IStreamSocket2_Interface'Class;
+   type IStreamSocket2_Ptr is access all IStreamSocket2;
+   type IStreamSocket3_Interface;
+   type IStreamSocket3 is access all IStreamSocket3_Interface'Class;
+   type IStreamSocket3_Ptr is access all IStreamSocket3;
    type IStreamSocketControl_Interface;
    type IStreamSocketControl is access all IStreamSocketControl_Interface'Class;
    type IStreamSocketControl_Ptr is access all IStreamSocketControl;
@@ -423,30 +477,12 @@ package Windows.Networking.Sockets is
    type IStreamSocketControl4_Interface;
    type IStreamSocketControl4 is access all IStreamSocketControl4_Interface'Class;
    type IStreamSocketControl4_Ptr is access all IStreamSocketControl4;
-   type IStreamSocket_Interface;
-   type IStreamSocket is access all IStreamSocket_Interface'Class;
-   type IStreamSocket_Ptr is access all IStreamSocket;
-   type IStreamSocket2_Interface;
-   type IStreamSocket2 is access all IStreamSocket2_Interface'Class;
-   type IStreamSocket2_Ptr is access all IStreamSocket2;
-   type IStreamSocket3_Interface;
-   type IStreamSocket3 is access all IStreamSocket3_Interface'Class;
-   type IStreamSocket3_Ptr is access all IStreamSocket3;
-   type IStreamSocketStatics_Interface;
-   type IStreamSocketStatics is access all IStreamSocketStatics_Interface'Class;
-   type IStreamSocketStatics_Ptr is access all IStreamSocketStatics;
-   type IStreamSocketListenerControl_Interface;
-   type IStreamSocketListenerControl is access all IStreamSocketListenerControl_Interface'Class;
-   type IStreamSocketListenerControl_Ptr is access all IStreamSocketListenerControl;
-   type IStreamSocketListenerControl2_Interface;
-   type IStreamSocketListenerControl2 is access all IStreamSocketListenerControl2_Interface'Class;
-   type IStreamSocketListenerControl2_Ptr is access all IStreamSocketListenerControl2;
-   type IStreamSocketListenerInformation_Interface;
-   type IStreamSocketListenerInformation is access all IStreamSocketListenerInformation_Interface'Class;
-   type IStreamSocketListenerInformation_Ptr is access all IStreamSocketListenerInformation;
-   type IStreamSocketListenerConnectionReceivedEventArgs_Interface;
-   type IStreamSocketListenerConnectionReceivedEventArgs is access all IStreamSocketListenerConnectionReceivedEventArgs_Interface'Class;
-   type IStreamSocketListenerConnectionReceivedEventArgs_Ptr is access all IStreamSocketListenerConnectionReceivedEventArgs;
+   type IStreamSocketInformation_Interface;
+   type IStreamSocketInformation is access all IStreamSocketInformation_Interface'Class;
+   type IStreamSocketInformation_Ptr is access all IStreamSocketInformation;
+   type IStreamSocketInformation2_Interface;
+   type IStreamSocketInformation2 is access all IStreamSocketInformation2_Interface'Class;
+   type IStreamSocketInformation2_Ptr is access all IStreamSocketInformation2;
    type IStreamSocketListener_Interface;
    type IStreamSocketListener is access all IStreamSocketListener_Interface'Class;
    type IStreamSocketListener_Ptr is access all IStreamSocketListener;
@@ -456,93 +492,57 @@ package Windows.Networking.Sockets is
    type IStreamSocketListener3_Interface;
    type IStreamSocketListener3 is access all IStreamSocketListener3_Interface'Class;
    type IStreamSocketListener3_Ptr is access all IStreamSocketListener3;
-   type IWebSocketServerCustomValidationRequestedEventArgs_Interface;
-   type IWebSocketServerCustomValidationRequestedEventArgs is access all IWebSocketServerCustomValidationRequestedEventArgs_Interface'Class;
-   type IWebSocketServerCustomValidationRequestedEventArgs_Ptr is access all IWebSocketServerCustomValidationRequestedEventArgs;
-   type IWebSocketControl_Interface;
-   type IWebSocketControl is access all IWebSocketControl_Interface'Class;
-   type IWebSocketControl_Ptr is access all IWebSocketControl;
-   type IWebSocketControl2_Interface;
-   type IWebSocketControl2 is access all IWebSocketControl2_Interface'Class;
-   type IWebSocketControl2_Ptr is access all IWebSocketControl2;
-   type IWebSocketInformation_Interface;
-   type IWebSocketInformation is access all IWebSocketInformation_Interface'Class;
-   type IWebSocketInformation_Ptr is access all IWebSocketInformation;
-   type IWebSocketInformation2_Interface;
-   type IWebSocketInformation2 is access all IWebSocketInformation2_Interface'Class;
-   type IWebSocketInformation2_Ptr is access all IWebSocketInformation2;
-   type IWebSocket_Interface;
-   type IWebSocket is access all IWebSocket_Interface'Class;
-   type IWebSocket_Ptr is access all IWebSocket;
-   type IMessageWebSocketControl_Interface;
-   type IMessageWebSocketControl is access all IMessageWebSocketControl_Interface'Class;
-   type IMessageWebSocketControl_Ptr is access all IMessageWebSocketControl;
-   type IMessageWebSocketControl2_Interface;
-   type IMessageWebSocketControl2 is access all IMessageWebSocketControl2_Interface'Class;
-   type IMessageWebSocketControl2_Ptr is access all IMessageWebSocketControl2;
-   type IMessageWebSocket_Interface;
-   type IMessageWebSocket is access all IMessageWebSocket_Interface'Class;
-   type IMessageWebSocket_Ptr is access all IMessageWebSocket;
-   type IMessageWebSocket2_Interface;
-   type IMessageWebSocket2 is access all IMessageWebSocket2_Interface'Class;
-   type IMessageWebSocket2_Ptr is access all IMessageWebSocket2;
-   type IMessageWebSocket3_Interface;
-   type IMessageWebSocket3 is access all IMessageWebSocket3_Interface'Class;
-   type IMessageWebSocket3_Ptr is access all IMessageWebSocket3;
-   type IStreamWebSocketControl_Interface;
-   type IStreamWebSocketControl is access all IStreamWebSocketControl_Interface'Class;
-   type IStreamWebSocketControl_Ptr is access all IStreamWebSocketControl;
-   type IStreamWebSocketControl2_Interface;
-   type IStreamWebSocketControl2 is access all IStreamWebSocketControl2_Interface'Class;
-   type IStreamWebSocketControl2_Ptr is access all IStreamWebSocketControl2;
+   type IStreamSocketListenerConnectionReceivedEventArgs_Interface;
+   type IStreamSocketListenerConnectionReceivedEventArgs is access all IStreamSocketListenerConnectionReceivedEventArgs_Interface'Class;
+   type IStreamSocketListenerConnectionReceivedEventArgs_Ptr is access all IStreamSocketListenerConnectionReceivedEventArgs;
+   type IStreamSocketListenerControl_Interface;
+   type IStreamSocketListenerControl is access all IStreamSocketListenerControl_Interface'Class;
+   type IStreamSocketListenerControl_Ptr is access all IStreamSocketListenerControl;
+   type IStreamSocketListenerControl2_Interface;
+   type IStreamSocketListenerControl2 is access all IStreamSocketListenerControl2_Interface'Class;
+   type IStreamSocketListenerControl2_Ptr is access all IStreamSocketListenerControl2;
+   type IStreamSocketListenerInformation_Interface;
+   type IStreamSocketListenerInformation is access all IStreamSocketListenerInformation_Interface'Class;
+   type IStreamSocketListenerInformation_Ptr is access all IStreamSocketListenerInformation;
+   type IStreamSocketStatics_Interface;
+   type IStreamSocketStatics is access all IStreamSocketStatics_Interface'Class;
+   type IStreamSocketStatics_Ptr is access all IStreamSocketStatics;
    type IStreamWebSocket_Interface;
    type IStreamWebSocket is access all IStreamWebSocket_Interface'Class;
    type IStreamWebSocket_Ptr is access all IStreamWebSocket;
    type IStreamWebSocket2_Interface;
    type IStreamWebSocket2 is access all IStreamWebSocket2_Interface'Class;
    type IStreamWebSocket2_Ptr is access all IStreamWebSocket2;
-   type ISocketErrorStatics_Interface;
-   type ISocketErrorStatics is access all ISocketErrorStatics_Interface'Class;
-   type ISocketErrorStatics_Ptr is access all ISocketErrorStatics;
+   type IStreamWebSocketControl_Interface;
+   type IStreamWebSocketControl is access all IStreamWebSocketControl_Interface'Class;
+   type IStreamWebSocketControl_Ptr is access all IStreamWebSocketControl;
+   type IStreamWebSocketControl2_Interface;
+   type IStreamWebSocketControl2 is access all IStreamWebSocketControl2_Interface'Class;
+   type IStreamWebSocketControl2_Ptr is access all IStreamWebSocketControl2;
+   type IWebSocket_Interface;
+   type IWebSocket is access all IWebSocket_Interface'Class;
+   type IWebSocket_Ptr is access all IWebSocket;
+   type IWebSocketClosedEventArgs_Interface;
+   type IWebSocketClosedEventArgs is access all IWebSocketClosedEventArgs_Interface'Class;
+   type IWebSocketClosedEventArgs_Ptr is access all IWebSocketClosedEventArgs;
+   type IWebSocketControl_Interface;
+   type IWebSocketControl is access all IWebSocketControl_Interface'Class;
+   type IWebSocketControl_Ptr is access all IWebSocketControl;
+   type IWebSocketControl2_Interface;
+   type IWebSocketControl2 is access all IWebSocketControl2_Interface'Class;
+   type IWebSocketControl2_Ptr is access all IWebSocketControl2;
    type IWebSocketErrorStatics_Interface;
    type IWebSocketErrorStatics is access all IWebSocketErrorStatics_Interface'Class;
    type IWebSocketErrorStatics_Ptr is access all IWebSocketErrorStatics;
-   type IServerMessageWebSocket_Interface;
-   type IServerMessageWebSocket is access all IServerMessageWebSocket_Interface'Class;
-   type IServerMessageWebSocket_Ptr is access all IServerMessageWebSocket;
-   type IServerMessageWebSocketControl_Interface;
-   type IServerMessageWebSocketControl is access all IServerMessageWebSocketControl_Interface'Class;
-   type IServerMessageWebSocketControl_Ptr is access all IServerMessageWebSocketControl;
-   type IServerStreamWebSocketInformation_Interface;
-   type IServerStreamWebSocketInformation is access all IServerStreamWebSocketInformation_Interface'Class;
-   type IServerStreamWebSocketInformation_Ptr is access all IServerStreamWebSocketInformation;
-   type IServerStreamWebSocket_Interface;
-   type IServerStreamWebSocket is access all IServerStreamWebSocket_Interface'Class;
-   type IServerStreamWebSocket_Ptr is access all IServerStreamWebSocket;
-   type IServerMessageWebSocketInformation_Interface;
-   type IServerMessageWebSocketInformation is access all IServerMessageWebSocketInformation_Interface'Class;
-   type IServerMessageWebSocketInformation_Ptr is access all IServerMessageWebSocketInformation;
-   type IControlChannelTrigger_Interface;
-   type IControlChannelTrigger is access all IControlChannelTrigger_Interface'Class;
-   type IControlChannelTrigger_Ptr is access all IControlChannelTrigger;
-   type IControlChannelTriggerFactory_Interface;
-   type IControlChannelTriggerFactory is access all IControlChannelTriggerFactory_Interface'Class;
-   type IControlChannelTriggerFactory_Ptr is access all IControlChannelTriggerFactory;
-   type IControlChannelTriggerEventDetails_Interface;
-   type IControlChannelTriggerEventDetails is access all IControlChannelTriggerEventDetails_Interface'Class;
-   type IControlChannelTriggerEventDetails_Ptr is access all IControlChannelTriggerEventDetails;
-   type IControlChannelTriggerResetEventDetails_Interface;
-   type IControlChannelTriggerResetEventDetails is access all IControlChannelTriggerResetEventDetails_Interface'Class;
-   type IControlChannelTriggerResetEventDetails_Ptr is access all IControlChannelTriggerResetEventDetails;
-   type IControlChannelTrigger2_Interface;
-   type IControlChannelTrigger2 is access all IControlChannelTrigger2_Interface'Class;
-   type IControlChannelTrigger2_Ptr is access all IControlChannelTrigger2;
-   type IBackgroundTask_Imported_Interface;
-   type IBackgroundTask_Imported is access all IBackgroundTask_Imported_Interface'Class;
-   type IBackgroundTask_Imported_Ptr is access all IBackgroundTask_Imported;
-   type IAsyncOperation_IStreamSocket_Interface;
-   type IAsyncOperation_IStreamSocket is access all IAsyncOperation_IStreamSocket_Interface'Class;
-   type IAsyncOperation_IStreamSocket_Ptr is access all IAsyncOperation_IStreamSocket;
+   type IWebSocketInformation_Interface;
+   type IWebSocketInformation is access all IWebSocketInformation_Interface'Class;
+   type IWebSocketInformation_Ptr is access all IWebSocketInformation;
+   type IWebSocketInformation2_Interface;
+   type IWebSocketInformation2 is access all IWebSocketInformation2_Interface'Class;
+   type IWebSocketInformation2_Ptr is access all IWebSocketInformation2;
+   type IWebSocketServerCustomValidationRequestedEventArgs_Interface;
+   type IWebSocketServerCustomValidationRequestedEventArgs is access all IWebSocketServerCustomValidationRequestedEventArgs_Interface'Class;
+   type IWebSocketServerCustomValidationRequestedEventArgs_Ptr is access all IWebSocketServerCustomValidationRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -550,364 +550,198 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_ISocketActivityInformation : aliased constant Windows.IID := (2374648548, 43134, 19316, (153, 104, 24, 91, 37, 17, 222, 254 ));
+   IID_IAsyncOperation_IStreamSocket : aliased constant Windows.IID := (4215160124, 28645, 24103, (161, 50, 144, 34, 71, 226, 169, 62 ));
    
-   type ISocketActivityInformation_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IStreamSocket_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_TaskId
+   function put_Completed
    (
-      This       : access ISocketActivityInformation_Interface
-      ; RetVal : access Windows.Guid
+      This       : access IAsyncOperation_IStreamSocket_Interface
+      ; handler : Windows.Networking.Sockets.AsyncOperationCompletedHandler_IStreamSocket
    )
    return Windows.HRESULT is abstract;
    
-   function get_Id
+   function get_Completed
    (
-      This       : access ISocketActivityInformation_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IStreamSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.AsyncOperationCompletedHandler_IStreamSocket
    )
    return Windows.HRESULT is abstract;
    
-   function get_SocketKind
+   function GetResults
    (
-      This       : access ISocketActivityInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketActivityKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Context
-   (
-      This       : access ISocketActivityInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.ISocketActivityContext
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DatagramSocket
-   (
-      This       : access ISocketActivityInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.IDatagramSocket
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StreamSocket
-   (
-      This       : access ISocketActivityInformation_Interface
+      This       : access IAsyncOperation_IStreamSocket_Interface
       ; RetVal : access Windows.Networking.Sockets.IStreamSocket
    )
    return Windows.HRESULT is abstract;
    
-   function get_StreamSocketListener
+   ------------------------------------------------------------------------
+   
+   type IBackgroundTask_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Run
    (
-      This       : access ISocketActivityInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.IStreamSocketListener
+      This       : access IBackgroundTask_Imported_Interface
+      ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISocketActivityTriggerDetails : aliased constant Windows.IID := (1173620391, 64671, 20353, (172, 173, 53, 95, 239, 81, 230, 123 ));
+   IID_IControlChannelTrigger : aliased constant Windows.IID := (2098475431, 61078, 16616, (161, 153, 135, 3, 205, 150, 158, 195 ));
    
-   type ISocketActivityTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IControlChannelTrigger_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Reason
+   function get_ControlChannelTriggerId
    (
-      This       : access ISocketActivityTriggerDetails_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketActivityTriggerReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SocketInformation
-   (
-      This       : access ISocketActivityTriggerDetails_Interface
-      ; RetVal : access Windows.Networking.Sockets.ISocketActivityInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISocketActivityInformationStatics : aliased constant Windows.IID := (2238755962, 32381, 18230, (128, 65, 19, 39, 166, 84, 60, 86 ));
-   
-   type ISocketActivityInformationStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AllSockets
-   (
-      This       : access ISocketActivityInformationStatics_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISocketActivityContext : aliased constant Windows.IID := (1135627620, 19589, 17302, (166, 55, 29, 151, 63, 110, 189, 73 ));
-   
-   type ISocketActivityContext_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Data
-   (
-      This       : access ISocketActivityContext_Interface
-      ; RetVal : access Windows.Storage.Streams.IBuffer
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISocketActivityContextFactory : aliased constant Windows.IID := (3114255299, 2188, 17288, (131, 174, 37, 37, 19, 142, 4, 154 ));
-   
-   type ISocketActivityContextFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access ISocketActivityContextFactory_Interface
-      ; data : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Networking.Sockets.ISocketActivityContext
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDatagramSocketMessageReceivedEventArgs : aliased constant Windows.IID := (2653805730, 5906, 19684, (177, 121, 140, 101, 44, 109, 16, 126 ));
-   
-   type IDatagramSocketMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RemoteAddress
-   (
-      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemotePort
-   (
-      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
+      This       : access IControlChannelTrigger_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_LocalAddress
+   function get_ServerKeepAliveIntervalInMinutes
    (
-      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDataReader
-   (
-      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Streams.IDataReader
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDataStream
-   (
-      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMessageWebSocketMessageReceivedEventArgs : aliased constant Windows.IID := (1200366252, 19531, 17133, (158, 215, 30, 249, 249, 79, 163, 213 ));
-   
-   type IMessageWebSocketMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MessageType
-   (
-      This       : access IMessageWebSocketMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketMessageType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDataReader
-   (
-      This       : access IMessageWebSocketMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Streams.IDataReader
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDataStream
-   (
-      This       : access IMessageWebSocketMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMessageWebSocketMessageReceivedEventArgs2 : aliased constant Windows.IID := (2311980797, 56687, 18951, (135, 249, 249, 235, 77, 137, 216, 61 ));
-   
-   type IMessageWebSocketMessageReceivedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsMessageComplete
-   (
-      This       : access IMessageWebSocketMessageReceivedEventArgs2_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebSocketClosedEventArgs : aliased constant Windows.IID := (3468135687, 53416, 18179, (160, 145, 200, 194, 192, 145, 91, 195 ));
-   
-   type IWebSocketClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Code
-   (
-      This       : access IWebSocketClosedEventArgs_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Reason
-   (
-      This       : access IWebSocketClosedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDatagramSocketInformation : aliased constant Windows.IID := (1595561626, 22011, 18637, (151, 6, 122, 151, 79, 123, 21, 133 ));
-   
-   type IDatagramSocketInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_LocalAddress
-   (
-      This       : access IDatagramSocketInformation_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LocalPort
-   (
-      This       : access IDatagramSocketInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemoteAddress
-   (
-      This       : access IDatagramSocketInformation_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemotePort
-   (
-      This       : access IDatagramSocketInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDatagramSocketControl : aliased constant Windows.IID := (1387020078, 13466, 16693, (187, 88, 183, 155, 38, 71, 211, 144 ));
-   
-   type IDatagramSocketControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_QualityOfService
-   (
-      This       : access IDatagramSocketControl_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketQualityOfService
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_QualityOfService
-   (
-      This       : access IDatagramSocketControl_Interface
-      ; value : Windows.Networking.Sockets.SocketQualityOfService
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutboundUnicastHopLimit
-   (
-      This       : access IDatagramSocketControl_Interface
-      ; RetVal : access Windows.UInt8
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_OutboundUnicastHopLimit
-   (
-      This       : access IDatagramSocketControl_Interface
-      ; value : Windows.UInt8
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDatagramSocketControl2 : aliased constant Windows.IID := (871028162, 38812, 17429, (130, 161, 60, 250, 246, 70, 193, 146 ));
-   
-   type IDatagramSocketControl2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_InboundBufferSizeInBytes
-   (
-      This       : access IDatagramSocketControl2_Interface
+      This       : access IControlChannelTrigger_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function put_InboundBufferSizeInBytes
+   function put_ServerKeepAliveIntervalInMinutes
    (
-      This       : access IDatagramSocketControl2_Interface
+      This       : access IControlChannelTrigger_Interface
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_DontFragment
+   function get_CurrentKeepAliveIntervalInMinutes
    (
-      This       : access IDatagramSocketControl2_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IControlChannelTrigger_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function put_DontFragment
+   function get_TransportObject
    (
-      This       : access IDatagramSocketControl2_Interface
-      ; value : Windows.Boolean
+      This       : access IControlChannelTrigger_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeepAliveTrigger
+   (
+      This       : access IControlChannelTrigger_Interface
+      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PushNotificationTrigger
+   (
+      This       : access IControlChannelTrigger_Interface
+      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UsingTransport
+   (
+      This       : access IControlChannelTrigger_Interface
+      ; transport : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function WaitForPushEnabled
+   (
+      This       : access IControlChannelTrigger_Interface
+      ; RetVal : access Windows.Networking.Sockets.ControlChannelTriggerStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DecreaseNetworkKeepAliveInterval
+   (
+      This       : access IControlChannelTrigger_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FlushTransport
+   (
+      This       : access IControlChannelTrigger_Interface
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IDatagramSocketControl3 : aliased constant Windows.IID := (3572204118, 8045, 17816, (155, 87, 212, 42, 0, 29, 243, 73 ));
+   IID_IControlChannelTrigger2 : aliased constant Windows.IID := (2936066615, 20926, 17684, (151, 37, 53, 86, 225, 135, 149, 128 ));
    
-   type IDatagramSocketControl3_Interface is interface and Windows.IInspectable_Interface;
+   type IControlChannelTrigger2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_MulticastOnly
+   function get_IsWakeFromLowPowerSupported
    (
-      This       : access IDatagramSocketControl3_Interface
+      This       : access IControlChannelTrigger2_Interface
       ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MulticastOnly
-   (
-      This       : access IDatagramSocketControl3_Interface
-      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IDatagramSocketStatics : aliased constant Windows.IID := (3922078446, 5268, 18977, (187, 126, 133, 137, 252, 117, 29, 157 ));
+   IID_IControlChannelTriggerEventDetails : aliased constant Windows.IID := (456581191, 35259, 16950, (150, 172, 113, 208, 18, 187, 72, 105 ));
    
-   type IDatagramSocketStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IControlChannelTriggerEventDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetEndpointPairsAsync
+   function get_ControlChannelTrigger
    (
-      This       : access IDatagramSocketStatics_Interface
-      ; remoteHostName : Windows.Networking.IHostName
-      ; remoteServiceName : Windows.String
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IControlChannelTriggerEventDetails_Interface
+      ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
    )
    return Windows.HRESULT is abstract;
    
-   function GetEndpointPairsWithSortOptionsAsync
+   ------------------------------------------------------------------------
+   
+   IID_IControlChannelTriggerFactory : aliased constant Windows.IID := (3662380272, 36209, 17519, (136, 195, 185, 81, 132, 162, 214, 205 ));
+   
+   type IControlChannelTriggerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateControlChannelTrigger
    (
-      This       : access IDatagramSocketStatics_Interface
-      ; remoteHostName : Windows.Networking.IHostName
-      ; remoteServiceName : Windows.String
-      ; sortOptions : Windows.Networking.HostNameSortOptions
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IControlChannelTriggerFactory_Interface
+      ; channelId : Windows.String
+      ; serverKeepAliveIntervalInMinutes : Windows.UInt32
+      ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateControlChannelTriggerEx
+   (
+      This       : access IControlChannelTriggerFactory_Interface
+      ; channelId : Windows.String
+      ; serverKeepAliveIntervalInMinutes : Windows.UInt32
+      ; resourceRequestType : Windows.Networking.Sockets.ControlChannelTriggerResourceType
+      ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IControlChannelTriggerResetEventDetails : aliased constant Windows.IID := (1750139790, 36548, 17150, (155, 178, 33, 233, 27, 123, 252, 177 ));
+   
+   type IControlChannelTriggerResetEventDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ResetReason
+   (
+      This       : access IControlChannelTriggerResetEventDetails_Interface
+      ; RetVal : access Windows.Networking.Sockets.ControlChannelTriggerResetReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HardwareSlotReset
+   (
+      This       : access IControlChannelTriggerResetEventDetails_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SoftwareSlotReset
+   (
+      This       : access IControlChannelTriggerResetEventDetails_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1080,254 +914,714 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_IStreamSocketInformation : aliased constant Windows.IID := (998288944, 24168, 16901, (136, 240, 220, 133, 210, 226, 93, 237 ));
+   IID_IDatagramSocketControl : aliased constant Windows.IID := (1387020078, 13466, 16693, (187, 88, 183, 155, 38, 71, 211, 144 ));
    
-   type IStreamSocketInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_LocalAddress
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LocalPort
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemoteHostName
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemoteAddress
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemoteServiceName
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemotePort
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RoundTripTimeStatistics
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.RoundTripTimeStatistics
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BandwidthStatistics
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.BandwidthStatistics
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProtectionLevel
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketProtectionLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SessionKey
-   (
-      This       : access IStreamSocketInformation_Interface
-      ; RetVal : access Windows.Storage.Streams.IBuffer
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamSocketInformation2 : aliased constant Windows.IID := (314737746, 19420, 20196, (151, 106, 207, 19, 14, 157, 146, 227 ));
-   
-   type IStreamSocketInformation2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ServerCertificateErrorSeverity
-   (
-      This       : access IStreamSocketInformation2_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerCertificateErrors
-   (
-      This       : access IStreamSocketInformation2_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerCertificate
-   (
-      This       : access IStreamSocketInformation2_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerIntermediateCertificates
-   (
-      This       : access IStreamSocketInformation2_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamSocketControl : aliased constant Windows.IID := (4263882225, 37547, 19187, (153, 146, 15, 76, 133, 227, 108, 196 ));
-   
-   type IStreamSocketControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_NoDelay
-   (
-      This       : access IStreamSocketControl_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_NoDelay
-   (
-      This       : access IStreamSocketControl_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeepAlive
-   (
-      This       : access IStreamSocketControl_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeepAlive
-   (
-      This       : access IStreamSocketControl_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutboundBufferSizeInBytes
-   (
-      This       : access IStreamSocketControl_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_OutboundBufferSizeInBytes
-   (
-      This       : access IStreamSocketControl_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
+   type IDatagramSocketControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_QualityOfService
    (
-      This       : access IStreamSocketControl_Interface
+      This       : access IDatagramSocketControl_Interface
       ; RetVal : access Windows.Networking.Sockets.SocketQualityOfService
    )
    return Windows.HRESULT is abstract;
    
    function put_QualityOfService
    (
-      This       : access IStreamSocketControl_Interface
+      This       : access IDatagramSocketControl_Interface
       ; value : Windows.Networking.Sockets.SocketQualityOfService
    )
    return Windows.HRESULT is abstract;
    
    function get_OutboundUnicastHopLimit
    (
-      This       : access IStreamSocketControl_Interface
+      This       : access IDatagramSocketControl_Interface
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
    
    function put_OutboundUnicastHopLimit
    (
-      This       : access IStreamSocketControl_Interface
+      This       : access IDatagramSocketControl_Interface
       ; value : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStreamSocketControl2 : aliased constant Windows.IID := (3268450902, 1551, 17601, (184, 226, 31, 191, 96, 189, 98, 197 ));
+   IID_IDatagramSocketControl2 : aliased constant Windows.IID := (871028162, 38812, 17429, (130, 161, 60, 250, 246, 70, 193, 146 ));
    
-   type IStreamSocketControl2_Interface is interface and Windows.IInspectable_Interface;
+   type IDatagramSocketControl2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_IgnorableServerCertificateErrors
+   function get_InboundBufferSizeInBytes
    (
-      This       : access IStreamSocketControl2_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVector_ChainValidationResult -- Generic Parameter Type
+      This       : access IDatagramSocketControl2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InboundBufferSizeInBytes
+   (
+      This       : access IDatagramSocketControl2_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DontFragment
+   (
+      This       : access IDatagramSocketControl2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DontFragment
+   (
+      This       : access IDatagramSocketControl2_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStreamSocketControl3 : aliased constant Windows.IID := (3312075852, 20084, 16446, (137, 76, 179, 28, 174, 92, 115, 66 ));
+   IID_IDatagramSocketControl3 : aliased constant Windows.IID := (3572204118, 8045, 17816, (155, 87, 212, 42, 0, 29, 243, 73 ));
    
-   type IStreamSocketControl3_Interface is interface and Windows.IInspectable_Interface;
+   type IDatagramSocketControl3_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_SerializeConnectionAttempts
+   function get_MulticastOnly
    (
-      This       : access IStreamSocketControl3_Interface
+      This       : access IDatagramSocketControl3_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_SerializeConnectionAttempts
+   function put_MulticastOnly
    (
-      This       : access IStreamSocketControl3_Interface
+      This       : access IDatagramSocketControl3_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDatagramSocketInformation : aliased constant Windows.IID := (1595561626, 22011, 18637, (151, 6, 122, 151, 79, 123, 21, 133 ));
+   
+   type IDatagramSocketInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LocalAddress
+   (
+      This       : access IDatagramSocketInformation_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LocalPort
+   (
+      This       : access IDatagramSocketInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemoteAddress
+   (
+      This       : access IDatagramSocketInformation_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemotePort
+   (
+      This       : access IDatagramSocketInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDatagramSocketMessageReceivedEventArgs : aliased constant Windows.IID := (2653805730, 5906, 19684, (177, 121, 140, 101, 44, 109, 16, 126 ));
+   
+   type IDatagramSocketMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RemoteAddress
+   (
+      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemotePort
+   (
+      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LocalAddress
+   (
+      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDataReader
+   (
+      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Streams.IDataReader
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDataStream
+   (
+      This       : access IDatagramSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDatagramSocketStatics : aliased constant Windows.IID := (3922078446, 5268, 18977, (187, 126, 133, 137, 252, 117, 29, 157 ));
+   
+   type IDatagramSocketStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetEndpointPairsAsync
+   (
+      This       : access IDatagramSocketStatics_Interface
+      ; remoteHostName : Windows.Networking.IHostName
+      ; remoteServiceName : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetEndpointPairsWithSortOptionsAsync
+   (
+      This       : access IDatagramSocketStatics_Interface
+      ; remoteHostName : Windows.Networking.IHostName
+      ; remoteServiceName : Windows.String
+      ; sortOptions : Windows.Networking.HostNameSortOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMessageWebSocket : aliased constant Windows.IID := (863141128, 13525, 18246, (173, 123, 141, 222, 91, 194, 239, 136 ));
+   
+   type IMessageWebSocket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Control
+   (
+      This       : access IMessageWebSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.IMessageWebSocketControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Information
+   (
+      This       : access IMessageWebSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.IWebSocketInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_MessageReceived
+   (
+      This       : access IMessageWebSocket_Interface
+      ; eventHandler : TypedEventHandler_IMessageWebSocket_add_MessageReceived
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_MessageReceived
+   (
+      This       : access IMessageWebSocket_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMessageWebSocket2 : aliased constant Windows.IID := (3201355495, 63944, 17418, (154, 213, 115, 114, 129, 217, 116, 46 ));
+   
+   type IMessageWebSocket2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_ServerCustomValidationRequested
+   (
+      This       : access IMessageWebSocket2_Interface
+      ; eventHandler : TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ServerCustomValidationRequested
+   (
+      This       : access IMessageWebSocket2_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMessageWebSocket3 : aliased constant Windows.IID := (1507450619, 29103, 17225, (132, 135, 145, 31, 207, 104, 21, 151 ));
+   
+   type IMessageWebSocket3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SendNonfinalFrameAsync
+   (
+      This       : access IMessageWebSocket3_Interface
+      ; data : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SendFinalFrameAsync
+   (
+      This       : access IMessageWebSocket3_Interface
+      ; data : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMessageWebSocketControl : aliased constant Windows.IID := (2165848202, 50729, 20234, (128, 251, 129, 252, 5, 83, 136, 98 ));
+   
+   type IMessageWebSocketControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MaxMessageSize
+   (
+      This       : access IMessageWebSocketControl_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MaxMessageSize
+   (
+      This       : access IMessageWebSocketControl_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MessageType
+   (
+      This       : access IMessageWebSocketControl_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketMessageType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MessageType
+   (
+      This       : access IMessageWebSocketControl_Interface
+      ; value : Windows.Networking.Sockets.SocketMessageType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMessageWebSocketControl2 : aliased constant Windows.IID := (3809466257, 2060, 16394, (167, 18, 39, 223, 169, 231, 68, 216 ));
+   
+   type IMessageWebSocketControl2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DesiredUnsolicitedPongInterval
+   (
+      This       : access IMessageWebSocketControl2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredUnsolicitedPongInterval
+   (
+      This       : access IMessageWebSocketControl2_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActualUnsolicitedPongInterval
+   (
+      This       : access IMessageWebSocketControl2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ReceiveMode
+   (
+      This       : access IMessageWebSocketControl2_Interface
+      ; RetVal : access Windows.Networking.Sockets.MessageWebSocketReceiveMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ReceiveMode
+   (
+      This       : access IMessageWebSocketControl2_Interface
+      ; value : Windows.Networking.Sockets.MessageWebSocketReceiveMode
    )
    return Windows.HRESULT is abstract;
    
    function get_ClientCertificate
    (
-      This       : access IStreamSocketControl3_Interface
+      This       : access IMessageWebSocketControl2_Interface
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
    
    function put_ClientCertificate
    (
-      This       : access IStreamSocketControl3_Interface
+      This       : access IMessageWebSocketControl2_Interface
       ; value : Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStreamSocketControl4 : aliased constant Windows.IID := (2521705277, 60455, 18568, (179, 206, 199, 75, 65, 132, 35, 173 ));
+   IID_IMessageWebSocketMessageReceivedEventArgs : aliased constant Windows.IID := (1200366252, 19531, 17133, (158, 215, 30, 249, 249, 79, 163, 213 ));
    
-   type IStreamSocketControl4_Interface is interface and Windows.IInspectable_Interface;
+   type IMessageWebSocketMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_MinProtectionLevel
+   function get_MessageType
    (
-      This       : access IStreamSocketControl4_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketProtectionLevel
+      This       : access IMessageWebSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketMessageType
    )
    return Windows.HRESULT is abstract;
    
-   function put_MinProtectionLevel
+   function GetDataReader
    (
-      This       : access IStreamSocketControl4_Interface
-      ; value : Windows.Networking.Sockets.SocketProtectionLevel
+      This       : access IMessageWebSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Streams.IDataReader
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDataStream
+   (
+      This       : access IMessageWebSocketMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMessageWebSocketMessageReceivedEventArgs2 : aliased constant Windows.IID := (2311980797, 56687, 18951, (135, 249, 249, 235, 77, 137, 216, 61 ));
+   
+   type IMessageWebSocketMessageReceivedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsMessageComplete
+   (
+      This       : access IMessageWebSocketMessageReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IServerMessageWebSocket : aliased constant Windows.IID := (3819737664, 33083, 24317, (126, 17, 174, 35, 5, 252, 119, 241 ));
+   
+   type IServerMessageWebSocket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_MessageReceived
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; value : TypedEventHandler_IServerMessageWebSocket_add_MessageReceived
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_MessageReceived
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Control
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.IServerMessageWebSocketControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Information
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.IServerMessageWebSocketInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutputStream
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; RetVal : access Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Closed
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; value : TypedEventHandler_IServerMessageWebSocket_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CloseWithStatus
+   (
+      This       : access IServerMessageWebSocket_Interface
+      ; code : Windows.UInt16
+      ; reason : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IServerMessageWebSocketControl : aliased constant Windows.IID := (1774383185, 7199, 22650, (69, 25, 33, 129, 97, 1, 146, 183 ));
+   
+   type IServerMessageWebSocketControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MessageType
+   (
+      This       : access IServerMessageWebSocketControl_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketMessageType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MessageType
+   (
+      This       : access IServerMessageWebSocketControl_Interface
+      ; value : Windows.Networking.Sockets.SocketMessageType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IServerMessageWebSocketInformation : aliased constant Windows.IID := (4231181407, 17480, 21765, (108, 201, 9, 175, 168, 145, 95, 93 ));
+   
+   type IServerMessageWebSocketInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BandwidthStatistics
+   (
+      This       : access IServerMessageWebSocketInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.BandwidthStatistics
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Protocol
+   (
+      This       : access IServerMessageWebSocketInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LocalAddress
+   (
+      This       : access IServerMessageWebSocketInformation_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IServerStreamWebSocket : aliased constant Windows.IID := (753753023, 29942, 21988, (121, 223, 145, 50, 104, 13, 254, 232 ));
+   
+   type IServerStreamWebSocket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Information
+   (
+      This       : access IServerStreamWebSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.IServerStreamWebSocketInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InputStream
+   (
+      This       : access IServerStreamWebSocket_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutputStream
+   (
+      This       : access IServerStreamWebSocket_Interface
+      ; RetVal : access Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Closed
+   (
+      This       : access IServerStreamWebSocket_Interface
+      ; value : TypedEventHandler_IServerStreamWebSocket_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IServerStreamWebSocket_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CloseWithStatus
+   (
+      This       : access IServerStreamWebSocket_Interface
+      ; code : Windows.UInt16
+      ; reason : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IServerStreamWebSocketInformation : aliased constant Windows.IID := (4231181407, 17480, 21765, (108, 201, 9, 171, 168, 145, 95, 93 ));
+   
+   type IServerStreamWebSocketInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BandwidthStatistics
+   (
+      This       : access IServerStreamWebSocketInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.BandwidthStatistics
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Protocol
+   (
+      This       : access IServerStreamWebSocketInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LocalAddress
+   (
+      This       : access IServerStreamWebSocketInformation_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISocketActivityContext : aliased constant Windows.IID := (1135627620, 19589, 17302, (166, 55, 29, 151, 63, 110, 189, 73 ));
+   
+   type ISocketActivityContext_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Data
+   (
+      This       : access ISocketActivityContext_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISocketActivityContextFactory : aliased constant Windows.IID := (3114255299, 2188, 17288, (131, 174, 37, 37, 19, 142, 4, 154 ));
+   
+   type ISocketActivityContextFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ISocketActivityContextFactory_Interface
+      ; data : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Networking.Sockets.ISocketActivityContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISocketActivityInformation : aliased constant Windows.IID := (2374648548, 43134, 19316, (153, 104, 24, 91, 37, 17, 222, 254 ));
+   
+   type ISocketActivityInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TaskId
+   (
+      This       : access ISocketActivityInformation_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Id
+   (
+      This       : access ISocketActivityInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SocketKind
+   (
+      This       : access ISocketActivityInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketActivityKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Context
+   (
+      This       : access ISocketActivityInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.ISocketActivityContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DatagramSocket
+   (
+      This       : access ISocketActivityInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.IDatagramSocket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StreamSocket
+   (
+      This       : access ISocketActivityInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.IStreamSocket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StreamSocketListener
+   (
+      This       : access ISocketActivityInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.IStreamSocketListener
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISocketActivityInformationStatics : aliased constant Windows.IID := (2238755962, 32381, 18230, (128, 65, 19, 39, 166, 84, 60, 86 ));
+   
+   type ISocketActivityInformationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AllSockets
+   (
+      This       : access ISocketActivityInformationStatics_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISocketActivityTriggerDetails : aliased constant Windows.IID := (1173620391, 64671, 20353, (172, 173, 53, 95, 239, 81, 230, 123 ));
+   
+   type ISocketActivityTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Reason
+   (
+      This       : access ISocketActivityTriggerDetails_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketActivityTriggerReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SocketInformation
+   (
+      This       : access ISocketActivityTriggerDetails_Interface
+      ; RetVal : access Windows.Networking.Sockets.ISocketActivityInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISocketErrorStatics : aliased constant Windows.IID := (2189637620, 32086, 19854, (183, 180, 160, 125, 215, 193, 188, 169 ));
+   
+   type ISocketErrorStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetStatus
+   (
+      This       : access ISocketErrorStatics_Interface
+      ; hresult : Windows.Int32
+      ; RetVal : access Windows.Networking.Sockets.SocketErrorStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -1481,134 +1775,254 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_IStreamSocketStatics : aliased constant Windows.IID := (2753608778, 28206, 19189, (181, 86, 53, 90, 224, 205, 79, 41 ));
+   IID_IStreamSocketControl : aliased constant Windows.IID := (4263882225, 37547, 19187, (153, 146, 15, 76, 133, 227, 108, 196 ));
    
-   type IStreamSocketStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetEndpointPairsAsync
-   (
-      This       : access IStreamSocketStatics_Interface
-      ; remoteHostName : Windows.Networking.IHostName
-      ; remoteServiceName : Windows.String
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetEndpointPairsWithSortOptionsAsync
-   (
-      This       : access IStreamSocketStatics_Interface
-      ; remoteHostName : Windows.Networking.IHostName
-      ; remoteServiceName : Windows.String
-      ; sortOptions : Windows.Networking.HostNameSortOptions
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamSocketListenerControl : aliased constant Windows.IID := (551077238, 36234, 19898, (151, 34, 161, 108, 77, 152, 73, 128 ));
-   
-   type IStreamSocketListenerControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_QualityOfService
-   (
-      This       : access IStreamSocketListenerControl_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketQualityOfService
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_QualityOfService
-   (
-      This       : access IStreamSocketListenerControl_Interface
-      ; value : Windows.Networking.Sockets.SocketQualityOfService
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamSocketListenerControl2 : aliased constant Windows.IID := (2492184165, 11326, 16459, (184, 176, 142, 178, 73, 162, 176, 161 ));
-   
-   type IStreamSocketListenerControl2_Interface is interface and Windows.IInspectable_Interface;
+   type IStreamSocketControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NoDelay
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function put_NoDelay
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function get_KeepAlive
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function put_KeepAlive
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function get_OutboundBufferSizeInBytes
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    function put_OutboundBufferSizeInBytes
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_QualityOfService
+   (
+      This       : access IStreamSocketControl_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketQualityOfService
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_QualityOfService
+   (
+      This       : access IStreamSocketControl_Interface
+      ; value : Windows.Networking.Sockets.SocketQualityOfService
    )
    return Windows.HRESULT is abstract;
    
    function get_OutboundUnicastHopLimit
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
    
    function put_OutboundUnicastHopLimit
    (
-      This       : access IStreamSocketListenerControl2_Interface
+      This       : access IStreamSocketControl_Interface
       ; value : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStreamSocketListenerInformation : aliased constant Windows.IID := (3861620783, 42554, 17163, (191, 98, 41, 233, 62, 86, 51, 180 ));
+   IID_IStreamSocketControl2 : aliased constant Windows.IID := (3268450902, 1551, 17601, (184, 226, 31, 191, 96, 189, 98, 197 ));
    
-   type IStreamSocketListenerInformation_Interface is interface and Windows.IInspectable_Interface;
+   type IStreamSocketControl2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_LocalPort
+   function get_IgnorableServerCertificateErrors
    (
-      This       : access IStreamSocketListenerInformation_Interface
-      ; RetVal : access Windows.String
+      This       : access IStreamSocketControl2_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVector_ChainValidationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStreamSocketListenerConnectionReceivedEventArgs : aliased constant Windows.IID := (205991593, 14143, 17531, (133, 177, 221, 212, 84, 136, 3, 186 ));
+   IID_IStreamSocketControl3 : aliased constant Windows.IID := (3312075852, 20084, 16446, (137, 76, 179, 28, 174, 92, 115, 66 ));
    
-   type IStreamSocketListenerConnectionReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IStreamSocketControl3_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Socket
+   function get_SerializeConnectionAttempts
    (
-      This       : access IStreamSocketListenerConnectionReceivedEventArgs_Interface
-      ; RetVal : access Windows.Networking.Sockets.IStreamSocket
+      This       : access IStreamSocketControl3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SerializeConnectionAttempts
+   (
+      This       : access IStreamSocketControl3_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ClientCertificate
+   (
+      This       : access IStreamSocketControl3_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ClientCertificate
+   (
+      This       : access IStreamSocketControl3_Interface
+      ; value : Windows.Security.Cryptography.Certificates.ICertificate
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamSocketControl4 : aliased constant Windows.IID := (2521705277, 60455, 18568, (179, 206, 199, 75, 65, 132, 35, 173 ));
+   
+   type IStreamSocketControl4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MinProtectionLevel
+   (
+      This       : access IStreamSocketControl4_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketProtectionLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MinProtectionLevel
+   (
+      This       : access IStreamSocketControl4_Interface
+      ; value : Windows.Networking.Sockets.SocketProtectionLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamSocketInformation : aliased constant Windows.IID := (998288944, 24168, 16901, (136, 240, 220, 133, 210, 226, 93, 237 ));
+   
+   type IStreamSocketInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LocalAddress
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LocalPort
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemoteHostName
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemoteAddress
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemoteServiceName
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemotePort
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RoundTripTimeStatistics
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.RoundTripTimeStatistics
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BandwidthStatistics
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.BandwidthStatistics
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProtectionLevel
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketProtectionLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SessionKey
+   (
+      This       : access IStreamSocketInformation_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamSocketInformation2 : aliased constant Windows.IID := (314737746, 19420, 20196, (151, 106, 207, 19, 14, 157, 146, 227 ));
+   
+   type IStreamSocketInformation2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ServerCertificateErrorSeverity
+   (
+      This       : access IStreamSocketInformation2_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerCertificateErrors
+   (
+      This       : access IStreamSocketInformation2_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerCertificate
+   (
+      This       : access IStreamSocketInformation2_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerIntermediateCertificates
+   (
+      This       : access IStreamSocketInformation2_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1734,48 +2148,315 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_IWebSocketServerCustomValidationRequestedEventArgs : aliased constant Windows.IID := (4293918280, 554, 19127, (139, 54, 225, 10, 244, 100, 14, 107 ));
+   IID_IStreamSocketListenerConnectionReceivedEventArgs : aliased constant Windows.IID := (205991593, 14143, 17531, (133, 177, 221, 212, 84, 136, 3, 186 ));
    
-   type IWebSocketServerCustomValidationRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IStreamSocketListenerConnectionReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ServerCertificate
+   function get_Socket
    (
-      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
+      This       : access IStreamSocketListenerConnectionReceivedEventArgs_Interface
+      ; RetVal : access Windows.Networking.Sockets.IStreamSocket
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamSocketListenerControl : aliased constant Windows.IID := (551077238, 36234, 19898, (151, 34, 161, 108, 77, 152, 73, 128 ));
+   
+   type IStreamSocketListenerControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_QualityOfService
+   (
+      This       : access IStreamSocketListenerControl_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketQualityOfService
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_QualityOfService
+   (
+      This       : access IStreamSocketListenerControl_Interface
+      ; value : Windows.Networking.Sockets.SocketQualityOfService
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamSocketListenerControl2 : aliased constant Windows.IID := (2492184165, 11326, 16459, (184, 176, 142, 178, 73, 162, 176, 161 ));
+   
+   type IStreamSocketListenerControl2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NoDelay
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_NoDelay
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeepAlive
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeepAlive
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutboundBufferSizeInBytes
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_OutboundBufferSizeInBytes
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutboundUnicastHopLimit
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; RetVal : access Windows.UInt8
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_OutboundUnicastHopLimit
+   (
+      This       : access IStreamSocketListenerControl2_Interface
+      ; value : Windows.UInt8
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamSocketListenerInformation : aliased constant Windows.IID := (3861620783, 42554, 17163, (191, 98, 41, 233, 62, 86, 51, 180 ));
+   
+   type IStreamSocketListenerInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LocalPort
+   (
+      This       : access IStreamSocketListenerInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamSocketStatics : aliased constant Windows.IID := (2753608778, 28206, 19189, (181, 86, 53, 90, 224, 205, 79, 41 ));
+   
+   type IStreamSocketStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetEndpointPairsAsync
+   (
+      This       : access IStreamSocketStatics_Interface
+      ; remoteHostName : Windows.Networking.IHostName
+      ; remoteServiceName : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetEndpointPairsWithSortOptionsAsync
+   (
+      This       : access IStreamSocketStatics_Interface
+      ; remoteHostName : Windows.Networking.IHostName
+      ; remoteServiceName : Windows.String
+      ; sortOptions : Windows.Networking.HostNameSortOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamWebSocket : aliased constant Windows.IID := (3175762392, 45705, 17851, (151, 235, 199, 82, 82, 5, 168, 67 ));
+   
+   type IStreamWebSocket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Control
+   (
+      This       : access IStreamWebSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.IStreamWebSocketControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Information
+   (
+      This       : access IStreamWebSocket_Interface
+      ; RetVal : access Windows.Networking.Sockets.IWebSocketInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InputStream
+   (
+      This       : access IStreamWebSocket_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamWebSocket2 : aliased constant Windows.IID := (2857175243, 37877, 18040, (130, 54, 87, 204, 229, 65, 126, 213 ));
+   
+   type IStreamWebSocket2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_ServerCustomValidationRequested
+   (
+      This       : access IStreamWebSocket2_Interface
+      ; eventHandler : TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ServerCustomValidationRequested
+   (
+      This       : access IStreamWebSocket2_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamWebSocketControl : aliased constant Windows.IID := (3035920561, 42074, 18651, (149, 58, 100, 91, 125, 150, 76, 7 ));
+   
+   type IStreamWebSocketControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NoDelay
+   (
+      This       : access IStreamWebSocketControl_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_NoDelay
+   (
+      This       : access IStreamWebSocketControl_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStreamWebSocketControl2 : aliased constant Windows.IID := (559783806, 64088, 16602, (159, 17, 164, 141, 175, 233, 80, 55 ));
+   
+   type IStreamWebSocketControl2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DesiredUnsolicitedPongInterval
+   (
+      This       : access IStreamWebSocketControl2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredUnsolicitedPongInterval
+   (
+      This       : access IStreamWebSocketControl2_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActualUnsolicitedPongInterval
+   (
+      This       : access IStreamWebSocketControl2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ClientCertificate
+   (
+      This       : access IStreamWebSocketControl2_Interface
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
    
-   function get_ServerCertificateErrorSeverity
+   function put_ClientCertificate
    (
-      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
+      This       : access IStreamWebSocketControl2_Interface
+      ; value : Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
    
-   function get_ServerCertificateErrors
+   ------------------------------------------------------------------------
+   
+   IID_IWebSocket : aliased constant Windows.IID := (4168563055, 39345, 19992, (188, 8, 133, 12, 154, 223, 21, 110 ));
+   
+   type IWebSocket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OutputStream
    (
-      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
+      This       : access IWebSocket_Interface
+      ; RetVal : access Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is abstract;
    
-   function get_ServerIntermediateCertificates
+   function ConnectAsync
    (
-      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
+      This       : access IWebSocket_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
-   function Reject
+   function SetRequestHeader
    (
-      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
+      This       : access IWebSocket_Interface
+      ; headerName : Windows.String
+      ; headerValue : Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeferral
+   function add_Closed
    (
-      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
+      This       : access IWebSocket_Interface
+      ; eventHandler : TypedEventHandler_IWebSocket_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IWebSocket_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CloseWithStatus
+   (
+      This       : access IWebSocket_Interface
+      ; code : Windows.UInt16
+      ; reason : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebSocketClosedEventArgs : aliased constant Windows.IID := (3468135687, 53416, 18179, (160, 145, 200, 194, 192, 145, 91, 195 ));
+   
+   type IWebSocketClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Code
+   (
+      This       : access IWebSocketClosedEventArgs_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Reason
+   (
+      This       : access IWebSocketClosedEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1849,6 +2530,20 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
+   IID_IWebSocketErrorStatics : aliased constant Windows.IID := (667808603, 8033, 18185, (142, 2, 97, 40, 58, 218, 78, 157 ));
+   
+   type IWebSocketErrorStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetStatus
+   (
+      This       : access IWebSocketErrorStatics_Interface
+      ; hresult : Windows.Int32
+      ; RetVal : access Windows.Web.WebErrorStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWebSocketInformation : aliased constant Windows.IID := (1577181974, 51498, 18341, (178, 95, 7, 132, 118, 57, 209, 129 ));
    
    type IWebSocketInformation_Interface is interface and Windows.IInspectable_Interface;
@@ -1910,743 +2605,48 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_IWebSocket : aliased constant Windows.IID := (4168563055, 39345, 19992, (188, 8, 133, 12, 154, 223, 21, 110 ));
+   IID_IWebSocketServerCustomValidationRequestedEventArgs : aliased constant Windows.IID := (4293918280, 554, 19127, (139, 54, 225, 10, 244, 100, 14, 107 ));
    
-   type IWebSocket_Interface is interface and Windows.IInspectable_Interface;
+   type IWebSocketServerCustomValidationRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_OutputStream
+   function get_ServerCertificate
    (
-      This       : access IWebSocket_Interface
-      ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ConnectAsync
-   (
-      This       : access IWebSocket_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetRequestHeader
-   (
-      This       : access IWebSocket_Interface
-      ; headerName : Windows.String
-      ; headerValue : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Closed
-   (
-      This       : access IWebSocket_Interface
-      ; eventHandler : TypedEventHandler_IWebSocket_add_Closed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Closed
-   (
-      This       : access IWebSocket_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CloseWithStatus
-   (
-      This       : access IWebSocket_Interface
-      ; code : Windows.UInt16
-      ; reason : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMessageWebSocketControl : aliased constant Windows.IID := (2165848202, 50729, 20234, (128, 251, 129, 252, 5, 83, 136, 98 ));
-   
-   type IMessageWebSocketControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MaxMessageSize
-   (
-      This       : access IMessageWebSocketControl_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MaxMessageSize
-   (
-      This       : access IMessageWebSocketControl_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MessageType
-   (
-      This       : access IMessageWebSocketControl_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketMessageType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MessageType
-   (
-      This       : access IMessageWebSocketControl_Interface
-      ; value : Windows.Networking.Sockets.SocketMessageType
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMessageWebSocketControl2 : aliased constant Windows.IID := (3809466257, 2060, 16394, (167, 18, 39, 223, 169, 231, 68, 216 ));
-   
-   type IMessageWebSocketControl2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DesiredUnsolicitedPongInterval
-   (
-      This       : access IMessageWebSocketControl2_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredUnsolicitedPongInterval
-   (
-      This       : access IMessageWebSocketControl2_Interface
-      ; value : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ActualUnsolicitedPongInterval
-   (
-      This       : access IMessageWebSocketControl2_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ReceiveMode
-   (
-      This       : access IMessageWebSocketControl2_Interface
-      ; RetVal : access Windows.Networking.Sockets.MessageWebSocketReceiveMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ReceiveMode
-   (
-      This       : access IMessageWebSocketControl2_Interface
-      ; value : Windows.Networking.Sockets.MessageWebSocketReceiveMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ClientCertificate
-   (
-      This       : access IMessageWebSocketControl2_Interface
+      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
    
-   function put_ClientCertificate
+   function get_ServerCertificateErrorSeverity
    (
-      This       : access IMessageWebSocketControl2_Interface
-      ; value : Windows.Security.Cryptography.Certificates.ICertificate
+      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IMessageWebSocket : aliased constant Windows.IID := (863141128, 13525, 18246, (173, 123, 141, 222, 91, 194, 239, 136 ));
-   
-   type IMessageWebSocket_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Control
-   (
-      This       : access IMessageWebSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IMessageWebSocketControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Information
-   (
-      This       : access IMessageWebSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IWebSocketInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_MessageReceived
-   (
-      This       : access IMessageWebSocket_Interface
-      ; eventHandler : TypedEventHandler_IMessageWebSocket_add_MessageReceived
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_MessageReceived
-   (
-      This       : access IMessageWebSocket_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMessageWebSocket2 : aliased constant Windows.IID := (3201355495, 63944, 17418, (154, 213, 115, 114, 129, 217, 116, 46 ));
-   
-   type IMessageWebSocket2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_ServerCustomValidationRequested
-   (
-      This       : access IMessageWebSocket2_Interface
-      ; eventHandler : TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ServerCustomValidationRequested
-   (
-      This       : access IMessageWebSocket2_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMessageWebSocket3 : aliased constant Windows.IID := (1507450619, 29103, 17225, (132, 135, 145, 31, 207, 104, 21, 151 ));
-   
-   type IMessageWebSocket3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SendNonfinalFrameAsync
-   (
-      This       : access IMessageWebSocket3_Interface
-      ; data : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SendFinalFrameAsync
-   (
-      This       : access IMessageWebSocket3_Interface
-      ; data : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamWebSocketControl : aliased constant Windows.IID := (3035920561, 42074, 18651, (149, 58, 100, 91, 125, 150, 76, 7 ));
-   
-   type IStreamWebSocketControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_NoDelay
-   (
-      This       : access IStreamWebSocketControl_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_NoDelay
-   (
-      This       : access IStreamWebSocketControl_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamWebSocketControl2 : aliased constant Windows.IID := (559783806, 64088, 16602, (159, 17, 164, 141, 175, 233, 80, 55 ));
-   
-   type IStreamWebSocketControl2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DesiredUnsolicitedPongInterval
-   (
-      This       : access IStreamWebSocketControl2_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredUnsolicitedPongInterval
-   (
-      This       : access IStreamWebSocketControl2_Interface
-      ; value : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ActualUnsolicitedPongInterval
-   (
-      This       : access IStreamWebSocketControl2_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ClientCertificate
-   (
-      This       : access IStreamWebSocketControl2_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ClientCertificate
-   (
-      This       : access IStreamWebSocketControl2_Interface
-      ; value : Windows.Security.Cryptography.Certificates.ICertificate
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamWebSocket : aliased constant Windows.IID := (3175762392, 45705, 17851, (151, 235, 199, 82, 82, 5, 168, 67 ));
-   
-   type IStreamWebSocket_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Control
-   (
-      This       : access IStreamWebSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IStreamWebSocketControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Information
-   (
-      This       : access IStreamWebSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IWebSocketInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_InputStream
-   (
-      This       : access IStreamWebSocket_Interface
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStreamWebSocket2 : aliased constant Windows.IID := (2857175243, 37877, 18040, (130, 54, 87, 204, 229, 65, 126, 213 ));
-   
-   type IStreamWebSocket2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_ServerCustomValidationRequested
-   (
-      This       : access IStreamWebSocket2_Interface
-      ; eventHandler : TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ServerCustomValidationRequested
-   (
-      This       : access IStreamWebSocket2_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISocketErrorStatics : aliased constant Windows.IID := (2189637620, 32086, 19854, (183, 180, 160, 125, 215, 193, 188, 169 ));
-   
-   type ISocketErrorStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetStatus
-   (
-      This       : access ISocketErrorStatics_Interface
-      ; hresult : Windows.Int32
-      ; RetVal : access Windows.Networking.Sockets.SocketErrorStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebSocketErrorStatics : aliased constant Windows.IID := (667808603, 8033, 18185, (142, 2, 97, 40, 58, 218, 78, 157 ));
-   
-   type IWebSocketErrorStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetStatus
-   (
-      This       : access IWebSocketErrorStatics_Interface
-      ; hresult : Windows.Int32
-      ; RetVal : access Windows.Web.WebErrorStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IServerMessageWebSocket : aliased constant Windows.IID := (3819737664, 33083, 24317, (126, 17, 174, 35, 5, 252, 119, 241 ));
-   
-   type IServerMessageWebSocket_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_MessageReceived
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; value : TypedEventHandler_IServerMessageWebSocket_add_MessageReceived
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_MessageReceived
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Control
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IServerMessageWebSocketControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Information
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IServerMessageWebSocketInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutputStream
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Closed
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; value : TypedEventHandler_IServerMessageWebSocket_add_Closed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Closed
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CloseWithStatus
-   (
-      This       : access IServerMessageWebSocket_Interface
-      ; code : Windows.UInt16
-      ; reason : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IServerMessageWebSocketControl : aliased constant Windows.IID := (1774383185, 7199, 22650, (69, 25, 33, 129, 97, 1, 146, 183 ));
-   
-   type IServerMessageWebSocketControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MessageType
-   (
-      This       : access IServerMessageWebSocketControl_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketMessageType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MessageType
-   (
-      This       : access IServerMessageWebSocketControl_Interface
-      ; value : Windows.Networking.Sockets.SocketMessageType
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IServerStreamWebSocketInformation : aliased constant Windows.IID := (4231181407, 17480, 21765, (108, 201, 9, 171, 168, 145, 95, 93 ));
-   
-   type IServerStreamWebSocketInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_BandwidthStatistics
-   (
-      This       : access IServerStreamWebSocketInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.BandwidthStatistics
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Protocol
-   (
-      This       : access IServerStreamWebSocketInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LocalAddress
-   (
-      This       : access IServerStreamWebSocketInformation_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IServerStreamWebSocket : aliased constant Windows.IID := (753753023, 29942, 21988, (121, 223, 145, 50, 104, 13, 254, 232 ));
-   
-   type IServerStreamWebSocket_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Information
-   (
-      This       : access IServerStreamWebSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IServerStreamWebSocketInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_InputStream
-   (
-      This       : access IServerStreamWebSocket_Interface
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutputStream
-   (
-      This       : access IServerStreamWebSocket_Interface
-      ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Closed
-   (
-      This       : access IServerStreamWebSocket_Interface
-      ; value : TypedEventHandler_IServerStreamWebSocket_add_Closed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Closed
-   (
-      This       : access IServerStreamWebSocket_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CloseWithStatus
-   (
-      This       : access IServerStreamWebSocket_Interface
-      ; code : Windows.UInt16
-      ; reason : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IServerMessageWebSocketInformation : aliased constant Windows.IID := (4231181407, 17480, 21765, (108, 201, 9, 175, 168, 145, 95, 93 ));
-   
-   type IServerMessageWebSocketInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_BandwidthStatistics
-   (
-      This       : access IServerMessageWebSocketInformation_Interface
-      ; RetVal : access Windows.Networking.Sockets.BandwidthStatistics
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Protocol
-   (
-      This       : access IServerMessageWebSocketInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LocalAddress
-   (
-      This       : access IServerMessageWebSocketInformation_Interface
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IControlChannelTrigger : aliased constant Windows.IID := (2098475431, 61078, 16616, (161, 153, 135, 3, 205, 150, 158, 195 ));
-   
-   type IControlChannelTrigger_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ControlChannelTriggerId
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerKeepAliveIntervalInMinutes
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ServerKeepAliveIntervalInMinutes
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CurrentKeepAliveIntervalInMinutes
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TransportObject
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeepAliveTrigger
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PushNotificationTrigger
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UsingTransport
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; transport : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function WaitForPushEnabled
-   (
-      This       : access IControlChannelTrigger_Interface
-      ; RetVal : access Windows.Networking.Sockets.ControlChannelTriggerStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DecreaseNetworkKeepAliveInterval
-   (
-      This       : access IControlChannelTrigger_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FlushTransport
-   (
-      This       : access IControlChannelTrigger_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IControlChannelTriggerFactory : aliased constant Windows.IID := (3662380272, 36209, 17519, (136, 195, 185, 81, 132, 162, 214, 205 ));
-   
-   type IControlChannelTriggerFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateControlChannelTrigger
-   (
-      This       : access IControlChannelTriggerFactory_Interface
-      ; channelId : Windows.String
-      ; serverKeepAliveIntervalInMinutes : Windows.UInt32
-      ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateControlChannelTriggerEx
-   (
-      This       : access IControlChannelTriggerFactory_Interface
-      ; channelId : Windows.String
-      ; serverKeepAliveIntervalInMinutes : Windows.UInt32
-      ; resourceRequestType : Windows.Networking.Sockets.ControlChannelTriggerResourceType
-      ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IControlChannelTriggerEventDetails : aliased constant Windows.IID := (456581191, 35259, 16950, (150, 172, 113, 208, 18, 187, 72, 105 ));
-   
-   type IControlChannelTriggerEventDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ControlChannelTrigger
-   (
-      This       : access IControlChannelTriggerEventDetails_Interface
-      ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IControlChannelTriggerResetEventDetails : aliased constant Windows.IID := (1750139790, 36548, 17150, (155, 178, 33, 233, 27, 123, 252, 177 ));
-   
-   type IControlChannelTriggerResetEventDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ResetReason
-   (
-      This       : access IControlChannelTriggerResetEventDetails_Interface
-      ; RetVal : access Windows.Networking.Sockets.ControlChannelTriggerResetReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HardwareSlotReset
+   function get_ServerCertificateErrors
    (
-      This       : access IControlChannelTriggerResetEventDetails_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   function get_SoftwareSlotReset
-   (
-      This       : access IControlChannelTriggerResetEventDetails_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IControlChannelTrigger2 : aliased constant Windows.IID := (2936066615, 20926, 17684, (151, 37, 53, 86, 225, 135, 149, 128 ));
-   
-   type IControlChannelTrigger2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsWakeFromLowPowerSupported
-   (
-      This       : access IControlChannelTrigger2_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IBackgroundTask_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Run
-   (
-      This       : access IBackgroundTask_Imported_Interface
-      ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IStreamSocket : aliased constant Windows.IID := (4215160124, 28645, 24103, (161, 50, 144, 34, 71, 226, 169, 62 ));
-   
-   type IAsyncOperation_IStreamSocket_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_ServerIntermediateCertificates
    (
-      This       : access IAsyncOperation_IStreamSocket_Interface
-      ; handler : Windows.Networking.Sockets.AsyncOperationCompletedHandler_IStreamSocket
+      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function Reject
    (
-      This       : access IAsyncOperation_IStreamSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.AsyncOperationCompletedHandler_IStreamSocket
+      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function GetDeferral
    (
-      This       : access IAsyncOperation_IStreamSocket_Interface
-      ; RetVal : access Windows.Networking.Sockets.IStreamSocket
+      This       : access IWebSocketServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    
@@ -2682,32 +2682,6 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IStreamSocketListener_add_ConnectionReceived : aliased constant Windows.IID := (869272897, 51535, 23137, (154, 183, 40, 13, 206, 250, 11, 8 ));
-   
-   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamSocketListener ; args : Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStreamSocketListener_add_ConnectionReceived'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface
-      ; sender : Windows.Networking.Sockets.IStreamSocketListener
-      ; args : Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IWebSocket_add_Closed : aliased constant Windows.IID := (63934352, 5737, 24397, (148, 4, 43, 120, 70, 120, 230, 221 ));
-   
-   type TypedEventHandler_IWebSocket_add_Closed_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IWebSocket ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebSocket_add_Closed'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebSocket_add_Closed_Interface
-      ; sender : Windows.Networking.Sockets.IWebSocket
-      ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_IMessageWebSocket_add_MessageReceived : aliased constant Windows.IID := (3734504760, 28109, 21168, (128, 47, 75, 108, 245, 154, 1, 171 ));
    
    type TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IMessageWebSocket ; args : Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMessageWebSocket_add_MessageReceived'access) with null record;
@@ -2734,14 +2708,14 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested : aliased constant Windows.IID := (414270419, 35198, 22878, (172, 193, 239, 53, 97, 75, 76, 236 ));
+   IID_TypedEventHandler_IServerMessageWebSocket_add_Closed : aliased constant Windows.IID := (3404091908, 47494, 23795, (135, 234, 182, 123, 0, 251, 167, 141 ));
    
-   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamWebSocket ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested'access) with null record;
+   type TypedEventHandler_IServerMessageWebSocket_add_Closed_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IServerMessageWebSocket ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IServerMessageWebSocket_add_Closed'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface
-      ; sender : Windows.Networking.Sockets.IStreamWebSocket
-      ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs
+      This       : access TypedEventHandler_IServerMessageWebSocket_add_Closed_Interface
+      ; sender : Windows.Networking.Sockets.IServerMessageWebSocket
+      ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs
    )
    return Windows.HRESULT;
    
@@ -2760,19 +2734,6 @@ package Windows.Networking.Sockets is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IServerMessageWebSocket_add_Closed : aliased constant Windows.IID := (3404091908, 47494, 23795, (135, 234, 182, 123, 0, 251, 167, 141 ));
-   
-   type TypedEventHandler_IServerMessageWebSocket_add_Closed_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IServerMessageWebSocket ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IServerMessageWebSocket_add_Closed'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IServerMessageWebSocket_add_Closed_Interface
-      ; sender : Windows.Networking.Sockets.IServerMessageWebSocket
-      ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_IServerStreamWebSocket_add_Closed : aliased constant Windows.IID := (3038534459, 5659, 21918, (165, 83, 0, 89, 51, 99, 41, 204 ));
    
    type TypedEventHandler_IServerStreamWebSocket_add_Closed_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IServerStreamWebSocket ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IServerStreamWebSocket_add_Closed'access) with null record;
@@ -2785,56 +2746,48 @@ package Windows.Networking.Sockets is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IStreamSocketListener_add_ConnectionReceived : aliased constant Windows.IID := (869272897, 51535, 23137, (154, 183, 40, 13, 206, 250, 11, 8 ));
+   
+   type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamSocketListener ; args : Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStreamSocketListener_add_ConnectionReceived'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface
+      ; sender : Windows.Networking.Sockets.IStreamSocketListener
+      ; args : Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested : aliased constant Windows.IID := (414270419, 35198, 22878, (172, 193, 239, 53, 97, 75, 76, 236 ));
+   
+   type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamWebSocket ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface
+      ; sender : Windows.Networking.Sockets.IStreamWebSocket
+      ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebSocket_add_Closed : aliased constant Windows.IID := (63934352, 5737, 24397, (148, 4, 43, 120, 70, 120, 230, 221 ));
+   
+   type TypedEventHandler_IWebSocket_add_Closed_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IWebSocket ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebSocket_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebSocket_add_Closed_Interface
+      ; sender : Windows.Networking.Sockets.IWebSocket
+      ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SocketActivityContext is Windows.Networking.Sockets.ISocketActivityContext;
-   function Create
-   (
-      data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Networking.Sockets.ISocketActivityContext;
-   
-   subtype DatagramSocket is Windows.Networking.Sockets.IDatagramSocket;
-   function Create return Windows.Networking.Sockets.IDatagramSocket;
-   
-   subtype StreamSocket is Windows.Networking.Sockets.IStreamSocket;
-   function Create return Windows.Networking.Sockets.IStreamSocket;
-   
-   subtype StreamSocketListener is Windows.Networking.Sockets.IStreamSocketListener;
-   function Create return Windows.Networking.Sockets.IStreamSocketListener;
-   
-   subtype SocketActivityInformation is Windows.Networking.Sockets.ISocketActivityInformation;
-   subtype DatagramSocketControl is Windows.Networking.Sockets.IDatagramSocketControl;
-   subtype DatagramSocketInformation is Windows.Networking.Sockets.IDatagramSocketInformation;
-   subtype DatagramSocketMessageReceivedEventArgs is Windows.Networking.Sockets.IDatagramSocketMessageReceivedEventArgs;
-   subtype StreamSocketControl is Windows.Networking.Sockets.IStreamSocketControl;
-   subtype StreamSocketInformation is Windows.Networking.Sockets.IStreamSocketInformation;
-   subtype StreamSocketListenerControl is Windows.Networking.Sockets.IStreamSocketListenerControl;
-   subtype StreamSocketListenerInformation is Windows.Networking.Sockets.IStreamSocketListenerInformation;
-   subtype StreamSocketListenerConnectionReceivedEventArgs is Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs;
-   subtype WebSocketClosedEventArgs is Windows.Networking.Sockets.IWebSocketClosedEventArgs;
-   subtype MessageWebSocketControl is Windows.Networking.Sockets.IMessageWebSocketControl;
-   subtype MessageWebSocketInformation is Windows.Networking.Sockets.IWebSocketInformation;
-   subtype MessageWebSocket is Windows.Networking.Sockets.IMessageWebSocket;
-   function Create return Windows.Networking.Sockets.IMessageWebSocket;
-   
-   subtype MessageWebSocketMessageReceivedEventArgs is Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs;
-   subtype WebSocketServerCustomValidationRequestedEventArgs is Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs;
-   subtype StreamWebSocketControl is Windows.Networking.Sockets.IStreamWebSocketControl;
-   subtype StreamWebSocketInformation is Windows.Networking.Sockets.IWebSocketInformation;
-   subtype StreamWebSocket is Windows.Networking.Sockets.IStreamWebSocket;
-   function Create return Windows.Networking.Sockets.IStreamWebSocket;
-   
-   subtype ServerMessageWebSocket is Windows.Networking.Sockets.IServerMessageWebSocket;
-   subtype ServerMessageWebSocketControl is Windows.Networking.Sockets.IServerMessageWebSocketControl;
-   subtype ServerMessageWebSocketInformation is Windows.Networking.Sockets.IServerMessageWebSocketInformation;
-   subtype ServerStreamWebSocketInformation is Windows.Networking.Sockets.IServerStreamWebSocketInformation;
-   subtype ServerStreamWebSocket is Windows.Networking.Sockets.IServerStreamWebSocket;
-   subtype WebSocketKeepAlive is Windows.ApplicationModel.Background.IBackgroundTask;
-   function Create return Windows.ApplicationModel.Background.IBackgroundTask;
-   
-   subtype SocketActivityTriggerDetails is Windows.Networking.Sockets.ISocketActivityTriggerDetails;
    subtype ControlChannelTrigger is Windows.Networking.Sockets.IControlChannelTrigger;
    function CreateControlChannelTrigger
    (
@@ -2851,6 +2804,53 @@ package Windows.Networking.Sockets is
    )
    return Windows.Networking.Sockets.IControlChannelTrigger;
    
+   subtype DatagramSocket is Windows.Networking.Sockets.IDatagramSocket;
+   function Create return Windows.Networking.Sockets.IDatagramSocket;
+   
+   subtype DatagramSocketControl is Windows.Networking.Sockets.IDatagramSocketControl;
+   subtype DatagramSocketInformation is Windows.Networking.Sockets.IDatagramSocketInformation;
+   subtype DatagramSocketMessageReceivedEventArgs is Windows.Networking.Sockets.IDatagramSocketMessageReceivedEventArgs;
+   subtype MessageWebSocket is Windows.Networking.Sockets.IMessageWebSocket;
+   function Create return Windows.Networking.Sockets.IMessageWebSocket;
+   
+   subtype MessageWebSocketControl is Windows.Networking.Sockets.IMessageWebSocketControl;
+   subtype MessageWebSocketInformation is Windows.Networking.Sockets.IWebSocketInformation;
+   subtype MessageWebSocketMessageReceivedEventArgs is Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs;
+   subtype ServerMessageWebSocket is Windows.Networking.Sockets.IServerMessageWebSocket;
+   subtype ServerMessageWebSocketControl is Windows.Networking.Sockets.IServerMessageWebSocketControl;
+   subtype ServerMessageWebSocketInformation is Windows.Networking.Sockets.IServerMessageWebSocketInformation;
+   subtype ServerStreamWebSocket is Windows.Networking.Sockets.IServerStreamWebSocket;
+   subtype ServerStreamWebSocketInformation is Windows.Networking.Sockets.IServerStreamWebSocketInformation;
+   subtype SocketActivityContext is Windows.Networking.Sockets.ISocketActivityContext;
+   function Create
+   (
+      data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Networking.Sockets.ISocketActivityContext;
+   
+   subtype SocketActivityInformation is Windows.Networking.Sockets.ISocketActivityInformation;
+   subtype SocketActivityTriggerDetails is Windows.Networking.Sockets.ISocketActivityTriggerDetails;
+   subtype StreamSocket is Windows.Networking.Sockets.IStreamSocket;
+   function Create return Windows.Networking.Sockets.IStreamSocket;
+   
+   subtype StreamSocketControl is Windows.Networking.Sockets.IStreamSocketControl;
+   subtype StreamSocketInformation is Windows.Networking.Sockets.IStreamSocketInformation;
+   subtype StreamSocketListener is Windows.Networking.Sockets.IStreamSocketListener;
+   function Create return Windows.Networking.Sockets.IStreamSocketListener;
+   
+   subtype StreamSocketListenerConnectionReceivedEventArgs is Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs;
+   subtype StreamSocketListenerControl is Windows.Networking.Sockets.IStreamSocketListenerControl;
+   subtype StreamSocketListenerInformation is Windows.Networking.Sockets.IStreamSocketListenerInformation;
+   subtype StreamWebSocket is Windows.Networking.Sockets.IStreamWebSocket;
+   function Create return Windows.Networking.Sockets.IStreamWebSocket;
+   
+   subtype StreamWebSocketControl is Windows.Networking.Sockets.IStreamWebSocketControl;
+   subtype StreamWebSocketInformation is Windows.Networking.Sockets.IWebSocketInformation;
+   subtype WebSocketClosedEventArgs is Windows.Networking.Sockets.IWebSocketClosedEventArgs;
+   subtype WebSocketKeepAlive is Windows.ApplicationModel.Background.IBackgroundTask;
+   function Create return Windows.ApplicationModel.Background.IBackgroundTask;
+   
+   subtype WebSocketServerCustomValidationRequestedEventArgs is Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -2871,6 +2871,15 @@ package Windows.Networking.Sockets is
    )
    return Windows.Address;
    
+   function get_AllSockets
+   return Windows.Address;
+   
+   function GetStatus
+   (
+      hresult : Windows.Int32
+   )
+   return Windows.Networking.Sockets.SocketErrorStatus;
+   
    function GetEndpointPairsAsync_IStreamSocket
    (
       remoteHostName : Windows.Networking.IHostName
@@ -2885,15 +2894,6 @@ package Windows.Networking.Sockets is
       ; sortOptions : Windows.Networking.HostNameSortOptions
    )
    return Windows.Address;
-   
-   function get_AllSockets
-   return Windows.Address;
-   
-   function GetStatus
-   (
-      hresult : Windows.Int32
-   )
-   return Windows.Networking.Sockets.SocketErrorStatus;
    
    function GetStatus
    (

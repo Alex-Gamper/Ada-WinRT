@@ -75,24 +75,27 @@ package Windows.ApplicationModel.DataTransfer is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_DataPackageOperation_Interface;
+   type AsyncOperationCompletedHandler_DataPackageOperation is access all AsyncOperationCompletedHandler_DataPackageOperation_Interface'Class;
+   type AsyncOperationCompletedHandler_DataPackageOperation_Ptr is access all AsyncOperationCompletedHandler_DataPackageOperation;
+   type AsyncOperationCompletedHandler_IDataPackage_Interface;
+   type AsyncOperationCompletedHandler_IDataPackage is access all AsyncOperationCompletedHandler_IDataPackage_Interface'Class;
+   type AsyncOperationCompletedHandler_IDataPackage_Ptr is access all AsyncOperationCompletedHandler_IDataPackage;
    type DataProviderHandler_Interface;
    type DataProviderHandler is access all DataProviderHandler_Interface'Class;
    type DataProviderHandler_Ptr is access all DataProviderHandler;
    type ShareProviderHandler_Interface;
    type ShareProviderHandler is access all ShareProviderHandler_Interface'Class;
    type ShareProviderHandler_Ptr is access all ShareProviderHandler;
-   type TypedEventHandler_IDataPackage_add_OperationCompleted_Interface;
-   type TypedEventHandler_IDataPackage_add_OperationCompleted is access all TypedEventHandler_IDataPackage_add_OperationCompleted_Interface'Class;
-   type TypedEventHandler_IDataPackage_add_OperationCompleted_Ptr is access all TypedEventHandler_IDataPackage_add_OperationCompleted;
    type TypedEventHandler_IDataPackage_add_Destroyed_Interface;
    type TypedEventHandler_IDataPackage_add_Destroyed is access all TypedEventHandler_IDataPackage_add_Destroyed_Interface'Class;
    type TypedEventHandler_IDataPackage_add_Destroyed_Ptr is access all TypedEventHandler_IDataPackage_add_Destroyed;
+   type TypedEventHandler_IDataPackage_add_OperationCompleted_Interface;
+   type TypedEventHandler_IDataPackage_add_OperationCompleted is access all TypedEventHandler_IDataPackage_add_OperationCompleted_Interface'Class;
+   type TypedEventHandler_IDataPackage_add_OperationCompleted_Ptr is access all TypedEventHandler_IDataPackage_add_OperationCompleted;
    type TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface;
    type TypedEventHandler_IDataPackage3_add_ShareCompleted is access all TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface'Class;
    type TypedEventHandler_IDataPackage3_add_ShareCompleted_Ptr is access all TypedEventHandler_IDataPackage3_add_ShareCompleted;
-   type AsyncOperationCompletedHandler_DataPackageOperation_Interface;
-   type AsyncOperationCompletedHandler_DataPackageOperation is access all AsyncOperationCompletedHandler_DataPackageOperation_Interface'Class;
-   type AsyncOperationCompletedHandler_DataPackageOperation_Ptr is access all AsyncOperationCompletedHandler_DataPackageOperation;
    type TypedEventHandler_IDataTransferManager_add_DataRequested_Interface;
    type TypedEventHandler_IDataTransferManager_add_DataRequested is access all TypedEventHandler_IDataTransferManager_add_DataRequested_Interface'Class;
    type TypedEventHandler_IDataTransferManager_add_DataRequested_Ptr is access all TypedEventHandler_IDataTransferManager_add_DataRequested;
@@ -102,35 +105,29 @@ package Windows.ApplicationModel.DataTransfer is
    type TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface;
    type TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested is access all TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface'Class;
    type TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Ptr is access all TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested;
-   type AsyncOperationCompletedHandler_IDataPackage_Interface;
-   type AsyncOperationCompletedHandler_IDataPackage is access all AsyncOperationCompletedHandler_IDataPackage_Interface'Class;
-   type AsyncOperationCompletedHandler_IDataPackage_Ptr is access all AsyncOperationCompletedHandler_IDataPackage;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IStandardDataFormatsStatics_Interface;
-   type IStandardDataFormatsStatics is access all IStandardDataFormatsStatics_Interface'Class;
-   type IStandardDataFormatsStatics_Ptr is access all IStandardDataFormatsStatics;
-   type IStandardDataFormatsStatics2_Interface;
-   type IStandardDataFormatsStatics2 is access all IStandardDataFormatsStatics2_Interface'Class;
-   type IStandardDataFormatsStatics2_Ptr is access all IStandardDataFormatsStatics2;
-   type IStandardDataFormatsStatics3_Interface;
-   type IStandardDataFormatsStatics3 is access all IStandardDataFormatsStatics3_Interface'Class;
-   type IStandardDataFormatsStatics3_Ptr is access all IStandardDataFormatsStatics3;
-   type IDataPackagePropertySetView_Interface;
-   type IDataPackagePropertySetView is access all IDataPackagePropertySetView_Interface'Class;
-   type IDataPackagePropertySetView_Ptr is access all IDataPackagePropertySetView;
-   type IDataPackagePropertySetView2_Interface;
-   type IDataPackagePropertySetView2 is access all IDataPackagePropertySetView2_Interface'Class;
-   type IDataPackagePropertySetView2_Ptr is access all IDataPackagePropertySetView2;
-   type IDataPackagePropertySetView3_Interface;
-   type IDataPackagePropertySetView3 is access all IDataPackagePropertySetView3_Interface'Class;
-   type IDataPackagePropertySetView3_Ptr is access all IDataPackagePropertySetView3;
-   type IDataPackagePropertySetView4_Interface;
-   type IDataPackagePropertySetView4 is access all IDataPackagePropertySetView4_Interface'Class;
-   type IDataPackagePropertySetView4_Ptr is access all IDataPackagePropertySetView4;
+   type IAsyncOperation_DataPackageOperation_Interface;
+   type IAsyncOperation_DataPackageOperation is access all IAsyncOperation_DataPackageOperation_Interface'Class;
+   type IAsyncOperation_DataPackageOperation_Ptr is access all IAsyncOperation_DataPackageOperation;
+   type IAsyncOperation_IDataPackage_Interface;
+   type IAsyncOperation_IDataPackage is access all IAsyncOperation_IDataPackage_Interface'Class;
+   type IAsyncOperation_IDataPackage_Ptr is access all IAsyncOperation_IDataPackage;
+   type IClipboardStatics_Interface;
+   type IClipboardStatics is access all IClipboardStatics_Interface'Class;
+   type IClipboardStatics_Ptr is access all IClipboardStatics;
+   type IDataPackage_Interface;
+   type IDataPackage is access all IDataPackage_Interface'Class;
+   type IDataPackage_Ptr is access all IDataPackage;
+   type IDataPackage2_Interface;
+   type IDataPackage2 is access all IDataPackage2_Interface'Class;
+   type IDataPackage2_Ptr is access all IDataPackage2;
+   type IDataPackage3_Interface;
+   type IDataPackage3 is access all IDataPackage3_Interface'Class;
+   type IDataPackage3_Ptr is access all IDataPackage3;
    type IDataPackagePropertySet_Interface;
    type IDataPackagePropertySet is access all IDataPackagePropertySet_Interface'Class;
    type IDataPackagePropertySet_Ptr is access all IDataPackagePropertySet;
@@ -143,42 +140,18 @@ package Windows.ApplicationModel.DataTransfer is
    type IDataPackagePropertySet4_Interface;
    type IDataPackagePropertySet4 is access all IDataPackagePropertySet4_Interface'Class;
    type IDataPackagePropertySet4_Ptr is access all IDataPackagePropertySet4;
-   type IMapView_String_Object_Interface;
-   type IMapView_String_Object is access all IMapView_String_Object_Interface'Class;
-   type IMapView_String_Object_Ptr is access all IMapView_String_Object;
-   type IIterable_IKeyValuePair_Interface;
-   type IIterable_IKeyValuePair is access all IIterable_IKeyValuePair_Interface'Class;
-   type IIterable_IKeyValuePair_Ptr is access all IIterable_IKeyValuePair;
-   type IMap_String_Object_Interface;
-   type IMap_String_Object is access all IMap_String_Object_Interface'Class;
-   type IMap_String_Object_Ptr is access all IMap_String_Object;
-   type IDataProviderDeferral_Interface;
-   type IDataProviderDeferral is access all IDataProviderDeferral_Interface'Class;
-   type IDataProviderDeferral_Ptr is access all IDataProviderDeferral;
-   type IDataProviderRequest_Interface;
-   type IDataProviderRequest is access all IDataProviderRequest_Interface'Class;
-   type IDataProviderRequest_Ptr is access all IDataProviderRequest;
-   type IOperationCompletedEventArgs_Interface;
-   type IOperationCompletedEventArgs is access all IOperationCompletedEventArgs_Interface'Class;
-   type IOperationCompletedEventArgs_Ptr is access all IOperationCompletedEventArgs;
-   type IOperationCompletedEventArgs2_Interface;
-   type IOperationCompletedEventArgs2 is access all IOperationCompletedEventArgs2_Interface'Class;
-   type IOperationCompletedEventArgs2_Ptr is access all IOperationCompletedEventArgs2;
-   type IShareProvider_Interface;
-   type IShareProvider is access all IShareProvider_Interface'Class;
-   type IShareProvider_Ptr is access all IShareProvider;
-   type IShareProviderFactory_Interface;
-   type IShareProviderFactory is access all IShareProviderFactory_Interface'Class;
-   type IShareProviderFactory_Ptr is access all IShareProviderFactory;
-   type IShareProviderOperation_Interface;
-   type IShareProviderOperation is access all IShareProviderOperation_Interface'Class;
-   type IShareProviderOperation_Ptr is access all IShareProviderOperation;
-   type IShareTargetInfo_Interface;
-   type IShareTargetInfo is access all IShareTargetInfo_Interface'Class;
-   type IShareTargetInfo_Ptr is access all IShareTargetInfo;
-   type IShareCompletedEventArgs_Interface;
-   type IShareCompletedEventArgs is access all IShareCompletedEventArgs_Interface'Class;
-   type IShareCompletedEventArgs_Ptr is access all IShareCompletedEventArgs;
+   type IDataPackagePropertySetView_Interface;
+   type IDataPackagePropertySetView is access all IDataPackagePropertySetView_Interface'Class;
+   type IDataPackagePropertySetView_Ptr is access all IDataPackagePropertySetView;
+   type IDataPackagePropertySetView2_Interface;
+   type IDataPackagePropertySetView2 is access all IDataPackagePropertySetView2_Interface'Class;
+   type IDataPackagePropertySetView2_Ptr is access all IDataPackagePropertySetView2;
+   type IDataPackagePropertySetView3_Interface;
+   type IDataPackagePropertySetView3 is access all IDataPackagePropertySetView3_Interface'Class;
+   type IDataPackagePropertySetView3_Ptr is access all IDataPackagePropertySetView3;
+   type IDataPackagePropertySetView4_Interface;
+   type IDataPackagePropertySetView4 is access all IDataPackagePropertySetView4_Interface'Class;
+   type IDataPackagePropertySetView4_Ptr is access all IDataPackagePropertySetView4;
    type IDataPackageView_Interface;
    type IDataPackageView is access all IDataPackageView_Interface'Class;
    type IDataPackageView_Ptr is access all IDataPackageView;
@@ -191,39 +164,21 @@ package Windows.ApplicationModel.DataTransfer is
    type IDataPackageView4_Interface;
    type IDataPackageView4 is access all IDataPackageView4_Interface'Class;
    type IDataPackageView4_Ptr is access all IDataPackageView4;
-   type IDataPackage_Interface;
-   type IDataPackage is access all IDataPackage_Interface'Class;
-   type IDataPackage_Ptr is access all IDataPackage;
-   type IDataPackage2_Interface;
-   type IDataPackage2 is access all IDataPackage2_Interface'Class;
-   type IDataPackage2_Ptr is access all IDataPackage2;
-   type IDataPackage3_Interface;
-   type IDataPackage3 is access all IDataPackage3_Interface'Class;
-   type IDataPackage3_Ptr is access all IDataPackage3;
-   type IHtmlFormatHelperStatics_Interface;
-   type IHtmlFormatHelperStatics is access all IHtmlFormatHelperStatics_Interface'Class;
-   type IHtmlFormatHelperStatics_Ptr is access all IHtmlFormatHelperStatics;
-   type IClipboardStatics_Interface;
-   type IClipboardStatics is access all IClipboardStatics_Interface'Class;
-   type IClipboardStatics_Ptr is access all IClipboardStatics;
-   type IShareUIOptions_Interface;
-   type IShareUIOptions is access all IShareUIOptions_Interface'Class;
-   type IShareUIOptions_Ptr is access all IShareUIOptions;
-   type IDataRequestDeferral_Interface;
-   type IDataRequestDeferral is access all IDataRequestDeferral_Interface'Class;
-   type IDataRequestDeferral_Ptr is access all IDataRequestDeferral;
+   type IDataProviderDeferral_Interface;
+   type IDataProviderDeferral is access all IDataProviderDeferral_Interface'Class;
+   type IDataProviderDeferral_Ptr is access all IDataProviderDeferral;
+   type IDataProviderRequest_Interface;
+   type IDataProviderRequest is access all IDataProviderRequest_Interface'Class;
+   type IDataProviderRequest_Ptr is access all IDataProviderRequest;
    type IDataRequest_Interface;
    type IDataRequest is access all IDataRequest_Interface'Class;
    type IDataRequest_Ptr is access all IDataRequest;
+   type IDataRequestDeferral_Interface;
+   type IDataRequestDeferral is access all IDataRequestDeferral_Interface'Class;
+   type IDataRequestDeferral_Ptr is access all IDataRequestDeferral;
    type IDataRequestedEventArgs_Interface;
    type IDataRequestedEventArgs is access all IDataRequestedEventArgs_Interface'Class;
    type IDataRequestedEventArgs_Ptr is access all IDataRequestedEventArgs;
-   type IShareProvidersRequestedEventArgs_Interface;
-   type IShareProvidersRequestedEventArgs is access all IShareProvidersRequestedEventArgs_Interface'Class;
-   type IShareProvidersRequestedEventArgs_Ptr is access all IShareProvidersRequestedEventArgs;
-   type ITargetApplicationChosenEventArgs_Interface;
-   type ITargetApplicationChosenEventArgs is access all ITargetApplicationChosenEventArgs_Interface'Class;
-   type ITargetApplicationChosenEventArgs_Ptr is access all ITargetApplicationChosenEventArgs;
    type IDataTransferManager_Interface;
    type IDataTransferManager is access all IDataTransferManager_Interface'Class;
    type IDataTransferManager_Ptr is access all IDataTransferManager;
@@ -239,27 +194,72 @@ package Windows.ApplicationModel.DataTransfer is
    type IDataTransferManagerStatics3_Interface;
    type IDataTransferManagerStatics3 is access all IDataTransferManagerStatics3_Interface'Class;
    type IDataTransferManagerStatics3_Ptr is access all IDataTransferManagerStatics3;
-   type ISharedStorageAccessManagerStatics_Interface;
-   type ISharedStorageAccessManagerStatics is access all ISharedStorageAccessManagerStatics_Interface'Class;
-   type ISharedStorageAccessManagerStatics_Ptr is access all ISharedStorageAccessManagerStatics;
-   type IAsyncOperation_DataPackageOperation_Interface;
-   type IAsyncOperation_DataPackageOperation is access all IAsyncOperation_DataPackageOperation_Interface'Class;
-   type IAsyncOperation_DataPackageOperation_Ptr is access all IAsyncOperation_DataPackageOperation;
-   type IIterator_IShareProvider_Interface;
-   type IIterator_IShareProvider is access all IIterator_IShareProvider_Interface'Class;
-   type IIterator_IShareProvider_Ptr is access all IIterator_IShareProvider;
+   type IHtmlFormatHelperStatics_Interface;
+   type IHtmlFormatHelperStatics is access all IHtmlFormatHelperStatics_Interface'Class;
+   type IHtmlFormatHelperStatics_Ptr is access all IHtmlFormatHelperStatics;
+   type IIterable_IKeyValuePair_Interface;
+   type IIterable_IKeyValuePair is access all IIterable_IKeyValuePair_Interface'Class;
+   type IIterable_IKeyValuePair_Ptr is access all IIterable_IKeyValuePair;
    type IIterable_IShareProvider_Interface;
    type IIterable_IShareProvider is access all IIterable_IShareProvider_Interface'Class;
    type IIterable_IShareProvider_Ptr is access all IIterable_IShareProvider;
-   type IVectorView_IShareProvider_Interface;
-   type IVectorView_IShareProvider is access all IVectorView_IShareProvider_Interface'Class;
-   type IVectorView_IShareProvider_Ptr is access all IVectorView_IShareProvider;
+   type IIterator_IShareProvider_Interface;
+   type IIterator_IShareProvider is access all IIterator_IShareProvider_Interface'Class;
+   type IIterator_IShareProvider_Ptr is access all IIterator_IShareProvider;
+   type IMap_String_Object_Interface;
+   type IMap_String_Object is access all IMap_String_Object_Interface'Class;
+   type IMap_String_Object_Ptr is access all IMap_String_Object;
+   type IMapView_String_Object_Interface;
+   type IMapView_String_Object is access all IMapView_String_Object_Interface'Class;
+   type IMapView_String_Object_Ptr is access all IMapView_String_Object;
+   type IOperationCompletedEventArgs_Interface;
+   type IOperationCompletedEventArgs is access all IOperationCompletedEventArgs_Interface'Class;
+   type IOperationCompletedEventArgs_Ptr is access all IOperationCompletedEventArgs;
+   type IOperationCompletedEventArgs2_Interface;
+   type IOperationCompletedEventArgs2 is access all IOperationCompletedEventArgs2_Interface'Class;
+   type IOperationCompletedEventArgs2_Ptr is access all IOperationCompletedEventArgs2;
+   type IShareCompletedEventArgs_Interface;
+   type IShareCompletedEventArgs is access all IShareCompletedEventArgs_Interface'Class;
+   type IShareCompletedEventArgs_Ptr is access all IShareCompletedEventArgs;
+   type ISharedStorageAccessManagerStatics_Interface;
+   type ISharedStorageAccessManagerStatics is access all ISharedStorageAccessManagerStatics_Interface'Class;
+   type ISharedStorageAccessManagerStatics_Ptr is access all ISharedStorageAccessManagerStatics;
+   type IShareProvider_Interface;
+   type IShareProvider is access all IShareProvider_Interface'Class;
+   type IShareProvider_Ptr is access all IShareProvider;
+   type IShareProviderFactory_Interface;
+   type IShareProviderFactory is access all IShareProviderFactory_Interface'Class;
+   type IShareProviderFactory_Ptr is access all IShareProviderFactory;
+   type IShareProviderOperation_Interface;
+   type IShareProviderOperation is access all IShareProviderOperation_Interface'Class;
+   type IShareProviderOperation_Ptr is access all IShareProviderOperation;
+   type IShareProvidersRequestedEventArgs_Interface;
+   type IShareProvidersRequestedEventArgs is access all IShareProvidersRequestedEventArgs_Interface'Class;
+   type IShareProvidersRequestedEventArgs_Ptr is access all IShareProvidersRequestedEventArgs;
+   type IShareTargetInfo_Interface;
+   type IShareTargetInfo is access all IShareTargetInfo_Interface'Class;
+   type IShareTargetInfo_Ptr is access all IShareTargetInfo;
+   type IShareUIOptions_Interface;
+   type IShareUIOptions is access all IShareUIOptions_Interface'Class;
+   type IShareUIOptions_Ptr is access all IShareUIOptions;
+   type IStandardDataFormatsStatics_Interface;
+   type IStandardDataFormatsStatics is access all IStandardDataFormatsStatics_Interface'Class;
+   type IStandardDataFormatsStatics_Ptr is access all IStandardDataFormatsStatics;
+   type IStandardDataFormatsStatics2_Interface;
+   type IStandardDataFormatsStatics2 is access all IStandardDataFormatsStatics2_Interface'Class;
+   type IStandardDataFormatsStatics2_Ptr is access all IStandardDataFormatsStatics2;
+   type IStandardDataFormatsStatics3_Interface;
+   type IStandardDataFormatsStatics3 is access all IStandardDataFormatsStatics3_Interface'Class;
+   type IStandardDataFormatsStatics3_Ptr is access all IStandardDataFormatsStatics3;
+   type ITargetApplicationChosenEventArgs_Interface;
+   type ITargetApplicationChosenEventArgs is access all ITargetApplicationChosenEventArgs_Interface'Class;
+   type ITargetApplicationChosenEventArgs_Ptr is access all ITargetApplicationChosenEventArgs;
    type IVector_IShareProvider_Interface;
    type IVector_IShareProvider is access all IVector_IShareProvider_Interface'Class;
    type IVector_IShareProvider_Ptr is access all IVector_IShareProvider;
-   type IAsyncOperation_IDataPackage_Interface;
-   type IAsyncOperation_IDataPackage is access all IAsyncOperation_IDataPackage_Interface'Class;
-   type IAsyncOperation_IDataPackage_Ptr is access all IAsyncOperation_IDataPackage;
+   type IVectorView_IShareProvider_Interface;
+   type IVectorView_IShareProvider is access all IVectorView_IShareProvider_Interface'Class;
+   type IVectorView_IShareProvider_Ptr is access all IVectorView_IShareProvider;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -267,197 +267,280 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
-   IID_IStandardDataFormatsStatics : aliased constant Windows.IID := (2127987105, 43136, 16585, (180, 237, 11, 238, 30, 21, 245, 73 ));
+   IID_IAsyncOperation_DataPackageOperation : aliased constant Windows.IID := (2342039209, 25840, 22130, (179, 14, 223, 217, 194, 228, 246, 254 ));
    
-   type IStandardDataFormatsStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_DataPackageOperation_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Text
+   function put_Completed
    (
-      This       : access IStandardDataFormatsStatics_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_DataPackageOperation_Interface
+      ; handler : Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_DataPackageOperation
    )
    return Windows.HRESULT is abstract;
    
-   function get_Uri
+   function get_Completed
    (
-      This       : access IStandardDataFormatsStatics_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_DataPackageOperation_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_DataPackageOperation
    )
    return Windows.HRESULT is abstract;
    
-   function get_Html
+   function GetResults
    (
-      This       : access IStandardDataFormatsStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Rtf
-   (
-      This       : access IStandardDataFormatsStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Bitmap
-   (
-      This       : access IStandardDataFormatsStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StorageItems
-   (
-      This       : access IStandardDataFormatsStatics_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_DataPackageOperation_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStandardDataFormatsStatics2 : aliased constant Windows.IID := (1117934836, 40310, 17128, (134, 27, 71, 194, 93, 208, 207, 113 ));
+   IID_IAsyncOperation_IDataPackage : aliased constant Windows.IID := (2708417799, 60115, 21476, (148, 144, 117, 189, 186, 235, 122, 91 ));
    
-   type IStandardDataFormatsStatics2_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IDataPackage_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_WebLink
+   function put_Completed
    (
-      This       : access IStandardDataFormatsStatics2_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IDataPackage_Interface
+      ; handler : Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_IDataPackage
    )
    return Windows.HRESULT is abstract;
    
-   function get_ApplicationLink
+   function get_Completed
    (
-      This       : access IStandardDataFormatsStatics2_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IDataPackage_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_IDataPackage
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IStandardDataFormatsStatics3 : aliased constant Windows.IID := (995602537, 468, 18252, (139, 95, 188, 142, 39, 243, 139, 33 ));
-   
-   type IStandardDataFormatsStatics3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_UserActivityJsonArray
+   function GetResults
    (
-      This       : access IStandardDataFormatsStatics3_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IDataPackage_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackage
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IDataPackagePropertySetView : aliased constant Windows.IID := (3108826113, 3098, 19543, (190, 85, 117, 208, 18, 137, 115, 93 ));
+   IID_IClipboardStatics : aliased constant Windows.IID := (3324502673, 13538, 18787, (142, 237, 147, 203, 176, 234, 61, 112 ));
    
-   type IDataPackagePropertySetView_Interface is interface and Windows.IInspectable_Interface;
+   type IClipboardStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Title
+   function GetContent
    (
-      This       : access IDataPackagePropertySetView_Interface
-      ; RetVal : access Windows.String
+      This       : access IClipboardStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
    )
    return Windows.HRESULT is abstract;
    
-   function get_Description
+   function SetContent
    (
-      This       : access IDataPackagePropertySetView_Interface
-      ; RetVal : access Windows.String
+      This       : access IClipboardStatics_Interface
+      ; content : Windows.ApplicationModel.DataTransfer.IDataPackage
    )
    return Windows.HRESULT is abstract;
    
-   function get_Thumbnail
+   function Flush
    (
-      This       : access IDataPackagePropertySetView_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+      This       : access IClipboardStatics_Interface
    )
    return Windows.HRESULT is abstract;
    
-   function get_FileTypes
+   function Clear
    (
-      This       : access IDataPackagePropertySetView_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+      This       : access IClipboardStatics_Interface
    )
    return Windows.HRESULT is abstract;
    
-   function get_ApplicationName
+   function add_ContentChanged
    (
-      This       : access IDataPackagePropertySetView_Interface
-      ; RetVal : access Windows.String
+      This       : access IClipboardStatics_Interface
+      ; changeHandler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
-   function get_ApplicationListingUri
+   function remove_ContentChanged
    (
-      This       : access IDataPackagePropertySetView_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDataPackagePropertySetView2 : aliased constant Windows.IID := (1616138395, 36542, 20459, (156, 30, 117, 230, 157, 229, 75, 132 ));
-   
-   type IDataPackagePropertySetView2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PackageFamilyName
-   (
-      This       : access IDataPackagePropertySetView2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ContentSourceWebLink
-   (
-      This       : access IDataPackagePropertySetView2_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ContentSourceApplicationLink
-   (
-      This       : access IDataPackagePropertySetView2_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Square30x30Logo
-   (
-      This       : access IDataPackagePropertySetView2_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LogoBackgroundColor
-   (
-      This       : access IDataPackagePropertySetView2_Interface
-      ; RetVal : access Windows.UI.Color
+      This       : access IClipboardStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IDataPackagePropertySetView3 : aliased constant Windows.IID := (3681963237, 53620, 18780, (132, 252, 26, 81, 246, 171, 69, 215 ));
+   IID_IDataPackage : aliased constant Windows.IID := (1642853831, 61418, 17222, (149, 84, 152, 29, 126, 25, 143, 254 ));
    
-   type IDataPackagePropertySetView3_Interface is interface and Windows.IInspectable_Interface;
+   type IDataPackage_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_EnterpriseId
+   function GetView
    (
-      This       : access IDataPackagePropertySetView3_Interface
-      ; RetVal : access Windows.String
+      This       : access IDataPackage_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IDataPackage_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestedOperation
+   (
+      This       : access IDataPackage_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RequestedOperation
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.ApplicationModel.DataTransfer.DataPackageOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_OperationCompleted
+   (
+      This       : access IDataPackage_Interface
+      ; handler : TypedEventHandler_IDataPackage_add_OperationCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_OperationCompleted
+   (
+      This       : access IDataPackage_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Destroyed
+   (
+      This       : access IDataPackage_Interface
+      ; handler : TypedEventHandler_IDataPackage_add_Destroyed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Destroyed
+   (
+      This       : access IDataPackage_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetData
+   (
+      This       : access IDataPackage_Interface
+      ; formatId : Windows.String
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetDataProvider
+   (
+      This       : access IDataPackage_Interface
+      ; formatId : Windows.String
+      ; delayRenderer : Windows.ApplicationModel.DataTransfer.DataProviderHandler
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetText
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetUri
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetHtmlFormat
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceMap
+   (
+      This       : access IDataPackage_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetRtf
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetBitmap
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetStorageItemsReadOnly
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.Storage.IIterable_IStorageItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetStorageItems
+   (
+      This       : access IDataPackage_Interface
+      ; value : Windows.Storage.IIterable_IStorageItem
+      ; readOnly : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IDataPackagePropertySetView4 : aliased constant Windows.IID := (1148504077, 53615, 16558, (149, 128, 111, 133, 98, 185, 66, 53 ));
+   IID_IDataPackage2 : aliased constant Windows.IID := (68952041, 9225, 17889, (165, 56, 76, 83, 238, 238, 4, 167 ));
    
-   type IDataPackagePropertySetView4_Interface is interface and Windows.IInspectable_Interface;
+   type IDataPackage2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ContentSourceUserActivityJson
+   function SetApplicationLink
    (
-      This       : access IDataPackagePropertySetView4_Interface
-      ; RetVal : access Windows.String
+      This       : access IDataPackage2_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetWebLink
+   (
+      This       : access IDataPackage2_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPackage3 : aliased constant Windows.IID := (2297634653, 30843, 19762, (150, 90, 169, 131, 129, 5, 160, 86 ));
+   
+   type IDataPackage3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_ShareCompleted
+   (
+      This       : access IDataPackage3_Interface
+      ; handler : TypedEventHandler_IDataPackage3_add_ShareCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ShareCompleted
+   (
+      This       : access IDataPackage3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -662,298 +745,116 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
-   IID_IMapView_String_Object : aliased constant Windows.IID := (3145224234, 63389, 21754, (146, 201, 144, 197, 3, 159, 223, 126 ));
+   IID_IDataPackagePropertySetView : aliased constant Windows.IID := (3108826113, 3098, 19543, (190, 85, 117, 208, 18, 137, 115, 93 ));
    
-   type IMapView_String_Object_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMapView_String_Object_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMapView_String_Object_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_String_Object_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_String_Object_Interface
-      ; first : access Windows.Object
-      ; second : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IKeyValuePair_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IKeyValuePair_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMap_String_Object : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
-   
-   type IMap_String_Object_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMap_String_Object_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMap_String_Object_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMap_String_Object_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IMap_String_Object_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Insert
-   (
-      This       : access IMap_String_Object_Interface
-      ; key : Windows.String
-      ; value : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Remove
-   (
-      This       : access IMap_String_Object_Interface
-      ; key : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IMap_String_Object_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDataProviderDeferral : aliased constant Windows.IID := (3268354931, 11558, 17369, (182, 157, 220, 184, 109, 3, 246, 218 ));
-   
-   type IDataProviderDeferral_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Complete
-   (
-      This       : access IDataProviderDeferral_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDataProviderRequest : aliased constant Windows.IID := (3954995543, 54216, 18394, (172, 222, 248, 35, 136, 213, 247, 22 ));
-   
-   type IDataProviderRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FormatId
-   (
-      This       : access IDataProviderRequest_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Deadline
-   (
-      This       : access IDataProviderRequest_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IDataProviderRequest_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataProviderDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetData
-   (
-      This       : access IDataProviderRequest_Interface
-      ; value : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IOperationCompletedEventArgs : aliased constant Windows.IID := (3887018653, 1309, 20395, (177, 169, 71, 253, 119, 247, 10, 65 ));
-   
-   type IOperationCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Operation
-   (
-      This       : access IOperationCompletedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IOperationCompletedEventArgs2 : aliased constant Windows.IID := (2240782451, 7705, 16645, (178, 247, 200, 71, 136, 8, 213, 98 ));
-   
-   type IOperationCompletedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AcceptedFormatId
-   (
-      This       : access IOperationCompletedEventArgs2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IShareProvider : aliased constant Windows.IID := (799793190, 17470, 19674, (175, 37, 141, 129, 7, 14, 253, 128 ));
-   
-   type IShareProvider_Interface is interface and Windows.IInspectable_Interface;
+   type IDataPackagePropertySetView_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Title
    (
-      This       : access IShareProvider_Interface
+      This       : access IDataPackagePropertySetView_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_DisplayIcon
+   function get_Description
    (
-      This       : access IShareProvider_Interface
+      This       : access IDataPackagePropertySetView_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Thumbnail
+   (
+      This       : access IDataPackagePropertySetView_Interface
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
    
-   function get_BackgroundColor
+   function get_FileTypes
    (
-      This       : access IShareProvider_Interface
-      ; RetVal : access Windows.UI.Color
+      This       : access IDataPackagePropertySetView_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_Tag
+   function get_ApplicationName
    (
-      This       : access IShareProvider_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Tag
-   (
-      This       : access IShareProvider_Interface
-      ; value : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IShareProviderFactory : aliased constant Windows.IID := (388634444, 59294, 20333, (176, 125, 18, 143, 70, 158, 2, 150 ));
-   
-   type IShareProviderFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IShareProviderFactory_Interface
-      ; title : Windows.String
-      ; displayIcon : Windows.Storage.Streams.IRandomAccessStreamReference
-      ; backgroundColor : Windows.UI.Color
-      ; handler : Windows.ApplicationModel.DataTransfer.ShareProviderHandler
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IShareProviderOperation : aliased constant Windows.IID := (432994615, 54325, 16761, (182, 175, 20, 224, 73, 43, 105, 246 ));
-   
-   type IShareProviderOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Data
-   (
-      This       : access IShareProviderOperation_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Provider
-   (
-      This       : access IShareProviderOperation_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportCompleted
-   (
-      This       : access IShareProviderOperation_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IShareTargetInfo : aliased constant Windows.IID := (945546759, 50920, 16660, (178, 148, 40, 243, 187, 111, 153, 4 ));
-   
-   type IShareTargetInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AppUserModelId
-   (
-      This       : access IShareTargetInfo_Interface
+      This       : access IDataPackagePropertySetView_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_ShareProvider
+   function get_ApplicationListingUri
    (
-      This       : access IShareTargetInfo_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
+      This       : access IDataPackagePropertySetView_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IShareCompletedEventArgs : aliased constant Windows.IID := (1165280322, 63763, 20320, (157, 247, 204, 64, 96, 171, 25, 22 ));
+   IID_IDataPackagePropertySetView2 : aliased constant Windows.IID := (1616138395, 36542, 20459, (156, 30, 117, 230, 157, 229, 75, 132 ));
    
-   type IShareCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IDataPackagePropertySetView2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ShareTarget
+   function get_PackageFamilyName
    (
-      This       : access IShareCompletedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareTargetInfo
+      This       : access IDataPackagePropertySetView2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentSourceWebLink
+   (
+      This       : access IDataPackagePropertySetView2_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentSourceApplicationLink
+   (
+      This       : access IDataPackagePropertySetView2_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Square30x30Logo
+   (
+      This       : access IDataPackagePropertySetView2_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LogoBackgroundColor
+   (
+      This       : access IDataPackagePropertySetView2_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPackagePropertySetView3 : aliased constant Windows.IID := (3681963237, 53620, 18780, (132, 252, 26, 81, 246, 171, 69, 215 ));
+   
+   type IDataPackagePropertySetView3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EnterpriseId
+   (
+      This       : access IDataPackagePropertySetView3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPackagePropertySetView4 : aliased constant Windows.IID := (1148504077, 53615, 16558, (149, 128, 111, 133, 98, 185, 66, 53 ));
+   
+   type IDataPackagePropertySetView4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentSourceUserActivityJson
+   (
+      This       : access IDataPackagePropertySetView4_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1127,294 +1028,47 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
-   IID_IDataPackage : aliased constant Windows.IID := (1642853831, 61418, 17222, (149, 84, 152, 29, 126, 25, 143, 254 ));
+   IID_IDataProviderDeferral : aliased constant Windows.IID := (3268354931, 11558, 17369, (182, 157, 220, 184, 109, 3, 246, 218 ));
    
-   type IDataPackage_Interface is interface and Windows.IInspectable_Interface;
+   type IDataProviderDeferral_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetView
+   function Complete
    (
-      This       : access IDataPackage_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
+      This       : access IDataProviderDeferral_Interface
    )
    return Windows.HRESULT is abstract;
    
-   function get_Properties
+   ------------------------------------------------------------------------
+   
+   IID_IDataProviderRequest : aliased constant Windows.IID := (3954995543, 54216, 18394, (172, 222, 248, 35, 136, 213, 247, 22 ));
+   
+   type IDataProviderRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FormatId
    (
-      This       : access IDataPackage_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet
+      This       : access IDataProviderRequest_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_RequestedOperation
+   function get_Deadline
    (
-      This       : access IDataPackage_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
+      This       : access IDataProviderRequest_Interface
+      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
-   function put_RequestedOperation
+   function GetDeferral
    (
-      This       : access IDataPackage_Interface
-      ; value : Windows.ApplicationModel.DataTransfer.DataPackageOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_OperationCompleted
-   (
-      This       : access IDataPackage_Interface
-      ; handler : TypedEventHandler_IDataPackage_add_OperationCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_OperationCompleted
-   (
-      This       : access IDataPackage_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Destroyed
-   (
-      This       : access IDataPackage_Interface
-      ; handler : TypedEventHandler_IDataPackage_add_Destroyed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Destroyed
-   (
-      This       : access IDataPackage_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
+      This       : access IDataProviderRequest_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataProviderDeferral
    )
    return Windows.HRESULT is abstract;
    
    function SetData
    (
-      This       : access IDataPackage_Interface
-      ; formatId : Windows.String
+      This       : access IDataProviderRequest_Interface
       ; value : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetDataProvider
-   (
-      This       : access IDataPackage_Interface
-      ; formatId : Windows.String
-      ; delayRenderer : Windows.ApplicationModel.DataTransfer.DataProviderHandler
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetText
-   (
-      This       : access IDataPackage_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetUri
-   (
-      This       : access IDataPackage_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetHtmlFormat
-   (
-      This       : access IDataPackage_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceMap
-   (
-      This       : access IDataPackage_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetRtf
-   (
-      This       : access IDataPackage_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetBitmap
-   (
-      This       : access IDataPackage_Interface
-      ; value : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetStorageItemsReadOnly
-   (
-      This       : access IDataPackage_Interface
-      ; value : Windows.Storage.IIterable_IStorageItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetStorageItems
-   (
-      This       : access IDataPackage_Interface
-      ; value : Windows.Storage.IIterable_IStorageItem
-      ; readOnly : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDataPackage2 : aliased constant Windows.IID := (68952041, 9225, 17889, (165, 56, 76, 83, 238, 238, 4, 167 ));
-   
-   type IDataPackage2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetApplicationLink
-   (
-      This       : access IDataPackage2_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetWebLink
-   (
-      This       : access IDataPackage2_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDataPackage3 : aliased constant Windows.IID := (2297634653, 30843, 19762, (150, 90, 169, 131, 129, 5, 160, 86 ));
-   
-   type IDataPackage3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_ShareCompleted
-   (
-      This       : access IDataPackage3_Interface
-      ; handler : TypedEventHandler_IDataPackage3_add_ShareCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ShareCompleted
-   (
-      This       : access IDataPackage3_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHtmlFormatHelperStatics : aliased constant Windows.IID := (3794696009, 56688, 17519, (174, 252, 97, 206, 229, 159, 101, 94 ));
-   
-   type IHtmlFormatHelperStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetStaticFragment
-   (
-      This       : access IHtmlFormatHelperStatics_Interface
-      ; htmlFormat : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateHtmlFormat
-   (
-      This       : access IHtmlFormatHelperStatics_Interface
-      ; htmlFragment : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IClipboardStatics : aliased constant Windows.IID := (3324502673, 13538, 18787, (142, 237, 147, 203, 176, 234, 61, 112 ));
-   
-   type IClipboardStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetContent
-   (
-      This       : access IClipboardStatics_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetContent
-   (
-      This       : access IClipboardStatics_Interface
-      ; content : Windows.ApplicationModel.DataTransfer.IDataPackage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Flush
-   (
-      This       : access IClipboardStatics_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IClipboardStatics_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_ContentChanged
-   (
-      This       : access IClipboardStatics_Interface
-      ; changeHandler : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ContentChanged
-   (
-      This       : access IClipboardStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IShareUIOptions : aliased constant Windows.IID := (1929022080, 13359, 19856, (149, 81, 42, 224, 78, 55, 104, 12 ));
-   
-   type IShareUIOptions_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Theme
-   (
-      This       : access IShareUIOptions_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareUITheme
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Theme
-   (
-      This       : access IShareUIOptions_Interface
-      ; value : Windows.ApplicationModel.DataTransfer.ShareUITheme
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SelectionRect
-   (
-      This       : access IShareUIOptions_Interface
-      ; RetVal : access Windows.Foundation.IReference_Rect -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SelectionRect
-   (
-      This       : access IShareUIOptions_Interface
-      ; value : Windows.Foundation.IReference_Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDataRequestDeferral : aliased constant Windows.IID := (1841608863, 902, 16995, (135, 193, 237, 125, 206, 48, 137, 14 ));
-   
-   type IDataRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Complete
-   (
-      This       : access IDataRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -1461,6 +1115,18 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IDataRequestDeferral : aliased constant Windows.IID := (1841608863, 902, 16995, (135, 193, 237, 125, 206, 48, 137, 14 ));
+   
+   type IDataRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Complete
+   (
+      This       : access IDataRequestDeferral_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDataRequestedEventArgs : aliased constant Windows.IID := (3414927367, 27333, 17353, (138, 197, 155, 162, 50, 22, 49, 130 ));
    
    type IDataRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1469,46 +1135,6 @@ package Windows.ApplicationModel.DataTransfer is
    (
       This       : access IDataRequestedEventArgs_Interface
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IShareProvidersRequestedEventArgs : aliased constant Windows.IID := (4169724758, 41976, 20430, (133, 228, 136, 38, 230, 59, 231, 153 ));
-   
-   type IShareProvidersRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Providers
-   (
-      This       : access IShareProvidersRequestedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IVector_IShareProvider -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Data
-   (
-      This       : access IShareProvidersRequestedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IShareProvidersRequestedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITargetApplicationChosenEventArgs : aliased constant Windows.IID := (3396319404, 10631, 20195, (156, 84, 216, 175, 188, 184, 108, 29 ));
-   
-   type ITargetApplicationChosenEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ApplicationName
-   (
-      This       : access ITargetApplicationChosenEventArgs_Interface
-      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1616,57 +1242,49 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
-   IID_ISharedStorageAccessManagerStatics : aliased constant Windows.IID := (3323144922, 13489, 18505, (189, 95, 208, 159, 238, 49, 88, 197 ));
+   IID_IHtmlFormatHelperStatics : aliased constant Windows.IID := (3794696009, 56688, 17519, (174, 252, 97, 206, 229, 159, 101, 94 ));
    
-   type ISharedStorageAccessManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IHtmlFormatHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function AddFile
+   function GetStaticFragment
    (
-      This       : access ISharedStorageAccessManagerStatics_Interface
-      ; file : Windows.Storage.IStorageFile
+      This       : access IHtmlFormatHelperStatics_Interface
+      ; htmlFormat : Windows.String
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function RedeemTokenForFileAsync
+   function CreateHtmlFormat
    (
-      This       : access ISharedStorageAccessManagerStatics_Interface
-      ; token : Windows.String
-      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveFile
-   (
-      This       : access ISharedStorageAccessManagerStatics_Interface
-      ; token : Windows.String
+      This       : access IHtmlFormatHelperStatics_Interface
+      ; htmlFragment : Windows.String
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_DataPackageOperation : aliased constant Windows.IID := (2342039209, 25840, 22130, (179, 14, 223, 217, 194, 228, 246, 254 ));
+   IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IAsyncOperation_DataPackageOperation_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IKeyValuePair_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function First
    (
-      This       : access IAsyncOperation_DataPackageOperation_Interface
-      ; handler : Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_DataPackageOperation
+      This       : access IIterable_IKeyValuePair_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
-   (
-      This       : access IAsyncOperation_DataPackageOperation_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_DataPackageOperation
-   )
-   return Windows.HRESULT is abstract;
+   ------------------------------------------------------------------------
    
-   function GetResults
+   IID_IIterable_IShareProvider : aliased constant Windows.IID := (151237144, 23725, 21478, (154, 33, 111, 75, 49, 196, 164, 9 ));
+   
+   type IIterable_IShareProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access IAsyncOperation_DataPackageOperation_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
+      This       : access IIterable_IShareProvider_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IIterator_IShareProvider
    )
    return Windows.HRESULT is abstract;
    
@@ -1707,53 +1325,423 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IShareProvider : aliased constant Windows.IID := (151237144, 23725, 21478, (154, 33, 111, 75, 49, 196, 164, 9 ));
+   IID_IMap_String_Object : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
    
-   type IIterable_IShareProvider_Interface is interface and Windows.IInspectable_Interface;
+   type IMap_String_Object_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function Lookup
    (
-      This       : access IIterable_IShareProvider_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IIterator_IShareProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IShareProvider : aliased constant Windows.IID := (2489661346, 37676, 23415, (171, 54, 183, 6, 80, 240, 188, 213 ));
-   
-   type IVectorView_IShareProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IShareProvider_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
+      This       : access IMap_String_Object_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function get_Size
    (
-      This       : access IVectorView_IShareProvider_Interface
+      This       : access IMap_String_Object_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function IndexOf
+   function HasKey
    (
-      This       : access IVectorView_IShareProvider_Interface
-      ; value : Windows.ApplicationModel.DataTransfer.IShareProvider
-      ; index : access Windows.UInt32
+      This       : access IMap_String_Object_Interface
+      ; key : Windows.String
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function GetMany
+   function GetView
    (
-      This       : access IVectorView_IShareProvider_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.ApplicationModel.DataTransfer.IShareProvider_Ptr
+      This       : access IMap_String_Object_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Insert
+   (
+      This       : access IMap_String_Object_Interface
+      ; key : Windows.String
+      ; value : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Remove
+   (
+      This       : access IMap_String_Object_Interface
+      ; key : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IMap_String_Object_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_String_Object : aliased constant Windows.IID := (3145224234, 63389, 21754, (146, 201, 144, 197, 3, 159, 223, 126 ));
+   
+   type IMapView_String_Object_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_String_Object_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_String_Object_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_String_Object_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_String_Object_Interface
+      ; first : access Windows.Object
+      ; second : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IOperationCompletedEventArgs : aliased constant Windows.IID := (3887018653, 1309, 20395, (177, 169, 71, 253, 119, 247, 10, 65 ));
+   
+   type IOperationCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Operation
+   (
+      This       : access IOperationCompletedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IOperationCompletedEventArgs2 : aliased constant Windows.IID := (2240782451, 7705, 16645, (178, 247, 200, 71, 136, 8, 213, 98 ));
+   
+   type IOperationCompletedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AcceptedFormatId
+   (
+      This       : access IOperationCompletedEventArgs2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShareCompletedEventArgs : aliased constant Windows.IID := (1165280322, 63763, 20320, (157, 247, 204, 64, 96, 171, 25, 22 ));
+   
+   type IShareCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShareTarget
+   (
+      This       : access IShareCompletedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareTargetInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISharedStorageAccessManagerStatics : aliased constant Windows.IID := (3323144922, 13489, 18505, (189, 95, 208, 159, 238, 49, 88, 197 ));
+   
+   type ISharedStorageAccessManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddFile
+   (
+      This       : access ISharedStorageAccessManagerStatics_Interface
+      ; file : Windows.Storage.IStorageFile
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RedeemTokenForFileAsync
+   (
+      This       : access ISharedStorageAccessManagerStatics_Interface
+      ; token : Windows.String
+      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveFile
+   (
+      This       : access ISharedStorageAccessManagerStatics_Interface
+      ; token : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShareProvider : aliased constant Windows.IID := (799793190, 17470, 19674, (175, 37, 141, 129, 7, 14, 253, 128 ));
+   
+   type IShareProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Title
+   (
+      This       : access IShareProvider_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayIcon
+   (
+      This       : access IShareProvider_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackgroundColor
+   (
+      This       : access IShareProvider_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Tag
+   (
+      This       : access IShareProvider_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Tag
+   (
+      This       : access IShareProvider_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShareProviderFactory : aliased constant Windows.IID := (388634444, 59294, 20333, (176, 125, 18, 143, 70, 158, 2, 150 ));
+   
+   type IShareProviderFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IShareProviderFactory_Interface
+      ; title : Windows.String
+      ; displayIcon : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; backgroundColor : Windows.UI.Color
+      ; handler : Windows.ApplicationModel.DataTransfer.ShareProviderHandler
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShareProviderOperation : aliased constant Windows.IID := (432994615, 54325, 16761, (182, 175, 20, 224, 73, 43, 105, 246 ));
+   
+   type IShareProviderOperation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Data
+   (
+      This       : access IShareProviderOperation_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Provider
+   (
+      This       : access IShareProviderOperation_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportCompleted
+   (
+      This       : access IShareProviderOperation_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShareProvidersRequestedEventArgs : aliased constant Windows.IID := (4169724758, 41976, 20430, (133, 228, 136, 38, 230, 59, 231, 153 ));
+   
+   type IShareProvidersRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Providers
+   (
+      This       : access IShareProvidersRequestedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IVector_IShareProvider -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Data
+   (
+      This       : access IShareProvidersRequestedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IShareProvidersRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShareTargetInfo : aliased constant Windows.IID := (945546759, 50920, 16660, (178, 148, 40, 243, 187, 111, 153, 4 ));
+   
+   type IShareTargetInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AppUserModelId
+   (
+      This       : access IShareTargetInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ShareProvider
+   (
+      This       : access IShareTargetInfo_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShareUIOptions : aliased constant Windows.IID := (1929022080, 13359, 19856, (149, 81, 42, 224, 78, 55, 104, 12 ));
+   
+   type IShareUIOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Theme
+   (
+      This       : access IShareUIOptions_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareUITheme
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Theme
+   (
+      This       : access IShareUIOptions_Interface
+      ; value : Windows.ApplicationModel.DataTransfer.ShareUITheme
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionRect
+   (
+      This       : access IShareUIOptions_Interface
+      ; RetVal : access Windows.Foundation.IReference_Rect -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectionRect
+   (
+      This       : access IShareUIOptions_Interface
+      ; value : Windows.Foundation.IReference_Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardDataFormatsStatics : aliased constant Windows.IID := (2127987105, 43136, 16585, (180, 237, 11, 238, 30, 21, 245, 73 ));
+   
+   type IStandardDataFormatsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Text
+   (
+      This       : access IStandardDataFormatsStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Uri
+   (
+      This       : access IStandardDataFormatsStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Html
+   (
+      This       : access IStandardDataFormatsStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rtf
+   (
+      This       : access IStandardDataFormatsStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Bitmap
+   (
+      This       : access IStandardDataFormatsStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StorageItems
+   (
+      This       : access IStandardDataFormatsStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardDataFormatsStatics2 : aliased constant Windows.IID := (1117934836, 40310, 17128, (134, 27, 71, 194, 93, 208, 207, 113 ));
+   
+   type IStandardDataFormatsStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WebLink
+   (
+      This       : access IStandardDataFormatsStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ApplicationLink
+   (
+      This       : access IStandardDataFormatsStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardDataFormatsStatics3 : aliased constant Windows.IID := (995602537, 468, 18252, (139, 95, 188, 142, 39, 243, 139, 33 ));
+   
+   type IStandardDataFormatsStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UserActivityJsonArray
+   (
+      This       : access IStandardDataFormatsStatics3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITargetApplicationChosenEventArgs : aliased constant Windows.IID := (3396319404, 10631, 20195, (156, 84, 216, 175, 188, 184, 108, 29 ));
+   
+   type ITargetApplicationChosenEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ApplicationName
+   (
+      This       : access ITargetApplicationChosenEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1854,34 +1842,72 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IDataPackage : aliased constant Windows.IID := (2708417799, 60115, 21476, (148, 144, 117, 189, 186, 235, 122, 91 ));
+   IID_IVectorView_IShareProvider : aliased constant Windows.IID := (2489661346, 37676, 23415, (171, 54, 183, 6, 80, 240, 188, 213 ));
    
-   type IAsyncOperation_IDataPackage_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IShareProvider_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetAt
    (
-      This       : access IAsyncOperation_IDataPackage_Interface
-      ; handler : Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_IDataPackage
+      This       : access IVectorView_IShareProvider_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_Size
    (
-      This       : access IAsyncOperation_IDataPackage_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_IDataPackage
+      This       : access IVectorView_IShareProvider_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function IndexOf
    (
-      This       : access IAsyncOperation_IDataPackage_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackage
+      This       : access IVectorView_IShareProvider_Interface
+      ; value : Windows.ApplicationModel.DataTransfer.IShareProvider
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IShareProvider_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.DataTransfer.IShareProvider_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_DataPackageOperation : aliased constant Windows.IID := (2916228422, 6111, 23107, (166, 133, 50, 98, 252, 232, 70, 67 ));
+   
+   type AsyncOperationCompletedHandler_DataPackageOperation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DataPackageOperation'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_DataPackageOperation_Interface
+      ; asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IDataPackage : aliased constant Windows.IID := (2839165849, 59718, 22478, (170, 217, 194, 61, 19, 140, 53, 62 ));
+   
+   type AsyncOperationCompletedHandler_IDataPackage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDataPackage'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IDataPackage_Interface
+      ; asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1909,19 +1935,6 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IDataPackage_add_OperationCompleted : aliased constant Windows.IID := (3712528236, 61338, 22987, (179, 38, 87, 217, 226, 65, 31, 33 ));
-   
-   type TypedEventHandler_IDataPackage_add_OperationCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage_add_OperationCompleted'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDataPackage_add_OperationCompleted_Interface
-      ; sender : Windows.ApplicationModel.DataTransfer.IDataPackage
-      ; args : Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_IDataPackage_add_Destroyed : aliased constant Windows.IID := (3243684035, 7356, 23716, (144, 28, 98, 197, 168, 202, 92, 181 ));
    
    type TypedEventHandler_IDataPackage_add_Destroyed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage_add_Destroyed'access) with null record;
@@ -1935,6 +1948,19 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IDataPackage_add_OperationCompleted : aliased constant Windows.IID := (3712528236, 61338, 22987, (179, 38, 87, 217, 226, 65, 31, 33 ));
+   
+   type TypedEventHandler_IDataPackage_add_OperationCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage_add_OperationCompleted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDataPackage_add_OperationCompleted_Interface
+      ; sender : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; args : Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IDataPackage3_add_ShareCompleted : aliased constant Windows.IID := (4176994890, 22270, 22751, (188, 21, 35, 101, 174, 192, 57, 102 ));
    
    type TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage3_add_ShareCompleted'access) with null record;
@@ -1943,19 +1969,6 @@ package Windows.ApplicationModel.DataTransfer is
       This       : access TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface
       ; sender : Windows.ApplicationModel.DataTransfer.IDataPackage
       ; args : Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_DataPackageOperation : aliased constant Windows.IID := (2916228422, 6111, 23107, (166, 133, 50, 98, 252, 232, 70, 67 ));
-   
-   type AsyncOperationCompletedHandler_DataPackageOperation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DataPackageOperation'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_DataPackageOperation_Interface
-      ; asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation
-      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
@@ -1999,28 +2012,23 @@ package Windows.ApplicationModel.DataTransfer is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IDataPackage : aliased constant Windows.IID := (2839165849, 59718, 22478, (170, 217, 194, 61, 19, 140, 53, 62 ));
-   
-   type AsyncOperationCompletedHandler_IDataPackage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDataPackage'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IDataPackage_Interface
-      ; asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype DataPackagePropertySetView is Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView;
+   subtype DataPackage is Windows.ApplicationModel.DataTransfer.IDataPackage;
+   function Create return Windows.ApplicationModel.DataTransfer.IDataPackage;
+   
    subtype DataPackagePropertySet is Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet;
+   subtype DataPackagePropertySetView is Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView;
+   subtype DataPackageView is Windows.ApplicationModel.DataTransfer.IDataPackageView;
    subtype DataProviderDeferral is Windows.ApplicationModel.DataTransfer.IDataProviderDeferral;
    subtype DataProviderRequest is Windows.ApplicationModel.DataTransfer.IDataProviderRequest;
+   subtype DataRequest is Windows.ApplicationModel.DataTransfer.IDataRequest;
+   subtype DataRequestDeferral is Windows.ApplicationModel.DataTransfer.IDataRequestDeferral;
+   subtype DataRequestedEventArgs is Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs;
+   subtype DataTransferManager is Windows.ApplicationModel.DataTransfer.IDataTransferManager;
    subtype OperationCompletedEventArgs is Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs;
-   subtype ShareProviderOperation is Windows.ApplicationModel.DataTransfer.IShareProviderOperation;
+   subtype ShareCompletedEventArgs is Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs;
    subtype ShareProvider is Windows.ApplicationModel.DataTransfer.IShareProvider;
    function Create
    (
@@ -2031,64 +2039,17 @@ package Windows.ApplicationModel.DataTransfer is
    )
    return Windows.ApplicationModel.DataTransfer.IShareProvider;
    
-   subtype DataPackageView is Windows.ApplicationModel.DataTransfer.IDataPackageView;
+   subtype ShareProviderOperation is Windows.ApplicationModel.DataTransfer.IShareProviderOperation;
+   subtype ShareProvidersRequestedEventArgs is Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs;
    subtype ShareTargetInfo is Windows.ApplicationModel.DataTransfer.IShareTargetInfo;
-   subtype ShareCompletedEventArgs is Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs;
-   subtype DataPackage is Windows.ApplicationModel.DataTransfer.IDataPackage;
-   function Create return Windows.ApplicationModel.DataTransfer.IDataPackage;
-   
    subtype ShareUIOptions is Windows.ApplicationModel.DataTransfer.IShareUIOptions;
    function Create return Windows.ApplicationModel.DataTransfer.IShareUIOptions;
    
-   subtype DataRequestDeferral is Windows.ApplicationModel.DataTransfer.IDataRequestDeferral;
-   subtype DataRequest is Windows.ApplicationModel.DataTransfer.IDataRequest;
-   subtype DataRequestedEventArgs is Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs;
-   subtype ShareProvidersRequestedEventArgs is Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs;
    subtype TargetApplicationChosenEventArgs is Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs;
-   subtype DataTransferManager is Windows.ApplicationModel.DataTransfer.IDataTransferManager;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_UserActivityJsonArray
-   return Windows.String;
-   
-   function get_WebLink
-   return Windows.String;
-   
-   function get_ApplicationLink
-   return Windows.String;
-   
-   function get_Text
-   return Windows.String;
-   
-   function get_Uri
-   return Windows.String;
-   
-   function get_Html
-   return Windows.String;
-   
-   function get_Rtf
-   return Windows.String;
-   
-   function get_Bitmap
-   return Windows.String;
-   
-   function get_StorageItems
-   return Windows.String;
-   
-   function GetStaticFragment
-   (
-      htmlFormat : Windows.String
-   )
-   return Windows.String;
-   
-   function CreateHtmlFormat
-   (
-      htmlFragment : Windows.String
-   )
-   return Windows.String;
    
    function GetContent
    return Windows.ApplicationModel.DataTransfer.IDataPackageView;
@@ -2132,6 +2093,18 @@ package Windows.ApplicationModel.DataTransfer is
    function IsSupported
    return Windows.Boolean;
    
+   function GetStaticFragment
+   (
+      htmlFormat : Windows.String
+   )
+   return Windows.String;
+   
+   function CreateHtmlFormat
+   (
+      htmlFragment : Windows.String
+   )
+   return Windows.String;
+   
    function AddFile
    (
       file : Windows.Storage.IStorageFile
@@ -2149,5 +2122,32 @@ package Windows.ApplicationModel.DataTransfer is
       token : Windows.String
    )
    ;
+   
+   function get_UserActivityJsonArray
+   return Windows.String;
+   
+   function get_WebLink
+   return Windows.String;
+   
+   function get_ApplicationLink
+   return Windows.String;
+   
+   function get_Text
+   return Windows.String;
+   
+   function get_Uri
+   return Windows.String;
+   
+   function get_Html
+   return Windows.String;
+   
+   function get_Rtf
+   return Windows.String;
+   
+   function get_Bitmap
+   return Windows.String;
+   
+   function get_StorageItems
+   return Windows.String;
    
 end;

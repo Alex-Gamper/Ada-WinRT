@@ -37,6 +37,19 @@ package body Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface
+      ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
+      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection(sender), Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface
       ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
       ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequestEventArgs
@@ -50,14 +63,14 @@ package body Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface
+      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface
       ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
-      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs
+      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection(sender), Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs(args));
+      This.Callback(Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection(sender), Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs(args));
       return Hr;
    end;
    
@@ -76,27 +89,14 @@ package body Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface
+      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface
       ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
-      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs
+      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection(sender), Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface
-      ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
-      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection(sender), Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs(args));
+      This.Callback(Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection(sender), Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs(args));
       return Hr;
    end;
    

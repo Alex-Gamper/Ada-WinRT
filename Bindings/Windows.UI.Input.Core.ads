@@ -38,33 +38,19 @@ package Windows.UI.Input.Core is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IRadialControllerIndependentInputSourceStatics_Interface;
-   type IRadialControllerIndependentInputSourceStatics is access all IRadialControllerIndependentInputSourceStatics_Interface'Class;
-   type IRadialControllerIndependentInputSourceStatics_Ptr is access all IRadialControllerIndependentInputSourceStatics;
    type IRadialControllerIndependentInputSource_Interface;
    type IRadialControllerIndependentInputSource is access all IRadialControllerIndependentInputSource_Interface'Class;
    type IRadialControllerIndependentInputSource_Ptr is access all IRadialControllerIndependentInputSource;
    type IRadialControllerIndependentInputSource2_Interface;
    type IRadialControllerIndependentInputSource2 is access all IRadialControllerIndependentInputSource2_Interface'Class;
    type IRadialControllerIndependentInputSource2_Ptr is access all IRadialControllerIndependentInputSource2;
+   type IRadialControllerIndependentInputSourceStatics_Interface;
+   type IRadialControllerIndependentInputSourceStatics is access all IRadialControllerIndependentInputSourceStatics_Interface'Class;
+   type IRadialControllerIndependentInputSourceStatics_Ptr is access all IRadialControllerIndependentInputSourceStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRadialControllerIndependentInputSourceStatics : aliased constant Windows.IID := (1029144309, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
-   
-   type IRadialControllerIndependentInputSourceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateForView
-   (
-      This       : access IRadialControllerIndependentInputSourceStatics_Interface
-      ; view : Windows.ApplicationModel.Core.ICoreApplicationView
-      ; RetVal : access Windows.UI.Input.Core.IRadialControllerIndependentInputSource
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -96,6 +82,20 @@ package Windows.UI.Input.Core is
    (
       This       : access IRadialControllerIndependentInputSource2_Interface
       ; RetVal : access Windows.System.IDispatcherQueue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRadialControllerIndependentInputSourceStatics : aliased constant Windows.IID := (1029144309, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
+   
+   type IRadialControllerIndependentInputSourceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForView
+   (
+      This       : access IRadialControllerIndependentInputSourceStatics_Interface
+      ; view : Windows.ApplicationModel.Core.ICoreApplicationView
+      ; RetVal : access Windows.UI.Input.Core.IRadialControllerIndependentInputSource
    )
    return Windows.HRESULT is abstract;
    

@@ -38,45 +38,6 @@ package body Windows.ApplicationModel.Email.DataProvider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface
       ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
       ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequestEventArgs
@@ -103,6 +64,32 @@ package body Windows.ApplicationModel.Email.DataProvider is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface
       ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
       ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequestEventArgs
@@ -111,32 +98,6 @@ package body Windows.ApplicationModel.Email.DataProvider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs(args));
       return Hr;
    end;
    
@@ -155,32 +116,6 @@ package body Windows.ApplicationModel.Email.DataProvider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface
       ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
       ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequestEventArgs
@@ -189,6 +124,45 @@ package body Windows.ApplicationModel.Email.DataProvider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(args));
       return Hr;
    end;
    
@@ -207,19 +181,6 @@ package body Windows.ApplicationModel.Email.DataProvider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface
-      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
-      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface
       ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
       ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequestEventArgs
@@ -228,6 +189,45 @@ package body Windows.ApplicationModel.Email.DataProvider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface
+      ; sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
+      ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection(sender), Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs(args));
       return Hr;
    end;
    

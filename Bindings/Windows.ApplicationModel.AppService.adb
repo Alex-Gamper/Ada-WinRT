@@ -52,6 +52,19 @@ package body Windows.ApplicationModel.AppService is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface
+      ; asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceResponseStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IAppServiceResponse_Interface
       ; asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_IAppServiceResponse
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -86,19 +99,6 @@ package body Windows.ApplicationModel.AppService is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.AppService.IAppServiceConnection(sender), Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface
-      ; asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceResponseStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    

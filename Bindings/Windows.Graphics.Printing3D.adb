@@ -38,6 +38,45 @@ package body Windows.Graphics.Printing3D is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface
+      ; asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface
+      ; asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DMeshVerificationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPrinting3DModel_Interface
+      ; asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DModel
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access Print3DTaskSourceRequestedHandler_Interface
       ; args : Windows.Graphics.Printing3D.IPrint3DTaskSourceRequestedArgs
    )
@@ -50,14 +89,14 @@ package body Windows.Graphics.Printing3D is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPrint3DTask_add_Submitting_Interface
-      ; sender : Windows.Graphics.Printing3D.IPrint3DTask
-      ; args : Windows.Object
+      This       : access TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface
+      ; sender : Windows.Graphics.Printing3D.IPrint3DManager
+      ; args : Windows.Graphics.Printing3D.IPrint3DTaskRequestedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Graphics.Printing3D.IPrint3DTask(sender), args);
+      This.Callback(Windows.Graphics.Printing3D.IPrint3DManager(sender), Windows.Graphics.Printing3D.IPrint3DTaskRequestedEventArgs(args));
       return Hr;
    end;
    
@@ -89,53 +128,14 @@ package body Windows.Graphics.Printing3D is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface
-      ; sender : Windows.Graphics.Printing3D.IPrint3DManager
-      ; args : Windows.Graphics.Printing3D.IPrint3DTaskRequestedEventArgs
+      This       : access TypedEventHandler_IPrint3DTask_add_Submitting_Interface
+      ; sender : Windows.Graphics.Printing3D.IPrint3DTask
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Graphics.Printing3D.IPrint3DManager(sender), Windows.Graphics.Printing3D.IPrint3DTaskRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface
-      ; asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DMeshVerificationResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface
-      ; asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IPrinting3DModel_Interface
-      ; asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DModel
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Graphics.Printing3D.IPrint3DTask(sender), args);
       return Hr;
    end;
    
@@ -143,102 +143,34 @@ package body Windows.Graphics.Printing3D is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Graphics.Printing3D.IPrinting3DTextureResource is
+   function Create return Windows.Graphics.Printing3D.IPrinting3D3MFPackage is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DTextureResource");
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3D3MFPackage");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DTextureResource) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3D3MFPackage) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DTextureResource'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3D3MFPackage'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
    end;
    
-   function Create return Windows.Graphics.Printing3D.IPrinting3DComponent is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DBaseMaterial is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DComponent");
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DBaseMaterial");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DComponent) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DBaseMaterial) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DComponent'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DMesh is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMesh");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DMesh) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DMesh'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DComponentWithMatrix");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DComponentWithMatrix'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DColorMaterial is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DColorMaterial");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DColorMaterial) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DColorMaterial'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DModelTexture is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DModelTexture");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DModelTexture) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DModelTexture'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DBaseMaterial'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -265,17 +197,17 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
-   function Create return Windows.Graphics.Printing3D.IPrinting3DBaseMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DColorMaterial is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DBaseMaterial");
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DColorMaterial");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DBaseMaterial) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DColorMaterial) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DBaseMaterial'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DColorMaterial'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -302,18 +234,191 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
+   function Create return Windows.Graphics.Printing3D.IPrinting3DComponent is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DComponent");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DComponent) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DComponent'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DComponentWithMatrix");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DComponentWithMatrix'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DCompositeMaterial");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DCompositeMaterial'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create
    (
       MaterialGroupId : Windows.UInt32
    )
-   return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup is
+   return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup");
-      m_Factory     : Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroupFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup");
+      m_Factory     : Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroupFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup := null;
+      RetVal        : aliased Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3DTexture2CoordMaterialGroupFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3DCompositeMaterialGroupFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(MaterialGroupId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DFaceReductionOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DFaceReductionOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DMaterial is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMaterial");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DMaterial) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DMaterial'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DMesh is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMesh");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DMesh) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DMesh'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DModel is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DModel");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DModel) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DModel'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DModelTexture is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DModelTexture");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DModelTexture) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DModelTexture'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DMultiplePropertyMaterial'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      MaterialGroupId : Windows.UInt32
+   )
+   return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup");
+      m_Factory     : Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroupFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3DMultiplePropertyMaterialGroupFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(MaterialGroupId, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -343,14 +448,14 @@ package body Windows.Graphics.Printing3D is
    (
       MaterialGroupId : Windows.UInt32
    )
-   return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup is
+   return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup");
-      m_Factory     : Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroupFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup");
+      m_Factory     : Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroupFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup := null;
+      RetVal        : aliased Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3DCompositeMaterialGroupFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3DTexture2CoordMaterialGroupFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(MaterialGroupId, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -359,122 +464,17 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
-   function Create return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial is
+   function Create return Windows.Graphics.Printing3D.IPrinting3DTextureResource is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DCompositeMaterial");
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DTextureResource");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DTextureResource) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DCompositeMaterial'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create
-   (
-      MaterialGroupId : Windows.UInt32
-   )
-   return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup");
-      m_Factory     : Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroupFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3DMultiplePropertyMaterialGroupFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(MaterialGroupId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DMultiplePropertyMaterial'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DMaterial is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DMaterial");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DMaterial) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DMaterial'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DModel is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DModel");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DModel) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DModel'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3DFaceReductionOptions");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DFaceReductionOptions'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Graphics.Printing3D.IPrinting3D3MFPackage is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3D3MFPackage");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing3D.IPrinting3D3MFPackage) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3D3MFPackage'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing3D.IID_IPrinting3DTextureResource'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -523,6 +523,26 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
+   function LoadAsync
+   (
+      value : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3D3MFPackage");
+      m_Factory     : IPrinting3D3MFPackageStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3D3MFPackageStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadAsync(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Abs
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -551,26 +571,6 @@ package body Windows.Graphics.Printing3D is
       Hr := RoGetActivationFactory(m_hString, IID_IPrinting3DBaseMaterialStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Pla(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadAsync
-   (
-      value : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing3D.Printing3D3MFPackage");
-      m_Factory     : IPrinting3D3MFPackageStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrinting3D3MFPackageStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadAsync(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

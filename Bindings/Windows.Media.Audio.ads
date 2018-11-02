@@ -47,36 +47,6 @@ package Windows.Media.Audio is
    -- Enums
    ------------------------------------------------------------------------
    
-   type AudioGraphCreationStatus is (
-      Success,
-      DeviceNotAvailable,
-      FormatNotSupported,
-      UnknownFailure
-   );
-   for AudioGraphCreationStatus use (
-      Success => 0,
-      DeviceNotAvailable => 1,
-      FormatNotSupported => 2,
-      UnknownFailure => 3
-   );
-   for AudioGraphCreationStatus'Size use 32;
-   
-   type AudioGraphCreationStatus_Ptr is access AudioGraphCreationStatus;
-   
-   type QuantumSizeSelectionMode is (
-      SystemDefault,
-      LowestLatency,
-      ClosestToDesired
-   );
-   for QuantumSizeSelectionMode use (
-      SystemDefault => 0,
-      LowestLatency => 1,
-      ClosestToDesired => 2
-   );
-   for QuantumSizeSelectionMode'Size use 32;
-   
-   type QuantumSizeSelectionMode_Ptr is access QuantumSizeSelectionMode;
-   
    type AudioDeviceNodeCreationStatus is (
       Success,
       DeviceNotAvailable,
@@ -113,21 +83,21 @@ package Windows.Media.Audio is
    
    type AudioFileNodeCreationStatus_Ptr is access AudioFileNodeCreationStatus;
    
-   type MediaSourceAudioInputNodeCreationStatus is (
+   type AudioGraphCreationStatus is (
       Success,
+      DeviceNotAvailable,
       FormatNotSupported,
-      NetworkError,
       UnknownFailure
    );
-   for MediaSourceAudioInputNodeCreationStatus use (
+   for AudioGraphCreationStatus use (
       Success => 0,
-      FormatNotSupported => 1,
-      NetworkError => 2,
+      DeviceNotAvailable => 1,
+      FormatNotSupported => 2,
       UnknownFailure => 3
    );
-   for MediaSourceAudioInputNodeCreationStatus'Size use 32;
+   for AudioGraphCreationStatus'Size use 32;
    
-   type MediaSourceAudioInputNodeCreationStatus_Ptr is access MediaSourceAudioInputNodeCreationStatus;
+   type AudioGraphCreationStatus_Ptr is access AudioGraphCreationStatus;
    
    type AudioGraphUnrecoverableError is (
       None,
@@ -144,6 +114,18 @@ package Windows.Media.Audio is
    for AudioGraphUnrecoverableError'Size use 32;
    
    type AudioGraphUnrecoverableError_Ptr is access AudioGraphUnrecoverableError;
+   
+   type AudioNodeEmitterDecayKind is (
+      Natural,
+      Custom
+   );
+   for AudioNodeEmitterDecayKind use (
+      Natural => 0,
+      Custom => 1
+   );
+   for AudioNodeEmitterDecayKind'Size use 32;
+   
+   type AudioNodeEmitterDecayKind_Ptr is access AudioNodeEmitterDecayKind;
    
    type AudioNodeEmitterSettings is (
       None,
@@ -169,17 +151,35 @@ package Windows.Media.Audio is
    
    type AudioNodeEmitterShapeKind_Ptr is access AudioNodeEmitterShapeKind;
    
-   type AudioNodeEmitterDecayKind is (
-      Natural,
-      Custom
+   type MediaSourceAudioInputNodeCreationStatus is (
+      Success,
+      FormatNotSupported,
+      NetworkError,
+      UnknownFailure
    );
-   for AudioNodeEmitterDecayKind use (
-      Natural => 0,
-      Custom => 1
+   for MediaSourceAudioInputNodeCreationStatus use (
+      Success => 0,
+      FormatNotSupported => 1,
+      NetworkError => 2,
+      UnknownFailure => 3
    );
-   for AudioNodeEmitterDecayKind'Size use 32;
+   for MediaSourceAudioInputNodeCreationStatus'Size use 32;
    
-   type AudioNodeEmitterDecayKind_Ptr is access AudioNodeEmitterDecayKind;
+   type MediaSourceAudioInputNodeCreationStatus_Ptr is access MediaSourceAudioInputNodeCreationStatus;
+   
+   type QuantumSizeSelectionMode is (
+      SystemDefault,
+      LowestLatency,
+      ClosestToDesired
+   );
+   for QuantumSizeSelectionMode use (
+      SystemDefault => 0,
+      LowestLatency => 1,
+      ClosestToDesired => 2
+   );
+   for QuantumSizeSelectionMode'Size use 32;
+   
+   type QuantumSizeSelectionMode_Ptr is access QuantumSizeSelectionMode;
    
    type SpatialAudioModel is (
       ObjectBased,
@@ -197,12 +197,6 @@ package Windows.Media.Audio is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface;
-   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged is access all TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface'Class;
-   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Ptr is access all TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged;
-   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface;
-   type AsyncOperationCompletedHandler_ICreateAudioGraphResult is access all AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface'Class;
-   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Ptr is access all AsyncOperationCompletedHandler_ICreateAudioGraphResult;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult is access all AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface'Class;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Ptr is access all AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult;
@@ -215,27 +209,33 @@ package Windows.Media.Audio is
    type AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface;
    type AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult is access all AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface'Class;
    type AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Ptr is access all AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult;
-   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface;
-   type TypedEventHandler_IAudioGraph_add_QuantumStarted is access all TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface'Class;
-   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Ptr is access all TypedEventHandler_IAudioGraph_add_QuantumStarted;
-   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface;
-   type TypedEventHandler_IAudioGraph_add_QuantumProcessed is access all TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface'Class;
-   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Ptr is access all TypedEventHandler_IAudioGraph_add_QuantumProcessed;
-   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface;
-   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred is access all TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface'Class;
-   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Ptr is access all TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred;
+   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface;
+   type AsyncOperationCompletedHandler_ICreateAudioGraphResult is access all AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface'Class;
+   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Ptr is access all AsyncOperationCompletedHandler_ICreateAudioGraphResult;
    type AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Interface;
    type AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult is access all AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Interface'Class;
    type AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Ptr is access all AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult;
+   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface;
+   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted is access all TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface'Class;
+   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Ptr is access all TypedEventHandler_IAudioFileInputNode_add_FileCompleted;
    type TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface;
    type TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted is access all TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface'Class;
    type TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Ptr is access all TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted;
    type TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface;
    type TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted is access all TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface'Class;
    type TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Ptr is access all TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted;
-   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface;
-   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted is access all TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface'Class;
-   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Ptr is access all TypedEventHandler_IAudioFileInputNode_add_FileCompleted;
+   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface;
+   type TypedEventHandler_IAudioGraph_add_QuantumProcessed is access all TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface'Class;
+   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Ptr is access all TypedEventHandler_IAudioGraph_add_QuantumProcessed;
+   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface;
+   type TypedEventHandler_IAudioGraph_add_QuantumStarted is access all TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface'Class;
+   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Ptr is access all TypedEventHandler_IAudioGraph_add_QuantumStarted;
+   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface;
+   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred is access all TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface'Class;
+   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Ptr is access all TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred;
+   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface;
+   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged is access all TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface'Class;
+   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Ptr is access all TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged;
    type TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted_Interface;
    type TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted is access all TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted_Interface'Class;
    type TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted_Ptr is access all TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted;
@@ -244,159 +244,6 @@ package Windows.Media.Audio is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IAudioStateMonitorStatics_Interface;
-   type IAudioStateMonitorStatics is access all IAudioStateMonitorStatics_Interface'Class;
-   type IAudioStateMonitorStatics_Ptr is access all IAudioStateMonitorStatics;
-   type IAudioStateMonitor_Interface;
-   type IAudioStateMonitor is access all IAudioStateMonitor_Interface'Class;
-   type IAudioStateMonitor_Ptr is access all IAudioStateMonitor;
-   type ICreateAudioGraphResult_Interface;
-   type ICreateAudioGraphResult is access all ICreateAudioGraphResult_Interface'Class;
-   type ICreateAudioGraphResult_Ptr is access all ICreateAudioGraphResult;
-   type IAudioGraphSettingsFactory_Interface;
-   type IAudioGraphSettingsFactory is access all IAudioGraphSettingsFactory_Interface'Class;
-   type IAudioGraphSettingsFactory_Ptr is access all IAudioGraphSettingsFactory;
-   type IAudioGraphSettings_Interface;
-   type IAudioGraphSettings is access all IAudioGraphSettings_Interface'Class;
-   type IAudioGraphSettings_Ptr is access all IAudioGraphSettings;
-   type IAudioGraphSettings2_Interface;
-   type IAudioGraphSettings2 is access all IAudioGraphSettings2_Interface'Class;
-   type IAudioGraphSettings2_Ptr is access all IAudioGraphSettings2;
-   type IAudioGraphStatics_Interface;
-   type IAudioGraphStatics is access all IAudioGraphStatics_Interface'Class;
-   type IAudioGraphStatics_Ptr is access all IAudioGraphStatics;
-   type ICreateAudioDeviceInputNodeResult_Interface;
-   type ICreateAudioDeviceInputNodeResult is access all ICreateAudioDeviceInputNodeResult_Interface'Class;
-   type ICreateAudioDeviceInputNodeResult_Ptr is access all ICreateAudioDeviceInputNodeResult;
-   type ICreateAudioDeviceOutputNodeResult_Interface;
-   type ICreateAudioDeviceOutputNodeResult is access all ICreateAudioDeviceOutputNodeResult_Interface'Class;
-   type ICreateAudioDeviceOutputNodeResult_Ptr is access all ICreateAudioDeviceOutputNodeResult;
-   type ICreateAudioFileInputNodeResult_Interface;
-   type ICreateAudioFileInputNodeResult is access all ICreateAudioFileInputNodeResult_Interface'Class;
-   type ICreateAudioFileInputNodeResult_Ptr is access all ICreateAudioFileInputNodeResult;
-   type ICreateAudioFileOutputNodeResult_Interface;
-   type ICreateAudioFileOutputNodeResult is access all ICreateAudioFileOutputNodeResult_Interface'Class;
-   type ICreateAudioFileOutputNodeResult_Ptr is access all ICreateAudioFileOutputNodeResult;
-   type ICreateMediaSourceAudioInputNodeResult_Interface;
-   type ICreateMediaSourceAudioInputNodeResult is access all ICreateMediaSourceAudioInputNodeResult_Interface'Class;
-   type ICreateMediaSourceAudioInputNodeResult_Ptr is access all ICreateMediaSourceAudioInputNodeResult;
-   type IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface;
-   type IAudioGraphUnrecoverableErrorOccurredEventArgs is access all IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface'Class;
-   type IAudioGraphUnrecoverableErrorOccurredEventArgs_Ptr is access all IAudioGraphUnrecoverableErrorOccurredEventArgs;
-   type IAudioGraph_Interface;
-   type IAudioGraph is access all IAudioGraph_Interface'Class;
-   type IAudioGraph_Ptr is access all IAudioGraph;
-   type IAudioGraph2_Interface;
-   type IAudioGraph2 is access all IAudioGraph2_Interface'Class;
-   type IAudioGraph2_Ptr is access all IAudioGraph2;
-   type IAudioGraph3_Interface;
-   type IAudioGraph3 is access all IAudioGraph3_Interface'Class;
-   type IAudioGraph3_Ptr is access all IAudioGraph3;
-   type IAudioNode_Interface;
-   type IAudioNode is access all IAudioNode_Interface'Class;
-   type IAudioNode_Ptr is access all IAudioNode;
-   type IAudioNodeWithListener_Interface;
-   type IAudioNodeWithListener is access all IAudioNodeWithListener_Interface'Class;
-   type IAudioNodeWithListener_Ptr is access all IAudioNodeWithListener;
-   type IAudioInputNode_Interface;
-   type IAudioInputNode is access all IAudioInputNode_Interface'Class;
-   type IAudioInputNode_Ptr is access all IAudioInputNode;
-   type IAudioInputNode2_Interface;
-   type IAudioInputNode2 is access all IAudioInputNode2_Interface'Class;
-   type IAudioInputNode2_Ptr is access all IAudioInputNode2;
-   type IAudioFrameInputNode_Interface;
-   type IAudioFrameInputNode is access all IAudioFrameInputNode_Interface'Class;
-   type IAudioFrameInputNode_Ptr is access all IAudioFrameInputNode;
-   type IAudioFileInputNode_Interface;
-   type IAudioFileInputNode is access all IAudioFileInputNode_Interface'Class;
-   type IAudioFileInputNode_Ptr is access all IAudioFileInputNode;
-   type IMediaSourceAudioInputNode_Interface;
-   type IMediaSourceAudioInputNode is access all IMediaSourceAudioInputNode_Interface'Class;
-   type IMediaSourceAudioInputNode_Ptr is access all IMediaSourceAudioInputNode;
-   type IAudioDeviceInputNode_Interface;
-   type IAudioDeviceInputNode is access all IAudioDeviceInputNode_Interface'Class;
-   type IAudioDeviceInputNode_Ptr is access all IAudioDeviceInputNode;
-   type IAudioDeviceOutputNode_Interface;
-   type IAudioDeviceOutputNode is access all IAudioDeviceOutputNode_Interface'Class;
-   type IAudioDeviceOutputNode_Ptr is access all IAudioDeviceOutputNode;
-   type IAudioFrameOutputNode_Interface;
-   type IAudioFrameOutputNode is access all IAudioFrameOutputNode_Interface'Class;
-   type IAudioFrameOutputNode_Ptr is access all IAudioFrameOutputNode;
-   type IAudioFileOutputNode_Interface;
-   type IAudioFileOutputNode is access all IAudioFileOutputNode_Interface'Class;
-   type IAudioFileOutputNode_Ptr is access all IAudioFileOutputNode;
-   type IAudioFrameCompletedEventArgs_Interface;
-   type IAudioFrameCompletedEventArgs is access all IAudioFrameCompletedEventArgs_Interface'Class;
-   type IAudioFrameCompletedEventArgs_Ptr is access all IAudioFrameCompletedEventArgs;
-   type IFrameInputNodeQuantumStartedEventArgs_Interface;
-   type IFrameInputNodeQuantumStartedEventArgs is access all IFrameInputNodeQuantumStartedEventArgs_Interface'Class;
-   type IFrameInputNodeQuantumStartedEventArgs_Ptr is access all IFrameInputNodeQuantumStartedEventArgs;
-   type IAudioGraphConnection_Interface;
-   type IAudioGraphConnection is access all IAudioGraphConnection_Interface'Class;
-   type IAudioGraphConnection_Ptr is access all IAudioGraphConnection;
-   type IEqualizerBand_Interface;
-   type IEqualizerBand is access all IEqualizerBand_Interface'Class;
-   type IEqualizerBand_Ptr is access all IEqualizerBand;
-   type IEqualizerEffectDefinitionFactory_Interface;
-   type IEqualizerEffectDefinitionFactory is access all IEqualizerEffectDefinitionFactory_Interface'Class;
-   type IEqualizerEffectDefinitionFactory_Ptr is access all IEqualizerEffectDefinitionFactory;
-   type IReverbEffectDefinitionFactory_Interface;
-   type IReverbEffectDefinitionFactory is access all IReverbEffectDefinitionFactory_Interface'Class;
-   type IReverbEffectDefinitionFactory_Ptr is access all IReverbEffectDefinitionFactory;
-   type IEchoEffectDefinitionFactory_Interface;
-   type IEchoEffectDefinitionFactory is access all IEchoEffectDefinitionFactory_Interface'Class;
-   type IEchoEffectDefinitionFactory_Ptr is access all IEchoEffectDefinitionFactory;
-   type ILimiterEffectDefinitionFactory_Interface;
-   type ILimiterEffectDefinitionFactory is access all ILimiterEffectDefinitionFactory_Interface'Class;
-   type ILimiterEffectDefinitionFactory_Ptr is access all ILimiterEffectDefinitionFactory;
-   type IAudioNodeEmitterConeProperties_Interface;
-   type IAudioNodeEmitterConeProperties is access all IAudioNodeEmitterConeProperties_Interface'Class;
-   type IAudioNodeEmitterConeProperties_Ptr is access all IAudioNodeEmitterConeProperties;
-   type IAudioNodeEmitterShape_Interface;
-   type IAudioNodeEmitterShape is access all IAudioNodeEmitterShape_Interface'Class;
-   type IAudioNodeEmitterShape_Ptr is access all IAudioNodeEmitterShape;
-   type IAudioNodeEmitterShapeStatics_Interface;
-   type IAudioNodeEmitterShapeStatics is access all IAudioNodeEmitterShapeStatics_Interface'Class;
-   type IAudioNodeEmitterShapeStatics_Ptr is access all IAudioNodeEmitterShapeStatics;
-   type IAudioNodeEmitterNaturalDecayModelProperties_Interface;
-   type IAudioNodeEmitterNaturalDecayModelProperties is access all IAudioNodeEmitterNaturalDecayModelProperties_Interface'Class;
-   type IAudioNodeEmitterNaturalDecayModelProperties_Ptr is access all IAudioNodeEmitterNaturalDecayModelProperties;
-   type IAudioNodeEmitterDecayModel_Interface;
-   type IAudioNodeEmitterDecayModel is access all IAudioNodeEmitterDecayModel_Interface'Class;
-   type IAudioNodeEmitterDecayModel_Ptr is access all IAudioNodeEmitterDecayModel;
-   type IAudioNodeEmitterDecayModelStatics_Interface;
-   type IAudioNodeEmitterDecayModelStatics is access all IAudioNodeEmitterDecayModelStatics_Interface'Class;
-   type IAudioNodeEmitterDecayModelStatics_Ptr is access all IAudioNodeEmitterDecayModelStatics;
-   type IAudioNodeEmitter_Interface;
-   type IAudioNodeEmitter is access all IAudioNodeEmitter_Interface'Class;
-   type IAudioNodeEmitter_Ptr is access all IAudioNodeEmitter;
-   type IAudioNodeEmitter2_Interface;
-   type IAudioNodeEmitter2 is access all IAudioNodeEmitter2_Interface'Class;
-   type IAudioNodeEmitter2_Ptr is access all IAudioNodeEmitter2;
-   type IAudioNodeEmitterFactory_Interface;
-   type IAudioNodeEmitterFactory is access all IAudioNodeEmitterFactory_Interface'Class;
-   type IAudioNodeEmitterFactory_Ptr is access all IAudioNodeEmitterFactory;
-   type IAudioNodeListener_Interface;
-   type IAudioNodeListener is access all IAudioNodeListener_Interface'Class;
-   type IAudioNodeListener_Ptr is access all IAudioNodeListener;
-   type IEqualizerEffectDefinition_Interface;
-   type IEqualizerEffectDefinition is access all IEqualizerEffectDefinition_Interface'Class;
-   type IEqualizerEffectDefinition_Ptr is access all IEqualizerEffectDefinition;
-   type IReverbEffectDefinition_Interface;
-   type IReverbEffectDefinition is access all IReverbEffectDefinition_Interface'Class;
-   type IReverbEffectDefinition_Ptr is access all IReverbEffectDefinition;
-   type IEchoEffectDefinition_Interface;
-   type IEchoEffectDefinition is access all IEchoEffectDefinition_Interface'Class;
-   type IEchoEffectDefinition_Ptr is access all IEchoEffectDefinition;
-   type ILimiterEffectDefinition_Interface;
-   type ILimiterEffectDefinition is access all ILimiterEffectDefinition_Interface'Class;
-   type ILimiterEffectDefinition_Ptr is access all ILimiterEffectDefinition;
-   type IAudioEffectDefinition_Imported_Interface;
-   type IAudioEffectDefinition_Imported is access all IAudioEffectDefinition_Imported_Interface'Class;
-   type IAudioEffectDefinition_Imported_Ptr is access all IAudioEffectDefinition_Imported;
-   type IAsyncOperation_ICreateAudioGraphResult_Interface;
-   type IAsyncOperation_ICreateAudioGraphResult is access all IAsyncOperation_ICreateAudioGraphResult_Interface'Class;
-   type IAsyncOperation_ICreateAudioGraphResult_Ptr is access all IAsyncOperation_ICreateAudioGraphResult;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult is access all IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface'Class;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Ptr is access all IAsyncOperation_ICreateAudioDeviceInputNodeResult;
@@ -409,24 +256,177 @@ package Windows.Media.Audio is
    type IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface;
    type IAsyncOperation_ICreateAudioFileOutputNodeResult is access all IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface'Class;
    type IAsyncOperation_ICreateAudioFileOutputNodeResult_Ptr is access all IAsyncOperation_ICreateAudioFileOutputNodeResult;
+   type IAsyncOperation_ICreateAudioGraphResult_Interface;
+   type IAsyncOperation_ICreateAudioGraphResult is access all IAsyncOperation_ICreateAudioGraphResult_Interface'Class;
+   type IAsyncOperation_ICreateAudioGraphResult_Ptr is access all IAsyncOperation_ICreateAudioGraphResult;
    type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface;
    type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult is access all IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface'Class;
    type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Ptr is access all IAsyncOperation_ICreateMediaSourceAudioInputNodeResult;
-   type IIterator_IAudioGraphConnection_Interface;
-   type IIterator_IAudioGraphConnection is access all IIterator_IAudioGraphConnection_Interface'Class;
-   type IIterator_IAudioGraphConnection_Ptr is access all IIterator_IAudioGraphConnection;
+   type IAudioDeviceInputNode_Interface;
+   type IAudioDeviceInputNode is access all IAudioDeviceInputNode_Interface'Class;
+   type IAudioDeviceInputNode_Ptr is access all IAudioDeviceInputNode;
+   type IAudioDeviceOutputNode_Interface;
+   type IAudioDeviceOutputNode is access all IAudioDeviceOutputNode_Interface'Class;
+   type IAudioDeviceOutputNode_Ptr is access all IAudioDeviceOutputNode;
+   type IAudioEffectDefinition_Imported_Interface;
+   type IAudioEffectDefinition_Imported is access all IAudioEffectDefinition_Imported_Interface'Class;
+   type IAudioEffectDefinition_Imported_Ptr is access all IAudioEffectDefinition_Imported;
+   type IAudioFileInputNode_Interface;
+   type IAudioFileInputNode is access all IAudioFileInputNode_Interface'Class;
+   type IAudioFileInputNode_Ptr is access all IAudioFileInputNode;
+   type IAudioFileOutputNode_Interface;
+   type IAudioFileOutputNode is access all IAudioFileOutputNode_Interface'Class;
+   type IAudioFileOutputNode_Ptr is access all IAudioFileOutputNode;
+   type IAudioFrameCompletedEventArgs_Interface;
+   type IAudioFrameCompletedEventArgs is access all IAudioFrameCompletedEventArgs_Interface'Class;
+   type IAudioFrameCompletedEventArgs_Ptr is access all IAudioFrameCompletedEventArgs;
+   type IAudioFrameInputNode_Interface;
+   type IAudioFrameInputNode is access all IAudioFrameInputNode_Interface'Class;
+   type IAudioFrameInputNode_Ptr is access all IAudioFrameInputNode;
+   type IAudioFrameOutputNode_Interface;
+   type IAudioFrameOutputNode is access all IAudioFrameOutputNode_Interface'Class;
+   type IAudioFrameOutputNode_Ptr is access all IAudioFrameOutputNode;
+   type IAudioGraph_Interface;
+   type IAudioGraph is access all IAudioGraph_Interface'Class;
+   type IAudioGraph_Ptr is access all IAudioGraph;
+   type IAudioGraph2_Interface;
+   type IAudioGraph2 is access all IAudioGraph2_Interface'Class;
+   type IAudioGraph2_Ptr is access all IAudioGraph2;
+   type IAudioGraph3_Interface;
+   type IAudioGraph3 is access all IAudioGraph3_Interface'Class;
+   type IAudioGraph3_Ptr is access all IAudioGraph3;
+   type IAudioGraphConnection_Interface;
+   type IAudioGraphConnection is access all IAudioGraphConnection_Interface'Class;
+   type IAudioGraphConnection_Ptr is access all IAudioGraphConnection;
+   type IAudioGraphSettings_Interface;
+   type IAudioGraphSettings is access all IAudioGraphSettings_Interface'Class;
+   type IAudioGraphSettings_Ptr is access all IAudioGraphSettings;
+   type IAudioGraphSettings2_Interface;
+   type IAudioGraphSettings2 is access all IAudioGraphSettings2_Interface'Class;
+   type IAudioGraphSettings2_Ptr is access all IAudioGraphSettings2;
+   type IAudioGraphSettingsFactory_Interface;
+   type IAudioGraphSettingsFactory is access all IAudioGraphSettingsFactory_Interface'Class;
+   type IAudioGraphSettingsFactory_Ptr is access all IAudioGraphSettingsFactory;
+   type IAudioGraphStatics_Interface;
+   type IAudioGraphStatics is access all IAudioGraphStatics_Interface'Class;
+   type IAudioGraphStatics_Ptr is access all IAudioGraphStatics;
+   type IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface;
+   type IAudioGraphUnrecoverableErrorOccurredEventArgs is access all IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface'Class;
+   type IAudioGraphUnrecoverableErrorOccurredEventArgs_Ptr is access all IAudioGraphUnrecoverableErrorOccurredEventArgs;
+   type IAudioInputNode_Interface;
+   type IAudioInputNode is access all IAudioInputNode_Interface'Class;
+   type IAudioInputNode_Ptr is access all IAudioInputNode;
+   type IAudioInputNode2_Interface;
+   type IAudioInputNode2 is access all IAudioInputNode2_Interface'Class;
+   type IAudioInputNode2_Ptr is access all IAudioInputNode2;
+   type IAudioNode_Interface;
+   type IAudioNode is access all IAudioNode_Interface'Class;
+   type IAudioNode_Ptr is access all IAudioNode;
+   type IAudioNodeEmitter_Interface;
+   type IAudioNodeEmitter is access all IAudioNodeEmitter_Interface'Class;
+   type IAudioNodeEmitter_Ptr is access all IAudioNodeEmitter;
+   type IAudioNodeEmitter2_Interface;
+   type IAudioNodeEmitter2 is access all IAudioNodeEmitter2_Interface'Class;
+   type IAudioNodeEmitter2_Ptr is access all IAudioNodeEmitter2;
+   type IAudioNodeEmitterConeProperties_Interface;
+   type IAudioNodeEmitterConeProperties is access all IAudioNodeEmitterConeProperties_Interface'Class;
+   type IAudioNodeEmitterConeProperties_Ptr is access all IAudioNodeEmitterConeProperties;
+   type IAudioNodeEmitterDecayModel_Interface;
+   type IAudioNodeEmitterDecayModel is access all IAudioNodeEmitterDecayModel_Interface'Class;
+   type IAudioNodeEmitterDecayModel_Ptr is access all IAudioNodeEmitterDecayModel;
+   type IAudioNodeEmitterDecayModelStatics_Interface;
+   type IAudioNodeEmitterDecayModelStatics is access all IAudioNodeEmitterDecayModelStatics_Interface'Class;
+   type IAudioNodeEmitterDecayModelStatics_Ptr is access all IAudioNodeEmitterDecayModelStatics;
+   type IAudioNodeEmitterFactory_Interface;
+   type IAudioNodeEmitterFactory is access all IAudioNodeEmitterFactory_Interface'Class;
+   type IAudioNodeEmitterFactory_Ptr is access all IAudioNodeEmitterFactory;
+   type IAudioNodeEmitterNaturalDecayModelProperties_Interface;
+   type IAudioNodeEmitterNaturalDecayModelProperties is access all IAudioNodeEmitterNaturalDecayModelProperties_Interface'Class;
+   type IAudioNodeEmitterNaturalDecayModelProperties_Ptr is access all IAudioNodeEmitterNaturalDecayModelProperties;
+   type IAudioNodeEmitterShape_Interface;
+   type IAudioNodeEmitterShape is access all IAudioNodeEmitterShape_Interface'Class;
+   type IAudioNodeEmitterShape_Ptr is access all IAudioNodeEmitterShape;
+   type IAudioNodeEmitterShapeStatics_Interface;
+   type IAudioNodeEmitterShapeStatics is access all IAudioNodeEmitterShapeStatics_Interface'Class;
+   type IAudioNodeEmitterShapeStatics_Ptr is access all IAudioNodeEmitterShapeStatics;
+   type IAudioNodeListener_Interface;
+   type IAudioNodeListener is access all IAudioNodeListener_Interface'Class;
+   type IAudioNodeListener_Ptr is access all IAudioNodeListener;
+   type IAudioNodeWithListener_Interface;
+   type IAudioNodeWithListener is access all IAudioNodeWithListener_Interface'Class;
+   type IAudioNodeWithListener_Ptr is access all IAudioNodeWithListener;
+   type IAudioStateMonitor_Interface;
+   type IAudioStateMonitor is access all IAudioStateMonitor_Interface'Class;
+   type IAudioStateMonitor_Ptr is access all IAudioStateMonitor;
+   type IAudioStateMonitorStatics_Interface;
+   type IAudioStateMonitorStatics is access all IAudioStateMonitorStatics_Interface'Class;
+   type IAudioStateMonitorStatics_Ptr is access all IAudioStateMonitorStatics;
+   type ICreateAudioDeviceInputNodeResult_Interface;
+   type ICreateAudioDeviceInputNodeResult is access all ICreateAudioDeviceInputNodeResult_Interface'Class;
+   type ICreateAudioDeviceInputNodeResult_Ptr is access all ICreateAudioDeviceInputNodeResult;
+   type ICreateAudioDeviceOutputNodeResult_Interface;
+   type ICreateAudioDeviceOutputNodeResult is access all ICreateAudioDeviceOutputNodeResult_Interface'Class;
+   type ICreateAudioDeviceOutputNodeResult_Ptr is access all ICreateAudioDeviceOutputNodeResult;
+   type ICreateAudioFileInputNodeResult_Interface;
+   type ICreateAudioFileInputNodeResult is access all ICreateAudioFileInputNodeResult_Interface'Class;
+   type ICreateAudioFileInputNodeResult_Ptr is access all ICreateAudioFileInputNodeResult;
+   type ICreateAudioFileOutputNodeResult_Interface;
+   type ICreateAudioFileOutputNodeResult is access all ICreateAudioFileOutputNodeResult_Interface'Class;
+   type ICreateAudioFileOutputNodeResult_Ptr is access all ICreateAudioFileOutputNodeResult;
+   type ICreateAudioGraphResult_Interface;
+   type ICreateAudioGraphResult is access all ICreateAudioGraphResult_Interface'Class;
+   type ICreateAudioGraphResult_Ptr is access all ICreateAudioGraphResult;
+   type ICreateMediaSourceAudioInputNodeResult_Interface;
+   type ICreateMediaSourceAudioInputNodeResult is access all ICreateMediaSourceAudioInputNodeResult_Interface'Class;
+   type ICreateMediaSourceAudioInputNodeResult_Ptr is access all ICreateMediaSourceAudioInputNodeResult;
+   type IEchoEffectDefinition_Interface;
+   type IEchoEffectDefinition is access all IEchoEffectDefinition_Interface'Class;
+   type IEchoEffectDefinition_Ptr is access all IEchoEffectDefinition;
+   type IEchoEffectDefinitionFactory_Interface;
+   type IEchoEffectDefinitionFactory is access all IEchoEffectDefinitionFactory_Interface'Class;
+   type IEchoEffectDefinitionFactory_Ptr is access all IEchoEffectDefinitionFactory;
+   type IEqualizerBand_Interface;
+   type IEqualizerBand is access all IEqualizerBand_Interface'Class;
+   type IEqualizerBand_Ptr is access all IEqualizerBand;
+   type IEqualizerEffectDefinition_Interface;
+   type IEqualizerEffectDefinition is access all IEqualizerEffectDefinition_Interface'Class;
+   type IEqualizerEffectDefinition_Ptr is access all IEqualizerEffectDefinition;
+   type IEqualizerEffectDefinitionFactory_Interface;
+   type IEqualizerEffectDefinitionFactory is access all IEqualizerEffectDefinitionFactory_Interface'Class;
+   type IEqualizerEffectDefinitionFactory_Ptr is access all IEqualizerEffectDefinitionFactory;
+   type IFrameInputNodeQuantumStartedEventArgs_Interface;
+   type IFrameInputNodeQuantumStartedEventArgs is access all IFrameInputNodeQuantumStartedEventArgs_Interface'Class;
+   type IFrameInputNodeQuantumStartedEventArgs_Ptr is access all IFrameInputNodeQuantumStartedEventArgs;
    type IIterable_IAudioGraphConnection_Interface;
    type IIterable_IAudioGraphConnection is access all IIterable_IAudioGraphConnection_Interface'Class;
    type IIterable_IAudioGraphConnection_Ptr is access all IIterable_IAudioGraphConnection;
-   type IVectorView_IAudioGraphConnection_Interface;
-   type IVectorView_IAudioGraphConnection is access all IVectorView_IAudioGraphConnection_Interface'Class;
-   type IVectorView_IAudioGraphConnection_Ptr is access all IVectorView_IAudioGraphConnection;
-   type IIterator_IEqualizerBand_Interface;
-   type IIterator_IEqualizerBand is access all IIterator_IEqualizerBand_Interface'Class;
-   type IIterator_IEqualizerBand_Ptr is access all IIterator_IEqualizerBand;
    type IIterable_IEqualizerBand_Interface;
    type IIterable_IEqualizerBand is access all IIterable_IEqualizerBand_Interface'Class;
    type IIterable_IEqualizerBand_Ptr is access all IIterable_IEqualizerBand;
+   type IIterator_IAudioGraphConnection_Interface;
+   type IIterator_IAudioGraphConnection is access all IIterator_IAudioGraphConnection_Interface'Class;
+   type IIterator_IAudioGraphConnection_Ptr is access all IIterator_IAudioGraphConnection;
+   type IIterator_IEqualizerBand_Interface;
+   type IIterator_IEqualizerBand is access all IIterator_IEqualizerBand_Interface'Class;
+   type IIterator_IEqualizerBand_Ptr is access all IIterator_IEqualizerBand;
+   type ILimiterEffectDefinition_Interface;
+   type ILimiterEffectDefinition is access all ILimiterEffectDefinition_Interface'Class;
+   type ILimiterEffectDefinition_Ptr is access all ILimiterEffectDefinition;
+   type ILimiterEffectDefinitionFactory_Interface;
+   type ILimiterEffectDefinitionFactory is access all ILimiterEffectDefinitionFactory_Interface'Class;
+   type ILimiterEffectDefinitionFactory_Ptr is access all ILimiterEffectDefinitionFactory;
+   type IMediaSourceAudioInputNode_Interface;
+   type IMediaSourceAudioInputNode is access all IMediaSourceAudioInputNode_Interface'Class;
+   type IMediaSourceAudioInputNode_Ptr is access all IMediaSourceAudioInputNode;
+   type IReverbEffectDefinition_Interface;
+   type IReverbEffectDefinition is access all IReverbEffectDefinition_Interface'Class;
+   type IReverbEffectDefinition_Ptr is access all IReverbEffectDefinition;
+   type IReverbEffectDefinitionFactory_Interface;
+   type IReverbEffectDefinitionFactory is access all IReverbEffectDefinitionFactory_Interface'Class;
+   type IReverbEffectDefinitionFactory_Ptr is access all IReverbEffectDefinitionFactory;
+   type IVectorView_IAudioGraphConnection_Interface;
+   type IVectorView_IAudioGraphConnection is access all IVectorView_IAudioGraphConnection_Interface'Class;
+   type IVectorView_IAudioGraphConnection_Ptr is access all IVectorView_IAudioGraphConnection;
    type IVectorView_IEqualizerBand_Interface;
    type IVectorView_IEqualizerBand is access all IVectorView_IEqualizerBand_Interface'Class;
    type IVectorView_IEqualizerBand_Ptr is access all IVectorView_IEqualizerBand;
@@ -437,372 +437,435 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
-   IID_IAudioStateMonitorStatics : aliased constant Windows.IID := (1668606540, 6971, 16385, (148, 217, 221, 34, 83, 48, 250, 64 ));
+   IID_IAsyncOperation_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (1907049601, 60490, 24297, (163, 66, 58, 49, 116, 120, 41, 184 ));
    
-   type IAudioStateMonitorStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreateForRenderMonitoring
+   function put_Completed
    (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+      This       : access IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function CreateForRenderMonitoringWithCategory
+   function get_Completed
    (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; category : Windows.Media.Render.AudioRenderCategory
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+      This       : access IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function CreateForRenderMonitoringWithCategoryAndDeviceRole
+   function GetResults
    (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; category : Windows.Media.Render.AudioRenderCategory
-      ; role : Windows.Media.Devices.AudioDeviceRole
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateForRenderMonitoringWithCategoryAndDeviceId
-   (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; category : Windows.Media.Render.AudioRenderCategory
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateForCaptureMonitoring
-   (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateForCaptureMonitoringWithCategory
-   (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; category : Windows.Media.Capture.MediaCategory
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateForCaptureMonitoringWithCategoryAndDeviceRole
-   (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; category : Windows.Media.Capture.MediaCategory
-      ; role : Windows.Media.Devices.AudioDeviceRole
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateForCaptureMonitoringWithCategoryAndDeviceId
-   (
-      This       : access IAudioStateMonitorStatics_Interface
-      ; category : Windows.Media.Capture.MediaCategory
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+      This       : access IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.ICreateAudioDeviceInputNodeResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAudioStateMonitor : aliased constant Windows.IID := (487838006, 409, 19676, (184, 78, 231, 44, 43, 88, 30, 206 ));
+   IID_IAsyncOperation_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4161853232, 56853, 22752, (165, 244, 193, 89, 247, 54, 105, 237 ));
    
-   type IAudioStateMonitor_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function add_SoundLevelChanged
+   function put_Completed
    (
-      This       : access IAudioStateMonitor_Interface
-      ; handler : TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function remove_SoundLevelChanged
+   function get_Completed
    (
-      This       : access IAudioStateMonitor_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
+      This       : access IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_SoundLevel
+   function GetResults
    (
-      This       : access IAudioStateMonitor_Interface
-      ; RetVal : access Windows.Media.SoundLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICreateAudioGraphResult : aliased constant Windows.IID := (1414786942, 31710, 19318, (187, 93, 72, 247, 156, 252, 140, 11 ));
-   
-   type ICreateAudioGraphResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Status
-   (
-      This       : access ICreateAudioGraphResult_Interface
-      ; RetVal : access Windows.Media.Audio.AudioGraphCreationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Graph
-   (
-      This       : access ICreateAudioGraphResult_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioGraph
+      This       : access IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAudioGraphSettingsFactory : aliased constant Windows.IID := (2782469318, 49899, 19041, (162, 20, 29, 102, 215, 95, 131, 218 ));
+   IID_IAsyncOperation_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (1195050687, 14459, 22218, (190, 225, 82, 116, 128, 39, 43, 15 ));
    
-   type IAudioGraphSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ICreateAudioFileInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function put_Completed
    (
-      This       : access IAudioGraphSettingsFactory_Interface
-      ; audioRenderCategory : Windows.Media.Render.AudioRenderCategory
-      ; RetVal : access Windows.Media.Audio.IAudioGraphSettings
+      This       : access IAsyncOperation_ICreateAudioFileInputNodeResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ICreateAudioFileInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ICreateAudioFileInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.ICreateAudioFileInputNodeResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAudioGraphSettings : aliased constant Windows.IID := (492397695, 59134, 17960, (132, 248, 157, 139, 219, 162, 87, 133 ));
+   IID_IAsyncOperation_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (291787133, 59731, 21525, (165, 179, 66, 73, 169, 105, 190, 123 ));
    
-   type IAudioGraphSettings_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_EncodingProperties
+   function put_Completed
    (
-      This       : access IAudioGraphSettings_Interface
-      ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
+      This       : access IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function put_EncodingProperties
+   function get_Completed
    (
-      This       : access IAudioGraphSettings_Interface
-      ; value : Windows.Media.MediaProperties.IAudioEncodingProperties
+      This       : access IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_PrimaryRenderDevice
+   function GetResults
    (
-      This       : access IAudioGraphSettings_Interface
+      This       : access IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.ICreateAudioFileOutputNodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICreateAudioGraphResult : aliased constant Windows.IID := (1041478705, 26062, 23547, (176, 170, 250, 200, 223, 149, 139, 149 ));
+   
+   type IAsyncOperation_ICreateAudioGraphResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ICreateAudioGraphResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioGraphResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ICreateAudioGraphResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioGraphResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ICreateAudioGraphResult_Interface
+      ; RetVal : access Windows.Media.Audio.ICreateAudioGraphResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICreateMediaSourceAudioInputNodeResult : aliased constant Windows.IID := (3332120819, 35068, 24378, (149, 208, 40, 22, 234, 228, 89, 104 ));
+   
+   type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceInputNode : aliased constant Windows.IID := (2954587105, 28494, 18914, (172, 1, 85, 157, 98, 190, 179, 169 ));
+   
+   type IAudioDeviceInputNode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Device
+   (
+      This       : access IAudioDeviceInputNode_Interface
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
    
-   function put_PrimaryRenderDevice
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; value : Windows.Devices.Enumeration.IDeviceInformation
-   )
-   return Windows.HRESULT is abstract;
+   ------------------------------------------------------------------------
    
-   function get_QuantumSizeSelectionMode
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; RetVal : access Windows.Media.Audio.QuantumSizeSelectionMode
-   )
-   return Windows.HRESULT is abstract;
+   IID_IAudioDeviceOutputNode : aliased constant Windows.IID := (909040639, 65308, 17460, (158, 15, 189, 46, 245, 34, 172, 130 ));
    
-   function put_QuantumSizeSelectionMode
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; value : Windows.Media.Audio.QuantumSizeSelectionMode
-   )
-   return Windows.HRESULT is abstract;
+   type IAudioDeviceOutputNode_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_DesiredSamplesPerQuantum
+   function get_Device
    (
-      This       : access IAudioGraphSettings_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredSamplesPerQuantum
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AudioRenderCategory
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; RetVal : access Windows.Media.Render.AudioRenderCategory
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AudioRenderCategory
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; value : Windows.Media.Render.AudioRenderCategory
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DesiredRenderDeviceAudioProcessing
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; RetVal : access Windows.Media.AudioProcessing
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredRenderDeviceAudioProcessing
-   (
-      This       : access IAudioGraphSettings_Interface
-      ; value : Windows.Media.AudioProcessing
+      This       : access IAudioDeviceOutputNode_Interface
+      ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAudioGraphSettings2 : aliased constant Windows.IID := (1922144135, 19883, 18147, (180, 201, 216, 225, 162, 99, 96, 98 ));
+   type IAudioEffectDefinition_Imported_Interface is interface and Windows.IInspectable_Interface;
    
-   type IAudioGraphSettings2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_MaxPlaybackSpeedFactor
+   function get_ActivatableClassId
    (
-      This       : access IAudioGraphSettings2_Interface
+      This       : access IAudioEffectDefinition_Imported_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IAudioEffectDefinition_Imported_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioFileInputNode : aliased constant Windows.IID := (2421909448, 28517, 19668, (136, 144, 70, 148, 132, 60, 39, 109 ));
+   
+   type IAudioFileInputNode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_PlaybackSpeedFactor
+   (
+      This       : access IAudioFileInputNode_Interface
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   function get_MaxPlaybackSpeedFactor
+   function get_PlaybackSpeedFactor
    (
-      This       : access IAudioGraphSettings2_Interface
+      This       : access IAudioFileInputNode_Interface
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAudioGraphStatics : aliased constant Windows.IID := (1995190578, 57689, 19127, (168, 42, 23, 190, 180, 179, 30, 148 ));
-   
-   type IAudioGraphStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateAsync
+   function get_Position
    (
-      This       : access IAudioGraphStatics_Interface
-      ; settings : Windows.Media.Audio.IAudioGraphSettings
-      ; RetVal : access Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult -- Generic Parameter Type
+      This       : access IAudioFileInputNode_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Seek
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; position : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StartTime
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StartTime
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; value : Windows.Foundation.IReference_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndTime
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EndTime
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; value : Windows.Foundation.IReference_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LoopCount
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LoopCount
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; value : Windows.Foundation.IReference_Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Duration
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SourceFile
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; RetVal : access Windows.Storage.IStorageFile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_FileCompleted
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; handler : TypedEventHandler_IAudioFileInputNode_add_FileCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_FileCompleted
+   (
+      This       : access IAudioFileInputNode_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (384747432, 7335, 16623, (145, 164, 211, 70, 224, 170, 27, 186 ));
+   IID_IAudioFileOutputNode : aliased constant Windows.IID := (1356863872, 20838, 16531, (128, 248, 173, 160, 0, 137, 233, 207 ));
    
-   type ICreateAudioDeviceInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAudioFileOutputNode_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Status
+   function get_File
    (
-      This       : access ICreateAudioDeviceInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AudioDeviceNodeCreationStatus
+      This       : access IAudioFileOutputNode_Interface
+      ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
    
-   function get_DeviceInputNode
+   function get_FileEncodingProfile
    (
-      This       : access ICreateAudioDeviceInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioDeviceInputNode
+      This       : access IAudioFileOutputNode_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProfile
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4151799079, 7578, 18423, (156, 212, 40, 89, 204, 27, 123, 255 ));
-   
-   type ICreateAudioDeviceOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Status
+   function FinalizeAsync
    (
-      This       : access ICreateAudioDeviceOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AudioDeviceNodeCreationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DeviceOutputNode
-   (
-      This       : access ICreateAudioDeviceOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioDeviceOutputNode
+      This       : access IAudioFileOutputNode_Interface
+      ; RetVal : access Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (3464746524, 58007, 19536, (156, 231, 28, 122, 105, 214, 189, 9 ));
+   IID_IAudioFrameCompletedEventArgs : aliased constant Windows.IID := (3699147422, 520, 17668, (165, 168, 240, 242, 104, 146, 10, 101 ));
    
-   type ICreateAudioFileInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAudioFrameCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Status
+   function get_Frame
    (
-      This       : access ICreateAudioFileInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AudioFileNodeCreationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FileInputNode
-   (
-      This       : access ICreateAudioFileInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioFileInputNode
+      This       : access IAudioFrameCompletedEventArgs_Interface
+      ; RetVal : access Windows.Media.IAudioFrame
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (1205254779, 59657, 17727, (134, 110, 85, 64, 205, 167, 52, 255 ));
+   IID_IAudioFrameInputNode : aliased constant Windows.IID := (28468935, 64918, 20469, (163, 197, 210, 122, 155, 244, 66, 55 ));
    
-   type ICreateAudioFileOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAudioFrameInputNode_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Status
+   function put_PlaybackSpeedFactor
    (
-      This       : access ICreateAudioFileOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AudioFileNodeCreationStatus
+      This       : access IAudioFrameInputNode_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   function get_FileOutputNode
+   function get_PlaybackSpeedFactor
    (
-      This       : access ICreateAudioFileOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioFileOutputNode
+      This       : access IAudioFrameInputNode_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddFrame
+   (
+      This       : access IAudioFrameInputNode_Interface
+      ; frame : Windows.Media.IAudioFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DiscardQueuedFrames
+   (
+      This       : access IAudioFrameInputNode_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_QueuedSampleCount
+   (
+      This       : access IAudioFrameInputNode_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_AudioFrameCompleted
+   (
+      This       : access IAudioFrameInputNode_Interface
+      ; handler : TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_AudioFrameCompleted
+   (
+      This       : access IAudioFrameInputNode_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_QuantumStarted
+   (
+      This       : access IAudioFrameInputNode_Interface
+      ; handler : TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_QuantumStarted
+   (
+      This       : access IAudioFrameInputNode_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ICreateMediaSourceAudioInputNodeResult : aliased constant Windows.IID := (1185306787, 21440, 19801, (158, 81, 204, 29, 16, 68, 164, 196 ));
+   IID_IAudioFrameOutputNode : aliased constant Windows.IID := (3091674907, 12953, 17909, (136, 179, 201, 209, 42, 63, 28, 200 ));
    
-   type ICreateMediaSourceAudioInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAudioFrameOutputNode_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Status
+   function GetFrame
    (
-      This       : access ICreateMediaSourceAudioInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Node
-   (
-      This       : access ICreateMediaSourceAudioInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.IMediaSourceAudioInputNode
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioGraphUnrecoverableErrorOccurredEventArgs : aliased constant Windows.IID := (3285830624, 16374, 20403, (178, 98, 80, 212, 53, 197, 84, 35 ));
-   
-   type IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Error
-   (
-      This       : access IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface
-      ; RetVal : access Windows.Media.Audio.AudioGraphUnrecoverableError
+      This       : access IAudioFrameOutputNode_Interface
+      ; RetVal : access Windows.Media.IAudioFrame
    )
    return Windows.HRESULT is abstract;
    
@@ -1097,6 +1160,232 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_IAudioGraphConnection : aliased constant Windows.IID := (1982886125, 53326, 20396, (178, 51, 96, 11, 66, 237, 212, 105 ));
+   
+   type IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Destination
+   (
+      This       : access IAudioGraphConnection_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Gain
+   (
+      This       : access IAudioGraphConnection_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Gain
+   (
+      This       : access IAudioGraphConnection_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioGraphSettings : aliased constant Windows.IID := (492397695, 59134, 17960, (132, 248, 157, 139, 219, 162, 87, 133 ));
+   
+   type IAudioGraphSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EncodingProperties
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EncodingProperties
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; value : Windows.Media.MediaProperties.IAudioEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PrimaryRenderDevice
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PrimaryRenderDevice
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; value : Windows.Devices.Enumeration.IDeviceInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_QuantumSizeSelectionMode
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; RetVal : access Windows.Media.Audio.QuantumSizeSelectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_QuantumSizeSelectionMode
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; value : Windows.Media.Audio.QuantumSizeSelectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DesiredSamplesPerQuantum
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredSamplesPerQuantum
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AudioRenderCategory
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; RetVal : access Windows.Media.Render.AudioRenderCategory
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AudioRenderCategory
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; value : Windows.Media.Render.AudioRenderCategory
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DesiredRenderDeviceAudioProcessing
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; RetVal : access Windows.Media.AudioProcessing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredRenderDeviceAudioProcessing
+   (
+      This       : access IAudioGraphSettings_Interface
+      ; value : Windows.Media.AudioProcessing
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioGraphSettings2 : aliased constant Windows.IID := (1922144135, 19883, 18147, (180, 201, 216, 225, 162, 99, 96, 98 ));
+   
+   type IAudioGraphSettings2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_MaxPlaybackSpeedFactor
+   (
+      This       : access IAudioGraphSettings2_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxPlaybackSpeedFactor
+   (
+      This       : access IAudioGraphSettings2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioGraphSettingsFactory : aliased constant Windows.IID := (2782469318, 49899, 19041, (162, 20, 29, 102, 215, 95, 131, 218 ));
+   
+   type IAudioGraphSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IAudioGraphSettingsFactory_Interface
+      ; audioRenderCategory : Windows.Media.Render.AudioRenderCategory
+      ; RetVal : access Windows.Media.Audio.IAudioGraphSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioGraphStatics : aliased constant Windows.IID := (1995190578, 57689, 19127, (168, 42, 23, 190, 180, 179, 30, 148 ));
+   
+   type IAudioGraphStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateAsync
+   (
+      This       : access IAudioGraphStatics_Interface
+      ; settings : Windows.Media.Audio.IAudioGraphSettings
+      ; RetVal : access Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioGraphUnrecoverableErrorOccurredEventArgs : aliased constant Windows.IID := (3285830624, 16374, 20403, (178, 98, 80, 212, 53, 197, 84, 35 ));
+   
+   type IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Error
+   (
+      This       : access IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface
+      ; RetVal : access Windows.Media.Audio.AudioGraphUnrecoverableError
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioInputNode : aliased constant Windows.IID := (3511156828, 33832, 18308, (183, 253, 169, 157, 70, 140, 93, 32 ));
+   
+   type IAudioInputNode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OutgoingConnections
+   (
+      This       : access IAudioInputNode_Interface
+      ; RetVal : access Windows.Media.Audio.IVectorView_IAudioGraphConnection -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddOutgoingConnection
+   (
+      This       : access IAudioInputNode_Interface
+      ; destination : Windows.Media.Audio.IAudioNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddOutgoingConnectionWithGain
+   (
+      This       : access IAudioInputNode_Interface
+      ; destination : Windows.Media.Audio.IAudioNode
+      ; gain : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveOutgoingConnection
+   (
+      This       : access IAudioInputNode_Interface
+      ; destination : Windows.Media.Audio.IAudioNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioInputNode2 : aliased constant Windows.IID := (2421249719, 51816, 19565, (168, 188, 227, 238, 23, 254, 63, 210 ));
+   
+   type IAudioInputNode2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Emitter
+   (
+      This       : access IAudioInputNode2_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAudioNode : aliased constant Windows.IID := (356031871, 56280, 18457, (191, 3, 102, 142, 147, 87, 205, 109 ));
    
    type IAudioNode_Interface is interface and Windows.IInspectable_Interface;
@@ -1172,727 +1461,6 @@ package Windows.Media.Audio is
    (
       This       : access IAudioNode_Interface
       ; definition : Windows.Media.Effects.IAudioEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioNodeWithListener : aliased constant Windows.IID := (235901052, 31231, 17732, (158, 235, 1, 37, 123, 21, 16, 90 ));
-   
-   type IAudioNodeWithListener_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Listener
-   (
-      This       : access IAudioNodeWithListener_Interface
-      ; value : Windows.Media.Audio.IAudioNodeListener
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Listener
-   (
-      This       : access IAudioNodeWithListener_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioNodeListener
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioInputNode : aliased constant Windows.IID := (3511156828, 33832, 18308, (183, 253, 169, 157, 70, 140, 93, 32 ));
-   
-   type IAudioInputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_OutgoingConnections
-   (
-      This       : access IAudioInputNode_Interface
-      ; RetVal : access Windows.Media.Audio.IVectorView_IAudioGraphConnection -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddOutgoingConnection
-   (
-      This       : access IAudioInputNode_Interface
-      ; destination : Windows.Media.Audio.IAudioNode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddOutgoingConnectionWithGain
-   (
-      This       : access IAudioInputNode_Interface
-      ; destination : Windows.Media.Audio.IAudioNode
-      ; gain : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveOutgoingConnection
-   (
-      This       : access IAudioInputNode_Interface
-      ; destination : Windows.Media.Audio.IAudioNode
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioInputNode2 : aliased constant Windows.IID := (2421249719, 51816, 19565, (168, 188, 227, 238, 23, 254, 63, 210 ));
-   
-   type IAudioInputNode2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Emitter
-   (
-      This       : access IAudioInputNode2_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitter
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioFrameInputNode : aliased constant Windows.IID := (28468935, 64918, 20469, (163, 197, 210, 122, 155, 244, 66, 55 ));
-   
-   type IAudioFrameInputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_PlaybackSpeedFactor
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PlaybackSpeedFactor
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddFrame
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; frame : Windows.Media.IAudioFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DiscardQueuedFrames
-   (
-      This       : access IAudioFrameInputNode_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_QueuedSampleCount
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_AudioFrameCompleted
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; handler : TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_AudioFrameCompleted
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_QuantumStarted
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; handler : TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_QuantumStarted
-   (
-      This       : access IAudioFrameInputNode_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioFileInputNode : aliased constant Windows.IID := (2421909448, 28517, 19668, (136, 144, 70, 148, 132, 60, 39, 109 ));
-   
-   type IAudioFileInputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_PlaybackSpeedFactor
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PlaybackSpeedFactor
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Seek
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; position : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StartTime
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_StartTime
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; value : Windows.Foundation.IReference_TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EndTime
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EndTime
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; value : Windows.Foundation.IReference_TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LoopCount
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_LoopCount
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; value : Windows.Foundation.IReference_Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Duration
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SourceFile
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; RetVal : access Windows.Storage.IStorageFile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_FileCompleted
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; handler : TypedEventHandler_IAudioFileInputNode_add_FileCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_FileCompleted
-   (
-      This       : access IAudioFileInputNode_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMediaSourceAudioInputNode : aliased constant Windows.IID := (2581108795, 43146, 16449, (142, 79, 221, 186, 192, 201, 31, 211 ));
-   
-   type IMediaSourceAudioInputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_PlaybackSpeedFactor
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PlaybackSpeedFactor
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Seek
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; position : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StartTime
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_StartTime
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; value : Windows.Foundation.IReference_TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EndTime
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EndTime
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; value : Windows.Foundation.IReference_TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LoopCount
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_LoopCount
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; value : Windows.Foundation.IReference_Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Duration
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MediaSource
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; RetVal : access Windows.Media.Core.IMediaSource2
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_MediaSourceCompleted
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; handler : TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_MediaSourceCompleted
-   (
-      This       : access IMediaSourceAudioInputNode_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioDeviceInputNode : aliased constant Windows.IID := (2954587105, 28494, 18914, (172, 1, 85, 157, 98, 190, 179, 169 ));
-   
-   type IAudioDeviceInputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Device
-   (
-      This       : access IAudioDeviceInputNode_Interface
-      ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioDeviceOutputNode : aliased constant Windows.IID := (909040639, 65308, 17460, (158, 15, 189, 46, 245, 34, 172, 130 ));
-   
-   type IAudioDeviceOutputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Device
-   (
-      This       : access IAudioDeviceOutputNode_Interface
-      ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioFrameOutputNode : aliased constant Windows.IID := (3091674907, 12953, 17909, (136, 179, 201, 209, 42, 63, 28, 200 ));
-   
-   type IAudioFrameOutputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetFrame
-   (
-      This       : access IAudioFrameOutputNode_Interface
-      ; RetVal : access Windows.Media.IAudioFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioFileOutputNode : aliased constant Windows.IID := (1356863872, 20838, 16531, (128, 248, 173, 160, 0, 137, 233, 207 ));
-   
-   type IAudioFileOutputNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_File
-   (
-      This       : access IAudioFileOutputNode_Interface
-      ; RetVal : access Windows.Storage.IStorageFile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FileEncodingProfile
-   (
-      This       : access IAudioFileOutputNode_Interface
-      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FinalizeAsync
-   (
-      This       : access IAudioFileOutputNode_Interface
-      ; RetVal : access Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioFrameCompletedEventArgs : aliased constant Windows.IID := (3699147422, 520, 17668, (165, 168, 240, 242, 104, 146, 10, 101 ));
-   
-   type IAudioFrameCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Frame
-   (
-      This       : access IAudioFrameCompletedEventArgs_Interface
-      ; RetVal : access Windows.Media.IAudioFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFrameInputNodeQuantumStartedEventArgs : aliased constant Windows.IID := (1033622680, 41734, 20230, (189, 159, 233, 239, 200, 34, 99, 4 ));
-   
-   type IFrameInputNodeQuantumStartedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RequiredSamples
-   (
-      This       : access IFrameInputNodeQuantumStartedEventArgs_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioGraphConnection : aliased constant Windows.IID := (1982886125, 53326, 20396, (178, 51, 96, 11, 66, 237, 212, 105 ));
-   
-   type IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Destination
-   (
-      This       : access IAudioGraphConnection_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioNode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Gain
-   (
-      This       : access IAudioGraphConnection_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Gain
-   (
-      This       : access IAudioGraphConnection_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEqualizerBand : aliased constant Windows.IID := (3221903978, 9773, 19333, (155, 183, 67, 40, 11, 98, 237, 12 ));
-   
-   type IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Bandwidth
-   (
-      This       : access IEqualizerBand_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Bandwidth
-   (
-      This       : access IEqualizerBand_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FrequencyCenter
-   (
-      This       : access IEqualizerBand_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FrequencyCenter
-   (
-      This       : access IEqualizerBand_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Gain
-   (
-      This       : access IEqualizerBand_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Gain
-   (
-      This       : access IEqualizerBand_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEqualizerEffectDefinitionFactory : aliased constant Windows.IID := (3532091332, 54288, 20149, (158, 105, 201, 170, 18, 119, 234, 240 ));
-   
-   type IEqualizerEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IEqualizerEffectDefinitionFactory_Interface
-      ; audioGraph : Windows.Media.Audio.IAudioGraph
-      ; RetVal : access Windows.Media.Audio.IEqualizerEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReverbEffectDefinitionFactory : aliased constant Windows.IID := (2815806462, 4107, 20464, (157, 166, 220, 78, 5, 167, 89, 240 ));
-   
-   type IReverbEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IReverbEffectDefinitionFactory_Interface
-      ; audioGraph : Windows.Media.Audio.IAudioGraph
-      ; RetVal : access Windows.Media.Audio.IReverbEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEchoEffectDefinitionFactory : aliased constant Windows.IID := (223224407, 43762, 20102, (165, 76, 251, 121, 219, 143, 108, 18 ));
-   
-   type IEchoEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IEchoEffectDefinitionFactory_Interface
-      ; audioGraph : Windows.Media.Audio.IAudioGraph
-      ; RetVal : access Windows.Media.Audio.IEchoEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILimiterEffectDefinitionFactory : aliased constant Windows.IID := (3971671793, 25087, 17903, (184, 245, 72, 101, 154, 87, 199, 45 ));
-   
-   type ILimiterEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access ILimiterEffectDefinitionFactory_Interface
-      ; audioGraph : Windows.Media.Audio.IAudioGraph
-      ; RetVal : access Windows.Media.Audio.ILimiterEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioNodeEmitterConeProperties : aliased constant Windows.IID := (3919260910, 714, 17269, (147, 38, 12, 106, 228, 188, 223, 181 ));
-   
-   type IAudioNodeEmitterConeProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_InnerAngle
-   (
-      This       : access IAudioNodeEmitterConeProperties_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OuterAngle
-   (
-      This       : access IAudioNodeEmitterConeProperties_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OuterAngleGain
-   (
-      This       : access IAudioNodeEmitterConeProperties_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioNodeEmitterShape : aliased constant Windows.IID := (3926069701, 59197, 17596, (133, 156, 69, 85, 59, 188, 72, 40 ));
-   
-   type IAudioNodeEmitterShape_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Kind
-   (
-      This       : access IAudioNodeEmitterShape_Interface
-      ; RetVal : access Windows.Media.Audio.AudioNodeEmitterShapeKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ConeProperties
-   (
-      This       : access IAudioNodeEmitterShape_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterConeProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioNodeEmitterShapeStatics : aliased constant Windows.IID := (1471883121, 65445, 19334, (167, 121, 226, 100, 174, 185, 20, 95 ));
-   
-   type IAudioNodeEmitterShapeStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateCone
-   (
-      This       : access IAudioNodeEmitterShapeStatics_Interface
-      ; innerAngle : Windows.Double
-      ; outerAngle : Windows.Double
-      ; outerAngleGain : Windows.Double
-      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterShape
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateOmnidirectional
-   (
-      This       : access IAudioNodeEmitterShapeStatics_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterShape
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioNodeEmitterNaturalDecayModelProperties : aliased constant Windows.IID := (1217612751, 53036, 20220, (147, 49, 117, 189, 34, 223, 31, 12 ));
-   
-   type IAudioNodeEmitterNaturalDecayModelProperties_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_UnityGainDistance
-   (
-      This       : access IAudioNodeEmitterNaturalDecayModelProperties_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CutoffDistance
-   (
-      This       : access IAudioNodeEmitterNaturalDecayModelProperties_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioNodeEmitterDecayModel : aliased constant Windows.IID := (488463095, 3411, 20393, (189, 132, 213, 129, 106, 134, 243, 255 ));
-   
-   type IAudioNodeEmitterDecayModel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Kind
-   (
-      This       : access IAudioNodeEmitterDecayModel_Interface
-      ; RetVal : access Windows.Media.Audio.AudioNodeEmitterDecayKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MinGain
-   (
-      This       : access IAudioNodeEmitterDecayModel_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MaxGain
-   (
-      This       : access IAudioNodeEmitterDecayModel_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NaturalProperties
-   (
-      This       : access IAudioNodeEmitterDecayModel_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioNodeEmitterDecayModelStatics : aliased constant Windows.IID := (3346562216, 61816, 17967, (188, 129, 141, 213, 203, 229, 218, 232 ));
-   
-   type IAudioNodeEmitterDecayModelStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateNatural
-   (
-      This       : access IAudioNodeEmitterDecayModelStatics_Interface
-      ; minGain : Windows.Double
-      ; maxGain : Windows.Double
-      ; unityGainDistance : Windows.Double
-      ; cutoffDistance : Windows.Double
-      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterDecayModel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateCustom
-   (
-      This       : access IAudioNodeEmitterDecayModelStatics_Interface
-      ; minGain : Windows.Double
-      ; maxGain : Windows.Double
-      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterDecayModel
    )
    return Windows.HRESULT is abstract;
    
@@ -2029,6 +1597,93 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_IAudioNodeEmitterConeProperties : aliased constant Windows.IID := (3919260910, 714, 17269, (147, 38, 12, 106, 228, 188, 223, 181 ));
+   
+   type IAudioNodeEmitterConeProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InnerAngle
+   (
+      This       : access IAudioNodeEmitterConeProperties_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OuterAngle
+   (
+      This       : access IAudioNodeEmitterConeProperties_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OuterAngleGain
+   (
+      This       : access IAudioNodeEmitterConeProperties_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterDecayModel : aliased constant Windows.IID := (488463095, 3411, 20393, (189, 132, 213, 129, 106, 134, 243, 255 ));
+   
+   type IAudioNodeEmitterDecayModel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access IAudioNodeEmitterDecayModel_Interface
+      ; RetVal : access Windows.Media.Audio.AudioNodeEmitterDecayKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinGain
+   (
+      This       : access IAudioNodeEmitterDecayModel_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxGain
+   (
+      This       : access IAudioNodeEmitterDecayModel_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NaturalProperties
+   (
+      This       : access IAudioNodeEmitterDecayModel_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterDecayModelStatics : aliased constant Windows.IID := (3346562216, 61816, 17967, (188, 129, 141, 213, 203, 229, 218, 232 ));
+   
+   type IAudioNodeEmitterDecayModelStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateNatural
+   (
+      This       : access IAudioNodeEmitterDecayModelStatics_Interface
+      ; minGain : Windows.Double
+      ; maxGain : Windows.Double
+      ; unityGainDistance : Windows.Double
+      ; cutoffDistance : Windows.Double
+      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterDecayModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateCustom
+   (
+      This       : access IAudioNodeEmitterDecayModelStatics_Interface
+      ; minGain : Windows.Double
+      ; maxGain : Windows.Double
+      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterDecayModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAudioNodeEmitterFactory : aliased constant Windows.IID := (4257761434, 27350, 19684, (183, 247, 169, 147, 112, 223, 126, 233 ));
    
    type IAudioNodeEmitterFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -2040,6 +1695,69 @@ package Windows.Media.Audio is
       ; decayModel : Windows.Media.Audio.IAudioNodeEmitterDecayModel
       ; settings : Windows.Media.Audio.AudioNodeEmitterSettings
       ; RetVal : access Windows.Media.Audio.IAudioNodeEmitter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterNaturalDecayModelProperties : aliased constant Windows.IID := (1217612751, 53036, 20220, (147, 49, 117, 189, 34, 223, 31, 12 ));
+   
+   type IAudioNodeEmitterNaturalDecayModelProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UnityGainDistance
+   (
+      This       : access IAudioNodeEmitterNaturalDecayModelProperties_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CutoffDistance
+   (
+      This       : access IAudioNodeEmitterNaturalDecayModelProperties_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterShape : aliased constant Windows.IID := (3926069701, 59197, 17596, (133, 156, 69, 85, 59, 188, 72, 40 ));
+   
+   type IAudioNodeEmitterShape_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access IAudioNodeEmitterShape_Interface
+      ; RetVal : access Windows.Media.Audio.AudioNodeEmitterShapeKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ConeProperties
+   (
+      This       : access IAudioNodeEmitterShape_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterConeProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterShapeStatics : aliased constant Windows.IID := (1471883121, 65445, 19334, (167, 121, 226, 100, 174, 185, 20, 95 ));
+   
+   type IAudioNodeEmitterShapeStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateCone
+   (
+      This       : access IAudioNodeEmitterShapeStatics_Interface
+      ; innerAngle : Windows.Double
+      ; outerAngle : Windows.Double
+      ; outerAngleGain : Windows.Double
+      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterShape
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateOmnidirectional
+   (
+      This       : access IAudioNodeEmitterShapeStatics_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterShape
    )
    return Windows.HRESULT is abstract;
    
@@ -2107,6 +1825,356 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_IAudioNodeWithListener : aliased constant Windows.IID := (235901052, 31231, 17732, (158, 235, 1, 37, 123, 21, 16, 90 ));
+   
+   type IAudioNodeWithListener_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Listener
+   (
+      This       : access IAudioNodeWithListener_Interface
+      ; value : Windows.Media.Audio.IAudioNodeListener
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Listener
+   (
+      This       : access IAudioNodeWithListener_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioNodeListener
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioStateMonitor : aliased constant Windows.IID := (487838006, 409, 19676, (184, 78, 231, 44, 43, 88, 30, 206 ));
+   
+   type IAudioStateMonitor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_SoundLevelChanged
+   (
+      This       : access IAudioStateMonitor_Interface
+      ; handler : TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SoundLevelChanged
+   (
+      This       : access IAudioStateMonitor_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SoundLevel
+   (
+      This       : access IAudioStateMonitor_Interface
+      ; RetVal : access Windows.Media.SoundLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioStateMonitorStatics : aliased constant Windows.IID := (1668606540, 6971, 16385, (148, 217, 221, 34, 83, 48, 250, 64 ));
+   
+   type IAudioStateMonitorStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForRenderMonitoring
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForRenderMonitoringWithCategory
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; category : Windows.Media.Render.AudioRenderCategory
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForRenderMonitoringWithCategoryAndDeviceRole
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; category : Windows.Media.Render.AudioRenderCategory
+      ; role : Windows.Media.Devices.AudioDeviceRole
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForRenderMonitoringWithCategoryAndDeviceId
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; category : Windows.Media.Render.AudioRenderCategory
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForCaptureMonitoring
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForCaptureMonitoringWithCategory
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; category : Windows.Media.Capture.MediaCategory
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForCaptureMonitoringWithCategoryAndDeviceRole
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; category : Windows.Media.Capture.MediaCategory
+      ; role : Windows.Media.Devices.AudioDeviceRole
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateForCaptureMonitoringWithCategoryAndDeviceId
+   (
+      This       : access IAudioStateMonitorStatics_Interface
+      ; category : Windows.Media.Capture.MediaCategory
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (384747432, 7335, 16623, (145, 164, 211, 70, 224, 170, 27, 186 ));
+   
+   type ICreateAudioDeviceInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ICreateAudioDeviceInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AudioDeviceNodeCreationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceInputNode
+   (
+      This       : access ICreateAudioDeviceInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioDeviceInputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4151799079, 7578, 18423, (156, 212, 40, 89, 204, 27, 123, 255 ));
+   
+   type ICreateAudioDeviceOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ICreateAudioDeviceOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AudioDeviceNodeCreationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceOutputNode
+   (
+      This       : access ICreateAudioDeviceOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioDeviceOutputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (3464746524, 58007, 19536, (156, 231, 28, 122, 105, 214, 189, 9 ));
+   
+   type ICreateAudioFileInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ICreateAudioFileInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AudioFileNodeCreationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FileInputNode
+   (
+      This       : access ICreateAudioFileInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioFileInputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (1205254779, 59657, 17727, (134, 110, 85, 64, 205, 167, 52, 255 ));
+   
+   type ICreateAudioFileOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ICreateAudioFileOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.AudioFileNodeCreationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FileOutputNode
+   (
+      This       : access ICreateAudioFileOutputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioFileOutputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateAudioGraphResult : aliased constant Windows.IID := (1414786942, 31710, 19318, (187, 93, 72, 247, 156, 252, 140, 11 ));
+   
+   type ICreateAudioGraphResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ICreateAudioGraphResult_Interface
+      ; RetVal : access Windows.Media.Audio.AudioGraphCreationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Graph
+   (
+      This       : access ICreateAudioGraphResult_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioGraph
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateMediaSourceAudioInputNodeResult : aliased constant Windows.IID := (1185306787, 21440, 19801, (158, 81, 204, 29, 16, 68, 164, 196 ));
+   
+   type ICreateMediaSourceAudioInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ICreateMediaSourceAudioInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Node
+   (
+      This       : access ICreateMediaSourceAudioInputNodeResult_Interface
+      ; RetVal : access Windows.Media.Audio.IMediaSourceAudioInputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEchoEffectDefinition : aliased constant Windows.IID := (239943594, 14008, 19601, (185, 218, 17, 244, 74, 138, 102, 16 ));
+   
+   type IEchoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WetDryMix
+   (
+      This       : access IEchoEffectDefinition_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WetDryMix
+   (
+      This       : access IEchoEffectDefinition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Feedback
+   (
+      This       : access IEchoEffectDefinition_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Feedback
+   (
+      This       : access IEchoEffectDefinition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Delay
+   (
+      This       : access IEchoEffectDefinition_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Delay
+   (
+      This       : access IEchoEffectDefinition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEchoEffectDefinitionFactory : aliased constant Windows.IID := (223224407, 43762, 20102, (165, 76, 251, 121, 219, 143, 108, 18 ));
+   
+   type IEchoEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IEchoEffectDefinitionFactory_Interface
+      ; audioGraph : Windows.Media.Audio.IAudioGraph
+      ; RetVal : access Windows.Media.Audio.IEchoEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEqualizerBand : aliased constant Windows.IID := (3221903978, 9773, 19333, (155, 183, 67, 40, 11, 98, 237, 12 ));
+   
+   type IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Bandwidth
+   (
+      This       : access IEqualizerBand_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Bandwidth
+   (
+      This       : access IEqualizerBand_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrequencyCenter
+   (
+      This       : access IEqualizerBand_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FrequencyCenter
+   (
+      This       : access IEqualizerBand_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Gain
+   (
+      This       : access IEqualizerBand_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Gain
+   (
+      This       : access IEqualizerBand_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IEqualizerEffectDefinition : aliased constant Windows.IID := (37711647, 33790, 17562, (168, 34, 198, 150, 68, 45, 22, 176 ));
    
    type IEqualizerEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
@@ -2115,6 +2183,282 @@ package Windows.Media.Audio is
    (
       This       : access IEqualizerEffectDefinition_Interface
       ; RetVal : access Windows.Media.Audio.IVectorView_IEqualizerBand -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEqualizerEffectDefinitionFactory : aliased constant Windows.IID := (3532091332, 54288, 20149, (158, 105, 201, 170, 18, 119, 234, 240 ));
+   
+   type IEqualizerEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IEqualizerEffectDefinitionFactory_Interface
+      ; audioGraph : Windows.Media.Audio.IAudioGraph
+      ; RetVal : access Windows.Media.Audio.IEqualizerEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFrameInputNodeQuantumStartedEventArgs : aliased constant Windows.IID := (1033622680, 41734, 20230, (189, 159, 233, 239, 200, 34, 99, 4 ));
+   
+   type IFrameInputNodeQuantumStartedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RequiredSamples
+   (
+      This       : access IFrameInputNodeQuantumStartedEventArgs_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IAudioGraphConnection : aliased constant Windows.IID := (2518060294, 42266, 21632, (148, 3, 251, 215, 99, 30, 59, 60 ));
+   
+   type IIterable_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAudioGraphConnection_Interface
+      ; RetVal : access Windows.Media.Audio.IIterator_IAudioGraphConnection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IEqualizerBand : aliased constant Windows.IID := (1870057800, 574, 22106, (159, 9, 74, 212, 163, 42, 215, 79 ));
+   
+   type IIterable_IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IEqualizerBand_Interface
+      ; RetVal : access Windows.Media.Audio.IIterator_IEqualizerBand
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IAudioGraphConnection : aliased constant Windows.IID := (1257679100, 59387, 22871, (145, 193, 45, 249, 96, 11, 34, 235 ));
+   
+   type IIterator_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IAudioGraphConnection_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioGraphConnection
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IAudioGraphConnection_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IAudioGraphConnection_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IAudioGraphConnection_Interface
+      ; items : Windows.Media.Audio.IAudioGraphConnection_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IEqualizerBand : aliased constant Windows.IID := (3947858794, 31016, 24367, (183, 242, 123, 144, 192, 132, 53, 111 ));
+   
+   type IIterator_IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IEqualizerBand_Interface
+      ; RetVal : access Windows.Media.Audio.IEqualizerBand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IEqualizerBand_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IEqualizerBand_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IEqualizerBand_Interface
+      ; items : Windows.Media.Audio.IEqualizerBand_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILimiterEffectDefinition : aliased constant Windows.IID := (1802853657, 9731, 18362, (189, 235, 57, 5, 94, 52, 134, 220 ));
+   
+   type ILimiterEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Release
+   (
+      This       : access ILimiterEffectDefinition_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Release
+   (
+      This       : access ILimiterEffectDefinition_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Loudness
+   (
+      This       : access ILimiterEffectDefinition_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Loudness
+   (
+      This       : access ILimiterEffectDefinition_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILimiterEffectDefinitionFactory : aliased constant Windows.IID := (3971671793, 25087, 17903, (184, 245, 72, 101, 154, 87, 199, 45 ));
+   
+   type ILimiterEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ILimiterEffectDefinitionFactory_Interface
+      ; audioGraph : Windows.Media.Audio.IAudioGraph
+      ; RetVal : access Windows.Media.Audio.ILimiterEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaSourceAudioInputNode : aliased constant Windows.IID := (2581108795, 43146, 16449, (142, 79, 221, 186, 192, 201, 31, 211 ));
+   
+   type IMediaSourceAudioInputNode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_PlaybackSpeedFactor
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PlaybackSpeedFactor
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Seek
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; position : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StartTime
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StartTime
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; value : Windows.Foundation.IReference_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndTime
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EndTime
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; value : Windows.Foundation.IReference_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LoopCount
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LoopCount
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; value : Windows.Foundation.IReference_Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Duration
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MediaSource
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; RetVal : access Windows.Media.Core.IMediaSource2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_MediaSourceCompleted
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; handler : TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_MediaSourceCompleted
+   (
+      This       : access IMediaSourceAudioInputNode_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -2448,311 +2792,15 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
-   IID_IEchoEffectDefinition : aliased constant Windows.IID := (239943594, 14008, 19601, (185, 218, 17, 244, 74, 138, 102, 16 ));
+   IID_IReverbEffectDefinitionFactory : aliased constant Windows.IID := (2815806462, 4107, 20464, (157, 166, 220, 78, 5, 167, 89, 240 ));
    
-   type IEchoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   type IReverbEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_WetDryMix
+   function Create
    (
-      This       : access IEchoEffectDefinition_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WetDryMix
-   (
-      This       : access IEchoEffectDefinition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Feedback
-   (
-      This       : access IEchoEffectDefinition_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Feedback
-   (
-      This       : access IEchoEffectDefinition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Delay
-   (
-      This       : access IEchoEffectDefinition_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Delay
-   (
-      This       : access IEchoEffectDefinition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILimiterEffectDefinition : aliased constant Windows.IID := (1802853657, 9731, 18362, (189, 235, 57, 5, 94, 52, 134, 220 ));
-   
-   type ILimiterEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Release
-   (
-      This       : access ILimiterEffectDefinition_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Release
-   (
-      This       : access ILimiterEffectDefinition_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Loudness
-   (
-      This       : access ILimiterEffectDefinition_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Loudness
-   (
-      This       : access ILimiterEffectDefinition_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAudioEffectDefinition_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ActivatableClassId
-   (
-      This       : access IAudioEffectDefinition_Imported_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Properties
-   (
-      This       : access IAudioEffectDefinition_Imported_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICreateAudioGraphResult : aliased constant Windows.IID := (1041478705, 26062, 23547, (176, 170, 250, 200, 223, 149, 139, 149 ));
-   
-   type IAsyncOperation_ICreateAudioGraphResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioGraphResult_Interface
-      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioGraphResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioGraphResult_Interface
-      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioGraphResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICreateAudioGraphResult_Interface
-      ; RetVal : access Windows.Media.Audio.ICreateAudioGraphResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (1907049601, 60490, 24297, (163, 66, 58, 49, 116, 120, 41, 184 ));
-   
-   type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface
-      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.ICreateAudioDeviceInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4161853232, 56853, 22752, (165, 244, 193, 89, 247, 54, 105, 237 ));
-   
-   type IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface
-      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (1195050687, 14459, 22218, (190, 225, 82, 116, 128, 39, 43, 15 ));
-   
-   type IAsyncOperation_ICreateAudioFileInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioFileInputNodeResult_Interface
-      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioFileInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICreateAudioFileInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.ICreateAudioFileInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (291787133, 59731, 21525, (165, 179, 66, 73, 169, 105, 190, 123 ));
-   
-   type IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface
-      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.ICreateAudioFileOutputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICreateMediaSourceAudioInputNodeResult : aliased constant Windows.IID := (3332120819, 35068, 24378, (149, 208, 40, 22, 234, 228, 89, 104 ));
-   
-   type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface
-      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface
-      ; RetVal : access Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IAudioGraphConnection : aliased constant Windows.IID := (1257679100, 59387, 22871, (145, 193, 45, 249, 96, 11, 34, 235 ));
-   
-   type IIterator_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IAudioGraphConnection_Interface
-      ; RetVal : access Windows.Media.Audio.IAudioGraphConnection
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IAudioGraphConnection_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IAudioGraphConnection_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IAudioGraphConnection_Interface
-      ; items : Windows.Media.Audio.IAudioGraphConnection_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IAudioGraphConnection : aliased constant Windows.IID := (2518060294, 42266, 21632, (148, 3, 251, 215, 99, 30, 59, 60 ));
-   
-   type IIterable_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IAudioGraphConnection_Interface
-      ; RetVal : access Windows.Media.Audio.IIterator_IAudioGraphConnection
+      This       : access IReverbEffectDefinitionFactory_Interface
+      ; audioGraph : Windows.Media.Audio.IAudioGraph
+      ; RetVal : access Windows.Media.Audio.IReverbEffectDefinition
    )
    return Windows.HRESULT is abstract;
    
@@ -2792,54 +2840,6 @@ package Windows.Media.Audio is
       ; startIndex : Windows.UInt32
       ; items : Windows.Media.Audio.IAudioGraphConnection_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IEqualizerBand : aliased constant Windows.IID := (3947858794, 31016, 24367, (183, 242, 123, 144, 192, 132, 53, 111 ));
-   
-   type IIterator_IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IEqualizerBand_Interface
-      ; RetVal : access Windows.Media.Audio.IEqualizerBand
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IEqualizerBand_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IEqualizerBand_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IEqualizerBand_Interface
-      ; items : Windows.Media.Audio.IEqualizerBand_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IEqualizerBand : aliased constant Windows.IID := (1870057800, 574, 22106, (159, 9, 74, 212, 163, 42, 215, 79 ));
-   
-   type IIterable_IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IEqualizerBand_Interface
-      ; RetVal : access Windows.Media.Audio.IIterator_IEqualizerBand
    )
    return Windows.HRESULT is abstract;
    
@@ -2885,32 +2885,6 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged : aliased constant Windows.IID := (322166591, 50523, 23075, (149, 150, 52, 101, 124, 42, 52, 6 ));
-   
-   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioStateMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface
-      ; sender : Windows.Media.Audio.IAudioStateMonitor
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult : aliased constant Windows.IID := (1315310554, 54328, 22337, (139, 102, 133, 254, 114, 87, 74, 171 ));
-   
-   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface
-      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -2966,40 +2940,14 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IAudioGraph_add_QuantumStarted : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
+   IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult : aliased constant Windows.IID := (1315310554, 54328, 22337, (139, 102, 133, 254, 114, 87, 74, 171 ));
    
-   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_QuantumStarted'access) with null record;
+   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface
-      ; sender : Windows.Media.Audio.IAudioGraph
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
-   
-   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface
-      ; sender : Windows.Media.Audio.IAudioGraph
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred : aliased constant Windows.IID := (2308337865, 56703, 24338, (152, 203, 139, 23, 254, 128, 164, 127 ));
-   
-   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface
-      ; sender : Windows.Media.Audio.IAudioGraph
-      ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs
+      This       : access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
@@ -3013,6 +2961,19 @@ package Windows.Media.Audio is
       This       : access AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Interface
       ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateMediaSourceAudioInputNodeResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted : aliased constant Windows.IID := (1149306971, 35723, 21792, (152, 37, 233, 103, 29, 162, 168, 159 ));
+   
+   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFileInputNode ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface
+      ; sender : Windows.Media.Audio.IAudioFileInputNode
+      ; args : Windows.Object
    )
    return Windows.HRESULT;
    
@@ -3044,13 +3005,52 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted : aliased constant Windows.IID := (1149306971, 35723, 21792, (152, 37, 233, 103, 29, 162, 168, 159 ));
+   IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
    
-   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFileInputNode ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted'access) with null record;
+   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface
-      ; sender : Windows.Media.Audio.IAudioFileInputNode
+      This       : access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface
+      ; sender : Windows.Media.Audio.IAudioGraph
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAudioGraph_add_QuantumStarted : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
+   
+   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_QuantumStarted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface
+      ; sender : Windows.Media.Audio.IAudioGraph
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred : aliased constant Windows.IID := (2308337865, 56703, 24338, (152, 203, 139, 23, 254, 128, 164, 127 ));
+   
+   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface
+      ; sender : Windows.Media.Audio.IAudioGraph
+      ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged : aliased constant Windows.IID := (322166591, 50523, 23075, (149, 150, 52, 101, 124, 42, 52, 6 ));
+   
+   type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioStateMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface
+      ; sender : Windows.Media.Audio.IAudioStateMonitor
       ; args : Windows.Object
    )
    return Windows.HRESULT;
@@ -3072,9 +3072,16 @@ package Windows.Media.Audio is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype AudioStateMonitor is Windows.Media.Audio.IAudioStateMonitor;
+   subtype AudioDeviceInputNode is Windows.Media.Audio.IAudioDeviceInputNode;
+   subtype AudioDeviceOutputNode is Windows.Media.Audio.IAudioDeviceOutputNode;
+   subtype AudioFileInputNode is Windows.Media.Audio.IAudioFileInputNode;
+   subtype AudioFileOutputNode is Windows.Media.Audio.IAudioFileOutputNode;
+   subtype AudioFrameCompletedEventArgs is Windows.Media.Audio.IAudioFrameCompletedEventArgs;
+   subtype AudioFrameInputNode is Windows.Media.Audio.IAudioFrameInputNode;
+   subtype AudioFrameOutputNode is Windows.Media.Audio.IAudioFrameOutputNode;
    subtype AudioGraph is Windows.Media.Audio.IAudioGraph;
-   subtype CreateAudioGraphResult is Windows.Media.Audio.ICreateAudioGraphResult;
+   subtype AudioGraphBatchUpdater is Windows.Foundation.IClosable;
+   subtype AudioGraphConnection is Windows.Media.Audio.IAudioGraphConnection;
    subtype AudioGraphSettings is Windows.Media.Audio.IAudioGraphSettings;
    function Create
    (
@@ -3082,21 +3089,7 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IAudioGraphSettings;
    
-   subtype AudioDeviceInputNode is Windows.Media.Audio.IAudioDeviceInputNode;
-   subtype CreateAudioDeviceInputNodeResult is Windows.Media.Audio.ICreateAudioDeviceInputNodeResult;
-   subtype AudioDeviceOutputNode is Windows.Media.Audio.IAudioDeviceOutputNode;
-   subtype CreateAudioDeviceOutputNodeResult is Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult;
-   subtype AudioFileInputNode is Windows.Media.Audio.IAudioFileInputNode;
-   subtype CreateAudioFileInputNodeResult is Windows.Media.Audio.ICreateAudioFileInputNodeResult;
-   subtype AudioFileOutputNode is Windows.Media.Audio.IAudioFileOutputNode;
-   subtype CreateAudioFileOutputNodeResult is Windows.Media.Audio.ICreateAudioFileOutputNodeResult;
-   subtype MediaSourceAudioInputNode is Windows.Media.Audio.IMediaSourceAudioInputNode;
-   subtype CreateMediaSourceAudioInputNodeResult is Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult;
    subtype AudioGraphUnrecoverableErrorOccurredEventArgs is Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs;
-   subtype AudioGraphBatchUpdater is Windows.Foundation.IClosable;
-   subtype AudioFrameInputNode is Windows.Media.Audio.IAudioFrameInputNode;
-   subtype AudioFrameOutputNode is Windows.Media.Audio.IAudioFrameOutputNode;
-   subtype AudioSubmixNode is Windows.Media.Audio.IAudioInputNode;
    subtype AudioNodeEmitter is Windows.Media.Audio.IAudioNodeEmitter;
    function Create return Windows.Media.Audio.IAudioNodeEmitter;
    
@@ -3108,12 +3101,28 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IAudioNodeEmitter;
    
+   subtype AudioNodeEmitterConeProperties is Windows.Media.Audio.IAudioNodeEmitterConeProperties;
+   subtype AudioNodeEmitterDecayModel is Windows.Media.Audio.IAudioNodeEmitterDecayModel;
+   subtype AudioNodeEmitterNaturalDecayModelProperties is Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties;
+   subtype AudioNodeEmitterShape is Windows.Media.Audio.IAudioNodeEmitterShape;
    subtype AudioNodeListener is Windows.Media.Audio.IAudioNodeListener;
    function Create return Windows.Media.Audio.IAudioNodeListener;
    
-   subtype AudioGraphConnection is Windows.Media.Audio.IAudioGraphConnection;
-   subtype AudioFrameCompletedEventArgs is Windows.Media.Audio.IAudioFrameCompletedEventArgs;
-   subtype FrameInputNodeQuantumStartedEventArgs is Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs;
+   subtype AudioStateMonitor is Windows.Media.Audio.IAudioStateMonitor;
+   subtype AudioSubmixNode is Windows.Media.Audio.IAudioInputNode;
+   subtype CreateAudioDeviceInputNodeResult is Windows.Media.Audio.ICreateAudioDeviceInputNodeResult;
+   subtype CreateAudioDeviceOutputNodeResult is Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult;
+   subtype CreateAudioFileInputNodeResult is Windows.Media.Audio.ICreateAudioFileInputNodeResult;
+   subtype CreateAudioFileOutputNodeResult is Windows.Media.Audio.ICreateAudioFileOutputNodeResult;
+   subtype CreateAudioGraphResult is Windows.Media.Audio.ICreateAudioGraphResult;
+   subtype CreateMediaSourceAudioInputNodeResult is Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult;
+   subtype EchoEffectDefinition is Windows.Media.Audio.IEchoEffectDefinition;
+   function Create
+   (
+      audioGraph : Windows.Media.Audio.IAudioGraph
+   )
+   return Windows.Media.Audio.IEchoEffectDefinition;
+   
    subtype EqualizerBand is Windows.Media.Audio.IEqualizerBand;
    subtype EqualizerEffectDefinition is Windows.Media.Audio.IEqualizerEffectDefinition;
    function Create
@@ -3122,20 +3131,7 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IEqualizerEffectDefinition;
    
-   subtype ReverbEffectDefinition is Windows.Media.Audio.IReverbEffectDefinition;
-   function Create
-   (
-      audioGraph : Windows.Media.Audio.IAudioGraph
-   )
-   return Windows.Media.Audio.IReverbEffectDefinition;
-   
-   subtype EchoEffectDefinition is Windows.Media.Audio.IEchoEffectDefinition;
-   function Create
-   (
-      audioGraph : Windows.Media.Audio.IAudioGraph
-   )
-   return Windows.Media.Audio.IEchoEffectDefinition;
-   
+   subtype FrameInputNodeQuantumStartedEventArgs is Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs;
    subtype LimiterEffectDefinition is Windows.Media.Audio.ILimiterEffectDefinition;
    function Create
    (
@@ -3143,14 +3139,51 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.ILimiterEffectDefinition;
    
-   subtype AudioNodeEmitterConeProperties is Windows.Media.Audio.IAudioNodeEmitterConeProperties;
-   subtype AudioNodeEmitterShape is Windows.Media.Audio.IAudioNodeEmitterShape;
-   subtype AudioNodeEmitterNaturalDecayModelProperties is Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties;
-   subtype AudioNodeEmitterDecayModel is Windows.Media.Audio.IAudioNodeEmitterDecayModel;
+   subtype MediaSourceAudioInputNode is Windows.Media.Audio.IMediaSourceAudioInputNode;
+   subtype ReverbEffectDefinition is Windows.Media.Audio.IReverbEffectDefinition;
+   function Create
+   (
+      audioGraph : Windows.Media.Audio.IAudioGraph
+   )
+   return Windows.Media.Audio.IReverbEffectDefinition;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateAsync
+   (
+      settings : Windows.Media.Audio.IAudioGraphSettings
+   )
+   return Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult;
+   
+   function CreateNatural
+   (
+      minGain : Windows.Double
+      ; maxGain : Windows.Double
+      ; unityGainDistance : Windows.Double
+      ; cutoffDistance : Windows.Double
+   )
+   return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
+   
+   function CreateCustom
+   (
+      minGain : Windows.Double
+      ; maxGain : Windows.Double
+   )
+   return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
+   
+   function CreateCone
+   (
+      innerAngle : Windows.Double
+      ; outerAngle : Windows.Double
+      ; outerAngleGain : Windows.Double
+   )
+   return Windows.Media.Audio.IAudioNodeEmitterShape;
+   
+   function CreateOmnidirectional
+   return Windows.Media.Audio.IAudioNodeEmitterShape;
    
    function CreateForRenderMonitoring
    return Windows.Media.Audio.IAudioStateMonitor;
@@ -3197,38 +3230,5 @@ package Windows.Media.Audio is
       ; deviceId : Windows.String
    )
    return Windows.Media.Audio.IAudioStateMonitor;
-   
-   function CreateAsync
-   (
-      settings : Windows.Media.Audio.IAudioGraphSettings
-   )
-   return Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult;
-   
-   function CreateCone
-   (
-      innerAngle : Windows.Double
-      ; outerAngle : Windows.Double
-      ; outerAngleGain : Windows.Double
-   )
-   return Windows.Media.Audio.IAudioNodeEmitterShape;
-   
-   function CreateOmnidirectional
-   return Windows.Media.Audio.IAudioNodeEmitterShape;
-   
-   function CreateNatural
-   (
-      minGain : Windows.Double
-      ; maxGain : Windows.Double
-      ; unityGainDistance : Windows.Double
-      ; cutoffDistance : Windows.Double
-   )
-   return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
-   
-   function CreateCustom
-   (
-      minGain : Windows.Double
-      ; maxGain : Windows.Double
-   )
-   return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
    
 end;

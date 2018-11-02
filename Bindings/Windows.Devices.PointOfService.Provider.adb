@@ -37,19 +37,6 @@ package body Windows.Devices.PointOfService.Provider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_EnableScannerRequested_Interface
-      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
-      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_DisableScannerRequested_Interface
       ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
       ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerDisableScannerRequestEventArgs
@@ -63,6 +50,45 @@ package body Windows.Devices.PointOfService.Provider is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_EnableScannerRequested_Interface
+      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
+      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_GetBarcodeSymbologyAttributesRequested_Interface
+      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
+      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_HideVideoPreviewRequested_Interface
+      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
+      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_SetActiveSymbologiesRequested_Interface
       ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
       ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerSetActiveSymbologiesRequestEventArgs
@@ -71,6 +97,19 @@ package body Windows.Devices.PointOfService.Provider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerSetActiveSymbologiesRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_SetBarcodeSymbologyAttributesRequested_Interface
+      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
+      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerSetSymbologyAttributesRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerSetSymbologyAttributesRequestEventArgs(args));
       return Hr;
    end;
    
@@ -97,45 +136,6 @@ package body Windows.Devices.PointOfService.Provider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_GetBarcodeSymbologyAttributesRequested_Interface
-      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
-      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_SetBarcodeSymbologyAttributesRequested_Interface
-      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
-      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerSetSymbologyAttributesRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerSetSymbologyAttributesRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IBarcodeScannerProviderConnection_add_HideVideoPreviewRequested_Interface
-      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
-      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequestEventArgs(args));
       return Hr;
    end;
    

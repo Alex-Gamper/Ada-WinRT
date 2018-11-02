@@ -39,6 +39,48 @@ package Windows.UI.Text.Core is
    -- Enums
    ------------------------------------------------------------------------
    
+   type CoreTextFormatUpdatingReason is (
+      None,
+      CompositionUnconverted,
+      CompositionConverted,
+      CompositionTargetUnconverted,
+      CompositionTargetConverted
+   );
+   for CoreTextFormatUpdatingReason use (
+      None => 0,
+      CompositionUnconverted => 1,
+      CompositionConverted => 2,
+      CompositionTargetUnconverted => 3,
+      CompositionTargetConverted => 4
+   );
+   for CoreTextFormatUpdatingReason'Size use 32;
+   
+   type CoreTextFormatUpdatingReason_Ptr is access CoreTextFormatUpdatingReason;
+   
+   type CoreTextFormatUpdatingResult is (
+      Succeeded,
+      Failed
+   );
+   for CoreTextFormatUpdatingResult use (
+      Succeeded => 0,
+      Failed => 1
+   );
+   for CoreTextFormatUpdatingResult'Size use 32;
+   
+   type CoreTextFormatUpdatingResult_Ptr is access CoreTextFormatUpdatingResult;
+   
+   type CoreTextInputPaneDisplayPolicy is (
+      Automatic,
+      Manual
+   );
+   for CoreTextInputPaneDisplayPolicy use (
+      Automatic => 0,
+      Manual => 1
+   );
+   for CoreTextInputPaneDisplayPolicy'Size use 32;
+   
+   type CoreTextInputPaneDisplayPolicy_Ptr is access CoreTextInputPaneDisplayPolicy;
+   
    type CoreTextInputScope is (
       Default,
       Url,
@@ -181,30 +223,6 @@ package Windows.UI.Text.Core is
    
    type CoreTextInputScope_Ptr is access CoreTextInputScope;
    
-   type CoreTextInputPaneDisplayPolicy is (
-      Automatic,
-      Manual
-   );
-   for CoreTextInputPaneDisplayPolicy use (
-      Automatic => 0,
-      Manual => 1
-   );
-   for CoreTextInputPaneDisplayPolicy'Size use 32;
-   
-   type CoreTextInputPaneDisplayPolicy_Ptr is access CoreTextInputPaneDisplayPolicy;
-   
-   type CoreTextTextUpdatingResult is (
-      Succeeded,
-      Failed
-   );
-   for CoreTextTextUpdatingResult use (
-      Succeeded => 0,
-      Failed => 1
-   );
-   for CoreTextTextUpdatingResult'Size use 32;
-   
-   type CoreTextTextUpdatingResult_Ptr is access CoreTextTextUpdatingResult;
-   
    type CoreTextSelectionUpdatingResult is (
       Succeeded,
       Failed
@@ -217,35 +235,17 @@ package Windows.UI.Text.Core is
    
    type CoreTextSelectionUpdatingResult_Ptr is access CoreTextSelectionUpdatingResult;
    
-   type CoreTextFormatUpdatingResult is (
+   type CoreTextTextUpdatingResult is (
       Succeeded,
       Failed
    );
-   for CoreTextFormatUpdatingResult use (
+   for CoreTextTextUpdatingResult use (
       Succeeded => 0,
       Failed => 1
    );
-   for CoreTextFormatUpdatingResult'Size use 32;
+   for CoreTextTextUpdatingResult'Size use 32;
    
-   type CoreTextFormatUpdatingResult_Ptr is access CoreTextFormatUpdatingResult;
-   
-   type CoreTextFormatUpdatingReason is (
-      None,
-      CompositionUnconverted,
-      CompositionConverted,
-      CompositionTargetUnconverted,
-      CompositionTargetConverted
-   );
-   for CoreTextFormatUpdatingReason use (
-      None => 0,
-      CompositionUnconverted => 1,
-      CompositionConverted => 2,
-      CompositionTargetUnconverted => 3,
-      CompositionTargetConverted => 4
-   );
-   for CoreTextFormatUpdatingReason'Size use 32;
-   
-   type CoreTextFormatUpdatingReason_Ptr is access CoreTextFormatUpdatingReason;
+   type CoreTextTextUpdatingResult_Ptr is access CoreTextTextUpdatingResult;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -263,36 +263,36 @@ package Windows.UI.Text.Core is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface;
-   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted is access all TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Ptr is access all TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted;
-   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface;
-   type TypedEventHandler_ICoreTextEditContext_add_TextRequested is access all TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_TextRequested;
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface;
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested is access all TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_SelectionRequested;
-   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface;
-   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested is access all TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_LayoutRequested;
-   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface;
-   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating is access all TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_TextUpdating;
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface;
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating is access all TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating;
-   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface;
-   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating is access all TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_FormatUpdating;
-   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface;
-   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted is access all TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface'Class;
-   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_CompositionStarted;
    type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface;
    type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted is access all TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface'Class;
    type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted;
+   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface;
+   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted is access all TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_CompositionStarted;
    type TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface;
    type TypedEventHandler_ICoreTextEditContext_add_FocusRemoved is access all TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface'Class;
    type TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_FocusRemoved;
+   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface;
+   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating is access all TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_FormatUpdating;
+   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface;
+   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested is access all TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_LayoutRequested;
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface;
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested is access all TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_SelectionRequested;
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface;
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating is access all TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating;
+   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface;
+   type TypedEventHandler_ICoreTextEditContext_add_TextRequested is access all TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_TextRequested;
+   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface;
+   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating is access all TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Ptr is access all TypedEventHandler_ICoreTextEditContext_add_TextUpdating;
+   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface;
+   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted is access all TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface'Class;
+   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Ptr is access all TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted;
    type TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface;
    type TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged is access all TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface'Class;
    type TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Ptr is access all TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged;
@@ -301,18 +301,24 @@ package Windows.UI.Text.Core is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ICoreTextTextRequest_Interface;
-   type ICoreTextTextRequest is access all ICoreTextTextRequest_Interface'Class;
-   type ICoreTextTextRequest_Ptr is access all ICoreTextTextRequest;
-   type ICoreTextTextRequestedEventArgs_Interface;
-   type ICoreTextTextRequestedEventArgs is access all ICoreTextTextRequestedEventArgs_Interface'Class;
-   type ICoreTextTextRequestedEventArgs_Ptr is access all ICoreTextTextRequestedEventArgs;
-   type ICoreTextSelectionRequest_Interface;
-   type ICoreTextSelectionRequest is access all ICoreTextSelectionRequest_Interface'Class;
-   type ICoreTextSelectionRequest_Ptr is access all ICoreTextSelectionRequest;
-   type ICoreTextSelectionRequestedEventArgs_Interface;
-   type ICoreTextSelectionRequestedEventArgs is access all ICoreTextSelectionRequestedEventArgs_Interface'Class;
-   type ICoreTextSelectionRequestedEventArgs_Ptr is access all ICoreTextSelectionRequestedEventArgs;
+   type ICoreTextCompositionCompletedEventArgs_Interface;
+   type ICoreTextCompositionCompletedEventArgs is access all ICoreTextCompositionCompletedEventArgs_Interface'Class;
+   type ICoreTextCompositionCompletedEventArgs_Ptr is access all ICoreTextCompositionCompletedEventArgs;
+   type ICoreTextCompositionSegment_Interface;
+   type ICoreTextCompositionSegment is access all ICoreTextCompositionSegment_Interface'Class;
+   type ICoreTextCompositionSegment_Ptr is access all ICoreTextCompositionSegment;
+   type ICoreTextCompositionStartedEventArgs_Interface;
+   type ICoreTextCompositionStartedEventArgs is access all ICoreTextCompositionStartedEventArgs_Interface'Class;
+   type ICoreTextCompositionStartedEventArgs_Ptr is access all ICoreTextCompositionStartedEventArgs;
+   type ICoreTextEditContext_Interface;
+   type ICoreTextEditContext is access all ICoreTextEditContext_Interface'Class;
+   type ICoreTextEditContext_Ptr is access all ICoreTextEditContext;
+   type ICoreTextEditContext2_Interface;
+   type ICoreTextEditContext2 is access all ICoreTextEditContext2_Interface'Class;
+   type ICoreTextEditContext2_Ptr is access all ICoreTextEditContext2;
+   type ICoreTextFormatUpdatingEventArgs_Interface;
+   type ICoreTextFormatUpdatingEventArgs is access all ICoreTextFormatUpdatingEventArgs_Interface'Class;
+   type ICoreTextFormatUpdatingEventArgs_Ptr is access all ICoreTextFormatUpdatingEventArgs;
    type ICoreTextLayoutBounds_Interface;
    type ICoreTextLayoutBounds is access all ICoreTextLayoutBounds_Interface'Class;
    type ICoreTextLayoutBounds_Ptr is access all ICoreTextLayoutBounds;
@@ -322,27 +328,15 @@ package Windows.UI.Text.Core is
    type ICoreTextLayoutRequestedEventArgs_Interface;
    type ICoreTextLayoutRequestedEventArgs is access all ICoreTextLayoutRequestedEventArgs_Interface'Class;
    type ICoreTextLayoutRequestedEventArgs_Ptr is access all ICoreTextLayoutRequestedEventArgs;
-   type ICoreTextTextUpdatingEventArgs_Interface;
-   type ICoreTextTextUpdatingEventArgs is access all ICoreTextTextUpdatingEventArgs_Interface'Class;
-   type ICoreTextTextUpdatingEventArgs_Ptr is access all ICoreTextTextUpdatingEventArgs;
+   type ICoreTextSelectionRequest_Interface;
+   type ICoreTextSelectionRequest is access all ICoreTextSelectionRequest_Interface'Class;
+   type ICoreTextSelectionRequest_Ptr is access all ICoreTextSelectionRequest;
+   type ICoreTextSelectionRequestedEventArgs_Interface;
+   type ICoreTextSelectionRequestedEventArgs is access all ICoreTextSelectionRequestedEventArgs_Interface'Class;
+   type ICoreTextSelectionRequestedEventArgs_Ptr is access all ICoreTextSelectionRequestedEventArgs;
    type ICoreTextSelectionUpdatingEventArgs_Interface;
    type ICoreTextSelectionUpdatingEventArgs is access all ICoreTextSelectionUpdatingEventArgs_Interface'Class;
    type ICoreTextSelectionUpdatingEventArgs_Ptr is access all ICoreTextSelectionUpdatingEventArgs;
-   type ICoreTextFormatUpdatingEventArgs_Interface;
-   type ICoreTextFormatUpdatingEventArgs is access all ICoreTextFormatUpdatingEventArgs_Interface'Class;
-   type ICoreTextFormatUpdatingEventArgs_Ptr is access all ICoreTextFormatUpdatingEventArgs;
-   type ICoreTextCompositionStartedEventArgs_Interface;
-   type ICoreTextCompositionStartedEventArgs is access all ICoreTextCompositionStartedEventArgs_Interface'Class;
-   type ICoreTextCompositionStartedEventArgs_Ptr is access all ICoreTextCompositionStartedEventArgs;
-   type ICoreTextCompositionCompletedEventArgs_Interface;
-   type ICoreTextCompositionCompletedEventArgs is access all ICoreTextCompositionCompletedEventArgs_Interface'Class;
-   type ICoreTextCompositionCompletedEventArgs_Ptr is access all ICoreTextCompositionCompletedEventArgs;
-   type ICoreTextEditContext2_Interface;
-   type ICoreTextEditContext2 is access all ICoreTextEditContext2_Interface'Class;
-   type ICoreTextEditContext2_Ptr is access all ICoreTextEditContext2;
-   type ICoreTextEditContext_Interface;
-   type ICoreTextEditContext is access all ICoreTextEditContext_Interface'Class;
-   type ICoreTextEditContext_Ptr is access all ICoreTextEditContext;
    type ICoreTextServicesManager_Interface;
    type ICoreTextServicesManager is access all ICoreTextServicesManager_Interface'Class;
    type ICoreTextServicesManager_Ptr is access all ICoreTextServicesManager;
@@ -352,15 +346,21 @@ package Windows.UI.Text.Core is
    type ICoreTextServicesStatics_Interface;
    type ICoreTextServicesStatics is access all ICoreTextServicesStatics_Interface'Class;
    type ICoreTextServicesStatics_Ptr is access all ICoreTextServicesStatics;
-   type ICoreTextCompositionSegment_Interface;
-   type ICoreTextCompositionSegment is access all ICoreTextCompositionSegment_Interface'Class;
-   type ICoreTextCompositionSegment_Ptr is access all ICoreTextCompositionSegment;
-   type IIterator_ICoreTextCompositionSegment_Interface;
-   type IIterator_ICoreTextCompositionSegment is access all IIterator_ICoreTextCompositionSegment_Interface'Class;
-   type IIterator_ICoreTextCompositionSegment_Ptr is access all IIterator_ICoreTextCompositionSegment;
+   type ICoreTextTextRequest_Interface;
+   type ICoreTextTextRequest is access all ICoreTextTextRequest_Interface'Class;
+   type ICoreTextTextRequest_Ptr is access all ICoreTextTextRequest;
+   type ICoreTextTextRequestedEventArgs_Interface;
+   type ICoreTextTextRequestedEventArgs is access all ICoreTextTextRequestedEventArgs_Interface'Class;
+   type ICoreTextTextRequestedEventArgs_Ptr is access all ICoreTextTextRequestedEventArgs;
+   type ICoreTextTextUpdatingEventArgs_Interface;
+   type ICoreTextTextUpdatingEventArgs is access all ICoreTextTextUpdatingEventArgs_Interface'Class;
+   type ICoreTextTextUpdatingEventArgs_Ptr is access all ICoreTextTextUpdatingEventArgs;
    type IIterable_ICoreTextCompositionSegment_Interface;
    type IIterable_ICoreTextCompositionSegment is access all IIterable_ICoreTextCompositionSegment_Interface'Class;
    type IIterable_ICoreTextCompositionSegment_Ptr is access all IIterable_ICoreTextCompositionSegment;
+   type IIterator_ICoreTextCompositionSegment_Interface;
+   type IIterator_ICoreTextCompositionSegment is access all IIterator_ICoreTextCompositionSegment_Interface'Class;
+   type IIterator_ICoreTextCompositionSegment_Ptr is access all IIterator_ICoreTextCompositionSegment;
    type IVectorView_ICoreTextCompositionSegment_Interface;
    type IVectorView_ICoreTextCompositionSegment is access all IVectorView_ICoreTextCompositionSegment_Interface'Class;
    type IVectorView_ICoreTextCompositionSegment_Ptr is access all IVectorView_ICoreTextCompositionSegment;
@@ -368,387 +368,6 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextTextRequest : aliased constant Windows.IID := (1356419241, 62750, 19649, (140, 161, 230, 52, 109, 26, 97, 190 ));
-   
-   type ICoreTextTextRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Range
-   (
-      This       : access ICoreTextTextRequest_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Text
-   (
-      This       : access ICoreTextTextRequest_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Text
-   (
-      This       : access ICoreTextTextRequest_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCanceled
-   (
-      This       : access ICoreTextTextRequest_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICoreTextTextRequest_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextTextRequestedEventArgs : aliased constant Windows.IID := (4036403920, 16838, 19458, (139, 26, 217, 83, 176, 12, 171, 179 ));
-   
-   type ICoreTextTextRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Request
-   (
-      This       : access ICoreTextTextRequestedEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.ICoreTextTextRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextSelectionRequest : aliased constant Windows.IID := (4037477379, 8331, 17153, (136, 60, 116, 202, 116, 133, 253, 141 ));
-   
-   type ICoreTextSelectionRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Selection
-   (
-      This       : access ICoreTextSelectionRequest_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Selection
-   (
-      This       : access ICoreTextSelectionRequest_Interface
-      ; value : Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCanceled
-   (
-      This       : access ICoreTextSelectionRequest_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICoreTextSelectionRequest_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextSelectionRequestedEventArgs : aliased constant Windows.IID := (331769899, 62996, 16922, (143, 75, 158, 200, 165, 163, 127, 205 ));
-   
-   type ICoreTextSelectionRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Request
-   (
-      This       : access ICoreTextSelectionRequestedEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.ICoreTextSelectionRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextLayoutBounds : aliased constant Windows.IID := (3916614004, 17462, 18711, (128, 208, 165, 37, 228, 202, 103, 128 ));
-   
-   type ICoreTextLayoutBounds_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TextBounds
-   (
-      This       : access ICoreTextLayoutBounds_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TextBounds
-   (
-      This       : access ICoreTextLayoutBounds_Interface
-      ; value : Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ControlBounds
-   (
-      This       : access ICoreTextLayoutBounds_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ControlBounds
-   (
-      This       : access ICoreTextLayoutBounds_Interface
-      ; value : Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextLayoutRequest : aliased constant Windows.IID := (626370764, 20989, 20227, (152, 191, 172, 120, 23, 77, 104, 224 ));
-   
-   type ICoreTextLayoutRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Range
-   (
-      This       : access ICoreTextLayoutRequest_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LayoutBounds
-   (
-      This       : access ICoreTextLayoutRequest_Interface
-      ; RetVal : access Windows.UI.Text.Core.ICoreTextLayoutBounds
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCanceled
-   (
-      This       : access ICoreTextLayoutRequest_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICoreTextLayoutRequest_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextLayoutRequestedEventArgs : aliased constant Windows.IID := (2984012512, 39547, 20126, (165, 102, 74, 107, 95, 138, 214, 118 ));
-   
-   type ICoreTextLayoutRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Request
-   (
-      This       : access ICoreTextLayoutRequestedEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.ICoreTextLayoutRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextTextUpdatingEventArgs : aliased constant Windows.IID := (4003959181, 52267, 20227, (143, 246, 2, 253, 33, 125, 180, 80 ));
-   
-   type ICoreTextTextUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Range
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Text
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NewSelection
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_InputLanguage
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Globalization.ILanguage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Result
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextTextUpdatingResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Result
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; value : Windows.UI.Text.Core.CoreTextTextUpdatingResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCanceled
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICoreTextTextUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextSelectionUpdatingEventArgs : aliased constant Windows.IID := (3561325471, 65151, 19413, (138, 38, 9, 34, 193, 179, 230, 57 ));
-   
-   type ICoreTextSelectionUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Selection
-   (
-      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Result
-   (
-      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextSelectionUpdatingResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Result
-   (
-      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
-      ; value : Windows.UI.Text.Core.CoreTextSelectionUpdatingResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCanceled
-   (
-      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextFormatUpdatingEventArgs : aliased constant Windows.IID := (1930476851, 46248, 17329, (179, 123, 7, 36, 212, 172, 167, 171 ));
-   
-   type ICoreTextFormatUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Range
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TextColor
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.ViewManagement.IReference_UIElementType -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BackgroundColor
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.ViewManagement.IReference_UIElementType -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UnderlineColor
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.ViewManagement.IReference_UIElementType -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UnderlineType
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.IReference_UnderlineType -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Reason
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextFormatUpdatingReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Result
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.UI.Text.Core.CoreTextFormatUpdatingResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Result
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; value : Windows.UI.Text.Core.CoreTextFormatUpdatingResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCanceled
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICoreTextFormatUpdatingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreTextCompositionStartedEventArgs : aliased constant Windows.IID := (661329577, 25831, 19120, (188, 75, 160, 45, 115, 131, 91, 251 ));
-   
-   type ICoreTextCompositionStartedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsCanceled
-   (
-      This       : access ICoreTextCompositionStartedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICoreTextCompositionStartedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -779,22 +398,41 @@ package Windows.UI.Text.Core is
    
    ------------------------------------------------------------------------
    
-   IID_ICoreTextEditContext2 : aliased constant Windows.IID := (2978381243, 2107, 18913, (178, 129, 43, 53, 214, 43, 244, 102 ));
+   IID_ICoreTextCompositionSegment : aliased constant Windows.IID := (2003594201, 20141, 19879, (143, 71, 58, 136, 181, 35, 204, 52 ));
    
-   type ICoreTextEditContext2_Interface is interface and Windows.IInspectable_Interface;
+   type ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
    
-   function add_NotifyFocusLeaveCompleted
+   function get_PreconversionString
    (
-      This       : access ICoreTextEditContext2_Interface
-      ; handler : TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access ICoreTextCompositionSegment_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function remove_NotifyFocusLeaveCompleted
+   function get_Range
    (
-      This       : access ICoreTextEditContext2_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      This       : access ICoreTextCompositionSegment_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextCompositionStartedEventArgs : aliased constant Windows.IID := (661329577, 25831, 19120, (188, 75, 160, 45, 115, 131, 91, 251 ));
+   
+   type ICoreTextCompositionStartedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsCanceled
+   (
+      This       : access ICoreTextCompositionStartedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ICoreTextCompositionStartedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    
@@ -1031,6 +669,272 @@ package Windows.UI.Text.Core is
    
    ------------------------------------------------------------------------
    
+   IID_ICoreTextEditContext2 : aliased constant Windows.IID := (2978381243, 2107, 18913, (178, 129, 43, 53, 214, 43, 244, 102 ));
+   
+   type ICoreTextEditContext2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_NotifyFocusLeaveCompleted
+   (
+      This       : access ICoreTextEditContext2_Interface
+      ; handler : TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_NotifyFocusLeaveCompleted
+   (
+      This       : access ICoreTextEditContext2_Interface
+      ; cookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextFormatUpdatingEventArgs : aliased constant Windows.IID := (1930476851, 46248, 17329, (179, 123, 7, 36, 212, 172, 167, 171 ));
+   
+   type ICoreTextFormatUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Range
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextColor
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.ViewManagement.IReference_UIElementType -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackgroundColor
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.ViewManagement.IReference_UIElementType -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UnderlineColor
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.ViewManagement.IReference_UIElementType -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UnderlineType
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.IReference_UnderlineType -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Reason
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextFormatUpdatingReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Result
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextFormatUpdatingResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Result
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; value : Windows.UI.Text.Core.CoreTextFormatUpdatingResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCanceled
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ICoreTextFormatUpdatingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextLayoutBounds : aliased constant Windows.IID := (3916614004, 17462, 18711, (128, 208, 165, 37, 228, 202, 103, 128 ));
+   
+   type ICoreTextLayoutBounds_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TextBounds
+   (
+      This       : access ICoreTextLayoutBounds_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TextBounds
+   (
+      This       : access ICoreTextLayoutBounds_Interface
+      ; value : Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ControlBounds
+   (
+      This       : access ICoreTextLayoutBounds_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ControlBounds
+   (
+      This       : access ICoreTextLayoutBounds_Interface
+      ; value : Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextLayoutRequest : aliased constant Windows.IID := (626370764, 20989, 20227, (152, 191, 172, 120, 23, 77, 104, 224 ));
+   
+   type ICoreTextLayoutRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Range
+   (
+      This       : access ICoreTextLayoutRequest_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LayoutBounds
+   (
+      This       : access ICoreTextLayoutRequest_Interface
+      ; RetVal : access Windows.UI.Text.Core.ICoreTextLayoutBounds
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCanceled
+   (
+      This       : access ICoreTextLayoutRequest_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ICoreTextLayoutRequest_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextLayoutRequestedEventArgs : aliased constant Windows.IID := (2984012512, 39547, 20126, (165, 102, 74, 107, 95, 138, 214, 118 ));
+   
+   type ICoreTextLayoutRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access ICoreTextLayoutRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.ICoreTextLayoutRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextSelectionRequest : aliased constant Windows.IID := (4037477379, 8331, 17153, (136, 60, 116, 202, 116, 133, 253, 141 ));
+   
+   type ICoreTextSelectionRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Selection
+   (
+      This       : access ICoreTextSelectionRequest_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Selection
+   (
+      This       : access ICoreTextSelectionRequest_Interface
+      ; value : Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCanceled
+   (
+      This       : access ICoreTextSelectionRequest_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ICoreTextSelectionRequest_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextSelectionRequestedEventArgs : aliased constant Windows.IID := (331769899, 62996, 16922, (143, 75, 158, 200, 165, 163, 127, 205 ));
+   
+   type ICoreTextSelectionRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access ICoreTextSelectionRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.ICoreTextSelectionRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextSelectionUpdatingEventArgs : aliased constant Windows.IID := (3561325471, 65151, 19413, (138, 38, 9, 34, 193, 179, 230, 57 ));
+   
+   type ICoreTextSelectionUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Selection
+   (
+      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Result
+   (
+      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextSelectionUpdatingResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Result
+   (
+      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
+      ; value : Windows.UI.Text.Core.CoreTextSelectionUpdatingResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCanceled
+   (
+      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ICoreTextSelectionUpdatingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICoreTextServicesManager : aliased constant Windows.IID := (3260054915, 28170, 19082, (189, 248, 25, 72, 135, 72, 84, 186 ));
    
    type ICoreTextServicesManager_Interface is interface and Windows.IInspectable_Interface;
@@ -1092,21 +996,130 @@ package Windows.UI.Text.Core is
    
    ------------------------------------------------------------------------
    
-   IID_ICoreTextCompositionSegment : aliased constant Windows.IID := (2003594201, 20141, 19879, (143, 71, 58, 136, 181, 35, 204, 52 ));
+   IID_ICoreTextTextRequest : aliased constant Windows.IID := (1356419241, 62750, 19649, (140, 161, 230, 52, 109, 26, 97, 190 ));
    
-   type ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
+   type ICoreTextTextRequest_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_PreconversionString
+   function get_Range
    (
-      This       : access ICoreTextCompositionSegment_Interface
+      This       : access ICoreTextTextRequest_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Text
+   (
+      This       : access ICoreTextTextRequest_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
+   function put_Text
+   (
+      This       : access ICoreTextTextRequest_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCanceled
+   (
+      This       : access ICoreTextTextRequest_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ICoreTextTextRequest_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextTextRequestedEventArgs : aliased constant Windows.IID := (4036403920, 16838, 19458, (139, 26, 217, 83, 176, 12, 171, 179 ));
+   
+   type ICoreTextTextRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access ICoreTextTextRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.ICoreTextTextRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextTextUpdatingEventArgs : aliased constant Windows.IID := (4003959181, 52267, 20227, (143, 246, 2, 253, 33, 125, 180, 80 ));
+   
+   type ICoreTextTextUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
    function get_Range
    (
-      This       : access ICoreTextCompositionSegment_Interface
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
       ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Text
+   (
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NewSelection
+   (
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InputLanguage
+   (
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
+      ; RetVal : access Windows.Globalization.ILanguage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Result
+   (
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextTextUpdatingResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Result
+   (
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
+      ; value : Windows.UI.Text.Core.CoreTextTextUpdatingResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCanceled
+   (
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ICoreTextTextUpdatingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ICoreTextCompositionSegment : aliased constant Windows.IID := (943139794, 54270, 23250, (157, 57, 209, 102, 182, 142, 120, 231 ));
+   
+   type IIterable_ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ICoreTextCompositionSegment_Interface
+      ; RetVal : access Windows.UI.Text.Core.IIterator_ICoreTextCompositionSegment
    )
    return Windows.HRESULT is abstract;
    
@@ -1142,19 +1155,6 @@ package Windows.UI.Text.Core is
       This       : access IIterator_ICoreTextCompositionSegment_Interface
       ; items : Windows.UI.Text.Core.ICoreTextCompositionSegment_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ICoreTextCompositionSegment : aliased constant Windows.IID := (943139794, 54270, 23250, (157, 57, 209, 102, 182, 142, 120, 231 ));
-   
-   type IIterable_ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ICoreTextCompositionSegment_Interface
-      ; RetVal : access Windows.UI.Text.Core.IIterator_ICoreTextCompositionSegment
    )
    return Windows.HRESULT is abstract;
    
@@ -1203,92 +1203,14 @@ package Windows.UI.Text.Core is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted : aliased constant Windows.IID := (4015240295, 50290, 23385, (168, 39, 56, 173, 195, 169, 211, 38 ));
+   IID_TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted : aliased constant Windows.IID := (2732000670, 26861, 21088, (141, 142, 29, 207, 61, 37, 214, 99 ));
    
-   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted'access) with null record;
+   type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface
+      This       : access TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface
       ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_ICoreTextEditContext_add_TextRequested : aliased constant Windows.IID := (3353379190, 16692, 20663, (188, 115, 114, 158, 159, 154, 210, 42 ));
-   
-   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_TextRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionRequested : aliased constant Windows.IID := (2284736993, 62627, 22501, (147, 146, 106, 140, 56, 87, 145, 129 ));
-   
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_SelectionRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_ICoreTextEditContext_add_LayoutRequested : aliased constant Windows.IID := (442455446, 22044, 22518, (164, 255, 203, 133, 1, 60, 101, 68 ));
-   
-   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_LayoutRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_ICoreTextEditContext_add_TextUpdating : aliased constant Windows.IID := (4253641348, 57212, 20693, (145, 103, 88, 246, 22, 189, 219, 110 ));
-   
-   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_TextUpdating'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating : aliased constant Windows.IID := (1796475456, 54369, 21850, (182, 235, 93, 187, 142, 33, 1, 229 ));
-   
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_ICoreTextEditContext_add_FormatUpdating : aliased constant Windows.IID := (1045362073, 19650, 21064, (191, 45, 19, 241, 118, 19, 176, 166 ));
-   
-   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_FormatUpdating'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs
+      ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs
    )
    return Windows.HRESULT;
    
@@ -1307,25 +1229,103 @@ package Windows.UI.Text.Core is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted : aliased constant Windows.IID := (2732000670, 26861, 21088, (141, 142, 29, 207, 61, 37, 214, 99 ));
-   
-   type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_ICoreTextEditContext_add_FocusRemoved : aliased constant Windows.IID := (4015240295, 50290, 23385, (168, 39, 56, 173, 195, 169, 211, 38 ));
    
    type TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_FocusRemoved'access) with null record;
    function Invoke
    (
       This       : access TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreTextEditContext_add_FormatUpdating : aliased constant Windows.IID := (1045362073, 19650, 21064, (191, 45, 19, 241, 118, 19, 176, 166 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_FormatUpdating'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreTextEditContext_add_LayoutRequested : aliased constant Windows.IID := (442455446, 22044, 22518, (164, 255, 203, 133, 1, 60, 101, 68 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_LayoutRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionRequested : aliased constant Windows.IID := (2284736993, 62627, 22501, (147, 146, 106, 140, 56, 87, 145, 129 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_SelectionRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating : aliased constant Windows.IID := (1796475456, 54369, 21850, (182, 235, 93, 187, 142, 33, 1, 229 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreTextEditContext_add_TextRequested : aliased constant Windows.IID := (3353379190, 16692, 20663, (188, 115, 114, 158, 159, 154, 210, 42 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_TextRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreTextEditContext_add_TextUpdating : aliased constant Windows.IID := (4253641348, 57212, 20693, (145, 103, 88, 246, 22, 189, 219, 110 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_TextUpdating'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted : aliased constant Windows.IID := (4015240295, 50290, 23385, (168, 39, 56, 173, 195, 169, 211, 38 ));
+   
+   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface
       ; sender : Windows.UI.Text.Core.ICoreTextEditContext
       ; args : Windows.Object
    )
@@ -1348,30 +1348,30 @@ package Windows.UI.Text.Core is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype CoreTextTextRequest is Windows.UI.Text.Core.ICoreTextTextRequest;
-   subtype CoreTextSelectionRequest is Windows.UI.Text.Core.ICoreTextSelectionRequest;
+   subtype CoreTextCompositionCompletedEventArgs is Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs;
+   subtype CoreTextCompositionSegment is Windows.UI.Text.Core.ICoreTextCompositionSegment;
+   subtype CoreTextCompositionStartedEventArgs is Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs;
+   subtype CoreTextEditContext is Windows.UI.Text.Core.ICoreTextEditContext;
+   subtype CoreTextFormatUpdatingEventArgs is Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs;
    subtype CoreTextLayoutBounds is Windows.UI.Text.Core.ICoreTextLayoutBounds;
    subtype CoreTextLayoutRequest is Windows.UI.Text.Core.ICoreTextLayoutRequest;
-   subtype CoreTextCompositionSegment is Windows.UI.Text.Core.ICoreTextCompositionSegment;
-   subtype CoreTextEditContext is Windows.UI.Text.Core.ICoreTextEditContext;
-   subtype CoreTextTextRequestedEventArgs is Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs;
-   subtype CoreTextSelectionRequestedEventArgs is Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs;
    subtype CoreTextLayoutRequestedEventArgs is Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs;
-   subtype CoreTextTextUpdatingEventArgs is Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs;
+   subtype CoreTextSelectionRequest is Windows.UI.Text.Core.ICoreTextSelectionRequest;
+   subtype CoreTextSelectionRequestedEventArgs is Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs;
    subtype CoreTextSelectionUpdatingEventArgs is Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs;
-   subtype CoreTextFormatUpdatingEventArgs is Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs;
-   subtype CoreTextCompositionStartedEventArgs is Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs;
-   subtype CoreTextCompositionCompletedEventArgs is Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs;
    subtype CoreTextServicesManager is Windows.UI.Text.Core.ICoreTextServicesManager;
+   subtype CoreTextTextRequest is Windows.UI.Text.Core.ICoreTextTextRequest;
+   subtype CoreTextTextRequestedEventArgs is Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs;
+   subtype CoreTextTextUpdatingEventArgs is Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForCurrentView
-   return Windows.UI.Text.Core.ICoreTextServicesManager;
-   
    function get_HiddenCharacter
    return Windows.UInt8;
+   
+   function GetForCurrentView
+   return Windows.UI.Text.Core.ICoreTextServicesManager;
    
 end;

@@ -37,8 +37,8 @@ package body Windows.Devices.I2c is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_II2cDevice_Interface
-      ; asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cDevice
+      This       : access AsyncOperationCompletedHandler_II2cController_Interface
+      ; asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cController
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -50,8 +50,8 @@ package body Windows.Devices.I2c is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_II2cController_Interface
-      ; asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cController
+      This       : access AsyncOperationCompletedHandler_II2cDevice_Interface
+      ; asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cDevice
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -92,6 +92,43 @@ package body Windows.Devices.I2c is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetControllersAsync
+   (
+      provider : Windows.Devices.I2c.Provider.II2cProvider
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.I2c.I2cController");
+      m_Factory     : II2cControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_II2cControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetControllersAsync(provider, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.I2c.IAsyncOperation_II2cController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.I2c.I2cController");
+      m_Factory     : II2cControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.I2c.IAsyncOperation_II2cController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_II2cControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetDeviceSelector
    return Windows.String is
@@ -145,43 +182,6 @@ package body Windows.Devices.I2c is
       Hr := RoGetActivationFactory(m_hString, IID_II2cDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, settings, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetControllersAsync
-   (
-      provider : Windows.Devices.I2c.Provider.II2cProvider
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.I2c.I2cController");
-      m_Factory     : II2cControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_II2cControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetControllersAsync(provider, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefaultAsync
-   return Windows.Devices.I2c.IAsyncOperation_II2cController is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.I2c.I2cController");
-      m_Factory     : II2cControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.I2c.IAsyncOperation_II2cController;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_II2cControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

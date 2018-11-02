@@ -91,6 +91,19 @@ package body Windows.Media.DialProtocol is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface
+      ; sender : Windows.Media.DialProtocol.IDialDevicePicker
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.DialProtocol.IDialDevicePicker(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Interface
       ; sender : Windows.Media.DialProtocol.IDialDevicePicker
       ; args : Windows.Media.DialProtocol.IDialDeviceSelectedEventArgs
@@ -112,19 +125,6 @@ package body Windows.Media.DialProtocol is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.DialProtocol.IDialDevicePicker(sender), Windows.Media.DialProtocol.IDialDisconnectButtonClickedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface
-      ; sender : Windows.Media.DialProtocol.IDialDevicePicker
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.DialProtocol.IDialDevicePicker(sender), args);
       return Hr;
    end;
    

@@ -39,8 +39,8 @@ package body Windows.Devices.Scanners is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IImageScannerPreviewResult_Interface
-      ; asyncInfo : Windows.Devices.Scanners.IAsyncOperation_IImageScannerPreviewResult
+      This       : access AsyncOperationCompletedHandler_IImageScanner_Interface
+      ; asyncInfo : Windows.Devices.Scanners.IAsyncOperation_IImageScanner
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -52,8 +52,8 @@ package body Windows.Devices.Scanners is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IImageScanner_Interface
-      ; asyncInfo : Windows.Devices.Scanners.IAsyncOperation_IImageScanner
+      This       : access AsyncOperationCompletedHandler_IImageScannerPreviewResult_Interface
+      ; asyncInfo : Windows.Devices.Scanners.IAsyncOperation_IImageScannerPreviewResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

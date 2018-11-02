@@ -37,56 +37,6 @@ package Windows.UI.Input.Preview.Injection is
    -- Enums
    ------------------------------------------------------------------------
    
-   type InjectedInputTouchParameters is (
-      None,
-      Contact,
-      Orientation,
-      Pressure
-   );
-   for InjectedInputTouchParameters use (
-      None => 0,
-      Contact => 1,
-      Orientation => 2,
-      Pressure => 4
-   );
-   for InjectedInputTouchParameters'Size use 32;
-   
-   type InjectedInputTouchParameters_Ptr is access InjectedInputTouchParameters;
-   
-   type InjectedInputPointerOptions is (
-      None,
-      New_x,
-      InRange,
-      InContact,
-      FirstButton,
-      SecondButton,
-      Primary,
-      Confidence,
-      Canceled,
-      PointerDown,
-      Update,
-      PointerUp,
-      CaptureChanged
-   );
-   for InjectedInputPointerOptions use (
-      None => 0,
-      New_x => 1,
-      InRange => 2,
-      InContact => 4,
-      FirstButton => 16,
-      SecondButton => 32,
-      Primary => 8192,
-      Confidence => 16384,
-      Canceled => 32768,
-      PointerDown => 65536,
-      Update => 131072,
-      PointerUp => 262144,
-      CaptureChanged => 2097152
-   );
-   for InjectedInputPointerOptions'Size use 32;
-   
-   type InjectedInputPointerOptions_Ptr is access InjectedInputPointerOptions;
-   
    type InjectedInputButtonChangeKind is (
       None,
       FirstButtonDown,
@@ -117,39 +67,23 @@ package Windows.UI.Input.Preview.Injection is
    
    type InjectedInputButtonChangeKind_Ptr is access InjectedInputButtonChangeKind;
    
-   type InjectedInputPenButtons is (
+   type InjectedInputKeyOptions is (
       None,
-      Barrel,
-      Inverted,
-      Eraser
+      ExtendedKey,
+      KeyUp,
+      Unicode,
+      ScanCode
    );
-   for InjectedInputPenButtons use (
+   for InjectedInputKeyOptions use (
       None => 0,
-      Barrel => 1,
-      Inverted => 2,
-      Eraser => 4
+      ExtendedKey => 1,
+      KeyUp => 2,
+      Unicode => 4,
+      ScanCode => 8
    );
-   for InjectedInputPenButtons'Size use 32;
+   for InjectedInputKeyOptions'Size use 32;
    
-   type InjectedInputPenButtons_Ptr is access InjectedInputPenButtons;
-   
-   type InjectedInputPenParameters is (
-      None,
-      Pressure,
-      Rotation,
-      TiltX,
-      TiltY
-   );
-   for InjectedInputPenParameters use (
-      None => 0,
-      Pressure => 1,
-      Rotation => 2,
-      TiltX => 4,
-      TiltY => 8
-   );
-   for InjectedInputPenParameters'Size use 32;
-   
-   type InjectedInputPenParameters_Ptr is access InjectedInputPenParameters;
+   type InjectedInputKeyOptions_Ptr is access InjectedInputKeyOptions;
    
    type InjectedInputMouseOptions is (
       None,
@@ -189,23 +123,73 @@ package Windows.UI.Input.Preview.Injection is
    
    type InjectedInputMouseOptions_Ptr is access InjectedInputMouseOptions;
    
-   type InjectedInputKeyOptions is (
+   type InjectedInputPenButtons is (
       None,
-      ExtendedKey,
-      KeyUp,
-      Unicode,
-      ScanCode
+      Barrel,
+      Inverted,
+      Eraser
    );
-   for InjectedInputKeyOptions use (
+   for InjectedInputPenButtons use (
       None => 0,
-      ExtendedKey => 1,
-      KeyUp => 2,
-      Unicode => 4,
-      ScanCode => 8
+      Barrel => 1,
+      Inverted => 2,
+      Eraser => 4
    );
-   for InjectedInputKeyOptions'Size use 32;
+   for InjectedInputPenButtons'Size use 32;
    
-   type InjectedInputKeyOptions_Ptr is access InjectedInputKeyOptions;
+   type InjectedInputPenButtons_Ptr is access InjectedInputPenButtons;
+   
+   type InjectedInputPenParameters is (
+      None,
+      Pressure,
+      Rotation,
+      TiltX,
+      TiltY
+   );
+   for InjectedInputPenParameters use (
+      None => 0,
+      Pressure => 1,
+      Rotation => 2,
+      TiltX => 4,
+      TiltY => 8
+   );
+   for InjectedInputPenParameters'Size use 32;
+   
+   type InjectedInputPenParameters_Ptr is access InjectedInputPenParameters;
+   
+   type InjectedInputPointerOptions is (
+      None,
+      New_x,
+      InRange,
+      InContact,
+      FirstButton,
+      SecondButton,
+      Primary,
+      Confidence,
+      Canceled,
+      PointerDown,
+      Update,
+      PointerUp,
+      CaptureChanged
+   );
+   for InjectedInputPointerOptions use (
+      None => 0,
+      New_x => 1,
+      InRange => 2,
+      InContact => 4,
+      FirstButton => 16,
+      SecondButton => 32,
+      Primary => 8192,
+      Confidence => 16384,
+      Canceled => 32768,
+      PointerDown => 65536,
+      Update => 131072,
+      PointerUp => 262144,
+      CaptureChanged => 2097152
+   );
+   for InjectedInputPointerOptions'Size use 32;
+   
+   type InjectedInputPointerOptions_Ptr is access InjectedInputPointerOptions;
    
    type InjectedInputShortcut is (
       Back,
@@ -220,6 +204,22 @@ package Windows.UI.Input.Preview.Injection is
    for InjectedInputShortcut'Size use 32;
    
    type InjectedInputShortcut_Ptr is access InjectedInputShortcut;
+   
+   type InjectedInputTouchParameters is (
+      None,
+      Contact,
+      Orientation,
+      Pressure
+   );
+   for InjectedInputTouchParameters use (
+      None => 0,
+      Contact => 1,
+      Orientation => 2,
+      Pressure => 4
+   );
+   for InjectedInputTouchParameters'Size use 32;
+   
+   type InjectedInputTouchParameters_Ptr is access InjectedInputTouchParameters;
    
    type InjectedInputVisualizationMode is (
       None,
@@ -272,24 +272,24 @@ package Windows.UI.Input.Preview.Injection is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IInjectedInputTouchInfo_Interface;
-   type IInjectedInputTouchInfo is access all IInjectedInputTouchInfo_Interface'Class;
-   type IInjectedInputTouchInfo_Ptr is access all IInjectedInputTouchInfo;
-   type IInjectedInputPenInfo_Interface;
-   type IInjectedInputPenInfo is access all IInjectedInputPenInfo_Interface'Class;
-   type IInjectedInputPenInfo_Ptr is access all IInjectedInputPenInfo;
-   type IInjectedInputMouseInfo_Interface;
-   type IInjectedInputMouseInfo is access all IInjectedInputMouseInfo_Interface'Class;
-   type IInjectedInputMouseInfo_Ptr is access all IInjectedInputMouseInfo;
-   type IInjectedInputKeyboardInfo_Interface;
-   type IInjectedInputKeyboardInfo is access all IInjectedInputKeyboardInfo_Interface'Class;
-   type IInjectedInputKeyboardInfo_Ptr is access all IInjectedInputKeyboardInfo;
    type IInjectedInputGamepadInfo_Interface;
    type IInjectedInputGamepadInfo is access all IInjectedInputGamepadInfo_Interface'Class;
    type IInjectedInputGamepadInfo_Ptr is access all IInjectedInputGamepadInfo;
    type IInjectedInputGamepadInfoFactory_Interface;
    type IInjectedInputGamepadInfoFactory is access all IInjectedInputGamepadInfoFactory_Interface'Class;
    type IInjectedInputGamepadInfoFactory_Ptr is access all IInjectedInputGamepadInfoFactory;
+   type IInjectedInputKeyboardInfo_Interface;
+   type IInjectedInputKeyboardInfo is access all IInjectedInputKeyboardInfo_Interface'Class;
+   type IInjectedInputKeyboardInfo_Ptr is access all IInjectedInputKeyboardInfo;
+   type IInjectedInputMouseInfo_Interface;
+   type IInjectedInputMouseInfo is access all IInjectedInputMouseInfo_Interface'Class;
+   type IInjectedInputMouseInfo_Ptr is access all IInjectedInputMouseInfo;
+   type IInjectedInputPenInfo_Interface;
+   type IInjectedInputPenInfo is access all IInjectedInputPenInfo_Interface'Class;
+   type IInjectedInputPenInfo_Ptr is access all IInjectedInputPenInfo;
+   type IInjectedInputTouchInfo_Interface;
+   type IInjectedInputTouchInfo is access all IInjectedInputTouchInfo_Interface'Class;
+   type IInjectedInputTouchInfo_Ptr is access all IInjectedInputTouchInfo;
    type IInputInjector_Interface;
    type IInputInjector is access all IInputInjector_Interface'Class;
    type IInputInjector_Ptr is access all IInputInjector;
@@ -302,332 +302,28 @@ package Windows.UI.Input.Preview.Injection is
    type IInputInjectorStatics2_Interface;
    type IInputInjectorStatics2 is access all IInputInjectorStatics2_Interface'Class;
    type IInputInjectorStatics2_Ptr is access all IInputInjectorStatics2;
-   type IIterator_IInjectedInputKeyboardInfo_Interface;
-   type IIterator_IInjectedInputKeyboardInfo is access all IIterator_IInjectedInputKeyboardInfo_Interface'Class;
-   type IIterator_IInjectedInputKeyboardInfo_Ptr is access all IIterator_IInjectedInputKeyboardInfo;
    type IIterable_IInjectedInputKeyboardInfo_Interface;
    type IIterable_IInjectedInputKeyboardInfo is access all IIterable_IInjectedInputKeyboardInfo_Interface'Class;
    type IIterable_IInjectedInputKeyboardInfo_Ptr is access all IIterable_IInjectedInputKeyboardInfo;
-   type IIterator_IInjectedInputMouseInfo_Interface;
-   type IIterator_IInjectedInputMouseInfo is access all IIterator_IInjectedInputMouseInfo_Interface'Class;
-   type IIterator_IInjectedInputMouseInfo_Ptr is access all IIterator_IInjectedInputMouseInfo;
    type IIterable_IInjectedInputMouseInfo_Interface;
    type IIterable_IInjectedInputMouseInfo is access all IIterable_IInjectedInputMouseInfo_Interface'Class;
    type IIterable_IInjectedInputMouseInfo_Ptr is access all IIterable_IInjectedInputMouseInfo;
-   type IIterator_IInjectedInputTouchInfo_Interface;
-   type IIterator_IInjectedInputTouchInfo is access all IIterator_IInjectedInputTouchInfo_Interface'Class;
-   type IIterator_IInjectedInputTouchInfo_Ptr is access all IIterator_IInjectedInputTouchInfo;
    type IIterable_IInjectedInputTouchInfo_Interface;
    type IIterable_IInjectedInputTouchInfo is access all IIterable_IInjectedInputTouchInfo_Interface'Class;
    type IIterable_IInjectedInputTouchInfo_Ptr is access all IIterable_IInjectedInputTouchInfo;
+   type IIterator_IInjectedInputKeyboardInfo_Interface;
+   type IIterator_IInjectedInputKeyboardInfo is access all IIterator_IInjectedInputKeyboardInfo_Interface'Class;
+   type IIterator_IInjectedInputKeyboardInfo_Ptr is access all IIterator_IInjectedInputKeyboardInfo;
+   type IIterator_IInjectedInputMouseInfo_Interface;
+   type IIterator_IInjectedInputMouseInfo is access all IIterator_IInjectedInputMouseInfo_Interface'Class;
+   type IIterator_IInjectedInputMouseInfo_Ptr is access all IIterator_IInjectedInputMouseInfo;
+   type IIterator_IInjectedInputTouchInfo_Interface;
+   type IIterator_IInjectedInputTouchInfo is access all IIterator_IInjectedInputTouchInfo_Interface'Class;
+   type IIterator_IInjectedInputTouchInfo_Ptr is access all IIterator_IInjectedInputTouchInfo;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInjectedInputTouchInfo : aliased constant Windows.IID := (575656415, 17384, 24309, (81, 10, 105, 202, 140, 155, 76, 40 ));
-   
-   type IInjectedInputTouchInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Contact
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputRectangle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Contact
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputRectangle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Orientation
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Orientation
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PointerInfo
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PointerInfo
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Pressure
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Pressure
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TouchParameters
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TouchParameters
-   (
-      This       : access IInjectedInputTouchInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInjectedInputPenInfo : aliased constant Windows.IID := (1799400707, 51742, 21799, (126, 2, 40, 40, 84, 11, 177, 212 ));
-   
-   type IInjectedInputPenInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PointerInfo
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PointerInfo
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PenButtons
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPenButtons
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PenButtons
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPenButtons
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PenParameters
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPenParameters
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PenParameters
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPenParameters
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Pressure
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Pressure
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Rotation
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Rotation
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TiltX
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TiltX
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TiltY
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TiltY
-   (
-      This       : access IInjectedInputPenInfo_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInjectedInputMouseInfo : aliased constant Windows.IID := (2532666987, 58490, 23796, (65, 141, 138, 95, 185, 103, 12, 125 ));
-   
-   type IInjectedInputMouseInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MouseOptions
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MouseOptions
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MouseData
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MouseData
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DeltaY
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DeltaY
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DeltaX
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DeltaX
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TimeOffsetInMilliseconds
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TimeOffsetInMilliseconds
-   (
-      This       : access IInjectedInputMouseInfo_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (1262932288, 11114, 24570, (126, 174, 189, 7, 123, 5, 42, 205 ));
-   
-   type IInjectedInputKeyboardInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_KeyOptions
-   (
-      This       : access IInjectedInputKeyboardInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeyOptions
-   (
-      This       : access IInjectedInputKeyboardInfo_Interface
-      ; value : Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ScanCode
-   (
-      This       : access IInjectedInputKeyboardInfo_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ScanCode
-   (
-      This       : access IInjectedInputKeyboardInfo_Interface
-      ; value : Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_VirtualKey
-   (
-      This       : access IInjectedInputKeyboardInfo_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_VirtualKey
-   (
-      This       : access IInjectedInputKeyboardInfo_Interface
-      ; value : Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -744,6 +440,310 @@ package Windows.UI.Input.Preview.Injection is
       This       : access IInjectedInputGamepadInfoFactory_Interface
       ; reading : Windows.Gaming.Input.GamepadReading
       ; RetVal : access Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (1262932288, 11114, 24570, (126, 174, 189, 7, 123, 5, 42, 205 ));
+   
+   type IInjectedInputKeyboardInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyOptions
+   (
+      This       : access IInjectedInputKeyboardInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeyOptions
+   (
+      This       : access IInjectedInputKeyboardInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScanCode
+   (
+      This       : access IInjectedInputKeyboardInfo_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScanCode
+   (
+      This       : access IInjectedInputKeyboardInfo_Interface
+      ; value : Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VirtualKey
+   (
+      This       : access IInjectedInputKeyboardInfo_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_VirtualKey
+   (
+      This       : access IInjectedInputKeyboardInfo_Interface
+      ; value : Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInjectedInputMouseInfo : aliased constant Windows.IID := (2532666987, 58490, 23796, (65, 141, 138, 95, 185, 103, 12, 125 ));
+   
+   type IInjectedInputMouseInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MouseOptions
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MouseOptions
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MouseData
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MouseData
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeltaY
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeltaY
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeltaX
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeltaX
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TimeOffsetInMilliseconds
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TimeOffsetInMilliseconds
+   (
+      This       : access IInjectedInputMouseInfo_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInjectedInputPenInfo : aliased constant Windows.IID := (1799400707, 51742, 21799, (126, 2, 40, 40, 84, 11, 177, 212 ));
+   
+   type IInjectedInputPenInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PointerInfo
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PointerInfo
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PenButtons
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPenButtons
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PenButtons
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPenButtons
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PenParameters
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPenParameters
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PenParameters
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPenParameters
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pressure
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Pressure
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rotation
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Rotation
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TiltX
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TiltX
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TiltY
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TiltY
+   (
+      This       : access IInjectedInputPenInfo_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInjectedInputTouchInfo : aliased constant Windows.IID := (575656415, 17384, 24309, (81, 10, 105, 202, 140, 155, 76, 40 ));
+   
+   type IInjectedInputTouchInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Contact
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputRectangle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Contact
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputRectangle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Orientation
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Orientation
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PointerInfo
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PointerInfo
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pressure
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Pressure
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TouchParameters
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TouchParameters
+   (
+      This       : access IInjectedInputTouchInfo_Interface
+      ; value : Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters
    )
    return Windows.HRESULT is abstract;
    
@@ -867,6 +867,45 @@ package Windows.UI.Input.Preview.Injection is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (366359311, 40087, 22277, (182, 119, 135, 37, 133, 102, 79, 181 ));
+   
+   type IIterable_IInjectedInputKeyboardInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IInjectedInputKeyboardInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputKeyboardInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IInjectedInputMouseInfo : aliased constant Windows.IID := (1815406013, 4004, 21060, (137, 251, 4, 191, 212, 128, 236, 216 ));
+   
+   type IIterable_IInjectedInputMouseInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IInjectedInputMouseInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputMouseInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IInjectedInputTouchInfo : aliased constant Windows.IID := (2891951115, 33440, 21558, (146, 132, 231, 219, 11, 244, 230, 21 ));
+   
+   type IIterable_IInjectedInputTouchInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IInjectedInputTouchInfo_Interface
+      ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputTouchInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (1343119102, 15297, 23963, (188, 252, 193, 244, 57, 80, 95, 18 ));
    
    type IIterator_IInjectedInputKeyboardInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -897,19 +936,6 @@ package Windows.UI.Input.Preview.Injection is
       This       : access IIterator_IInjectedInputKeyboardInfo_Interface
       ; items : Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (366359311, 40087, 22277, (182, 119, 135, 37, 133, 102, 79, 181 ));
-   
-   type IIterable_IInjectedInputKeyboardInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IInjectedInputKeyboardInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputKeyboardInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -950,19 +976,6 @@ package Windows.UI.Input.Preview.Injection is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IInjectedInputMouseInfo : aliased constant Windows.IID := (1815406013, 4004, 21060, (137, 251, 4, 191, 212, 128, 236, 216 ));
-   
-   type IIterable_IInjectedInputMouseInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IInjectedInputMouseInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputMouseInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IIterator_IInjectedInputTouchInfo : aliased constant Windows.IID := (1271475858, 54062, 22906, (174, 36, 179, 136, 97, 197, 251, 8 ));
    
    type IIterator_IInjectedInputTouchInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -997,19 +1010,6 @@ package Windows.UI.Input.Preview.Injection is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IIterable_IInjectedInputTouchInfo : aliased constant Windows.IID := (2891951115, 33440, 21558, (146, 132, 231, 219, 11, 244, 230, 21 ));
-   
-   type IIterable_IInjectedInputTouchInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IInjectedInputTouchInfo_Interface
-      ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputTouchInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -1028,11 +1028,11 @@ package Windows.UI.Input.Preview.Injection is
    subtype InjectedInputMouseInfo is Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo;
    function Create return Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo;
    
-   subtype InjectedInputTouchInfo is Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo;
-   function Create return Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo;
-   
    subtype InjectedInputPenInfo is Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo;
    function Create return Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo;
+   
+   subtype InjectedInputTouchInfo is Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo;
+   function Create return Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo;
    
    subtype InputInjector is Windows.UI.Input.Preview.Injection.IInputInjector;
    

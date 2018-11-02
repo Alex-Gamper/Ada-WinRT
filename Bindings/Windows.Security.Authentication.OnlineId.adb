@@ -52,6 +52,23 @@ package body Windows.Security.Authentication.OnlineId is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function Create return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Security.Authentication.OnlineId.IID_IOnlineIdAuthenticator'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateOnlineIdServiceTicketRequest
    (
       service : Windows.String
@@ -91,23 +108,6 @@ package body Windows.Security.Authentication.OnlineId is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Authentication.OnlineId.IID_IOnlineIdAuthenticator'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

@@ -36,19 +36,6 @@ package body Windows.Data.Text is
    
    function Invoke
    (
-      This       : access WordSegmentsTokenizingHandler_Interface
-      ; precedingWords : Windows.Data.Text.IIterable_IWordSegment
-      ; words : Windows.Data.Text.IIterable_IWordSegment
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(precedingWords, words);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access SelectableWordSegmentsTokenizingHandler_Interface
       ; precedingWords : Windows.Data.Text.IIterable_ISelectableWordSegment
       ; words : Windows.Data.Text.IIterable_ISelectableWordSegment
@@ -60,9 +47,42 @@ package body Windows.Data.Text is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access WordSegmentsTokenizingHandler_Interface
+      ; precedingWords : Windows.Data.Text.IIterable_IWordSegment
+      ; words : Windows.Data.Text.IIterable_IWordSegment
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(precedingWords, words);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function CreateWithLanguage
+   (
+      language : Windows.String
+   )
+   return Windows.Data.Text.ISelectableWordsSegmenter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.SelectableWordsSegmenter");
+      m_Factory     : Windows.Data.Text.ISelectableWordsSegmenterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Text.ISelectableWordsSegmenter := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISelectableWordsSegmenterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithLanguage(language, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function Create
    (
@@ -105,40 +125,20 @@ package body Windows.Data.Text is
       return RetVal;
    end;
    
-   function CreateWithLanguage
+   function Create
    (
-      language : Windows.String
+      languageTag : Windows.String
    )
-   return Windows.Data.Text.IWordsSegmenter is
+   return Windows.Data.Text.ITextConversionGenerator is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.WordsSegmenter");
-      m_Factory     : Windows.Data.Text.IWordsSegmenterFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.TextConversionGenerator");
+      m_Factory     : Windows.Data.Text.ITextConversionGeneratorFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Text.IWordsSegmenter := null;
+      RetVal        : aliased Windows.Data.Text.ITextConversionGenerator := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWordsSegmenterFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ITextConversionGeneratorFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithLanguage(language, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWithLanguage
-   (
-      language : Windows.String
-   )
-   return Windows.Data.Text.ISelectableWordsSegmenter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.SelectableWordsSegmenter");
-      m_Factory     : Windows.Data.Text.ISelectableWordsSegmenterFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Text.ISelectableWordsSegmenter := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISelectableWordsSegmenterFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithLanguage(language, RetVal'Access);
+         Hr := m_Factory.Create(languageTag, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -169,26 +169,6 @@ package body Windows.Data.Text is
    (
       languageTag : Windows.String
    )
-   return Windows.Data.Text.ITextConversionGenerator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.TextConversionGenerator");
-      m_Factory     : Windows.Data.Text.ITextConversionGeneratorFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Text.ITextConversionGenerator := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextConversionGeneratorFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(languageTag, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      languageTag : Windows.String
-   )
    return Windows.Data.Text.ITextReverseConversionGenerator is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Text.TextReverseConversionGenerator");
@@ -199,6 +179,26 @@ package body Windows.Data.Text is
       Hr := RoGetActivationFactory(m_hString, IID_ITextReverseConversionGeneratorFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(languageTag, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithLanguage
+   (
+      language : Windows.String
+   )
+   return Windows.Data.Text.IWordsSegmenter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.WordsSegmenter");
+      m_Factory     : Windows.Data.Text.IWordsSegmenterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Text.IWordsSegmenter := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWordsSegmenterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithLanguage(language, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

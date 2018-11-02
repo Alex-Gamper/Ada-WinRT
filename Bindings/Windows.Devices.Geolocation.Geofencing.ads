@@ -36,38 +36,6 @@ package Windows.Devices.Geolocation.Geofencing is
    -- Enums
    ------------------------------------------------------------------------
    
-   type MonitoredGeofenceStates is (
-      None,
-      Entered,
-      Exited,
-      Removed
-   );
-   for MonitoredGeofenceStates use (
-      None => 0,
-      Entered => 1,
-      Exited => 2,
-      Removed => 4
-   );
-   for MonitoredGeofenceStates'Size use 32;
-   
-   type MonitoredGeofenceStates_Ptr is access MonitoredGeofenceStates;
-   
-   type GeofenceState is (
-      None,
-      Entered,
-      Exited,
-      Removed
-   );
-   for GeofenceState use (
-      None => 0,
-      Entered => 1,
-      Exited => 2,
-      Removed => 4
-   );
-   for GeofenceState'Size use 32;
-   
-   type GeofenceState_Ptr is access GeofenceState;
-   
    type GeofenceMonitorStatus is (
       Ready,
       Initializing,
@@ -100,6 +68,38 @@ package Windows.Devices.Geolocation.Geofencing is
    
    type GeofenceRemovalReason_Ptr is access GeofenceRemovalReason;
    
+   type GeofenceState is (
+      None,
+      Entered,
+      Exited,
+      Removed
+   );
+   for GeofenceState use (
+      None => 0,
+      Entered => 1,
+      Exited => 2,
+      Removed => 4
+   );
+   for GeofenceState'Size use 32;
+   
+   type GeofenceState_Ptr is access GeofenceState;
+   
+   type MonitoredGeofenceStates is (
+      None,
+      Entered,
+      Exited,
+      Removed
+   );
+   for MonitoredGeofenceStates use (
+      None => 0,
+      Entered => 1,
+      Exited => 2,
+      Removed => 4
+   );
+   for MonitoredGeofenceStates'Size use 32;
+   
+   type MonitoredGeofenceStates_Ptr is access MonitoredGeofenceStates;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -115,39 +115,39 @@ package Windows.Devices.Geolocation.Geofencing is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IGeofenceFactory_Interface;
-   type IGeofenceFactory is access all IGeofenceFactory_Interface'Class;
-   type IGeofenceFactory_Ptr is access all IGeofenceFactory;
    type IGeofence_Interface;
    type IGeofence is access all IGeofence_Interface'Class;
    type IGeofence_Ptr is access all IGeofence;
-   type IGeofenceStateChangeReport_Interface;
-   type IGeofenceStateChangeReport is access all IGeofenceStateChangeReport_Interface'Class;
-   type IGeofenceStateChangeReport_Ptr is access all IGeofenceStateChangeReport;
-   type IGeofenceMonitorStatics_Interface;
-   type IGeofenceMonitorStatics is access all IGeofenceMonitorStatics_Interface'Class;
-   type IGeofenceMonitorStatics_Ptr is access all IGeofenceMonitorStatics;
+   type IGeofenceFactory_Interface;
+   type IGeofenceFactory is access all IGeofenceFactory_Interface'Class;
+   type IGeofenceFactory_Ptr is access all IGeofenceFactory;
    type IGeofenceMonitor_Interface;
    type IGeofenceMonitor is access all IGeofenceMonitor_Interface'Class;
    type IGeofenceMonitor_Ptr is access all IGeofenceMonitor;
-   type IIterator_IGeofence_Interface;
-   type IIterator_IGeofence is access all IIterator_IGeofence_Interface'Class;
-   type IIterator_IGeofence_Ptr is access all IIterator_IGeofence;
+   type IGeofenceMonitorStatics_Interface;
+   type IGeofenceMonitorStatics is access all IGeofenceMonitorStatics_Interface'Class;
+   type IGeofenceMonitorStatics_Ptr is access all IGeofenceMonitorStatics;
+   type IGeofenceStateChangeReport_Interface;
+   type IGeofenceStateChangeReport is access all IGeofenceStateChangeReport_Interface'Class;
+   type IGeofenceStateChangeReport_Ptr is access all IGeofenceStateChangeReport;
    type IIterable_IGeofence_Interface;
    type IIterable_IGeofence is access all IIterable_IGeofence_Interface'Class;
    type IIterable_IGeofence_Ptr is access all IIterable_IGeofence;
-   type IVectorView_IGeofence_Interface;
-   type IVectorView_IGeofence is access all IVectorView_IGeofence_Interface'Class;
-   type IVectorView_IGeofence_Ptr is access all IVectorView_IGeofence;
-   type IVector_IGeofence_Interface;
-   type IVector_IGeofence is access all IVector_IGeofence_Interface'Class;
-   type IVector_IGeofence_Ptr is access all IVector_IGeofence;
-   type IIterator_IGeofenceStateChangeReport_Interface;
-   type IIterator_IGeofenceStateChangeReport is access all IIterator_IGeofenceStateChangeReport_Interface'Class;
-   type IIterator_IGeofenceStateChangeReport_Ptr is access all IIterator_IGeofenceStateChangeReport;
    type IIterable_IGeofenceStateChangeReport_Interface;
    type IIterable_IGeofenceStateChangeReport is access all IIterable_IGeofenceStateChangeReport_Interface'Class;
    type IIterable_IGeofenceStateChangeReport_Ptr is access all IIterable_IGeofenceStateChangeReport;
+   type IIterator_IGeofence_Interface;
+   type IIterator_IGeofence is access all IIterator_IGeofence_Interface'Class;
+   type IIterator_IGeofence_Ptr is access all IIterator_IGeofence;
+   type IIterator_IGeofenceStateChangeReport_Interface;
+   type IIterator_IGeofenceStateChangeReport is access all IIterator_IGeofenceStateChangeReport_Interface'Class;
+   type IIterator_IGeofenceStateChangeReport_Ptr is access all IIterator_IGeofenceStateChangeReport;
+   type IVector_IGeofence_Interface;
+   type IVector_IGeofence is access all IVector_IGeofence_Interface'Class;
+   type IVector_IGeofence_Ptr is access all IVector_IGeofence;
+   type IVectorView_IGeofence_Interface;
+   type IVectorView_IGeofence is access all IVectorView_IGeofence_Interface'Class;
+   type IVectorView_IGeofence_Ptr is access all IVectorView_IGeofence;
    type IVectorView_IGeofenceStateChangeReport_Interface;
    type IVectorView_IGeofenceStateChangeReport is access all IVectorView_IGeofenceStateChangeReport_Interface'Class;
    type IVectorView_IGeofenceStateChangeReport_Ptr is access all IVectorView_IGeofenceStateChangeReport;
@@ -155,58 +155,6 @@ package Windows.Devices.Geolocation.Geofencing is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGeofenceFactory : aliased constant Windows.IID := (2216649291, 12895, 19344, (188, 167, 43, 128, 34, 169, 55, 150 ));
-   
-   type IGeofenceFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IGeofenceFactory_Interface
-      ; id : Windows.String
-      ; geoshape : Windows.Devices.Geolocation.IGeoshape
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithMonitorStates
-   (
-      This       : access IGeofenceFactory_Interface
-      ; id : Windows.String
-      ; geoshape : Windows.Devices.Geolocation.IGeoshape
-      ; monitoredStates : Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates
-      ; singleUse : Windows.Boolean
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithMonitorStatesAndDwellTime
-   (
-      This       : access IGeofenceFactory_Interface
-      ; id : Windows.String
-      ; geoshape : Windows.Devices.Geolocation.IGeoshape
-      ; monitoredStates : Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates
-      ; singleUse : Windows.Boolean
-      ; dwellTime : Windows.Foundation.TimeSpan
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithMonitorStatesDwellTimeStartTimeAndDuration
-   (
-      This       : access IGeofenceFactory_Interface
-      ; id : Windows.String
-      ; geoshape : Windows.Devices.Geolocation.IGeoshape
-      ; monitoredStates : Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates
-      ; singleUse : Windows.Boolean
-      ; dwellTime : Windows.Foundation.TimeSpan
-      ; startTime : Windows.Foundation.DateTime
-      ; duration : Windows.Foundation.TimeSpan
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -265,48 +213,53 @@ package Windows.Devices.Geolocation.Geofencing is
    
    ------------------------------------------------------------------------
    
-   IID_IGeofenceStateChangeReport : aliased constant Windows.IID := (2586065944, 9316, 19593, (190, 5, 179, 255, 255, 91, 171, 197 ));
+   IID_IGeofenceFactory : aliased constant Windows.IID := (2216649291, 12895, 19344, (188, 167, 43, 128, 34, 169, 55, 150 ));
    
-   type IGeofenceStateChangeReport_Interface is interface and Windows.IInspectable_Interface;
+   type IGeofenceFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_NewState
+   function Create
    (
-      This       : access IGeofenceStateChangeReport_Interface
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.GeofenceState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Geofence
-   (
-      This       : access IGeofenceStateChangeReport_Interface
+      This       : access IGeofenceFactory_Interface
+      ; id : Windows.String
+      ; geoshape : Windows.Devices.Geolocation.IGeoshape
       ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
    )
    return Windows.HRESULT is abstract;
    
-   function get_Geoposition
+   function CreateWithMonitorStates
    (
-      This       : access IGeofenceStateChangeReport_Interface
-      ; RetVal : access Windows.Devices.Geolocation.IGeoposition
+      This       : access IGeofenceFactory_Interface
+      ; id : Windows.String
+      ; geoshape : Windows.Devices.Geolocation.IGeoshape
+      ; monitoredStates : Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates
+      ; singleUse : Windows.Boolean
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
    )
    return Windows.HRESULT is abstract;
    
-   function get_RemovalReason
+   function CreateWithMonitorStatesAndDwellTime
    (
-      This       : access IGeofenceStateChangeReport_Interface
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason
+      This       : access IGeofenceFactory_Interface
+      ; id : Windows.String
+      ; geoshape : Windows.Devices.Geolocation.IGeoshape
+      ; monitoredStates : Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates
+      ; singleUse : Windows.Boolean
+      ; dwellTime : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IGeofenceMonitorStatics : aliased constant Windows.IID := (768815055, 32373, 18585, (172, 227, 43, 208, 166, 92, 206, 6 ));
-   
-   type IGeofenceMonitorStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
+   function CreateWithMonitorStatesDwellTimeStartTimeAndDuration
    (
-      This       : access IGeofenceMonitorStatics_Interface
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor
+      This       : access IGeofenceFactory_Interface
+      ; id : Windows.String
+      ; geoshape : Windows.Devices.Geolocation.IGeoshape
+      ; monitoredStates : Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates
+      ; singleUse : Windows.Boolean
+      ; dwellTime : Windows.Foundation.TimeSpan
+      ; startTime : Windows.Foundation.DateTime
+      ; duration : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
    )
    return Windows.HRESULT is abstract;
    
@@ -376,6 +329,79 @@ package Windows.Devices.Geolocation.Geofencing is
    
    ------------------------------------------------------------------------
    
+   IID_IGeofenceMonitorStatics : aliased constant Windows.IID := (768815055, 32373, 18585, (172, 227, 43, 208, 166, 92, 206, 6 ));
+   
+   type IGeofenceMonitorStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IGeofenceMonitorStatics_Interface
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGeofenceStateChangeReport : aliased constant Windows.IID := (2586065944, 9316, 19593, (190, 5, 179, 255, 255, 91, 171, 197 ));
+   
+   type IGeofenceStateChangeReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NewState
+   (
+      This       : access IGeofenceStateChangeReport_Interface
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.GeofenceState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Geofence
+   (
+      This       : access IGeofenceStateChangeReport_Interface
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Geoposition
+   (
+      This       : access IGeofenceStateChangeReport_Interface
+      ; RetVal : access Windows.Devices.Geolocation.IGeoposition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemovalReason
+   (
+      This       : access IGeofenceStateChangeReport_Interface
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IGeofence : aliased constant Windows.IID := (3463018291, 22876, 20928, (173, 95, 50, 74, 245, 205, 242, 221 ));
+   
+   type IIterable_IGeofence_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IGeofence_Interface
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IIterator_IGeofence
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IGeofenceStateChangeReport : aliased constant Windows.IID := (1995770702, 31399, 22107, (170, 218, 176, 193, 204, 20, 78, 208 ));
+   
+   type IIterable_IGeofenceStateChangeReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IGeofenceStateChangeReport_Interface
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IIterator_IGeofenceStateChangeReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IGeofence : aliased constant Windows.IID := (3886670148, 8237, 22280, (169, 189, 227, 220, 14, 20, 223, 70 ));
    
    type IIterator_IGeofence_Interface is interface and Windows.IInspectable_Interface;
@@ -411,52 +437,35 @@ package Windows.Devices.Geolocation.Geofencing is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IGeofence : aliased constant Windows.IID := (3463018291, 22876, 20928, (173, 95, 50, 74, 245, 205, 242, 221 ));
+   IID_IIterator_IGeofenceStateChangeReport : aliased constant Windows.IID := (3942591972, 26192, 21578, (183, 172, 109, 91, 129, 157, 70, 152 ));
    
-   type IIterable_IGeofence_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IGeofenceStateChangeReport_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Current
    (
-      This       : access IIterable_IGeofence_Interface
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IIterator_IGeofence
+      This       : access IIterator_IGeofenceStateChangeReport_Interface
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IGeofence : aliased constant Windows.IID := (3624114890, 6725, 23827, (140, 253, 73, 0, 194, 43, 142, 241 ));
-   
-   type IVectorView_IGeofence_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
+   function get_HasCurrent
    (
-      This       : access IVectorView_IGeofence_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
+      This       : access IIterator_IGeofenceStateChangeReport_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function MoveNext
    (
-      This       : access IVectorView_IGeofence_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IGeofence_Interface
-      ; value : Windows.Devices.Geolocation.Geofencing.IGeofence
-      ; index : access Windows.UInt32
+      This       : access IIterator_IGeofenceStateChangeReport_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IVectorView_IGeofence_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.Geolocation.Geofencing.IGeofence_Ptr
+      This       : access IIterator_IGeofenceStateChangeReport_Interface
+      ; items : Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -558,49 +567,40 @@ package Windows.Devices.Geolocation.Geofencing is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IGeofenceStateChangeReport : aliased constant Windows.IID := (3942591972, 26192, 21578, (183, 172, 109, 91, 129, 157, 70, 152 ));
+   IID_IVectorView_IGeofence : aliased constant Windows.IID := (3624114890, 6725, 23827, (140, 253, 73, 0, 194, 43, 142, 241 ));
    
-   type IIterator_IGeofenceStateChangeReport_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IGeofence_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function GetAt
    (
-      This       : access IIterator_IGeofenceStateChangeReport_Interface
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport
+      This       : access IVectorView_IGeofence_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_Size
    (
-      This       : access IIterator_IGeofenceStateChangeReport_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IVectorView_IGeofence_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
+   function IndexOf
    (
-      This       : access IIterator_IGeofenceStateChangeReport_Interface
+      This       : access IVectorView_IGeofence_Interface
+      ; value : Windows.Devices.Geolocation.Geofencing.IGeofence
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_IGeofenceStateChangeReport_Interface
-      ; items : Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport_Ptr
+      This       : access IVectorView_IGeofence_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.Geolocation.Geofencing.IGeofence_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IGeofenceStateChangeReport : aliased constant Windows.IID := (1995770702, 31399, 22107, (170, 218, 176, 193, 204, 20, 78, 208 ));
-   
-   type IIterable_IGeofenceStateChangeReport_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IGeofenceStateChangeReport_Interface
-      ; RetVal : access Windows.Devices.Geolocation.Geofencing.IIterator_IGeofenceStateChangeReport
    )
    return Windows.HRESULT is abstract;
    

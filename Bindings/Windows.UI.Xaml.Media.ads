@@ -54,39 +54,33 @@ package Windows.UI.Xaml.Media is
    
    type AcrylicBackgroundSource_Ptr is access AcrylicBackgroundSource;
    
-   type RevealBrushState is (
-      Normal,
-      PointerOver,
-      Pressed
+   type AlignmentX is (
+      Left,
+      Center,
+      Right
    );
-   for RevealBrushState use (
-      Normal => 0,
-      PointerOver => 1,
-      Pressed => 2
+   for AlignmentX use (
+      Left => 0,
+      Center => 1,
+      Right => 2
    );
-   for RevealBrushState'Size use 32;
+   for AlignmentX'Size use 32;
    
-   type RevealBrushState_Ptr is access RevealBrushState;
+   type AlignmentX_Ptr is access AlignmentX;
    
-   type MediaElementState is (
-      Closed,
-      Opening,
-      Buffering,
-      Playing,
-      Paused,
-      Stopped
+   type AlignmentY is (
+      Top,
+      Center,
+      Bottom
    );
-   for MediaElementState use (
-      Closed => 0,
-      Opening => 1,
-      Buffering => 2,
-      Playing => 3,
-      Paused => 4,
-      Stopped => 5
+   for AlignmentY use (
+      Top => 0,
+      Center => 1,
+      Bottom => 2
    );
-   for MediaElementState'Size use 32;
+   for AlignmentY'Size use 32;
    
-   type MediaElementState_Ptr is access MediaElementState;
+   type AlignmentY_Ptr is access AlignmentY;
    
    type AudioCategory is (
       Other,
@@ -208,6 +202,22 @@ package Windows.UI.Xaml.Media is
    
    type GradientSpreadMethod_Ptr is access GradientSpreadMethod;
    
+   type LoadedImageSourceLoadStatus is (
+      Success,
+      NetworkError,
+      InvalidFormat,
+      Other
+   );
+   for LoadedImageSourceLoadStatus use (
+      Success => 0,
+      NetworkError => 1,
+      InvalidFormat => 2,
+      Other => 3
+   );
+   for LoadedImageSourceLoadStatus'Size use 32;
+   
+   type LoadedImageSourceLoadStatus_Ptr is access LoadedImageSourceLoadStatus;
+   
    type MediaCanPlayResponse is (
       NotSupported,
       Maybe,
@@ -221,6 +231,26 @@ package Windows.UI.Xaml.Media is
    for MediaCanPlayResponse'Size use 32;
    
    type MediaCanPlayResponse_Ptr is access MediaCanPlayResponse;
+   
+   type MediaElementState is (
+      Closed,
+      Opening,
+      Buffering,
+      Playing,
+      Paused,
+      Stopped
+   );
+   for MediaElementState use (
+      Closed => 0,
+      Opening => 1,
+      Buffering => 2,
+      Playing => 3,
+      Paused => 4,
+      Stopped => 5
+   );
+   for MediaElementState'Size use 32;
+   
+   type MediaElementState_Ptr is access MediaElementState;
    
    type PenLineCap is (
       Flat,
@@ -251,6 +281,20 @@ package Windows.UI.Xaml.Media is
    for PenLineJoin'Size use 32;
    
    type PenLineJoin_Ptr is access PenLineJoin;
+   
+   type RevealBrushState is (
+      Normal,
+      PointerOver,
+      Pressed
+   );
+   for RevealBrushState use (
+      Normal => 0,
+      PointerOver => 1,
+      Pressed => 2
+   );
+   for RevealBrushState'Size use 32;
+   
+   type RevealBrushState_Ptr is access RevealBrushState;
    
    type Stereo3DVideoPackingMode is (
       None,
@@ -322,50 +366,6 @@ package Windows.UI.Xaml.Media is
    
    type SweepDirection_Ptr is access SweepDirection;
    
-   type AlignmentX is (
-      Left,
-      Center,
-      Right
-   );
-   for AlignmentX use (
-      Left => 0,
-      Center => 1,
-      Right => 2
-   );
-   for AlignmentX'Size use 32;
-   
-   type AlignmentX_Ptr is access AlignmentX;
-   
-   type AlignmentY is (
-      Top,
-      Center,
-      Bottom
-   );
-   for AlignmentY use (
-      Top => 0,
-      Center => 1,
-      Bottom => 2
-   );
-   for AlignmentY'Size use 32;
-   
-   type AlignmentY_Ptr is access AlignmentY;
-   
-   type LoadedImageSourceLoadStatus is (
-      Success,
-      NetworkError,
-      InvalidFormat,
-      Other
-   );
-   for LoadedImageSourceLoadStatus use (
-      Success => 0,
-      NetworkError => 1,
-      InvalidFormat => 2,
-      Other => 3
-   );
-   for LoadedImageSourceLoadStatus'Size use 32;
-   
-   type LoadedImageSourceLoadStatus_Ptr is access LoadedImageSourceLoadStatus;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -386,15 +386,15 @@ package Windows.UI.Xaml.Media is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type EventHandler_IRenderedEventArgs_Interface;
+   type EventHandler_IRenderedEventArgs is access all EventHandler_IRenderedEventArgs_Interface'Class;
+   type EventHandler_IRenderedEventArgs_Ptr is access all EventHandler_IRenderedEventArgs;
    type RateChangedRoutedEventHandler_Interface;
    type RateChangedRoutedEventHandler is access all RateChangedRoutedEventHandler_Interface'Class;
    type RateChangedRoutedEventHandler_Ptr is access all RateChangedRoutedEventHandler;
    type TimelineMarkerRoutedEventHandler_Interface;
    type TimelineMarkerRoutedEventHandler is access all TimelineMarkerRoutedEventHandler_Interface'Class;
    type TimelineMarkerRoutedEventHandler_Ptr is access all TimelineMarkerRoutedEventHandler;
-   type EventHandler_IRenderedEventArgs_Interface;
-   type EventHandler_IRenderedEventArgs is access all EventHandler_IRenderedEventArgs_Interface'Class;
-   type EventHandler_IRenderedEventArgs_Ptr is access all EventHandler_IRenderedEventArgs;
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface;
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted is access all TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface'Class;
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Ptr is access all TypedEventHandler_ILoadedImageSurface_add_LoadCompleted;
@@ -406,312 +406,12 @@ package Windows.UI.Xaml.Media is
    type IAcrylicBrush_Interface;
    type IAcrylicBrush is access all IAcrylicBrush_Interface'Class;
    type IAcrylicBrush_Ptr is access all IAcrylicBrush;
-   type IAcrylicBrushStatics_Interface;
-   type IAcrylicBrushStatics is access all IAcrylicBrushStatics_Interface'Class;
-   type IAcrylicBrushStatics_Ptr is access all IAcrylicBrushStatics;
    type IAcrylicBrushFactory_Interface;
    type IAcrylicBrushFactory is access all IAcrylicBrushFactory_Interface'Class;
    type IAcrylicBrushFactory_Ptr is access all IAcrylicBrushFactory;
-   type IRevealBrush_Interface;
-   type IRevealBrush is access all IRevealBrush_Interface'Class;
-   type IRevealBrush_Ptr is access all IRevealBrush;
-   type IRevealBrushFactory_Interface;
-   type IRevealBrushFactory is access all IRevealBrushFactory_Interface'Class;
-   type IRevealBrushFactory_Ptr is access all IRevealBrushFactory;
-   type IRevealBrushStatics_Interface;
-   type IRevealBrushStatics is access all IRevealBrushStatics_Interface'Class;
-   type IRevealBrushStatics_Ptr is access all IRevealBrushStatics;
-   type IRevealBorderBrushFactory_Interface;
-   type IRevealBorderBrushFactory is access all IRevealBorderBrushFactory_Interface'Class;
-   type IRevealBorderBrushFactory_Ptr is access all IRevealBorderBrushFactory;
-   type IRevealBorderBrush_Interface;
-   type IRevealBorderBrush is access all IRevealBorderBrush_Interface'Class;
-   type IRevealBorderBrush_Ptr is access all IRevealBorderBrush;
-   type IRevealBackgroundBrushFactory_Interface;
-   type IRevealBackgroundBrushFactory is access all IRevealBackgroundBrushFactory_Interface'Class;
-   type IRevealBackgroundBrushFactory_Ptr is access all IRevealBackgroundBrushFactory;
-   type IRevealBackgroundBrush_Interface;
-   type IRevealBackgroundBrush is access all IRevealBackgroundBrush_Interface'Class;
-   type IRevealBackgroundBrush_Ptr is access all IRevealBackgroundBrush;
-   type IVisualTreeHelper_Interface;
-   type IVisualTreeHelper is access all IVisualTreeHelper_Interface'Class;
-   type IVisualTreeHelper_Ptr is access all IVisualTreeHelper;
-   type IVisualTreeHelperStatics_Interface;
-   type IVisualTreeHelperStatics is access all IVisualTreeHelperStatics_Interface'Class;
-   type IVisualTreeHelperStatics_Ptr is access all IVisualTreeHelperStatics;
-   type IVisualTreeHelperStatics2_Interface;
-   type IVisualTreeHelperStatics2 is access all IVisualTreeHelperStatics2_Interface'Class;
-   type IVisualTreeHelperStatics2_Ptr is access all IVisualTreeHelperStatics2;
-   type IPartialMediaFailureDetectedEventArgs_Interface;
-   type IPartialMediaFailureDetectedEventArgs is access all IPartialMediaFailureDetectedEventArgs_Interface'Class;
-   type IPartialMediaFailureDetectedEventArgs_Ptr is access all IPartialMediaFailureDetectedEventArgs;
-   type IPartialMediaFailureDetectedEventArgs2_Interface;
-   type IPartialMediaFailureDetectedEventArgs2 is access all IPartialMediaFailureDetectedEventArgs2_Interface'Class;
-   type IPartialMediaFailureDetectedEventArgs2_Ptr is access all IPartialMediaFailureDetectedEventArgs2;
-   type IMatrixHelper_Interface;
-   type IMatrixHelper is access all IMatrixHelper_Interface'Class;
-   type IMatrixHelper_Ptr is access all IMatrixHelper;
-   type IMatrixHelperStatics_Interface;
-   type IMatrixHelperStatics is access all IMatrixHelperStatics_Interface'Class;
-   type IMatrixHelperStatics_Ptr is access all IMatrixHelperStatics;
-   type IVector_Brush_Interface;
-   type IVector_Brush is access all IVector_Brush_Interface'Class;
-   type IVector_Brush_Ptr is access all IVector_Brush;
-   type IIterable_Brush_Interface;
-   type IIterable_Brush is access all IIterable_Brush_Interface'Class;
-   type IIterable_Brush_Ptr is access all IIterable_Brush;
-   type ICompositionTarget_Interface;
-   type ICompositionTarget is access all ICompositionTarget_Interface'Class;
-   type ICompositionTarget_Ptr is access all ICompositionTarget;
-   type ICompositionTargetStatics_Interface;
-   type ICompositionTargetStatics is access all ICompositionTargetStatics_Interface'Class;
-   type ICompositionTargetStatics_Ptr is access all ICompositionTargetStatics;
-   type ICompositionTargetStatics3_Interface;
-   type ICompositionTargetStatics3 is access all ICompositionTargetStatics3_Interface'Class;
-   type ICompositionTargetStatics3_Ptr is access all ICompositionTargetStatics3;
-   type IVector_Double_Interface;
-   type IVector_Double is access all IVector_Double_Interface'Class;
-   type IVector_Double_Ptr is access all IVector_Double;
-   type IIterable_Double_Interface;
-   type IIterable_Double is access all IIterable_Double_Interface'Class;
-   type IIterable_Double_Ptr is access all IIterable_Double;
-   type IFontFamily_Interface;
-   type IFontFamily is access all IFontFamily_Interface'Class;
-   type IFontFamily_Ptr is access all IFontFamily;
-   type IFontFamilyFactory_Interface;
-   type IFontFamilyFactory is access all IFontFamilyFactory_Interface'Class;
-   type IFontFamilyFactory_Ptr is access all IFontFamilyFactory;
-   type IFontFamilyStatics2_Interface;
-   type IFontFamilyStatics2 is access all IFontFamilyStatics2_Interface'Class;
-   type IFontFamilyStatics2_Ptr is access all IFontFamilyStatics2;
-   type IMediaTransportControlsThumbnailRequestedEventArgs_Interface;
-   type IMediaTransportControlsThumbnailRequestedEventArgs is access all IMediaTransportControlsThumbnailRequestedEventArgs_Interface'Class;
-   type IMediaTransportControlsThumbnailRequestedEventArgs_Ptr is access all IMediaTransportControlsThumbnailRequestedEventArgs;
-   type IVector_Point_Interface;
-   type IVector_Point is access all IVector_Point_Interface'Class;
-   type IVector_Point_Ptr is access all IVector_Point;
-   type IIterable_Point_Interface;
-   type IIterable_Point is access all IIterable_Point_Interface'Class;
-   type IIterable_Point_Ptr is access all IIterable_Point;
-   type IRenderedEventArgs_Interface;
-   type IRenderedEventArgs is access all IRenderedEventArgs_Interface'Class;
-   type IRenderedEventArgs_Ptr is access all IRenderedEventArgs;
-   type IRenderingEventArgs_Interface;
-   type IRenderingEventArgs is access all IRenderingEventArgs_Interface'Class;
-   type IRenderingEventArgs_Ptr is access all IRenderingEventArgs;
-   type IVector_TimelineMarker_Interface;
-   type IVector_TimelineMarker is access all IVector_TimelineMarker_Interface'Class;
-   type IVector_TimelineMarker_Ptr is access all IVector_TimelineMarker;
-   type IIterable_TimelineMarker_Interface;
-   type IIterable_TimelineMarker is access all IIterable_TimelineMarker_Interface'Class;
-   type IIterable_TimelineMarker_Ptr is access all IIterable_TimelineMarker;
-   type IVector_Transform_Interface;
-   type IVector_Transform is access all IVector_Transform_Interface'Class;
-   type IVector_Transform_Ptr is access all IVector_Transform;
-   type IIterable_Transform_Interface;
-   type IIterable_Transform is access all IIterable_Transform_Interface'Class;
-   type IIterable_Transform_Ptr is access all IIterable_Transform;
-   type IBrush_Interface;
-   type IBrush is access all IBrush_Interface'Class;
-   type IBrush_Ptr is access all IBrush;
-   type IBrushStatics_Interface;
-   type IBrushStatics is access all IBrushStatics_Interface'Class;
-   type IBrushStatics_Ptr is access all IBrushStatics;
-   type IBrushFactory_Interface;
-   type IBrushFactory is access all IBrushFactory_Interface'Class;
-   type IBrushFactory_Ptr is access all IBrushFactory;
-   type ICacheMode_Interface;
-   type ICacheMode is access all ICacheMode_Interface'Class;
-   type ICacheMode_Ptr is access all ICacheMode;
-   type ICacheModeFactory_Interface;
-   type ICacheModeFactory is access all ICacheModeFactory_Interface'Class;
-   type ICacheModeFactory_Ptr is access all ICacheModeFactory;
-   type IGeneralTransform_Interface;
-   type IGeneralTransform is access all IGeneralTransform_Interface'Class;
-   type IGeneralTransform_Ptr is access all IGeneralTransform;
-   type IGeneralTransformOverrides_Interface;
-   type IGeneralTransformOverrides is access all IGeneralTransformOverrides_Interface'Class;
-   type IGeneralTransformOverrides_Ptr is access all IGeneralTransformOverrides;
-   type IGeneralTransformFactory_Interface;
-   type IGeneralTransformFactory is access all IGeneralTransformFactory_Interface'Class;
-   type IGeneralTransformFactory_Ptr is access all IGeneralTransformFactory;
-   type IGeometry_Interface;
-   type IGeometry is access all IGeometry_Interface'Class;
-   type IGeometry_Ptr is access all IGeometry;
-   type IGeometryStatics_Interface;
-   type IGeometryStatics is access all IGeometryStatics_Interface'Class;
-   type IGeometryStatics_Ptr is access all IGeometryStatics;
-   type IGeometryFactory_Interface;
-   type IGeometryFactory is access all IGeometryFactory_Interface'Class;
-   type IGeometryFactory_Ptr is access all IGeometryFactory;
-   type IImageSource_Interface;
-   type IImageSource is access all IImageSource_Interface'Class;
-   type IImageSource_Ptr is access all IImageSource;
-   type IImageSourceFactory_Interface;
-   type IImageSourceFactory is access all IImageSourceFactory_Interface'Class;
-   type IImageSourceFactory_Ptr is access all IImageSourceFactory;
-   type IPathSegment_Interface;
-   type IPathSegment is access all IPathSegment_Interface'Class;
-   type IPathSegment_Ptr is access all IPathSegment;
-   type IPathSegmentFactory_Interface;
-   type IPathSegmentFactory is access all IPathSegmentFactory_Interface'Class;
-   type IPathSegmentFactory_Ptr is access all IPathSegmentFactory;
-   type IProjection_Interface;
-   type IProjection is access all IProjection_Interface'Class;
-   type IProjection_Ptr is access all IProjection;
-   type IProjectionFactory_Interface;
-   type IProjectionFactory is access all IProjectionFactory_Interface'Class;
-   type IProjectionFactory_Ptr is access all IProjectionFactory;
-   type IRateChangedRoutedEventArgs_Interface;
-   type IRateChangedRoutedEventArgs is access all IRateChangedRoutedEventArgs_Interface'Class;
-   type IRateChangedRoutedEventArgs_Ptr is access all IRateChangedRoutedEventArgs;
-   type ITimelineMarker_Interface;
-   type ITimelineMarker is access all ITimelineMarker_Interface'Class;
-   type ITimelineMarker_Ptr is access all ITimelineMarker;
-   type ITimelineMarkerStatics_Interface;
-   type ITimelineMarkerStatics is access all ITimelineMarkerStatics_Interface'Class;
-   type ITimelineMarkerStatics_Ptr is access all ITimelineMarkerStatics;
-   type ITimelineMarkerRoutedEventArgs_Interface;
-   type ITimelineMarkerRoutedEventArgs is access all ITimelineMarkerRoutedEventArgs_Interface'Class;
-   type ITimelineMarkerRoutedEventArgs_Ptr is access all ITimelineMarkerRoutedEventArgs;
-   type IXamlLight_Interface;
-   type IXamlLight is access all IXamlLight_Interface'Class;
-   type IXamlLight_Ptr is access all IXamlLight;
-   type IXamlLightOverrides_Interface;
-   type IXamlLightOverrides is access all IXamlLightOverrides_Interface'Class;
-   type IXamlLightOverrides_Ptr is access all IXamlLightOverrides;
-   type IXamlLightProtected_Interface;
-   type IXamlLightProtected is access all IXamlLightProtected_Interface'Class;
-   type IXamlLightProtected_Ptr is access all IXamlLightProtected;
-   type IXamlLightStatics_Interface;
-   type IXamlLightStatics is access all IXamlLightStatics_Interface'Class;
-   type IXamlLightStatics_Ptr is access all IXamlLightStatics;
-   type IXamlLightFactory_Interface;
-   type IXamlLightFactory is access all IXamlLightFactory_Interface'Class;
-   type IXamlLightFactory_Ptr is access all IXamlLightFactory;
-   type IBitmapCache_Interface;
-   type IBitmapCache is access all IBitmapCache_Interface'Class;
-   type IBitmapCache_Ptr is access all IBitmapCache;
-   type IMatrix3DProjection_Interface;
-   type IMatrix3DProjection is access all IMatrix3DProjection_Interface'Class;
-   type IMatrix3DProjection_Ptr is access all IMatrix3DProjection;
-   type IMatrix3DProjectionStatics_Interface;
-   type IMatrix3DProjectionStatics is access all IMatrix3DProjectionStatics_Interface'Class;
-   type IMatrix3DProjectionStatics_Ptr is access all IMatrix3DProjectionStatics;
-   type IPlaneProjection_Interface;
-   type IPlaneProjection is access all IPlaneProjection_Interface'Class;
-   type IPlaneProjection_Ptr is access all IPlaneProjection;
-   type IPlaneProjectionStatics_Interface;
-   type IPlaneProjectionStatics is access all IPlaneProjectionStatics_Interface'Class;
-   type IPlaneProjectionStatics_Ptr is access all IPlaneProjectionStatics;
-   type IRectangleGeometry_Interface;
-   type IRectangleGeometry is access all IRectangleGeometry_Interface'Class;
-   type IRectangleGeometry_Ptr is access all IRectangleGeometry;
-   type IRectangleGeometryStatics_Interface;
-   type IRectangleGeometryStatics is access all IRectangleGeometryStatics_Interface'Class;
-   type IRectangleGeometryStatics_Ptr is access all IRectangleGeometryStatics;
-   type ISolidColorBrush_Interface;
-   type ISolidColorBrush is access all ISolidColorBrush_Interface'Class;
-   type ISolidColorBrush_Ptr is access all ISolidColorBrush;
-   type ISolidColorBrushStatics_Interface;
-   type ISolidColorBrushStatics is access all ISolidColorBrushStatics_Interface'Class;
-   type ISolidColorBrushStatics_Ptr is access all ISolidColorBrushStatics;
-   type ISolidColorBrushFactory_Interface;
-   type ISolidColorBrushFactory is access all ISolidColorBrushFactory_Interface'Class;
-   type ISolidColorBrushFactory_Ptr is access all ISolidColorBrushFactory;
-   type ITransform_Interface;
-   type ITransform is access all ITransform_Interface'Class;
-   type ITransform_Ptr is access all ITransform;
-   type ITransformFactory_Interface;
-   type ITransformFactory is access all ITransformFactory_Interface'Class;
-   type ITransformFactory_Ptr is access all ITransformFactory;
-   type ICompositeTransform_Interface;
-   type ICompositeTransform is access all ICompositeTransform_Interface'Class;
-   type ICompositeTransform_Ptr is access all ICompositeTransform;
-   type ICompositeTransformStatics_Interface;
-   type ICompositeTransformStatics is access all ICompositeTransformStatics_Interface'Class;
-   type ICompositeTransformStatics_Ptr is access all ICompositeTransformStatics;
-   type IMatrixTransform_Interface;
-   type IMatrixTransform is access all IMatrixTransform_Interface'Class;
-   type IMatrixTransform_Ptr is access all IMatrixTransform;
-   type IMatrixTransformStatics_Interface;
-   type IMatrixTransformStatics is access all IMatrixTransformStatics_Interface'Class;
-   type IMatrixTransformStatics_Ptr is access all IMatrixTransformStatics;
-   type IRotateTransform_Interface;
-   type IRotateTransform is access all IRotateTransform_Interface'Class;
-   type IRotateTransform_Ptr is access all IRotateTransform;
-   type IRotateTransformStatics_Interface;
-   type IRotateTransformStatics is access all IRotateTransformStatics_Interface'Class;
-   type IRotateTransformStatics_Ptr is access all IRotateTransformStatics;
-   type IScaleTransform_Interface;
-   type IScaleTransform is access all IScaleTransform_Interface'Class;
-   type IScaleTransform_Ptr is access all IScaleTransform;
-   type IScaleTransformStatics_Interface;
-   type IScaleTransformStatics is access all IScaleTransformStatics_Interface'Class;
-   type IScaleTransformStatics_Ptr is access all IScaleTransformStatics;
-   type ISkewTransform_Interface;
-   type ISkewTransform is access all ISkewTransform_Interface'Class;
-   type ISkewTransform_Ptr is access all ISkewTransform;
-   type ISkewTransformStatics_Interface;
-   type ISkewTransformStatics is access all ISkewTransformStatics_Interface'Class;
-   type ISkewTransformStatics_Ptr is access all ISkewTransformStatics;
-   type ITransformGroup_Interface;
-   type ITransformGroup is access all ITransformGroup_Interface'Class;
-   type ITransformGroup_Ptr is access all ITransformGroup;
-   type ITransformGroupStatics_Interface;
-   type ITransformGroupStatics is access all ITransformGroupStatics_Interface'Class;
-   type ITransformGroupStatics_Ptr is access all ITransformGroupStatics;
-   type ITranslateTransform_Interface;
-   type ITranslateTransform is access all ITranslateTransform_Interface'Class;
-   type ITranslateTransform_Ptr is access all ITranslateTransform;
-   type ITranslateTransformStatics_Interface;
-   type ITranslateTransformStatics is access all ITranslateTransformStatics_Interface'Class;
-   type ITranslateTransformStatics_Ptr is access all ITranslateTransformStatics;
-   type IVector_Geometry_Interface;
-   type IVector_Geometry is access all IVector_Geometry_Interface'Class;
-   type IVector_Geometry_Ptr is access all IVector_Geometry;
-   type IIterable_Geometry_Interface;
-   type IIterable_Geometry is access all IIterable_Geometry_Interface'Class;
-   type IIterable_Geometry_Ptr is access all IIterable_Geometry;
-   type IVector_GradientStop_Interface;
-   type IVector_GradientStop is access all IVector_GradientStop_Interface'Class;
-   type IVector_GradientStop_Ptr is access all IVector_GradientStop;
-   type IIterable_GradientStop_Interface;
-   type IIterable_GradientStop is access all IIterable_GradientStop_Interface'Class;
-   type IIterable_GradientStop_Ptr is access all IIterable_GradientStop;
-   type ILoadedImageSourceLoadCompletedEventArgs_Interface;
-   type ILoadedImageSourceLoadCompletedEventArgs is access all ILoadedImageSourceLoadCompletedEventArgs_Interface'Class;
-   type ILoadedImageSourceLoadCompletedEventArgs_Ptr is access all ILoadedImageSourceLoadCompletedEventArgs;
-   type ILoadedImageSurface_Interface;
-   type ILoadedImageSurface is access all ILoadedImageSurface_Interface'Class;
-   type ILoadedImageSurface_Ptr is access all ILoadedImageSurface;
-   type ILoadedImageSurfaceStatics_Interface;
-   type ILoadedImageSurfaceStatics is access all ILoadedImageSurfaceStatics_Interface'Class;
-   type ILoadedImageSurfaceStatics_Ptr is access all ILoadedImageSurfaceStatics;
-   type IVector_PathFigure_Interface;
-   type IVector_PathFigure is access all IVector_PathFigure_Interface'Class;
-   type IVector_PathFigure_Ptr is access all IVector_PathFigure;
-   type IIterable_PathFigure_Interface;
-   type IIterable_PathFigure is access all IIterable_PathFigure_Interface'Class;
-   type IIterable_PathFigure_Ptr is access all IIterable_PathFigure;
-   type IVector_PathSegment_Interface;
-   type IVector_PathSegment is access all IVector_PathSegment_Interface'Class;
-   type IVector_PathSegment_Ptr is access all IVector_PathSegment;
-   type IIterable_PathSegment_Interface;
-   type IIterable_PathSegment is access all IIterable_PathSegment_Interface'Class;
-   type IIterable_PathSegment_Ptr is access all IIterable_PathSegment;
-   type IGradientStop_Interface;
-   type IGradientStop is access all IGradientStop_Interface'Class;
-   type IGradientStop_Ptr is access all IGradientStop;
-   type IGradientStopStatics_Interface;
-   type IGradientStopStatics is access all IGradientStopStatics_Interface'Class;
-   type IGradientStopStatics_Ptr is access all IGradientStopStatics;
-   type IPathFigure_Interface;
-   type IPathFigure is access all IPathFigure_Interface'Class;
-   type IPathFigure_Ptr is access all IPathFigure;
-   type IPathFigureStatics_Interface;
-   type IPathFigureStatics is access all IPathFigureStatics_Interface'Class;
-   type IPathFigureStatics_Ptr is access all IPathFigureStatics;
+   type IAcrylicBrushStatics_Interface;
+   type IAcrylicBrushStatics is access all IAcrylicBrushStatics_Interface'Class;
+   type IAcrylicBrushStatics_Ptr is access all IAcrylicBrushStatics;
    type IArcSegment_Interface;
    type IArcSegment is access all IArcSegment_Interface'Class;
    type IArcSegment_Ptr is access all IArcSegment;
@@ -724,27 +424,156 @@ package Windows.UI.Xaml.Media is
    type IBezierSegmentStatics_Interface;
    type IBezierSegmentStatics is access all IBezierSegmentStatics_Interface'Class;
    type IBezierSegmentStatics_Ptr is access all IBezierSegmentStatics;
+   type IBitmapCache_Interface;
+   type IBitmapCache is access all IBitmapCache_Interface'Class;
+   type IBitmapCache_Ptr is access all IBitmapCache;
+   type IBrush_Interface;
+   type IBrush is access all IBrush_Interface'Class;
+   type IBrush_Ptr is access all IBrush;
+   type IBrushFactory_Interface;
+   type IBrushFactory is access all IBrushFactory_Interface'Class;
+   type IBrushFactory_Ptr is access all IBrushFactory;
+   type IBrushStatics_Interface;
+   type IBrushStatics is access all IBrushStatics_Interface'Class;
+   type IBrushStatics_Ptr is access all IBrushStatics;
+   type ICacheMode_Interface;
+   type ICacheMode is access all ICacheMode_Interface'Class;
+   type ICacheMode_Ptr is access all ICacheMode;
+   type ICacheModeFactory_Interface;
+   type ICacheModeFactory is access all ICacheModeFactory_Interface'Class;
+   type ICacheModeFactory_Ptr is access all ICacheModeFactory;
+   type ICompositeTransform_Interface;
+   type ICompositeTransform is access all ICompositeTransform_Interface'Class;
+   type ICompositeTransform_Ptr is access all ICompositeTransform;
+   type ICompositeTransformStatics_Interface;
+   type ICompositeTransformStatics is access all ICompositeTransformStatics_Interface'Class;
+   type ICompositeTransformStatics_Ptr is access all ICompositeTransformStatics;
+   type ICompositionSurface_Imported_Interface;
+   type ICompositionSurface_Imported is access all ICompositionSurface_Imported_Interface'Class;
+   type ICompositionSurface_Imported_Ptr is access all ICompositionSurface_Imported;
+   type ICompositionTarget_Interface;
+   type ICompositionTarget is access all ICompositionTarget_Interface'Class;
+   type ICompositionTarget_Ptr is access all ICompositionTarget;
+   type ICompositionTargetStatics_Interface;
+   type ICompositionTargetStatics is access all ICompositionTargetStatics_Interface'Class;
+   type ICompositionTargetStatics_Ptr is access all ICompositionTargetStatics;
+   type ICompositionTargetStatics3_Interface;
+   type ICompositionTargetStatics3 is access all ICompositionTargetStatics3_Interface'Class;
+   type ICompositionTargetStatics3_Ptr is access all ICompositionTargetStatics3;
    type IEllipseGeometry_Interface;
    type IEllipseGeometry is access all IEllipseGeometry_Interface'Class;
    type IEllipseGeometry_Ptr is access all IEllipseGeometry;
    type IEllipseGeometryStatics_Interface;
    type IEllipseGeometryStatics is access all IEllipseGeometryStatics_Interface'Class;
    type IEllipseGeometryStatics_Ptr is access all IEllipseGeometryStatics;
+   type IFontFamily_Interface;
+   type IFontFamily is access all IFontFamily_Interface'Class;
+   type IFontFamily_Ptr is access all IFontFamily;
+   type IFontFamilyFactory_Interface;
+   type IFontFamilyFactory is access all IFontFamilyFactory_Interface'Class;
+   type IFontFamilyFactory_Ptr is access all IFontFamilyFactory;
+   type IFontFamilyStatics2_Interface;
+   type IFontFamilyStatics2 is access all IFontFamilyStatics2_Interface'Class;
+   type IFontFamilyStatics2_Ptr is access all IFontFamilyStatics2;
+   type IGeneralTransform_Interface;
+   type IGeneralTransform is access all IGeneralTransform_Interface'Class;
+   type IGeneralTransform_Ptr is access all IGeneralTransform;
+   type IGeneralTransformFactory_Interface;
+   type IGeneralTransformFactory is access all IGeneralTransformFactory_Interface'Class;
+   type IGeneralTransformFactory_Ptr is access all IGeneralTransformFactory;
+   type IGeneralTransformOverrides_Interface;
+   type IGeneralTransformOverrides is access all IGeneralTransformOverrides_Interface'Class;
+   type IGeneralTransformOverrides_Ptr is access all IGeneralTransformOverrides;
+   type IGeometry_Interface;
+   type IGeometry is access all IGeometry_Interface'Class;
+   type IGeometry_Ptr is access all IGeometry;
+   type IGeometryFactory_Interface;
+   type IGeometryFactory is access all IGeometryFactory_Interface'Class;
+   type IGeometryFactory_Ptr is access all IGeometryFactory;
    type IGeometryGroup_Interface;
    type IGeometryGroup is access all IGeometryGroup_Interface'Class;
    type IGeometryGroup_Ptr is access all IGeometryGroup;
    type IGeometryGroupStatics_Interface;
    type IGeometryGroupStatics is access all IGeometryGroupStatics_Interface'Class;
    type IGeometryGroupStatics_Ptr is access all IGeometryGroupStatics;
+   type IGeometryStatics_Interface;
+   type IGeometryStatics is access all IGeometryStatics_Interface'Class;
+   type IGeometryStatics_Ptr is access all IGeometryStatics;
    type IGradientBrush_Interface;
    type IGradientBrush is access all IGradientBrush_Interface'Class;
    type IGradientBrush_Ptr is access all IGradientBrush;
-   type IGradientBrushStatics_Interface;
-   type IGradientBrushStatics is access all IGradientBrushStatics_Interface'Class;
-   type IGradientBrushStatics_Ptr is access all IGradientBrushStatics;
    type IGradientBrushFactory_Interface;
    type IGradientBrushFactory is access all IGradientBrushFactory_Interface'Class;
    type IGradientBrushFactory_Ptr is access all IGradientBrushFactory;
+   type IGradientBrushStatics_Interface;
+   type IGradientBrushStatics is access all IGradientBrushStatics_Interface'Class;
+   type IGradientBrushStatics_Ptr is access all IGradientBrushStatics;
+   type IGradientStop_Interface;
+   type IGradientStop is access all IGradientStop_Interface'Class;
+   type IGradientStop_Ptr is access all IGradientStop;
+   type IGradientStopStatics_Interface;
+   type IGradientStopStatics is access all IGradientStopStatics_Interface'Class;
+   type IGradientStopStatics_Ptr is access all IGradientStopStatics;
+   type IImageBrush_Interface;
+   type IImageBrush is access all IImageBrush_Interface'Class;
+   type IImageBrush_Ptr is access all IImageBrush;
+   type IImageBrushStatics_Interface;
+   type IImageBrushStatics is access all IImageBrushStatics_Interface'Class;
+   type IImageBrushStatics_Ptr is access all IImageBrushStatics;
+   type IImageSource_Interface;
+   type IImageSource is access all IImageSource_Interface'Class;
+   type IImageSource_Ptr is access all IImageSource;
+   type IImageSourceFactory_Interface;
+   type IImageSourceFactory is access all IImageSourceFactory_Interface'Class;
+   type IImageSourceFactory_Ptr is access all IImageSourceFactory;
+   type IIterable_Brush_Interface;
+   type IIterable_Brush is access all IIterable_Brush_Interface'Class;
+   type IIterable_Brush_Ptr is access all IIterable_Brush;
+   type IIterable_Double_Interface;
+   type IIterable_Double is access all IIterable_Double_Interface'Class;
+   type IIterable_Double_Ptr is access all IIterable_Double;
+   type IIterable_Geometry_Interface;
+   type IIterable_Geometry is access all IIterable_Geometry_Interface'Class;
+   type IIterable_Geometry_Ptr is access all IIterable_Geometry;
+   type IIterable_GradientStop_Interface;
+   type IIterable_GradientStop is access all IIterable_GradientStop_Interface'Class;
+   type IIterable_GradientStop_Ptr is access all IIterable_GradientStop;
+   type IIterable_IBrush_Interface;
+   type IIterable_IBrush is access all IIterable_IBrush_Interface'Class;
+   type IIterable_IBrush_Ptr is access all IIterable_IBrush;
+   type IIterable_IXamlLight_Interface;
+   type IIterable_IXamlLight is access all IIterable_IXamlLight_Interface'Class;
+   type IIterable_IXamlLight_Ptr is access all IIterable_IXamlLight;
+   type IIterable_PathFigure_Interface;
+   type IIterable_PathFigure is access all IIterable_PathFigure_Interface'Class;
+   type IIterable_PathFigure_Ptr is access all IIterable_PathFigure;
+   type IIterable_PathSegment_Interface;
+   type IIterable_PathSegment is access all IIterable_PathSegment_Interface'Class;
+   type IIterable_PathSegment_Ptr is access all IIterable_PathSegment;
+   type IIterable_Point_Interface;
+   type IIterable_Point is access all IIterable_Point_Interface'Class;
+   type IIterable_Point_Ptr is access all IIterable_Point;
+   type IIterable_TimelineMarker_Interface;
+   type IIterable_TimelineMarker is access all IIterable_TimelineMarker_Interface'Class;
+   type IIterable_TimelineMarker_Ptr is access all IIterable_TimelineMarker;
+   type IIterable_Transform_Interface;
+   type IIterable_Transform is access all IIterable_Transform_Interface'Class;
+   type IIterable_Transform_Ptr is access all IIterable_Transform;
+   type IIterator_IBrush_Interface;
+   type IIterator_IBrush is access all IIterator_IBrush_Interface'Class;
+   type IIterator_IBrush_Ptr is access all IIterator_IBrush;
+   type IIterator_IXamlLight_Interface;
+   type IIterator_IXamlLight is access all IIterator_IXamlLight_Interface'Class;
+   type IIterator_IXamlLight_Ptr is access all IIterator_IXamlLight;
+   type ILinearGradientBrush_Interface;
+   type ILinearGradientBrush is access all ILinearGradientBrush_Interface'Class;
+   type ILinearGradientBrush_Ptr is access all ILinearGradientBrush;
+   type ILinearGradientBrushFactory_Interface;
+   type ILinearGradientBrushFactory is access all ILinearGradientBrushFactory_Interface'Class;
+   type ILinearGradientBrushFactory_Ptr is access all ILinearGradientBrushFactory;
+   type ILinearGradientBrushStatics_Interface;
+   type ILinearGradientBrushStatics is access all ILinearGradientBrushStatics_Interface'Class;
+   type ILinearGradientBrushStatics_Ptr is access all ILinearGradientBrushStatics;
    type ILineGeometry_Interface;
    type ILineGeometry is access all ILineGeometry_Interface'Class;
    type ILineGeometry_Ptr is access all ILineGeometry;
@@ -757,12 +586,66 @@ package Windows.UI.Xaml.Media is
    type ILineSegmentStatics_Interface;
    type ILineSegmentStatics is access all ILineSegmentStatics_Interface'Class;
    type ILineSegmentStatics_Ptr is access all ILineSegmentStatics;
+   type ILoadedImageSourceLoadCompletedEventArgs_Interface;
+   type ILoadedImageSourceLoadCompletedEventArgs is access all ILoadedImageSourceLoadCompletedEventArgs_Interface'Class;
+   type ILoadedImageSourceLoadCompletedEventArgs_Ptr is access all ILoadedImageSourceLoadCompletedEventArgs;
+   type ILoadedImageSurface_Interface;
+   type ILoadedImageSurface is access all ILoadedImageSurface_Interface'Class;
+   type ILoadedImageSurface_Ptr is access all ILoadedImageSurface;
+   type ILoadedImageSurfaceStatics_Interface;
+   type ILoadedImageSurfaceStatics is access all ILoadedImageSurfaceStatics_Interface'Class;
+   type ILoadedImageSurfaceStatics_Ptr is access all ILoadedImageSurfaceStatics;
+   type IMatrix3DProjection_Interface;
+   type IMatrix3DProjection is access all IMatrix3DProjection_Interface'Class;
+   type IMatrix3DProjection_Ptr is access all IMatrix3DProjection;
+   type IMatrix3DProjectionStatics_Interface;
+   type IMatrix3DProjectionStatics is access all IMatrix3DProjectionStatics_Interface'Class;
+   type IMatrix3DProjectionStatics_Ptr is access all IMatrix3DProjectionStatics;
+   type IMatrixHelper_Interface;
+   type IMatrixHelper is access all IMatrixHelper_Interface'Class;
+   type IMatrixHelper_Ptr is access all IMatrixHelper;
+   type IMatrixHelperStatics_Interface;
+   type IMatrixHelperStatics is access all IMatrixHelperStatics_Interface'Class;
+   type IMatrixHelperStatics_Ptr is access all IMatrixHelperStatics;
+   type IMatrixTransform_Interface;
+   type IMatrixTransform is access all IMatrixTransform_Interface'Class;
+   type IMatrixTransform_Ptr is access all IMatrixTransform;
+   type IMatrixTransformStatics_Interface;
+   type IMatrixTransformStatics is access all IMatrixTransformStatics_Interface'Class;
+   type IMatrixTransformStatics_Ptr is access all IMatrixTransformStatics;
+   type IMediaTransportControlsThumbnailRequestedEventArgs_Interface;
+   type IMediaTransportControlsThumbnailRequestedEventArgs is access all IMediaTransportControlsThumbnailRequestedEventArgs_Interface'Class;
+   type IMediaTransportControlsThumbnailRequestedEventArgs_Ptr is access all IMediaTransportControlsThumbnailRequestedEventArgs;
+   type IPartialMediaFailureDetectedEventArgs_Interface;
+   type IPartialMediaFailureDetectedEventArgs is access all IPartialMediaFailureDetectedEventArgs_Interface'Class;
+   type IPartialMediaFailureDetectedEventArgs_Ptr is access all IPartialMediaFailureDetectedEventArgs;
+   type IPartialMediaFailureDetectedEventArgs2_Interface;
+   type IPartialMediaFailureDetectedEventArgs2 is access all IPartialMediaFailureDetectedEventArgs2_Interface'Class;
+   type IPartialMediaFailureDetectedEventArgs2_Ptr is access all IPartialMediaFailureDetectedEventArgs2;
+   type IPathFigure_Interface;
+   type IPathFigure is access all IPathFigure_Interface'Class;
+   type IPathFigure_Ptr is access all IPathFigure;
+   type IPathFigureStatics_Interface;
+   type IPathFigureStatics is access all IPathFigureStatics_Interface'Class;
+   type IPathFigureStatics_Ptr is access all IPathFigureStatics;
    type IPathGeometry_Interface;
    type IPathGeometry is access all IPathGeometry_Interface'Class;
    type IPathGeometry_Ptr is access all IPathGeometry;
    type IPathGeometryStatics_Interface;
    type IPathGeometryStatics is access all IPathGeometryStatics_Interface'Class;
    type IPathGeometryStatics_Ptr is access all IPathGeometryStatics;
+   type IPathSegment_Interface;
+   type IPathSegment is access all IPathSegment_Interface'Class;
+   type IPathSegment_Ptr is access all IPathSegment;
+   type IPathSegmentFactory_Interface;
+   type IPathSegmentFactory is access all IPathSegmentFactory_Interface'Class;
+   type IPathSegmentFactory_Ptr is access all IPathSegmentFactory;
+   type IPlaneProjection_Interface;
+   type IPlaneProjection is access all IPlaneProjection_Interface'Class;
+   type IPlaneProjection_Ptr is access all IPlaneProjection;
+   type IPlaneProjectionStatics_Interface;
+   type IPlaneProjectionStatics is access all IPlaneProjectionStatics_Interface'Class;
+   type IPlaneProjectionStatics_Ptr is access all IPlaneProjectionStatics;
    type IPolyBezierSegment_Interface;
    type IPolyBezierSegment is access all IPolyBezierSegment_Interface'Class;
    type IPolyBezierSegment_Ptr is access all IPolyBezierSegment;
@@ -781,24 +664,171 @@ package Windows.UI.Xaml.Media is
    type IPolyQuadraticBezierSegmentStatics_Interface;
    type IPolyQuadraticBezierSegmentStatics is access all IPolyQuadraticBezierSegmentStatics_Interface'Class;
    type IPolyQuadraticBezierSegmentStatics_Ptr is access all IPolyQuadraticBezierSegmentStatics;
+   type IProjection_Interface;
+   type IProjection is access all IProjection_Interface'Class;
+   type IProjection_Ptr is access all IProjection;
+   type IProjectionFactory_Interface;
+   type IProjectionFactory is access all IProjectionFactory_Interface'Class;
+   type IProjectionFactory_Ptr is access all IProjectionFactory;
    type IQuadraticBezierSegment_Interface;
    type IQuadraticBezierSegment is access all IQuadraticBezierSegment_Interface'Class;
    type IQuadraticBezierSegment_Ptr is access all IQuadraticBezierSegment;
    type IQuadraticBezierSegmentStatics_Interface;
    type IQuadraticBezierSegmentStatics is access all IQuadraticBezierSegmentStatics_Interface'Class;
    type IQuadraticBezierSegmentStatics_Ptr is access all IQuadraticBezierSegmentStatics;
+   type IRateChangedRoutedEventArgs_Interface;
+   type IRateChangedRoutedEventArgs is access all IRateChangedRoutedEventArgs_Interface'Class;
+   type IRateChangedRoutedEventArgs_Ptr is access all IRateChangedRoutedEventArgs;
+   type IRectangleGeometry_Interface;
+   type IRectangleGeometry is access all IRectangleGeometry_Interface'Class;
+   type IRectangleGeometry_Ptr is access all IRectangleGeometry;
+   type IRectangleGeometryStatics_Interface;
+   type IRectangleGeometryStatics is access all IRectangleGeometryStatics_Interface'Class;
+   type IRectangleGeometryStatics_Ptr is access all IRectangleGeometryStatics;
+   type IRenderedEventArgs_Interface;
+   type IRenderedEventArgs is access all IRenderedEventArgs_Interface'Class;
+   type IRenderedEventArgs_Ptr is access all IRenderedEventArgs;
+   type IRenderingEventArgs_Interface;
+   type IRenderingEventArgs is access all IRenderingEventArgs_Interface'Class;
+   type IRenderingEventArgs_Ptr is access all IRenderingEventArgs;
+   type IRevealBackgroundBrush_Interface;
+   type IRevealBackgroundBrush is access all IRevealBackgroundBrush_Interface'Class;
+   type IRevealBackgroundBrush_Ptr is access all IRevealBackgroundBrush;
+   type IRevealBackgroundBrushFactory_Interface;
+   type IRevealBackgroundBrushFactory is access all IRevealBackgroundBrushFactory_Interface'Class;
+   type IRevealBackgroundBrushFactory_Ptr is access all IRevealBackgroundBrushFactory;
+   type IRevealBorderBrush_Interface;
+   type IRevealBorderBrush is access all IRevealBorderBrush_Interface'Class;
+   type IRevealBorderBrush_Ptr is access all IRevealBorderBrush;
+   type IRevealBorderBrushFactory_Interface;
+   type IRevealBorderBrushFactory is access all IRevealBorderBrushFactory_Interface'Class;
+   type IRevealBorderBrushFactory_Ptr is access all IRevealBorderBrushFactory;
+   type IRevealBrush_Interface;
+   type IRevealBrush is access all IRevealBrush_Interface'Class;
+   type IRevealBrush_Ptr is access all IRevealBrush;
+   type IRevealBrushFactory_Interface;
+   type IRevealBrushFactory is access all IRevealBrushFactory_Interface'Class;
+   type IRevealBrushFactory_Ptr is access all IRevealBrushFactory;
+   type IRevealBrushStatics_Interface;
+   type IRevealBrushStatics is access all IRevealBrushStatics_Interface'Class;
+   type IRevealBrushStatics_Ptr is access all IRevealBrushStatics;
+   type IRotateTransform_Interface;
+   type IRotateTransform is access all IRotateTransform_Interface'Class;
+   type IRotateTransform_Ptr is access all IRotateTransform;
+   type IRotateTransformStatics_Interface;
+   type IRotateTransformStatics is access all IRotateTransformStatics_Interface'Class;
+   type IRotateTransformStatics_Ptr is access all IRotateTransformStatics;
+   type IScaleTransform_Interface;
+   type IScaleTransform is access all IScaleTransform_Interface'Class;
+   type IScaleTransform_Ptr is access all IScaleTransform;
+   type IScaleTransformStatics_Interface;
+   type IScaleTransformStatics is access all IScaleTransformStatics_Interface'Class;
+   type IScaleTransformStatics_Ptr is access all IScaleTransformStatics;
+   type ISkewTransform_Interface;
+   type ISkewTransform is access all ISkewTransform_Interface'Class;
+   type ISkewTransform_Ptr is access all ISkewTransform;
+   type ISkewTransformStatics_Interface;
+   type ISkewTransformStatics is access all ISkewTransformStatics_Interface'Class;
+   type ISkewTransformStatics_Ptr is access all ISkewTransformStatics;
+   type ISolidColorBrush_Interface;
+   type ISolidColorBrush is access all ISolidColorBrush_Interface'Class;
+   type ISolidColorBrush_Ptr is access all ISolidColorBrush;
+   type ISolidColorBrushFactory_Interface;
+   type ISolidColorBrushFactory is access all ISolidColorBrushFactory_Interface'Class;
+   type ISolidColorBrushFactory_Ptr is access all ISolidColorBrushFactory;
+   type ISolidColorBrushStatics_Interface;
+   type ISolidColorBrushStatics is access all ISolidColorBrushStatics_Interface'Class;
+   type ISolidColorBrushStatics_Ptr is access all ISolidColorBrushStatics;
    type ITileBrush_Interface;
    type ITileBrush is access all ITileBrush_Interface'Class;
    type ITileBrush_Ptr is access all ITileBrush;
-   type ITileBrushStatics_Interface;
-   type ITileBrushStatics is access all ITileBrushStatics_Interface'Class;
-   type ITileBrushStatics_Ptr is access all ITileBrushStatics;
    type ITileBrushFactory_Interface;
    type ITileBrushFactory is access all ITileBrushFactory_Interface'Class;
    type ITileBrushFactory_Ptr is access all ITileBrushFactory;
+   type ITileBrushStatics_Interface;
+   type ITileBrushStatics is access all ITileBrushStatics_Interface'Class;
+   type ITileBrushStatics_Ptr is access all ITileBrushStatics;
+   type ITimelineMarker_Interface;
+   type ITimelineMarker is access all ITimelineMarker_Interface'Class;
+   type ITimelineMarker_Ptr is access all ITimelineMarker;
+   type ITimelineMarkerRoutedEventArgs_Interface;
+   type ITimelineMarkerRoutedEventArgs is access all ITimelineMarkerRoutedEventArgs_Interface'Class;
+   type ITimelineMarkerRoutedEventArgs_Ptr is access all ITimelineMarkerRoutedEventArgs;
+   type ITimelineMarkerStatics_Interface;
+   type ITimelineMarkerStatics is access all ITimelineMarkerStatics_Interface'Class;
+   type ITimelineMarkerStatics_Ptr is access all ITimelineMarkerStatics;
+   type ITransform_Interface;
+   type ITransform is access all ITransform_Interface'Class;
+   type ITransform_Ptr is access all ITransform;
+   type ITransformFactory_Interface;
+   type ITransformFactory is access all ITransformFactory_Interface'Class;
+   type ITransformFactory_Ptr is access all ITransformFactory;
+   type ITransformGroup_Interface;
+   type ITransformGroup is access all ITransformGroup_Interface'Class;
+   type ITransformGroup_Ptr is access all ITransformGroup;
+   type ITransformGroupStatics_Interface;
+   type ITransformGroupStatics is access all ITransformGroupStatics_Interface'Class;
+   type ITransformGroupStatics_Ptr is access all ITransformGroupStatics;
+   type ITranslateTransform_Interface;
+   type ITranslateTransform is access all ITranslateTransform_Interface'Class;
+   type ITranslateTransform_Ptr is access all ITranslateTransform;
+   type ITranslateTransformStatics_Interface;
+   type ITranslateTransformStatics is access all ITranslateTransformStatics_Interface'Class;
+   type ITranslateTransformStatics_Ptr is access all ITranslateTransformStatics;
+   type IVector_Brush_Interface;
+   type IVector_Brush is access all IVector_Brush_Interface'Class;
+   type IVector_Brush_Ptr is access all IVector_Brush;
+   type IVector_Double_Interface;
+   type IVector_Double is access all IVector_Double_Interface'Class;
+   type IVector_Double_Ptr is access all IVector_Double;
+   type IVector_Geometry_Interface;
+   type IVector_Geometry is access all IVector_Geometry_Interface'Class;
+   type IVector_Geometry_Ptr is access all IVector_Geometry;
+   type IVector_GradientStop_Interface;
+   type IVector_GradientStop is access all IVector_GradientStop_Interface'Class;
+   type IVector_GradientStop_Ptr is access all IVector_GradientStop;
+   type IVector_IBrush_Interface;
+   type IVector_IBrush is access all IVector_IBrush_Interface'Class;
+   type IVector_IBrush_Ptr is access all IVector_IBrush;
+   type IVector_IXamlLight_Interface;
+   type IVector_IXamlLight is access all IVector_IXamlLight_Interface'Class;
+   type IVector_IXamlLight_Ptr is access all IVector_IXamlLight;
+   type IVector_PathFigure_Interface;
+   type IVector_PathFigure is access all IVector_PathFigure_Interface'Class;
+   type IVector_PathFigure_Ptr is access all IVector_PathFigure;
+   type IVector_PathSegment_Interface;
+   type IVector_PathSegment is access all IVector_PathSegment_Interface'Class;
+   type IVector_PathSegment_Ptr is access all IVector_PathSegment;
+   type IVector_Point_Interface;
+   type IVector_Point is access all IVector_Point_Interface'Class;
+   type IVector_Point_Ptr is access all IVector_Point;
+   type IVector_TimelineMarker_Interface;
+   type IVector_TimelineMarker is access all IVector_TimelineMarker_Interface'Class;
+   type IVector_TimelineMarker_Ptr is access all IVector_TimelineMarker;
+   type IVector_Transform_Interface;
+   type IVector_Transform is access all IVector_Transform_Interface'Class;
+   type IVector_Transform_Ptr is access all IVector_Transform;
+   type IVectorView_IBrush_Interface;
+   type IVectorView_IBrush is access all IVectorView_IBrush_Interface'Class;
+   type IVectorView_IBrush_Ptr is access all IVectorView_IBrush;
+   type IVectorView_IXamlLight_Interface;
+   type IVectorView_IXamlLight is access all IVectorView_IXamlLight_Interface'Class;
+   type IVectorView_IXamlLight_Ptr is access all IVectorView_IXamlLight;
+   type IVisualTreeHelper_Interface;
+   type IVisualTreeHelper is access all IVisualTreeHelper_Interface'Class;
+   type IVisualTreeHelper_Ptr is access all IVisualTreeHelper;
+   type IVisualTreeHelperStatics_Interface;
+   type IVisualTreeHelperStatics is access all IVisualTreeHelperStatics_Interface'Class;
+   type IVisualTreeHelperStatics_Ptr is access all IVisualTreeHelperStatics;
+   type IVisualTreeHelperStatics2_Interface;
+   type IVisualTreeHelperStatics2 is access all IVisualTreeHelperStatics2_Interface'Class;
+   type IVisualTreeHelperStatics2_Ptr is access all IVisualTreeHelperStatics2;
    type IXamlCompositionBrushBase_Interface;
    type IXamlCompositionBrushBase is access all IXamlCompositionBrushBase_Interface'Class;
    type IXamlCompositionBrushBase_Ptr is access all IXamlCompositionBrushBase;
+   type IXamlCompositionBrushBaseFactory_Interface;
+   type IXamlCompositionBrushBaseFactory is access all IXamlCompositionBrushBaseFactory_Interface'Class;
+   type IXamlCompositionBrushBaseFactory_Ptr is access all IXamlCompositionBrushBaseFactory;
    type IXamlCompositionBrushBaseOverrides_Interface;
    type IXamlCompositionBrushBaseOverrides is access all IXamlCompositionBrushBaseOverrides_Interface'Class;
    type IXamlCompositionBrushBaseOverrides_Ptr is access all IXamlCompositionBrushBaseOverrides;
@@ -808,51 +838,21 @@ package Windows.UI.Xaml.Media is
    type IXamlCompositionBrushBaseStatics_Interface;
    type IXamlCompositionBrushBaseStatics is access all IXamlCompositionBrushBaseStatics_Interface'Class;
    type IXamlCompositionBrushBaseStatics_Ptr is access all IXamlCompositionBrushBaseStatics;
-   type IXamlCompositionBrushBaseFactory_Interface;
-   type IXamlCompositionBrushBaseFactory is access all IXamlCompositionBrushBaseFactory_Interface'Class;
-   type IXamlCompositionBrushBaseFactory_Ptr is access all IXamlCompositionBrushBaseFactory;
-   type IImageBrush_Interface;
-   type IImageBrush is access all IImageBrush_Interface'Class;
-   type IImageBrush_Ptr is access all IImageBrush;
-   type IImageBrushStatics_Interface;
-   type IImageBrushStatics is access all IImageBrushStatics_Interface'Class;
-   type IImageBrushStatics_Ptr is access all IImageBrushStatics;
-   type ILinearGradientBrush_Interface;
-   type ILinearGradientBrush is access all ILinearGradientBrush_Interface'Class;
-   type ILinearGradientBrush_Ptr is access all ILinearGradientBrush;
-   type ILinearGradientBrushStatics_Interface;
-   type ILinearGradientBrushStatics is access all ILinearGradientBrushStatics_Interface'Class;
-   type ILinearGradientBrushStatics_Ptr is access all ILinearGradientBrushStatics;
-   type ILinearGradientBrushFactory_Interface;
-   type ILinearGradientBrushFactory is access all ILinearGradientBrushFactory_Interface'Class;
-   type ILinearGradientBrushFactory_Ptr is access all ILinearGradientBrushFactory;
-   type ICompositionSurface_Imported_Interface;
-   type ICompositionSurface_Imported is access all ICompositionSurface_Imported_Interface'Class;
-   type ICompositionSurface_Imported_Ptr is access all ICompositionSurface_Imported;
-   type IIterator_IXamlLight_Interface;
-   type IIterator_IXamlLight is access all IIterator_IXamlLight_Interface'Class;
-   type IIterator_IXamlLight_Ptr is access all IIterator_IXamlLight;
-   type IIterable_IXamlLight_Interface;
-   type IIterable_IXamlLight is access all IIterable_IXamlLight_Interface'Class;
-   type IIterable_IXamlLight_Ptr is access all IIterable_IXamlLight;
-   type IVectorView_IXamlLight_Interface;
-   type IVectorView_IXamlLight is access all IVectorView_IXamlLight_Interface'Class;
-   type IVectorView_IXamlLight_Ptr is access all IVectorView_IXamlLight;
-   type IVector_IXamlLight_Interface;
-   type IVector_IXamlLight is access all IVector_IXamlLight_Interface'Class;
-   type IVector_IXamlLight_Ptr is access all IVector_IXamlLight;
-   type IIterator_IBrush_Interface;
-   type IIterator_IBrush is access all IIterator_IBrush_Interface'Class;
-   type IIterator_IBrush_Ptr is access all IIterator_IBrush;
-   type IIterable_IBrush_Interface;
-   type IIterable_IBrush is access all IIterable_IBrush_Interface'Class;
-   type IIterable_IBrush_Ptr is access all IIterable_IBrush;
-   type IVectorView_IBrush_Interface;
-   type IVectorView_IBrush is access all IVectorView_IBrush_Interface'Class;
-   type IVectorView_IBrush_Ptr is access all IVectorView_IBrush;
-   type IVector_IBrush_Interface;
-   type IVector_IBrush is access all IVector_IBrush_Interface'Class;
-   type IVector_IBrush_Ptr is access all IVector_IBrush;
+   type IXamlLight_Interface;
+   type IXamlLight is access all IXamlLight_Interface'Class;
+   type IXamlLight_Ptr is access all IXamlLight;
+   type IXamlLightFactory_Interface;
+   type IXamlLightFactory is access all IXamlLightFactory_Interface'Class;
+   type IXamlLightFactory_Ptr is access all IXamlLightFactory;
+   type IXamlLightOverrides_Interface;
+   type IXamlLightOverrides is access all IXamlLightOverrides_Interface'Class;
+   type IXamlLightOverrides_Ptr is access all IXamlLightOverrides;
+   type IXamlLightProtected_Interface;
+   type IXamlLightProtected is access all IXamlLightProtected_Interface'Class;
+   type IXamlLightProtected_Ptr is access all IXamlLightProtected;
+   type IXamlLightStatics_Interface;
+   type IXamlLightStatics is access all IXamlLightStatics_Interface'Class;
+   type IXamlLightStatics_Ptr is access all IXamlLightStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -936,6 +936,21 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IAcrylicBrushFactory : aliased constant Windows.IID := (2174952808, 63180, 16403, (131, 99, 146, 138, 226, 59, 122, 97 ));
+   
+   type IAcrylicBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IAcrylicBrushFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IAcrylicBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAcrylicBrushStatics : aliased constant Windows.IID := (663223673, 41946, 16959, (184, 26, 89, 145, 71, 151, 21, 35 ));
    
    type IAcrylicBrushStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -977,452 +992,517 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IAcrylicBrushFactory : aliased constant Windows.IID := (2174952808, 63180, 16403, (131, 99, 146, 138, 226, 59, 122, 97 ));
+   IID_IArcSegment : aliased constant Windows.IID := (127143007, 25595, 17513, (145, 190, 241, 9, 124, 22, 128, 82 ));
    
-   type IAcrylicBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IArcSegment_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreateInstance
+   function get_Point
    (
-      This       : access IAcrylicBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IAcrylicBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRevealBrush : aliased constant Windows.IID := (540451053, 33393, 17304, (144, 25, 37, 135, 32, 147, 241, 63 ));
-   
-   type IRevealBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Color
-   (
-      This       : access IRevealBrush_Interface
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Color
-   (
-      This       : access IRevealBrush_Interface
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TargetTheme
-   (
-      This       : access IRevealBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.ApplicationTheme
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TargetTheme
-   (
-      This       : access IRevealBrush_Interface
-      ; value : Windows.UI.Xaml.ApplicationTheme
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AlwaysUseFallback
-   (
-      This       : access IRevealBrush_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AlwaysUseFallback
-   (
-      This       : access IRevealBrush_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRevealBrushFactory : aliased constant Windows.IID := (2643687886, 58272, 19119, (190, 55, 234, 157, 157, 212, 49, 5 ));
-   
-   type IRevealBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IRevealBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IRevealBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRevealBrushStatics : aliased constant Windows.IID := (420423205, 29193, 19778, (168, 71, 26, 196, 187, 187, 52, 153 ));
-   
-   type IRevealBrushStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ColorProperty
-   (
-      This       : access IRevealBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TargetThemeProperty
-   (
-      This       : access IRevealBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AlwaysUseFallbackProperty
-   (
-      This       : access IRevealBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StateProperty
-   (
-      This       : access IRevealBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetState
-   (
-      This       : access IRevealBrushStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.UI.Xaml.Media.RevealBrushState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetState
-   (
-      This       : access IRevealBrushStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Xaml.Media.RevealBrushState
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRevealBorderBrushFactory : aliased constant Windows.IID := (2495763096, 62968, 17538, (162, 92, 103, 88, 80, 26, 134, 38 ));
-   
-   type IRevealBorderBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IRevealBorderBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IRevealBorderBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRevealBorderBrush : aliased constant Windows.IID := (101425429, 50498, 18492, (130, 2, 95, 3, 51, 24, 102, 201 ));
-   
-   type IRevealBorderBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRevealBackgroundBrushFactory : aliased constant Windows.IID := (2354494634, 677, 20293, (133, 6, 141, 57, 34, 143, 93, 63 ));
-   
-   type IRevealBackgroundBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IRevealBackgroundBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IRevealBackgroundBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRevealBackgroundBrush : aliased constant Windows.IID := (639486990, 6545, 19679, (174, 224, 99, 80, 163, 249, 11, 185 ));
-   
-   type IRevealBackgroundBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVisualTreeHelper : aliased constant Windows.IID := (616117731, 21191, 16705, (139, 172, 167, 61, 6, 19, 5, 105 ));
-   
-   type IVisualTreeHelper_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVisualTreeHelperStatics : aliased constant Windows.IID := (3881261252, 53853, 19229, (151, 31, 89, 111, 23, 241, 43, 170 ));
-   
-   type IVisualTreeHelperStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FindElementsInHostCoordinatesPoint
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; intersectingPoint : Windows.Foundation.Point
-      ; subtree : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindElementsInHostCoordinatesRect
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; intersectingRect : Windows.Foundation.Rect
-      ; subtree : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindAllElementsInHostCoordinatesPoint
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; intersectingPoint : Windows.Foundation.Point
-      ; subtree : Windows.UI.Xaml.IUIElement
-      ; includeAllElements : Windows.Boolean
-      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindAllElementsInHostCoordinatesRect
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; intersectingRect : Windows.Foundation.Rect
-      ; subtree : Windows.UI.Xaml.IUIElement
-      ; includeAllElements : Windows.Boolean
-      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetChild
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; reference : Windows.UI.Xaml.IDependencyObject
-      ; childIndex : Windows.Int32
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetChildrenCount
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; reference : Windows.UI.Xaml.IDependencyObject
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetParent
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; reference : Windows.UI.Xaml.IDependencyObject
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DisconnectChildrenRecursive
-   (
-      This       : access IVisualTreeHelperStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVisualTreeHelperStatics2 : aliased constant Windows.IID := (129814902, 34463, 17575, (135, 151, 33, 3, 164, 195, 228, 122 ));
-   
-   type IVisualTreeHelperStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetOpenPopups
-   (
-      This       : access IVisualTreeHelperStatics2_Interface
-      ; window : Windows.UI.Xaml.IWindow
-      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPartialMediaFailureDetectedEventArgs : aliased constant Windows.IID := (45505169, 58785, 17451, (136, 211, 45, 193, 39, 191, 197, 155 ));
-   
-   type IPartialMediaFailureDetectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_StreamKind
-   (
-      This       : access IPartialMediaFailureDetectedEventArgs_Interface
-      ; RetVal : access Windows.Media.Playback.FailedMediaStreamKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPartialMediaFailureDetectedEventArgs2 : aliased constant Windows.IID := (1929857141, 35085, 16747, (185, 174, 232, 77, 253, 156, 75, 27 ));
-   
-   type IPartialMediaFailureDetectedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExtendedError
-   (
-      This       : access IPartialMediaFailureDetectedEventArgs2_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMatrixHelper : aliased constant Windows.IID := (4090448002, 1717, 18632, (158, 178, 23, 99, 233, 54, 64, 56 ));
-   
-   type IMatrixHelper_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMatrixHelperStatics : aliased constant Windows.IID := (3246786214, 14836, 19338, (132, 3, 40, 229, 229, 240, 51, 180 ));
-   
-   type IMatrixHelperStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Identity
-   (
-      This       : access IMatrixHelperStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Matrix
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromElements
-   (
-      This       : access IMatrixHelperStatics_Interface
-      ; m11 : Windows.Double
-      ; m12 : Windows.Double
-      ; m21 : Windows.Double
-      ; m22 : Windows.Double
-      ; offsetX : Windows.Double
-      ; offsetY : Windows.Double
-      ; RetVal : access Windows.UI.Xaml.Media.Matrix
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetIsIdentity
-   (
-      This       : access IMatrixHelperStatics_Interface
-      ; target : Windows.UI.Xaml.Media.Matrix
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Transform_x
-   (
-      This       : access IMatrixHelperStatics_Interface
-      ; target : Windows.UI.Xaml.Media.Matrix
-      ; point : Windows.Foundation.Point
+      This       : access IArcSegment_Interface
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IVector_Brush : aliased constant Windows.IID := (2832041188, 16095, 20850, (143, 119, 16, 233, 16, 229, 220, 93 ));
-   
-   type IVector_Brush_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
+   function put_Point
    (
-      This       : access IVector_Brush_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.IBrush
+      This       : access IArcSegment_Interface
+      ; value : Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
    
    function get_Size
    (
-      This       : access IVector_Brush_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IArcSegment_Interface
+      ; RetVal : access Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
    
-   function GetView
+   function put_Size
    (
-      This       : access IVector_Brush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IBrush
+      This       : access IArcSegment_Interface
+      ; value : Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
    
-   function IndexOf
+   function get_RotationAngle
    (
-      This       : access IVector_Brush_Interface
-      ; value : Windows.UI.Xaml.Media.IBrush
-      ; index : access Windows.UInt32
+      This       : access IArcSegment_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RotationAngle
+   (
+      This       : access IArcSegment_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsLargeArc
+   (
+      This       : access IArcSegment_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetAt
+   function put_IsLargeArc
    (
-      This       : access IVector_Brush_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IBrush
+      This       : access IArcSegment_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function InsertAt
+   function get_SweepDirection
    (
-      This       : access IVector_Brush_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IBrush
+      This       : access IArcSegment_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.SweepDirection
    )
    return Windows.HRESULT is abstract;
    
-   function RemoveAt
+   function put_SweepDirection
    (
-      This       : access IVector_Brush_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_Brush_Interface
-      ; value : Windows.UI.Xaml.Media.IBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_Brush_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_Brush_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_Brush_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_Brush_Interface
-      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
+      This       : access IArcSegment_Interface
+      ; value : Windows.UI.Xaml.Media.SweepDirection
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_Brush : aliased constant Windows.IID := (2961085141, 1715, 24018, (141, 73, 52, 159, 251, 216, 70, 52 ));
+   IID_IArcSegmentStatics : aliased constant Windows.IID := (2184482670, 35433, 16900, (156, 18, 114, 7, 223, 49, 118, 67 ));
    
-   type IIterable_Brush_Interface is interface and Windows.IInspectable_Interface;
+   type IArcSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_PointProperty
    (
-      This       : access IIterable_Brush_Interface
+      This       : access IArcSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SizeProperty
+   (
+      This       : access IArcSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RotationAngleProperty
+   (
+      This       : access IArcSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsLargeArcProperty
+   (
+      This       : access IArcSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SweepDirectionProperty
+   (
+      This       : access IArcSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBezierSegment : aliased constant Windows.IID := (2940975598, 35204, 18871, (129, 223, 63, 53, 153, 75, 149, 235 ));
+   
+   type IBezierSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Point1
+   (
+      This       : access IBezierSegment_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Point1
+   (
+      This       : access IBezierSegment_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Point2
+   (
+      This       : access IBezierSegment_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Point2
+   (
+      This       : access IBezierSegment_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Point3
+   (
+      This       : access IBezierSegment_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Point3
+   (
+      This       : access IBezierSegment_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBezierSegmentStatics : aliased constant Windows.IID := (3223878572, 5136, 17712, (132, 82, 28, 157, 10, 209, 243, 65 ));
+   
+   type IBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Point1Property
+   (
+      This       : access IBezierSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Point2Property
+   (
+      This       : access IBezierSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Point3Property
+   (
+      This       : access IBezierSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapCache : aliased constant Windows.IID := (2042765726, 17618, 17936, (151, 53, 155, 236, 131, 128, 158, 207 ));
+   
+   type IBitmapCache_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBrush : aliased constant Windows.IID := (2282136353, 7686, 16940, (161, 204, 1, 105, 101, 89, 224, 33 ));
+   
+   type IBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Opacity
+   (
+      This       : access IBrush_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Opacity
+   (
+      This       : access IBrush_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Transform
+   (
+      This       : access IBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Transform
+   (
+      This       : access IBrush_Interface
+      ; value : Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RelativeTransform
+   (
+      This       : access IBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RelativeTransform
+   (
+      This       : access IBrush_Interface
+      ; value : Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBrushFactory : aliased constant Windows.IID := (966154402, 5371, 19343, (131, 230, 110, 61, 171, 18, 6, 155 ));
+   
+   type IBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IBrushFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBrushStatics : aliased constant Windows.IID := (3876335874, 549, 18421, (178, 46, 4, 103, 97, 159, 106, 34 ));
+   
+   type IBrushStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OpacityProperty
+   (
+      This       : access IBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransformProperty
+   (
+      This       : access IBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RelativeTransformProperty
+   (
+      This       : access IBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICacheMode : aliased constant Windows.IID := (2564590353, 50937, 19883, (184, 56, 95, 213, 236, 140, 115, 80 ));
+   
+   type ICacheMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICacheModeFactory : aliased constant Windows.IID := (3944713307, 2747, 20080, (184, 168, 98, 13, 13, 149, 58, 178 ));
+   
+   type ICacheModeFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ICacheModeFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.ICacheMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositeTransform : aliased constant Windows.IID := (3366205531, 62026, 18177, (162, 101, 167, 136, 70, 241, 66, 185 ));
+   
+   type ICompositeTransform_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CenterX
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CenterX
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CenterY
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CenterY
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaleX
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScaleX
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaleY
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScaleY
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SkewX
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SkewX
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SkewY
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SkewY
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rotation
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Rotation
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TranslateX
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TranslateX
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TranslateY
+   (
+      This       : access ICompositeTransform_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TranslateY
+   (
+      This       : access ICompositeTransform_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositeTransformStatics : aliased constant Windows.IID := (790170632, 33382, 18799, (150, 83, 161, 139, 212, 248, 54, 170 ));
+   
+   type ICompositeTransformStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CenterXProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CenterYProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaleXProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaleYProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SkewXProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SkewYProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RotationProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TranslateXProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TranslateYProperty
+   (
+      This       : access ICompositeTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type ICompositionSurface_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -1489,109 +1569,76 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IVector_Double : aliased constant Windows.IID := (4099068476, 48901, 24382, (136, 231, 209, 122, 103, 22, 185, 17 ));
+   IID_IEllipseGeometry : aliased constant Windows.IID := (3572898746, 20130, 16598, (170, 108, 141, 56, 170, 135, 101, 31 ));
    
-   type IVector_Double_Interface is interface and Windows.IInspectable_Interface;
+   type IEllipseGeometry_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetAt
+   function get_Center
    (
-      This       : access IVector_Double_Interface
-      ; index : Windows.UInt32
+      This       : access IEllipseGeometry_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Center
+   (
+      This       : access IEllipseGeometry_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RadiusX
+   (
+      This       : access IEllipseGeometry_Interface
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function put_RadiusX
    (
-      This       : access IVector_Double_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IEllipseGeometry_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   function GetView
+   function get_RadiusY
    (
-      This       : access IVector_Double_Interface
+      This       : access IEllipseGeometry_Interface
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   function IndexOf
+   function put_RadiusY
    (
-      This       : access IVector_Double_Interface
+      This       : access IEllipseGeometry_Interface
       ; value : Windows.Double
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_Double_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_Double_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_Double_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_Double_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_Double_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_Double_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_Double_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Double_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_Double_Interface
-      ; items : Windows.Double_Ptr
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_Double : aliased constant Windows.IID := (3342374478, 40036, 23502, (181, 206, 97, 233, 162, 130, 236, 74 ));
+   IID_IEllipseGeometryStatics : aliased constant Windows.IID := (390388551, 63029, 19222, (174, 230, 224, 82, 166, 93, 239, 178 ));
    
-   type IIterable_Double_Interface is interface and Windows.IInspectable_Interface;
+   type IEllipseGeometryStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_CenterProperty
    (
-      This       : access IIterable_Double_Interface
-      ; RetVal : access Windows.Double
+      This       : access IEllipseGeometryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RadiusXProperty
+   (
+      This       : access IEllipseGeometryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RadiusYProperty
+   (
+      This       : access IEllipseGeometryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -1639,487 +1686,6 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IMediaTransportControlsThumbnailRequestedEventArgs : aliased constant Windows.IID := (3836260892, 58306, 18524, (174, 105, 241, 83, 123, 118, 117, 90 ));
-   
-   type IMediaTransportControlsThumbnailRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetThumbnailImage
-   (
-      This       : access IMediaTransportControlsThumbnailRequestedEventArgs_Interface
-      ; source : Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IMediaTransportControlsThumbnailRequestedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_Point : aliased constant Windows.IID := (3235189673, 60490, 23133, (182, 213, 183, 7, 222, 253, 185, 247 ));
-   
-   type IVector_Point_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_Point_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_Point_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_Point_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_Point_Interface
-      ; value : Windows.Foundation.Point
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_Point_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_Point_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_Point_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_Point_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_Point_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_Point_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_Point_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Foundation.Point_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_Point_Interface
-      ; items : Windows.Foundation.Point_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_Point : aliased constant Windows.IID := (3247581197, 14857, 21539, (157, 197, 103, 184, 62, 189, 228, 29 ));
-   
-   type IIterable_Point_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_Point_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRenderedEventArgs : aliased constant Windows.IID := (3813245309, 33223, 18744, (130, 140, 167, 226, 121, 123, 53, 166 ));
-   
-   type IRenderedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FrameDuration
-   (
-      This       : access IRenderedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRenderingEventArgs : aliased constant Windows.IID := (1542968077, 38728, 19181, (131, 128, 215, 137, 14, 183, 118, 160 ));
-   
-   type IRenderingEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RenderingTime
-   (
-      This       : access IRenderingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_TimelineMarker : aliased constant Windows.IID := (3000556980, 53944, 22832, (148, 45, 38, 17, 135, 86, 189, 70 ));
-   
-   type IVector_TimelineMarker_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.ITimelineMarker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.ITimelineMarker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; value : Windows.UI.Xaml.Media.ITimelineMarker
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.ITimelineMarker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.ITimelineMarker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; value : Windows.UI.Xaml.Media.ITimelineMarker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_TimelineMarker_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_TimelineMarker_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.ITimelineMarker_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_TimelineMarker_Interface
-      ; items : Windows.UI.Xaml.Media.ITimelineMarker_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_TimelineMarker : aliased constant Windows.IID := (2490129141, 19465, 22404, (156, 242, 80, 105, 71, 55, 142, 142 ));
-   
-   type IIterable_TimelineMarker_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_TimelineMarker_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.ITimelineMarker
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_Transform : aliased constant Windows.IID := (1658305473, 29173, 22033, (169, 132, 229, 113, 194, 222, 123, 170 ));
-   
-   type IVector_Transform_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_Transform_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_Transform_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_Transform_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_Transform_Interface
-      ; value : Windows.UI.Xaml.Media.ITransform
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_Transform_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_Transform_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_Transform_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_Transform_Interface
-      ; value : Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_Transform_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_Transform_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_Transform_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.ITransform_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_Transform_Interface
-      ; items : Windows.UI.Xaml.Media.ITransform_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_Transform : aliased constant Windows.IID := (4220300476, 54252, 20920, (151, 120, 153, 237, 232, 70, 54, 17 ));
-   
-   type IIterable_Transform_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_Transform_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBrush : aliased constant Windows.IID := (2282136353, 7686, 16940, (161, 204, 1, 105, 101, 89, 224, 33 ));
-   
-   type IBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Opacity
-   (
-      This       : access IBrush_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Opacity
-   (
-      This       : access IBrush_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Transform
-   (
-      This       : access IBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Transform
-   (
-      This       : access IBrush_Interface
-      ; value : Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RelativeTransform
-   (
-      This       : access IBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RelativeTransform
-   (
-      This       : access IBrush_Interface
-      ; value : Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBrushStatics : aliased constant Windows.IID := (3876335874, 549, 18421, (178, 46, 4, 103, 97, 159, 106, 34 ));
-   
-   type IBrushStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_OpacityProperty
-   (
-      This       : access IBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TransformProperty
-   (
-      This       : access IBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RelativeTransformProperty
-   (
-      This       : access IBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBrushFactory : aliased constant Windows.IID := (966154402, 5371, 19343, (131, 230, 110, 61, 171, 18, 6, 155 ));
-   
-   type IBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICacheMode : aliased constant Windows.IID := (2564590353, 50937, 19883, (184, 56, 95, 213, 236, 140, 115, 80 ));
-   
-   type ICacheMode_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICacheModeFactory : aliased constant Windows.IID := (3944713307, 2747, 20080, (184, 168, 98, 13, 13, 149, 58, 178 ));
-   
-   type ICacheModeFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access ICacheModeFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.ICacheMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IGeneralTransform : aliased constant Windows.IID := (2691143863, 41708, 16735, (173, 226, 234, 222, 147, 51, 242, 199 ));
    
    type IGeneralTransform_Interface is interface and Windows.IInspectable_Interface;
@@ -2158,6 +1724,21 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IGeneralTransformFactory : aliased constant Windows.IID := (2049296688, 10692, 20017, (182, 249, 222, 221, 82, 228, 223, 27 ));
+   
+   type IGeneralTransformFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IGeneralTransformFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IGeneralTransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IGeneralTransformOverrides : aliased constant Windows.IID := (1326583939, 9423, 17700, (144, 173, 138, 66, 177, 193, 39, 131 ));
    
    type IGeneralTransformOverrides_Interface is interface and Windows.IInspectable_Interface;
@@ -2183,21 +1764,6 @@ package Windows.UI.Xaml.Media is
       This       : access IGeneralTransformOverrides_Interface
       ; rect : Windows.Foundation.Rect
       ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGeneralTransformFactory : aliased constant Windows.IID := (2049296688, 10692, 20017, (182, 249, 222, 221, 82, 228, 223, 27 ));
-   
-   type IGeneralTransformFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IGeneralTransformFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IGeneralTransform
    )
    return Windows.HRESULT is abstract;
    
@@ -2230,6 +1796,66 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IGeometryFactory : aliased constant Windows.IID := (4133334819, 54781, 17145, (179, 42, 146, 156, 90, 75, 84, 225 ));
+   
+   type IGeometryFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGeometryGroup : aliased constant Windows.IID := (1428314721, 34423, 19596, (142, 70, 238, 61, 195, 85, 17, 75 ));
+   
+   type IGeometryGroup_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FillRule
+   (
+      This       : access IGeometryGroup_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.FillRule
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FillRule
+   (
+      This       : access IGeometryGroup_Interface
+      ; value : Windows.UI.Xaml.Media.FillRule
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Children
+   (
+      This       : access IGeometryGroup_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVector_Geometry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Children
+   (
+      This       : access IGeometryGroup_Interface
+      ; value : Windows.UI.Xaml.Media.IVector_Geometry
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGeometryGroupStatics : aliased constant Windows.IID := (1456035316, 33942, 19382, (171, 240, 97, 123, 31, 231, 139, 69 ));
+   
+   type IGeometryGroupStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FillRuleProperty
+   (
+      This       : access IGeometryGroupStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChildrenProperty
+   (
+      This       : access IGeometryGroupStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IGeometryStatics : aliased constant Windows.IID := (2054204044, 2822, 18015, (182, 55, 154, 71, 229, 167, 1, 17 ));
    
    type IGeometryStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -2257,9 +1883,231 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IGeometryFactory : aliased constant Windows.IID := (4133334819, 54781, 17145, (179, 42, 146, 156, 90, 75, 84, 225 ));
+   IID_IGradientBrush : aliased constant Windows.IID := (560391839, 37722, 16785, (142, 60, 28, 141, 253, 252, 220, 120 ));
    
-   type IGeometryFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IGradientBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SpreadMethod
+   (
+      This       : access IGradientBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.GradientSpreadMethod
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SpreadMethod
+   (
+      This       : access IGradientBrush_Interface
+      ; value : Windows.UI.Xaml.Media.GradientSpreadMethod
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MappingMode
+   (
+      This       : access IGradientBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.BrushMappingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MappingMode
+   (
+      This       : access IGradientBrush_Interface
+      ; value : Windows.UI.Xaml.Media.BrushMappingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ColorInterpolationMode
+   (
+      This       : access IGradientBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.ColorInterpolationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ColorInterpolationMode
+   (
+      This       : access IGradientBrush_Interface
+      ; value : Windows.UI.Xaml.Media.ColorInterpolationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GradientStops
+   (
+      This       : access IGradientBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVector_GradientStop
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_GradientStops
+   (
+      This       : access IGradientBrush_Interface
+      ; value : Windows.UI.Xaml.Media.IVector_GradientStop
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGradientBrushFactory : aliased constant Windows.IID := (3980884426, 17853, 16689, (182, 37, 190, 134, 224, 124, 97, 18 ));
+   
+   type IGradientBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IGradientBrushFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IGradientBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGradientBrushStatics : aliased constant Windows.IID := (2518049273, 35764, 20076, (185, 35, 181, 215, 135, 224, 241, 169 ));
+   
+   type IGradientBrushStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SpreadMethodProperty
+   (
+      This       : access IGradientBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MappingModeProperty
+   (
+      This       : access IGradientBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ColorInterpolationModeProperty
+   (
+      This       : access IGradientBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GradientStopsProperty
+   (
+      This       : access IGradientBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGradientStop : aliased constant Windows.IID := (1717519614, 11865, 19530, (171, 83, 7, 106, 16, 12, 205, 129 ));
+   
+   type IGradientStop_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Color
+   (
+      This       : access IGradientStop_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Color
+   (
+      This       : access IGradientStop_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Offset
+   (
+      This       : access IGradientStop_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Offset
+   (
+      This       : access IGradientStop_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGradientStopStatics : aliased constant Windows.IID := (1613393269, 24979, 20453, (142, 130, 199, 198, 246, 254, 186, 253 ));
+   
+   type IGradientStopStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ColorProperty
+   (
+      This       : access IGradientStopStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OffsetProperty
+   (
+      This       : access IGradientStopStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IImageBrush : aliased constant Windows.IID := (2681279351, 49450, 17555, (191, 125, 243, 168, 173, 116, 181, 84 ));
+   
+   type IImageBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ImageSource
+   (
+      This       : access IImageBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IImageSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ImageSource
+   (
+      This       : access IImageBrush_Interface
+      ; value : Windows.UI.Xaml.Media.IImageSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ImageFailed
+   (
+      This       : access IImageBrush_Interface
+      ; value : Windows.UI.Xaml.ExceptionRoutedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ImageFailed
+   (
+      This       : access IImageBrush_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ImageOpened
+   (
+      This       : access IImageBrush_Interface
+      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ImageOpened
+   (
+      This       : access IImageBrush_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IImageBrushStatics : aliased constant Windows.IID := (307605938, 56600, 17125, (137, 44, 234, 227, 12, 48, 91, 140 ));
+   
+   type IImageBrushStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ImageSourceProperty
+   (
+      This       : access IImageBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -2275,249 +2123,467 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IPathSegment : aliased constant Windows.IID := (4244271567, 40163, 18255, (129, 87, 16, 182, 67, 90, 97, 107 ));
+   IID_IIterable_Brush : aliased constant Windows.IID := (2961085141, 1715, 24018, (141, 73, 52, 159, 251, 216, 70, 52 ));
    
-   type IPathSegment_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_Brush_Interface is interface and Windows.IInspectable_Interface;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPathSegmentFactory : aliased constant Windows.IID := (706480814, 60621, 17508, (161, 72, 111, 253, 179, 170, 40, 31 ));
-   
-   type IPathSegmentFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProjection : aliased constant Windows.IID := (3007591767, 32569, 19716, (168, 156, 132, 67, 56, 202, 200, 151 ));
-   
-   type IProjection_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProjectionFactory : aliased constant Windows.IID := (3304234155, 24749, 20260, (189, 39, 157, 105, 195, 18, 124, 154 ));
-   
-   type IProjectionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
+   function First
    (
-      This       : access IProjectionFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IProjection
+      This       : access IIterable_Brush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IRateChangedRoutedEventArgs : aliased constant Windows.IID := (2417404527, 15528, 19584, (142, 47, 136, 81, 166, 143, 19, 31 ));
+   IID_IIterable_Double : aliased constant Windows.IID := (3342374478, 40036, 23502, (181, 206, 97, 233, 162, 130, 236, 74 ));
    
-   type IRateChangedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_Double_Interface is interface and Windows.IInspectable_Interface;
    
-   ------------------------------------------------------------------------
-   
-   IID_ITimelineMarker : aliased constant Windows.IID := (2794385453, 17850, 20048, (140, 173, 170, 234, 58, 34, 122, 245 ));
-   
-   type ITimelineMarker_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Time
+   function First
    (
-      This       : access ITimelineMarker_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Time
-   (
-      This       : access ITimelineMarker_Interface
-      ; value : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Type
-   (
-      This       : access ITimelineMarker_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Type
-   (
-      This       : access ITimelineMarker_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Text
-   (
-      This       : access ITimelineMarker_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Text
-   (
-      This       : access ITimelineMarker_Interface
-      ; value : Windows.String
+      This       : access IIterable_Double_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ITimelineMarkerStatics : aliased constant Windows.IID := (3299799238, 5795, 18507, (135, 245, 101, 40, 184, 240, 74, 71 ));
+   IID_IIterable_Geometry : aliased constant Windows.IID := (892600377, 3580, 21172, (135, 72, 13, 154, 117, 93, 184, 168 ));
    
-   type ITimelineMarkerStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_Geometry_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_TimeProperty
+   function First
    (
-      This       : access ITimelineMarkerStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TypeProperty
-   (
-      This       : access ITimelineMarkerStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TextProperty
-   (
-      This       : access ITimelineMarkerStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access IIterable_Geometry_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IGeometry
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ITimelineMarkerRoutedEventArgs : aliased constant Windows.IID := (2084257523, 11400, 19868, (153, 182, 70, 205, 189, 72, 212, 193 ));
+   IID_IIterable_GradientStop : aliased constant Windows.IID := (2433072019, 44070, 23470, (140, 30, 223, 142, 207, 0, 222, 230 ));
    
-   type ITimelineMarkerRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_GradientStop_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Marker
+   function First
    (
-      This       : access ITimelineMarkerRoutedEventArgs_Interface
+      This       : access IIterable_GradientStop_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IGradientStop
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IBrush : aliased constant Windows.IID := (2961085141, 1715, 24018, (141, 73, 52, 159, 251, 216, 70, 52 ));
+   
+   type IIterable_IBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IIterator_IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IXamlLight : aliased constant Windows.IID := (52600493, 11170, 20737, (147, 36, 162, 100, 157, 183, 230, 29 ));
+   
+   type IIterable_IXamlLight_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IXamlLight_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IIterator_IXamlLight
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_PathFigure : aliased constant Windows.IID := (3441280033, 55013, 23359, (168, 199, 153, 56, 242, 139, 41, 149 ));
+   
+   type IIterable_PathFigure_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_PathFigure_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IPathFigure
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_PathSegment : aliased constant Windows.IID := (937610017, 47561, 20486, (190, 215, 76, 50, 137, 129, 181, 81 ));
+   
+   type IIterable_PathSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_PathSegment_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IPathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_Point : aliased constant Windows.IID := (3247581197, 14857, 21539, (157, 197, 103, 184, 62, 189, 228, 29 ));
+   
+   type IIterable_Point_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_Point_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_TimelineMarker : aliased constant Windows.IID := (2490129141, 19465, 22404, (156, 242, 80, 105, 71, 55, 142, 142 ));
+   
+   type IIterable_TimelineMarker_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_TimelineMarker_Interface
       ; RetVal : access Windows.UI.Xaml.Media.ITimelineMarker
    )
    return Windows.HRESULT is abstract;
    
-   function put_Marker
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_Transform : aliased constant Windows.IID := (4220300476, 54252, 20920, (151, 120, 153, 237, 232, 70, 54, 17 ));
+   
+   type IIterable_Transform_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access ITimelineMarkerRoutedEventArgs_Interface
-      ; value : Windows.UI.Xaml.Media.ITimelineMarker
+      This       : access IIterable_Transform_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.ITransform
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IXamlLight : aliased constant Windows.IID := (214170655, 45863, 18968, (150, 72, 124, 132, 219, 38, 206, 34 ));
+   IID_IIterator_IBrush : aliased constant Windows.IID := (1565021140, 16195, 23226, (160, 116, 242, 27, 48, 146, 123, 246 ));
    
-   type IXamlLight_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IBrush_Interface is interface and Windows.IInspectable_Interface;
    
-   ------------------------------------------------------------------------
-   
-   IID_IXamlLightOverrides : aliased constant Windows.IID := (2086835911, 371, 18657, (183, 61, 127, 162, 22, 169, 172, 40 ));
-   
-   type IXamlLightOverrides_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetId
+   function get_Current
    (
-      This       : access IXamlLightOverrides_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_IBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
    
-   function OnConnected
+   function get_HasCurrent
    (
-      This       : access IXamlLightOverrides_Interface
-      ; newElement : Windows.UI.Xaml.IUIElement
+      This       : access IIterator_IBrush_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function OnDisconnected
+   function MoveNext
    (
-      This       : access IXamlLightOverrides_Interface
-      ; oldElement : Windows.UI.Xaml.IUIElement
+      This       : access IIterator_IBrush_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IXamlLightProtected : aliased constant Windows.IID := (1590632971, 4690, 17360, (151, 41, 110, 166, 146, 4, 104, 56 ));
-   
-   type IXamlLightProtected_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CompositionLight
+   function GetMany
    (
-      This       : access IXamlLightProtected_Interface
-      ; RetVal : access Windows.UI.Composition.ICompositionLight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CompositionLight
-   (
-      This       : access IXamlLightProtected_Interface
-      ; value : Windows.UI.Composition.ICompositionLight
+      This       : access IIterator_IBrush_Interface
+      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IXamlLightStatics : aliased constant Windows.IID := (3052051817, 46344, 20124, (189, 39, 107, 4, 75, 95, 120, 160 ));
+   IID_IIterator_IXamlLight : aliased constant Windows.IID := (2937800980, 41961, 24436, (176, 77, 224, 134, 206, 35, 171, 166 ));
    
-   type IXamlLightStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IXamlLight_Interface is interface and Windows.IInspectable_Interface;
    
-   function AddTargetElement
+   function get_Current
    (
-      This       : access IXamlLightStatics_Interface
-      ; lightId : Windows.String
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveTargetElement
-   (
-      This       : access IXamlLightStatics_Interface
-      ; lightId : Windows.String
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddTargetBrush
-   (
-      This       : access IXamlLightStatics_Interface
-      ; lightId : Windows.String
-      ; brush : Windows.UI.Xaml.Media.IBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveTargetBrush
-   (
-      This       : access IXamlLightStatics_Interface
-      ; lightId : Windows.String
-      ; brush : Windows.UI.Xaml.Media.IBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlLightFactory : aliased constant Windows.IID := (2279528296, 12373, 17336, (142, 246, 121, 141, 196, 194, 50, 154 ));
-   
-   type IXamlLightFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IXamlLightFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      This       : access IIterator_IXamlLight_Interface
       ; RetVal : access Windows.UI.Xaml.Media.IXamlLight
    )
    return Windows.HRESULT is abstract;
    
+   function get_HasCurrent
+   (
+      This       : access IIterator_IXamlLight_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IXamlLight_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IXamlLight_Interface
+      ; items : Windows.UI.Xaml.Media.IXamlLight_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
-   IID_IBitmapCache : aliased constant Windows.IID := (2042765726, 17618, 17936, (151, 53, 155, 236, 131, 128, 158, 207 ));
+   IID_ILinearGradientBrush : aliased constant Windows.IID := (2392248683, 48004, 19567, (157, 191, 157, 108, 92, 109, 156, 57 ));
    
-   type IBitmapCache_Interface is interface and Windows.IInspectable_Interface;
+   type ILinearGradientBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StartPoint
+   (
+      This       : access ILinearGradientBrush_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StartPoint
+   (
+      This       : access ILinearGradientBrush_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndPoint
+   (
+      This       : access ILinearGradientBrush_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EndPoint
+   (
+      This       : access ILinearGradientBrush_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILinearGradientBrushFactory : aliased constant Windows.IID := (182486556, 7802, 20461, (152, 87, 234, 140, 170, 121, 132, 144 ));
+   
+   type ILinearGradientBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstanceWithGradientStopCollectionAndAngle
+   (
+      This       : access ILinearGradientBrushFactory_Interface
+      ; gradientStopCollection : Windows.UI.Xaml.Media.IVector_GradientStop
+      ; angle : Windows.Double
+      ; RetVal : access Windows.UI.Xaml.Media.ILinearGradientBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILinearGradientBrushStatics : aliased constant Windows.IID := (2063000836, 11715, 16611, (190, 11, 179, 20, 193, 60, 185, 145 ));
+   
+   type ILinearGradientBrushStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StartPointProperty
+   (
+      This       : access ILinearGradientBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndPointProperty
+   (
+      This       : access ILinearGradientBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILineGeometry : aliased constant Windows.IID := (820892834, 36805, 16559, (167, 162, 194, 127, 231, 170, 19, 99 ));
+   
+   type ILineGeometry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StartPoint
+   (
+      This       : access ILineGeometry_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StartPoint
+   (
+      This       : access ILineGeometry_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndPoint
+   (
+      This       : access ILineGeometry_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EndPoint
+   (
+      This       : access ILineGeometry_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILineGeometryStatics : aliased constant Windows.IID := (1468720995, 21858, 20196, (135, 3, 234, 64, 54, 216, 145, 227 ));
+   
+   type ILineGeometryStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StartPointProperty
+   (
+      This       : access ILineGeometryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EndPointProperty
+   (
+      This       : access ILineGeometryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILineSegment : aliased constant Windows.IID := (4016713253, 16368, 17440, (164, 17, 113, 130, 164, 206, 203, 21 ));
+   
+   type ILineSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Point
+   (
+      This       : access ILineSegment_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Point
+   (
+      This       : access ILineSegment_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILineSegmentStatics : aliased constant Windows.IID := (2680860993, 1216, 19195, (135, 179, 232, 0, 185, 105, 184, 148 ));
+   
+   type ILineSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PointProperty
+   (
+      This       : access ILineSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoadedImageSourceLoadCompletedEventArgs : aliased constant Windows.IID := (449186590, 30775, 17545, (179, 229, 208, 213, 173, 10, 86, 196 ));
+   
+   type ILoadedImageSourceLoadCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ILoadedImageSourceLoadCompletedEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.LoadedImageSourceLoadStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoadedImageSurface : aliased constant Windows.IID := (84706067, 26423, 17850, (133, 49, 51, 9, 79, 235, 239, 85 ));
+   
+   type ILoadedImageSurface_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DecodedPhysicalSize
+   (
+      This       : access ILoadedImageSurface_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DecodedSize
+   (
+      This       : access ILoadedImageSurface_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NaturalSize
+   (
+      This       : access ILoadedImageSurface_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LoadCompleted
+   (
+      This       : access ILoadedImageSurface_Interface
+      ; value : TypedEventHandler_ILoadedImageSurface_add_LoadCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LoadCompleted
+   (
+      This       : access ILoadedImageSurface_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoadedImageSurfaceStatics : aliased constant Windows.IID := (582544886, 33965, 16555, (147, 125, 72, 113, 97, 62, 118, 93 ));
+   
+   type ILoadedImageSurfaceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function StartLoadFromUriWithSize
+   (
+      This       : access ILoadedImageSurfaceStatics_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; desiredMaxSize : Windows.Foundation.Size
+      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartLoadFromUri
+   (
+      This       : access ILoadedImageSurfaceStatics_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartLoadFromStreamWithSize
+   (
+      This       : access ILoadedImageSurfaceStatics_Interface
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; desiredMaxSize : Windows.Foundation.Size
+      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartLoadFromStream
+   (
+      This       : access ILoadedImageSurfaceStatics_Interface
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -2551,6 +2617,296 @@ package Windows.UI.Xaml.Media is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMatrixHelper : aliased constant Windows.IID := (4090448002, 1717, 18632, (158, 178, 23, 99, 233, 54, 64, 56 ));
+   
+   type IMatrixHelper_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMatrixHelperStatics : aliased constant Windows.IID := (3246786214, 14836, 19338, (132, 3, 40, 229, 229, 240, 51, 180 ));
+   
+   type IMatrixHelperStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Identity
+   (
+      This       : access IMatrixHelperStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Matrix
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromElements
+   (
+      This       : access IMatrixHelperStatics_Interface
+      ; m11 : Windows.Double
+      ; m12 : Windows.Double
+      ; m21 : Windows.Double
+      ; m22 : Windows.Double
+      ; offsetX : Windows.Double
+      ; offsetY : Windows.Double
+      ; RetVal : access Windows.UI.Xaml.Media.Matrix
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIsIdentity
+   (
+      This       : access IMatrixHelperStatics_Interface
+      ; target : Windows.UI.Xaml.Media.Matrix
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Transform_x
+   (
+      This       : access IMatrixHelperStatics_Interface
+      ; target : Windows.UI.Xaml.Media.Matrix
+      ; point : Windows.Foundation.Point
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMatrixTransform : aliased constant Windows.IID := (3992835409, 24557, 17916, (174, 98, 146, 164, 182, 207, 151, 7 ));
+   
+   type IMatrixTransform_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Matrix
+   (
+      This       : access IMatrixTransform_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Matrix
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Matrix
+   (
+      This       : access IMatrixTransform_Interface
+      ; value : Windows.UI.Xaml.Media.Matrix
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMatrixTransformStatics : aliased constant Windows.IID := (1138765383, 5560, 18264, (187, 151, 125, 82, 66, 10, 204, 91 ));
+   
+   type IMatrixTransformStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MatrixProperty
+   (
+      This       : access IMatrixTransformStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaTransportControlsThumbnailRequestedEventArgs : aliased constant Windows.IID := (3836260892, 58306, 18524, (174, 105, 241, 83, 123, 118, 117, 90 ));
+   
+   type IMediaTransportControlsThumbnailRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetThumbnailImage
+   (
+      This       : access IMediaTransportControlsThumbnailRequestedEventArgs_Interface
+      ; source : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IMediaTransportControlsThumbnailRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPartialMediaFailureDetectedEventArgs : aliased constant Windows.IID := (45505169, 58785, 17451, (136, 211, 45, 193, 39, 191, 197, 155 ));
+   
+   type IPartialMediaFailureDetectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StreamKind
+   (
+      This       : access IPartialMediaFailureDetectedEventArgs_Interface
+      ; RetVal : access Windows.Media.Playback.FailedMediaStreamKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPartialMediaFailureDetectedEventArgs2 : aliased constant Windows.IID := (1929857141, 35085, 16747, (185, 174, 232, 77, 253, 156, 75, 27 ));
+   
+   type IPartialMediaFailureDetectedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IPartialMediaFailureDetectedEventArgs2_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPathFigure : aliased constant Windows.IID := (1570069644, 24489, 19930, (163, 204, 16, 252, 220, 170, 32, 215 ));
+   
+   type IPathFigure_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Segments
+   (
+      This       : access IPathFigure_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVector_PathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Segments
+   (
+      This       : access IPathFigure_Interface
+      ; value : Windows.UI.Xaml.Media.IVector_PathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StartPoint
+   (
+      This       : access IPathFigure_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StartPoint
+   (
+      This       : access IPathFigure_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsClosed
+   (
+      This       : access IPathFigure_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsClosed
+   (
+      This       : access IPathFigure_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsFilled
+   (
+      This       : access IPathFigure_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsFilled
+   (
+      This       : access IPathFigure_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPathFigureStatics : aliased constant Windows.IID := (3053818329, 9109, 17175, (149, 82, 58, 88, 82, 111, 140, 123 ));
+   
+   type IPathFigureStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SegmentsProperty
+   (
+      This       : access IPathFigureStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StartPointProperty
+   (
+      This       : access IPathFigureStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsClosedProperty
+   (
+      This       : access IPathFigureStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsFilledProperty
+   (
+      This       : access IPathFigureStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPathGeometry : aliased constant Windows.IID := (136027640, 47846, 19403, (129, 60, 189, 224, 228, 109, 200, 183 ));
+   
+   type IPathGeometry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FillRule
+   (
+      This       : access IPathGeometry_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.FillRule
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FillRule
+   (
+      This       : access IPathGeometry_Interface
+      ; value : Windows.UI.Xaml.Media.FillRule
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Figures
+   (
+      This       : access IPathGeometry_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVector_PathFigure
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Figures
+   (
+      This       : access IPathGeometry_Interface
+      ; value : Windows.UI.Xaml.Media.IVector_PathFigure
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPathGeometryStatics : aliased constant Windows.IID := (3655699386, 11450, 18241, (143, 141, 49, 152, 207, 81, 134, 185 ));
+   
+   type IPathGeometryStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FillRuleProperty
+   (
+      This       : access IPathGeometryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FiguresProperty
+   (
+      This       : access IPathGeometryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPathSegment : aliased constant Windows.IID := (4244271567, 40163, 18255, (129, 87, 16, 182, 67, 90, 97, 107 ));
+   
+   type IPathSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPathSegmentFactory : aliased constant Windows.IID := (706480814, 60621, 17508, (161, 72, 111, 253, 179, 170, 40, 31 ));
+   
+   type IPathSegmentFactory_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -2832,6 +3188,186 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IPolyBezierSegment : aliased constant Windows.IID := (914379377, 14532, 19407, (150, 205, 2, 138, 109, 56, 175, 37 ));
+   
+   type IPolyBezierSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Points
+   (
+      This       : access IPolyBezierSegment_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVector_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Points
+   (
+      This       : access IPolyBezierSegment_Interface
+      ; value : Windows.UI.Xaml.Media.IVector_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPolyBezierSegmentStatics : aliased constant Windows.IID := (496084698, 5266, 19148, (189, 102, 164, 150, 243, 216, 41, 214 ));
+   
+   type IPolyBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PointsProperty
+   (
+      This       : access IPolyBezierSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPolyLineSegment : aliased constant Windows.IID := (1262059399, 41702, 18333, (189, 200, 111, 68, 100, 100, 104, 135 ));
+   
+   type IPolyLineSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Points
+   (
+      This       : access IPolyLineSegment_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVector_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Points
+   (
+      This       : access IPolyLineSegment_Interface
+      ; value : Windows.UI.Xaml.Media.IVector_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPolyLineSegmentStatics : aliased constant Windows.IID := (3595185287, 13297, 20080, (164, 127, 180, 152, 30, 246, 72, 162 ));
+   
+   type IPolyLineSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PointsProperty
+   (
+      This       : access IPolyLineSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPolyQuadraticBezierSegment : aliased constant Windows.IID := (3713854845, 59099, 19606, (182, 161, 63, 206, 150, 233, 135, 166 ));
+   
+   type IPolyQuadraticBezierSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Points
+   (
+      This       : access IPolyQuadraticBezierSegment_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVector_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Points
+   (
+      This       : access IPolyQuadraticBezierSegment_Interface
+      ; value : Windows.UI.Xaml.Media.IVector_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPolyQuadraticBezierSegmentStatics : aliased constant Windows.IID := (4260752245, 31445, 19593, (129, 105, 140, 151, 134, 171, 217, 235 ));
+   
+   type IPolyQuadraticBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PointsProperty
+   (
+      This       : access IPolyQuadraticBezierSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProjection : aliased constant Windows.IID := (3007591767, 32569, 19716, (168, 156, 132, 67, 56, 202, 200, 151 ));
+   
+   type IProjection_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProjectionFactory : aliased constant Windows.IID := (3304234155, 24749, 20260, (189, 39, 157, 105, 195, 18, 124, 154 ));
+   
+   type IProjectionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IProjectionFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IProjection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IQuadraticBezierSegment : aliased constant Windows.IID := (743479899, 48920, 17754, (160, 120, 145, 75, 82, 50, 216, 175 ));
+   
+   type IQuadraticBezierSegment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Point1
+   (
+      This       : access IQuadraticBezierSegment_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Point1
+   (
+      This       : access IQuadraticBezierSegment_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Point2
+   (
+      This       : access IQuadraticBezierSegment_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Point2
+   (
+      This       : access IQuadraticBezierSegment_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IQuadraticBezierSegmentStatics : aliased constant Windows.IID := (1774682744, 15371, 19279, (183, 162, 240, 3, 222, 212, 27, 176 ));
+   
+   type IQuadraticBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Point1Property
+   (
+      This       : access IQuadraticBezierSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Point2Property
+   (
+      This       : access IQuadraticBezierSegmentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRateChangedRoutedEventArgs : aliased constant Windows.IID := (2417404527, 15528, 19584, (142, 47, 136, 81, 166, 143, 19, 31 ));
+   
+   type IRateChangedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRectangleGeometry : aliased constant Windows.IID := (2723815256, 50549, 16790, (145, 207, 159, 223, 177, 4, 69, 195 ));
    
    type IRectangleGeometry_Interface is interface and Windows.IInspectable_Interface;
@@ -2865,294 +3401,182 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_ISolidColorBrush : aliased constant Windows.IID := (2642741328, 26355, 18655, (154, 143, 130, 75, 213, 224, 112, 175 ));
+   IID_IRenderedEventArgs : aliased constant Windows.IID := (3813245309, 33223, 18744, (130, 140, 167, 226, 121, 123, 53, 166 ));
    
-   type ISolidColorBrush_Interface is interface and Windows.IInspectable_Interface;
+   type IRenderedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameDuration
+   (
+      This       : access IRenderedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRenderingEventArgs : aliased constant Windows.IID := (1542968077, 38728, 19181, (131, 128, 215, 137, 14, 183, 118, 160 ));
+   
+   type IRenderingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RenderingTime
+   (
+      This       : access IRenderingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRevealBackgroundBrush : aliased constant Windows.IID := (639486990, 6545, 19679, (174, 224, 99, 80, 163, 249, 11, 185 ));
+   
+   type IRevealBackgroundBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRevealBackgroundBrushFactory : aliased constant Windows.IID := (2354494634, 677, 20293, (133, 6, 141, 57, 34, 143, 93, 63 ));
+   
+   type IRevealBackgroundBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IRevealBackgroundBrushFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IRevealBackgroundBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRevealBorderBrush : aliased constant Windows.IID := (101425429, 50498, 18492, (130, 2, 95, 3, 51, 24, 102, 201 ));
+   
+   type IRevealBorderBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRevealBorderBrushFactory : aliased constant Windows.IID := (2495763096, 62968, 17538, (162, 92, 103, 88, 80, 26, 134, 38 ));
+   
+   type IRevealBorderBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IRevealBorderBrushFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IRevealBorderBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRevealBrush : aliased constant Windows.IID := (540451053, 33393, 17304, (144, 25, 37, 135, 32, 147, 241, 63 ));
+   
+   type IRevealBrush_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Color
    (
-      This       : access ISolidColorBrush_Interface
+      This       : access IRevealBrush_Interface
       ; RetVal : access Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
    
    function put_Color
    (
-      This       : access ISolidColorBrush_Interface
+      This       : access IRevealBrush_Interface
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
    
+   function get_TargetTheme
+   (
+      This       : access IRevealBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.ApplicationTheme
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TargetTheme
+   (
+      This       : access IRevealBrush_Interface
+      ; value : Windows.UI.Xaml.ApplicationTheme
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AlwaysUseFallback
+   (
+      This       : access IRevealBrush_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AlwaysUseFallback
+   (
+      This       : access IRevealBrush_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
-   IID_ISolidColorBrushStatics : aliased constant Windows.IID := (3785776890, 11043, 16826, (185, 186, 112, 148, 236, 142, 78, 159 ));
+   IID_IRevealBrushFactory : aliased constant Windows.IID := (2643687886, 58272, 19119, (190, 55, 234, 157, 157, 212, 49, 5 ));
    
-   type ISolidColorBrushStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IRevealBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IRevealBrushFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IRevealBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRevealBrushStatics : aliased constant Windows.IID := (420423205, 29193, 19778, (168, 71, 26, 196, 187, 187, 52, 153 ));
+   
+   type IRevealBrushStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ColorProperty
    (
-      This       : access ISolidColorBrushStatics_Interface
+      This       : access IRevealBrushStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_ISolidColorBrushFactory : aliased constant Windows.IID := (3644182028, 34549, 19878, (138, 39, 177, 97, 158, 247, 249, 43 ));
-   
-   type ISolidColorBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstanceWithColor
+   function get_TargetThemeProperty
    (
-      This       : access ISolidColorBrushFactory_Interface
-      ; color : Windows.UI.Color
-      ; RetVal : access Windows.UI.Xaml.Media.ISolidColorBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITransform : aliased constant Windows.IID := (1308049528, 49110, 20177, (150, 130, 210, 253, 139, 242, 254, 111 ));
-   
-   type ITransform_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITransformFactory : aliased constant Windows.IID := (445995622, 31988, 17184, (180, 22, 97, 129, 25, 47, 204, 109 ));
-   
-   type ITransformFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICompositeTransform : aliased constant Windows.IID := (3366205531, 62026, 18177, (162, 101, 167, 136, 70, 241, 66, 185 ));
-   
-   type ICompositeTransform_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CenterX
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CenterX
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CenterY
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CenterY
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ScaleX
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ScaleX
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ScaleY
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ScaleY
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SkewX
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SkewX
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SkewY
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SkewY
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Rotation
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Rotation
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TranslateX
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TranslateX
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TranslateY
-   (
-      This       : access ICompositeTransform_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TranslateY
-   (
-      This       : access ICompositeTransform_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICompositeTransformStatics : aliased constant Windows.IID := (790170632, 33382, 18799, (150, 83, 161, 139, 212, 248, 54, 170 ));
-   
-   type ICompositeTransformStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CenterXProperty
-   (
-      This       : access ICompositeTransformStatics_Interface
+      This       : access IRevealBrushStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
-   function get_CenterYProperty
+   function get_AlwaysUseFallbackProperty
    (
-      This       : access ICompositeTransformStatics_Interface
+      This       : access IRevealBrushStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
-   function get_ScaleXProperty
+   function get_StateProperty
    (
-      This       : access ICompositeTransformStatics_Interface
+      This       : access IRevealBrushStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
-   function get_ScaleYProperty
+   function SetState
    (
-      This       : access ICompositeTransformStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access IRevealBrushStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.UI.Xaml.Media.RevealBrushState
    )
    return Windows.HRESULT is abstract;
    
-   function get_SkewXProperty
+   function GetState
    (
-      This       : access ICompositeTransformStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SkewYProperty
-   (
-      This       : access ICompositeTransformStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RotationProperty
-   (
-      This       : access ICompositeTransformStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TranslateXProperty
-   (
-      This       : access ICompositeTransformStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TranslateYProperty
-   (
-      This       : access ICompositeTransformStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMatrixTransform : aliased constant Windows.IID := (3992835409, 24557, 17916, (174, 98, 146, 164, 182, 207, 151, 7 ));
-   
-   type IMatrixTransform_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Matrix
-   (
-      This       : access IMatrixTransform_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Matrix
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Matrix
-   (
-      This       : access IMatrixTransform_Interface
-      ; value : Windows.UI.Xaml.Media.Matrix
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMatrixTransformStatics : aliased constant Windows.IID := (1138765383, 5560, 18264, (187, 151, 125, 82, 66, 10, 204, 91 ));
-   
-   type IMatrixTransformStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MatrixProperty
-   (
-      This       : access IMatrixTransformStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access IRevealBrushStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Xaml.Media.RevealBrushState
    )
    return Windows.HRESULT is abstract;
    
@@ -3425,6 +3849,250 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_ISolidColorBrush : aliased constant Windows.IID := (2642741328, 26355, 18655, (154, 143, 130, 75, 213, 224, 112, 175 ));
+   
+   type ISolidColorBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Color
+   (
+      This       : access ISolidColorBrush_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Color
+   (
+      This       : access ISolidColorBrush_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISolidColorBrushFactory : aliased constant Windows.IID := (3644182028, 34549, 19878, (138, 39, 177, 97, 158, 247, 249, 43 ));
+   
+   type ISolidColorBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstanceWithColor
+   (
+      This       : access ISolidColorBrushFactory_Interface
+      ; color : Windows.UI.Color
+      ; RetVal : access Windows.UI.Xaml.Media.ISolidColorBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISolidColorBrushStatics : aliased constant Windows.IID := (3785776890, 11043, 16826, (185, 186, 112, 148, 236, 142, 78, 159 ));
+   
+   type ISolidColorBrushStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ColorProperty
+   (
+      This       : access ISolidColorBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITileBrush : aliased constant Windows.IID := (3254898438, 52612, 18597, (150, 7, 102, 77, 115, 97, 205, 97 ));
+   
+   type ITileBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AlignmentX
+   (
+      This       : access ITileBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.AlignmentX
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AlignmentX
+   (
+      This       : access ITileBrush_Interface
+      ; value : Windows.UI.Xaml.Media.AlignmentX
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AlignmentY
+   (
+      This       : access ITileBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.AlignmentY
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AlignmentY
+   (
+      This       : access ITileBrush_Interface
+      ; value : Windows.UI.Xaml.Media.AlignmentY
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Stretch
+   (
+      This       : access ITileBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Stretch
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Stretch
+   (
+      This       : access ITileBrush_Interface
+      ; value : Windows.UI.Xaml.Media.Stretch
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITileBrushFactory : aliased constant Windows.IID := (2853543804, 60778, 20403, (176, 20, 181, 199, 227, 121, 164, 222 ));
+   
+   type ITileBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ITileBrushFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.ITileBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITileBrushStatics : aliased constant Windows.IID := (882360923, 46434, 20072, (132, 53, 35, 153, 246, 235, 148, 213 ));
+   
+   type ITileBrushStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AlignmentXProperty
+   (
+      This       : access ITileBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AlignmentYProperty
+   (
+      This       : access ITileBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StretchProperty
+   (
+      This       : access ITileBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimelineMarker : aliased constant Windows.IID := (2794385453, 17850, 20048, (140, 173, 170, 234, 58, 34, 122, 245 ));
+   
+   type ITimelineMarker_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Time
+   (
+      This       : access ITimelineMarker_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Time
+   (
+      This       : access ITimelineMarker_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Type
+   (
+      This       : access ITimelineMarker_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Type
+   (
+      This       : access ITimelineMarker_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Text
+   (
+      This       : access ITimelineMarker_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Text
+   (
+      This       : access ITimelineMarker_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimelineMarkerRoutedEventArgs : aliased constant Windows.IID := (2084257523, 11400, 19868, (153, 182, 70, 205, 189, 72, 212, 193 ));
+   
+   type ITimelineMarkerRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Marker
+   (
+      This       : access ITimelineMarkerRoutedEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.ITimelineMarker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Marker
+   (
+      This       : access ITimelineMarkerRoutedEventArgs_Interface
+      ; value : Windows.UI.Xaml.Media.ITimelineMarker
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimelineMarkerStatics : aliased constant Windows.IID := (3299799238, 5795, 18507, (135, 245, 101, 40, 184, 240, 74, 71 ));
+   
+   type ITimelineMarkerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TimeProperty
+   (
+      This       : access ITimelineMarkerStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TypeProperty
+   (
+      This       : access ITimelineMarkerStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextProperty
+   (
+      This       : access ITimelineMarkerStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITransform : aliased constant Windows.IID := (1308049528, 49110, 20177, (150, 130, 210, 253, 139, 242, 254, 111 ));
+   
+   type ITransform_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITransformFactory : aliased constant Windows.IID := (445995622, 31988, 17184, (180, 22, 97, 129, 25, 47, 204, 109 ));
+   
+   type ITransformFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITransformGroup : aliased constant Windows.IID := (1665240268, 36141, 18231, (185, 81, 42, 252, 225, 221, 196, 196 ));
    
    type ITransformGroup_Interface is interface and Windows.IInspectable_Interface;
@@ -3514,6 +4182,196 @@ package Windows.UI.Xaml.Media is
    (
       This       : access ITranslateTransformStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_Brush : aliased constant Windows.IID := (2832041188, 16095, 20850, (143, 119, 16, 233, 16, 229, 220, 93 ));
+   
+   type IVector_Brush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_Brush_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_Brush_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_Brush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_Brush_Interface
+      ; value : Windows.UI.Xaml.Media.IBrush
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_Brush_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_Brush_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_Brush_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_Brush_Interface
+      ; value : Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_Brush_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_Brush_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_Brush_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_Brush_Interface
+      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_Double : aliased constant Windows.IID := (4099068476, 48901, 24382, (136, 231, 209, 122, 103, 22, 185, 17 ));
+   
+   type IVector_Double_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_Double_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_Double_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_Double_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_Double_Interface
+      ; value : Windows.Double
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_Double_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_Double_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_Double_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_Double_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_Double_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_Double_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_Double_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Double_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_Double_Interface
+      ; items : Windows.Double_Ptr
    )
    return Windows.HRESULT is abstract;
    
@@ -3614,19 +4472,6 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_Geometry : aliased constant Windows.IID := (892600377, 3580, 21172, (135, 72, 13, 154, 117, 93, 184, 168 ));
-   
-   type IIterable_Geometry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_Geometry_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IGeometry
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVector_GradientStop : aliased constant Windows.IID := (859975076, 9459, 23378, (158, 141, 17, 221, 113, 240, 139, 177 ));
    
    type IVector_GradientStop_Interface is interface and Windows.IInspectable_Interface;
@@ -3722,144 +4567,36 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_GradientStop : aliased constant Windows.IID := (2433072019, 44070, 23470, (140, 30, 223, 142, 207, 0, 222, 230 ));
+   IID_IVector_IBrush : aliased constant Windows.IID := (2832041188, 16095, 20850, (143, 119, 16, 233, 16, 229, 220, 93 ));
    
-   type IIterable_GradientStop_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_GradientStop_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IGradientStop
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoadedImageSourceLoadCompletedEventArgs : aliased constant Windows.IID := (449186590, 30775, 17545, (179, 229, 208, 213, 173, 10, 86, 196 ));
-   
-   type ILoadedImageSourceLoadCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Status
-   (
-      This       : access ILoadedImageSourceLoadCompletedEventArgs_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.LoadedImageSourceLoadStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoadedImageSurface : aliased constant Windows.IID := (84706067, 26423, 17850, (133, 49, 51, 9, 79, 235, 239, 85 ));
-   
-   type ILoadedImageSurface_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DecodedPhysicalSize
-   (
-      This       : access ILoadedImageSurface_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DecodedSize
-   (
-      This       : access ILoadedImageSurface_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NaturalSize
-   (
-      This       : access ILoadedImageSurface_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_LoadCompleted
-   (
-      This       : access ILoadedImageSurface_Interface
-      ; value : TypedEventHandler_ILoadedImageSurface_add_LoadCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_LoadCompleted
-   (
-      This       : access ILoadedImageSurface_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoadedImageSurfaceStatics : aliased constant Windows.IID := (582544886, 33965, 16555, (147, 125, 72, 113, 97, 62, 118, 93 ));
-   
-   type ILoadedImageSurfaceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function StartLoadFromUriWithSize
-   (
-      This       : access ILoadedImageSurfaceStatics_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; desiredMaxSize : Windows.Foundation.Size
-      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function StartLoadFromUri
-   (
-      This       : access ILoadedImageSurfaceStatics_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function StartLoadFromStreamWithSize
-   (
-      This       : access ILoadedImageSurfaceStatics_Interface
-      ; stream : Windows.Storage.Streams.IRandomAccessStream
-      ; desiredMaxSize : Windows.Foundation.Size
-      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function StartLoadFromStream
-   (
-      This       : access ILoadedImageSurfaceStatics_Interface
-      ; stream : Windows.Storage.Streams.IRandomAccessStream
-      ; RetVal : access Windows.UI.Xaml.Media.ILoadedImageSurface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_PathFigure : aliased constant Windows.IID := (3727283205, 9949, 24178, (139, 203, 73, 81, 153, 212, 229, 181 ));
-   
-   type IVector_PathFigure_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_IBrush_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
       ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.IPathFigure
+      ; RetVal : access Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
    
    function get_Size
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    function GetView
    (
-      This       : access IVector_PathFigure_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IPathFigure
+      This       : access IVector_IBrush_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IVectorView_IBrush
    )
    return Windows.HRESULT is abstract;
    
    function IndexOf
    (
-      This       : access IVector_PathFigure_Interface
-      ; value : Windows.UI.Xaml.Media.IPathFigure
+      This       : access IVector_IBrush_Interface
+      ; value : Windows.UI.Xaml.Media.IBrush
       ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
@@ -3867,1455 +4604,59 @@ package Windows.UI.Xaml.Media is
    
    function SetAt
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
       ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IPathFigure
+      ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
    
    function InsertAt
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
       ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IPathFigure
+      ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
    
    function RemoveAt
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
       ; index : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    function Append
    (
-      This       : access IVector_PathFigure_Interface
-      ; value : Windows.UI.Xaml.Media.IPathFigure
+      This       : access IVector_IBrush_Interface
+      ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
    
    function RemoveAtEnd
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
    )
    return Windows.HRESULT is abstract;
    
    function Clear
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IVector_PathFigure_Interface
+      This       : access IVector_IBrush_Interface
       ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.IPathFigure_Ptr
+      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    function ReplaceAll
    (
-      This       : access IVector_PathFigure_Interface
-      ; items : Windows.UI.Xaml.Media.IPathFigure_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_PathFigure : aliased constant Windows.IID := (3441280033, 55013, 23359, (168, 199, 153, 56, 242, 139, 41, 149 ));
-   
-   type IIterable_PathFigure_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_PathFigure_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IPathFigure
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_PathSegment : aliased constant Windows.IID := (301847814, 45597, 22093, (182, 168, 255, 153, 16, 87, 184, 243 ));
-   
-   type IVector_PathSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_PathSegment_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.IPathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_PathSegment_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_PathSegment_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IPathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_PathSegment_Interface
-      ; value : Windows.UI.Xaml.Media.IPathSegment
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_PathSegment_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IPathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_PathSegment_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IPathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_PathSegment_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_PathSegment_Interface
-      ; value : Windows.UI.Xaml.Media.IPathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_PathSegment_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_PathSegment_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_PathSegment_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.IPathSegment_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_PathSegment_Interface
-      ; items : Windows.UI.Xaml.Media.IPathSegment_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_PathSegment : aliased constant Windows.IID := (937610017, 47561, 20486, (190, 215, 76, 50, 137, 129, 181, 81 ));
-   
-   type IIterable_PathSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_PathSegment_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IPathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGradientStop : aliased constant Windows.IID := (1717519614, 11865, 19530, (171, 83, 7, 106, 16, 12, 205, 129 ));
-   
-   type IGradientStop_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Color
-   (
-      This       : access IGradientStop_Interface
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Color
-   (
-      This       : access IGradientStop_Interface
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Offset
-   (
-      This       : access IGradientStop_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Offset
-   (
-      This       : access IGradientStop_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGradientStopStatics : aliased constant Windows.IID := (1613393269, 24979, 20453, (142, 130, 199, 198, 246, 254, 186, 253 ));
-   
-   type IGradientStopStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ColorProperty
-   (
-      This       : access IGradientStopStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OffsetProperty
-   (
-      This       : access IGradientStopStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPathFigure : aliased constant Windows.IID := (1570069644, 24489, 19930, (163, 204, 16, 252, 220, 170, 32, 215 ));
-   
-   type IPathFigure_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Segments
-   (
-      This       : access IPathFigure_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVector_PathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Segments
-   (
-      This       : access IPathFigure_Interface
-      ; value : Windows.UI.Xaml.Media.IVector_PathSegment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StartPoint
-   (
-      This       : access IPathFigure_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_StartPoint
-   (
-      This       : access IPathFigure_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsClosed
-   (
-      This       : access IPathFigure_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsClosed
-   (
-      This       : access IPathFigure_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsFilled
-   (
-      This       : access IPathFigure_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsFilled
-   (
-      This       : access IPathFigure_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPathFigureStatics : aliased constant Windows.IID := (3053818329, 9109, 17175, (149, 82, 58, 88, 82, 111, 140, 123 ));
-   
-   type IPathFigureStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SegmentsProperty
-   (
-      This       : access IPathFigureStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StartPointProperty
-   (
-      This       : access IPathFigureStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsClosedProperty
-   (
-      This       : access IPathFigureStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsFilledProperty
-   (
-      This       : access IPathFigureStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IArcSegment : aliased constant Windows.IID := (127143007, 25595, 17513, (145, 190, 241, 9, 124, 22, 128, 82 ));
-   
-   type IArcSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Point
-   (
-      This       : access IArcSegment_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Point
-   (
-      This       : access IArcSegment_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IArcSegment_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Size
-   (
-      This       : access IArcSegment_Interface
-      ; value : Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RotationAngle
-   (
-      This       : access IArcSegment_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RotationAngle
-   (
-      This       : access IArcSegment_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsLargeArc
-   (
-      This       : access IArcSegment_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsLargeArc
-   (
-      This       : access IArcSegment_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SweepDirection
-   (
-      This       : access IArcSegment_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.SweepDirection
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SweepDirection
-   (
-      This       : access IArcSegment_Interface
-      ; value : Windows.UI.Xaml.Media.SweepDirection
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IArcSegmentStatics : aliased constant Windows.IID := (2184482670, 35433, 16900, (156, 18, 114, 7, 223, 49, 118, 67 ));
-   
-   type IArcSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PointProperty
-   (
-      This       : access IArcSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SizeProperty
-   (
-      This       : access IArcSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RotationAngleProperty
-   (
-      This       : access IArcSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsLargeArcProperty
-   (
-      This       : access IArcSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SweepDirectionProperty
-   (
-      This       : access IArcSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBezierSegment : aliased constant Windows.IID := (2940975598, 35204, 18871, (129, 223, 63, 53, 153, 75, 149, 235 ));
-   
-   type IBezierSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Point1
-   (
-      This       : access IBezierSegment_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Point1
-   (
-      This       : access IBezierSegment_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Point2
-   (
-      This       : access IBezierSegment_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Point2
-   (
-      This       : access IBezierSegment_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Point3
-   (
-      This       : access IBezierSegment_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Point3
-   (
-      This       : access IBezierSegment_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBezierSegmentStatics : aliased constant Windows.IID := (3223878572, 5136, 17712, (132, 82, 28, 157, 10, 209, 243, 65 ));
-   
-   type IBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Point1Property
-   (
-      This       : access IBezierSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Point2Property
-   (
-      This       : access IBezierSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Point3Property
-   (
-      This       : access IBezierSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEllipseGeometry : aliased constant Windows.IID := (3572898746, 20130, 16598, (170, 108, 141, 56, 170, 135, 101, 31 ));
-   
-   type IEllipseGeometry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Center
-   (
-      This       : access IEllipseGeometry_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Center
-   (
-      This       : access IEllipseGeometry_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RadiusX
-   (
-      This       : access IEllipseGeometry_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RadiusX
-   (
-      This       : access IEllipseGeometry_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RadiusY
-   (
-      This       : access IEllipseGeometry_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RadiusY
-   (
-      This       : access IEllipseGeometry_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEllipseGeometryStatics : aliased constant Windows.IID := (390388551, 63029, 19222, (174, 230, 224, 82, 166, 93, 239, 178 ));
-   
-   type IEllipseGeometryStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CenterProperty
-   (
-      This       : access IEllipseGeometryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RadiusXProperty
-   (
-      This       : access IEllipseGeometryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RadiusYProperty
-   (
-      This       : access IEllipseGeometryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGeometryGroup : aliased constant Windows.IID := (1428314721, 34423, 19596, (142, 70, 238, 61, 195, 85, 17, 75 ));
-   
-   type IGeometryGroup_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FillRule
-   (
-      This       : access IGeometryGroup_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.FillRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FillRule
-   (
-      This       : access IGeometryGroup_Interface
-      ; value : Windows.UI.Xaml.Media.FillRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Children
-   (
-      This       : access IGeometryGroup_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVector_Geometry
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Children
-   (
-      This       : access IGeometryGroup_Interface
-      ; value : Windows.UI.Xaml.Media.IVector_Geometry
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGeometryGroupStatics : aliased constant Windows.IID := (1456035316, 33942, 19382, (171, 240, 97, 123, 31, 231, 139, 69 ));
-   
-   type IGeometryGroupStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FillRuleProperty
-   (
-      This       : access IGeometryGroupStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ChildrenProperty
-   (
-      This       : access IGeometryGroupStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGradientBrush : aliased constant Windows.IID := (560391839, 37722, 16785, (142, 60, 28, 141, 253, 252, 220, 120 ));
-   
-   type IGradientBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SpreadMethod
-   (
-      This       : access IGradientBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.GradientSpreadMethod
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SpreadMethod
-   (
-      This       : access IGradientBrush_Interface
-      ; value : Windows.UI.Xaml.Media.GradientSpreadMethod
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MappingMode
-   (
-      This       : access IGradientBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.BrushMappingMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MappingMode
-   (
-      This       : access IGradientBrush_Interface
-      ; value : Windows.UI.Xaml.Media.BrushMappingMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ColorInterpolationMode
-   (
-      This       : access IGradientBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.ColorInterpolationMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ColorInterpolationMode
-   (
-      This       : access IGradientBrush_Interface
-      ; value : Windows.UI.Xaml.Media.ColorInterpolationMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_GradientStops
-   (
-      This       : access IGradientBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVector_GradientStop
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_GradientStops
-   (
-      This       : access IGradientBrush_Interface
-      ; value : Windows.UI.Xaml.Media.IVector_GradientStop
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGradientBrushStatics : aliased constant Windows.IID := (2518049273, 35764, 20076, (185, 35, 181, 215, 135, 224, 241, 169 ));
-   
-   type IGradientBrushStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SpreadMethodProperty
-   (
-      This       : access IGradientBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MappingModeProperty
-   (
-      This       : access IGradientBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ColorInterpolationModeProperty
-   (
-      This       : access IGradientBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_GradientStopsProperty
-   (
-      This       : access IGradientBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGradientBrushFactory : aliased constant Windows.IID := (3980884426, 17853, 16689, (182, 37, 190, 134, 224, 124, 97, 18 ));
-   
-   type IGradientBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IGradientBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IGradientBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILineGeometry : aliased constant Windows.IID := (820892834, 36805, 16559, (167, 162, 194, 127, 231, 170, 19, 99 ));
-   
-   type ILineGeometry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_StartPoint
-   (
-      This       : access ILineGeometry_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_StartPoint
-   (
-      This       : access ILineGeometry_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EndPoint
-   (
-      This       : access ILineGeometry_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EndPoint
-   (
-      This       : access ILineGeometry_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILineGeometryStatics : aliased constant Windows.IID := (1468720995, 21858, 20196, (135, 3, 234, 64, 54, 216, 145, 227 ));
-   
-   type ILineGeometryStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_StartPointProperty
-   (
-      This       : access ILineGeometryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EndPointProperty
-   (
-      This       : access ILineGeometryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILineSegment : aliased constant Windows.IID := (4016713253, 16368, 17440, (164, 17, 113, 130, 164, 206, 203, 21 ));
-   
-   type ILineSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Point
-   (
-      This       : access ILineSegment_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Point
-   (
-      This       : access ILineSegment_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILineSegmentStatics : aliased constant Windows.IID := (2680860993, 1216, 19195, (135, 179, 232, 0, 185, 105, 184, 148 ));
-   
-   type ILineSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PointProperty
-   (
-      This       : access ILineSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPathGeometry : aliased constant Windows.IID := (136027640, 47846, 19403, (129, 60, 189, 224, 228, 109, 200, 183 ));
-   
-   type IPathGeometry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FillRule
-   (
-      This       : access IPathGeometry_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.FillRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FillRule
-   (
-      This       : access IPathGeometry_Interface
-      ; value : Windows.UI.Xaml.Media.FillRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Figures
-   (
-      This       : access IPathGeometry_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVector_PathFigure
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Figures
-   (
-      This       : access IPathGeometry_Interface
-      ; value : Windows.UI.Xaml.Media.IVector_PathFigure
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPathGeometryStatics : aliased constant Windows.IID := (3655699386, 11450, 18241, (143, 141, 49, 152, 207, 81, 134, 185 ));
-   
-   type IPathGeometryStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FillRuleProperty
-   (
-      This       : access IPathGeometryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FiguresProperty
-   (
-      This       : access IPathGeometryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPolyBezierSegment : aliased constant Windows.IID := (914379377, 14532, 19407, (150, 205, 2, 138, 109, 56, 175, 37 ));
-   
-   type IPolyBezierSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Points
-   (
-      This       : access IPolyBezierSegment_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVector_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Points
-   (
-      This       : access IPolyBezierSegment_Interface
-      ; value : Windows.UI.Xaml.Media.IVector_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPolyBezierSegmentStatics : aliased constant Windows.IID := (496084698, 5266, 19148, (189, 102, 164, 150, 243, 216, 41, 214 ));
-   
-   type IPolyBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PointsProperty
-   (
-      This       : access IPolyBezierSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPolyLineSegment : aliased constant Windows.IID := (1262059399, 41702, 18333, (189, 200, 111, 68, 100, 100, 104, 135 ));
-   
-   type IPolyLineSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Points
-   (
-      This       : access IPolyLineSegment_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVector_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Points
-   (
-      This       : access IPolyLineSegment_Interface
-      ; value : Windows.UI.Xaml.Media.IVector_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPolyLineSegmentStatics : aliased constant Windows.IID := (3595185287, 13297, 20080, (164, 127, 180, 152, 30, 246, 72, 162 ));
-   
-   type IPolyLineSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PointsProperty
-   (
-      This       : access IPolyLineSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPolyQuadraticBezierSegment : aliased constant Windows.IID := (3713854845, 59099, 19606, (182, 161, 63, 206, 150, 233, 135, 166 ));
-   
-   type IPolyQuadraticBezierSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Points
-   (
-      This       : access IPolyQuadraticBezierSegment_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVector_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Points
-   (
-      This       : access IPolyQuadraticBezierSegment_Interface
-      ; value : Windows.UI.Xaml.Media.IVector_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPolyQuadraticBezierSegmentStatics : aliased constant Windows.IID := (4260752245, 31445, 19593, (129, 105, 140, 151, 134, 171, 217, 235 ));
-   
-   type IPolyQuadraticBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PointsProperty
-   (
-      This       : access IPolyQuadraticBezierSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IQuadraticBezierSegment : aliased constant Windows.IID := (743479899, 48920, 17754, (160, 120, 145, 75, 82, 50, 216, 175 ));
-   
-   type IQuadraticBezierSegment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Point1
-   (
-      This       : access IQuadraticBezierSegment_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Point1
-   (
-      This       : access IQuadraticBezierSegment_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Point2
-   (
-      This       : access IQuadraticBezierSegment_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Point2
-   (
-      This       : access IQuadraticBezierSegment_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IQuadraticBezierSegmentStatics : aliased constant Windows.IID := (1774682744, 15371, 19279, (183, 162, 240, 3, 222, 212, 27, 176 ));
-   
-   type IQuadraticBezierSegmentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Point1Property
-   (
-      This       : access IQuadraticBezierSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Point2Property
-   (
-      This       : access IQuadraticBezierSegmentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITileBrush : aliased constant Windows.IID := (3254898438, 52612, 18597, (150, 7, 102, 77, 115, 97, 205, 97 ));
-   
-   type ITileBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AlignmentX
-   (
-      This       : access ITileBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.AlignmentX
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AlignmentX
-   (
-      This       : access ITileBrush_Interface
-      ; value : Windows.UI.Xaml.Media.AlignmentX
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AlignmentY
-   (
-      This       : access ITileBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.AlignmentY
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AlignmentY
-   (
-      This       : access ITileBrush_Interface
-      ; value : Windows.UI.Xaml.Media.AlignmentY
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Stretch
-   (
-      This       : access ITileBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Stretch
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Stretch
-   (
-      This       : access ITileBrush_Interface
-      ; value : Windows.UI.Xaml.Media.Stretch
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITileBrushStatics : aliased constant Windows.IID := (882360923, 46434, 20072, (132, 53, 35, 153, 246, 235, 148, 213 ));
-   
-   type ITileBrushStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AlignmentXProperty
-   (
-      This       : access ITileBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AlignmentYProperty
-   (
-      This       : access ITileBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StretchProperty
-   (
-      This       : access ITileBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITileBrushFactory : aliased constant Windows.IID := (2853543804, 60778, 20403, (176, 20, 181, 199, 227, 121, 164, 222 ));
-   
-   type ITileBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access ITileBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.ITileBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlCompositionBrushBase : aliased constant Windows.IID := (65286873, 45916, 19065, (129, 28, 197, 101, 32, 4, 218, 14 ));
-   
-   type IXamlCompositionBrushBase_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FallbackColor
-   (
-      This       : access IXamlCompositionBrushBase_Interface
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FallbackColor
-   (
-      This       : access IXamlCompositionBrushBase_Interface
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlCompositionBrushBaseOverrides : aliased constant Windows.IID := (3515951089, 14516, 20129, (143, 51, 132, 150, 41, 164, 201, 193 ));
-   
-   type IXamlCompositionBrushBaseOverrides_Interface is interface and Windows.IInspectable_Interface;
-   
-   function OnConnected
-   (
-      This       : access IXamlCompositionBrushBaseOverrides_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function OnDisconnected
-   (
-      This       : access IXamlCompositionBrushBaseOverrides_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlCompositionBrushBaseProtected : aliased constant Windows.IID := (353629144, 1111, 19996, (173, 119, 17, 193, 217, 135, 151, 67 ));
-   
-   type IXamlCompositionBrushBaseProtected_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CompositionBrush
-   (
-      This       : access IXamlCompositionBrushBaseProtected_Interface
-      ; RetVal : access Windows.UI.Composition.ICompositionBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CompositionBrush
-   (
-      This       : access IXamlCompositionBrushBaseProtected_Interface
-      ; value : Windows.UI.Composition.ICompositionBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlCompositionBrushBaseStatics : aliased constant Windows.IID := (1339333382, 1562, 17439, (185, 122, 173, 251, 212, 26, 230, 129 ));
-   
-   type IXamlCompositionBrushBaseStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FallbackColorProperty
-   (
-      This       : access IXamlCompositionBrushBaseStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlCompositionBrushBaseFactory : aliased constant Windows.IID := (961480739, 9297, 20184, (189, 36, 72, 129, 73, 179, 66, 141 ));
-   
-   type IXamlCompositionBrushBaseFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IXamlCompositionBrushBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.IXamlCompositionBrushBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IImageBrush : aliased constant Windows.IID := (2681279351, 49450, 17555, (191, 125, 243, 168, 173, 116, 181, 84 ));
-   
-   type IImageBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ImageSource
-   (
-      This       : access IImageBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IImageSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ImageSource
-   (
-      This       : access IImageBrush_Interface
-      ; value : Windows.UI.Xaml.Media.IImageSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_ImageFailed
-   (
-      This       : access IImageBrush_Interface
-      ; value : Windows.UI.Xaml.ExceptionRoutedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ImageFailed
-   (
-      This       : access IImageBrush_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_ImageOpened
-   (
-      This       : access IImageBrush_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ImageOpened
-   (
-      This       : access IImageBrush_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IImageBrushStatics : aliased constant Windows.IID := (307605938, 56600, 17125, (137, 44, 234, 227, 12, 48, 91, 140 ));
-   
-   type IImageBrushStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ImageSourceProperty
-   (
-      This       : access IImageBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILinearGradientBrush : aliased constant Windows.IID := (2392248683, 48004, 19567, (157, 191, 157, 108, 92, 109, 156, 57 ));
-   
-   type ILinearGradientBrush_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_StartPoint
-   (
-      This       : access ILinearGradientBrush_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_StartPoint
-   (
-      This       : access ILinearGradientBrush_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EndPoint
-   (
-      This       : access ILinearGradientBrush_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EndPoint
-   (
-      This       : access ILinearGradientBrush_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILinearGradientBrushStatics : aliased constant Windows.IID := (2063000836, 11715, 16611, (190, 11, 179, 20, 193, 60, 185, 145 ));
-   
-   type ILinearGradientBrushStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_StartPointProperty
-   (
-      This       : access ILinearGradientBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EndPointProperty
-   (
-      This       : access ILinearGradientBrushStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILinearGradientBrushFactory : aliased constant Windows.IID := (182486556, 7802, 20461, (152, 87, 234, 140, 170, 121, 132, 144 ));
-   
-   type ILinearGradientBrushFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstanceWithGradientStopCollectionAndAngle
-   (
-      This       : access ILinearGradientBrushFactory_Interface
-      ; gradientStopCollection : Windows.UI.Xaml.Media.IVector_GradientStop
-      ; angle : Windows.Double
-      ; RetVal : access Windows.UI.Xaml.Media.ILinearGradientBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type ICompositionSurface_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IXamlLight : aliased constant Windows.IID := (2937800980, 41961, 24436, (176, 77, 224, 134, 206, 35, 171, 166 ));
-   
-   type IIterator_IXamlLight_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IXamlLight_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IXamlLight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IXamlLight_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IXamlLight_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IXamlLight_Interface
-      ; items : Windows.UI.Xaml.Media.IXamlLight_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IXamlLight : aliased constant Windows.IID := (52600493, 11170, 20737, (147, 36, 162, 100, 157, 183, 230, 29 ));
-   
-   type IIterable_IXamlLight_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IXamlLight_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IIterator_IXamlLight
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IXamlLight : aliased constant Windows.IID := (2034444552, 57429, 23571, (188, 0, 37, 87, 150, 213, 159, 91 ));
-   
-   type IVectorView_IXamlLight_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IXamlLight_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.IXamlLight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IXamlLight_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IXamlLight_Interface
-      ; value : Windows.UI.Xaml.Media.IXamlLight
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IXamlLight_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.IXamlLight_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IVector_IBrush_Interface
+      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
    )
    return Windows.HRESULT is abstract;
    
@@ -5416,49 +4757,476 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IBrush : aliased constant Windows.IID := (1565021140, 16195, 23226, (160, 116, 242, 27, 48, 146, 123, 246 ));
+   IID_IVector_PathFigure : aliased constant Windows.IID := (3727283205, 9949, 24178, (139, 203, 73, 81, 153, 212, 229, 181 ));
    
-   type IIterator_IBrush_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_PathFigure_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function GetAt
    (
-      This       : access IIterator_IBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IBrush
+      This       : access IVector_PathFigure_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.IPathFigure
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_Size
    (
-      This       : access IIterator_IBrush_Interface
+      This       : access IVector_PathFigure_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_PathFigure_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IPathFigure
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_PathFigure_Interface
+      ; value : Windows.UI.Xaml.Media.IPathFigure
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
+   function SetAt
    (
-      This       : access IIterator_IBrush_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IVector_PathFigure_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.IPathFigure
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_PathFigure_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.IPathFigure
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_PathFigure_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_PathFigure_Interface
+      ; value : Windows.UI.Xaml.Media.IPathFigure
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_PathFigure_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_PathFigure_Interface
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_IBrush_Interface
-      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
+      This       : access IVector_PathFigure_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.IPathFigure_Ptr
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_PathFigure_Interface
+      ; items : Windows.UI.Xaml.Media.IPathFigure_Ptr
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IBrush : aliased constant Windows.IID := (2961085141, 1715, 24018, (141, 73, 52, 159, 251, 216, 70, 52 ));
+   IID_IVector_PathSegment : aliased constant Windows.IID := (301847814, 45597, 22093, (182, 168, 255, 153, 16, 87, 184, 243 ));
    
-   type IIterable_IBrush_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_PathSegment_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function GetAt
    (
-      This       : access IIterable_IBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IIterator_IBrush
+      This       : access IVector_PathSegment_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.IPathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_PathSegment_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_PathSegment_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IPathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_PathSegment_Interface
+      ; value : Windows.UI.Xaml.Media.IPathSegment
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_PathSegment_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.IPathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_PathSegment_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.IPathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_PathSegment_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_PathSegment_Interface
+      ; value : Windows.UI.Xaml.Media.IPathSegment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_PathSegment_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_PathSegment_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_PathSegment_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.IPathSegment_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_PathSegment_Interface
+      ; items : Windows.UI.Xaml.Media.IPathSegment_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_Point : aliased constant Windows.IID := (3235189673, 60490, 23133, (182, 213, 183, 7, 222, 253, 185, 247 ));
+   
+   type IVector_Point_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_Point_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_Point_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_Point_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_Point_Interface
+      ; value : Windows.Foundation.Point
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_Point_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_Point_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_Point_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_Point_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_Point_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_Point_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_Point_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Foundation.Point_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_Point_Interface
+      ; items : Windows.Foundation.Point_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_TimelineMarker : aliased constant Windows.IID := (3000556980, 53944, 22832, (148, 45, 38, 17, 135, 86, 189, 70 ));
+   
+   type IVector_TimelineMarker_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.ITimelineMarker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.ITimelineMarker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; value : Windows.UI.Xaml.Media.ITimelineMarker
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.ITimelineMarker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.ITimelineMarker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; value : Windows.UI.Xaml.Media.ITimelineMarker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_TimelineMarker_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_TimelineMarker_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.ITimelineMarker_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_TimelineMarker_Interface
+      ; items : Windows.UI.Xaml.Media.ITimelineMarker_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_Transform : aliased constant Windows.IID := (1658305473, 29173, 22033, (169, 132, 229, 113, 194, 222, 123, 170 ));
+   
+   type IVector_Transform_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_Transform_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_Transform_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_Transform_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_Transform_Interface
+      ; value : Windows.UI.Xaml.Media.ITransform
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_Transform_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_Transform_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_Transform_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_Transform_Interface
+      ; value : Windows.UI.Xaml.Media.ITransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_Transform_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_Transform_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_Transform_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.ITransform_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_Transform_Interface
+      ; items : Windows.UI.Xaml.Media.ITransform_Ptr
    )
    return Windows.HRESULT is abstract;
    
@@ -5503,102 +5271,347 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_IVector_IBrush : aliased constant Windows.IID := (2832041188, 16095, 20850, (143, 119, 16, 233, 16, 229, 220, 93 ));
+   IID_IVectorView_IXamlLight : aliased constant Windows.IID := (2034444552, 57429, 23571, (188, 0, 37, 87, 150, 213, 159, 91 ));
    
-   type IVector_IBrush_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IXamlLight_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
    (
-      This       : access IVector_IBrush_Interface
+      This       : access IVectorView_IXamlLight_Interface
       ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.IBrush
+      ; RetVal : access Windows.UI.Xaml.Media.IXamlLight
    )
    return Windows.HRESULT is abstract;
    
    function get_Size
    (
-      This       : access IVector_IBrush_Interface
+      This       : access IVectorView_IXamlLight_Interface
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_IBrush_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.IVectorView_IBrush
    )
    return Windows.HRESULT is abstract;
    
    function IndexOf
    (
-      This       : access IVector_IBrush_Interface
-      ; value : Windows.UI.Xaml.Media.IBrush
+      This       : access IVectorView_IXamlLight_Interface
+      ; value : Windows.UI.Xaml.Media.IXamlLight
       ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetAt
-   (
-      This       : access IVector_IBrush_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_IBrush_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.IBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_IBrush_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_IBrush_Interface
-      ; value : Windows.UI.Xaml.Media.IBrush
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_IBrush_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_IBrush_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
    function GetMany
    (
-      This       : access IVector_IBrush_Interface
+      This       : access IVectorView_IXamlLight_Interface
       ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
+      ; items : Windows.UI.Xaml.Media.IXamlLight_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function ReplaceAll
+   ------------------------------------------------------------------------
+   
+   IID_IVisualTreeHelper : aliased constant Windows.IID := (616117731, 21191, 16705, (139, 172, 167, 61, 6, 19, 5, 105 ));
+   
+   type IVisualTreeHelper_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVisualTreeHelperStatics : aliased constant Windows.IID := (3881261252, 53853, 19229, (151, 31, 89, 111, 23, 241, 43, 170 ));
+   
+   type IVisualTreeHelperStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FindElementsInHostCoordinatesPoint
    (
-      This       : access IVector_IBrush_Interface
-      ; items : Windows.UI.Xaml.Media.IBrush_Ptr
+      This       : access IVisualTreeHelperStatics_Interface
+      ; intersectingPoint : Windows.Foundation.Point
+      ; subtree : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindElementsInHostCoordinatesRect
+   (
+      This       : access IVisualTreeHelperStatics_Interface
+      ; intersectingRect : Windows.Foundation.Rect
+      ; subtree : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindAllElementsInHostCoordinatesPoint
+   (
+      This       : access IVisualTreeHelperStatics_Interface
+      ; intersectingPoint : Windows.Foundation.Point
+      ; subtree : Windows.UI.Xaml.IUIElement
+      ; includeAllElements : Windows.Boolean
+      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindAllElementsInHostCoordinatesRect
+   (
+      This       : access IVisualTreeHelperStatics_Interface
+      ; intersectingRect : Windows.Foundation.Rect
+      ; subtree : Windows.UI.Xaml.IUIElement
+      ; includeAllElements : Windows.Boolean
+      ; RetVal : access Windows.UI.Xaml.IIterable_IUIElement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetChild
+   (
+      This       : access IVisualTreeHelperStatics_Interface
+      ; reference : Windows.UI.Xaml.IDependencyObject
+      ; childIndex : Windows.Int32
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetChildrenCount
+   (
+      This       : access IVisualTreeHelperStatics_Interface
+      ; reference : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetParent
+   (
+      This       : access IVisualTreeHelperStatics_Interface
+      ; reference : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DisconnectChildrenRecursive
+   (
+      This       : access IVisualTreeHelperStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVisualTreeHelperStatics2 : aliased constant Windows.IID := (129814902, 34463, 17575, (135, 151, 33, 3, 164, 195, 228, 122 ));
+   
+   type IVisualTreeHelperStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetOpenPopups
+   (
+      This       : access IVisualTreeHelperStatics2_Interface
+      ; window : Windows.UI.Xaml.IWindow
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlCompositionBrushBase : aliased constant Windows.IID := (65286873, 45916, 19065, (129, 28, 197, 101, 32, 4, 218, 14 ));
+   
+   type IXamlCompositionBrushBase_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FallbackColor
+   (
+      This       : access IXamlCompositionBrushBase_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FallbackColor
+   (
+      This       : access IXamlCompositionBrushBase_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlCompositionBrushBaseFactory : aliased constant Windows.IID := (961480739, 9297, 20184, (189, 36, 72, 129, 73, 179, 66, 141 ));
+   
+   type IXamlCompositionBrushBaseFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IXamlCompositionBrushBaseFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IXamlCompositionBrushBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlCompositionBrushBaseOverrides : aliased constant Windows.IID := (3515951089, 14516, 20129, (143, 51, 132, 150, 41, 164, 201, 193 ));
+   
+   type IXamlCompositionBrushBaseOverrides_Interface is interface and Windows.IInspectable_Interface;
+   
+   function OnConnected
+   (
+      This       : access IXamlCompositionBrushBaseOverrides_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function OnDisconnected
+   (
+      This       : access IXamlCompositionBrushBaseOverrides_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlCompositionBrushBaseProtected : aliased constant Windows.IID := (353629144, 1111, 19996, (173, 119, 17, 193, 217, 135, 151, 67 ));
+   
+   type IXamlCompositionBrushBaseProtected_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CompositionBrush
+   (
+      This       : access IXamlCompositionBrushBaseProtected_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CompositionBrush
+   (
+      This       : access IXamlCompositionBrushBaseProtected_Interface
+      ; value : Windows.UI.Composition.ICompositionBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlCompositionBrushBaseStatics : aliased constant Windows.IID := (1339333382, 1562, 17439, (185, 122, 173, 251, 212, 26, 230, 129 ));
+   
+   type IXamlCompositionBrushBaseStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FallbackColorProperty
+   (
+      This       : access IXamlCompositionBrushBaseStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlLight : aliased constant Windows.IID := (214170655, 45863, 18968, (150, 72, 124, 132, 219, 38, 206, 34 ));
+   
+   type IXamlLight_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlLightFactory : aliased constant Windows.IID := (2279528296, 12373, 17336, (142, 246, 121, 141, 196, 194, 50, 154 ));
+   
+   type IXamlLightFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IXamlLightFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IXamlLight
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlLightOverrides : aliased constant Windows.IID := (2086835911, 371, 18657, (183, 61, 127, 162, 22, 169, 172, 40 ));
+   
+   type IXamlLightOverrides_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetId
+   (
+      This       : access IXamlLightOverrides_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function OnConnected
+   (
+      This       : access IXamlLightOverrides_Interface
+      ; newElement : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function OnDisconnected
+   (
+      This       : access IXamlLightOverrides_Interface
+      ; oldElement : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlLightProtected : aliased constant Windows.IID := (1590632971, 4690, 17360, (151, 41, 110, 166, 146, 4, 104, 56 ));
+   
+   type IXamlLightProtected_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CompositionLight
+   (
+      This       : access IXamlLightProtected_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionLight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CompositionLight
+   (
+      This       : access IXamlLightProtected_Interface
+      ; value : Windows.UI.Composition.ICompositionLight
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlLightStatics : aliased constant Windows.IID := (3052051817, 46344, 20124, (189, 39, 107, 4, 75, 95, 120, 160 ));
+   
+   type IXamlLightStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddTargetElement
+   (
+      This       : access IXamlLightStatics_Interface
+      ; lightId : Windows.String
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveTargetElement
+   (
+      This       : access IXamlLightStatics_Interface
+      ; lightId : Windows.String
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddTargetBrush
+   (
+      This       : access IXamlLightStatics_Interface
+      ; lightId : Windows.String
+      ; brush : Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveTargetBrush
+   (
+      This       : access IXamlLightStatics_Interface
+      ; lightId : Windows.String
+      ; brush : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_IRenderedEventArgs : aliased constant Windows.IID := (3514304118, 35522, 23278, (171, 153, 16, 66, 45, 181, 28, 41 ));
+   
+   type EventHandler_IRenderedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Media.IRenderedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IRenderedEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_IRenderedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Xaml.Media.IRenderedEventArgs
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -5628,19 +5641,6 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
-   IID_EventHandler_IRenderedEventArgs : aliased constant Windows.IID := (3514304118, 35522, 23278, (171, 153, 16, 66, 45, 181, 28, 41 ));
-   
-   type EventHandler_IRenderedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Media.IRenderedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IRenderedEventArgs'access) with null record;
-   function Invoke
-   (
-      This       : access EventHandler_IRenderedEventArgs_Interface
-      ; sender : Windows.Object
-      ; args : Windows.UI.Xaml.Media.IRenderedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_ILoadedImageSurface_add_LoadCompleted : aliased constant Windows.IID := (178308206, 7606, 22608, (174, 23, 236, 49, 14, 163, 253, 45 ));
    
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.ILoadedImageSurface ; args : Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILoadedImageSurface_add_LoadCompleted'access) with null record;
@@ -5656,30 +5656,137 @@ package Windows.UI.Xaml.Media is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype VisualTreeHelper is Windows.UI.Xaml.Media.IVisualTreeHelper;
-   subtype PartialMediaFailureDetectedEventArgs is Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
-   function Create return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
+   subtype AcrylicBrush is Windows.UI.Xaml.Media.IAcrylicBrush;
    
-   subtype MatrixHelper is Windows.UI.Xaml.Media.IMatrixHelper;
-   subtype BrushCollection is Windows.UI.Xaml.Media.IVector_Brush;
-   function Create return Windows.UI.Xaml.Media.IVector_Brush;
+   type IAcrylicBrush_Interface_Impl is new IAcrylicBrush_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IAcrylicBrush := null;
+      m_IAcrylicBrush : IAcrylicBrush := null;
+   end record;
+   type IAcrylicBrush_Impl is access all IAcrylicBrush_Interface_Impl'Class;
+   type IAcrylicBrush_Impl_Ptr is access all IAcrylicBrush_Impl;
    
-   subtype RenderedEventArgs is Windows.UI.Xaml.Media.IRenderedEventArgs;
-   subtype CompositionTarget is Windows.UI.Xaml.Media.ICompositionTarget;
-   subtype DoubleCollection is Windows.UI.Xaml.Media.IVector_Double;
-   function Create return Windows.UI.Xaml.Media.IVector_Double;
+   function QueryInterface
+   (
+      This       : access IAcrylicBrush_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
    
-   subtype FontFamily is Windows.UI.Xaml.Media.IFontFamily;
-   subtype MediaTransportControlsThumbnailRequestedEventArgs is Windows.UI.Xaml.Media.IMediaTransportControlsThumbnailRequestedEventArgs;
-   subtype PointCollection is Windows.UI.Xaml.Media.IVector_Point;
-   function Create return Windows.UI.Xaml.Media.IVector_Point;
+   function AddRef
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+   )
+   return Windows.UInt32;
    
-   subtype RenderingEventArgs is Windows.UI.Xaml.Media.IRenderingEventArgs;
-   subtype TimelineMarkerCollection is Windows.UI.Xaml.Media.IVector_TimelineMarker;
-   function Create return Windows.UI.Xaml.Media.IVector_TimelineMarker;
+   function Release
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+   )
+   return Windows.UInt32;
    
-   subtype TransformCollection is Windows.UI.Xaml.Media.IVector_Transform;
-   function Create return Windows.UI.Xaml.Media.IVector_Transform;
+   function GetIids
+   (
+      This       : access IAcrylicBrush_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IAcrylicBrush_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IAcrylicBrush_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_BackgroundSource
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Media.AcrylicBackgroundSource
+   )
+   return Windows.HRESULT;
+   
+   function put_BackgroundSource
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; value : Windows.UI.Xaml.Media.AcrylicBackgroundSource
+   )
+   return Windows.HRESULT;
+   
+   function get_TintColor
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT;
+   
+   function put_TintColor
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT;
+   
+   function get_TintOpacity
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT;
+   
+   function put_TintOpacity
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT;
+   
+   function get_TintTransitionDuration
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
+   function put_TintTransitionDuration
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
+   function get_AlwaysUseFallback
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   function put_AlwaysUseFallback
+   (
+      This       : access IAcrylicBrush_Interface_Impl
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   subtype ArcSegment is Windows.UI.Xaml.Media.IArcSegment;
+   function Create return Windows.UI.Xaml.Media.IArcSegment;
+   
+   subtype BezierSegment is Windows.UI.Xaml.Media.IBezierSegment;
+   function Create return Windows.UI.Xaml.Media.IBezierSegment;
+   
+   subtype BitmapCache is Windows.UI.Xaml.Media.IBitmapCache;
+   function Create return Windows.UI.Xaml.Media.IBitmapCache;
    
    subtype Brush is Windows.UI.Xaml.Media.IBrush;
    
@@ -5776,6 +5883,9 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
+   subtype BrushCollection is Windows.UI.Xaml.Media.IVector_Brush;
+   function Create return Windows.UI.Xaml.Media.IVector_Brush;
+   
    subtype CacheMode is Windows.UI.Xaml.Media.ICacheMode;
    
    type ICacheMode_Interface_Impl is new ICacheMode_Interface with record
@@ -5829,6 +5939,17 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
+   subtype CompositeTransform is Windows.UI.Xaml.Media.ICompositeTransform;
+   function Create return Windows.UI.Xaml.Media.ICompositeTransform;
+   
+   subtype CompositionTarget is Windows.UI.Xaml.Media.ICompositionTarget;
+   subtype DoubleCollection is Windows.UI.Xaml.Media.IVector_Double;
+   function Create return Windows.UI.Xaml.Media.IVector_Double;
+   
+   subtype EllipseGeometry is Windows.UI.Xaml.Media.IEllipseGeometry;
+   function Create return Windows.UI.Xaml.Media.IEllipseGeometry;
+   
+   subtype FontFamily is Windows.UI.Xaml.Media.IFontFamily;
    subtype GeneralTransform is Windows.UI.Xaml.Media.IGeneralTransform;
    
    type IGeneralTransformOverrides_Interface_Impl is new IGeneralTransformOverrides_Interface with record
@@ -5991,267 +6112,8 @@ package Windows.UI.Xaml.Media is
    return Windows.HRESULT;
    
    subtype Geometry is Windows.UI.Xaml.Media.IGeometry;
-   subtype ImageSource is Windows.UI.Xaml.Media.IImageSource;
-   subtype PathSegment is Windows.UI.Xaml.Media.IPathSegment;
-   subtype Projection is Windows.UI.Xaml.Media.IProjection;
-   
-   type IProjection_Interface_Impl is new IProjection_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IProjection := null;
-      m_IProjection : IProjection := null;
-   end record;
-   type IProjection_Impl is access all IProjection_Interface_Impl'Class;
-   type IProjection_Impl_Ptr is access all IProjection_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IProjection_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IProjection_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IProjection_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IProjection_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IProjection_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IProjection_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   subtype RateChangedRoutedEventArgs is Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
-   function Create return Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
-   
-   subtype TimelineMarker is Windows.UI.Xaml.Media.ITimelineMarker;
-   function Create return Windows.UI.Xaml.Media.ITimelineMarker;
-   
-   subtype TimelineMarkerRoutedEventArgs is Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
-   function Create return Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
-   
-   subtype XamlLight is Windows.UI.Xaml.Media.IXamlLight;
-   
-   type IXamlLightOverrides_Interface_Impl is new IXamlLightOverrides_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IXamlLightOverrides := null;
-      m_IXamlLight : IXamlLight := null;
-   end record;
-   type IXamlLightOverrides_Impl is access all IXamlLightOverrides_Interface_Impl'Class;
-   type IXamlLightOverrides_Impl_Ptr is access all IXamlLightOverrides_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IXamlLightOverrides_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IXamlLightOverrides_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IXamlLightOverrides_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IXamlLightOverrides_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IXamlLightOverrides_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IXamlLightOverrides_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   function GetId
-   (
-      This       : access IXamlLightOverrides_Interface_Impl
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function OnConnected
-   (
-      This       : access IXamlLightOverrides_Interface_Impl
-      ; newElement : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT;
-   
-   function OnDisconnected
-   (
-      This       : access IXamlLightOverrides_Interface_Impl
-      ; oldElement : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT;
-   
-   
-   type IXamlLight_Interface_Impl is new IXamlLight_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IXamlLight := null;
-      m_IXamlLight : IXamlLight := null;
-   end record;
-   type IXamlLight_Impl is access all IXamlLight_Interface_Impl'Class;
-   type IXamlLight_Impl_Ptr is access all IXamlLight_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IXamlLight_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IXamlLight_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IXamlLight_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IXamlLight_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IXamlLight_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IXamlLight_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   subtype BitmapCache is Windows.UI.Xaml.Media.IBitmapCache;
-   function Create return Windows.UI.Xaml.Media.IBitmapCache;
-   
-   subtype Matrix3DProjection is Windows.UI.Xaml.Media.IMatrix3DProjection;
-   function Create return Windows.UI.Xaml.Media.IMatrix3DProjection;
-   
-   subtype PlaneProjection is Windows.UI.Xaml.Media.IPlaneProjection;
-   function Create return Windows.UI.Xaml.Media.IPlaneProjection;
-   
-   subtype RectangleGeometry is Windows.UI.Xaml.Media.IRectangleGeometry;
-   function Create return Windows.UI.Xaml.Media.IRectangleGeometry;
-   
-   subtype SolidColorBrush is Windows.UI.Xaml.Media.ISolidColorBrush;
-   function Create return Windows.UI.Xaml.Media.ISolidColorBrush;
-   
-   function CreateInstanceWithColor
-   (
-      color : Windows.UI.Color
-   )
-   return Windows.UI.Xaml.Media.ISolidColorBrush;
-   
-   subtype Transform is Windows.UI.Xaml.Media.ITransform;
-   subtype CompositeTransform is Windows.UI.Xaml.Media.ICompositeTransform;
-   function Create return Windows.UI.Xaml.Media.ICompositeTransform;
-   
-   subtype MatrixTransform is Windows.UI.Xaml.Media.IMatrixTransform;
-   function Create return Windows.UI.Xaml.Media.IMatrixTransform;
-   
-   subtype RotateTransform is Windows.UI.Xaml.Media.IRotateTransform;
-   function Create return Windows.UI.Xaml.Media.IRotateTransform;
-   
-   subtype ScaleTransform is Windows.UI.Xaml.Media.IScaleTransform;
-   function Create return Windows.UI.Xaml.Media.IScaleTransform;
-   
-   subtype SkewTransform is Windows.UI.Xaml.Media.ISkewTransform;
-   function Create return Windows.UI.Xaml.Media.ISkewTransform;
-   
-   subtype TransformGroup is Windows.UI.Xaml.Media.ITransformGroup;
-   function Create return Windows.UI.Xaml.Media.ITransformGroup;
-   
-   subtype TranslateTransform is Windows.UI.Xaml.Media.ITranslateTransform;
-   function Create return Windows.UI.Xaml.Media.ITranslateTransform;
-   
    subtype GeometryCollection is Windows.UI.Xaml.Media.IVector_Geometry;
    function Create return Windows.UI.Xaml.Media.IVector_Geometry;
-   
-   subtype GradientStopCollection is Windows.UI.Xaml.Media.IVector_GradientStop;
-   function Create return Windows.UI.Xaml.Media.IVector_GradientStop;
-   
-   subtype LoadedImageSourceLoadCompletedEventArgs is Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs;
-   subtype LoadedImageSurface is Windows.UI.Xaml.Media.ILoadedImageSurface;
-   subtype PathFigureCollection is Windows.UI.Xaml.Media.IVector_PathFigure;
-   function Create return Windows.UI.Xaml.Media.IVector_PathFigure;
-   
-   subtype PathSegmentCollection is Windows.UI.Xaml.Media.IVector_PathSegment;
-   function Create return Windows.UI.Xaml.Media.IVector_PathSegment;
-   
-   subtype GradientStop is Windows.UI.Xaml.Media.IGradientStop;
-   function Create return Windows.UI.Xaml.Media.IGradientStop;
-   
-   subtype PathFigure is Windows.UI.Xaml.Media.IPathFigure;
-   function Create return Windows.UI.Xaml.Media.IPathFigure;
-   
-   subtype ArcSegment is Windows.UI.Xaml.Media.IArcSegment;
-   function Create return Windows.UI.Xaml.Media.IArcSegment;
-   
-   subtype BezierSegment is Windows.UI.Xaml.Media.IBezierSegment;
-   function Create return Windows.UI.Xaml.Media.IBezierSegment;
-   
-   subtype EllipseGeometry is Windows.UI.Xaml.Media.IEllipseGeometry;
-   function Create return Windows.UI.Xaml.Media.IEllipseGeometry;
    
    subtype GeometryGroup is Windows.UI.Xaml.Media.IGeometryGroup;
    function Create return Windows.UI.Xaml.Media.IGeometryGroup;
@@ -6365,14 +6227,63 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
+   subtype GradientStop is Windows.UI.Xaml.Media.IGradientStop;
+   function Create return Windows.UI.Xaml.Media.IGradientStop;
+   
+   subtype GradientStopCollection is Windows.UI.Xaml.Media.IVector_GradientStop;
+   function Create return Windows.UI.Xaml.Media.IVector_GradientStop;
+   
+   subtype ImageBrush is Windows.UI.Xaml.Media.IImageBrush;
+   function Create return Windows.UI.Xaml.Media.IImageBrush;
+   
+   subtype ImageSource is Windows.UI.Xaml.Media.IImageSource;
+   subtype LinearGradientBrush is Windows.UI.Xaml.Media.ILinearGradientBrush;
+   function Create return Windows.UI.Xaml.Media.ILinearGradientBrush;
+   
+   function CreateInstanceWithGradientStopCollectionAndAngle
+   (
+      gradientStopCollection : Windows.UI.Xaml.Media.IVector_GradientStop
+      ; angle : Windows.Double
+   )
+   return Windows.UI.Xaml.Media.ILinearGradientBrush;
+   
    subtype LineGeometry is Windows.UI.Xaml.Media.ILineGeometry;
    function Create return Windows.UI.Xaml.Media.ILineGeometry;
    
    subtype LineSegment is Windows.UI.Xaml.Media.ILineSegment;
    function Create return Windows.UI.Xaml.Media.ILineSegment;
    
+   subtype LoadedImageSourceLoadCompletedEventArgs is Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs;
+   subtype LoadedImageSurface is Windows.UI.Xaml.Media.ILoadedImageSurface;
+   subtype Matrix3DProjection is Windows.UI.Xaml.Media.IMatrix3DProjection;
+   function Create return Windows.UI.Xaml.Media.IMatrix3DProjection;
+   
+   subtype MatrixHelper is Windows.UI.Xaml.Media.IMatrixHelper;
+   subtype MatrixTransform is Windows.UI.Xaml.Media.IMatrixTransform;
+   function Create return Windows.UI.Xaml.Media.IMatrixTransform;
+   
+   subtype MediaTransportControlsThumbnailRequestedEventArgs is Windows.UI.Xaml.Media.IMediaTransportControlsThumbnailRequestedEventArgs;
+   subtype PartialMediaFailureDetectedEventArgs is Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
+   function Create return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
+   
+   subtype PathFigure is Windows.UI.Xaml.Media.IPathFigure;
+   function Create return Windows.UI.Xaml.Media.IPathFigure;
+   
+   subtype PathFigureCollection is Windows.UI.Xaml.Media.IVector_PathFigure;
+   function Create return Windows.UI.Xaml.Media.IVector_PathFigure;
+   
    subtype PathGeometry is Windows.UI.Xaml.Media.IPathGeometry;
    function Create return Windows.UI.Xaml.Media.IPathGeometry;
+   
+   subtype PathSegment is Windows.UI.Xaml.Media.IPathSegment;
+   subtype PathSegmentCollection is Windows.UI.Xaml.Media.IVector_PathSegment;
+   function Create return Windows.UI.Xaml.Media.IVector_PathSegment;
+   
+   subtype PlaneProjection is Windows.UI.Xaml.Media.IPlaneProjection;
+   function Create return Windows.UI.Xaml.Media.IPlaneProjection;
+   
+   subtype PointCollection is Windows.UI.Xaml.Media.IVector_Point;
+   function Create return Windows.UI.Xaml.Media.IVector_Point;
    
    subtype PolyBezierSegment is Windows.UI.Xaml.Media.IPolyBezierSegment;
    function Create return Windows.UI.Xaml.Media.IPolyBezierSegment;
@@ -6383,8 +6294,288 @@ package Windows.UI.Xaml.Media is
    subtype PolyQuadraticBezierSegment is Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment;
    function Create return Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment;
    
+   subtype Projection is Windows.UI.Xaml.Media.IProjection;
+   
+   type IProjection_Interface_Impl is new IProjection_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IProjection := null;
+      m_IProjection : IProjection := null;
+   end record;
+   type IProjection_Impl is access all IProjection_Interface_Impl'Class;
+   type IProjection_Impl_Ptr is access all IProjection_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IProjection_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IProjection_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IProjection_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IProjection_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IProjection_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IProjection_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
    subtype QuadraticBezierSegment is Windows.UI.Xaml.Media.IQuadraticBezierSegment;
    function Create return Windows.UI.Xaml.Media.IQuadraticBezierSegment;
+   
+   subtype RateChangedRoutedEventArgs is Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
+   
+   subtype RectangleGeometry is Windows.UI.Xaml.Media.IRectangleGeometry;
+   function Create return Windows.UI.Xaml.Media.IRectangleGeometry;
+   
+   subtype RenderedEventArgs is Windows.UI.Xaml.Media.IRenderedEventArgs;
+   subtype RenderingEventArgs is Windows.UI.Xaml.Media.IRenderingEventArgs;
+   subtype RevealBackgroundBrush is Windows.UI.Xaml.Media.IRevealBackgroundBrush;
+   
+   type IRevealBackgroundBrush_Interface_Impl is new IRevealBackgroundBrush_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IRevealBackgroundBrush := null;
+      m_IRevealBackgroundBrush : IRevealBackgroundBrush := null;
+   end record;
+   type IRevealBackgroundBrush_Impl is access all IRevealBackgroundBrush_Interface_Impl'Class;
+   type IRevealBackgroundBrush_Impl_Ptr is access all IRevealBackgroundBrush_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IRevealBackgroundBrush_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IRevealBackgroundBrush_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IRevealBackgroundBrush_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IRevealBackgroundBrush_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IRevealBackgroundBrush_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IRevealBackgroundBrush_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   subtype RevealBorderBrush is Windows.UI.Xaml.Media.IRevealBorderBrush;
+   
+   type IRevealBorderBrush_Interface_Impl is new IRevealBorderBrush_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IRevealBorderBrush := null;
+      m_IRevealBorderBrush : IRevealBorderBrush := null;
+   end record;
+   type IRevealBorderBrush_Impl is access all IRevealBorderBrush_Interface_Impl'Class;
+   type IRevealBorderBrush_Impl_Ptr is access all IRevealBorderBrush_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IRevealBorderBrush_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IRevealBorderBrush_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IRevealBorderBrush_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IRevealBorderBrush_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IRevealBorderBrush_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IRevealBorderBrush_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   subtype RevealBrush is Windows.UI.Xaml.Media.IRevealBrush;
+   
+   type IRevealBrush_Interface_Impl is new IRevealBrush_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IRevealBrush := null;
+      m_IRevealBrush : IRevealBrush := null;
+   end record;
+   type IRevealBrush_Impl is access all IRevealBrush_Interface_Impl'Class;
+   type IRevealBrush_Impl_Ptr is access all IRevealBrush_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IRevealBrush_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IRevealBrush_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IRevealBrush_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IRevealBrush_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IRevealBrush_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IRevealBrush_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Color
+   (
+      This       : access IRevealBrush_Interface_Impl
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT;
+   
+   function put_Color
+   (
+      This       : access IRevealBrush_Interface_Impl
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT;
+   
+   function get_TargetTheme
+   (
+      This       : access IRevealBrush_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.ApplicationTheme
+   )
+   return Windows.HRESULT;
+   
+   function put_TargetTheme
+   (
+      This       : access IRevealBrush_Interface_Impl
+      ; value : Windows.UI.Xaml.ApplicationTheme
+   )
+   return Windows.HRESULT;
+   
+   function get_AlwaysUseFallback
+   (
+      This       : access IRevealBrush_Interface_Impl
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   function put_AlwaysUseFallback
+   (
+      This       : access IRevealBrush_Interface_Impl
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   subtype RotateTransform is Windows.UI.Xaml.Media.IRotateTransform;
+   function Create return Windows.UI.Xaml.Media.IRotateTransform;
+   
+   subtype ScaleTransform is Windows.UI.Xaml.Media.IScaleTransform;
+   function Create return Windows.UI.Xaml.Media.IScaleTransform;
+   
+   subtype SkewTransform is Windows.UI.Xaml.Media.ISkewTransform;
+   function Create return Windows.UI.Xaml.Media.ISkewTransform;
+   
+   subtype SolidColorBrush is Windows.UI.Xaml.Media.ISolidColorBrush;
+   function Create return Windows.UI.Xaml.Media.ISolidColorBrush;
+   
+   function CreateInstanceWithColor
+   (
+      color : Windows.UI.Color
+   )
+   return Windows.UI.Xaml.Media.ISolidColorBrush;
    
    subtype TileBrush is Windows.UI.Xaml.Media.ITileBrush;
    
@@ -6481,6 +6672,26 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
+   subtype TimelineMarker is Windows.UI.Xaml.Media.ITimelineMarker;
+   function Create return Windows.UI.Xaml.Media.ITimelineMarker;
+   
+   subtype TimelineMarkerCollection is Windows.UI.Xaml.Media.IVector_TimelineMarker;
+   function Create return Windows.UI.Xaml.Media.IVector_TimelineMarker;
+   
+   subtype TimelineMarkerRoutedEventArgs is Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
+   function Create return Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
+   
+   subtype Transform is Windows.UI.Xaml.Media.ITransform;
+   subtype TransformCollection is Windows.UI.Xaml.Media.IVector_Transform;
+   function Create return Windows.UI.Xaml.Media.IVector_Transform;
+   
+   subtype TransformGroup is Windows.UI.Xaml.Media.ITransformGroup;
+   function Create return Windows.UI.Xaml.Media.ITransformGroup;
+   
+   subtype TranslateTransform is Windows.UI.Xaml.Media.ITranslateTransform;
+   function Create return Windows.UI.Xaml.Media.ITranslateTransform;
+   
+   subtype VisualTreeHelper is Windows.UI.Xaml.Media.IVisualTreeHelper;
    subtype XamlCompositionBrushBase is Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
    
    type IXamlCompositionBrushBaseOverrides_Interface_Impl is new IXamlCompositionBrushBaseOverrides_Interface with record
@@ -6612,20 +6823,20 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   subtype AcrylicBrush is Windows.UI.Xaml.Media.IAcrylicBrush;
+   subtype XamlLight is Windows.UI.Xaml.Media.IXamlLight;
    
-   type IAcrylicBrush_Interface_Impl is new IAcrylicBrush_Interface with record
+   type IXamlLightOverrides_Interface_Impl is new IXamlLightOverrides_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
       m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IAcrylicBrush := null;
-      m_IAcrylicBrush : IAcrylicBrush := null;
+      m_Inner    : aliased IXamlLightOverrides := null;
+      m_IXamlLight : IXamlLight := null;
    end record;
-   type IAcrylicBrush_Impl is access all IAcrylicBrush_Interface_Impl'Class;
-   type IAcrylicBrush_Impl_Ptr is access all IAcrylicBrush_Impl;
+   type IXamlLightOverrides_Impl is access all IXamlLightOverrides_Interface_Impl'Class;
+   type IXamlLightOverrides_Impl_Ptr is access all IXamlLightOverrides_Impl;
    
    function QueryInterface
    (
-      This       : access IAcrylicBrush_Interface_Impl;
+      This       : access IXamlLightOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
       pvObject   : not null access IUnknown
    )
@@ -6633,19 +6844,19 @@ package Windows.UI.Xaml.Media is
    
    function AddRef
    (
-      This       : access IAcrylicBrush_Interface_Impl
+      This       : access IXamlLightOverrides_Interface_Impl
    )
    return Windows.UInt32;
    
    function Release
    (
-      This       : access IAcrylicBrush_Interface_Impl
+      This       : access IXamlLightOverrides_Interface_Impl
    )
    return Windows.UInt32;
    
    function GetIids
    (
-      This       : access IAcrylicBrush_Interface_Impl;
+      This       : access IXamlLightOverrides_Interface_Impl;
       iidCount   : access Windows.UINT32;
       iids       : in Windows.IID_Ptr
    )
@@ -6653,102 +6864,52 @@ package Windows.UI.Xaml.Media is
    
    function GetRuntimeClassName
    (
-      This       : access IAcrylicBrush_Interface_Impl;
+      This       : access IXamlLightOverrides_Interface_Impl;
       className  : access Windows.String
    )
    return Windows.HRESULT;
    
    function GetTrustLevel
    (
-      This       : access IAcrylicBrush_Interface_Impl;
+      This       : access IXamlLightOverrides_Interface_Impl;
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
    
-   function get_BackgroundSource
+   function GetId
    (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.AcrylicBackgroundSource
+      This       : access IXamlLightOverrides_Interface_Impl
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT;
    
-   function put_BackgroundSource
+   function OnConnected
    (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.AcrylicBackgroundSource
+      This       : access IXamlLightOverrides_Interface_Impl
+      ; newElement : Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT;
    
-   function get_TintColor
+   function OnDisconnected
    (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; RetVal : access Windows.UI.Color
+      This       : access IXamlLightOverrides_Interface_Impl
+      ; oldElement : Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT;
    
-   function put_TintColor
-   (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT;
    
-   function get_TintOpacity
-   (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT;
-   
-   function put_TintOpacity
-   (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT;
-   
-   function get_TintTransitionDuration
-   (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT;
-   
-   function put_TintTransitionDuration
-   (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; value : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT;
-   
-   function get_AlwaysUseFallback
-   (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT;
-   
-   function put_AlwaysUseFallback
-   (
-      This       : access IAcrylicBrush_Interface_Impl
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT;
-   
-   subtype RevealBrush is Windows.UI.Xaml.Media.IRevealBrush;
-   
-   type IRevealBrush_Interface_Impl is new IRevealBrush_Interface with record
+   type IXamlLight_Interface_Impl is new IXamlLight_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
       m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IRevealBrush := null;
-      m_IRevealBrush : IRevealBrush := null;
+      m_Inner    : aliased IXamlLight := null;
+      m_IXamlLight : IXamlLight := null;
    end record;
-   type IRevealBrush_Impl is access all IRevealBrush_Interface_Impl'Class;
-   type IRevealBrush_Impl_Ptr is access all IRevealBrush_Impl;
+   type IXamlLight_Impl is access all IXamlLight_Interface_Impl'Class;
+   type IXamlLight_Impl_Ptr is access all IXamlLight_Impl;
    
    function QueryInterface
    (
-      This       : access IRevealBrush_Interface_Impl;
+      This       : access IXamlLight_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
       pvObject   : not null access IUnknown
    )
@@ -6756,19 +6917,19 @@ package Windows.UI.Xaml.Media is
    
    function AddRef
    (
-      This       : access IRevealBrush_Interface_Impl
+      This       : access IXamlLight_Interface_Impl
    )
    return Windows.UInt32;
    
    function Release
    (
-      This       : access IRevealBrush_Interface_Impl
+      This       : access IXamlLight_Interface_Impl
    )
    return Windows.UInt32;
    
    function GetIids
    (
-      This       : access IRevealBrush_Interface_Impl;
+      This       : access IXamlLight_Interface_Impl;
       iidCount   : access Windows.UINT32;
       iids       : in Windows.IID_Ptr
    )
@@ -6776,183 +6937,496 @@ package Windows.UI.Xaml.Media is
    
    function GetRuntimeClassName
    (
-      This       : access IRevealBrush_Interface_Impl;
+      This       : access IXamlLight_Interface_Impl;
       className  : access Windows.String
    )
    return Windows.HRESULT;
    
    function GetTrustLevel
    (
-      This       : access IRevealBrush_Interface_Impl;
+      This       : access IXamlLight_Interface_Impl;
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
-   function get_Color
-   (
-      This       : access IRevealBrush_Interface_Impl
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT;
-   
-   function put_Color
-   (
-      This       : access IRevealBrush_Interface_Impl
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT;
-   
-   function get_TargetTheme
-   (
-      This       : access IRevealBrush_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.ApplicationTheme
-   )
-   return Windows.HRESULT;
-   
-   function put_TargetTheme
-   (
-      This       : access IRevealBrush_Interface_Impl
-      ; value : Windows.UI.Xaml.ApplicationTheme
-   )
-   return Windows.HRESULT;
-   
-   function get_AlwaysUseFallback
-   (
-      This       : access IRevealBrush_Interface_Impl
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT;
-   
-   function put_AlwaysUseFallback
-   (
-      This       : access IRevealBrush_Interface_Impl
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT;
-   
-   subtype RevealBorderBrush is Windows.UI.Xaml.Media.IRevealBorderBrush;
-   
-   type IRevealBorderBrush_Interface_Impl is new IRevealBorderBrush_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IRevealBorderBrush := null;
-      m_IRevealBorderBrush : IRevealBorderBrush := null;
-   end record;
-   type IRevealBorderBrush_Impl is access all IRevealBorderBrush_Interface_Impl'Class;
-   type IRevealBorderBrush_Impl_Ptr is access all IRevealBorderBrush_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IRevealBorderBrush_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IRevealBorderBrush_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IRevealBorderBrush_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IRevealBorderBrush_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IRevealBorderBrush_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IRevealBorderBrush_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   subtype RevealBackgroundBrush is Windows.UI.Xaml.Media.IRevealBackgroundBrush;
-   
-   type IRevealBackgroundBrush_Interface_Impl is new IRevealBackgroundBrush_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IRevealBackgroundBrush := null;
-      m_IRevealBackgroundBrush : IRevealBackgroundBrush := null;
-   end record;
-   type IRevealBackgroundBrush_Impl is access all IRevealBackgroundBrush_Interface_Impl'Class;
-   type IRevealBackgroundBrush_Impl_Ptr is access all IRevealBackgroundBrush_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IRevealBackgroundBrush_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IRevealBackgroundBrush_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IRevealBackgroundBrush_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IRevealBackgroundBrush_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IRevealBackgroundBrush_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IRevealBackgroundBrush_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   subtype ImageBrush is Windows.UI.Xaml.Media.IImageBrush;
-   function Create return Windows.UI.Xaml.Media.IImageBrush;
-   
-   subtype LinearGradientBrush is Windows.UI.Xaml.Media.ILinearGradientBrush;
-   function Create return Windows.UI.Xaml.Media.ILinearGradientBrush;
-   
-   function CreateInstanceWithGradientStopCollectionAndAngle
-   (
-      gradientStopCollection : Windows.UI.Xaml.Media.IVector_GradientStop
-      ; angle : Windows.Double
-   )
-   return Windows.UI.Xaml.Media.ILinearGradientBrush;
    
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IAcrylicBrush;
+   
+   function get_BackgroundSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TintColorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TintOpacityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TintTransitionDurationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlwaysUseFallbackProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PointProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SizeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationAngleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsLargeArcProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SweepDirectionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Point1Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Point2Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Point3Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OpacityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TransformProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RelativeTransformProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IBrush;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.ICacheMode;
+   
+   function get_CenterXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ScaleXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ScaleYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SkewXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SkewYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TranslateXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TranslateYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function add_Rendering
+   (
+      value : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_Rendering
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_SurfaceContentsLost
+   (
+      value : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_SurfaceContentsLost
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_Rendered
+   (
+      value : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_Rendered
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_CenterProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RadiusXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RadiusYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstanceWithName
+   (
+      familyName : Windows.String
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IFontFamily;
+   
+   function get_XamlAutoFontFamily
+   return Windows.UI.Xaml.Media.IFontFamily;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IGeneralTransform;
+   
+   function get_Empty
+   return Windows.UI.Xaml.Media.IGeometry;
+   
+   function get_StandardFlatteningTolerance
+   return Windows.Double;
+   
+   function get_TransformProperty_IGeometry
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FillRuleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ChildrenProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SpreadMethodProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MappingModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ColorInterpolationModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GradientStopsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IGradientBrush;
+   
+   function get_ColorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ImageSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StartPointProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EndPointProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StartPointProperty_ILineGeometry
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EndPointProperty_ILineGeometry
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PointProperty_ILineSegment
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function StartLoadFromUriWithSize
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; desiredMaxSize : Windows.Foundation.Size
+   )
+   return Windows.UI.Xaml.Media.ILoadedImageSurface;
+   
+   function StartLoadFromUri
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.Xaml.Media.ILoadedImageSurface;
+   
+   function StartLoadFromStreamWithSize
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+      ; desiredMaxSize : Windows.Foundation.Size
+   )
+   return Windows.UI.Xaml.Media.ILoadedImageSurface;
+   
+   function StartLoadFromStream
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.UI.Xaml.Media.ILoadedImageSurface;
+   
+   function get_ProjectionMatrixProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Identity
+   return Windows.UI.Xaml.Media.Matrix;
+   
+   function FromElements
+   (
+      m11 : Windows.Double
+      ; m12 : Windows.Double
+      ; m21 : Windows.Double
+      ; m22 : Windows.Double
+      ; offsetX : Windows.Double
+      ; offsetY : Windows.Double
+   )
+   return Windows.UI.Xaml.Media.Matrix;
+   
+   function GetIsIdentity
+   (
+      target : Windows.UI.Xaml.Media.Matrix
+   )
+   return Windows.Boolean;
+   
+   function Transform_x
+   (
+      target : Windows.UI.Xaml.Media.Matrix
+      ; point : Windows.Foundation.Point
+   )
+   return Windows.Foundation.Point;
+   
+   function get_MatrixProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SegmentsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StartPointProperty_IPathFigure
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsClosedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsFilledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FillRuleProperty_IPathGeometry
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FiguresProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocalOffsetXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocalOffsetYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocalOffsetZProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationZProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterOfRotationXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterOfRotationYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterOfRotationZProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GlobalOffsetXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GlobalOffsetYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GlobalOffsetZProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ProjectionMatrixProperty_IPlaneProjection
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PointsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PointsProperty_IPolyLineSegment
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PointsProperty_IPolyQuadraticBezierSegment
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IProjection;
+   
+   function get_Point1Property_IQuadraticBezierSegment
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Point2Property_IQuadraticBezierSegment
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RectProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IRevealBackgroundBrush;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IRevealBorderBrush;
+   
+   function get_ColorProperty_IRevealBrush
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TargetThemeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlwaysUseFallbackProperty_IRevealBrush
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   procedure SetState
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.UI.Xaml.Media.RevealBrushState
+   )
+   ;
+   
+   function GetState
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Media.RevealBrushState;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IRevealBrush;
+   
+   function get_CenterXProperty_IRotateTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterYProperty_IRotateTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AngleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterXProperty_IScaleTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterYProperty_IScaleTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ScaleXProperty_IScaleTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ScaleYProperty_IScaleTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterXProperty_ISkewTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterYProperty_ISkewTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AngleXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AngleYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ColorProperty_ISolidColorBrush
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.ITileBrush;
+   
+   function get_AlignmentXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignmentYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StretchProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TimeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ChildrenProperty_ITransformGroup
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_YProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function GetOpenPopups
    (
@@ -7015,87 +7489,7 @@ package Windows.UI.Xaml.Media is
    )
    ;
    
-   function get_Identity
-   return Windows.UI.Xaml.Media.Matrix;
-   
-   function FromElements
-   (
-      m11 : Windows.Double
-      ; m12 : Windows.Double
-      ; m21 : Windows.Double
-      ; m22 : Windows.Double
-      ; offsetX : Windows.Double
-      ; offsetY : Windows.Double
-   )
-   return Windows.UI.Xaml.Media.Matrix;
-   
-   function GetIsIdentity
-   (
-      target : Windows.UI.Xaml.Media.Matrix
-   )
-   return Windows.Boolean;
-   
-   function Transform_x
-   (
-      target : Windows.UI.Xaml.Media.Matrix
-      ; point : Windows.Foundation.Point
-   )
-   return Windows.Foundation.Point;
-   
-   function add_Rendering
-   (
-      value : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_Rendering
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_SurfaceContentsLost
-   (
-      value : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_SurfaceContentsLost
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_Rendered
-   (
-      value : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_Rendered
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function CreateInstanceWithName
-   (
-      familyName : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IFontFamily;
-   
-   function get_XamlAutoFontFamily
-   return Windows.UI.Xaml.Media.IFontFamily;
-   
-   function get_OpacityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TransformProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RelativeTransformProperty
+   function get_FallbackColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -7103,46 +7497,7 @@ package Windows.UI.Xaml.Media is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Media.IBrush;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.ICacheMode;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IGeneralTransform;
-   
-   function get_Empty
-   return Windows.UI.Xaml.Media.IGeometry;
-   
-   function get_StandardFlatteningTolerance
-   return Windows.Double;
-   
-   function get_TransformProperty_IGeometry
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IProjection;
-   
-   function get_TimeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   return Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
    
    function CreateInstance
    (
@@ -7178,360 +7533,5 @@ package Windows.UI.Xaml.Media is
       ; brush : Windows.UI.Xaml.Media.IBrush
    )
    ;
-   
-   function get_ProjectionMatrixProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LocalOffsetXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LocalOffsetYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LocalOffsetZProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationZProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterOfRotationXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterOfRotationYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterOfRotationZProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GlobalOffsetXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GlobalOffsetYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GlobalOffsetZProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ProjectionMatrixProperty_IPlaneProjection
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RectProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ColorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ScaleXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ScaleYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SkewXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SkewYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TranslateXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TranslateYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MatrixProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterXProperty_IRotateTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterYProperty_IRotateTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AngleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterXProperty_IScaleTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterYProperty_IScaleTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ScaleXProperty_IScaleTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ScaleYProperty_IScaleTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterXProperty_ISkewTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterYProperty_ISkewTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AngleXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AngleYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ChildrenProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_YProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function StartLoadFromUriWithSize
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; desiredMaxSize : Windows.Foundation.Size
-   )
-   return Windows.UI.Xaml.Media.ILoadedImageSurface;
-   
-   function StartLoadFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.UI.Xaml.Media.ILoadedImageSurface;
-   
-   function StartLoadFromStreamWithSize
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-      ; desiredMaxSize : Windows.Foundation.Size
-   )
-   return Windows.UI.Xaml.Media.ILoadedImageSurface;
-   
-   function StartLoadFromStream
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.UI.Xaml.Media.ILoadedImageSurface;
-   
-   function get_ColorProperty_IGradientStop
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SegmentsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StartPointProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsClosedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsFilledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SizeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationAngleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsLargeArcProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SweepDirectionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Point1Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Point2Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Point3Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RadiusXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RadiusYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FillRuleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ChildrenProperty_IGeometryGroup
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SpreadMethodProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MappingModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ColorInterpolationModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GradientStopsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IGradientBrush;
-   
-   function get_StartPointProperty_ILineGeometry
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EndPointProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointProperty_ILineSegment
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FillRuleProperty_IPathGeometry
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FiguresProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointsProperty_IPolyLineSegment
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointsProperty_IPolyQuadraticBezierSegment
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Point1Property_IQuadraticBezierSegment
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Point2Property_IQuadraticBezierSegment
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.ITileBrush;
-   
-   function get_AlignmentXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AlignmentYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StretchProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FallbackColorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IAcrylicBrush;
-   
-   function get_BackgroundSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TintColorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TintOpacityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TintTransitionDurationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AlwaysUseFallbackProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ColorProperty_IRevealBrush
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TargetThemeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AlwaysUseFallbackProperty_IRevealBrush
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   procedure SetState
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.UI.Xaml.Media.RevealBrushState
-   )
-   ;
-   
-   function GetState
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Media.RevealBrushState;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IRevealBrush;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IRevealBorderBrush;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IRevealBackgroundBrush;
-   
-   function get_ImageSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StartPointProperty_ILinearGradientBrush
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EndPointProperty_ILinearGradientBrush
-   return Windows.UI.Xaml.IDependencyProperty;
    
 end;

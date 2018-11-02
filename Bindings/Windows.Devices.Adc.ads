@@ -62,6 +62,9 @@ package Windows.Devices.Adc is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAdcChannel_Interface;
+   type IAdcChannel is access all IAdcChannel_Interface'Class;
+   type IAdcChannel_Ptr is access all IAdcChannel;
    type IAdcController_Interface;
    type IAdcController is access all IAdcController_Interface'Class;
    type IAdcController_Ptr is access all IAdcController;
@@ -71,9 +74,6 @@ package Windows.Devices.Adc is
    type IAdcControllerStatics2_Interface;
    type IAdcControllerStatics2 is access all IAdcControllerStatics2_Interface'Class;
    type IAdcControllerStatics2_Ptr is access all IAdcControllerStatics2;
-   type IAdcChannel_Interface;
-   type IAdcChannel is access all IAdcChannel_Interface'Class;
-   type IAdcChannel_Ptr is access all IAdcChannel;
    type IAsyncOperation_IAdcController_Interface;
    type IAsyncOperation_IAdcController is access all IAsyncOperation_IAdcController_Interface'Class;
    type IAsyncOperation_IAdcController_Ptr is access all IAsyncOperation_IAdcController;
@@ -81,6 +81,33 @@ package Windows.Devices.Adc is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdcChannel : aliased constant Windows.IID := (67892244, 9608, 19030, (171, 239, 115, 162, 96, 172, 198, 10 ));
+   
+   type IAdcChannel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Controller
+   (
+      This       : access IAdcChannel_Interface
+      ; RetVal : access Windows.Devices.Adc.IAdcController
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReadValue
+   (
+      This       : access IAdcChannel_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReadRatio
+   (
+      This       : access IAdcChannel_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -170,33 +197,6 @@ package Windows.Devices.Adc is
    (
       This       : access IAdcControllerStatics2_Interface
       ; RetVal : access Windows.Devices.Adc.IAsyncOperation_IAdcController -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdcChannel : aliased constant Windows.IID := (67892244, 9608, 19030, (171, 239, 115, 162, 96, 172, 198, 10 ));
-   
-   type IAdcChannel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Controller
-   (
-      This       : access IAdcChannel_Interface
-      ; RetVal : access Windows.Devices.Adc.IAdcController
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReadValue
-   (
-      This       : access IAdcChannel_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReadRatio
-   (
-      This       : access IAdcChannel_Interface
-      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    

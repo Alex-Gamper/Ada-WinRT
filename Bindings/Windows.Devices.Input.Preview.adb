@@ -50,6 +50,19 @@ package body Windows.Devices.Input.Preview is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IGazeDeviceWatcherPreview_add_EnumerationCompleted_Interface
+      ; sender : Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IGazeDeviceWatcherPreview_add_Removed_Interface
       ; sender : Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview
       ; args : Windows.Devices.Input.Preview.IGazeDeviceWatcherRemovedPreviewEventArgs
@@ -76,32 +89,6 @@ package body Windows.Devices.Input.Preview is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGazeDeviceWatcherPreview_add_EnumerationCompleted_Interface
-      ; sender : Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGazeInputSourcePreview_add_GazeMoved_Interface
-      ; sender : Windows.Devices.Input.Preview.IGazeInputSourcePreview
-      ; args : Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Input.Preview.IGazeInputSourcePreview(sender), Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IGazeInputSourcePreview_add_GazeEntered_Interface
       ; sender : Windows.Devices.Input.Preview.IGazeInputSourcePreview
       ; args : Windows.Devices.Input.Preview.IGazeEnteredPreviewEventArgs
@@ -123,6 +110,19 @@ package body Windows.Devices.Input.Preview is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.Input.Preview.IGazeInputSourcePreview(sender), Windows.Devices.Input.Preview.IGazeExitedPreviewEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGazeInputSourcePreview_add_GazeMoved_Interface
+      ; sender : Windows.Devices.Input.Preview.IGazeInputSourcePreview
+      ; args : Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.Preview.IGazeInputSourcePreview(sender), Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs(args));
       return Hr;
    end;
    

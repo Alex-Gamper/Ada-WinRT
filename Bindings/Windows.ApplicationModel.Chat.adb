@@ -39,27 +39,14 @@ package body Windows.ApplicationModel.Chat is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IChatMessage_Interface
-      ; asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessage
+      This       : access AsyncOperationCompletedHandler_IChatCapabilities_Interface
+      ; asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface
-      ; sender : Windows.ApplicationModel.Chat.IChatMessageStore
-      ; args : Windows.ApplicationModel.Chat.IChatMessageChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Chat.IChatMessageStore(sender), Windows.ApplicationModel.Chat.IChatMessageChangedEventArgs(args));
       return Hr;
    end;
    
@@ -78,14 +65,14 @@ package body Windows.ApplicationModel.Chat is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface
-      ; sender : Windows.ApplicationModel.Chat.IChatMessageStore
-      ; args : Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs
+      This       : access AsyncOperationCompletedHandler_IChatMessage_Interface
+      ; asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessage
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.Chat.IChatMessageStore(sender), Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -130,8 +117,8 @@ package body Windows.ApplicationModel.Chat is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IChatCapabilities_Interface
-      ; asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities
+      This       : access AsyncOperationCompletedHandler_IRcsTransport_Interface
+      ; asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IRcsTransport
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -156,27 +143,27 @@ package body Windows.ApplicationModel.Chat is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IRcsTransport_Interface
-      ; asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IRcsTransport
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface
+      ; sender : Windows.ApplicationModel.Chat.IChatMessageStore
+      ; args : Windows.ApplicationModel.Chat.IChatMessageChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.ApplicationModel.Chat.IChatMessageStore(sender), Windows.ApplicationModel.Chat.IChatMessageChangedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface
-      ; sender : Windows.ApplicationModel.Chat.IRcsTransport
-      ; args : Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs
+      This       : access TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface
+      ; sender : Windows.ApplicationModel.Chat.IChatMessageStore
+      ; args : Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.Chat.IRcsTransport(sender), Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs(args));
+      This.Callback(Windows.ApplicationModel.Chat.IChatMessageStore(sender), Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs(args));
       return Hr;
    end;
    
@@ -193,9 +180,39 @@ package body Windows.ApplicationModel.Chat is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface
+      ; sender : Windows.ApplicationModel.Chat.IRcsTransport
+      ; args : Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Chat.IRcsTransport(sender), Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.ApplicationModel.Chat.IChatConversationThreadingInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatConversationThreadingInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatConversationThreadingInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatConversationThreadingInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create return Windows.ApplicationModel.Chat.IChatMessage is
       Hr            : Windows.HResult := S_OK;
@@ -235,17 +252,17 @@ package body Windows.ApplicationModel.Chat is
       return RetVal;
    end;
    
-   function Create return Windows.ApplicationModel.Chat.IChatConversationThreadingInfo is
+   function Create return Windows.ApplicationModel.Chat.IChatQueryOptions is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatConversationThreadingInfo");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatQueryOptions");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatConversationThreadingInfo) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatQueryOptions) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatConversationThreadingInfo'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatQueryOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -269,23 +286,6 @@ package body Windows.ApplicationModel.Chat is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.ApplicationModel.Chat.IChatQueryOptions is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatQueryOptions");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatQueryOptions) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatQueryOptions'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -293,6 +293,67 @@ package body Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetCachedCapabilitiesAsync
+   (
+      address : Windows.String
+   )
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatCapabilitiesManager");
+      m_Factory     : IChatCapabilitiesManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IChatCapabilitiesManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCachedCapabilitiesAsync(address, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetCapabilitiesFromNetworkAsync
+   (
+      address : Windows.String
+   )
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatCapabilitiesManager");
+      m_Factory     : IChatCapabilitiesManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IChatCapabilitiesManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCapabilitiesFromNetworkAsync(address, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function MarkMessageAsBlockedAsync
+   (
+      localChatMessageId : Windows.String
+      ; blocked : Windows.Boolean
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessageBlocking");
+      m_Factory     : IChatMessageBlockingStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IChatMessageBlockingStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.MarkMessageAsBlockedAsync(localChatMessageId, blocked, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetTransportsAsync
    return Windows.Address is
@@ -411,67 +472,6 @@ package body Windows.ApplicationModel.Chat is
       Hr := RoGetActivationFactory(m_hString, IID_IChatMessageManager2Statics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetTransportAsync(transportId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function MarkMessageAsBlockedAsync
-   (
-      localChatMessageId : Windows.String
-      ; blocked : Windows.Boolean
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessageBlocking");
-      m_Factory     : IChatMessageBlockingStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IChatMessageBlockingStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.MarkMessageAsBlockedAsync(localChatMessageId, blocked, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetCachedCapabilitiesAsync
-   (
-      address : Windows.String
-   )
-   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatCapabilitiesManager");
-      m_Factory     : IChatCapabilitiesManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IChatCapabilitiesManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetCachedCapabilitiesAsync(address, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetCapabilitiesFromNetworkAsync
-   (
-      address : Windows.String
-   )
-   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatCapabilitiesManager");
-      m_Factory     : IChatCapabilitiesManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IChatCapabilitiesManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetCapabilitiesFromNetworkAsync(address, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

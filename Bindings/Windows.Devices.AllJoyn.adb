@@ -41,14 +41,53 @@ package body Windows.Devices.AllJoyn is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface
-      ; sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment
-      ; args : Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs
+      This       : access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface
+      ; asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.AllJoyn.IAllJoynBusAttachment(sender), Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface
+      ; asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAllJoynSession_Interface
+      ; asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface
+      ; sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment
+      ; args : Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.AllJoyn.IAllJoynBusAttachment(sender), Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs(args));
       return Hr;
    end;
    
@@ -80,27 +119,14 @@ package body Windows.Devices.AllJoyn is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface
+      This       : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface
       ; sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment
-      ; args : Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs
+      ; args : Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.AllJoyn.IAllJoynBusAttachment(sender), Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface
-      ; asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Devices.AllJoyn.IAllJoynBusAttachment(sender), Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs(args));
       return Hr;
    end;
    
@@ -132,6 +158,32 @@ package body Windows.Devices.AllJoyn is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface
+      ; sender : Windows.Devices.AllJoyn.IAllJoynBusObject
+      ; args : Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.AllJoyn.IAllJoynBusObject(sender), Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAllJoynSession_add_Lost_Interface
+      ; sender : Windows.Devices.AllJoyn.IAllJoynSession
+      ; args : Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.AllJoyn.IAllJoynSession(sender), Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface
       ; sender : Windows.Devices.AllJoyn.IAllJoynSession
       ; args : Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs
@@ -156,61 +208,33 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAllJoynSession_add_Lost_Interface
-      ; sender : Windows.Devices.AllJoyn.IAllJoynSession
-      ; args : Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.AllJoyn.IAllJoynSession(sender), Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IAllJoynSession_Interface
-      ; asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface
-      ; sender : Windows.Devices.AllJoyn.IAllJoynBusObject
-      ; args : Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.AllJoyn.IAllJoynBusObject(sender), Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface
-      ; asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create
+   (
+      uniqueName : Windows.String
+      ; sessionPort : Windows.UInt16
+      ; trafficType : Windows.Devices.AllJoyn.AllJoynTrafficType
+      ; proximity : Windows.UInt8
+      ; acceptSessionJoiner : Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoiner
+   )
+   return Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynAcceptSessionJoinerEventArgs");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynAcceptSessionJoinerEventArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(uniqueName, sessionPort, trafficType, proximity, acceptSessionJoiner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function Create return Windows.Devices.AllJoyn.IAllJoynBusAttachment is
       Hr            : Windows.HResult := S_OK;
@@ -243,132 +267,6 @@ package body Windows.Devices.AllJoyn is
       Hr := RoGetActivationFactory(m_hString, IID_IAllJoynBusAttachmentFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(connectionSpecification, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      uniqueName : Windows.String
-      ; objectPath : Windows.String
-      ; sessionPort : Windows.UInt16
-   )
-   return Windows.Devices.AllJoyn.IAllJoynServiceInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynServiceInfo");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynServiceInfoFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynServiceInfo := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynServiceInfoFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(uniqueName, objectPath, sessionPort, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      uniqueName : Windows.String
-      ; sessionPort : Windows.UInt16
-      ; trafficType : Windows.Devices.AllJoyn.AllJoynTrafficType
-      ; proximity : Windows.UInt8
-      ; acceptSessionJoiner : Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoiner
-   )
-   return Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynAcceptSessionJoinerEventArgs");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynAcceptSessionJoinerEventArgsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(uniqueName, sessionPort, trafficType, proximity, acceptSessionJoiner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      session : Windows.Devices.AllJoyn.IAllJoynSession
-   )
-   return Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionJoinedEventArgs");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionJoinedEventArgsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(session, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      uniqueName : Windows.String
-   )
-   return Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionMemberAddedEventArgs");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionMemberAddedEventArgsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(uniqueName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      uniqueName : Windows.String
-   )
-   return Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionMemberRemovedEventArgs");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionMemberRemovedEventArgsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(uniqueName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      reason : Windows.Devices.AllJoyn.AllJoynSessionLostReason
-   )
-   return Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionLostEventArgs");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgsFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionLostEventArgsFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(reason, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -455,6 +353,26 @@ package body Windows.Devices.AllJoyn is
    
    function Create
    (
+      senderUniqueName : Windows.String
+   )
+   return Windows.Devices.AllJoyn.IAllJoynMessageInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynMessageInfo");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynMessageInfoFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynMessageInfo := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynMessageInfoFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(senderUniqueName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
       status : Windows.Int32
    )
    return Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs is
@@ -475,18 +393,20 @@ package body Windows.Devices.AllJoyn is
    
    function Create
    (
-      status : Windows.Int32
+      uniqueName : Windows.String
+      ; objectPath : Windows.String
+      ; sessionPort : Windows.UInt16
    )
-   return Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs is
+   return Windows.Devices.AllJoyn.IAllJoynServiceInfo is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynWatcherStoppedEventArgs");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgsFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynServiceInfo");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynServiceInfoFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs := null;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynServiceInfo := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynWatcherStoppedEventArgsFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynServiceInfoFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(status, RetVal'Access);
+         Hr := m_Factory.Create(uniqueName, objectPath, sessionPort, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -515,18 +435,98 @@ package body Windows.Devices.AllJoyn is
    
    function Create
    (
-      senderUniqueName : Windows.String
+      session : Windows.Devices.AllJoyn.IAllJoynSession
    )
-   return Windows.Devices.AllJoyn.IAllJoynMessageInfo is
+   return Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynMessageInfo");
-      m_Factory     : Windows.Devices.AllJoyn.IAllJoynMessageInfoFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionJoinedEventArgs");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgsFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynMessageInfo := null;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynMessageInfoFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionJoinedEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(senderUniqueName, RetVal'Access);
+         Hr := m_Factory.Create(session, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      reason : Windows.Devices.AllJoyn.AllJoynSessionLostReason
+   )
+   return Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionLostEventArgs");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionLostEventArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(reason, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      uniqueName : Windows.String
+   )
+   return Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionMemberAddedEventArgs");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionMemberAddedEventArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(uniqueName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      uniqueName : Windows.String
+   )
+   return Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSessionMemberRemovedEventArgs");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionMemberRemovedEventArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(uniqueName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      status : Windows.Int32
+   )
+   return Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynWatcherStoppedEventArgs");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynWatcherStoppedEventArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(status, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -540,6 +540,149 @@ package body Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDataBySessionPortAsync
+   (
+      uniqueName : Windows.String
+      ; busAttachment : Windows.Devices.AllJoyn.IAllJoynBusAttachment
+      ; sessionPort : Windows.UInt16
+   )
+   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynAboutDataView");
+      m_Factory     : IAllJoynAboutDataViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynAboutDataViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDataBySessionPortAsync(uniqueName, busAttachment, sessionPort, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDataBySessionPortWithLanguageAsync
+   (
+      uniqueName : Windows.String
+      ; busAttachment : Windows.Devices.AllJoyn.IAllJoynBusAttachment
+      ; sessionPort : Windows.UInt16
+      ; language : Windows.Globalization.ILanguage
+   )
+   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynAboutDataView");
+      m_Factory     : IAllJoynAboutDataViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynAboutDataViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDataBySessionPortWithLanguageAsync(uniqueName, busAttachment, sessionPort, language, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Devices.AllJoyn.IAllJoynBusAttachment is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusAttachment");
+      m_Factory     : IAllJoynBusAttachmentStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynBusAttachment;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynBusAttachmentStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetWatcher
+   (
+      requiredInterfaces : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Devices.Enumeration.IDeviceWatcher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusAttachment");
+      m_Factory     : IAllJoynBusAttachmentStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.IDeviceWatcher;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynBusAttachmentStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetWatcher(requiredInterfaces, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynServiceInfo");
+      m_Factory     : IAllJoynServiceInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynServiceInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFromServiceInfoAsync
+   (
+      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
+   )
+   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSession");
+      m_Factory     : IAllJoynSessionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFromServiceInfoAsync(serviceInfo, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFromServiceInfoAndBusAttachmentAsync
+   (
+      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
+      ; busAttachment : Windows.Devices.AllJoyn.IAllJoynBusAttachment
+   )
+   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSession");
+      m_Factory     : IAllJoynSessionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFromServiceInfoAndBusAttachmentAsync(serviceInfo, busAttachment, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function get_Ok
    return Windows.Int32 is
@@ -841,149 +984,6 @@ package body Windows.Devices.AllJoyn is
       Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_InvalidArgument8(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Devices.AllJoyn.IAllJoynBusAttachment is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusAttachment");
-      m_Factory     : IAllJoynBusAttachmentStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynBusAttachment;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynBusAttachmentStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetWatcher
-   (
-      requiredInterfaces : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Devices.Enumeration.IDeviceWatcher is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusAttachment");
-      m_Factory     : IAllJoynBusAttachmentStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.IDeviceWatcher;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynBusAttachmentStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetWatcher(requiredInterfaces, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynServiceInfo");
-      m_Factory     : IAllJoynServiceInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynServiceInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDataBySessionPortAsync
-   (
-      uniqueName : Windows.String
-      ; busAttachment : Windows.Devices.AllJoyn.IAllJoynBusAttachment
-      ; sessionPort : Windows.UInt16
-   )
-   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynAboutDataView");
-      m_Factory     : IAllJoynAboutDataViewStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynAboutDataViewStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDataBySessionPortAsync(uniqueName, busAttachment, sessionPort, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDataBySessionPortWithLanguageAsync
-   (
-      uniqueName : Windows.String
-      ; busAttachment : Windows.Devices.AllJoyn.IAllJoynBusAttachment
-      ; sessionPort : Windows.UInt16
-      ; language : Windows.Globalization.ILanguage
-   )
-   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynAboutDataView");
-      m_Factory     : IAllJoynAboutDataViewStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynAboutDataViewStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDataBySessionPortWithLanguageAsync(uniqueName, busAttachment, sessionPort, language, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetFromServiceInfoAsync
-   (
-      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
-   )
-   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSession");
-      m_Factory     : IAllJoynSessionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetFromServiceInfoAsync(serviceInfo, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetFromServiceInfoAndBusAttachmentAsync
-   (
-      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
-      ; busAttachment : Windows.Devices.AllJoyn.IAllJoynBusAttachment
-   )
-   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSession");
-      m_Factory     : IAllJoynSessionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetFromServiceInfoAndBusAttachmentAsync(serviceInfo, busAttachment, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

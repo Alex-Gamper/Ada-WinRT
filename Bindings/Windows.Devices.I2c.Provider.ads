@@ -48,6 +48,18 @@ package Windows.Devices.I2c.Provider is
    
    type ProviderI2cBusSpeed_Ptr is access ProviderI2cBusSpeed;
    
+   type ProviderI2cSharingMode is (
+      Exclusive,
+      Shared
+   );
+   for ProviderI2cSharingMode use (
+      Exclusive => 0,
+      Shared => 1
+   );
+   for ProviderI2cSharingMode'Size use 32;
+   
+   type ProviderI2cSharingMode_Ptr is access ProviderI2cSharingMode;
+   
    type ProviderI2cTransferStatus is (
       FullTransfer,
       PartialTransfer,
@@ -61,18 +73,6 @@ package Windows.Devices.I2c.Provider is
    for ProviderI2cTransferStatus'Size use 32;
    
    type ProviderI2cTransferStatus_Ptr is access ProviderI2cTransferStatus;
-   
-   type ProviderI2cSharingMode is (
-      Exclusive,
-      Shared
-   );
-   for ProviderI2cSharingMode use (
-      Exclusive => 0,
-      Shared => 1
-   );
-   for ProviderI2cSharingMode'Size use 32;
-   
-   type ProviderI2cSharingMode_Ptr is access ProviderI2cSharingMode;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -90,70 +90,22 @@ package Windows.Devices.I2c.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IProviderI2cConnectionSettings_Interface;
-   type IProviderI2cConnectionSettings is access all IProviderI2cConnectionSettings_Interface'Class;
-   type IProviderI2cConnectionSettings_Ptr is access all IProviderI2cConnectionSettings;
    type II2cControllerProvider_Interface;
    type II2cControllerProvider is access all II2cControllerProvider_Interface'Class;
    type II2cControllerProvider_Ptr is access all II2cControllerProvider;
-   type II2cProvider_Interface;
-   type II2cProvider is access all II2cProvider_Interface'Class;
-   type II2cProvider_Ptr is access all II2cProvider;
    type II2cDeviceProvider_Interface;
    type II2cDeviceProvider is access all II2cDeviceProvider_Interface'Class;
    type II2cDeviceProvider_Ptr is access all II2cDeviceProvider;
+   type II2cProvider_Interface;
+   type II2cProvider is access all II2cProvider_Interface'Class;
+   type II2cProvider_Ptr is access all II2cProvider;
+   type IProviderI2cConnectionSettings_Interface;
+   type IProviderI2cConnectionSettings is access all IProviderI2cConnectionSettings_Interface'Class;
+   type IProviderI2cConnectionSettings_Ptr is access all IProviderI2cConnectionSettings;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProviderI2cConnectionSettings : aliased constant Windows.IID := (3923463732, 58640, 17591, (128, 157, 242, 248, 91, 85, 83, 57 ));
-   
-   type IProviderI2cConnectionSettings_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SlaveAddress
-   (
-      This       : access IProviderI2cConnectionSettings_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SlaveAddress
-   (
-      This       : access IProviderI2cConnectionSettings_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BusSpeed
-   (
-      This       : access IProviderI2cConnectionSettings_Interface
-      ; RetVal : access Windows.Devices.I2c.Provider.ProviderI2cBusSpeed
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_BusSpeed
-   (
-      This       : access IProviderI2cConnectionSettings_Interface
-      ; value : Windows.Devices.I2c.Provider.ProviderI2cBusSpeed
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SharingMode
-   (
-      This       : access IProviderI2cConnectionSettings_Interface
-      ; RetVal : access Windows.Devices.I2c.Provider.ProviderI2cSharingMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SharingMode
-   (
-      This       : access IProviderI2cConnectionSettings_Interface
-      ; value : Windows.Devices.I2c.Provider.ProviderI2cSharingMode
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -166,19 +118,6 @@ package Windows.Devices.I2c.Provider is
       This       : access II2cControllerProvider_Interface
       ; settings : Windows.Devices.I2c.Provider.IProviderI2cConnectionSettings
       ; RetVal : access Windows.Devices.I2c.Provider.II2cDeviceProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_II2cProvider : aliased constant Windows.IID := (1863518270, 48994, 20450, (169, 90, 240, 137, 153, 102, 152, 24 ));
-   
-   type II2cProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetControllersAsync
-   (
-      This       : access II2cProvider_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -239,6 +178,67 @@ package Windows.Devices.I2c.Provider is
       ; writeBuffer : Windows.UInt8_Ptr
       ; readBuffer : Windows.UInt8_Ptr
       ; RetVal : access Windows.Devices.I2c.Provider.ProviderI2cTransferResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_II2cProvider : aliased constant Windows.IID := (1863518270, 48994, 20450, (169, 90, 240, 137, 153, 102, 152, 24 ));
+   
+   type II2cProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetControllersAsync
+   (
+      This       : access II2cProvider_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProviderI2cConnectionSettings : aliased constant Windows.IID := (3923463732, 58640, 17591, (128, 157, 242, 248, 91, 85, 83, 57 ));
+   
+   type IProviderI2cConnectionSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SlaveAddress
+   (
+      This       : access IProviderI2cConnectionSettings_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SlaveAddress
+   (
+      This       : access IProviderI2cConnectionSettings_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BusSpeed
+   (
+      This       : access IProviderI2cConnectionSettings_Interface
+      ; RetVal : access Windows.Devices.I2c.Provider.ProviderI2cBusSpeed
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BusSpeed
+   (
+      This       : access IProviderI2cConnectionSettings_Interface
+      ; value : Windows.Devices.I2c.Provider.ProviderI2cBusSpeed
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SharingMode
+   (
+      This       : access IProviderI2cConnectionSettings_Interface
+      ; RetVal : access Windows.Devices.I2c.Provider.ProviderI2cSharingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SharingMode
+   (
+      This       : access IProviderI2cConnectionSettings_Interface
+      ; value : Windows.Devices.I2c.Provider.ProviderI2cSharingMode
    )
    return Windows.HRESULT is abstract;
    

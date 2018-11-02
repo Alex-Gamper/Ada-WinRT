@@ -64,6 +64,32 @@ package body Windows.Media.SpeechRecognition is
    
    function Invoke
    (
+      This       : access TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed_Interface
+      ; sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession
+      ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession(sender), Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionCompletedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated_Interface
+      ; sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession
+      ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionResultGeneratedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession(sender), Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionResultGeneratedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading_Interface
       ; sender : Windows.Media.SpeechRecognition.ISpeechRecognizer
       ; args : Windows.Media.SpeechRecognition.ISpeechRecognitionQualityDegradingEventArgs
@@ -101,51 +127,24 @@ package body Windows.Media.SpeechRecognition is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed_Interface
-      ; sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession
-      ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionCompletedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession(sender), Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionCompletedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated_Interface
-      ; sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession
-      ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionResultGeneratedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession(sender), Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionResultGeneratedEventArgs(args));
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
    function Create
    (
-      scenario : Windows.Media.SpeechRecognition.SpeechRecognitionScenario
-      ; topicHint : Windows.String
+      file : Windows.Storage.IStorageFile
    )
-   return Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint is
+   return Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint");
-      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraintFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint");
+      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraintFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint := null;
+      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionTopicConstraintFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionGrammarFileConstraintFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(scenario, topicHint, RetVal'Access);
+         Hr := m_Factory.Create(file, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -154,20 +153,19 @@ package body Windows.Media.SpeechRecognition is
    
    function CreateWithTag
    (
-      scenario : Windows.Media.SpeechRecognition.SpeechRecognitionScenario
-      ; topicHint : Windows.String
+      file : Windows.Storage.IStorageFile
       ; tag : Windows.String
    )
-   return Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint is
+   return Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint");
-      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraintFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint");
+      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraintFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint := null;
+      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionTopicConstraintFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionGrammarFileConstraintFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithTag(scenario, topicHint, tag, RetVal'Access);
+         Hr := m_Factory.CreateWithTag(file, tag, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -217,18 +215,19 @@ package body Windows.Media.SpeechRecognition is
    
    function Create
    (
-      file : Windows.Storage.IStorageFile
+      scenario : Windows.Media.SpeechRecognition.SpeechRecognitionScenario
+      ; topicHint : Windows.String
    )
-   return Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint is
+   return Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint");
-      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraintFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint");
+      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraintFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint := null;
+      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionGrammarFileConstraintFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionTopicConstraintFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(file, RetVal'Access);
+         Hr := m_Factory.Create(scenario, topicHint, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -237,19 +236,20 @@ package body Windows.Media.SpeechRecognition is
    
    function CreateWithTag
    (
-      file : Windows.Storage.IStorageFile
+      scenario : Windows.Media.SpeechRecognition.SpeechRecognitionScenario
+      ; topicHint : Windows.String
       ; tag : Windows.String
    )
-   return Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint is
+   return Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint");
-      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraintFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint");
+      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraintFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint := null;
+      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionGrammarFileConstraintFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognitionTopicConstraintFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithTag(file, tag, RetVal'Access);
+         Hr := m_Factory.CreateWithTag(scenario, topicHint, tag, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

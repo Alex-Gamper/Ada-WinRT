@@ -52,6 +52,40 @@ package Windows.Globalization.PhoneNumberFormatting is
    
    type PhoneNumberFormat_Ptr is access PhoneNumberFormat;
    
+   type PhoneNumberMatchResult is (
+      NoMatch,
+      ShortNationalSignificantNumberMatch,
+      NationalSignificantNumberMatch,
+      ExactMatch
+   );
+   for PhoneNumberMatchResult use (
+      NoMatch => 0,
+      ShortNationalSignificantNumberMatch => 1,
+      NationalSignificantNumberMatch => 2,
+      ExactMatch => 3
+   );
+   for PhoneNumberMatchResult'Size use 32;
+   
+   type PhoneNumberMatchResult_Ptr is access PhoneNumberMatchResult;
+   
+   type PhoneNumberParseResult is (
+      Valid,
+      NotANumber,
+      InvalidCountryCode,
+      TooShort,
+      TooLong
+   );
+   for PhoneNumberParseResult use (
+      Valid => 0,
+      NotANumber => 1,
+      InvalidCountryCode => 2,
+      TooShort => 3,
+      TooLong => 4
+   );
+   for PhoneNumberParseResult'Size use 32;
+   
+   type PhoneNumberParseResult_Ptr is access PhoneNumberParseResult;
+   
    type PredictedPhoneNumberKind is (
       FixedLine,
       Mobile,
@@ -84,63 +118,115 @@ package Windows.Globalization.PhoneNumberFormatting is
    
    type PredictedPhoneNumberKind_Ptr is access PredictedPhoneNumberKind;
    
-   type PhoneNumberParseResult is (
-      Valid,
-      NotANumber,
-      InvalidCountryCode,
-      TooShort,
-      TooLong
-   );
-   for PhoneNumberParseResult use (
-      Valid => 0,
-      NotANumber => 1,
-      InvalidCountryCode => 2,
-      TooShort => 3,
-      TooLong => 4
-   );
-   for PhoneNumberParseResult'Size use 32;
-   
-   type PhoneNumberParseResult_Ptr is access PhoneNumberParseResult;
-   
-   type PhoneNumberMatchResult is (
-      NoMatch,
-      ShortNationalSignificantNumberMatch,
-      NationalSignificantNumberMatch,
-      ExactMatch
-   );
-   for PhoneNumberMatchResult use (
-      NoMatch => 0,
-      ShortNationalSignificantNumberMatch => 1,
-      NationalSignificantNumberMatch => 2,
-      ExactMatch => 3
-   );
-   for PhoneNumberMatchResult'Size use 32;
-   
-   type PhoneNumberMatchResult_Ptr is access PhoneNumberMatchResult;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IPhoneNumberInfo_Interface;
-   type IPhoneNumberInfo is access all IPhoneNumberInfo_Interface'Class;
-   type IPhoneNumberInfo_Ptr is access all IPhoneNumberInfo;
    type IPhoneNumberFormatter_Interface;
    type IPhoneNumberFormatter is access all IPhoneNumberFormatter_Interface'Class;
    type IPhoneNumberFormatter_Ptr is access all IPhoneNumberFormatter;
+   type IPhoneNumberFormatterStatics_Interface;
+   type IPhoneNumberFormatterStatics is access all IPhoneNumberFormatterStatics_Interface'Class;
+   type IPhoneNumberFormatterStatics_Ptr is access all IPhoneNumberFormatterStatics;
+   type IPhoneNumberInfo_Interface;
+   type IPhoneNumberInfo is access all IPhoneNumberInfo_Interface'Class;
+   type IPhoneNumberInfo_Ptr is access all IPhoneNumberInfo;
    type IPhoneNumberInfoFactory_Interface;
    type IPhoneNumberInfoFactory is access all IPhoneNumberInfoFactory_Interface'Class;
    type IPhoneNumberInfoFactory_Ptr is access all IPhoneNumberInfoFactory;
    type IPhoneNumberInfoStatics_Interface;
    type IPhoneNumberInfoStatics is access all IPhoneNumberInfoStatics_Interface'Class;
    type IPhoneNumberInfoStatics_Ptr is access all IPhoneNumberInfoStatics;
-   type IPhoneNumberFormatterStatics_Interface;
-   type IPhoneNumberFormatterStatics is access all IPhoneNumberFormatterStatics_Interface'Class;
-   type IPhoneNumberFormatterStatics_Ptr is access all IPhoneNumberFormatterStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPhoneNumberFormatter : aliased constant Windows.IID := (358003870, 47828, 19274, (144, 13, 68, 7, 173, 183, 201, 129 ));
+   
+   type IPhoneNumberFormatter_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Format
+   (
+      This       : access IPhoneNumberFormatter_Interface
+      ; number : Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FormatWithOutputFormat
+   (
+      This       : access IPhoneNumberFormatter_Interface
+      ; number : Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
+      ; numberFormat : Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FormatPartialString
+   (
+      This       : access IPhoneNumberFormatter_Interface
+      ; number : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FormatString
+   (
+      This       : access IPhoneNumberFormatter_Interface
+      ; number : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FormatStringWithLeftToRightMarkers
+   (
+      This       : access IPhoneNumberFormatter_Interface
+      ; number : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPhoneNumberFormatterStatics : aliased constant Windows.IID := (1554446641, 34009, 16715, (171, 78, 160, 85, 44, 135, 134, 2 ));
+   
+   type IPhoneNumberFormatterStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryCreate
+   (
+      This       : access IPhoneNumberFormatterStatics_Interface
+      ; regionCode : Windows.String
+      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCountryCodeForRegion
+   (
+      This       : access IPhoneNumberFormatterStatics_Interface
+      ; regionCode : Windows.String
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNationalDirectDialingPrefixForRegion
+   (
+      This       : access IPhoneNumberFormatterStatics_Interface
+      ; regionCode : Windows.String
+      ; stripNonDigit : Windows.Boolean
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function WrapWithLeftToRightMarkers
+   (
+      This       : access IPhoneNumberFormatterStatics_Interface
+      ; number : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -207,53 +293,6 @@ package Windows.Globalization.PhoneNumberFormatting is
    
    ------------------------------------------------------------------------
    
-   IID_IPhoneNumberFormatter : aliased constant Windows.IID := (358003870, 47828, 19274, (144, 13, 68, 7, 173, 183, 201, 129 ));
-   
-   type IPhoneNumberFormatter_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Format
-   (
-      This       : access IPhoneNumberFormatter_Interface
-      ; number : Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FormatWithOutputFormat
-   (
-      This       : access IPhoneNumberFormatter_Interface
-      ; number : Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
-      ; numberFormat : Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FormatPartialString
-   (
-      This       : access IPhoneNumberFormatter_Interface
-      ; number : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FormatString
-   (
-      This       : access IPhoneNumberFormatter_Interface
-      ; number : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FormatStringWithLeftToRightMarkers
-   (
-      This       : access IPhoneNumberFormatter_Interface
-      ; number : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPhoneNumberInfoFactory : aliased constant Windows.IID := (2181216612, 44458, 19711, (143, 207, 23, 231, 81, 106, 40, 255 ));
    
    type IPhoneNumberInfoFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -292,47 +331,11 @@ package Windows.Globalization.PhoneNumberFormatting is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IPhoneNumberFormatterStatics : aliased constant Windows.IID := (1554446641, 34009, 16715, (171, 78, 160, 85, 44, 135, 134, 2 ));
-   
-   type IPhoneNumberFormatterStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function TryCreate
-   (
-      This       : access IPhoneNumberFormatterStatics_Interface
-      ; regionCode : Windows.String
-      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetCountryCodeForRegion
-   (
-      This       : access IPhoneNumberFormatterStatics_Interface
-      ; regionCode : Windows.String
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNationalDirectDialingPrefixForRegion
-   (
-      This       : access IPhoneNumberFormatterStatics_Interface
-      ; regionCode : Windows.String
-      ; stripNonDigit : Windows.Boolean
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function WrapWithLeftToRightMarkers
-   (
-      This       : access IPhoneNumberFormatterStatics_Interface
-      ; number : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
+   
+   subtype PhoneNumberFormatter is Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter;
+   function Create return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter;
    
    subtype PhoneNumberInfo is Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo;
    function Create
@@ -341,28 +344,10 @@ package Windows.Globalization.PhoneNumberFormatting is
    )
    return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo;
    
-   subtype PhoneNumberFormatter is Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter;
-   function Create return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter;
-   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function TryParse
-   (
-      input : Windows.String
-      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
-   )
-   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
-   
-   function TryParseWithRegion
-   (
-      input : Windows.String
-      ; regionCode : Windows.String
-      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
-   )
-   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
    
    procedure TryCreate
    (
@@ -389,5 +374,20 @@ package Windows.Globalization.PhoneNumberFormatting is
       number : Windows.String
    )
    return Windows.String;
+   
+   function TryParse
+   (
+      input : Windows.String
+      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
+   )
+   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
+   
+   function TryParseWithRegion
+   (
+      input : Windows.String
+      ; regionCode : Windows.String
+      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
+   )
+   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
    
 end;

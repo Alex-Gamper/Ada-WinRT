@@ -39,34 +39,8 @@ package body Windows.Storage.FileProperties is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IMusicProperties_Interface
-      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IMusicProperties
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IVideoProperties_Interface
-      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IVideoProperties
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IImageProperties_Interface
-      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties
+      This       : access AsyncOperationCompletedHandler_IBasicProperties_Interface
+      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -91,8 +65,34 @@ package body Windows.Storage.FileProperties is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IBasicProperties_Interface
-      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties
+      This       : access AsyncOperationCompletedHandler_IImageProperties_Interface
+      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IMusicProperties_Interface
+      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IMusicProperties
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IVideoProperties_Interface
+      ; asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IVideoProperties
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

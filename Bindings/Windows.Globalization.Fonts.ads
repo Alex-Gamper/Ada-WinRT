@@ -36,19 +36,60 @@ package Windows.Globalization.Fonts is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type ILanguageFont_Interface;
+   type ILanguageFont is access all ILanguageFont_Interface'Class;
+   type ILanguageFont_Ptr is access all ILanguageFont;
    type ILanguageFontGroup_Interface;
    type ILanguageFontGroup is access all ILanguageFontGroup_Interface'Class;
    type ILanguageFontGroup_Ptr is access all ILanguageFontGroup;
    type ILanguageFontGroupFactory_Interface;
    type ILanguageFontGroupFactory is access all ILanguageFontGroupFactory_Interface'Class;
    type ILanguageFontGroupFactory_Ptr is access all ILanguageFontGroupFactory;
-   type ILanguageFont_Interface;
-   type ILanguageFont is access all ILanguageFont_Interface'Class;
-   type ILanguageFont_Ptr is access all ILanguageFont;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILanguageFont : aliased constant Windows.IID := (2972605498, 46957, 17819, (190, 235, 144, 17, 81, 205, 119, 209 ));
+   
+   type ILanguageFont_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FontFamily
+   (
+      This       : access ILanguageFont_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FontWeight
+   (
+      This       : access ILanguageFont_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FontStretch
+   (
+      This       : access ILanguageFont_Interface
+      ; RetVal : access Windows.UI.Text.FontStretch
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FontStyle
+   (
+      This       : access ILanguageFont_Interface
+      ; RetVal : access Windows.UI.Text.FontStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaleFactor
+   (
+      This       : access ILanguageFont_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -144,47 +185,6 @@ package Windows.Globalization.Fonts is
       This       : access ILanguageFontGroupFactory_Interface
       ; languageTag : Windows.String
       ; RetVal : access Windows.Globalization.Fonts.ILanguageFontGroup
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILanguageFont : aliased constant Windows.IID := (2972605498, 46957, 17819, (190, 235, 144, 17, 81, 205, 119, 209 ));
-   
-   type ILanguageFont_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FontFamily
-   (
-      This       : access ILanguageFont_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FontWeight
-   (
-      This       : access ILanguageFont_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FontStretch
-   (
-      This       : access ILanguageFont_Interface
-      ; RetVal : access Windows.UI.Text.FontStretch
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FontStyle
-   (
-      This       : access ILanguageFont_Interface
-      ; RetVal : access Windows.UI.Text.FontStyle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ScaleFactor
-   (
-      This       : access ILanguageFont_Interface
-      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    

@@ -37,19 +37,6 @@ package body Windows.Storage.Pickers.Provider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface
-      ; sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI
-      ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Storage.Pickers.Provider.IFileOpenPickerUI(sender), Windows.Storage.Pickers.Provider.IFileRemovedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface
       ; sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI
       ; args : Windows.Storage.Pickers.Provider.IPickerClosingEventArgs
@@ -58,6 +45,19 @@ package body Windows.Storage.Pickers.Provider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Storage.Pickers.Provider.IFileOpenPickerUI(sender), Windows.Storage.Pickers.Provider.IPickerClosingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface
+      ; sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI
+      ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Storage.Pickers.Provider.IFileOpenPickerUI(sender), Windows.Storage.Pickers.Provider.IFileRemovedEventArgs(args));
       return Hr;
    end;
    

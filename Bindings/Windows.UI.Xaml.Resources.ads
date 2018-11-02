@@ -37,15 +37,15 @@ package Windows.UI.Xaml.Resources is
    type ICustomXamlResourceLoader_Interface;
    type ICustomXamlResourceLoader is access all ICustomXamlResourceLoader_Interface'Class;
    type ICustomXamlResourceLoader_Ptr is access all ICustomXamlResourceLoader;
+   type ICustomXamlResourceLoaderFactory_Interface;
+   type ICustomXamlResourceLoaderFactory is access all ICustomXamlResourceLoaderFactory_Interface'Class;
+   type ICustomXamlResourceLoaderFactory_Ptr is access all ICustomXamlResourceLoaderFactory;
    type ICustomXamlResourceLoaderOverrides_Interface;
    type ICustomXamlResourceLoaderOverrides is access all ICustomXamlResourceLoaderOverrides_Interface'Class;
    type ICustomXamlResourceLoaderOverrides_Ptr is access all ICustomXamlResourceLoaderOverrides;
    type ICustomXamlResourceLoaderStatics_Interface;
    type ICustomXamlResourceLoaderStatics is access all ICustomXamlResourceLoaderStatics_Interface'Class;
    type ICustomXamlResourceLoaderStatics_Ptr is access all ICustomXamlResourceLoaderStatics;
-   type ICustomXamlResourceLoaderFactory_Interface;
-   type ICustomXamlResourceLoaderFactory is access all ICustomXamlResourceLoaderFactory_Interface'Class;
-   type ICustomXamlResourceLoaderFactory_Ptr is access all ICustomXamlResourceLoaderFactory;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -56,6 +56,21 @@ package Windows.UI.Xaml.Resources is
    IID_ICustomXamlResourceLoader : aliased constant Windows.IID := (1360692395, 19080, 16799, (133, 46, 84, 8, 59, 144, 176, 120 ));
    
    type ICustomXamlResourceLoader_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICustomXamlResourceLoaderFactory : aliased constant Windows.IID := (1543339593, 30854, 17651, (142, 211, 111, 236, 4, 99, 237, 105 ));
+   
+   type ICustomXamlResourceLoaderFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ICustomXamlResourceLoaderFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Resources.ICustomXamlResourceLoader
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -91,21 +106,6 @@ package Windows.UI.Xaml.Resources is
    (
       This       : access ICustomXamlResourceLoaderStatics_Interface
       ; value : Windows.UI.Xaml.Resources.ICustomXamlResourceLoader
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICustomXamlResourceLoaderFactory : aliased constant Windows.IID := (1543339593, 30854, 17651, (142, 211, 111, 236, 4, 99, 237, 105 ));
-   
-   type ICustomXamlResourceLoaderFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access ICustomXamlResourceLoaderFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Resources.ICustomXamlResourceLoader
    )
    return Windows.HRESULT is abstract;
    

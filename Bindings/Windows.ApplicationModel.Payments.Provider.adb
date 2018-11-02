@@ -37,8 +37,8 @@ package body Windows.ApplicationModel.Payments.Provider is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult
+      This       : access AsyncOperationCompletedHandler_IPaymentTransaction_Interface
+      ; asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransaction
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -50,8 +50,8 @@ package body Windows.ApplicationModel.Payments.Provider is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IPaymentTransaction_Interface
-      ; asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransaction
+      This       : access AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

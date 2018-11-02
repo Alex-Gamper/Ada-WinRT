@@ -65,15 +65,15 @@ package Windows.UI.Notifications.Management is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IUserNotificationListenerStatics_Interface;
-   type IUserNotificationListenerStatics is access all IUserNotificationListenerStatics_Interface'Class;
-   type IUserNotificationListenerStatics_Ptr is access all IUserNotificationListenerStatics;
-   type IUserNotificationListener_Interface;
-   type IUserNotificationListener is access all IUserNotificationListener_Interface'Class;
-   type IUserNotificationListener_Ptr is access all IUserNotificationListener;
    type IAsyncOperation_UserNotificationListenerAccessStatus_Interface;
    type IAsyncOperation_UserNotificationListenerAccessStatus is access all IAsyncOperation_UserNotificationListenerAccessStatus_Interface'Class;
    type IAsyncOperation_UserNotificationListenerAccessStatus_Ptr is access all IAsyncOperation_UserNotificationListenerAccessStatus;
+   type IUserNotificationListener_Interface;
+   type IUserNotificationListener is access all IUserNotificationListener_Interface'Class;
+   type IUserNotificationListener_Ptr is access all IUserNotificationListener;
+   type IUserNotificationListenerStatics_Interface;
+   type IUserNotificationListenerStatics is access all IUserNotificationListenerStatics_Interface'Class;
+   type IUserNotificationListenerStatics_Ptr is access all IUserNotificationListenerStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -81,14 +81,28 @@ package Windows.UI.Notifications.Management is
    
    ------------------------------------------------------------------------
    
-   IID_IUserNotificationListenerStatics : aliased constant Windows.IID := (4284556239, 17286, 19107, (183, 61, 184, 4, 229, 182, 59, 35 ));
+   IID_IAsyncOperation_UserNotificationListenerAccessStatus : aliased constant Windows.IID := (263903431, 2159, 23545, (129, 226, 141, 121, 231, 24, 72, 3 ));
    
-   type IUserNotificationListenerStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_UserNotificationListenerAccessStatus_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function put_Completed
    (
-      This       : access IUserNotificationListenerStatics_Interface
-      ; RetVal : access Windows.UI.Notifications.Management.IUserNotificationListener
+      This       : access IAsyncOperation_UserNotificationListenerAccessStatus_Interface
+      ; handler : Windows.UI.Notifications.Management.AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UserNotificationListenerAccessStatus_Interface
+      ; RetVal : access Windows.UI.Notifications.Management.AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UserNotificationListenerAccessStatus_Interface
+      ; RetVal : access Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -158,28 +172,14 @@ package Windows.UI.Notifications.Management is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_UserNotificationListenerAccessStatus : aliased constant Windows.IID := (263903431, 2159, 23545, (129, 226, 141, 121, 231, 24, 72, 3 ));
+   IID_IUserNotificationListenerStatics : aliased constant Windows.IID := (4284556239, 17286, 19107, (183, 61, 184, 4, 229, 182, 59, 35 ));
    
-   type IAsyncOperation_UserNotificationListenerAccessStatus_Interface is interface and Windows.IInspectable_Interface;
+   type IUserNotificationListenerStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_Current
    (
-      This       : access IAsyncOperation_UserNotificationListenerAccessStatus_Interface
-      ; handler : Windows.UI.Notifications.Management.AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UserNotificationListenerAccessStatus_Interface
-      ; RetVal : access Windows.UI.Notifications.Management.AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UserNotificationListenerAccessStatus_Interface
-      ; RetVal : access Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus
+      This       : access IUserNotificationListenerStatics_Interface
+      ; RetVal : access Windows.UI.Notifications.Management.IUserNotificationListener
    )
    return Windows.HRESULT is abstract;
    

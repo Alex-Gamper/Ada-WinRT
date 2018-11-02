@@ -38,17 +38,19 @@ package Windows.Devices.Gpio is
    -- Enums
    ------------------------------------------------------------------------
    
-   type GpioSharingMode is (
-      Exclusive,
-      SharedReadOnly
+   type GpioChangePolarity is (
+      Falling,
+      Rising,
+      Both
    );
-   for GpioSharingMode use (
-      Exclusive => 0,
-      SharedReadOnly => 1
+   for GpioChangePolarity use (
+      Falling => 0,
+      Rising => 1,
+      Both => 2
    );
-   for GpioSharingMode'Size use 32;
+   for GpioChangePolarity'Size use 32;
    
-   type GpioSharingMode_Ptr is access GpioSharingMode;
+   type GpioChangePolarity_Ptr is access GpioChangePolarity;
    
    type GpioOpenStatus is (
       PinOpened,
@@ -92,18 +94,6 @@ package Windows.Devices.Gpio is
    
    type GpioPinDriveMode_Ptr is access GpioPinDriveMode;
    
-   type GpioPinValue is (
-      Low,
-      High
-   );
-   for GpioPinValue use (
-      Low => 0,
-      High => 1
-   );
-   for GpioPinValue'Size use 32;
-   
-   type GpioPinValue_Ptr is access GpioPinValue;
-   
    type GpioPinEdge is (
       FallingEdge,
       RisingEdge
@@ -116,19 +106,29 @@ package Windows.Devices.Gpio is
    
    type GpioPinEdge_Ptr is access GpioPinEdge;
    
-   type GpioChangePolarity is (
-      Falling,
-      Rising,
-      Both
+   type GpioPinValue is (
+      Low,
+      High
    );
-   for GpioChangePolarity use (
-      Falling => 0,
-      Rising => 1,
-      Both => 2
+   for GpioPinValue use (
+      Low => 0,
+      High => 1
    );
-   for GpioChangePolarity'Size use 32;
+   for GpioPinValue'Size use 32;
    
-   type GpioChangePolarity_Ptr is access GpioChangePolarity;
+   type GpioPinValue_Ptr is access GpioPinValue;
+   
+   type GpioSharingMode is (
+      Exclusive,
+      SharedReadOnly
+   );
+   for GpioSharingMode use (
+      Exclusive => 0,
+      SharedReadOnly => 1
+   );
+   for GpioSharingMode'Size use 32;
+   
+   type GpioSharingMode_Ptr is access GpioSharingMode;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -165,9 +165,21 @@ package Windows.Devices.Gpio is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IGpioPinValueChangedEventArgs_Interface;
-   type IGpioPinValueChangedEventArgs is access all IGpioPinValueChangedEventArgs_Interface'Class;
-   type IGpioPinValueChangedEventArgs_Ptr is access all IGpioPinValueChangedEventArgs;
+   type IAsyncOperation_IGpioController_Interface;
+   type IAsyncOperation_IGpioController is access all IAsyncOperation_IGpioController_Interface'Class;
+   type IAsyncOperation_IGpioController_Ptr is access all IAsyncOperation_IGpioController;
+   type IGpioChangeCounter_Interface;
+   type IGpioChangeCounter is access all IGpioChangeCounter_Interface'Class;
+   type IGpioChangeCounter_Ptr is access all IGpioChangeCounter;
+   type IGpioChangeCounterFactory_Interface;
+   type IGpioChangeCounterFactory is access all IGpioChangeCounterFactory_Interface'Class;
+   type IGpioChangeCounterFactory_Ptr is access all IGpioChangeCounterFactory;
+   type IGpioChangeReader_Interface;
+   type IGpioChangeReader is access all IGpioChangeReader_Interface'Class;
+   type IGpioChangeReader_Ptr is access all IGpioChangeReader;
+   type IGpioChangeReaderFactory_Interface;
+   type IGpioChangeReaderFactory is access all IGpioChangeReaderFactory_Interface'Class;
+   type IGpioChangeReaderFactory_Ptr is access all IGpioChangeReaderFactory;
    type IGpioController_Interface;
    type IGpioController is access all IGpioController_Interface'Class;
    type IGpioController_Ptr is access all IGpioController;
@@ -177,36 +189,24 @@ package Windows.Devices.Gpio is
    type IGpioControllerStatics2_Interface;
    type IGpioControllerStatics2 is access all IGpioControllerStatics2_Interface'Class;
    type IGpioControllerStatics2_Ptr is access all IGpioControllerStatics2;
-   type IGpioChangeReaderFactory_Interface;
-   type IGpioChangeReaderFactory is access all IGpioChangeReaderFactory_Interface'Class;
-   type IGpioChangeReaderFactory_Ptr is access all IGpioChangeReaderFactory;
-   type IGpioChangeCounterFactory_Interface;
-   type IGpioChangeCounterFactory is access all IGpioChangeCounterFactory_Interface'Class;
-   type IGpioChangeCounterFactory_Ptr is access all IGpioChangeCounterFactory;
    type IGpioPin_Interface;
    type IGpioPin is access all IGpioPin_Interface'Class;
    type IGpioPin_Ptr is access all IGpioPin;
-   type IGpioChangeReader_Interface;
-   type IGpioChangeReader is access all IGpioChangeReader_Interface'Class;
-   type IGpioChangeReader_Ptr is access all IGpioChangeReader;
-   type IGpioChangeCounter_Interface;
-   type IGpioChangeCounter is access all IGpioChangeCounter_Interface'Class;
-   type IGpioChangeCounter_Ptr is access all IGpioChangeCounter;
-   type IAsyncOperation_IGpioController_Interface;
-   type IAsyncOperation_IGpioController is access all IAsyncOperation_IGpioController_Interface'Class;
-   type IAsyncOperation_IGpioController_Ptr is access all IAsyncOperation_IGpioController;
-   type IIterator_GpioChangeRecord_Interface;
-   type IIterator_GpioChangeRecord is access all IIterator_GpioChangeRecord_Interface'Class;
-   type IIterator_GpioChangeRecord_Ptr is access all IIterator_GpioChangeRecord;
+   type IGpioPinValueChangedEventArgs_Interface;
+   type IGpioPinValueChangedEventArgs is access all IGpioPinValueChangedEventArgs_Interface'Class;
+   type IGpioPinValueChangedEventArgs_Ptr is access all IGpioPinValueChangedEventArgs;
    type IIterable_GpioChangeRecord_Interface;
    type IIterable_GpioChangeRecord is access all IIterable_GpioChangeRecord_Interface'Class;
    type IIterable_GpioChangeRecord_Ptr is access all IIterable_GpioChangeRecord;
-   type IVectorView_GpioChangeRecord_Interface;
-   type IVectorView_GpioChangeRecord is access all IVectorView_GpioChangeRecord_Interface'Class;
-   type IVectorView_GpioChangeRecord_Ptr is access all IVectorView_GpioChangeRecord;
+   type IIterator_GpioChangeRecord_Interface;
+   type IIterator_GpioChangeRecord is access all IIterator_GpioChangeRecord_Interface'Class;
+   type IIterator_GpioChangeRecord_Ptr is access all IIterator_GpioChangeRecord;
    type IVector_GpioChangeRecord_Interface;
    type IVector_GpioChangeRecord is access all IVector_GpioChangeRecord_Interface'Class;
    type IVector_GpioChangeRecord_Ptr is access all IVector_GpioChangeRecord;
+   type IVectorView_GpioChangeRecord_Interface;
+   type IVectorView_GpioChangeRecord is access all IVectorView_GpioChangeRecord_Interface'Class;
+   type IVectorView_GpioChangeRecord_Ptr is access all IVectorView_GpioChangeRecord;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -214,112 +214,81 @@ package Windows.Devices.Gpio is
    
    ------------------------------------------------------------------------
    
-   IID_IGpioPinValueChangedEventArgs : aliased constant Windows.IID := (825731809, 28733, 16473, (189, 36, 181, 178, 93, 255, 184, 78 ));
+   IID_IAsyncOperation_IGpioController : aliased constant Windows.IID := (3976485143, 38599, 22325, (180, 190, 215, 150, 25, 212, 131, 94 ));
    
-   type IGpioPinValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IGpioController_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Edge
+   function put_Completed
    (
-      This       : access IGpioPinValueChangedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Gpio.GpioPinEdge
+      This       : access IAsyncOperation_IGpioController_Interface
+      ; handler : Windows.Devices.Gpio.AsyncOperationCompletedHandler_IGpioController
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IGpioController : aliased constant Windows.IID := (675287779, 29793, 18076, (168, 188, 97, 214, 157, 8, 165, 60 ));
-   
-   type IGpioController_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PinCount
+   function get_Completed
    (
-      This       : access IGpioController_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IAsyncOperation_IGpioController_Interface
+      ; RetVal : access Windows.Devices.Gpio.AsyncOperationCompletedHandler_IGpioController
    )
    return Windows.HRESULT is abstract;
    
-   function OpenPin
+   function GetResults
    (
-      This       : access IGpioController_Interface
-      ; pinNumber : Windows.Int32
-      ; RetVal : access Windows.Devices.Gpio.IGpioPin
-   )
-   return Windows.HRESULT is abstract;
-   
-   function OpenPinWithSharingMode
-   (
-      This       : access IGpioController_Interface
-      ; pinNumber : Windows.Int32
-      ; sharingMode : Windows.Devices.Gpio.GpioSharingMode
-      ; RetVal : access Windows.Devices.Gpio.IGpioPin
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryOpenPin
-   (
-      This       : access IGpioController_Interface
-      ; pinNumber : Windows.Int32
-      ; sharingMode : Windows.Devices.Gpio.GpioSharingMode
-      ; pin : access Windows.Devices.Gpio.IGpioPin
-      ; openStatus : access Windows.Devices.Gpio.GpioOpenStatus
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGpioControllerStatics : aliased constant Windows.IID := (785839150, 31479, 16662, (149, 51, 196, 61, 153, 161, 251, 100 ));
-   
-   type IGpioControllerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDefault
-   (
-      This       : access IGpioControllerStatics_Interface
+      This       : access IAsyncOperation_IGpioController_Interface
       ; RetVal : access Windows.Devices.Gpio.IGpioController
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IGpioControllerStatics2 : aliased constant Windows.IID := (2435546400, 27812, 16646, (163, 115, 255, 253, 52, 107, 14, 91 ));
+   IID_IGpioChangeCounter : aliased constant Windows.IID := (3411984606, 26625, 17407, (128, 61, 69, 118, 98, 138, 139, 38 ));
    
-   type IGpioControllerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   type IGpioChangeCounter_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetControllersAsync
+   function put_Polarity
    (
-      This       : access IGpioControllerStatics2_Interface
-      ; provider : Windows.Devices.Gpio.Provider.IGpioProvider
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IGpioChangeCounter_Interface
+      ; value : Windows.Devices.Gpio.GpioChangePolarity
    )
    return Windows.HRESULT is abstract;
    
-   function GetDefaultAsync
+   function get_Polarity
    (
-      This       : access IGpioControllerStatics2_Interface
-      ; RetVal : access Windows.Devices.Gpio.IAsyncOperation_IGpioController -- Generic Parameter Type
+      This       : access IGpioChangeCounter_Interface
+      ; RetVal : access Windows.Devices.Gpio.GpioChangePolarity
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IGpioChangeReaderFactory : aliased constant Windows.IID := (2841218803, 14606, 17434, (157, 28, 232, 222, 11, 45, 240, 223 ));
-   
-   type IGpioChangeReaderFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
+   function get_IsStarted
    (
-      This       : access IGpioChangeReaderFactory_Interface
-      ; pin : Windows.Devices.Gpio.IGpioPin
-      ; RetVal : access Windows.Devices.Gpio.IGpioChangeReader
+      This       : access IGpioChangeCounter_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function CreateWithCapacity
+   function Start
    (
-      This       : access IGpioChangeReaderFactory_Interface
-      ; pin : Windows.Devices.Gpio.IGpioPin
-      ; minCapacity : Windows.Int32
-      ; RetVal : access Windows.Devices.Gpio.IGpioChangeReader
+      This       : access IGpioChangeCounter_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IGpioChangeCounter_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Read
+   (
+      This       : access IGpioChangeCounter_Interface
+      ; RetVal : access Windows.Devices.Gpio.GpioChangeCount
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Reset
+   (
+      This       : access IGpioChangeCounter_Interface
+      ; RetVal : access Windows.Devices.Gpio.GpioChangeCount
    )
    return Windows.HRESULT is abstract;
    
@@ -334,91 +303,6 @@ package Windows.Devices.Gpio is
       This       : access IGpioChangeCounterFactory_Interface
       ; pin : Windows.Devices.Gpio.IGpioPin
       ; RetVal : access Windows.Devices.Gpio.IGpioChangeCounter
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGpioPin : aliased constant Windows.IID := (299479175, 44974, 18320, (158, 233, 224, 234, 201, 66, 210, 1 ));
-   
-   type IGpioPin_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_ValueChanged
-   (
-      This       : access IGpioPin_Interface
-      ; handler : TypedEventHandler_IGpioPin_add_ValueChanged
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ValueChanged
-   (
-      This       : access IGpioPin_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DebounceTimeout
-   (
-      This       : access IGpioPin_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DebounceTimeout
-   (
-      This       : access IGpioPin_Interface
-      ; value : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PinNumber
-   (
-      This       : access IGpioPin_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SharingMode
-   (
-      This       : access IGpioPin_Interface
-      ; RetVal : access Windows.Devices.Gpio.GpioSharingMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IsDriveModeSupported
-   (
-      This       : access IGpioPin_Interface
-      ; driveMode : Windows.Devices.Gpio.GpioPinDriveMode
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDriveMode
-   (
-      This       : access IGpioPin_Interface
-      ; RetVal : access Windows.Devices.Gpio.GpioPinDriveMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetDriveMode
-   (
-      This       : access IGpioPin_Interface
-      ; value : Windows.Devices.Gpio.GpioPinDriveMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Write
-   (
-      This       : access IGpioPin_Interface
-      ; value : Windows.Devices.Gpio.GpioPinValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Read
-   (
-      This       : access IGpioPin_Interface
-      ; RetVal : access Windows.Devices.Gpio.GpioPinValue
    )
    return Windows.HRESULT is abstract;
    
@@ -526,81 +410,210 @@ package Windows.Devices.Gpio is
    
    ------------------------------------------------------------------------
    
-   IID_IGpioChangeCounter : aliased constant Windows.IID := (3411984606, 26625, 17407, (128, 61, 69, 118, 98, 138, 139, 38 ));
+   IID_IGpioChangeReaderFactory : aliased constant Windows.IID := (2841218803, 14606, 17434, (157, 28, 232, 222, 11, 45, 240, 223 ));
    
-   type IGpioChangeCounter_Interface is interface and Windows.IInspectable_Interface;
+   type IGpioChangeReaderFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Polarity
+   function Create
    (
-      This       : access IGpioChangeCounter_Interface
-      ; value : Windows.Devices.Gpio.GpioChangePolarity
+      This       : access IGpioChangeReaderFactory_Interface
+      ; pin : Windows.Devices.Gpio.IGpioPin
+      ; RetVal : access Windows.Devices.Gpio.IGpioChangeReader
    )
    return Windows.HRESULT is abstract;
    
-   function get_Polarity
+   function CreateWithCapacity
    (
-      This       : access IGpioChangeCounter_Interface
-      ; RetVal : access Windows.Devices.Gpio.GpioChangePolarity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsStarted
-   (
-      This       : access IGpioChangeCounter_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Start
-   (
-      This       : access IGpioChangeCounter_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Stop
-   (
-      This       : access IGpioChangeCounter_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Read
-   (
-      This       : access IGpioChangeCounter_Interface
-      ; RetVal : access Windows.Devices.Gpio.GpioChangeCount
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Reset
-   (
-      This       : access IGpioChangeCounter_Interface
-      ; RetVal : access Windows.Devices.Gpio.GpioChangeCount
+      This       : access IGpioChangeReaderFactory_Interface
+      ; pin : Windows.Devices.Gpio.IGpioPin
+      ; minCapacity : Windows.Int32
+      ; RetVal : access Windows.Devices.Gpio.IGpioChangeReader
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IGpioController : aliased constant Windows.IID := (3976485143, 38599, 22325, (180, 190, 215, 150, 25, 212, 131, 94 ));
+   IID_IGpioController : aliased constant Windows.IID := (675287779, 29793, 18076, (168, 188, 97, 214, 157, 8, 165, 60 ));
    
-   type IAsyncOperation_IGpioController_Interface is interface and Windows.IInspectable_Interface;
+   type IGpioController_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_PinCount
    (
-      This       : access IAsyncOperation_IGpioController_Interface
-      ; handler : Windows.Devices.Gpio.AsyncOperationCompletedHandler_IGpioController
+      This       : access IGpioController_Interface
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function OpenPin
    (
-      This       : access IAsyncOperation_IGpioController_Interface
-      ; RetVal : access Windows.Devices.Gpio.AsyncOperationCompletedHandler_IGpioController
+      This       : access IGpioController_Interface
+      ; pinNumber : Windows.Int32
+      ; RetVal : access Windows.Devices.Gpio.IGpioPin
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function OpenPinWithSharingMode
    (
-      This       : access IAsyncOperation_IGpioController_Interface
+      This       : access IGpioController_Interface
+      ; pinNumber : Windows.Int32
+      ; sharingMode : Windows.Devices.Gpio.GpioSharingMode
+      ; RetVal : access Windows.Devices.Gpio.IGpioPin
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryOpenPin
+   (
+      This       : access IGpioController_Interface
+      ; pinNumber : Windows.Int32
+      ; sharingMode : Windows.Devices.Gpio.GpioSharingMode
+      ; pin : access Windows.Devices.Gpio.IGpioPin
+      ; openStatus : access Windows.Devices.Gpio.GpioOpenStatus
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGpioControllerStatics : aliased constant Windows.IID := (785839150, 31479, 16662, (149, 51, 196, 61, 153, 161, 251, 100 ));
+   
+   type IGpioControllerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IGpioControllerStatics_Interface
       ; RetVal : access Windows.Devices.Gpio.IGpioController
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGpioControllerStatics2 : aliased constant Windows.IID := (2435546400, 27812, 16646, (163, 115, 255, 253, 52, 107, 14, 91 ));
+   
+   type IGpioControllerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetControllersAsync
+   (
+      This       : access IGpioControllerStatics2_Interface
+      ; provider : Windows.Devices.Gpio.Provider.IGpioProvider
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDefaultAsync
+   (
+      This       : access IGpioControllerStatics2_Interface
+      ; RetVal : access Windows.Devices.Gpio.IAsyncOperation_IGpioController -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGpioPin : aliased constant Windows.IID := (299479175, 44974, 18320, (158, 233, 224, 234, 201, 66, 210, 1 ));
+   
+   type IGpioPin_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_ValueChanged
+   (
+      This       : access IGpioPin_Interface
+      ; handler : TypedEventHandler_IGpioPin_add_ValueChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ValueChanged
+   (
+      This       : access IGpioPin_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DebounceTimeout
+   (
+      This       : access IGpioPin_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DebounceTimeout
+   (
+      This       : access IGpioPin_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PinNumber
+   (
+      This       : access IGpioPin_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SharingMode
+   (
+      This       : access IGpioPin_Interface
+      ; RetVal : access Windows.Devices.Gpio.GpioSharingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsDriveModeSupported
+   (
+      This       : access IGpioPin_Interface
+      ; driveMode : Windows.Devices.Gpio.GpioPinDriveMode
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDriveMode
+   (
+      This       : access IGpioPin_Interface
+      ; RetVal : access Windows.Devices.Gpio.GpioPinDriveMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetDriveMode
+   (
+      This       : access IGpioPin_Interface
+      ; value : Windows.Devices.Gpio.GpioPinDriveMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Write
+   (
+      This       : access IGpioPin_Interface
+      ; value : Windows.Devices.Gpio.GpioPinValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Read
+   (
+      This       : access IGpioPin_Interface
+      ; RetVal : access Windows.Devices.Gpio.GpioPinValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGpioPinValueChangedEventArgs : aliased constant Windows.IID := (825731809, 28733, 16473, (189, 36, 181, 178, 93, 255, 184, 78 ));
+   
+   type IGpioPinValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Edge
+   (
+      This       : access IGpioPinValueChangedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Gpio.GpioPinEdge
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_GpioChangeRecord : aliased constant Windows.IID := (3031416655, 25102, 22309, (135, 138, 120, 198, 237, 16, 55, 78 ));
+   
+   type IIterable_GpioChangeRecord_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_GpioChangeRecord_Interface
+      ; RetVal : access Windows.Devices.Gpio.IIterator_GpioChangeRecord
    )
    return Windows.HRESULT is abstract;
    
@@ -634,58 +647,6 @@ package Windows.Devices.Gpio is
    function GetMany
    (
       This       : access IIterator_GpioChangeRecord_Interface
-      ; items : Windows.Devices.Gpio.GpioChangeRecord_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_GpioChangeRecord : aliased constant Windows.IID := (3031416655, 25102, 22309, (135, 138, 120, 198, 237, 16, 55, 78 ));
-   
-   type IIterable_GpioChangeRecord_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_GpioChangeRecord_Interface
-      ; RetVal : access Windows.Devices.Gpio.IIterator_GpioChangeRecord
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_GpioChangeRecord : aliased constant Windows.IID := (3540694565, 4708, 21406, (172, 239, 48, 109, 210, 20, 220, 59 ));
-   
-   type IVectorView_GpioChangeRecord_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_GpioChangeRecord_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.Gpio.GpioChangeRecord
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_GpioChangeRecord_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_GpioChangeRecord_Interface
-      ; value : Windows.Devices.Gpio.GpioChangeRecord
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_GpioChangeRecord_Interface
-      ; startIndex : Windows.UInt32
       ; items : Windows.Devices.Gpio.GpioChangeRecord_Ptr
       ; RetVal : access Windows.UInt32
    )
@@ -787,6 +748,45 @@ package Windows.Devices.Gpio is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_GpioChangeRecord : aliased constant Windows.IID := (3540694565, 4708, 21406, (172, 239, 48, 109, 210, 20, 220, 59 ));
+   
+   type IVectorView_GpioChangeRecord_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_GpioChangeRecord_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.Gpio.GpioChangeRecord
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_GpioChangeRecord_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_GpioChangeRecord_Interface
+      ; value : Windows.Devices.Gpio.GpioChangeRecord
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_GpioChangeRecord_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.Gpio.GpioChangeRecord_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -820,9 +820,13 @@ package Windows.Devices.Gpio is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype GpioPinValueChangedEventArgs is Windows.Devices.Gpio.IGpioPinValueChangedEventArgs;
-   subtype GpioPin is Windows.Devices.Gpio.IGpioPin;
-   subtype GpioController is Windows.Devices.Gpio.IGpioController;
+   subtype GpioChangeCounter is Windows.Devices.Gpio.IGpioChangeCounter;
+   function Create
+   (
+      pin : Windows.Devices.Gpio.IGpioPin
+   )
+   return Windows.Devices.Gpio.IGpioChangeCounter;
+   
    subtype GpioChangeReader is Windows.Devices.Gpio.IGpioChangeReader;
    function Create
    (
@@ -837,13 +841,9 @@ package Windows.Devices.Gpio is
    )
    return Windows.Devices.Gpio.IGpioChangeReader;
    
-   subtype GpioChangeCounter is Windows.Devices.Gpio.IGpioChangeCounter;
-   function Create
-   (
-      pin : Windows.Devices.Gpio.IGpioPin
-   )
-   return Windows.Devices.Gpio.IGpioChangeCounter;
-   
+   subtype GpioController is Windows.Devices.Gpio.IGpioController;
+   subtype GpioPin is Windows.Devices.Gpio.IGpioPin;
+   subtype GpioPinValueChangedEventArgs is Windows.Devices.Gpio.IGpioPinValueChangedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

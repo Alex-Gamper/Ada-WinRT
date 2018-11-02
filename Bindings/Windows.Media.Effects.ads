@@ -91,20 +91,6 @@ package Windows.Media.Effects is
    
    type AudioEffectType_Ptr is access AudioEffectType;
    
-   type MediaMemoryTypes is (
-      Gpu,
-      Cpu,
-      GpuAndCpu
-   );
-   for MediaMemoryTypes use (
-      Gpu => 0,
-      Cpu => 1,
-      GpuAndCpu => 2
-   );
-   for MediaMemoryTypes'Size use 32;
-   
-   type MediaMemoryTypes_Ptr is access MediaMemoryTypes;
-   
    type MediaEffectClosedReason is (
       Done,
       UnknownError,
@@ -121,33 +107,47 @@ package Windows.Media.Effects is
    
    type MediaEffectClosedReason_Ptr is access MediaEffectClosedReason;
    
+   type MediaMemoryTypes is (
+      Gpu,
+      Cpu,
+      GpuAndCpu
+   );
+   for MediaMemoryTypes use (
+      Gpu => 0,
+      Cpu => 1,
+      GpuAndCpu => 2
+   );
+   for MediaMemoryTypes'Size use 32;
+   
+   type MediaMemoryTypes_Ptr is access MediaMemoryTypes;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface;
-   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged is access all TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface'Class;
-   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Ptr is access all TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged;
    type TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface;
    type TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged is access all TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface'Class;
    type TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Ptr is access all TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged;
+   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface;
+   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged is access all TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface'Class;
+   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Ptr is access all TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IVideoCompositorDefinition_Interface;
-   type IVideoCompositorDefinition is access all IVideoCompositorDefinition_Interface'Class;
-   type IVideoCompositorDefinition_Ptr is access all IVideoCompositorDefinition;
-   type IVideoCompositorDefinitionFactory_Interface;
-   type IVideoCompositorDefinitionFactory is access all IVideoCompositorDefinitionFactory_Interface'Class;
-   type IVideoCompositorDefinitionFactory_Ptr is access all IVideoCompositorDefinitionFactory;
-   type ICompositeVideoFrameContext_Interface;
-   type ICompositeVideoFrameContext is access all ICompositeVideoFrameContext_Interface'Class;
-   type ICompositeVideoFrameContext_Ptr is access all ICompositeVideoFrameContext;
+   type IAudioCaptureEffectsManager_Interface;
+   type IAudioCaptureEffectsManager is access all IAudioCaptureEffectsManager_Interface'Class;
+   type IAudioCaptureEffectsManager_Ptr is access all IAudioCaptureEffectsManager;
    type IAudioEffect_Interface;
    type IAudioEffect is access all IAudioEffect_Interface'Class;
    type IAudioEffect_Ptr is access all IAudioEffect;
+   type IAudioEffectDefinition_Interface;
+   type IAudioEffectDefinition is access all IAudioEffectDefinition_Interface'Class;
+   type IAudioEffectDefinition_Ptr is access all IAudioEffectDefinition;
+   type IAudioEffectDefinitionFactory_Interface;
+   type IAudioEffectDefinitionFactory is access all IAudioEffectDefinitionFactory_Interface'Class;
+   type IAudioEffectDefinitionFactory_Ptr is access all IAudioEffectDefinitionFactory;
    type IAudioEffectsManagerStatics_Interface;
    type IAudioEffectsManagerStatics is access all IAudioEffectsManagerStatics_Interface'Class;
    type IAudioEffectsManagerStatics_Ptr is access all IAudioEffectsManagerStatics;
@@ -157,81 +157,81 @@ package Windows.Media.Effects is
    type IAudioRenderEffectsManager2_Interface;
    type IAudioRenderEffectsManager2 is access all IAudioRenderEffectsManager2_Interface'Class;
    type IAudioRenderEffectsManager2_Ptr is access all IAudioRenderEffectsManager2;
-   type IAudioCaptureEffectsManager_Interface;
-   type IAudioCaptureEffectsManager is access all IAudioCaptureEffectsManager_Interface'Class;
-   type IAudioCaptureEffectsManager_Ptr is access all IAudioCaptureEffectsManager;
+   type IBasicAudioEffect_Interface;
+   type IBasicAudioEffect is access all IBasicAudioEffect_Interface'Class;
+   type IBasicAudioEffect_Ptr is access all IBasicAudioEffect;
+   type IBasicVideoEffect_Interface;
+   type IBasicVideoEffect is access all IBasicVideoEffect_Interface'Class;
+   type IBasicVideoEffect_Ptr is access all IBasicVideoEffect;
+   type ICompositeVideoFrameContext_Interface;
+   type ICompositeVideoFrameContext is access all ICompositeVideoFrameContext_Interface'Class;
+   type ICompositeVideoFrameContext_Ptr is access all ICompositeVideoFrameContext;
+   type IIterable_IAudioEffect_Interface;
+   type IIterable_IAudioEffect is access all IIterable_IAudioEffect_Interface'Class;
+   type IIterable_IAudioEffect_Ptr is access all IIterable_IAudioEffect;
+   type IIterable_IAudioEffectDefinition_Interface;
+   type IIterable_IAudioEffectDefinition is access all IIterable_IAudioEffectDefinition_Interface'Class;
+   type IIterable_IAudioEffectDefinition_Ptr is access all IIterable_IAudioEffectDefinition;
+   type IIterable_IVideoEffectDefinition_Interface;
+   type IIterable_IVideoEffectDefinition is access all IIterable_IVideoEffectDefinition_Interface'Class;
+   type IIterable_IVideoEffectDefinition_Ptr is access all IIterable_IVideoEffectDefinition;
+   type IIterator_IAudioEffect_Interface;
+   type IIterator_IAudioEffect is access all IIterator_IAudioEffect_Interface'Class;
+   type IIterator_IAudioEffect_Ptr is access all IIterator_IAudioEffect;
+   type IIterator_IAudioEffectDefinition_Interface;
+   type IIterator_IAudioEffectDefinition is access all IIterator_IAudioEffectDefinition_Interface'Class;
+   type IIterator_IAudioEffectDefinition_Ptr is access all IIterator_IAudioEffectDefinition;
+   type IIterator_IVideoEffectDefinition_Interface;
+   type IIterator_IVideoEffectDefinition is access all IIterator_IVideoEffectDefinition_Interface'Class;
+   type IIterator_IVideoEffectDefinition_Ptr is access all IIterator_IVideoEffectDefinition;
+   type IProcessAudioFrameContext_Interface;
+   type IProcessAudioFrameContext is access all IProcessAudioFrameContext_Interface'Class;
+   type IProcessAudioFrameContext_Ptr is access all IProcessAudioFrameContext;
+   type IProcessVideoFrameContext_Interface;
+   type IProcessVideoFrameContext is access all IProcessVideoFrameContext_Interface'Class;
+   type IProcessVideoFrameContext_Ptr is access all IProcessVideoFrameContext;
+   type ISlowMotionEffectDefinition_Interface;
+   type ISlowMotionEffectDefinition is access all ISlowMotionEffectDefinition_Interface'Class;
+   type ISlowMotionEffectDefinition_Ptr is access all ISlowMotionEffectDefinition;
+   type IVector_IAudioEffectDefinition_Interface;
+   type IVector_IAudioEffectDefinition is access all IVector_IAudioEffectDefinition_Interface'Class;
+   type IVector_IAudioEffectDefinition_Ptr is access all IVector_IAudioEffectDefinition;
+   type IVector_IVideoEffectDefinition_Interface;
+   type IVector_IVideoEffectDefinition is access all IVector_IVideoEffectDefinition_Interface'Class;
+   type IVector_IVideoEffectDefinition_Ptr is access all IVector_IVideoEffectDefinition;
+   type IVectorView_IAudioEffect_Interface;
+   type IVectorView_IAudioEffect is access all IVectorView_IAudioEffect_Interface'Class;
+   type IVectorView_IAudioEffect_Ptr is access all IVectorView_IAudioEffect;
+   type IVectorView_IAudioEffectDefinition_Interface;
+   type IVectorView_IAudioEffectDefinition is access all IVectorView_IAudioEffectDefinition_Interface'Class;
+   type IVectorView_IAudioEffectDefinition_Ptr is access all IVectorView_IAudioEffectDefinition;
+   type IVectorView_IVideoEffectDefinition_Interface;
+   type IVectorView_IVideoEffectDefinition is access all IVectorView_IVideoEffectDefinition_Interface'Class;
+   type IVectorView_IVideoEffectDefinition_Ptr is access all IVectorView_IVideoEffectDefinition;
    type IVideoCompositor_Interface;
    type IVideoCompositor is access all IVideoCompositor_Interface'Class;
    type IVideoCompositor_Ptr is access all IVideoCompositor;
+   type IVideoCompositorDefinition_Interface;
+   type IVideoCompositorDefinition is access all IVideoCompositorDefinition_Interface'Class;
+   type IVideoCompositorDefinition_Ptr is access all IVideoCompositorDefinition;
+   type IVideoCompositorDefinitionFactory_Interface;
+   type IVideoCompositorDefinitionFactory is access all IVideoCompositorDefinitionFactory_Interface'Class;
+   type IVideoCompositorDefinitionFactory_Ptr is access all IVideoCompositorDefinitionFactory;
    type IVideoEffectDefinition_Interface;
    type IVideoEffectDefinition is access all IVideoEffectDefinition_Interface'Class;
    type IVideoEffectDefinition_Ptr is access all IVideoEffectDefinition;
    type IVideoEffectDefinitionFactory_Interface;
    type IVideoEffectDefinitionFactory is access all IVideoEffectDefinitionFactory_Interface'Class;
    type IVideoEffectDefinitionFactory_Ptr is access all IVideoEffectDefinitionFactory;
-   type IAudioEffectDefinition_Interface;
-   type IAudioEffectDefinition is access all IAudioEffectDefinition_Interface'Class;
-   type IAudioEffectDefinition_Ptr is access all IAudioEffectDefinition;
-   type IAudioEffectDefinitionFactory_Interface;
-   type IAudioEffectDefinitionFactory is access all IAudioEffectDefinitionFactory_Interface'Class;
-   type IAudioEffectDefinitionFactory_Ptr is access all IAudioEffectDefinitionFactory;
-   type IProcessVideoFrameContext_Interface;
-   type IProcessVideoFrameContext is access all IProcessVideoFrameContext_Interface'Class;
-   type IProcessVideoFrameContext_Ptr is access all IProcessVideoFrameContext;
-   type IBasicVideoEffect_Interface;
-   type IBasicVideoEffect is access all IBasicVideoEffect_Interface'Class;
-   type IBasicVideoEffect_Ptr is access all IBasicVideoEffect;
-   type IProcessAudioFrameContext_Interface;
-   type IProcessAudioFrameContext is access all IProcessAudioFrameContext_Interface'Class;
-   type IProcessAudioFrameContext_Ptr is access all IProcessAudioFrameContext;
-   type IBasicAudioEffect_Interface;
-   type IBasicAudioEffect is access all IBasicAudioEffect_Interface'Class;
-   type IBasicAudioEffect_Ptr is access all IBasicAudioEffect;
    type IVideoTransformEffectDefinition_Interface;
    type IVideoTransformEffectDefinition is access all IVideoTransformEffectDefinition_Interface'Class;
    type IVideoTransformEffectDefinition_Ptr is access all IVideoTransformEffectDefinition;
-   type IVideoTransformSphericalProjection_Interface;
-   type IVideoTransformSphericalProjection is access all IVideoTransformSphericalProjection_Interface'Class;
-   type IVideoTransformSphericalProjection_Ptr is access all IVideoTransformSphericalProjection;
    type IVideoTransformEffectDefinition2_Interface;
    type IVideoTransformEffectDefinition2 is access all IVideoTransformEffectDefinition2_Interface'Class;
    type IVideoTransformEffectDefinition2_Ptr is access all IVideoTransformEffectDefinition2;
-   type ISlowMotionEffectDefinition_Interface;
-   type ISlowMotionEffectDefinition is access all ISlowMotionEffectDefinition_Interface'Class;
-   type ISlowMotionEffectDefinition_Ptr is access all ISlowMotionEffectDefinition;
-   type IIterator_IAudioEffectDefinition_Interface;
-   type IIterator_IAudioEffectDefinition is access all IIterator_IAudioEffectDefinition_Interface'Class;
-   type IIterator_IAudioEffectDefinition_Ptr is access all IIterator_IAudioEffectDefinition;
-   type IIterable_IAudioEffectDefinition_Interface;
-   type IIterable_IAudioEffectDefinition is access all IIterable_IAudioEffectDefinition_Interface'Class;
-   type IIterable_IAudioEffectDefinition_Ptr is access all IIterable_IAudioEffectDefinition;
-   type IVectorView_IAudioEffectDefinition_Interface;
-   type IVectorView_IAudioEffectDefinition is access all IVectorView_IAudioEffectDefinition_Interface'Class;
-   type IVectorView_IAudioEffectDefinition_Ptr is access all IVectorView_IAudioEffectDefinition;
-   type IVector_IAudioEffectDefinition_Interface;
-   type IVector_IAudioEffectDefinition is access all IVector_IAudioEffectDefinition_Interface'Class;
-   type IVector_IAudioEffectDefinition_Ptr is access all IVector_IAudioEffectDefinition;
-   type IIterator_IVideoEffectDefinition_Interface;
-   type IIterator_IVideoEffectDefinition is access all IIterator_IVideoEffectDefinition_Interface'Class;
-   type IIterator_IVideoEffectDefinition_Ptr is access all IIterator_IVideoEffectDefinition;
-   type IIterable_IVideoEffectDefinition_Interface;
-   type IIterable_IVideoEffectDefinition is access all IIterable_IVideoEffectDefinition_Interface'Class;
-   type IIterable_IVideoEffectDefinition_Ptr is access all IIterable_IVideoEffectDefinition;
-   type IVectorView_IVideoEffectDefinition_Interface;
-   type IVectorView_IVideoEffectDefinition is access all IVectorView_IVideoEffectDefinition_Interface'Class;
-   type IVectorView_IVideoEffectDefinition_Ptr is access all IVectorView_IVideoEffectDefinition;
-   type IVector_IVideoEffectDefinition_Interface;
-   type IVector_IVideoEffectDefinition is access all IVector_IVideoEffectDefinition_Interface'Class;
-   type IVector_IVideoEffectDefinition_Ptr is access all IVector_IVideoEffectDefinition;
-   type IIterator_IAudioEffect_Interface;
-   type IIterator_IAudioEffect is access all IIterator_IAudioEffect_Interface'Class;
-   type IIterator_IAudioEffect_Ptr is access all IIterator_IAudioEffect;
-   type IIterable_IAudioEffect_Interface;
-   type IIterable_IAudioEffect is access all IIterable_IAudioEffect_Interface'Class;
-   type IIterable_IAudioEffect_Ptr is access all IIterable_IAudioEffect;
-   type IVectorView_IAudioEffect_Interface;
-   type IVectorView_IAudioEffect is access all IVectorView_IAudioEffect_Interface'Class;
-   type IVectorView_IAudioEffect_Ptr is access all IVectorView_IAudioEffect;
+   type IVideoTransformSphericalProjection_Interface;
+   type IVideoTransformSphericalProjection is access all IVideoTransformSphericalProjection_Interface'Class;
+   type IVideoTransformSphericalProjection_Ptr is access all IVideoTransformSphericalProjection;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -239,79 +239,29 @@ package Windows.Media.Effects is
    
    ------------------------------------------------------------------------
    
-   IID_IVideoCompositorDefinition : aliased constant Windows.IID := (2034677968, 8208, 19171, (154, 178, 44, 239, 66, 237, 212, 210 ));
+   IID_IAudioCaptureEffectsManager : aliased constant Windows.IID := (2407907953, 909, 17299, (130, 152, 84, 1, 16, 96, 142, 239 ));
    
-   type IVideoCompositorDefinition_Interface is interface and Windows.IInspectable_Interface;
+   type IAudioCaptureEffectsManager_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ActivatableClassId
+   function add_AudioCaptureEffectsChanged
    (
-      This       : access IVideoCompositorDefinition_Interface
-      ; RetVal : access Windows.String
+      This       : access IAudioCaptureEffectsManager_Interface
+      ; handler : TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
-   function get_Properties
+   function remove_AudioCaptureEffectsChanged
    (
-      This       : access IVideoCompositorDefinition_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+      This       : access IAudioCaptureEffectsManager_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IVideoCompositorDefinitionFactory : aliased constant Windows.IID := (1130822928, 26808, 19794, (137, 182, 2, 169, 104, 204, 168, 153 ));
-   
-   type IVideoCompositorDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
+   function GetAudioCaptureEffects
    (
-      This       : access IVideoCompositorDefinitionFactory_Interface
-      ; activatableClassId : Windows.String
-      ; RetVal : access Windows.Media.Effects.IVideoCompositorDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithProperties
-   (
-      This       : access IVideoCompositorDefinitionFactory_Interface
-      ; activatableClassId : Windows.String
-      ; props : Windows.Foundation.Collections.IPropertySet
-      ; RetVal : access Windows.Media.Effects.IVideoCompositorDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICompositeVideoFrameContext : aliased constant Windows.IID := (1815085643, 62740, 17016, (165, 247, 185, 24, 128, 73, 209, 16 ));
-   
-   type ICompositeVideoFrameContext_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SurfacesToOverlay
-   (
-      This       : access ICompositeVideoFrameContext_Interface
-      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IVectorView_IDirect3DSurface -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BackgroundFrame
-   (
-      This       : access ICompositeVideoFrameContext_Interface
-      ; RetVal : access Windows.Media.IVideoFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutputFrame
-   (
-      This       : access ICompositeVideoFrameContext_Interface
-      ; RetVal : access Windows.Media.IVideoFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetOverlayForSurface
-   (
-      This       : access ICompositeVideoFrameContext_Interface
-      ; surfaceToOverlay : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
-      ; RetVal : access Windows.Media.Editing.IMediaOverlay
+      This       : access IAudioCaptureEffectsManager_Interface
+      ; RetVal : access Windows.Media.Effects.IVectorView_IAudioEffect -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -325,6 +275,49 @@ package Windows.Media.Effects is
    (
       This       : access IAudioEffect_Interface
       ; RetVal : access Windows.Media.Effects.AudioEffectType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioEffectDefinition : aliased constant Windows.IID := (3839359348, 32128, 20339, (144, 137, 227, 28, 157, 185, 194, 148 ));
+   
+   type IAudioEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ActivatableClassId
+   (
+      This       : access IAudioEffectDefinition_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IAudioEffectDefinition_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioEffectDefinitionFactory : aliased constant Windows.IID := (2384307782, 59141, 17901, (138, 43, 252, 78, 79, 64, 90, 151 ));
+   
+   type IAudioEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IAudioEffectDefinitionFactory_Interface
+      ; activatableClassId : Windows.String
+      ; RetVal : access Windows.Media.Effects.IAudioEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithProperties
+   (
+      This       : access IAudioEffectDefinitionFactory_Interface
+      ; activatableClassId : Windows.String
+      ; props : Windows.Foundation.Collections.IPropertySet
+      ; RetVal : access Windows.Media.Effects.IAudioEffectDefinition
    )
    return Windows.HRESULT is abstract;
    
@@ -428,176 +421,48 @@ package Windows.Media.Effects is
    
    ------------------------------------------------------------------------
    
-   IID_IAudioCaptureEffectsManager : aliased constant Windows.IID := (2407907953, 909, 17299, (130, 152, 84, 1, 16, 96, 142, 239 ));
+   IID_IBasicAudioEffect : aliased constant Windows.IID := (2349214803, 27584, 18616, (169, 154, 75, 65, 85, 15, 19, 89 ));
    
-   type IAudioCaptureEffectsManager_Interface is interface and Windows.IInspectable_Interface;
+   type IBasicAudioEffect_Interface is interface and Windows.IInspectable_Interface;
    
-   function add_AudioCaptureEffectsChanged
+   function get_UseInputFrameForOutput
    (
-      This       : access IAudioCaptureEffectsManager_Interface
-      ; handler : TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_AudioCaptureEffectsChanged
-   (
-      This       : access IAudioCaptureEffectsManager_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetAudioCaptureEffects
-   (
-      This       : access IAudioCaptureEffectsManager_Interface
-      ; RetVal : access Windows.Media.Effects.IVectorView_IAudioEffect -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVideoCompositor : aliased constant Windows.IID := (2232464446, 16908, 16911, (150, 199, 124, 152, 187, 161, 252, 85 ));
-   
-   type IVideoCompositor_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TimeIndependent
-   (
-      This       : access IVideoCompositor_Interface
+      This       : access IBasicAudioEffect_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedEncodingProperties
+   (
+      This       : access IBasicAudioEffect_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IVectorView_IAudioEncodingProperties -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    function SetEncodingProperties
    (
-      This       : access IVideoCompositor_Interface
-      ; backgroundProperties : Windows.Media.MediaProperties.IVideoEncodingProperties
-      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      This       : access IBasicAudioEffect_Interface
+      ; encodingProperties : Windows.Media.MediaProperties.IAudioEncodingProperties
    )
    return Windows.HRESULT is abstract;
    
-   function CompositeFrame
+   function ProcessFrame
    (
-      This       : access IVideoCompositor_Interface
-      ; context : Windows.Media.Effects.ICompositeVideoFrameContext
+      This       : access IBasicAudioEffect_Interface
+      ; context : Windows.Media.Effects.IProcessAudioFrameContext
    )
    return Windows.HRESULT is abstract;
    
    function Close
    (
-      This       : access IVideoCompositor_Interface
+      This       : access IBasicAudioEffect_Interface
       ; reason : Windows.Media.Effects.MediaEffectClosedReason
    )
    return Windows.HRESULT is abstract;
    
    function DiscardQueuedFrames
    (
-      This       : access IVideoCompositor_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVideoEffectDefinition : aliased constant Windows.IID := (972262640, 36111, 20286, (132, 252, 45, 70, 165, 41, 121, 67 ));
-   
-   type IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ActivatableClassId
-   (
-      This       : access IVideoEffectDefinition_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Properties
-   (
-      This       : access IVideoEffectDefinition_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVideoEffectDefinitionFactory : aliased constant Windows.IID := (2168691534, 28211, 17039, (157, 33, 181, 170, 254, 247, 97, 124 ));
-   
-   type IVideoEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IVideoEffectDefinitionFactory_Interface
-      ; activatableClassId : Windows.String
-      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithProperties
-   (
-      This       : access IVideoEffectDefinitionFactory_Interface
-      ; activatableClassId : Windows.String
-      ; props : Windows.Foundation.Collections.IPropertySet
-      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioEffectDefinition : aliased constant Windows.IID := (3839359348, 32128, 20339, (144, 137, 227, 28, 157, 185, 194, 148 ));
-   
-   type IAudioEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ActivatableClassId
-   (
-      This       : access IAudioEffectDefinition_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Properties
-   (
-      This       : access IAudioEffectDefinition_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAudioEffectDefinitionFactory : aliased constant Windows.IID := (2384307782, 59141, 17901, (138, 43, 252, 78, 79, 64, 90, 151 ));
-   
-   type IAudioEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IAudioEffectDefinitionFactory_Interface
-      ; activatableClassId : Windows.String
-      ; RetVal : access Windows.Media.Effects.IAudioEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithProperties
-   (
-      This       : access IAudioEffectDefinitionFactory_Interface
-      ; activatableClassId : Windows.String
-      ; props : Windows.Foundation.Collections.IPropertySet
-      ; RetVal : access Windows.Media.Effects.IAudioEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProcessVideoFrameContext : aliased constant Windows.IID := (661589547, 25697, 16414, (186, 120, 15, 218, 214, 17, 78, 236 ));
-   
-   type IProcessVideoFrameContext_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_InputFrame
-   (
-      This       : access IProcessVideoFrameContext_Interface
-      ; RetVal : access Windows.Media.IVideoFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutputFrame
-   (
-      This       : access IProcessVideoFrameContext_Interface
-      ; RetVal : access Windows.Media.IVideoFrame
+      This       : access IBasicAudioEffect_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -665,267 +530,110 @@ package Windows.Media.Effects is
    
    ------------------------------------------------------------------------
    
-   IID_IProcessAudioFrameContext : aliased constant Windows.IID := (1289300294, 4642, 18983, (165, 134, 251, 62, 32, 39, 50, 85 ));
+   IID_ICompositeVideoFrameContext : aliased constant Windows.IID := (1815085643, 62740, 17016, (165, 247, 185, 24, 128, 73, 209, 16 ));
    
-   type IProcessAudioFrameContext_Interface is interface and Windows.IInspectable_Interface;
+   type ICompositeVideoFrameContext_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_InputFrame
+   function get_SurfacesToOverlay
    (
-      This       : access IProcessAudioFrameContext_Interface
-      ; RetVal : access Windows.Media.IAudioFrame
+      This       : access ICompositeVideoFrameContext_Interface
+      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IVectorView_IDirect3DSurface -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackgroundFrame
+   (
+      This       : access ICompositeVideoFrameContext_Interface
+      ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
    
    function get_OutputFrame
    (
-      This       : access IProcessAudioFrameContext_Interface
-      ; RetVal : access Windows.Media.IAudioFrame
+      This       : access ICompositeVideoFrameContext_Interface
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetOverlayForSurface
+   (
+      This       : access ICompositeVideoFrameContext_Interface
+      ; surfaceToOverlay : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+      ; RetVal : access Windows.Media.Editing.IMediaOverlay
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBasicAudioEffect : aliased constant Windows.IID := (2349214803, 27584, 18616, (169, 154, 75, 65, 85, 15, 19, 89 ));
+   IID_IIterable_IAudioEffect : aliased constant Windows.IID := (128948989, 9656, 22429, (190, 126, 138, 204, 3, 65, 141, 11 ));
    
-   type IBasicAudioEffect_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IAudioEffect_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_UseInputFrameForOutput
+   function First
    (
-      This       : access IBasicAudioEffect_Interface
+      This       : access IIterable_IAudioEffect_Interface
+      ; RetVal : access Windows.Media.Effects.IIterator_IAudioEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IAudioEffectDefinition : aliased constant Windows.IID := (1618616511, 12980, 23438, (167, 147, 48, 36, 248, 211, 88, 42 ));
+   
+   type IIterable_IAudioEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAudioEffectDefinition_Interface
+      ; RetVal : access Windows.Media.Effects.IIterator_IAudioEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IVideoEffectDefinition : aliased constant Windows.IID := (3948314479, 45076, 20797, (153, 205, 241, 108, 34, 108, 60, 65 ));
+   
+   type IIterable_IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IVideoEffectDefinition_Interface
+      ; RetVal : access Windows.Media.Effects.IIterator_IVideoEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IAudioEffect : aliased constant Windows.IID := (1732044567, 41935, 23912, (168, 11, 94, 211, 231, 185, 63, 237 ));
+   
+   type IIterator_IAudioEffect_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IAudioEffect_Interface
+      ; RetVal : access Windows.Media.Effects.IAudioEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IAudioEffect_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_SupportedEncodingProperties
+   function MoveNext
    (
-      This       : access IBasicAudioEffect_Interface
-      ; RetVal : access Windows.Media.MediaProperties.IVectorView_IAudioEncodingProperties -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetEncodingProperties
-   (
-      This       : access IBasicAudioEffect_Interface
-      ; encodingProperties : Windows.Media.MediaProperties.IAudioEncodingProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ProcessFrame
-   (
-      This       : access IBasicAudioEffect_Interface
-      ; context : Windows.Media.Effects.IProcessAudioFrameContext
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Close
-   (
-      This       : access IBasicAudioEffect_Interface
-      ; reason : Windows.Media.Effects.MediaEffectClosedReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DiscardQueuedFrames
-   (
-      This       : access IBasicAudioEffect_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVideoTransformEffectDefinition : aliased constant Windows.IID := (2523183978, 7846, 19110, (128, 116, 171, 232, 133, 30, 202, 226 ));
-   
-   type IVideoTransformEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PaddingColor
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PaddingColor
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutputSize
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_OutputSize
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; value : Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CropRectangle
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CropRectangle
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; value : Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Rotation
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; RetVal : access Windows.Media.MediaProperties.MediaRotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Rotation
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; value : Windows.Media.MediaProperties.MediaRotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Mirror
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; RetVal : access Windows.Media.MediaProperties.MediaMirroringOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Mirror
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; value : Windows.Media.MediaProperties.MediaMirroringOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ProcessingAlgorithm
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; value : Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProcessingAlgorithm
-   (
-      This       : access IVideoTransformEffectDefinition_Interface
-      ; RetVal : access Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVideoTransformSphericalProjection : aliased constant Windows.IID := (3477340656, 39922, 19513, (159, 65, 224, 34, 81, 74, 132, 104 ));
-   
-   type IVideoTransformSphericalProjection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsEnabled
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
+      This       : access IIterator_IAudioEffect_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_IsEnabled
+   function GetMany
    (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FrameFormat
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; RetVal : access Windows.Media.MediaProperties.SphericalVideoFrameFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FrameFormat
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; value : Windows.Media.MediaProperties.SphericalVideoFrameFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProjectionMode
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; RetVal : access Windows.Media.Playback.SphericalVideoProjectionMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ProjectionMode
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; value : Windows.Media.Playback.SphericalVideoProjectionMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HorizontalFieldOfViewInDegrees
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_HorizontalFieldOfViewInDegrees
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ViewOrientation
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; RetVal : access Windows.Foundation.Numerics.Quaternion
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ViewOrientation
-   (
-      This       : access IVideoTransformSphericalProjection_Interface
-      ; value : Windows.Foundation.Numerics.Quaternion
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVideoTransformEffectDefinition2 : aliased constant Windows.IID := (4037544095, 26312, 18068, (159, 217, 17, 54, 171, 247, 68, 74 ));
-   
-   type IVideoTransformEffectDefinition2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SphericalProjection
-   (
-      This       : access IVideoTransformEffectDefinition2_Interface
-      ; RetVal : access Windows.Media.Effects.IVideoTransformSphericalProjection
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISlowMotionEffectDefinition : aliased constant Windows.IID := (889535696, 5996, 18275, (130, 196, 27, 2, 219, 227, 23, 55 ));
-   
-   type ISlowMotionEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TimeStretchRate
-   (
-      This       : access ISlowMotionEffectDefinition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TimeStretchRate
-   (
-      This       : access ISlowMotionEffectDefinition_Interface
-      ; value : Windows.Double
+      This       : access IIterator_IAudioEffect_Interface
+      ; items : Windows.Media.Effects.IAudioEffect_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -966,53 +674,96 @@ package Windows.Media.Effects is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IAudioEffectDefinition : aliased constant Windows.IID := (1618616511, 12980, 23438, (167, 147, 48, 36, 248, 211, 88, 42 ));
+   IID_IIterator_IVideoEffectDefinition : aliased constant Windows.IID := (2642556829, 18776, 21902, (161, 85, 58, 128, 155, 177, 108, 4 ));
    
-   type IIterable_IAudioEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Current
    (
-      This       : access IIterable_IAudioEffectDefinition_Interface
-      ; RetVal : access Windows.Media.Effects.IIterator_IAudioEffectDefinition
+      This       : access IIterator_IVideoEffectDefinition_Interface
+      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IAudioEffectDefinition : aliased constant Windows.IID := (3734923903, 53902, 24305, (145, 106, 239, 168, 128, 180, 137, 209 ));
-   
-   type IVectorView_IAudioEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
+   function get_HasCurrent
    (
-      This       : access IVectorView_IAudioEffectDefinition_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Media.Effects.IAudioEffectDefinition
+      This       : access IIterator_IVideoEffectDefinition_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function MoveNext
    (
-      This       : access IVectorView_IAudioEffectDefinition_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IAudioEffectDefinition_Interface
-      ; value : Windows.Media.Effects.IAudioEffectDefinition
-      ; index : access Windows.UInt32
+      This       : access IIterator_IVideoEffectDefinition_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IVectorView_IAudioEffectDefinition_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Media.Effects.IAudioEffectDefinition_Ptr
+      This       : access IIterator_IVideoEffectDefinition_Interface
+      ; items : Windows.Media.Effects.IVideoEffectDefinition_Ptr
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProcessAudioFrameContext : aliased constant Windows.IID := (1289300294, 4642, 18983, (165, 134, 251, 62, 32, 39, 50, 85 ));
+   
+   type IProcessAudioFrameContext_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InputFrame
+   (
+      This       : access IProcessAudioFrameContext_Interface
+      ; RetVal : access Windows.Media.IAudioFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutputFrame
+   (
+      This       : access IProcessAudioFrameContext_Interface
+      ; RetVal : access Windows.Media.IAudioFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProcessVideoFrameContext : aliased constant Windows.IID := (661589547, 25697, 16414, (186, 120, 15, 218, 214, 17, 78, 236 ));
+   
+   type IProcessVideoFrameContext_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InputFrame
+   (
+      This       : access IProcessVideoFrameContext_Interface
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutputFrame
+   (
+      This       : access IProcessVideoFrameContext_Interface
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISlowMotionEffectDefinition : aliased constant Windows.IID := (889535696, 5996, 18275, (130, 196, 27, 2, 219, 227, 23, 55 ));
+   
+   type ISlowMotionEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TimeStretchRate
+   (
+      This       : access ISlowMotionEffectDefinition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TimeStretchRate
+   (
+      This       : access ISlowMotionEffectDefinition_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -1113,93 +864,6 @@ package Windows.Media.Effects is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IVideoEffectDefinition : aliased constant Windows.IID := (2642556829, 18776, 21902, (161, 85, 58, 128, 155, 177, 108, 4 ));
-   
-   type IIterator_IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IVideoEffectDefinition_Interface
-      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IVideoEffectDefinition_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IVideoEffectDefinition_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IVideoEffectDefinition_Interface
-      ; items : Windows.Media.Effects.IVideoEffectDefinition_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IVideoEffectDefinition : aliased constant Windows.IID := (3948314479, 45076, 20797, (153, 205, 241, 108, 34, 108, 60, 65 ));
-   
-   type IIterable_IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IVideoEffectDefinition_Interface
-      ; RetVal : access Windows.Media.Effects.IIterator_IVideoEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IVideoEffectDefinition : aliased constant Windows.IID := (2756398990, 31907, 21425, (182, 139, 9, 139, 175, 69, 199, 62 ));
-   
-   type IVectorView_IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IVideoEffectDefinition_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IVideoEffectDefinition_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IVideoEffectDefinition_Interface
-      ; value : Windows.Media.Effects.IVideoEffectDefinition
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IVideoEffectDefinition_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Media.Effects.IVideoEffectDefinition_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVector_IVideoEffectDefinition : aliased constant Windows.IID := (2090951149, 57857, 22037, (170, 204, 37, 52, 133, 100, 240, 179 ));
    
    type IVector_IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
@@ -1295,54 +959,6 @@ package Windows.Media.Effects is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IAudioEffect : aliased constant Windows.IID := (1732044567, 41935, 23912, (168, 11, 94, 211, 231, 185, 63, 237 ));
-   
-   type IIterator_IAudioEffect_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IAudioEffect_Interface
-      ; RetVal : access Windows.Media.Effects.IAudioEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IAudioEffect_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IAudioEffect_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IAudioEffect_Interface
-      ; items : Windows.Media.Effects.IAudioEffect_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IAudioEffect : aliased constant Windows.IID := (128948989, 9656, 22429, (190, 126, 138, 204, 3, 65, 141, 11 ));
-   
-   type IIterable_IAudioEffect_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IAudioEffect_Interface
-      ; RetVal : access Windows.Media.Effects.IIterator_IAudioEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVectorView_IAudioEffect : aliased constant Windows.IID := (3452684775, 21464, 24166, (158, 69, 49, 213, 162, 63, 208, 29 ));
    
    type IVectorView_IAudioEffect_Interface is interface and Windows.IInspectable_Interface;
@@ -1381,21 +997,392 @@ package Windows.Media.Effects is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAudioEffectDefinition : aliased constant Windows.IID := (3734923903, 53902, 24305, (145, 106, 239, 168, 128, 180, 137, 209 ));
+   
+   type IVectorView_IAudioEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IAudioEffectDefinition_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Effects.IAudioEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IAudioEffectDefinition_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IAudioEffectDefinition_Interface
+      ; value : Windows.Media.Effects.IAudioEffectDefinition
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IAudioEffectDefinition_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Effects.IAudioEffectDefinition_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IVideoEffectDefinition : aliased constant Windows.IID := (2756398990, 31907, 21425, (182, 139, 9, 139, 175, 69, 199, 62 ));
+   
+   type IVectorView_IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IVideoEffectDefinition_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IVideoEffectDefinition_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IVideoEffectDefinition_Interface
+      ; value : Windows.Media.Effects.IVideoEffectDefinition
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IVideoEffectDefinition_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Effects.IVideoEffectDefinition_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoCompositor : aliased constant Windows.IID := (2232464446, 16908, 16911, (150, 199, 124, 152, 187, 161, 252, 85 ));
+   
+   type IVideoCompositor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TimeIndependent
+   (
+      This       : access IVideoCompositor_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetEncodingProperties
+   (
+      This       : access IVideoCompositor_Interface
+      ; backgroundProperties : Windows.Media.MediaProperties.IVideoEncodingProperties
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CompositeFrame
+   (
+      This       : access IVideoCompositor_Interface
+      ; context : Windows.Media.Effects.ICompositeVideoFrameContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Close
+   (
+      This       : access IVideoCompositor_Interface
+      ; reason : Windows.Media.Effects.MediaEffectClosedReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DiscardQueuedFrames
+   (
+      This       : access IVideoCompositor_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoCompositorDefinition : aliased constant Windows.IID := (2034677968, 8208, 19171, (154, 178, 44, 239, 66, 237, 212, 210 ));
+   
+   type IVideoCompositorDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ActivatableClassId
+   (
+      This       : access IVideoCompositorDefinition_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IVideoCompositorDefinition_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoCompositorDefinitionFactory : aliased constant Windows.IID := (1130822928, 26808, 19794, (137, 182, 2, 169, 104, 204, 168, 153 ));
+   
+   type IVideoCompositorDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IVideoCompositorDefinitionFactory_Interface
+      ; activatableClassId : Windows.String
+      ; RetVal : access Windows.Media.Effects.IVideoCompositorDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithProperties
+   (
+      This       : access IVideoCompositorDefinitionFactory_Interface
+      ; activatableClassId : Windows.String
+      ; props : Windows.Foundation.Collections.IPropertySet
+      ; RetVal : access Windows.Media.Effects.IVideoCompositorDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoEffectDefinition : aliased constant Windows.IID := (972262640, 36111, 20286, (132, 252, 45, 70, 165, 41, 121, 67 ));
+   
+   type IVideoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ActivatableClassId
+   (
+      This       : access IVideoEffectDefinition_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IVideoEffectDefinition_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoEffectDefinitionFactory : aliased constant Windows.IID := (2168691534, 28211, 17039, (157, 33, 181, 170, 254, 247, 97, 124 ));
+   
+   type IVideoEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IVideoEffectDefinitionFactory_Interface
+      ; activatableClassId : Windows.String
+      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithProperties
+   (
+      This       : access IVideoEffectDefinitionFactory_Interface
+      ; activatableClassId : Windows.String
+      ; props : Windows.Foundation.Collections.IPropertySet
+      ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoTransformEffectDefinition : aliased constant Windows.IID := (2523183978, 7846, 19110, (128, 116, 171, 232, 133, 30, 202, 226 ));
+   
+   type IVideoTransformEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PaddingColor
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PaddingColor
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutputSize
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_OutputSize
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; value : Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CropRectangle
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CropRectangle
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; value : Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rotation
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; RetVal : access Windows.Media.MediaProperties.MediaRotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Rotation
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; value : Windows.Media.MediaProperties.MediaRotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Mirror
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; RetVal : access Windows.Media.MediaProperties.MediaMirroringOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Mirror
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; value : Windows.Media.MediaProperties.MediaMirroringOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ProcessingAlgorithm
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; value : Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProcessingAlgorithm
+   (
+      This       : access IVideoTransformEffectDefinition_Interface
+      ; RetVal : access Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoTransformEffectDefinition2 : aliased constant Windows.IID := (4037544095, 26312, 18068, (159, 217, 17, 54, 171, 247, 68, 74 ));
+   
+   type IVideoTransformEffectDefinition2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SphericalProjection
+   (
+      This       : access IVideoTransformEffectDefinition2_Interface
+      ; RetVal : access Windows.Media.Effects.IVideoTransformSphericalProjection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoTransformSphericalProjection : aliased constant Windows.IID := (3477340656, 39922, 19513, (159, 65, 224, 34, 81, 74, 132, 104 ));
+   
+   type IVideoTransformSphericalProjection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEnabled
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsEnabled
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameFormat
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Media.MediaProperties.SphericalVideoFrameFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FrameFormat
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Media.MediaProperties.SphericalVideoFrameFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProjectionMode
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Media.Playback.SphericalVideoProjectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ProjectionMode
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Media.Playback.SphericalVideoProjectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HorizontalFieldOfViewInDegrees
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HorizontalFieldOfViewInDegrees
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ViewOrientation
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ViewOrientation
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged : aliased constant Windows.IID := (1273142398, 17564, 22382, (167, 184, 58, 64, 242, 240, 29, 200 ));
-   
-   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface(Callback : access procedure (sender : Windows.Media.Effects.IAudioRenderEffectsManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface
-      ; sender : Windows.Media.Effects.IAudioRenderEffectsManager
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1411,8 +1398,44 @@ package Windows.Media.Effects is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged : aliased constant Windows.IID := (1273142398, 17564, 22382, (167, 184, 58, 64, 242, 240, 29, 200 ));
+   
+   type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface(Callback : access procedure (sender : Windows.Media.Effects.IAudioRenderEffectsManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface
+      ; sender : Windows.Media.Effects.IAudioRenderEffectsManager
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
+   
+   subtype AudioCaptureEffectsManager is Windows.Media.Effects.IAudioCaptureEffectsManager;
+   subtype AudioEffect is Windows.Media.Effects.IAudioEffect;
+   subtype AudioEffectDefinition is Windows.Media.Effects.IAudioEffectDefinition;
+   function Create
+   (
+      activatableClassId : Windows.String
+   )
+   return Windows.Media.Effects.IAudioEffectDefinition;
+   
+   function CreateWithProperties
+   (
+      activatableClassId : Windows.String
+      ; props : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.Media.Effects.IAudioEffectDefinition;
+   
+   subtype AudioRenderEffectsManager is Windows.Media.Effects.IAudioRenderEffectsManager;
+   subtype CompositeVideoFrameContext is Windows.Media.Effects.ICompositeVideoFrameContext;
+   subtype ProcessAudioFrameContext is Windows.Media.Effects.IProcessAudioFrameContext;
+   subtype ProcessVideoFrameContext is Windows.Media.Effects.IProcessVideoFrameContext;
+   subtype SlowMotionEffectDefinition is Windows.Media.Effects.ISlowMotionEffectDefinition;
+   function Create return Windows.Media.Effects.ISlowMotionEffectDefinition;
    
    subtype VideoCompositorDefinition is Windows.Media.Effects.IVideoCompositorDefinition;
    function Create
@@ -1428,10 +1451,6 @@ package Windows.Media.Effects is
    )
    return Windows.Media.Effects.IVideoCompositorDefinition;
    
-   subtype CompositeVideoFrameContext is Windows.Media.Effects.ICompositeVideoFrameContext;
-   subtype AudioEffect is Windows.Media.Effects.IAudioEffect;
-   subtype AudioRenderEffectsManager is Windows.Media.Effects.IAudioRenderEffectsManager;
-   subtype AudioCaptureEffectsManager is Windows.Media.Effects.IAudioCaptureEffectsManager;
    subtype VideoEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
    function Create
    (
@@ -1446,29 +1465,10 @@ package Windows.Media.Effects is
    )
    return Windows.Media.Effects.IVideoEffectDefinition;
    
-   subtype AudioEffectDefinition is Windows.Media.Effects.IAudioEffectDefinition;
-   function Create
-   (
-      activatableClassId : Windows.String
-   )
-   return Windows.Media.Effects.IAudioEffectDefinition;
-   
-   function CreateWithProperties
-   (
-      activatableClassId : Windows.String
-      ; props : Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.Media.Effects.IAudioEffectDefinition;
-   
-   subtype ProcessVideoFrameContext is Windows.Media.Effects.IProcessVideoFrameContext;
-   subtype ProcessAudioFrameContext is Windows.Media.Effects.IProcessAudioFrameContext;
-   subtype VideoTransformSphericalProjection is Windows.Media.Effects.IVideoTransformSphericalProjection;
    subtype VideoTransformEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
    function Create return Windows.Media.Effects.IVideoEffectDefinition;
    
-   subtype SlowMotionEffectDefinition is Windows.Media.Effects.ISlowMotionEffectDefinition;
-   function Create return Windows.Media.Effects.ISlowMotionEffectDefinition;
-   
+   subtype VideoTransformSphericalProjection is Windows.Media.Effects.IVideoTransformSphericalProjection;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

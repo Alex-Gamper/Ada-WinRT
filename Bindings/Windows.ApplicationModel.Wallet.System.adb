@@ -38,19 +38,6 @@ package body Windows.ApplicationModel.Wallet.System is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface
-      ; sender : Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IWalletItemSystemStore_Interface
       ; asyncInfo : Windows.ApplicationModel.Wallet.System.IAsyncOperation_IWalletItemSystemStore
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -59,6 +46,19 @@ package body Windows.ApplicationModel.Wallet.System is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface
+      ; sender : Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore(sender), args);
       return Hr;
    end;
    

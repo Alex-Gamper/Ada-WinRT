@@ -35,24 +35,6 @@ package Windows.Devices.Printers.Extensions is
    -- Enums
    ------------------------------------------------------------------------
    
-   type Print3DWorkflowStatus is (
-      Abandoned,
-      Canceled,
-      Failed,
-      Slicing,
-      Submitted
-   );
-   for Print3DWorkflowStatus use (
-      Abandoned => 0,
-      Canceled => 1,
-      Failed => 2,
-      Slicing => 3,
-      Submitted => 4
-   );
-   for Print3DWorkflowStatus'Size use 32;
-   
-   type Print3DWorkflowStatus_Ptr is access Print3DWorkflowStatus;
-   
    type Print3DWorkflowDetail is (
       Unknown,
       ModelExceedsPrintBed,
@@ -75,6 +57,24 @@ package Windows.Devices.Printers.Extensions is
    
    type Print3DWorkflowDetail_Ptr is access Print3DWorkflowDetail;
    
+   type Print3DWorkflowStatus is (
+      Abandoned,
+      Canceled,
+      Failed,
+      Slicing,
+      Submitted
+   );
+   for Print3DWorkflowStatus use (
+      Abandoned => 0,
+      Canceled => 1,
+      Failed => 2,
+      Slicing => 3,
+      Submitted => 4
+   );
+   for Print3DWorkflowStatus'Size use 32;
+   
+   type Print3DWorkflowStatus_Ptr is access Print3DWorkflowStatus;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -88,228 +88,54 @@ package Windows.Devices.Printers.Extensions is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface;
-   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested is access all TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface'Class;
-   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Ptr is access all TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested;
    type TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface;
    type TypedEventHandler_IPrint3DWorkflow_add_PrintRequested is access all TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface'Class;
    type TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Ptr is access all TypedEventHandler_IPrint3DWorkflow_add_PrintRequested;
    type TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface;
    type TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged is access all TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface'Class;
    type TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Ptr is access all TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged;
+   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface;
+   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested is access all TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface'Class;
+   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Ptr is access all TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IPrintTaskConfigurationSaveRequestedDeferral_Interface;
-   type IPrintTaskConfigurationSaveRequestedDeferral is access all IPrintTaskConfigurationSaveRequestedDeferral_Interface'Class;
-   type IPrintTaskConfigurationSaveRequestedDeferral_Ptr is access all IPrintTaskConfigurationSaveRequestedDeferral;
-   type IPrintTaskConfigurationSaveRequest_Interface;
-   type IPrintTaskConfigurationSaveRequest is access all IPrintTaskConfigurationSaveRequest_Interface'Class;
-   type IPrintTaskConfigurationSaveRequest_Ptr is access all IPrintTaskConfigurationSaveRequest;
-   type IPrintTaskConfigurationSaveRequestedEventArgs_Interface;
-   type IPrintTaskConfigurationSaveRequestedEventArgs is access all IPrintTaskConfigurationSaveRequestedEventArgs_Interface'Class;
-   type IPrintTaskConfigurationSaveRequestedEventArgs_Ptr is access all IPrintTaskConfigurationSaveRequestedEventArgs;
-   type IPrintTaskConfiguration_Interface;
-   type IPrintTaskConfiguration is access all IPrintTaskConfiguration_Interface'Class;
-   type IPrintTaskConfiguration_Ptr is access all IPrintTaskConfiguration;
-   type IPrintNotificationEventDetails_Interface;
-   type IPrintNotificationEventDetails is access all IPrintNotificationEventDetails_Interface'Class;
-   type IPrintNotificationEventDetails_Ptr is access all IPrintNotificationEventDetails;
-   type IPrintExtensionContextStatic_Interface;
-   type IPrintExtensionContextStatic is access all IPrintExtensionContextStatic_Interface'Class;
-   type IPrintExtensionContextStatic_Ptr is access all IPrintExtensionContextStatic;
-   type IPrint3DWorkflowPrintRequestedEventArgs_Interface;
-   type IPrint3DWorkflowPrintRequestedEventArgs is access all IPrint3DWorkflowPrintRequestedEventArgs_Interface'Class;
-   type IPrint3DWorkflowPrintRequestedEventArgs_Ptr is access all IPrint3DWorkflowPrintRequestedEventArgs;
-   type IPrint3DWorkflowPrinterChangedEventArgs_Interface;
-   type IPrint3DWorkflowPrinterChangedEventArgs is access all IPrint3DWorkflowPrinterChangedEventArgs_Interface'Class;
-   type IPrint3DWorkflowPrinterChangedEventArgs_Ptr is access all IPrint3DWorkflowPrinterChangedEventArgs;
    type IPrint3DWorkflow_Interface;
    type IPrint3DWorkflow is access all IPrint3DWorkflow_Interface'Class;
    type IPrint3DWorkflow_Ptr is access all IPrint3DWorkflow;
    type IPrint3DWorkflow2_Interface;
    type IPrint3DWorkflow2 is access all IPrint3DWorkflow2_Interface'Class;
    type IPrint3DWorkflow2_Ptr is access all IPrint3DWorkflow2;
+   type IPrint3DWorkflowPrinterChangedEventArgs_Interface;
+   type IPrint3DWorkflowPrinterChangedEventArgs is access all IPrint3DWorkflowPrinterChangedEventArgs_Interface'Class;
+   type IPrint3DWorkflowPrinterChangedEventArgs_Ptr is access all IPrint3DWorkflowPrinterChangedEventArgs;
+   type IPrint3DWorkflowPrintRequestedEventArgs_Interface;
+   type IPrint3DWorkflowPrintRequestedEventArgs is access all IPrint3DWorkflowPrintRequestedEventArgs_Interface'Class;
+   type IPrint3DWorkflowPrintRequestedEventArgs_Ptr is access all IPrint3DWorkflowPrintRequestedEventArgs;
+   type IPrintExtensionContextStatic_Interface;
+   type IPrintExtensionContextStatic is access all IPrintExtensionContextStatic_Interface'Class;
+   type IPrintExtensionContextStatic_Ptr is access all IPrintExtensionContextStatic;
+   type IPrintNotificationEventDetails_Interface;
+   type IPrintNotificationEventDetails is access all IPrintNotificationEventDetails_Interface'Class;
+   type IPrintNotificationEventDetails_Ptr is access all IPrintNotificationEventDetails;
+   type IPrintTaskConfiguration_Interface;
+   type IPrintTaskConfiguration is access all IPrintTaskConfiguration_Interface'Class;
+   type IPrintTaskConfiguration_Ptr is access all IPrintTaskConfiguration;
+   type IPrintTaskConfigurationSaveRequest_Interface;
+   type IPrintTaskConfigurationSaveRequest is access all IPrintTaskConfigurationSaveRequest_Interface'Class;
+   type IPrintTaskConfigurationSaveRequest_Ptr is access all IPrintTaskConfigurationSaveRequest;
+   type IPrintTaskConfigurationSaveRequestedDeferral_Interface;
+   type IPrintTaskConfigurationSaveRequestedDeferral is access all IPrintTaskConfigurationSaveRequestedDeferral_Interface'Class;
+   type IPrintTaskConfigurationSaveRequestedDeferral_Ptr is access all IPrintTaskConfigurationSaveRequestedDeferral;
+   type IPrintTaskConfigurationSaveRequestedEventArgs_Interface;
+   type IPrintTaskConfigurationSaveRequestedEventArgs is access all IPrintTaskConfigurationSaveRequestedEventArgs_Interface'Class;
+   type IPrintTaskConfigurationSaveRequestedEventArgs_Ptr is access all IPrintTaskConfigurationSaveRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintTaskConfigurationSaveRequestedDeferral : aliased constant Windows.IID := (3914978664, 63273, 17572, (135, 29, 189, 6, 40, 105, 106, 51 ));
-   
-   type IPrintTaskConfigurationSaveRequestedDeferral_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Complete
-   (
-      This       : access IPrintTaskConfigurationSaveRequestedDeferral_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintTaskConfigurationSaveRequest : aliased constant Windows.IID := (4004458443, 25118, 19298, (172, 119, 178, 129, 204, 224, 141, 96 ));
-   
-   type IPrintTaskConfigurationSaveRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Cancel
-   (
-      This       : access IPrintTaskConfigurationSaveRequest_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Save
-   (
-      This       : access IPrintTaskConfigurationSaveRequest_Interface
-      ; printerExtensionContext : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IPrintTaskConfigurationSaveRequest_Interface
-      ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Deadline
-   (
-      This       : access IPrintTaskConfigurationSaveRequest_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintTaskConfigurationSaveRequestedEventArgs : aliased constant Windows.IID := (3765184633, 3425, 18744, (145, 208, 150, 164, 91, 238, 132, 121 ));
-   
-   type IPrintTaskConfigurationSaveRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Request
-   (
-      This       : access IPrintTaskConfigurationSaveRequestedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintTaskConfiguration : aliased constant Windows.IID := (3821151313, 15012, 18565, (146, 64, 49, 31, 95, 143, 190, 157 ));
-   
-   type IPrintTaskConfiguration_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PrinterExtensionContext
-   (
-      This       : access IPrintTaskConfiguration_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_SaveRequested
-   (
-      This       : access IPrintTaskConfiguration_Interface
-      ; eventHandler : TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_SaveRequested
-   (
-      This       : access IPrintTaskConfiguration_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintNotificationEventDetails : aliased constant Windows.IID := (3759033482, 18472, 19873, (139, 184, 134, 114, 223, 133, 21, 231 ));
-   
-   type IPrintNotificationEventDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PrinterName
-   (
-      This       : access IPrintNotificationEventDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EventData
-   (
-      This       : access IPrintNotificationEventDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EventData
-   (
-      This       : access IPrintNotificationEventDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintExtensionContextStatic : aliased constant Windows.IID := (3876429761, 65401, 19108, (140, 155, 12, 147, 174, 223, 222, 138 ));
-   
-   type IPrintExtensionContextStatic_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromDeviceId
-   (
-      This       : access IPrintExtensionContextStatic_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrint3DWorkflowPrintRequestedEventArgs : aliased constant Windows.IID := (435734616, 23240, 19285, (138, 95, 230, 21, 103, 218, 251, 77 ));
-   
-   type IPrint3DWorkflowPrintRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Status
-   (
-      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Printers.Extensions.Print3DWorkflowStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetExtendedStatus
-   (
-      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
-      ; value : Windows.Devices.Printers.Extensions.Print3DWorkflowDetail
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetSource
-   (
-      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
-      ; source : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetSourceChanged
-   (
-      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrint3DWorkflowPrinterChangedEventArgs : aliased constant Windows.IID := (1159881730, 38396, 18503, (147, 179, 19, 77, 191, 92, 96, 247 ));
-   
-   type IPrint3DWorkflowPrinterChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_NewDeviceId
-   (
-      This       : access IPrint3DWorkflowPrinterChangedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -382,21 +208,182 @@ package Windows.Devices.Printers.Extensions is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IPrint3DWorkflowPrinterChangedEventArgs : aliased constant Windows.IID := (1159881730, 38396, 18503, (147, 179, 19, 77, 191, 92, 96, 247 ));
+   
+   type IPrint3DWorkflowPrinterChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NewDeviceId
+   (
+      This       : access IPrint3DWorkflowPrinterChangedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrint3DWorkflowPrintRequestedEventArgs : aliased constant Windows.IID := (435734616, 23240, 19285, (138, 95, 230, 21, 103, 218, 251, 77 ));
+   
+   type IPrint3DWorkflowPrintRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Printers.Extensions.Print3DWorkflowStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetExtendedStatus
+   (
+      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
+      ; value : Windows.Devices.Printers.Extensions.Print3DWorkflowDetail
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetSource
+   (
+      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
+      ; source : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetSourceChanged
+   (
+      This       : access IPrint3DWorkflowPrintRequestedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintExtensionContextStatic : aliased constant Windows.IID := (3876429761, 65401, 19108, (140, 155, 12, 147, 174, 223, 222, 138 ));
+   
+   type IPrintExtensionContextStatic_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromDeviceId
+   (
+      This       : access IPrintExtensionContextStatic_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintNotificationEventDetails : aliased constant Windows.IID := (3759033482, 18472, 19873, (139, 184, 134, 114, 223, 133, 21, 231 ));
+   
+   type IPrintNotificationEventDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PrinterName
+   (
+      This       : access IPrintNotificationEventDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EventData
+   (
+      This       : access IPrintNotificationEventDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EventData
+   (
+      This       : access IPrintNotificationEventDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfiguration : aliased constant Windows.IID := (3821151313, 15012, 18565, (146, 64, 49, 31, 95, 143, 190, 157 ));
+   
+   type IPrintTaskConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PrinterExtensionContext
+   (
+      This       : access IPrintTaskConfiguration_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SaveRequested
+   (
+      This       : access IPrintTaskConfiguration_Interface
+      ; eventHandler : TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SaveRequested
+   (
+      This       : access IPrintTaskConfiguration_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfigurationSaveRequest : aliased constant Windows.IID := (4004458443, 25118, 19298, (172, 119, 178, 129, 204, 224, 141, 96 ));
+   
+   type IPrintTaskConfigurationSaveRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Cancel
+   (
+      This       : access IPrintTaskConfigurationSaveRequest_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Save
+   (
+      This       : access IPrintTaskConfigurationSaveRequest_Interface
+      ; printerExtensionContext : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IPrintTaskConfigurationSaveRequest_Interface
+      ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Deadline
+   (
+      This       : access IPrintTaskConfigurationSaveRequest_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfigurationSaveRequestedDeferral : aliased constant Windows.IID := (3914978664, 63273, 17572, (135, 29, 189, 6, 40, 105, 106, 51 ));
+   
+   type IPrintTaskConfigurationSaveRequestedDeferral_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Complete
+   (
+      This       : access IPrintTaskConfigurationSaveRequestedDeferral_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfigurationSaveRequestedEventArgs : aliased constant Windows.IID := (3765184633, 3425, 18744, (145, 208, 150, 164, 91, 238, 132, 121 ));
+   
+   type IPrintTaskConfigurationSaveRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IPrintTaskConfigurationSaveRequestedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested : aliased constant Windows.IID := (56882554, 47010, 24096, (161, 86, 37, 52, 35, 231, 238, 64 ));
-   
-   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface
-      ; sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
-      ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -425,17 +412,30 @@ package Windows.Devices.Printers.Extensions is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested : aliased constant Windows.IID := (56882554, 47010, 24096, (161, 86, 37, 52, 35, 231, 238, 64 ));
+   
+   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface
+      ; sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
+      ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PrintTaskConfigurationSaveRequestedDeferral is Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedDeferral;
-   subtype PrintTaskConfigurationSaveRequest is Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequest;
-   subtype PrintTaskConfigurationSaveRequestedEventArgs is Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs;
-   subtype PrintTaskConfiguration is Windows.Devices.Printers.Extensions.IPrintTaskConfiguration;
-   subtype PrintNotificationEventDetails is Windows.Devices.Printers.Extensions.IPrintNotificationEventDetails;
-   subtype Print3DWorkflowPrintRequestedEventArgs is Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrintRequestedEventArgs;
-   subtype Print3DWorkflowPrinterChangedEventArgs is Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrinterChangedEventArgs;
    subtype Print3DWorkflow is Windows.Devices.Printers.Extensions.IPrint3DWorkflow;
+   subtype Print3DWorkflowPrinterChangedEventArgs is Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrinterChangedEventArgs;
+   subtype Print3DWorkflowPrintRequestedEventArgs is Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrintRequestedEventArgs;
+   subtype PrintNotificationEventDetails is Windows.Devices.Printers.Extensions.IPrintNotificationEventDetails;
+   subtype PrintTaskConfiguration is Windows.Devices.Printers.Extensions.IPrintTaskConfiguration;
+   subtype PrintTaskConfigurationSaveRequest is Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequest;
+   subtype PrintTaskConfigurationSaveRequestedDeferral is Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedDeferral;
+   subtype PrintTaskConfigurationSaveRequestedEventArgs is Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

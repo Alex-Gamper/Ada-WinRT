@@ -40,19 +40,6 @@ package body Windows.UI.Xaml.Hosting is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface
-      ; sender : Windows.UI.Xaml.Hosting.IDesignerAppManager
-      ; args : Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Xaml.Hosting.IDesignerAppManager(sender), Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IDesignerAppView_Interface
       ; asyncInfo : Windows.UI.Xaml.Hosting.IAsyncOperation_IDesignerAppView
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -61,6 +48,19 @@ package body Windows.UI.Xaml.Hosting is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface
+      ; sender : Windows.UI.Xaml.Hosting.IDesignerAppManager
+      ; args : Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Xaml.Hosting.IDesignerAppManager(sender), Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs(args));
       return Hr;
    end;
    

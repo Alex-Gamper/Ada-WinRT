@@ -38,32 +38,6 @@ package body Windows.Networking.XboxLive is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface
-      ; sender : Windows.Networking.XboxLive.IXboxLiveDeviceAddress
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Networking.XboxLive.IXboxLiveDeviceAddress(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface
-      ; sender : Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate
-      ; args : Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate(sender), Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface
       ; asyncInfo : Windows.Networking.XboxLive.IAsyncOperation_IXboxLiveEndpointPairCreationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -77,6 +51,19 @@ package body Windows.Networking.XboxLive is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface
+      ; sender : Windows.Networking.XboxLive.IXboxLiveDeviceAddress
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.XboxLive.IXboxLiveDeviceAddress(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface
       ; sender : Windows.Networking.XboxLive.IXboxLiveEndpointPair
       ; args : Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs
@@ -85,6 +72,19 @@ package body Windows.Networking.XboxLive is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Networking.XboxLive.IXboxLiveEndpointPair(sender), Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface
+      ; sender : Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate
+      ; args : Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate(sender), Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs(args));
       return Hr;
    end;
    

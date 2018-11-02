@@ -36,92 +36,6 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    -- Enums
    ------------------------------------------------------------------------
    
-   type EasRequireEncryptionResult is (
-      NotEvaluated,
-      Compliant,
-      CanBeCompliant,
-      NotProvisionedOnAllVolumes,
-      FixedDataNotSupported,
-      HardwareNotCompliant,
-      LockNotConfigured,
-      ProtectionSuspended,
-      OsVolumeNotProtected,
-      ProtectionNotYetEnabled,
-      NoFeatureLicense,
-      OsNotProtected,
-      UnexpectedFailure
-   );
-   for EasRequireEncryptionResult use (
-      NotEvaluated => 0,
-      Compliant => 1,
-      CanBeCompliant => 2,
-      NotProvisionedOnAllVolumes => 3,
-      FixedDataNotSupported => 4,
-      HardwareNotCompliant => 5,
-      LockNotConfigured => 6,
-      ProtectionSuspended => 7,
-      OsVolumeNotProtected => 8,
-      ProtectionNotYetEnabled => 9,
-      NoFeatureLicense => 10,
-      OsNotProtected => 11,
-      UnexpectedFailure => 12
-   );
-   for EasRequireEncryptionResult'Size use 32;
-   
-   type EasRequireEncryptionResult_Ptr is access EasRequireEncryptionResult;
-   
-   type EasEncryptionProviderType is (
-      NotEvaluated,
-      WindowsEncryption,
-      OtherEncryption
-   );
-   for EasEncryptionProviderType use (
-      NotEvaluated => 0,
-      WindowsEncryption => 1,
-      OtherEncryption => 2
-   );
-   for EasEncryptionProviderType'Size use 32;
-   
-   type EasEncryptionProviderType_Ptr is access EasEncryptionProviderType;
-   
-   type EasMinPasswordLengthResult is (
-      NotEvaluated,
-      Compliant,
-      CanBeCompliant,
-      RequestedPolicyIsStricter,
-      RequestedPolicyNotEnforceable,
-      InvalidParameter,
-      CurrentUserHasBlankPassword,
-      AdminsHaveBlankPassword,
-      UserCannotChangePassword,
-      AdminsCannotChangePassword,
-      LocalControlledUsersCannotChangePassword,
-      ConnectedAdminsProviderPolicyIsWeak,
-      ConnectedUserProviderPolicyIsWeak,
-      ChangeConnectedAdminsPassword,
-      ChangeConnectedUserPassword
-   );
-   for EasMinPasswordLengthResult use (
-      NotEvaluated => 0,
-      Compliant => 1,
-      CanBeCompliant => 2,
-      RequestedPolicyIsStricter => 3,
-      RequestedPolicyNotEnforceable => 4,
-      InvalidParameter => 5,
-      CurrentUserHasBlankPassword => 6,
-      AdminsHaveBlankPassword => 7,
-      UserCannotChangePassword => 8,
-      AdminsCannotChangePassword => 9,
-      LocalControlledUsersCannotChangePassword => 10,
-      ConnectedAdminsProviderPolicyIsWeak => 11,
-      ConnectedUserProviderPolicyIsWeak => 12,
-      ChangeConnectedAdminsPassword => 13,
-      ChangeConnectedUserPassword => 14
-   );
-   for EasMinPasswordLengthResult'Size use 32;
-   
-   type EasMinPasswordLengthResult_Ptr is access EasMinPasswordLengthResult;
-   
    type EasDisallowConvenienceLogonResult is (
       NotEvaluated,
       Compliant,
@@ -137,6 +51,56 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    for EasDisallowConvenienceLogonResult'Size use 32;
    
    type EasDisallowConvenienceLogonResult_Ptr is access EasDisallowConvenienceLogonResult;
+   
+   type EasEncryptionProviderType is (
+      NotEvaluated,
+      WindowsEncryption,
+      OtherEncryption
+   );
+   for EasEncryptionProviderType use (
+      NotEvaluated => 0,
+      WindowsEncryption => 1,
+      OtherEncryption => 2
+   );
+   for EasEncryptionProviderType'Size use 32;
+   
+   type EasEncryptionProviderType_Ptr is access EasEncryptionProviderType;
+   
+   type EasMaxInactivityTimeLockResult is (
+      NotEvaluated,
+      Compliant,
+      CanBeCompliant,
+      RequestedPolicyIsStricter,
+      InvalidParameter
+   );
+   for EasMaxInactivityTimeLockResult use (
+      NotEvaluated => 0,
+      Compliant => 1,
+      CanBeCompliant => 2,
+      RequestedPolicyIsStricter => 3,
+      InvalidParameter => 4
+   );
+   for EasMaxInactivityTimeLockResult'Size use 32;
+   
+   type EasMaxInactivityTimeLockResult_Ptr is access EasMaxInactivityTimeLockResult;
+   
+   type EasMaxPasswordFailedAttemptsResult is (
+      NotEvaluated,
+      Compliant,
+      CanBeCompliant,
+      RequestedPolicyIsStricter,
+      InvalidParameter
+   );
+   for EasMaxPasswordFailedAttemptsResult use (
+      NotEvaluated => 0,
+      Compliant => 1,
+      CanBeCompliant => 2,
+      RequestedPolicyIsStricter => 3,
+      InvalidParameter => 4
+   );
+   for EasMaxPasswordFailedAttemptsResult'Size use 32;
+   
+   type EasMaxPasswordFailedAttemptsResult_Ptr is access EasMaxPasswordFailedAttemptsResult;
    
    type EasMinPasswordComplexCharactersResult is (
       NotEvaluated,
@@ -175,6 +139,44 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    for EasMinPasswordComplexCharactersResult'Size use 32;
    
    type EasMinPasswordComplexCharactersResult_Ptr is access EasMinPasswordComplexCharactersResult;
+   
+   type EasMinPasswordLengthResult is (
+      NotEvaluated,
+      Compliant,
+      CanBeCompliant,
+      RequestedPolicyIsStricter,
+      RequestedPolicyNotEnforceable,
+      InvalidParameter,
+      CurrentUserHasBlankPassword,
+      AdminsHaveBlankPassword,
+      UserCannotChangePassword,
+      AdminsCannotChangePassword,
+      LocalControlledUsersCannotChangePassword,
+      ConnectedAdminsProviderPolicyIsWeak,
+      ConnectedUserProviderPolicyIsWeak,
+      ChangeConnectedAdminsPassword,
+      ChangeConnectedUserPassword
+   );
+   for EasMinPasswordLengthResult use (
+      NotEvaluated => 0,
+      Compliant => 1,
+      CanBeCompliant => 2,
+      RequestedPolicyIsStricter => 3,
+      RequestedPolicyNotEnforceable => 4,
+      InvalidParameter => 5,
+      CurrentUserHasBlankPassword => 6,
+      AdminsHaveBlankPassword => 7,
+      UserCannotChangePassword => 8,
+      AdminsCannotChangePassword => 9,
+      LocalControlledUsersCannotChangePassword => 10,
+      ConnectedAdminsProviderPolicyIsWeak => 11,
+      ConnectedUserProviderPolicyIsWeak => 12,
+      ChangeConnectedAdminsPassword => 13,
+      ChangeConnectedUserPassword => 14
+   );
+   for EasMinPasswordLengthResult'Size use 32;
+   
+   type EasMinPasswordLengthResult_Ptr is access EasMinPasswordLengthResult;
    
    type EasPasswordExpirationResult is (
       NotEvaluated,
@@ -220,41 +222,39 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    
    type EasPasswordHistoryResult_Ptr is access EasPasswordHistoryResult;
    
-   type EasMaxPasswordFailedAttemptsResult is (
+   type EasRequireEncryptionResult is (
       NotEvaluated,
       Compliant,
       CanBeCompliant,
-      RequestedPolicyIsStricter,
-      InvalidParameter
+      NotProvisionedOnAllVolumes,
+      FixedDataNotSupported,
+      HardwareNotCompliant,
+      LockNotConfigured,
+      ProtectionSuspended,
+      OsVolumeNotProtected,
+      ProtectionNotYetEnabled,
+      NoFeatureLicense,
+      OsNotProtected,
+      UnexpectedFailure
    );
-   for EasMaxPasswordFailedAttemptsResult use (
+   for EasRequireEncryptionResult use (
       NotEvaluated => 0,
       Compliant => 1,
       CanBeCompliant => 2,
-      RequestedPolicyIsStricter => 3,
-      InvalidParameter => 4
+      NotProvisionedOnAllVolumes => 3,
+      FixedDataNotSupported => 4,
+      HardwareNotCompliant => 5,
+      LockNotConfigured => 6,
+      ProtectionSuspended => 7,
+      OsVolumeNotProtected => 8,
+      ProtectionNotYetEnabled => 9,
+      NoFeatureLicense => 10,
+      OsNotProtected => 11,
+      UnexpectedFailure => 12
    );
-   for EasMaxPasswordFailedAttemptsResult'Size use 32;
+   for EasRequireEncryptionResult'Size use 32;
    
-   type EasMaxPasswordFailedAttemptsResult_Ptr is access EasMaxPasswordFailedAttemptsResult;
-   
-   type EasMaxInactivityTimeLockResult is (
-      NotEvaluated,
-      Compliant,
-      CanBeCompliant,
-      RequestedPolicyIsStricter,
-      InvalidParameter
-   );
-   for EasMaxInactivityTimeLockResult use (
-      NotEvaluated => 0,
-      Compliant => 1,
-      CanBeCompliant => 2,
-      RequestedPolicyIsStricter => 3,
-      InvalidParameter => 4
-   );
-   for EasMaxInactivityTimeLockResult'Size use 32;
-   
-   type EasMaxInactivityTimeLockResult_Ptr is access EasMaxInactivityTimeLockResult;
+   type EasRequireEncryptionResult_Ptr is access EasRequireEncryptionResult;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -277,6 +277,9 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IEasComplianceResults_Interface;
+   type IAsyncOperation_IEasComplianceResults is access all IAsyncOperation_IEasComplianceResults_Interface'Class;
+   type IAsyncOperation_IEasComplianceResults_Ptr is access all IAsyncOperation_IEasComplianceResults;
    type IEasClientDeviceInformation_Interface;
    type IEasClientDeviceInformation is access all IEasClientDeviceInformation_Interface'Class;
    type IEasClientDeviceInformation_Ptr is access all IEasClientDeviceInformation;
@@ -292,13 +295,37 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    type IEasComplianceResults2_Interface;
    type IEasComplianceResults2 is access all IEasComplianceResults2_Interface'Class;
    type IEasComplianceResults2_Ptr is access all IEasComplianceResults2;
-   type IAsyncOperation_IEasComplianceResults_Interface;
-   type IAsyncOperation_IEasComplianceResults is access all IAsyncOperation_IEasComplianceResults_Interface'Class;
-   type IAsyncOperation_IEasComplianceResults_Ptr is access all IAsyncOperation_IEasComplianceResults;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEasComplianceResults : aliased constant Windows.IID := (4231689018, 32237, 24210, (165, 105, 180, 51, 137, 238, 136, 39 ));
+   
+   type IAsyncOperation_IEasComplianceResults_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IEasComplianceResults_Interface
+      ; handler : Windows.Security.ExchangeActiveSyncProvisioning.AsyncOperationCompletedHandler_IEasComplianceResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IEasComplianceResults_Interface
+      ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.AsyncOperationCompletedHandler_IEasComplianceResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IEasComplianceResults_Interface
+      ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -583,33 +610,6 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IEasComplianceResults : aliased constant Windows.IID := (4231689018, 32237, 24210, (165, 105, 180, 51, 137, 238, 136, 39 ));
-   
-   type IAsyncOperation_IEasComplianceResults_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IEasComplianceResults_Interface
-      ; handler : Windows.Security.ExchangeActiveSyncProvisioning.AsyncOperationCompletedHandler_IEasComplianceResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IEasComplianceResults_Interface
-      ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.AsyncOperationCompletedHandler_IEasComplianceResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IEasComplianceResults_Interface
-      ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -633,10 +633,10 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    subtype EasClientDeviceInformation is Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation;
    function Create return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation;
    
-   subtype EasComplianceResults is Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults;
    subtype EasClientSecurityPolicy is Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy;
    function Create return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy;
    
+   subtype EasComplianceResults is Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

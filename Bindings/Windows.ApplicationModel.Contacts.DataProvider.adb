@@ -37,19 +37,6 @@ package body Windows.ApplicationModel.Contacts.DataProvider is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface
-      ; sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection
-      ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequestEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection(sender), Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequestEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested_Interface
       ; sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection
       ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListServerSearchReadBatchRequestEventArgs
@@ -58,6 +45,19 @@ package body Windows.ApplicationModel.Contacts.DataProvider is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection(sender), Windows.ApplicationModel.Contacts.DataProvider.IContactListServerSearchReadBatchRequestEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface
+      ; sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection
+      ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequestEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection(sender), Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequestEventArgs(args));
       return Hr;
    end;
    

@@ -61,30 +61,30 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type ICoreDragDropManager_Interface;
+   type ICoreDragDropManager is access all ICoreDragDropManager_Interface'Class;
+   type ICoreDragDropManager_Ptr is access all ICoreDragDropManager;
+   type ICoreDragDropManagerStatics_Interface;
+   type ICoreDragDropManagerStatics is access all ICoreDragDropManagerStatics_Interface'Class;
+   type ICoreDragDropManagerStatics_Ptr is access all ICoreDragDropManagerStatics;
    type ICoreDragInfo_Interface;
    type ICoreDragInfo is access all ICoreDragInfo_Interface'Class;
    type ICoreDragInfo_Ptr is access all ICoreDragInfo;
    type ICoreDragInfo2_Interface;
    type ICoreDragInfo2 is access all ICoreDragInfo2_Interface'Class;
    type ICoreDragInfo2_Ptr is access all ICoreDragInfo2;
-   type ICoreDragUIOverride_Interface;
-   type ICoreDragUIOverride is access all ICoreDragUIOverride_Interface'Class;
-   type ICoreDragUIOverride_Ptr is access all ICoreDragUIOverride;
-   type ICoreDropOperationTarget_Interface;
-   type ICoreDropOperationTarget is access all ICoreDropOperationTarget_Interface'Class;
-   type ICoreDropOperationTarget_Ptr is access all ICoreDropOperationTarget;
    type ICoreDragOperation_Interface;
    type ICoreDragOperation is access all ICoreDragOperation_Interface'Class;
    type ICoreDragOperation_Ptr is access all ICoreDragOperation;
    type ICoreDragOperation2_Interface;
    type ICoreDragOperation2 is access all ICoreDragOperation2_Interface'Class;
    type ICoreDragOperation2_Ptr is access all ICoreDragOperation2;
-   type ICoreDragDropManagerStatics_Interface;
-   type ICoreDragDropManagerStatics is access all ICoreDragDropManagerStatics_Interface'Class;
-   type ICoreDragDropManagerStatics_Ptr is access all ICoreDragDropManagerStatics;
-   type ICoreDragDropManager_Interface;
-   type ICoreDragDropManager is access all ICoreDragDropManager_Interface'Class;
-   type ICoreDragDropManager_Ptr is access all ICoreDragDropManager;
+   type ICoreDragUIOverride_Interface;
+   type ICoreDragUIOverride is access all ICoreDragUIOverride_Interface'Class;
+   type ICoreDragUIOverride_Ptr is access all ICoreDragUIOverride;
+   type ICoreDropOperationTarget_Interface;
+   type ICoreDropOperationTarget is access all ICoreDropOperationTarget_Interface'Class;
+   type ICoreDropOperationTarget_Ptr is access all ICoreDropOperationTarget;
    type ICoreDropOperationTargetRequestedEventArgs_Interface;
    type ICoreDropOperationTargetRequestedEventArgs is access all ICoreDropOperationTargetRequestedEventArgs_Interface'Class;
    type ICoreDropOperationTargetRequestedEventArgs_Ptr is access all ICoreDropOperationTargetRequestedEventArgs;
@@ -92,6 +92,54 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreDragDropManager : aliased constant Windows.IID := (2102842180, 33892, 20399, (170, 73, 55, 234, 110, 45, 123, 209 ));
+   
+   type ICoreDragDropManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_TargetRequested
+   (
+      This       : access ICoreDragDropManager_Interface
+      ; value : TypedEventHandler_ICoreDragDropManager_add_TargetRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_TargetRequested
+   (
+      This       : access ICoreDragDropManager_Interface
+      ; value : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AreConcurrentOperationsEnabled
+   (
+      This       : access ICoreDragDropManager_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AreConcurrentOperationsEnabled
+   (
+      This       : access ICoreDragDropManager_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreDragDropManagerStatics : aliased constant Windows.IID := (2504195530, 55826, 19484, (141, 6, 4, 29, 178, 151, 51, 195 ));
+   
+   type ICoreDragDropManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForCurrentView
+   (
+      This       : access ICoreDragDropManagerStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -130,6 +178,82 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    (
       This       : access ICoreDragInfo2_Interface
       ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreDragOperation : aliased constant Windows.IID := (3423002191, 28080, 20066, (171, 27, 167, 74, 2, 220, 109, 133 ));
+   
+   type ICoreDragOperation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Data
+   (
+      This       : access ICoreDragOperation_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetPointerId
+   (
+      This       : access ICoreDragOperation_Interface
+      ; pointerId : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetDragUIContentFromSoftwareBitmap
+   (
+      This       : access ICoreDragOperation_Interface
+      ; softwareBitmap : Windows.Graphics.Imaging.ISoftwareBitmap
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetDragUIContentFromSoftwareBitmapWithAnchorPoint
+   (
+      This       : access ICoreDragOperation_Interface
+      ; softwareBitmap : Windows.Graphics.Imaging.ISoftwareBitmap
+      ; anchorPoint : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DragUIContentMode
+   (
+      This       : access ICoreDragOperation_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DragUIContentMode
+   (
+      This       : access ICoreDragOperation_Interface
+      ; value : Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartAsync
+   (
+      This       : access ICoreDragOperation_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreDragOperation2 : aliased constant Windows.IID := (2185961004, 55706, 20419, (133, 7, 108, 24, 47, 51, 180, 106 ));
+   
+   type ICoreDragOperation2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AllowedOperations
+   (
+      This       : access ICoreDragOperation2_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowedOperations
+   (
+      This       : access ICoreDragOperation2_Interface
+      ; value : Windows.ApplicationModel.DataTransfer.DataPackageOperation
    )
    return Windows.HRESULT is abstract;
    
@@ -258,130 +382,6 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    
    ------------------------------------------------------------------------
    
-   IID_ICoreDragOperation : aliased constant Windows.IID := (3423002191, 28080, 20066, (171, 27, 167, 74, 2, 220, 109, 133 ));
-   
-   type ICoreDragOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Data
-   (
-      This       : access ICoreDragOperation_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetPointerId
-   (
-      This       : access ICoreDragOperation_Interface
-      ; pointerId : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetDragUIContentFromSoftwareBitmap
-   (
-      This       : access ICoreDragOperation_Interface
-      ; softwareBitmap : Windows.Graphics.Imaging.ISoftwareBitmap
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetDragUIContentFromSoftwareBitmapWithAnchorPoint
-   (
-      This       : access ICoreDragOperation_Interface
-      ; softwareBitmap : Windows.Graphics.Imaging.ISoftwareBitmap
-      ; anchorPoint : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DragUIContentMode
-   (
-      This       : access ICoreDragOperation_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DragUIContentMode
-   (
-      This       : access ICoreDragOperation_Interface
-      ; value : Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function StartAsync
-   (
-      This       : access ICoreDragOperation_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreDragOperation2 : aliased constant Windows.IID := (2185961004, 55706, 20419, (133, 7, 108, 24, 47, 51, 180, 106 ));
-   
-   type ICoreDragOperation2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AllowedOperations
-   (
-      This       : access ICoreDragOperation2_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AllowedOperations
-   (
-      This       : access ICoreDragOperation2_Interface
-      ; value : Windows.ApplicationModel.DataTransfer.DataPackageOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreDragDropManagerStatics : aliased constant Windows.IID := (2504195530, 55826, 19484, (141, 6, 4, 29, 178, 151, 51, 195 ));
-   
-   type ICoreDragDropManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetForCurrentView
-   (
-      This       : access ICoreDragDropManagerStatics_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreDragDropManager : aliased constant Windows.IID := (2102842180, 33892, 20399, (170, 73, 55, 234, 110, 45, 123, 209 ));
-   
-   type ICoreDragDropManager_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_TargetRequested
-   (
-      This       : access ICoreDragDropManager_Interface
-      ; value : TypedEventHandler_ICoreDragDropManager_add_TargetRequested
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_TargetRequested
-   (
-      This       : access ICoreDragDropManager_Interface
-      ; value : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AreConcurrentOperationsEnabled
-   (
-      This       : access ICoreDragDropManager_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AreConcurrentOperationsEnabled
-   (
-      This       : access ICoreDragDropManager_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_ICoreDropOperationTargetRequestedEventArgs : aliased constant Windows.IID := (717918874, 24104, 20134, (130, 158, 41, 19, 78, 102, 93, 109 ));
    
    type ICoreDropOperationTargetRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -414,13 +414,13 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype CoreDragInfo is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo;
-   subtype CoreDragUIOverride is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragUIOverride;
    subtype CoreDragDropManager is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager;
-   subtype CoreDropOperationTargetRequestedEventArgs is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs;
+   subtype CoreDragInfo is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo;
    subtype CoreDragOperation is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation;
    function Create return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation;
    
+   subtype CoreDragUIOverride is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragUIOverride;
+   subtype CoreDropOperationTargetRequestedEventArgs is Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

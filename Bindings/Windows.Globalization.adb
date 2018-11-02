@@ -35,63 +35,6 @@ package body Windows.Globalization is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Globalization.IGeographicRegion is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.IGeographicRegion) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.IID_IGeographicRegion'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateGeographicRegion
-   (
-      geographicRegionCode : Windows.String
-   )
-   return Windows.Globalization.IGeographicRegion is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");
-      m_Factory     : Windows.Globalization.IGeographicRegionFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.IGeographicRegion := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGeographicRegionFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateGeographicRegion(geographicRegionCode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateLanguage
-   (
-      languageTag : Windows.String
-   )
-   return Windows.Globalization.ILanguage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.Language");
-      m_Factory     : Windows.Globalization.ILanguageFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.ILanguage := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILanguageFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateLanguage(languageTag, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function Create return Windows.Globalization.ICalendar is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.Calendar");
@@ -174,6 +117,63 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
+   function Create return Windows.Globalization.IGeographicRegion is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.IGeographicRegion) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.IID_IGeographicRegion'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateGeographicRegion
+   (
+      geographicRegionCode : Windows.String
+   )
+   return Windows.Globalization.IGeographicRegion is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");
+      m_Factory     : Windows.Globalization.IGeographicRegionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.IGeographicRegion := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGeographicRegionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateGeographicRegion(geographicRegionCode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateLanguage
+   (
+      languageTag : Windows.String
+   )
+   return Windows.Globalization.ILanguage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.Language");
+      m_Factory     : Windows.Globalization.ILanguageFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.ILanguage := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILanguageFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateLanguage(languageTag, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -181,6 +181,95 @@ package body Windows.Globalization is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_PrimaryLanguageOverride
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
+      m_Factory     : IApplicationLanguagesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PrimaryLanguageOverride(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_PrimaryLanguageOverride
+   (
+      value : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
+      m_Factory     : IApplicationLanguagesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_PrimaryLanguageOverride(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_Languages
+   return Windows.Foundation.Collections.IVectorView_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
+      m_Factory     : IApplicationLanguagesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Languages(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ManifestLanguages
+   return Windows.Foundation.Collections.IVectorView_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
+      m_Factory     : IApplicationLanguagesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ManifestLanguages(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetLanguagesForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.Collections.IVectorView_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
+      m_Factory     : IApplicationLanguagesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetLanguagesForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function get_Persian
    return Windows.String is
@@ -465,822 +554,6 @@ package body Windows.Globalization is
       Hr := RoGetActivationFactory(m_hString, IID_IClockIdentifiersStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TwentyFourHour(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Brah
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Brah(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Osma
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Osma(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MathBold
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MathBold(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MathDbl
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MathDbl(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MathSans
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MathSans(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MathSanb
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MathSanb(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MathMono
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MathMono(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ZmthBold
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ZmthBold(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ZmthDbl
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ZmthDbl(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ZmthSans
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ZmthSans(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ZmthSanb
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ZmthSanb(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ZmthMono
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ZmthMono(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Arab
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Arab(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ArabExt
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ArabExt(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Bali
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Bali(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Beng
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Beng(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Cham
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Cham(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Deva
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Deva(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FullWide
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FullWide(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Gujr
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gujr(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Guru
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Guru(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HaniDec
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HaniDec(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Java
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Java(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Kali
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Kali(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Khmr
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Khmr(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Knda
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Knda(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Lana
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Lana(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LanaTham
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LanaTham(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Laoo
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Laoo(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Latn
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Latn(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Lepc
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Lepc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Limb
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Limb(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Mlym
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Mlym(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Mong
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Mong(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Mtei
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Mtei(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Mymr
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Mymr(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MymrShan
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MymrShan(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Nkoo
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Nkoo(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Olck
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Olck(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Orya
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Orya(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Saur
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Saur(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Sund
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Sund(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Talu
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Talu(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TamlDec
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TamlDec(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Telu
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Telu(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Thai_NumeralSystemIdentifiers
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Thai(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Tibt
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Tibt(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Vaii
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Vaii(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3993,6 +3266,47 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
+   function GetWords
+   (
+      input : Windows.String
+   )
+   return Windows.Globalization.IVectorView_IJapanesePhoneme is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.JapanesePhoneticAnalyzer");
+      m_Factory     : IJapanesePhoneticAnalyzerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.IVectorView_IJapanesePhoneme;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IJapanesePhoneticAnalyzerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetWords(input, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetWordsWithMonoRubyOption
+   (
+      input : Windows.String
+      ; monoRuby : Windows.Boolean
+   )
+   return Windows.Globalization.IVectorView_IJapanesePhoneme is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.JapanesePhoneticAnalyzer");
+      m_Factory     : IJapanesePhoneticAnalyzerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.IVectorView_IJapanesePhoneme;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IJapanesePhoneticAnalyzerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetWordsWithMonoRubyOption(input, monoRuby, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function TrySetInputMethodLanguageTag
    (
       languageTag : Windows.String
@@ -4050,130 +3364,816 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-   function get_PrimaryLanguageOverride
+   function get_Brah
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
-      m_Factory     : IApplicationLanguagesStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_PrimaryLanguageOverride(RetVal'Access);
+         Hr := m_Factory.get_Brah(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure put_PrimaryLanguageOverride
-   (
-      value : Windows.String
-   )
-   is
+   function get_Osma
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
-      m_Factory     : IApplicationLanguagesStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.put_PrimaryLanguageOverride(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_Languages
-   return Windows.Foundation.Collections.IVectorView_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
-      m_Factory     : IApplicationLanguagesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Languages(RetVal'Access);
+         Hr := m_Factory.get_Osma(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ManifestLanguages
-   return Windows.Foundation.Collections.IVectorView_String is
+   function get_MathBold
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
-      m_Factory     : IApplicationLanguagesStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ManifestLanguages(RetVal'Access);
+         Hr := m_Factory.get_MathBold(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetLanguagesForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Foundation.Collections.IVectorView_String is
+   function get_MathDbl
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
-      m_Factory     : IApplicationLanguagesStatics2 := null;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetLanguagesForUser(user, RetVal'Access);
+         Hr := m_Factory.get_MathDbl(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetWords
-   (
-      input : Windows.String
-   )
-   return Windows.Globalization.IVectorView_IJapanesePhoneme is
+   function get_MathSans
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.JapanesePhoneticAnalyzer");
-      m_Factory     : IJapanesePhoneticAnalyzerStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.IVectorView_IJapanesePhoneme;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IJapanesePhoneticAnalyzerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetWords(input, RetVal'Access);
+         Hr := m_Factory.get_MathSans(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetWordsWithMonoRubyOption
-   (
-      input : Windows.String
-      ; monoRuby : Windows.Boolean
-   )
-   return Windows.Globalization.IVectorView_IJapanesePhoneme is
+   function get_MathSanb
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.JapanesePhoneticAnalyzer");
-      m_Factory     : IJapanesePhoneticAnalyzerStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.IVectorView_IJapanesePhoneme;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IJapanesePhoneticAnalyzerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetWordsWithMonoRubyOption(input, monoRuby, RetVal'Access);
+         Hr := m_Factory.get_MathSanb(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MathMono
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MathMono(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZmthBold
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZmthBold(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZmthDbl
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZmthDbl(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZmthSans
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZmthSans(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZmthSanb
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZmthSanb(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZmthMono
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZmthMono(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Arab
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Arab(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ArabExt
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ArabExt(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Bali
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Bali(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Beng
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Beng(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Cham
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Cham(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Deva
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Deva(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FullWide
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FullWide(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Gujr
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gujr(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Guru
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Guru(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HaniDec
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HaniDec(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Java
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Java(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Kali
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Kali(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Khmr
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Khmr(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Knda
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Knda(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Lana
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Lana(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LanaTham
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LanaTham(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Laoo
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Laoo(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Latn
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Latn(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Lepc
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Lepc(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Limb
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Limb(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Mlym
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Mlym(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Mong
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Mong(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Mtei
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Mtei(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Mymr
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Mymr(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MymrShan
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MymrShan(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Nkoo
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Nkoo(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Olck
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Olck(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Orya
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Orya(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Saur
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Saur(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Sund
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Sund(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Talu
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Talu(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TamlDec
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TamlDec(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Telu
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Telu(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Thai_NumeralSystemIdentifiers
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Thai(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Tibt
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Tibt(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Vaii
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Vaii(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

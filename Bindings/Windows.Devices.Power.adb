@@ -37,19 +37,6 @@ package body Windows.Devices.Power is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IBattery_add_ReportUpdated_Interface
-      ; sender : Windows.Devices.Power.IBattery
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Power.IBattery(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IBattery_Interface
       ; asyncInfo : Windows.Devices.Power.IAsyncOperation_IBattery
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -58,6 +45,19 @@ package body Windows.Devices.Power is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBattery_add_ReportUpdated_Interface
+      ; sender : Windows.Devices.Power.IBattery
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Power.IBattery(sender), args);
       return Hr;
    end;
    

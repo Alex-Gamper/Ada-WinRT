@@ -131,6 +131,23 @@ package body Windows.Graphics.Holographic is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetDefault
+   return Windows.Graphics.Holographic.IHolographicDisplay is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Holographic.HolographicDisplay");
+      m_Factory     : IHolographicDisplayStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Holographic.IHolographicDisplay;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHolographicDisplayStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_IsConfigured
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -238,23 +255,6 @@ package body Windows.Graphics.Holographic is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetDefault
-   return Windows.Graphics.Holographic.IHolographicDisplay is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Holographic.HolographicDisplay");
-      m_Factory     : IHolographicDisplayStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Holographic.IHolographicDisplay;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHolographicDisplayStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

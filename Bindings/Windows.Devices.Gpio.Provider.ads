@@ -36,18 +36,6 @@ package Windows.Devices.Gpio.Provider is
    -- Enums
    ------------------------------------------------------------------------
    
-   type ProviderGpioSharingMode is (
-      Exclusive,
-      SharedReadOnly
-   );
-   for ProviderGpioSharingMode use (
-      Exclusive => 0,
-      SharedReadOnly => 1
-   );
-   for ProviderGpioSharingMode'Size use 32;
-   
-   type ProviderGpioSharingMode_Ptr is access ProviderGpioSharingMode;
-   
    type ProviderGpioPinDriveMode is (
       Input,
       Output,
@@ -72,6 +60,18 @@ package Windows.Devices.Gpio.Provider is
    
    type ProviderGpioPinDriveMode_Ptr is access ProviderGpioPinDriveMode;
    
+   type ProviderGpioPinEdge is (
+      FallingEdge,
+      RisingEdge
+   );
+   for ProviderGpioPinEdge use (
+      FallingEdge => 0,
+      RisingEdge => 1
+   );
+   for ProviderGpioPinEdge'Size use 32;
+   
+   type ProviderGpioPinEdge_Ptr is access ProviderGpioPinEdge;
+   
    type ProviderGpioPinValue is (
       Low,
       High
@@ -84,17 +84,17 @@ package Windows.Devices.Gpio.Provider is
    
    type ProviderGpioPinValue_Ptr is access ProviderGpioPinValue;
    
-   type ProviderGpioPinEdge is (
-      FallingEdge,
-      RisingEdge
+   type ProviderGpioSharingMode is (
+      Exclusive,
+      SharedReadOnly
    );
-   for ProviderGpioPinEdge use (
-      FallingEdge => 0,
-      RisingEdge => 1
+   for ProviderGpioSharingMode use (
+      Exclusive => 0,
+      SharedReadOnly => 1
    );
-   for ProviderGpioPinEdge'Size use 32;
+   for ProviderGpioSharingMode'Size use 32;
    
-   type ProviderGpioPinEdge_Ptr is access ProviderGpioPinEdge;
+   type ProviderGpioSharingMode_Ptr is access ProviderGpioSharingMode;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -108,27 +108,27 @@ package Windows.Devices.Gpio.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IGpioPinProviderValueChangedEventArgsFactory_Interface;
-   type IGpioPinProviderValueChangedEventArgsFactory is access all IGpioPinProviderValueChangedEventArgsFactory_Interface'Class;
-   type IGpioPinProviderValueChangedEventArgsFactory_Ptr is access all IGpioPinProviderValueChangedEventArgsFactory;
-   type IGpioPinProviderValueChangedEventArgs_Interface;
-   type IGpioPinProviderValueChangedEventArgs is access all IGpioPinProviderValueChangedEventArgs_Interface'Class;
-   type IGpioPinProviderValueChangedEventArgs_Ptr is access all IGpioPinProviderValueChangedEventArgs;
-   type IGpioPinProvider_Interface;
-   type IGpioPinProvider is access all IGpioPinProvider_Interface'Class;
-   type IGpioPinProvider_Ptr is access all IGpioPinProvider;
    type IGpioControllerProvider_Interface;
    type IGpioControllerProvider is access all IGpioControllerProvider_Interface'Class;
    type IGpioControllerProvider_Ptr is access all IGpioControllerProvider;
+   type IGpioPinProvider_Interface;
+   type IGpioPinProvider is access all IGpioPinProvider_Interface'Class;
+   type IGpioPinProvider_Ptr is access all IGpioPinProvider;
+   type IGpioPinProviderValueChangedEventArgs_Interface;
+   type IGpioPinProviderValueChangedEventArgs is access all IGpioPinProviderValueChangedEventArgs_Interface'Class;
+   type IGpioPinProviderValueChangedEventArgs_Ptr is access all IGpioPinProviderValueChangedEventArgs;
+   type IGpioPinProviderValueChangedEventArgsFactory_Interface;
+   type IGpioPinProviderValueChangedEventArgsFactory is access all IGpioPinProviderValueChangedEventArgsFactory_Interface'Class;
+   type IGpioPinProviderValueChangedEventArgsFactory_Ptr is access all IGpioPinProviderValueChangedEventArgsFactory;
    type IGpioProvider_Interface;
    type IGpioProvider is access all IGpioProvider_Interface'Class;
    type IGpioProvider_Ptr is access all IGpioProvider;
-   type IIterator_IGpioControllerProvider_Interface;
-   type IIterator_IGpioControllerProvider is access all IIterator_IGpioControllerProvider_Interface'Class;
-   type IIterator_IGpioControllerProvider_Ptr is access all IIterator_IGpioControllerProvider;
    type IIterable_IGpioControllerProvider_Interface;
    type IIterable_IGpioControllerProvider is access all IIterable_IGpioControllerProvider_Interface'Class;
    type IIterable_IGpioControllerProvider_Ptr is access all IIterable_IGpioControllerProvider;
+   type IIterator_IGpioControllerProvider_Interface;
+   type IIterator_IGpioControllerProvider is access all IIterator_IGpioControllerProvider_Interface'Class;
+   type IIterator_IGpioControllerProvider_Ptr is access all IIterator_IGpioControllerProvider;
    type IVectorView_IGpioControllerProvider_Interface;
    type IVectorView_IGpioControllerProvider is access all IVectorView_IGpioControllerProvider_Interface'Class;
    type IVectorView_IGpioControllerProvider_Ptr is access all IVectorView_IGpioControllerProvider;
@@ -139,28 +139,23 @@ package Windows.Devices.Gpio.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IGpioPinProviderValueChangedEventArgsFactory : aliased constant Windows.IID := (1053494105, 22156, 17298, (178, 74, 138, 89, 169, 2, 177, 241 ));
+   IID_IGpioControllerProvider : aliased constant Windows.IID := (2903625415, 6634, 19233, (135, 79, 185, 26, 237, 74, 37, 219 ));
    
-   type IGpioPinProviderValueChangedEventArgsFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function get_PinCount
    (
-      This       : access IGpioPinProviderValueChangedEventArgsFactory_Interface
-      ; edge : Windows.Devices.Gpio.Provider.ProviderGpioPinEdge
-      ; RetVal : access Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs
+      This       : access IGpioControllerProvider_Interface
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IGpioPinProviderValueChangedEventArgs : aliased constant Windows.IID := (849794802, 15707, 17613, (143, 190, 19, 166, 159, 46, 219, 36 ));
-   
-   type IGpioPinProviderValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Edge
+   function OpenPinProvider
    (
-      This       : access IGpioPinProviderValueChangedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Gpio.Provider.ProviderGpioPinEdge
+      This       : access IGpioControllerProvider_Interface
+      ; pin : Windows.Int32
+      ; sharingMode : Windows.Devices.Gpio.Provider.ProviderGpioSharingMode
+      ; RetVal : access Windows.Devices.Gpio.Provider.IGpioPinProvider
    )
    return Windows.HRESULT is abstract;
    
@@ -251,23 +246,28 @@ package Windows.Devices.Gpio.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IGpioControllerProvider : aliased constant Windows.IID := (2903625415, 6634, 19233, (135, 79, 185, 26, 237, 74, 37, 219 ));
+   IID_IGpioPinProviderValueChangedEventArgs : aliased constant Windows.IID := (849794802, 15707, 17613, (143, 190, 19, 166, 159, 46, 219, 36 ));
    
-   type IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
+   type IGpioPinProviderValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_PinCount
+   function get_Edge
    (
-      This       : access IGpioControllerProvider_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IGpioPinProviderValueChangedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Gpio.Provider.ProviderGpioPinEdge
    )
    return Windows.HRESULT is abstract;
    
-   function OpenPinProvider
+   ------------------------------------------------------------------------
+   
+   IID_IGpioPinProviderValueChangedEventArgsFactory : aliased constant Windows.IID := (1053494105, 22156, 17298, (178, 74, 138, 89, 169, 2, 177, 241 ));
+   
+   type IGpioPinProviderValueChangedEventArgsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
    (
-      This       : access IGpioControllerProvider_Interface
-      ; pin : Windows.Int32
-      ; sharingMode : Windows.Devices.Gpio.Provider.ProviderGpioSharingMode
-      ; RetVal : access Windows.Devices.Gpio.Provider.IGpioPinProvider
+      This       : access IGpioPinProviderValueChangedEventArgsFactory_Interface
+      ; edge : Windows.Devices.Gpio.Provider.ProviderGpioPinEdge
+      ; RetVal : access Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs
    )
    return Windows.HRESULT is abstract;
    
@@ -281,6 +281,19 @@ package Windows.Devices.Gpio.Provider is
    (
       This       : access IGpioProvider_Interface
       ; RetVal : access Windows.Devices.Gpio.Provider.IVectorView_IGpioControllerProvider -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IGpioControllerProvider : aliased constant Windows.IID := (153168852, 34075, 21181, (184, 44, 66, 27, 243, 214, 245, 17 ));
+   
+   type IIterable_IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IGpioControllerProvider_Interface
+      ; RetVal : access Windows.Devices.Gpio.Provider.IIterator_IGpioControllerProvider
    )
    return Windows.HRESULT is abstract;
    
@@ -316,19 +329,6 @@ package Windows.Devices.Gpio.Provider is
       This       : access IIterator_IGpioControllerProvider_Interface
       ; items : Windows.Devices.Gpio.Provider.IGpioControllerProvider_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IGpioControllerProvider : aliased constant Windows.IID := (153168852, 34075, 21181, (184, 44, 66, 27, 243, 214, 245, 17 ));
-   
-   type IIterable_IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IGpioControllerProvider_Interface
-      ; RetVal : access Windows.Devices.Gpio.Provider.IIterator_IGpioControllerProvider
    )
    return Windows.HRESULT is abstract;
    

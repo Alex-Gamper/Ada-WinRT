@@ -39,18 +39,6 @@ package Windows.Media.SpeechSynthesis is
    -- Enums
    ------------------------------------------------------------------------
    
-   type VoiceGender is (
-      Male,
-      Female
-   );
-   for VoiceGender use (
-      Male => 0,
-      Female => 1
-   );
-   for VoiceGender'Size use 32;
-   
-   type VoiceGender_Ptr is access VoiceGender;
-   
    type SpeechAppendedSilence is (
       Default,
       Min
@@ -75,6 +63,18 @@ package Windows.Media.SpeechSynthesis is
    
    type SpeechPunctuationSilence_Ptr is access SpeechPunctuationSilence;
    
+   type VoiceGender is (
+      Male,
+      Female
+   );
+   for VoiceGender use (
+      Male => 0,
+      Female => 1
+   );
+   for VoiceGender'Size use 32;
+   
+   type VoiceGender_Ptr is access VoiceGender;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -87,15 +87,36 @@ package Windows.Media.SpeechSynthesis is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IVoiceInformation_Interface;
-   type IVoiceInformation is access all IVoiceInformation_Interface'Class;
-   type IVoiceInformation_Ptr is access all IVoiceInformation;
+   type IAsyncOperation_ISpeechSynthesisStream_Interface;
+   type IAsyncOperation_ISpeechSynthesisStream is access all IAsyncOperation_ISpeechSynthesisStream_Interface'Class;
+   type IAsyncOperation_ISpeechSynthesisStream_Ptr is access all IAsyncOperation_ISpeechSynthesisStream;
+   type IContentTypeProvider_Imported_Interface;
+   type IContentTypeProvider_Imported is access all IContentTypeProvider_Imported_Interface'Class;
+   type IContentTypeProvider_Imported_Ptr is access all IContentTypeProvider_Imported;
+   type IInputStream_Imported_Interface;
+   type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
+   type IInputStream_Imported_Ptr is access all IInputStream_Imported;
    type IInstalledVoicesStatic_Interface;
    type IInstalledVoicesStatic is access all IInstalledVoicesStatic_Interface'Class;
    type IInstalledVoicesStatic_Ptr is access all IInstalledVoicesStatic;
    type IInstalledVoicesStatic2_Interface;
    type IInstalledVoicesStatic2 is access all IInstalledVoicesStatic2_Interface'Class;
    type IInstalledVoicesStatic2_Ptr is access all IInstalledVoicesStatic2;
+   type IIterable_IVoiceInformation_Interface;
+   type IIterable_IVoiceInformation is access all IIterable_IVoiceInformation_Interface'Class;
+   type IIterable_IVoiceInformation_Ptr is access all IIterable_IVoiceInformation;
+   type IIterator_IVoiceInformation_Interface;
+   type IIterator_IVoiceInformation is access all IIterator_IVoiceInformation_Interface'Class;
+   type IIterator_IVoiceInformation_Ptr is access all IIterator_IVoiceInformation;
+   type IOutputStream_Imported_Interface;
+   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
+   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
+   type IRandomAccessStream_Imported_Interface;
+   type IRandomAccessStream_Imported is access all IRandomAccessStream_Imported_Interface'Class;
+   type IRandomAccessStream_Imported_Ptr is access all IRandomAccessStream_Imported;
+   type IRandomAccessStreamWithContentType_Imported_Interface;
+   type IRandomAccessStreamWithContentType_Imported is access all IRandomAccessStreamWithContentType_Imported_Interface'Class;
+   type IRandomAccessStreamWithContentType_Imported_Ptr is access all IRandomAccessStreamWithContentType_Imported;
    type ISpeechSynthesisStream_Interface;
    type ISpeechSynthesisStream is access all ISpeechSynthesisStream_Interface'Class;
    type ISpeechSynthesisStream_Ptr is access all ISpeechSynthesisStream;
@@ -114,36 +135,15 @@ package Windows.Media.SpeechSynthesis is
    type ISpeechSynthesizerOptions3_Interface;
    type ISpeechSynthesizerOptions3 is access all ISpeechSynthesizerOptions3_Interface'Class;
    type ISpeechSynthesizerOptions3_Ptr is access all ISpeechSynthesizerOptions3;
-   type IRandomAccessStreamWithContentType_Imported_Interface;
-   type IRandomAccessStreamWithContentType_Imported is access all IRandomAccessStreamWithContentType_Imported_Interface'Class;
-   type IRandomAccessStreamWithContentType_Imported_Ptr is access all IRandomAccessStreamWithContentType_Imported;
-   type IContentTypeProvider_Imported_Interface;
-   type IContentTypeProvider_Imported is access all IContentTypeProvider_Imported_Interface'Class;
-   type IContentTypeProvider_Imported_Ptr is access all IContentTypeProvider_Imported;
-   type IRandomAccessStream_Imported_Interface;
-   type IRandomAccessStream_Imported is access all IRandomAccessStream_Imported_Interface'Class;
-   type IRandomAccessStream_Imported_Ptr is access all IRandomAccessStream_Imported;
-   type IOutputStream_Imported_Interface;
-   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
-   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
-   type IInputStream_Imported_Interface;
-   type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
-   type IInputStream_Imported_Ptr is access all IInputStream_Imported;
    type ITimedMetadataTrackProvider_Imported_Interface;
    type ITimedMetadataTrackProvider_Imported is access all ITimedMetadataTrackProvider_Imported_Interface'Class;
    type ITimedMetadataTrackProvider_Imported_Ptr is access all ITimedMetadataTrackProvider_Imported;
-   type IIterator_IVoiceInformation_Interface;
-   type IIterator_IVoiceInformation is access all IIterator_IVoiceInformation_Interface'Class;
-   type IIterator_IVoiceInformation_Ptr is access all IIterator_IVoiceInformation;
-   type IIterable_IVoiceInformation_Interface;
-   type IIterable_IVoiceInformation is access all IIterable_IVoiceInformation_Interface'Class;
-   type IIterable_IVoiceInformation_Ptr is access all IIterable_IVoiceInformation;
    type IVectorView_IVoiceInformation_Interface;
    type IVectorView_IVoiceInformation is access all IVectorView_IVoiceInformation_Interface'Class;
    type IVectorView_IVoiceInformation_Ptr is access all IVectorView_IVoiceInformation;
-   type IAsyncOperation_ISpeechSynthesisStream_Interface;
-   type IAsyncOperation_ISpeechSynthesisStream is access all IAsyncOperation_ISpeechSynthesisStream_Interface'Class;
-   type IAsyncOperation_ISpeechSynthesisStream_Ptr is access all IAsyncOperation_ISpeechSynthesisStream;
+   type IVoiceInformation_Interface;
+   type IVoiceInformation is access all IVoiceInformation_Interface'Class;
+   type IVoiceInformation_Ptr is access all IVoiceInformation;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -151,42 +151,53 @@ package Windows.Media.SpeechSynthesis is
    
    ------------------------------------------------------------------------
    
-   IID_IVoiceInformation : aliased constant Windows.IID := (2972178084, 4753, 17924, (170, 156, 131, 19, 64, 131, 53, 44 ));
+   IID_IAsyncOperation_ISpeechSynthesisStream : aliased constant Windows.IID := (3751626925, 40170, 22028, (158, 220, 203, 136, 82, 203, 85, 227 ));
    
-   type IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ISpeechSynthesisStream_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_DisplayName
+   function put_Completed
    (
-      This       : access IVoiceInformation_Interface
+      This       : access IAsyncOperation_ISpeechSynthesisStream_Interface
+      ; handler : Windows.Media.SpeechSynthesis.AsyncOperationCompletedHandler_ISpeechSynthesisStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ISpeechSynthesisStream_Interface
+      ; RetVal : access Windows.Media.SpeechSynthesis.AsyncOperationCompletedHandler_ISpeechSynthesisStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ISpeechSynthesisStream_Interface
+      ; RetVal : access Windows.Media.SpeechSynthesis.ISpeechSynthesisStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentType
+   (
+      This       : access IContentTypeProvider_Imported_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Id
-   (
-      This       : access IVoiceInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
+   ------------------------------------------------------------------------
    
-   function get_Language
-   (
-      This       : access IVoiceInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
+   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Description
+   function ReadAsync
    (
-      This       : access IVoiceInformation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Gender
-   (
-      This       : access IVoiceInformation_Interface
-      ; RetVal : access Windows.Media.SpeechSynthesis.VoiceGender
+      This       : access IInputStream_Imported_Interface
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; count : Windows.UInt32
+      ; options : Windows.Storage.Streams.InputStreamOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -223,6 +234,146 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IVoiceInformation : aliased constant Windows.IID := (1010023250, 48536, 23692, (173, 238, 238, 141, 160, 98, 142, 252 ));
+   
+   type IIterable_IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IVoiceInformation_Interface
+      ; RetVal : access Windows.Media.SpeechSynthesis.IIterator_IVoiceInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IVoiceInformation : aliased constant Windows.IID := (315886119, 44685, 24496, (143, 237, 0, 22, 93, 89, 198, 171 ));
+   
+   type IIterator_IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IVoiceInformation_Interface
+      ; RetVal : access Windows.Media.SpeechSynthesis.IVoiceInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IVoiceInformation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IVoiceInformation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IVoiceInformation_Interface
+      ; items : Windows.Media.SpeechSynthesis.IVoiceInformation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function WriteAsync
+   (
+      This       : access IOutputStream_Imported_Interface
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FlushAsync
+   (
+      This       : access IOutputStream_Imported_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Size
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Size
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; value : Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetInputStreamAt
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetOutputStreamAt
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+      ; RetVal : access Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Seek
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; position : Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CloneStream
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanRead
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanWrite
+   (
+      This       : access IRandomAccessStream_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -404,177 +555,12 @@ package Windows.Media.SpeechSynthesis is
    
    ------------------------------------------------------------------------
    
-   type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ContentType
-   (
-      This       : access IContentTypeProvider_Imported_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Size
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Size
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; value : Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetInputStreamAt
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-      ; RetVal : access Windows.Storage.Streams.IInputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetOutputStreamAt
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-      ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Seek
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; position : Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CloneStream
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanRead
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanWrite
-   (
-      This       : access IRandomAccessStream_Imported_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function WriteAsync
-   (
-      This       : access IOutputStream_Imported_Interface
-      ; buffer : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FlushAsync
-   (
-      This       : access IOutputStream_Imported_Interface
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReadAsync
-   (
-      This       : access IInputStream_Imported_Interface
-      ; buffer : Windows.Storage.Streams.IBuffer
-      ; count : Windows.UInt32
-      ; options : Windows.Storage.Streams.InputStreamOptions
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    type ITimedMetadataTrackProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TimedMetadataTracks
    (
       This       : access ITimedMetadataTrackProvider_Imported_Interface
       ; RetVal : access Windows.Media.Core.IVectorView_ITimedMetadataTrack -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IVoiceInformation : aliased constant Windows.IID := (315886119, 44685, 24496, (143, 237, 0, 22, 93, 89, 198, 171 ));
-   
-   type IIterator_IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IVoiceInformation_Interface
-      ; RetVal : access Windows.Media.SpeechSynthesis.IVoiceInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IVoiceInformation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IVoiceInformation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IVoiceInformation_Interface
-      ; items : Windows.Media.SpeechSynthesis.IVoiceInformation_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IVoiceInformation : aliased constant Windows.IID := (1010023250, 48536, 23692, (173, 238, 238, 141, 160, 98, 142, 252 ));
-   
-   type IIterable_IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IVoiceInformation_Interface
-      ; RetVal : access Windows.Media.SpeechSynthesis.IIterator_IVoiceInformation
    )
    return Windows.HRESULT is abstract;
    
@@ -619,28 +605,42 @@ package Windows.Media.SpeechSynthesis is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_ISpeechSynthesisStream : aliased constant Windows.IID := (3751626925, 40170, 22028, (158, 220, 203, 136, 82, 203, 85, 227 ));
+   IID_IVoiceInformation : aliased constant Windows.IID := (2972178084, 4753, 17924, (170, 156, 131, 19, 64, 131, 53, 44 ));
    
-   type IAsyncOperation_ISpeechSynthesisStream_Interface is interface and Windows.IInspectable_Interface;
+   type IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_DisplayName
    (
-      This       : access IAsyncOperation_ISpeechSynthesisStream_Interface
-      ; handler : Windows.Media.SpeechSynthesis.AsyncOperationCompletedHandler_ISpeechSynthesisStream
+      This       : access IVoiceInformation_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_Id
    (
-      This       : access IAsyncOperation_ISpeechSynthesisStream_Interface
-      ; RetVal : access Windows.Media.SpeechSynthesis.AsyncOperationCompletedHandler_ISpeechSynthesisStream
+      This       : access IVoiceInformation_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function get_Language
    (
-      This       : access IAsyncOperation_ISpeechSynthesisStream_Interface
-      ; RetVal : access Windows.Media.SpeechSynthesis.ISpeechSynthesisStream
+      This       : access IVoiceInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IVoiceInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Gender
+   (
+      This       : access IVoiceInformation_Interface
+      ; RetVal : access Windows.Media.SpeechSynthesis.VoiceGender
    )
    return Windows.HRESULT is abstract;
    
@@ -665,12 +665,12 @@ package Windows.Media.SpeechSynthesis is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype VoiceInformation is Windows.Media.SpeechSynthesis.IVoiceInformation;
    subtype SpeechSynthesisStream is Windows.Media.SpeechSynthesis.ISpeechSynthesisStream;
-   subtype SpeechSynthesizerOptions is Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions;
    subtype SpeechSynthesizer is Windows.Media.SpeechSynthesis.ISpeechSynthesizer;
    function Create return Windows.Media.SpeechSynthesis.ISpeechSynthesizer;
    
+   subtype SpeechSynthesizerOptions is Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions;
+   subtype VoiceInformation is Windows.Media.SpeechSynthesis.IVoiceInformation;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

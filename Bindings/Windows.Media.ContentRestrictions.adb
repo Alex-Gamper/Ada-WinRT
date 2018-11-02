@@ -37,8 +37,8 @@ package body Windows.Media.ContentRestrictions is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface
-      ; asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy
+      This       : access AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Interface
+      ; asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_ContentAccessRestrictionLevel
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -50,8 +50,8 @@ package body Windows.Media.ContentRestrictions is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Interface
-      ; asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_ContentAccessRestrictionLevel
+      This       : access AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface
+      ; asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

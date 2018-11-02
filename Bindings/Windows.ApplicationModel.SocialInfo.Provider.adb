@@ -37,8 +37,8 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface
-      ; asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater
+      This       : access AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface
+      ; asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -50,8 +50,8 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface
-      ; asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater
+      This       : access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface
+      ; asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

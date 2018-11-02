@@ -37,71 +37,6 @@ package body Windows.Devices.Enumeration.Pnp is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPnpObjectWatcher_add_Added_Interface
-      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
-      ; args : Windows.Devices.Enumeration.Pnp.IPnpObject
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), Windows.Devices.Enumeration.Pnp.IPnpObject(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPnpObjectWatcher_add_Updated_Interface
-      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
-      ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPnpObjectWatcher_add_Removed_Interface
-      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
-      ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted_Interface
-      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPnpObjectWatcher_add_Stopped_Interface
-      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IPnpObject_Interface
       ; asyncInfo : Windows.Devices.Enumeration.Pnp.IAsyncOperation_IPnpObject
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -123,6 +58,71 @@ package body Windows.Devices.Enumeration.Pnp is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPnpObjectWatcher_add_Added_Interface
+      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
+      ; args : Windows.Devices.Enumeration.Pnp.IPnpObject
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), Windows.Devices.Enumeration.Pnp.IPnpObject(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted_Interface
+      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPnpObjectWatcher_add_Removed_Interface
+      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
+      ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPnpObjectWatcher_add_Stopped_Interface
+      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPnpObjectWatcher_add_Updated_Interface
+      ; sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
+      ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher(sender), Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate(args));
       return Hr;
    end;
    

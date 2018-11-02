@@ -41,6 +41,9 @@ package Windows.UI.Xaml.Automation.Provider is
    type IAnnotationProvider_Interface;
    type IAnnotationProvider is access all IAnnotationProvider_Interface'Class;
    type IAnnotationProvider_Ptr is access all IAnnotationProvider;
+   type ICustomNavigationProvider_Interface;
+   type ICustomNavigationProvider is access all ICustomNavigationProvider_Interface'Class;
+   type ICustomNavigationProvider_Ptr is access all ICustomNavigationProvider;
    type IDockProvider_Interface;
    type IDockProvider is access all IDockProvider_Interface'Class;
    type IDockProvider_Ptr is access all IDockProvider;
@@ -62,6 +65,9 @@ package Windows.UI.Xaml.Automation.Provider is
    type IInvokeProvider_Interface;
    type IInvokeProvider is access all IInvokeProvider_Interface'Class;
    type IInvokeProvider_Ptr is access all IInvokeProvider;
+   type IIRawElementProviderSimple_Interface;
+   type IIRawElementProviderSimple is access all IIRawElementProviderSimple_Interface'Class;
+   type IIRawElementProviderSimple_Ptr is access all IIRawElementProviderSimple;
    type IItemContainerProvider_Interface;
    type IItemContainerProvider is access all IItemContainerProvider_Interface'Class;
    type IItemContainerProvider_Ptr is access all IItemContainerProvider;
@@ -107,15 +113,18 @@ package Windows.UI.Xaml.Automation.Provider is
    type ITextChildProvider_Interface;
    type ITextChildProvider is access all ITextChildProvider_Interface'Class;
    type ITextChildProvider_Ptr is access all ITextChildProvider;
-   type ITextRangeProvider_Interface;
-   type ITextRangeProvider is access all ITextRangeProvider_Interface'Class;
-   type ITextRangeProvider_Ptr is access all ITextRangeProvider;
+   type ITextEditProvider_Interface;
+   type ITextEditProvider is access all ITextEditProvider_Interface'Class;
+   type ITextEditProvider_Ptr is access all ITextEditProvider;
    type ITextProvider_Interface;
    type ITextProvider is access all ITextProvider_Interface'Class;
    type ITextProvider_Ptr is access all ITextProvider;
    type ITextProvider2_Interface;
    type ITextProvider2 is access all ITextProvider2_Interface'Class;
    type ITextProvider2_Ptr is access all ITextProvider2;
+   type ITextRangeProvider_Interface;
+   type ITextRangeProvider is access all ITextRangeProvider_Interface'Class;
+   type ITextRangeProvider_Ptr is access all ITextRangeProvider;
    type ITextRangeProvider2_Interface;
    type ITextRangeProvider2 is access all ITextRangeProvider2_Interface'Class;
    type ITextRangeProvider2_Ptr is access all ITextRangeProvider2;
@@ -137,15 +146,6 @@ package Windows.UI.Xaml.Automation.Provider is
    type IWindowProvider_Interface;
    type IWindowProvider is access all IWindowProvider_Interface'Class;
    type IWindowProvider_Ptr is access all IWindowProvider;
-   type IIRawElementProviderSimple_Interface;
-   type IIRawElementProviderSimple is access all IIRawElementProviderSimple_Interface'Class;
-   type IIRawElementProviderSimple_Ptr is access all IIRawElementProviderSimple;
-   type ICustomNavigationProvider_Interface;
-   type ICustomNavigationProvider is access all ICustomNavigationProvider_Interface'Class;
-   type ICustomNavigationProvider_Ptr is access all ICustomNavigationProvider;
-   type ITextEditProvider_Interface;
-   type ITextEditProvider is access all ITextEditProvider_Interface'Class;
-   type ITextEditProvider_Ptr is access all ITextEditProvider;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -189,6 +189,20 @@ package Windows.UI.Xaml.Automation.Provider is
    (
       This       : access IAnnotationProvider_Interface
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICustomNavigationProvider : aliased constant Windows.IID := (735618768, 12195, 18199, (178, 140, 73, 23, 206, 84, 146, 141 ));
+   
+   type ICustomNavigationProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function NavigateCustom
+   (
+      This       : access ICustomNavigationProvider_Interface
+      ; direction : Windows.UI.Xaml.Automation.Peers.AutomationNavigationDirection
+      ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
    
@@ -372,6 +386,12 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access IInvokeProvider_Interface
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIRawElementProviderSimple : aliased constant Windows.IID := (3967099428, 39799, 18208, (187, 33, 74, 200, 159, 219, 26, 253 ));
+   
+   type IIRawElementProviderSimple_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -817,6 +837,98 @@ package Windows.UI.Xaml.Automation.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_ITextEditProvider : aliased constant Windows.IID := (3929408948, 14853, 16398, (181, 249, 78, 145, 180, 15, 97, 118 ));
+   
+   type ITextEditProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetActiveComposition
+   (
+      This       : access ITextEditProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetConversionTarget
+   (
+      This       : access ITextEditProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextProvider : aliased constant Windows.IID := (3680222367, 18439, 20266, (134, 120, 27, 19, 243, 198, 14, 34 ));
+   
+   type ITextProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DocumentRange
+   (
+      This       : access ITextProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedTextSelection
+   (
+      This       : access ITextProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.SupportedTextSelection
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetSelection
+   (
+      This       : access ITextProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetVisibleRanges
+   (
+      This       : access ITextProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RangeFromChild
+   (
+      This       : access ITextProvider_Interface
+      ; childElement : Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RangeFromPoint
+   (
+      This       : access ITextProvider_Interface
+      ; screenLocation : Windows.Foundation.Point
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextProvider2 : aliased constant Windows.IID := (3743238332, 1159, 20095, (157, 94, 240, 158, 119, 228, 18, 70 ));
+   
+   type ITextProvider2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RangeFromAnnotation
+   (
+      This       : access ITextProvider2_Interface
+      ; annotationElement : Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCaretRange
+   (
+      This       : access ITextProvider2_Interface
+      ; isActive : access Windows.Boolean
+      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITextRangeProvider : aliased constant Windows.IID := (41183373, 1769, 20326, (148, 70, 40, 165, 190, 152, 251, 208 ));
    
    type ITextRangeProvider_Interface is interface and Windows.IInspectable_Interface;
@@ -960,78 +1072,6 @@ package Windows.UI.Xaml.Automation.Provider is
    (
       This       : access ITextRangeProvider_Interface
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITextProvider : aliased constant Windows.IID := (3680222367, 18439, 20266, (134, 120, 27, 19, 243, 198, 14, 34 ));
-   
-   type ITextProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DocumentRange
-   (
-      This       : access ITextProvider_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SupportedTextSelection
-   (
-      This       : access ITextProvider_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.SupportedTextSelection
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetSelection
-   (
-      This       : access ITextProvider_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider_Ptr -- Array Parameter type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetVisibleRanges
-   (
-      This       : access ITextProvider_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider_Ptr -- Array Parameter type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RangeFromChild
-   (
-      This       : access ITextProvider_Interface
-      ; childElement : Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RangeFromPoint
-   (
-      This       : access ITextProvider_Interface
-      ; screenLocation : Windows.Foundation.Point
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITextProvider2 : aliased constant Windows.IID := (3743238332, 1159, 20095, (157, 94, 240, 158, 119, 228, 18, 70 ));
-   
-   type ITextProvider2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RangeFromAnnotation
-   (
-      This       : access ITextProvider2_Interface
-      ; annotationElement : Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetCaretRange
-   (
-      This       : access ITextProvider2_Interface
-      ; isActive : access Windows.Boolean
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
    )
    return Windows.HRESULT is abstract;
    
@@ -1269,46 +1309,6 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access IWindowProvider_Interface
       ; milliseconds : Windows.Int32
       ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIRawElementProviderSimple : aliased constant Windows.IID := (3967099428, 39799, 18208, (187, 33, 74, 200, 159, 219, 26, 253 ));
-   
-   type IIRawElementProviderSimple_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICustomNavigationProvider : aliased constant Windows.IID := (735618768, 12195, 18199, (178, 140, 73, 23, 206, 84, 146, 141 ));
-   
-   type ICustomNavigationProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function NavigateCustom
-   (
-      This       : access ICustomNavigationProvider_Interface
-      ; direction : Windows.UI.Xaml.Automation.Peers.AutomationNavigationDirection
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITextEditProvider : aliased constant Windows.IID := (3929408948, 14853, 16398, (181, 249, 78, 145, 180, 15, 97, 118 ));
-   
-   type ITextEditProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetActiveComposition
-   (
-      This       : access ITextEditProvider_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetConversionTarget
-   (
-      This       : access ITextEditProvider_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
    )
    return Windows.HRESULT is abstract;
    

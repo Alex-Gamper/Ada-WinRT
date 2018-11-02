@@ -51,32 +51,6 @@ package body Windows.Devices.WiFi is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_WiFiAccessStatus_Interface
-      ; asyncInfo : Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged_Interface
-      ; sender : Windows.Devices.WiFi.IWiFiAdapter
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.WiFi.IWiFiAdapter(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IWiFiConnectionResult_Interface
       ; asyncInfo : Windows.Devices.WiFi.IAsyncOperation_IWiFiConnectionResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -98,6 +72,32 @@ package body Windows.Devices.WiFi is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_WiFiAccessStatus_Interface
+      ; asyncInfo : Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged_Interface
+      ; sender : Windows.Devices.WiFi.IWiFiAdapter
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.WiFi.IWiFiAdapter(sender), args);
       return Hr;
    end;
    

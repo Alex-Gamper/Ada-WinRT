@@ -39,32 +39,6 @@ package body Windows.Media.Casting is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICastingConnection_add_StateChanged_Interface
-      ; sender : Windows.Media.Casting.ICastingConnection
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Casting.ICastingConnection(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICastingConnection_add_ErrorOccurred_Interface
-      ; sender : Windows.Media.Casting.ICastingConnection
-      ; args : Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Casting.ICastingConnection(sender), Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_CastingConnectionErrorStatus_Interface
       ; asyncInfo : Windows.Media.Casting.IAsyncOperation_CastingConnectionErrorStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -104,14 +78,27 @@ package body Windows.Media.Casting is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected_Interface
-      ; sender : Windows.Media.Casting.ICastingDevicePicker
-      ; args : Windows.Media.Casting.ICastingDeviceSelectedEventArgs
+      This       : access TypedEventHandler_ICastingConnection_add_ErrorOccurred_Interface
+      ; sender : Windows.Media.Casting.ICastingConnection
+      ; args : Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Casting.ICastingDevicePicker(sender), Windows.Media.Casting.ICastingDeviceSelectedEventArgs(args));
+      This.Callback(Windows.Media.Casting.ICastingConnection(sender), Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICastingConnection_add_StateChanged_Interface
+      ; sender : Windows.Media.Casting.ICastingConnection
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Casting.ICastingConnection(sender), args);
       return Hr;
    end;
    
@@ -125,6 +112,19 @@ package body Windows.Media.Casting is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Casting.ICastingDevicePicker(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected_Interface
+      ; sender : Windows.Media.Casting.ICastingDevicePicker
+      ; args : Windows.Media.Casting.ICastingDeviceSelectedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Casting.ICastingDevicePicker(sender), Windows.Media.Casting.ICastingDeviceSelectedEventArgs(args));
       return Hr;
    end;
    

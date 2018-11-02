@@ -116,23 +116,6 @@ package body Windows.UI.Composition is
       return RetVal;
    end;
    
-   function Create return Windows.UI.Composition.ICompositor is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Composition.Compositor");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Composition.ICompositor) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Composition.IID_ICompositor'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function Create
    (
       source : Windows.Graphics.IGeometrySource2D
@@ -153,6 +136,23 @@ package body Windows.UI.Composition is
       return RetVal;
    end;
    
+   function Create return Windows.UI.Composition.ICompositor is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Compositor");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Composition.ICompositor) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Composition.IID_ICompositor'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -160,6 +160,40 @@ package body Windows.UI.Composition is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_MaxPlaybackRate
+   return Windows.Single is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.AnimationController");
+      m_Factory     : IAnimationControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Single;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAnimationControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxPlaybackRate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MinPlaybackRate
+   return Windows.Single is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.AnimationController");
+      m_Factory     : IAnimationControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Single;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAnimationControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MinPlaybackRate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetForCurrentView
    return Windows.UI.Composition.ICompositionCapabilities is
@@ -206,40 +240,6 @@ package body Windows.UI.Composition is
       Hr := RoGetActivationFactory(m_hString, IID_ICompositorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MinGlobalPlaybackRate(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MaxPlaybackRate
-   return Windows.Single is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Composition.AnimationController");
-      m_Factory     : IAnimationControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Single;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAnimationControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxPlaybackRate(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MinPlaybackRate
-   return Windows.Single is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Composition.AnimationController");
-      m_Factory     : IAnimationControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Single;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAnimationControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MinPlaybackRate(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

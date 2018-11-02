@@ -92,15 +92,6 @@ package Windows.Web.Http.Filters is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IHttpFilter_Interface;
-   type IHttpFilter is access all IHttpFilter_Interface'Class;
-   type IHttpFilter_Ptr is access all IHttpFilter;
-   type IHttpCacheControl_Interface;
-   type IHttpCacheControl is access all IHttpCacheControl_Interface'Class;
-   type IHttpCacheControl_Ptr is access all IHttpCacheControl;
-   type IHttpServerCustomValidationRequestedEventArgs_Interface;
-   type IHttpServerCustomValidationRequestedEventArgs is access all IHttpServerCustomValidationRequestedEventArgs_Interface'Class;
-   type IHttpServerCustomValidationRequestedEventArgs_Ptr is access all IHttpServerCustomValidationRequestedEventArgs;
    type IHttpBaseProtocolFilter_Interface;
    type IHttpBaseProtocolFilter is access all IHttpBaseProtocolFilter_Interface'Class;
    type IHttpBaseProtocolFilter_Ptr is access all IHttpBaseProtocolFilter;
@@ -113,112 +104,19 @@ package Windows.Web.Http.Filters is
    type IHttpBaseProtocolFilter4_Interface;
    type IHttpBaseProtocolFilter4 is access all IHttpBaseProtocolFilter4_Interface'Class;
    type IHttpBaseProtocolFilter4_Ptr is access all IHttpBaseProtocolFilter4;
+   type IHttpCacheControl_Interface;
+   type IHttpCacheControl is access all IHttpCacheControl_Interface'Class;
+   type IHttpCacheControl_Ptr is access all IHttpCacheControl;
+   type IHttpFilter_Interface;
+   type IHttpFilter is access all IHttpFilter_Interface'Class;
+   type IHttpFilter_Ptr is access all IHttpFilter;
+   type IHttpServerCustomValidationRequestedEventArgs_Interface;
+   type IHttpServerCustomValidationRequestedEventArgs is access all IHttpServerCustomValidationRequestedEventArgs_Interface'Class;
+   type IHttpServerCustomValidationRequestedEventArgs_Ptr is access all IHttpServerCustomValidationRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpFilter : aliased constant Windows.IID := (2764795349, 2306, 17310, (191, 215, 225, 37, 82, 177, 101, 206 ));
-   
-   type IHttpFilter_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SendRequestAsync
-   (
-      This       : access IHttpFilter_Interface
-      ; request : Windows.Web.Http.IHttpRequestMessage
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpCacheControl : aliased constant Windows.IID := (3346930868, 15594, 20149, (172, 133, 4, 225, 134, 230, 58, 183 ));
-   
-   type IHttpCacheControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ReadBehavior
-   (
-      This       : access IHttpCacheControl_Interface
-      ; RetVal : access Windows.Web.Http.Filters.HttpCacheReadBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ReadBehavior
-   (
-      This       : access IHttpCacheControl_Interface
-      ; value : Windows.Web.Http.Filters.HttpCacheReadBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WriteBehavior
-   (
-      This       : access IHttpCacheControl_Interface
-      ; RetVal : access Windows.Web.Http.Filters.HttpCacheWriteBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_WriteBehavior
-   (
-      This       : access IHttpCacheControl_Interface
-      ; value : Windows.Web.Http.Filters.HttpCacheWriteBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpServerCustomValidationRequestedEventArgs : aliased constant Windows.IID := (828767794, 59357, 18615, (163, 97, 147, 156, 117, 14, 99, 204 ));
-   
-   type IHttpServerCustomValidationRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RequestMessage
-   (
-      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerCertificate
-   (
-      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerCertificateErrorSeverity
-   (
-      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerCertificateErrors
-   (
-      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServerIntermediateCertificates
-   (
-      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Reject
-   (
-      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -423,6 +321,108 @@ package Windows.Web.Http.Filters is
    function ClearAuthenticationCache
    (
       This       : access IHttpBaseProtocolFilter4_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpCacheControl : aliased constant Windows.IID := (3346930868, 15594, 20149, (172, 133, 4, 225, 134, 230, 58, 183 ));
+   
+   type IHttpCacheControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReadBehavior
+   (
+      This       : access IHttpCacheControl_Interface
+      ; RetVal : access Windows.Web.Http.Filters.HttpCacheReadBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ReadBehavior
+   (
+      This       : access IHttpCacheControl_Interface
+      ; value : Windows.Web.Http.Filters.HttpCacheReadBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WriteBehavior
+   (
+      This       : access IHttpCacheControl_Interface
+      ; RetVal : access Windows.Web.Http.Filters.HttpCacheWriteBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_WriteBehavior
+   (
+      This       : access IHttpCacheControl_Interface
+      ; value : Windows.Web.Http.Filters.HttpCacheWriteBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpFilter : aliased constant Windows.IID := (2764795349, 2306, 17310, (191, 215, 225, 37, 82, 177, 101, 206 ));
+   
+   type IHttpFilter_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SendRequestAsync
+   (
+      This       : access IHttpFilter_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpServerCustomValidationRequestedEventArgs : aliased constant Windows.IID := (828767794, 59357, 18615, (163, 97, 147, 156, 117, 14, 99, 204 ));
+   
+   type IHttpServerCustomValidationRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RequestMessage
+   (
+      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerCertificate
+   (
+      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerCertificateErrorSeverity
+   (
+      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Networking.Sockets.SocketSslErrorSeverity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerCertificateErrors
+   (
+      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ChainValidationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServerIntermediateCertificates
+   (
+      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Reject
+   (
+      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IHttpServerCustomValidationRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    

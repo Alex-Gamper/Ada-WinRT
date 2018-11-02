@@ -43,19 +43,46 @@ package Windows.UI.Core.Preview is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type ISystemNavigationCloseRequestedPreviewEventArgs_Interface;
+   type ISystemNavigationCloseRequestedPreviewEventArgs is access all ISystemNavigationCloseRequestedPreviewEventArgs_Interface'Class;
+   type ISystemNavigationCloseRequestedPreviewEventArgs_Ptr is access all ISystemNavigationCloseRequestedPreviewEventArgs;
    type ISystemNavigationManagerPreview_Interface;
    type ISystemNavigationManagerPreview is access all ISystemNavigationManagerPreview_Interface'Class;
    type ISystemNavigationManagerPreview_Ptr is access all ISystemNavigationManagerPreview;
    type ISystemNavigationManagerPreviewStatics_Interface;
    type ISystemNavigationManagerPreviewStatics is access all ISystemNavigationManagerPreviewStatics_Interface'Class;
    type ISystemNavigationManagerPreviewStatics_Ptr is access all ISystemNavigationManagerPreviewStatics;
-   type ISystemNavigationCloseRequestedPreviewEventArgs_Interface;
-   type ISystemNavigationCloseRequestedPreviewEventArgs is access all ISystemNavigationCloseRequestedPreviewEventArgs_Interface'Class;
-   type ISystemNavigationCloseRequestedPreviewEventArgs_Ptr is access all ISystemNavigationCloseRequestedPreviewEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (2211450337, 52197, 20273, (132, 20, 54, 29, 160, 70, 81, 143 ));
+   
+   type ISystemNavigationCloseRequestedPreviewEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Handled
+   (
+      This       : access ISystemNavigationCloseRequestedPreviewEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access ISystemNavigationCloseRequestedPreviewEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access ISystemNavigationCloseRequestedPreviewEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -88,33 +115,6 @@ package Windows.UI.Core.Preview is
    (
       This       : access ISystemNavigationManagerPreviewStatics_Interface
       ; RetVal : access Windows.UI.Core.Preview.ISystemNavigationManagerPreview
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (2211450337, 52197, 20273, (132, 20, 54, 29, 160, 70, 81, 143 ));
-   
-   type ISystemNavigationCloseRequestedPreviewEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Handled
-   (
-      This       : access ISystemNavigationCloseRequestedPreviewEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Handled
-   (
-      This       : access ISystemNavigationCloseRequestedPreviewEventArgs_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ISystemNavigationCloseRequestedPreviewEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    

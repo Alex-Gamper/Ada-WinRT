@@ -48,9 +48,9 @@ package Windows.Devices.Sensors.Custom is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ICustomSensorStatics_Interface;
-   type ICustomSensorStatics is access all ICustomSensorStatics_Interface'Class;
-   type ICustomSensorStatics_Ptr is access all ICustomSensorStatics;
+   type IAsyncOperation_ICustomSensor_Interface;
+   type IAsyncOperation_ICustomSensor is access all IAsyncOperation_ICustomSensor_Interface'Class;
+   type IAsyncOperation_ICustomSensor_Ptr is access all IAsyncOperation_ICustomSensor;
    type ICustomSensor_Interface;
    type ICustomSensor is access all ICustomSensor_Interface'Class;
    type ICustomSensor_Ptr is access all ICustomSensor;
@@ -66,9 +66,9 @@ package Windows.Devices.Sensors.Custom is
    type ICustomSensorReadingChangedEventArgs_Interface;
    type ICustomSensorReadingChangedEventArgs is access all ICustomSensorReadingChangedEventArgs_Interface'Class;
    type ICustomSensorReadingChangedEventArgs_Ptr is access all ICustomSensorReadingChangedEventArgs;
-   type IAsyncOperation_ICustomSensor_Interface;
-   type IAsyncOperation_ICustomSensor is access all IAsyncOperation_ICustomSensor_Interface'Class;
-   type IAsyncOperation_ICustomSensor_Ptr is access all IAsyncOperation_ICustomSensor;
+   type ICustomSensorStatics_Interface;
+   type ICustomSensorStatics is access all ICustomSensorStatics_Interface'Class;
+   type ICustomSensorStatics_Ptr is access all ICustomSensorStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -76,23 +76,28 @@ package Windows.Devices.Sensors.Custom is
    
    ------------------------------------------------------------------------
    
-   IID_ICustomSensorStatics : aliased constant Windows.IID := (2569032399, 62498, 19581, (131, 107, 231, 220, 116, 167, 18, 75 ));
+   IID_IAsyncOperation_ICustomSensor : aliased constant Windows.IID := (2143272533, 38516, 21731, (162, 105, 156, 170, 130, 14, 210, 60 ));
    
-   type ICustomSensorStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ICustomSensor_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDeviceSelector
+   function put_Completed
    (
-      This       : access ICustomSensorStatics_Interface
-      ; interfaceId : Windows.Guid
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_ICustomSensor_Interface
+      ; handler : Windows.Devices.Sensors.Custom.AsyncOperationCompletedHandler_ICustomSensor
    )
    return Windows.HRESULT is abstract;
    
-   function FromIdAsync
+   function get_Completed
    (
-      This       : access ICustomSensorStatics_Interface
-      ; sensorId : Windows.String
-      ; RetVal : access Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor -- Generic Parameter Type
+      This       : access IAsyncOperation_ICustomSensor_Interface
+      ; RetVal : access Windows.Devices.Sensors.Custom.AsyncOperationCompletedHandler_ICustomSensor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ICustomSensor_Interface
+      ; RetVal : access Windows.Devices.Sensors.Custom.ICustomSensor
    )
    return Windows.HRESULT is abstract;
    
@@ -227,28 +232,23 @@ package Windows.Devices.Sensors.Custom is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_ICustomSensor : aliased constant Windows.IID := (2143272533, 38516, 21731, (162, 105, 156, 170, 130, 14, 210, 60 ));
+   IID_ICustomSensorStatics : aliased constant Windows.IID := (2569032399, 62498, 19581, (131, 107, 231, 220, 116, 167, 18, 75 ));
    
-   type IAsyncOperation_ICustomSensor_Interface is interface and Windows.IInspectable_Interface;
+   type ICustomSensorStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetDeviceSelector
    (
-      This       : access IAsyncOperation_ICustomSensor_Interface
-      ; handler : Windows.Devices.Sensors.Custom.AsyncOperationCompletedHandler_ICustomSensor
+      This       : access ICustomSensorStatics_Interface
+      ; interfaceId : Windows.Guid
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function FromIdAsync
    (
-      This       : access IAsyncOperation_ICustomSensor_Interface
-      ; RetVal : access Windows.Devices.Sensors.Custom.AsyncOperationCompletedHandler_ICustomSensor
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICustomSensor_Interface
-      ; RetVal : access Windows.Devices.Sensors.Custom.ICustomSensor
+      This       : access ICustomSensorStatics_Interface
+      ; sensorId : Windows.String
+      ; RetVal : access Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

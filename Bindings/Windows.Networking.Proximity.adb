@@ -39,6 +39,30 @@ package body Windows.Networking.Proximity is
    
    function Invoke
    (
+      This       : access DeviceArrivedEventHandler_Interface
+      ; sender : Windows.Networking.Proximity.IProximityDevice
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.Proximity.IProximityDevice(sender));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access DeviceDepartedEventHandler_Interface
+      ; sender : Windows.Networking.Proximity.IProximityDevice
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.Proximity.IProximityDevice(sender));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access MessageReceivedHandler_Interface
       ; sender : Windows.Networking.Proximity.IProximityDevice
       ; message : Windows.Networking.Proximity.IProximityMessage
@@ -65,57 +89,33 @@ package body Windows.Networking.Proximity is
    
    function Invoke
    (
-      This       : access DeviceArrivedEventHandler_Interface
-      ; sender : Windows.Networking.Proximity.IProximityDevice
+      This       : access TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Networking.Proximity.IConnectionRequestedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Networking.Proximity.IProximityDevice(sender));
+      This.Callback(sender, Windows.Networking.Proximity.IConnectionRequestedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access DeviceDepartedEventHandler_Interface
-      ; sender : Windows.Networking.Proximity.IProximityDevice
+      This       : access TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Networking.Proximity.IProximityDevice(sender));
+      This.Callback(sender, Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
       This       : access TypedEventHandler_IPeerWatcher_add_Added_Interface
-      ; sender : Windows.Networking.Proximity.IPeerWatcher
-      ; args : Windows.Networking.Proximity.IPeerInformation
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Networking.Proximity.IPeerWatcher(sender), Windows.Networking.Proximity.IPeerInformation(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPeerWatcher_add_Removed_Interface
-      ; sender : Windows.Networking.Proximity.IPeerWatcher
-      ; args : Windows.Networking.Proximity.IPeerInformation
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Networking.Proximity.IPeerWatcher(sender), Windows.Networking.Proximity.IPeerInformation(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPeerWatcher_add_Updated_Interface
       ; sender : Windows.Networking.Proximity.IPeerWatcher
       ; args : Windows.Networking.Proximity.IPeerInformation
    )
@@ -141,6 +141,19 @@ package body Windows.Networking.Proximity is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IPeerWatcher_add_Removed_Interface
+      ; sender : Windows.Networking.Proximity.IPeerWatcher
+      ; args : Windows.Networking.Proximity.IPeerInformation
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.Proximity.IPeerWatcher(sender), Windows.Networking.Proximity.IPeerInformation(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IPeerWatcher_add_Stopped_Interface
       ; sender : Windows.Networking.Proximity.IPeerWatcher
       ; args : Windows.Object
@@ -154,27 +167,14 @@ package body Windows.Networking.Proximity is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged_Interface
-      ; sender : Windows.Object
-      ; args : Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs
+      This       : access TypedEventHandler_IPeerWatcher_add_Updated_Interface
+      ; sender : Windows.Networking.Proximity.IPeerWatcher
+      ; args : Windows.Networking.Proximity.IPeerInformation
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(sender, Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested_Interface
-      ; sender : Windows.Object
-      ; args : Windows.Networking.Proximity.IConnectionRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.Networking.Proximity.IConnectionRequestedEventArgs(args));
+      This.Callback(Windows.Networking.Proximity.IPeerWatcher(sender), Windows.Networking.Proximity.IPeerInformation(args));
       return Hr;
    end;
    
@@ -189,60 +189,6 @@ package body Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function GetDeviceSelector
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.ProximityDevice");
-      m_Factory     : IProximityDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProximityDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Networking.Proximity.IProximityDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.ProximityDevice");
-      m_Factory     : IProximityDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Proximity.IProximityDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProximityDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromId
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Networking.Proximity.IProximityDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.ProximityDevice");
-      m_Factory     : IProximityDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Proximity.IProximityDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProximityDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromId(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function get_AllowBluetooth
    return Windows.Boolean is
@@ -660,6 +606,60 @@ package body Windows.Networking.Proximity is
       Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWatcher(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.ProximityDevice");
+      m_Factory     : IProximityDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProximityDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Networking.Proximity.IProximityDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.ProximityDevice");
+      m_Factory     : IProximityDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.Proximity.IProximityDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProximityDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Networking.Proximity.IProximityDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.ProximityDevice");
+      m_Factory     : IProximityDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.Proximity.IProximityDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProximityDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromId(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

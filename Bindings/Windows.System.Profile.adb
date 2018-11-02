@@ -44,43 +44,6 @@ package body Windows.System.Profile is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetSystemIdForPublisher
-   return Windows.System.Profile.ISystemIdentificationInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.SystemIdentification");
-      m_Factory     : ISystemIdentificationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Profile.ISystemIdentificationInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISystemIdentificationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetSystemIdForPublisher(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetSystemIdForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.System.Profile.ISystemIdentificationInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.SystemIdentification");
-      m_Factory     : ISystemIdentificationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Profile.ISystemIdentificationInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISystemIdentificationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetSystemIdForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetSystemPropertiesAsync
    (
       attributeNames : Windows.Foundation.Collections.IIterable_String
@@ -152,81 +115,6 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   function get_CollectionLevel
-   return Windows.System.Profile.PlatformDataCollectionLevel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
-      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Profile.PlatformDataCollectionLevel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CollectionLevel(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function add_CollectionLevelChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
-      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_CollectionLevelChanged(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_CollectionLevelChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
-      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_CollectionLevelChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function CanCollectDiagnostics
-   (
-      level : Windows.System.Profile.PlatformDataCollectionLevel
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
-      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CanCollectDiagnostics(level, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetPackageSpecificToken
    (
       nonce : Windows.Storage.Streams.IBuffer
@@ -241,40 +129,6 @@ package body Windows.System.Profile is
       Hr := RoGetActivationFactory(m_hString, IID_IHardwareIdentificationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetPackageSpecificToken(nonce, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsDemoModeEnabled
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.RetailInfo");
-      m_Factory     : IRetailInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRetailInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsDemoModeEnabled(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Properties
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.RetailInfo");
-      m_Factory     : IRetailInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRetailInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Properties(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -655,6 +509,115 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
+   function get_CollectionLevel
+   return Windows.System.Profile.PlatformDataCollectionLevel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
+      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Profile.PlatformDataCollectionLevel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CollectionLevel(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_CollectionLevelChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
+      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_CollectionLevelChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_CollectionLevelChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
+      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_CollectionLevelChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function CanCollectDiagnostics
+   (
+      level : Windows.System.Profile.PlatformDataCollectionLevel
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
+      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CanCollectDiagnostics(level, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsDemoModeEnabled
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.RetailInfo");
+      m_Factory     : IRetailInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRetailInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDemoModeEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Properties
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.RetailInfo");
+      m_Factory     : IRetailInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRetailInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Properties(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ShouldAvoidLocalStorage
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -683,6 +646,43 @@ package body Windows.System.Profile is
       Hr := RoGetActivationFactory(m_hString, IID_ISharedModeSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetSystemIdForPublisher
+   return Windows.System.Profile.ISystemIdentificationInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.SystemIdentification");
+      m_Factory     : ISystemIdentificationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Profile.ISystemIdentificationInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISystemIdentificationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetSystemIdForPublisher(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetSystemIdForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.Profile.ISystemIdentificationInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.SystemIdentification");
+      m_Factory     : ISystemIdentificationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Profile.ISystemIdentificationInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISystemIdentificationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetSystemIdForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -38,34 +38,21 @@ package body Windows.Gaming.XboxLive.Storage is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface
-      ; asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveOperationResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGameSaveProviderGetResult_Interface
-      ; asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveProviderGetResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IGameSaveBlobGetResult_Interface
       ; asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveBlobGetResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult_Interface
+      ; asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveBlobInfoGetResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -90,8 +77,21 @@ package body Windows.Gaming.XboxLive.Storage is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult_Interface
-      ; asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveBlobInfoGetResult
+      This       : access AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface
+      ; asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveOperationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGameSaveProviderGetResult_Interface
+      ; asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveProviderGetResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

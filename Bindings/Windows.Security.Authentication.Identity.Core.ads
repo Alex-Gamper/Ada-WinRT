@@ -36,6 +36,18 @@ package Windows.Security.Authentication.Identity.Core is
    -- Enums
    ------------------------------------------------------------------------
    
+   type MicrosoftAccountMultiFactorAuthenticationType is (
+      User,
+      Device
+   );
+   for MicrosoftAccountMultiFactorAuthenticationType use (
+      User => 0,
+      Device => 1
+   );
+   for MicrosoftAccountMultiFactorAuthenticationType'Size use 32;
+   
+   type MicrosoftAccountMultiFactorAuthenticationType_Ptr is access MicrosoftAccountMultiFactorAuthenticationType;
+   
    type MicrosoftAccountMultiFactorServiceResponse is (
       Success,
       Error,
@@ -88,30 +100,6 @@ package Windows.Security.Authentication.Identity.Core is
    
    type MicrosoftAccountMultiFactorServiceResponse_Ptr is access MicrosoftAccountMultiFactorServiceResponse;
    
-   type MicrosoftAccountMultiFactorSessionAuthenticationStatus is (
-      Authenticated,
-      Unauthenticated
-   );
-   for MicrosoftAccountMultiFactorSessionAuthenticationStatus use (
-      Authenticated => 0,
-      Unauthenticated => 1
-   );
-   for MicrosoftAccountMultiFactorSessionAuthenticationStatus'Size use 32;
-   
-   type MicrosoftAccountMultiFactorSessionAuthenticationStatus_Ptr is access MicrosoftAccountMultiFactorSessionAuthenticationStatus;
-   
-   type MicrosoftAccountMultiFactorAuthenticationType is (
-      User,
-      Device
-   );
-   for MicrosoftAccountMultiFactorAuthenticationType use (
-      User => 0,
-      Device => 1
-   );
-   for MicrosoftAccountMultiFactorAuthenticationType'Size use 32;
-   
-   type MicrosoftAccountMultiFactorAuthenticationType_Ptr is access MicrosoftAccountMultiFactorAuthenticationType;
-   
    type MicrosoftAccountMultiFactorSessionApprovalStatus is (
       Pending,
       Approved,
@@ -126,66 +114,78 @@ package Windows.Security.Authentication.Identity.Core is
    
    type MicrosoftAccountMultiFactorSessionApprovalStatus_Ptr is access MicrosoftAccountMultiFactorSessionApprovalStatus;
    
+   type MicrosoftAccountMultiFactorSessionAuthenticationStatus is (
+      Authenticated,
+      Unauthenticated
+   );
+   for MicrosoftAccountMultiFactorSessionAuthenticationStatus use (
+      Authenticated => 0,
+      Unauthenticated => 1
+   );
+   for MicrosoftAccountMultiFactorSessionAuthenticationStatus'Size use 32;
+   
+   type MicrosoftAccountMultiFactorSessionAuthenticationStatus_Ptr is access MicrosoftAccountMultiFactorSessionAuthenticationStatus;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface;
-   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface'Class;
-   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Ptr is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo;
-   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface;
-   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse is access all AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface'Class;
-   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Ptr is access all AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse;
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface;
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface'Class;
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Ptr is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult;
+   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface;
+   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface'Class;
+   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Ptr is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo;
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface;
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface'Class;
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Ptr is access all AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
+   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface;
+   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse is access all AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface'Class;
+   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Ptr is access all AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IMicrosoftAccountMultiFactorSessionInfo_Interface;
-   type IMicrosoftAccountMultiFactorSessionInfo is access all IMicrosoftAccountMultiFactorSessionInfo_Interface'Class;
-   type IMicrosoftAccountMultiFactorSessionInfo_Ptr is access all IMicrosoftAccountMultiFactorSessionInfo;
-   type IMicrosoftAccountMultiFactorGetSessionsResult_Interface;
-   type IMicrosoftAccountMultiFactorGetSessionsResult is access all IMicrosoftAccountMultiFactorGetSessionsResult_Interface'Class;
-   type IMicrosoftAccountMultiFactorGetSessionsResult_Ptr is access all IMicrosoftAccountMultiFactorGetSessionsResult;
-   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface;
-   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is access all IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface'Class;
-   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Ptr is access all IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
-   type IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface;
-   type IMicrosoftAccountMultiFactorOneTimeCodedInfo is access all IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface'Class;
-   type IMicrosoftAccountMultiFactorOneTimeCodedInfo_Ptr is access all IMicrosoftAccountMultiFactorOneTimeCodedInfo;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult is access all IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface'Class;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Ptr is access all IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo is access all IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface'Class;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Ptr is access all IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is access all IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface'Class;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Ptr is access all IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
+   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface;
+   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse is access all IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface'Class;
+   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Ptr is access all IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse;
+   type IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface;
+   type IIterable_IMicrosoftAccountMultiFactorSessionInfo is access all IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface'Class;
+   type IIterable_IMicrosoftAccountMultiFactorSessionInfo_Ptr is access all IIterable_IMicrosoftAccountMultiFactorSessionInfo;
+   type IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface;
+   type IIterator_IMicrosoftAccountMultiFactorSessionInfo is access all IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface'Class;
+   type IIterator_IMicrosoftAccountMultiFactorSessionInfo_Ptr is access all IIterator_IMicrosoftAccountMultiFactorSessionInfo;
    type IMicrosoftAccountMultiFactorAuthenticationManager_Interface;
    type IMicrosoftAccountMultiFactorAuthenticationManager is access all IMicrosoftAccountMultiFactorAuthenticationManager_Interface'Class;
    type IMicrosoftAccountMultiFactorAuthenticationManager_Ptr is access all IMicrosoftAccountMultiFactorAuthenticationManager;
    type IMicrosoftAccountMultiFactorAuthenticatorStatics_Interface;
    type IMicrosoftAccountMultiFactorAuthenticatorStatics is access all IMicrosoftAccountMultiFactorAuthenticatorStatics_Interface'Class;
    type IMicrosoftAccountMultiFactorAuthenticatorStatics_Ptr is access all IMicrosoftAccountMultiFactorAuthenticatorStatics;
-   type IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface;
-   type IIterator_IMicrosoftAccountMultiFactorSessionInfo is access all IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface'Class;
-   type IIterator_IMicrosoftAccountMultiFactorSessionInfo_Ptr is access all IIterator_IMicrosoftAccountMultiFactorSessionInfo;
-   type IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface;
-   type IIterable_IMicrosoftAccountMultiFactorSessionInfo is access all IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface'Class;
-   type IIterable_IMicrosoftAccountMultiFactorSessionInfo_Ptr is access all IIterable_IMicrosoftAccountMultiFactorSessionInfo;
+   type IMicrosoftAccountMultiFactorGetSessionsResult_Interface;
+   type IMicrosoftAccountMultiFactorGetSessionsResult is access all IMicrosoftAccountMultiFactorGetSessionsResult_Interface'Class;
+   type IMicrosoftAccountMultiFactorGetSessionsResult_Ptr is access all IMicrosoftAccountMultiFactorGetSessionsResult;
+   type IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface;
+   type IMicrosoftAccountMultiFactorOneTimeCodedInfo is access all IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface'Class;
+   type IMicrosoftAccountMultiFactorOneTimeCodedInfo_Ptr is access all IMicrosoftAccountMultiFactorOneTimeCodedInfo;
+   type IMicrosoftAccountMultiFactorSessionInfo_Interface;
+   type IMicrosoftAccountMultiFactorSessionInfo is access all IMicrosoftAccountMultiFactorSessionInfo_Interface'Class;
+   type IMicrosoftAccountMultiFactorSessionInfo_Ptr is access all IMicrosoftAccountMultiFactorSessionInfo;
+   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface;
+   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is access all IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface'Class;
+   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Ptr is access all IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
    type IVectorView_IMicrosoftAccountMultiFactorSessionInfo_Interface;
    type IVectorView_IMicrosoftAccountMultiFactorSessionInfo is access all IVectorView_IMicrosoftAccountMultiFactorSessionInfo_Interface'Class;
    type IVectorView_IMicrosoftAccountMultiFactorSessionInfo_Ptr is access all IVectorView_IMicrosoftAccountMultiFactorSessionInfo;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo is access all IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface'Class;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Ptr is access all IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo;
-   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface;
-   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse is access all IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface'Class;
-   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Ptr is access all IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult is access all IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface'Class;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Ptr is access all IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is access all IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface'Class;
-   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Ptr is access all IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -193,137 +193,157 @@ package Windows.Security.Authentication.Identity.Core is
    
    ------------------------------------------------------------------------
    
-   IID_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (1602137012, 41592, 17973, (183, 101, 180, 148, 235, 38, 10, 244 ));
+   IID_IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1414317289, 41946, 21400, (163, 8, 227, 50, 165, 137, 97, 246 ));
    
-   type IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_UserAccountId
+   function put_Completed
    (
-      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface
+      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_SessionId
+   function get_Completed
    (
-      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_DisplaySessionId
+   function GetResults
    (
-      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ApprovalStatus
-   (
-      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AuthenticationType
-   (
-      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RequestTime
-   (
-      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExpirationTime
-   (
-      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Foundation.DateTime
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1310960032, 59898, 18810, (149, 222, 109, 87, 71, 191, 151, 76 ));
+   IID_IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2925746318, 8130, 22691, (175, 54, 111, 103, 184, 146, 43, 231 ));
    
-   type IMicrosoftAccountMultiFactorGetSessionsResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Sessions
+   function put_Completed
    (
-      This       : access IMicrosoftAccountMultiFactorGetSessionsResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.IVectorView_IMicrosoftAccountMultiFactorSessionInfo -- Generic Parameter Type
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo
    )
    return Windows.HRESULT is abstract;
    
-   function get_ServiceResponse
+   function get_Completed
    (
-      This       : access IMicrosoftAccountMultiFactorGetSessionsResult_Interface
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2560576545, 61289, 22189, (186, 140, 229, 210, 90, 60, 98, 78 ));
+   
+   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
+      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (93666190, 23259, 20921, (169, 74, 173, 3, 0, 48, 184, 227 ));
+   
+   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface
+      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface
       ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2860434939, 55871, 16520, (162, 13, 86, 24, 175, 173, 178, 229 ));
+   IID_IIterable_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (2242273992, 35421, 22952, (159, 115, 238, 35, 115, 147, 197, 92 ));
    
-   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Sessions
+   function First
    (
-      This       : access IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.IVectorView_IMicrosoftAccountMultiFactorSessionInfo -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UnregisteredAccounts
-   (
-      This       : access IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServiceResponse
-   (
-      This       : access IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
+      This       : access IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.IIterator_IMicrosoftAccountMultiFactorSessionInfo
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2193237579, 55420, 18024, (169, 118, 64, 207, 174, 84, 125, 8 ));
+   IID_IIterator_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (4251790046, 4051, 23760, (184, 110, 210, 74, 217, 162, 9, 44 ));
    
-   type IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Code
+   function get_Current
    (
-      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo
    )
    return Windows.HRESULT is abstract;
    
-   function get_TimeInterval
+   function get_HasCurrent
    (
-      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
+      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_TimeToLive
+   function MoveNext
    (
-      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
+      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_ServiceResponse
+   function GetMany
    (
-      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
+      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; items : Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -438,49 +458,137 @@ package Windows.Security.Authentication.Identity.Core is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (4251790046, 4051, 23760, (184, 110, 210, 74, 217, 162, 9, 44 ));
+   IID_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1310960032, 59898, 18810, (149, 222, 109, 87, 71, 191, 151, 76 ));
    
-   type IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IMicrosoftAccountMultiFactorGetSessionsResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_Sessions
    (
-      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo
+      This       : access IMicrosoftAccountMultiFactorGetSessionsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.IVectorView_IMicrosoftAccountMultiFactorSessionInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_ServiceResponse
    (
-      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; items : Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IMicrosoftAccountMultiFactorGetSessionsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (2242273992, 35421, 22952, (159, 115, 238, 35, 115, 147, 197, 92 ));
+   IID_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2193237579, 55420, 18024, (169, 118, 64, 207, 174, 84, 125, 8 ));
    
-   type IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Code
    (
-      This       : access IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.IIterator_IMicrosoftAccountMultiFactorSessionInfo
+      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TimeInterval
+   (
+      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TimeToLive
+   (
+      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServiceResponse
+   (
+      This       : access IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (1602137012, 41592, 17973, (183, 101, 180, 148, 235, 38, 10, 244 ));
+   
+   type IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UserAccountId
+   (
+      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SessionId
+   (
+      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplaySessionId
+   (
+      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ApprovalStatus
+   (
+      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AuthenticationType
+   (
+      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestTime
+   (
+      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpirationTime
+   (
+      This       : access IMicrosoftAccountMultiFactorSessionInfo_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2860434939, 55871, 16520, (162, 13, 86, 24, 175, 173, 178, 229 ));
+   
+   type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Sessions
+   (
+      This       : access IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.IVectorView_IMicrosoftAccountMultiFactorSessionInfo -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UnregisteredAccounts
+   (
+      This       : access IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServiceResponse
+   (
+      This       : access IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
    )
    return Windows.HRESULT is abstract;
    
@@ -524,142 +632,8 @@ package Windows.Security.Authentication.Identity.Core is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2925746318, 8130, 22691, (175, 54, 111, 103, 184, 146, 43, 231 ));
-   
-   type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (93666190, 23259, 20921, (169, 74, 173, 3, 0, 48, 184, 227 ));
-   
-   type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface
-      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1414317289, 41946, 21400, (163, 8, 227, 50, 165, 137, 97, 246 ));
-   
-   type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface
-      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2560576545, 61289, 22189, (186, 140, 229, 210, 90, 60, 98, 78 ));
-   
-   type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
-      ; handler : Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (48776512, 62625, 22687, (147, 96, 160, 80, 46, 109, 201, 192 ));
-   
-   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (2373943872, 33231, 22678, (149, 250, 231, 178, 35, 247, 105, 249 ));
-   
-   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -670,6 +644,19 @@ package Windows.Security.Authentication.Identity.Core is
    (
       This       : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface
       ; asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (48776512, 62625, 22687, (147, 96, 160, 80, 46, 109, 201, 192 ));
+   
+   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -688,14 +675,27 @@ package Windows.Security.Authentication.Identity.Core is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (2373943872, 33231, 22678, (149, 250, 231, 178, 35, 247, 105, 249 ));
+   
+   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype MicrosoftAccountMultiFactorSessionInfo is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo;
-   subtype MicrosoftAccountMultiFactorOneTimeCodedInfo is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo;
-   subtype MicrosoftAccountMultiFactorGetSessionsResult is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult;
-   subtype MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
    subtype MicrosoftAccountMultiFactorAuthenticationManager is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticationManager;
+   subtype MicrosoftAccountMultiFactorGetSessionsResult is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult;
+   subtype MicrosoftAccountMultiFactorOneTimeCodedInfo is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo;
+   subtype MicrosoftAccountMultiFactorSessionInfo is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo;
+   subtype MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

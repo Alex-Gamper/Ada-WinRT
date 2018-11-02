@@ -34,22 +34,6 @@ package Windows.Graphics.DirectX.Direct3D11 is
    -- Enums
    ------------------------------------------------------------------------
    
-   type Direct3DUsage is (
-      Default,
-      Immutable,
-      Dynamic,
-      Staging
-   );
-   for Direct3DUsage use (
-      Default => 0,
-      Immutable => 1,
-      Dynamic => 2,
-      Staging => 3
-   );
-   for Direct3DUsage'Size use 32;
-   
-   type Direct3DUsage_Ptr is access Direct3DUsage;
-   
    type Direct3DBindings is (
       VertexBuffer,
       IndexBuffer,
@@ -77,6 +61,22 @@ package Windows.Graphics.DirectX.Direct3D11 is
    for Direct3DBindings'Size use 32;
    
    type Direct3DBindings_Ptr is access Direct3DBindings;
+   
+   type Direct3DUsage is (
+      Default,
+      Immutable,
+      Dynamic,
+      Staging
+   );
+   for Direct3DUsage use (
+      Default => 0,
+      Immutable => 1,
+      Dynamic => 2,
+      Staging => 3
+   );
+   for Direct3DUsage'Size use 32;
+   
+   type Direct3DUsage_Ptr is access Direct3DUsage;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -110,12 +110,12 @@ package Windows.Graphics.DirectX.Direct3D11 is
    type IDirect3DSurface_Interface;
    type IDirect3DSurface is access all IDirect3DSurface_Interface'Class;
    type IDirect3DSurface_Ptr is access all IDirect3DSurface;
-   type IIterator_IDirect3DSurface_Interface;
-   type IIterator_IDirect3DSurface is access all IIterator_IDirect3DSurface_Interface'Class;
-   type IIterator_IDirect3DSurface_Ptr is access all IIterator_IDirect3DSurface;
    type IIterable_IDirect3DSurface_Interface;
    type IIterable_IDirect3DSurface is access all IIterable_IDirect3DSurface_Interface'Class;
    type IIterable_IDirect3DSurface_Ptr is access all IIterable_IDirect3DSurface;
+   type IIterator_IDirect3DSurface_Interface;
+   type IIterator_IDirect3DSurface is access all IIterator_IDirect3DSurface_Interface'Class;
+   type IIterator_IDirect3DSurface_Ptr is access all IIterator_IDirect3DSurface;
    type IVectorView_IDirect3DSurface_Interface;
    type IVectorView_IDirect3DSurface is access all IVectorView_IDirect3DSurface_Interface'Class;
    type IVectorView_IDirect3DSurface_Ptr is access all IVectorView_IDirect3DSurface;
@@ -151,6 +151,19 @@ package Windows.Graphics.DirectX.Direct3D11 is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IDirect3DSurface : aliased constant Windows.IID := (3429089180, 57706, 23157, (165, 170, 43, 83, 249, 117, 176, 176 ));
+   
+   type IIterable_IDirect3DSurface_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IDirect3DSurface_Interface
+      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IIterator_IDirect3DSurface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IDirect3DSurface : aliased constant Windows.IID := (3187371275, 59269, 23898, (171, 210, 254, 27, 24, 196, 50, 87 ));
    
    type IIterator_IDirect3DSurface_Interface is interface and Windows.IInspectable_Interface;
@@ -181,19 +194,6 @@ package Windows.Graphics.DirectX.Direct3D11 is
       This       : access IIterator_IDirect3DSurface_Interface
       ; items : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IDirect3DSurface : aliased constant Windows.IID := (3429089180, 57706, 23157, (165, 170, 43, 83, 249, 117, 176, 176 ));
-   
-   type IIterable_IDirect3DSurface_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IDirect3DSurface_Interface
-      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IIterator_IDirect3DSurface
    )
    return Windows.HRESULT is abstract;
    

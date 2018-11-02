@@ -73,19 +73,46 @@ package Windows.Media.Playlists is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IPlaylist_Interface;
+   type IAsyncOperation_IPlaylist is access all IAsyncOperation_IPlaylist_Interface'Class;
+   type IAsyncOperation_IPlaylist_Ptr is access all IAsyncOperation_IPlaylist;
    type IPlaylist_Interface;
    type IPlaylist is access all IPlaylist_Interface'Class;
    type IPlaylist_Ptr is access all IPlaylist;
    type IPlaylistStatics_Interface;
    type IPlaylistStatics is access all IPlaylistStatics_Interface'Class;
    type IPlaylistStatics_Ptr is access all IPlaylistStatics;
-   type IAsyncOperation_IPlaylist_Interface;
-   type IAsyncOperation_IPlaylist is access all IAsyncOperation_IPlaylist_Interface'Class;
-   type IAsyncOperation_IPlaylist_Ptr is access all IAsyncOperation_IPlaylist;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPlaylist : aliased constant Windows.IID := (2415621291, 37167, 23489, (135, 250, 40, 101, 246, 115, 203, 252 ));
+   
+   type IAsyncOperation_IPlaylist_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPlaylist_Interface
+      ; handler : Windows.Media.Playlists.AsyncOperationCompletedHandler_IPlaylist
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPlaylist_Interface
+      ; RetVal : access Windows.Media.Playlists.AsyncOperationCompletedHandler_IPlaylist
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPlaylist_Interface
+      ; RetVal : access Windows.Media.Playlists.IPlaylist
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -139,33 +166,6 @@ package Windows.Media.Playlists is
       This       : access IPlaylistStatics_Interface
       ; file : Windows.Storage.IStorageFile
       ; RetVal : access Windows.Media.Playlists.IAsyncOperation_IPlaylist -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPlaylist : aliased constant Windows.IID := (2415621291, 37167, 23489, (135, 250, 40, 101, 246, 115, 203, 252 ));
-   
-   type IAsyncOperation_IPlaylist_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPlaylist_Interface
-      ; handler : Windows.Media.Playlists.AsyncOperationCompletedHandler_IPlaylist
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPlaylist_Interface
-      ; RetVal : access Windows.Media.Playlists.AsyncOperationCompletedHandler_IPlaylist
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPlaylist_Interface
-      ; RetVal : access Windows.Media.Playlists.IPlaylist
    )
    return Windows.HRESULT is abstract;
    

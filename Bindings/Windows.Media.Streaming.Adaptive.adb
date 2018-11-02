@@ -65,32 +65,6 @@ package body Windows.Media.Streaming.Adaptive is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface
-      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
-      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource(sender), Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface
-      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
-      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource(sender), Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface
       ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
       ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs
@@ -112,6 +86,32 @@ package body Windows.Media.Streaming.Adaptive is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource(sender), Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface
+      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
+      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource(sender), Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface
+      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
+      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource(sender), Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs(args));
       return Hr;
    end;
    

@@ -39,19 +39,6 @@ package body Windows.ApplicationModel.Appointments is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IAppointmentStore_Interface
-      ; asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IAppointment_Interface
       ; asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointment
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -60,19 +47,6 @@ package body Windows.ApplicationModel.Appointments is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface
-      ; sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager(sender), args);
       return Hr;
    end;
    
@@ -99,6 +73,32 @@ package body Windows.ApplicationModel.Appointments is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAppointmentStore_Interface
+      ; asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface
+      ; sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager(sender), args);
       return Hr;
    end;
    
@@ -136,23 +136,6 @@ package body Windows.ApplicationModel.Appointments is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.ApplicationModel.Appointments.IAppointmentParticipant is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentOrganizer");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Appointments.IAppointmentParticipant) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Appointments.IID_IAppointmentParticipant'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function Create return Windows.ApplicationModel.Appointments.IAppointmentInvitee is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentInvitee");
@@ -164,6 +147,23 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.ApplicationModel.Appointments.IID_IAppointmentInvitee'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentParticipant is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentOrganizer");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Appointments.IAppointmentParticipant) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Appointments.IID_IAppointmentParticipant'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

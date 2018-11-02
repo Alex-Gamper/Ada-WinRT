@@ -46,32 +46,6 @@ package body Windows.Media.Audio is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface
-      ; sender : Windows.Media.Audio.IAudioStateMonitor
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Audio.IAudioStateMonitor(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface
-      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface
       ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceInputNodeResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -124,40 +98,14 @@ package body Windows.Media.Audio is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface
-      ; sender : Windows.Media.Audio.IAudioGraph
-      ; args : Windows.Object
+      This       : access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Audio.IAudioGraph(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface
-      ; sender : Windows.Media.Audio.IAudioGraph
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Audio.IAudioGraph(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface
-      ; sender : Windows.Media.Audio.IAudioGraph
-      ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Audio.IAudioGraph(sender), Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -171,6 +119,19 @@ package body Windows.Media.Audio is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface
+      ; sender : Windows.Media.Audio.IAudioFileInputNode
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.IAudioFileInputNode(sender), args);
       return Hr;
    end;
    
@@ -202,14 +163,53 @@ package body Windows.Media.Audio is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface
-      ; sender : Windows.Media.Audio.IAudioFileInputNode
+      This       : access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface
+      ; sender : Windows.Media.Audio.IAudioGraph
       ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Audio.IAudioFileInputNode(sender), args);
+      This.Callback(Windows.Media.Audio.IAudioGraph(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface
+      ; sender : Windows.Media.Audio.IAudioGraph
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.IAudioGraph(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface
+      ; sender : Windows.Media.Audio.IAudioGraph
+      ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.IAudioGraph(sender), Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface
+      ; sender : Windows.Media.Audio.IAudioStateMonitor
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.IAudioStateMonitor(sender), args);
       return Hr;
    end;
    
@@ -310,46 +310,6 @@ package body Windows.Media.Audio is
    (
       audioGraph : Windows.Media.Audio.IAudioGraph
    )
-   return Windows.Media.Audio.IEqualizerEffectDefinition is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Audio.EqualizerEffectDefinition");
-      m_Factory     : Windows.Media.Audio.IEqualizerEffectDefinitionFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Audio.IEqualizerEffectDefinition := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEqualizerEffectDefinitionFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(audioGraph, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      audioGraph : Windows.Media.Audio.IAudioGraph
-   )
-   return Windows.Media.Audio.IReverbEffectDefinition is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Audio.ReverbEffectDefinition");
-      m_Factory     : Windows.Media.Audio.IReverbEffectDefinitionFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Audio.IReverbEffectDefinition := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IReverbEffectDefinitionFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(audioGraph, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      audioGraph : Windows.Media.Audio.IAudioGraph
-   )
    return Windows.Media.Audio.IEchoEffectDefinition is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Audio.EchoEffectDefinition");
@@ -358,6 +318,26 @@ package body Windows.Media.Audio is
       RetVal        : aliased Windows.Media.Audio.IEchoEffectDefinition := null;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IEchoEffectDefinitionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(audioGraph, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      audioGraph : Windows.Media.Audio.IAudioGraph
+   )
+   return Windows.Media.Audio.IEqualizerEffectDefinition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.EqualizerEffectDefinition");
+      m_Factory     : Windows.Media.Audio.IEqualizerEffectDefinitionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IEqualizerEffectDefinition := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEqualizerEffectDefinitionFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(audioGraph, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -386,6 +366,26 @@ package body Windows.Media.Audio is
       return RetVal;
    end;
    
+   function Create
+   (
+      audioGraph : Windows.Media.Audio.IAudioGraph
+   )
+   return Windows.Media.Audio.IReverbEffectDefinition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.ReverbEffectDefinition");
+      m_Factory     : Windows.Media.Audio.IReverbEffectDefinitionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IReverbEffectDefinition := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IReverbEffectDefinitionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(audioGraph, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -393,6 +393,109 @@ package body Windows.Media.Audio is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateAsync
+   (
+      settings : Windows.Media.Audio.IAudioGraphSettings
+   )
+   return Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioGraph");
+      m_Factory     : IAudioGraphStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioGraphStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAsync(settings, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateNatural
+   (
+      minGain : Windows.Double
+      ; maxGain : Windows.Double
+      ; unityGainDistance : Windows.Double
+      ; cutoffDistance : Windows.Double
+   )
+   return Windows.Media.Audio.IAudioNodeEmitterDecayModel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterDecayModel");
+      m_Factory     : IAudioNodeEmitterDecayModelStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterDecayModel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterDecayModelStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateNatural(minGain, maxGain, unityGainDistance, cutoffDistance, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateCustom
+   (
+      minGain : Windows.Double
+      ; maxGain : Windows.Double
+   )
+   return Windows.Media.Audio.IAudioNodeEmitterDecayModel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterDecayModel");
+      m_Factory     : IAudioNodeEmitterDecayModelStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterDecayModel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterDecayModelStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateCustom(minGain, maxGain, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateCone
+   (
+      innerAngle : Windows.Double
+      ; outerAngle : Windows.Double
+      ; outerAngleGain : Windows.Double
+   )
+   return Windows.Media.Audio.IAudioNodeEmitterShape is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterShape");
+      m_Factory     : IAudioNodeEmitterShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterShape;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateCone(innerAngle, outerAngle, outerAngleGain, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateOmnidirectional
+   return Windows.Media.Audio.IAudioNodeEmitterShape is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterShape");
+      m_Factory     : IAudioNodeEmitterShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterShape;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateOmnidirectional(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreateForRenderMonitoring
    return Windows.Media.Audio.IAudioStateMonitor is
@@ -546,109 +649,6 @@ package body Windows.Media.Audio is
       Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateForCaptureMonitoringWithCategoryAndDeviceId(category, deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateAsync
-   (
-      settings : Windows.Media.Audio.IAudioGraphSettings
-   )
-   return Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioGraph");
-      m_Factory     : IAudioGraphStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioGraphStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateAsync(settings, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateCone
-   (
-      innerAngle : Windows.Double
-      ; outerAngle : Windows.Double
-      ; outerAngleGain : Windows.Double
-   )
-   return Windows.Media.Audio.IAudioNodeEmitterShape is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterShape");
-      m_Factory     : IAudioNodeEmitterShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterShape;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateCone(innerAngle, outerAngle, outerAngleGain, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateOmnidirectional
-   return Windows.Media.Audio.IAudioNodeEmitterShape is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterShape");
-      m_Factory     : IAudioNodeEmitterShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterShape;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateOmnidirectional(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateNatural
-   (
-      minGain : Windows.Double
-      ; maxGain : Windows.Double
-      ; unityGainDistance : Windows.Double
-      ; cutoffDistance : Windows.Double
-   )
-   return Windows.Media.Audio.IAudioNodeEmitterDecayModel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterDecayModel");
-      m_Factory     : IAudioNodeEmitterDecayModelStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterDecayModel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterDecayModelStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateNatural(minGain, maxGain, unityGainDistance, cutoffDistance, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateCustom
-   (
-      minGain : Windows.Double
-      ; maxGain : Windows.Double
-   )
-   return Windows.Media.Audio.IAudioNodeEmitterDecayModel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitterDecayModel");
-      m_Factory     : IAudioNodeEmitterDecayModelStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitterDecayModel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterDecayModelStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateCustom(minGain, maxGain, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -89,6 +89,21 @@ package Windows.Globalization is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IApplicationLanguagesStatics_Interface;
+   type IApplicationLanguagesStatics is access all IApplicationLanguagesStatics_Interface'Class;
+   type IApplicationLanguagesStatics_Ptr is access all IApplicationLanguagesStatics;
+   type IApplicationLanguagesStatics2_Interface;
+   type IApplicationLanguagesStatics2 is access all IApplicationLanguagesStatics2_Interface'Class;
+   type IApplicationLanguagesStatics2_Ptr is access all IApplicationLanguagesStatics2;
+   type ICalendar_Interface;
+   type ICalendar is access all ICalendar_Interface'Class;
+   type ICalendar_Ptr is access all ICalendar;
+   type ICalendarFactory_Interface;
+   type ICalendarFactory is access all ICalendarFactory_Interface'Class;
+   type ICalendarFactory_Ptr is access all ICalendarFactory;
+   type ICalendarFactory2_Interface;
+   type ICalendarFactory2 is access all ICalendarFactory2_Interface'Class;
+   type ICalendarFactory2_Ptr is access all ICalendarFactory2;
    type ICalendarIdentifiersStatics_Interface;
    type ICalendarIdentifiersStatics is access all ICalendarIdentifiersStatics_Interface'Class;
    type ICalendarIdentifiersStatics_Ptr is access all ICalendarIdentifiersStatics;
@@ -101,12 +116,6 @@ package Windows.Globalization is
    type IClockIdentifiersStatics_Interface;
    type IClockIdentifiersStatics is access all IClockIdentifiersStatics_Interface'Class;
    type IClockIdentifiersStatics_Ptr is access all IClockIdentifiersStatics;
-   type INumeralSystemIdentifiersStatics_Interface;
-   type INumeralSystemIdentifiersStatics is access all INumeralSystemIdentifiersStatics_Interface'Class;
-   type INumeralSystemIdentifiersStatics_Ptr is access all INumeralSystemIdentifiersStatics;
-   type INumeralSystemIdentifiersStatics2_Interface;
-   type INumeralSystemIdentifiersStatics2 is access all INumeralSystemIdentifiersStatics2_Interface'Class;
-   type INumeralSystemIdentifiersStatics2_Ptr is access all INumeralSystemIdentifiersStatics2;
    type ICurrencyIdentifiersStatics_Interface;
    type ICurrencyIdentifiersStatics is access all ICurrencyIdentifiersStatics_Interface'Class;
    type ICurrencyIdentifiersStatics_Ptr is access all ICurrencyIdentifiersStatics;
@@ -122,6 +131,24 @@ package Windows.Globalization is
    type IGeographicRegionStatics_Interface;
    type IGeographicRegionStatics is access all IGeographicRegionStatics_Interface'Class;
    type IGeographicRegionStatics_Ptr is access all IGeographicRegionStatics;
+   type IIterable_IJapanesePhoneme_Interface;
+   type IIterable_IJapanesePhoneme is access all IIterable_IJapanesePhoneme_Interface'Class;
+   type IIterable_IJapanesePhoneme_Ptr is access all IIterable_IJapanesePhoneme;
+   type IIterable_ILanguage_Interface;
+   type IIterable_ILanguage is access all IIterable_ILanguage_Interface'Class;
+   type IIterable_ILanguage_Ptr is access all IIterable_ILanguage;
+   type IIterator_IJapanesePhoneme_Interface;
+   type IIterator_IJapanesePhoneme is access all IIterator_IJapanesePhoneme_Interface'Class;
+   type IIterator_IJapanesePhoneme_Ptr is access all IIterator_IJapanesePhoneme;
+   type IIterator_ILanguage_Interface;
+   type IIterator_ILanguage is access all IIterator_ILanguage_Interface'Class;
+   type IIterator_ILanguage_Ptr is access all IIterator_ILanguage;
+   type IJapanesePhoneme_Interface;
+   type IJapanesePhoneme is access all IJapanesePhoneme_Interface'Class;
+   type IJapanesePhoneme_Ptr is access all IJapanesePhoneme;
+   type IJapanesePhoneticAnalyzerStatics_Interface;
+   type IJapanesePhoneticAnalyzerStatics is access all IJapanesePhoneticAnalyzerStatics_Interface'Class;
+   type IJapanesePhoneticAnalyzerStatics_Ptr is access all IJapanesePhoneticAnalyzerStatics;
    type ILanguage_Interface;
    type ILanguage is access all ILanguage_Interface'Class;
    type ILanguage_Ptr is access all ILanguage;
@@ -140,52 +167,819 @@ package Windows.Globalization is
    type ILanguageStatics2_Interface;
    type ILanguageStatics2 is access all ILanguageStatics2_Interface'Class;
    type ILanguageStatics2_Ptr is access all ILanguageStatics2;
-   type ICalendar_Interface;
-   type ICalendar is access all ICalendar_Interface'Class;
-   type ICalendar_Ptr is access all ICalendar;
-   type ICalendarFactory2_Interface;
-   type ICalendarFactory2 is access all ICalendarFactory2_Interface'Class;
-   type ICalendarFactory2_Ptr is access all ICalendarFactory2;
+   type INumeralSystemIdentifiersStatics_Interface;
+   type INumeralSystemIdentifiersStatics is access all INumeralSystemIdentifiersStatics_Interface'Class;
+   type INumeralSystemIdentifiersStatics_Ptr is access all INumeralSystemIdentifiersStatics;
+   type INumeralSystemIdentifiersStatics2_Interface;
+   type INumeralSystemIdentifiersStatics2 is access all INumeralSystemIdentifiersStatics2_Interface'Class;
+   type INumeralSystemIdentifiersStatics2_Ptr is access all INumeralSystemIdentifiersStatics2;
    type ITimeZoneOnCalendar_Interface;
    type ITimeZoneOnCalendar is access all ITimeZoneOnCalendar_Interface'Class;
    type ITimeZoneOnCalendar_Ptr is access all ITimeZoneOnCalendar;
-   type ICalendarFactory_Interface;
-   type ICalendarFactory is access all ICalendarFactory_Interface'Class;
-   type ICalendarFactory_Ptr is access all ICalendarFactory;
-   type IApplicationLanguagesStatics_Interface;
-   type IApplicationLanguagesStatics is access all IApplicationLanguagesStatics_Interface'Class;
-   type IApplicationLanguagesStatics_Ptr is access all IApplicationLanguagesStatics;
-   type IApplicationLanguagesStatics2_Interface;
-   type IApplicationLanguagesStatics2 is access all IApplicationLanguagesStatics2_Interface'Class;
-   type IApplicationLanguagesStatics2_Ptr is access all IApplicationLanguagesStatics2;
-   type IJapanesePhoneticAnalyzerStatics_Interface;
-   type IJapanesePhoneticAnalyzerStatics is access all IJapanesePhoneticAnalyzerStatics_Interface'Class;
-   type IJapanesePhoneticAnalyzerStatics_Ptr is access all IJapanesePhoneticAnalyzerStatics;
-   type IJapanesePhoneme_Interface;
-   type IJapanesePhoneme is access all IJapanesePhoneme_Interface'Class;
-   type IJapanesePhoneme_Ptr is access all IJapanesePhoneme;
-   type IIterator_ILanguage_Interface;
-   type IIterator_ILanguage is access all IIterator_ILanguage_Interface'Class;
-   type IIterator_ILanguage_Ptr is access all IIterator_ILanguage;
-   type IIterable_ILanguage_Interface;
-   type IIterable_ILanguage is access all IIterable_ILanguage_Interface'Class;
-   type IIterable_ILanguage_Ptr is access all IIterable_ILanguage;
-   type IVectorView_ILanguage_Interface;
-   type IVectorView_ILanguage is access all IVectorView_ILanguage_Interface'Class;
-   type IVectorView_ILanguage_Ptr is access all IVectorView_ILanguage;
-   type IIterator_IJapanesePhoneme_Interface;
-   type IIterator_IJapanesePhoneme is access all IIterator_IJapanesePhoneme_Interface'Class;
-   type IIterator_IJapanesePhoneme_Ptr is access all IIterator_IJapanesePhoneme;
-   type IIterable_IJapanesePhoneme_Interface;
-   type IIterable_IJapanesePhoneme is access all IIterable_IJapanesePhoneme_Interface'Class;
-   type IIterable_IJapanesePhoneme_Ptr is access all IIterable_IJapanesePhoneme;
    type IVectorView_IJapanesePhoneme_Interface;
    type IVectorView_IJapanesePhoneme is access all IVectorView_IJapanesePhoneme_Interface'Class;
    type IVectorView_IJapanesePhoneme_Ptr is access all IVectorView_IJapanesePhoneme;
+   type IVectorView_ILanguage_Interface;
+   type IVectorView_ILanguage is access all IVectorView_ILanguage_Interface'Class;
+   type IVectorView_ILanguage_Ptr is access all IVectorView_ILanguage;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IApplicationLanguagesStatics : aliased constant Windows.IID := (1974732871, 2636, 19090, (149, 101, 253, 99, 201, 95, 122, 237 ));
+   
+   type IApplicationLanguagesStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PrimaryLanguageOverride
+   (
+      This       : access IApplicationLanguagesStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PrimaryLanguageOverride
+   (
+      This       : access IApplicationLanguagesStatics_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Languages
+   (
+      This       : access IApplicationLanguagesStatics_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ManifestLanguages
+   (
+      This       : access IApplicationLanguagesStatics_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IApplicationLanguagesStatics2 : aliased constant Windows.IID := (502324815, 1835, 19835, (143, 6, 203, 45, 180, 15, 43, 181 ));
+   
+   type IApplicationLanguagesStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetLanguagesForUser
+   (
+      This       : access IApplicationLanguagesStatics2_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICalendar : aliased constant Windows.IID := (3392152093, 34521, 16635, (162, 107, 212, 78, 183, 207, 8, 234 ));
+   
+   type ICalendar_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Clone
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Globalization.ICalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetToMin
+   (
+      This       : access ICalendar_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetToMax
+   (
+      This       : access ICalendar_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Languages
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumeralSystem
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_NumeralSystem
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCalendarSystem
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ChangeCalendarSystem
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetClock
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ChangeClock
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDateTime
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetDateTime
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetToNow
+   (
+      This       : access ICalendar_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstEra
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastEra
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfEras
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Era
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Era
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddEras
+   (
+      This       : access ICalendar_Interface
+      ; eras : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EraAsFullString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EraAsString
+   (
+      This       : access ICalendar_Interface
+      ; idealLength : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstYearInThisEra
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastYearInThisEra
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfYearsInThisEra
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Year
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Year
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddYears
+   (
+      This       : access ICalendar_Interface
+      ; years : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function YearAsString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function YearAsTruncatedString
+   (
+      This       : access ICalendar_Interface
+      ; remainingDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function YearAsPaddedString
+   (
+      This       : access ICalendar_Interface
+      ; minDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstMonthInThisYear
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastMonthInThisYear
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfMonthsInThisYear
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Month
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Month
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddMonths
+   (
+      This       : access ICalendar_Interface
+      ; months : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MonthAsFullString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MonthAsString
+   (
+      This       : access ICalendar_Interface
+      ; idealLength : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MonthAsFullSoloString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MonthAsSoloString
+   (
+      This       : access ICalendar_Interface
+      ; idealLength : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MonthAsNumericString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MonthAsPaddedNumericString
+   (
+      This       : access ICalendar_Interface
+      ; minDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddWeeks
+   (
+      This       : access ICalendar_Interface
+      ; weeks : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstDayInThisMonth
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastDayInThisMonth
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfDaysInThisMonth
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Day
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Day
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddDays
+   (
+      This       : access ICalendar_Interface
+      ; days : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DayAsString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DayAsPaddedString
+   (
+      This       : access ICalendar_Interface
+      ; minDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DayOfWeek
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Globalization.DayOfWeek
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DayOfWeekAsFullString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DayOfWeekAsString
+   (
+      This       : access ICalendar_Interface
+      ; idealLength : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DayOfWeekAsFullSoloString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DayOfWeekAsSoloString
+   (
+      This       : access ICalendar_Interface
+      ; idealLength : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstPeriodInThisDay
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastPeriodInThisDay
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfPeriodsInThisDay
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Period
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Period
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddPeriods
+   (
+      This       : access ICalendar_Interface
+      ; periods : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PeriodAsFullString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PeriodAsString
+   (
+      This       : access ICalendar_Interface
+      ; idealLength : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstHourInThisPeriod
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastHourInThisPeriod
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfHoursInThisPeriod
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Hour
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Hour
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddHours
+   (
+      This       : access ICalendar_Interface
+      ; hours : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HourAsString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HourAsPaddedString
+   (
+      This       : access ICalendar_Interface
+      ; minDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Minute
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Minute
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddMinutes
+   (
+      This       : access ICalendar_Interface
+      ; minutes : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MinuteAsString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MinuteAsPaddedString
+   (
+      This       : access ICalendar_Interface
+      ; minDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Second
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Second
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddSeconds
+   (
+      This       : access ICalendar_Interface
+      ; seconds : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SecondAsString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SecondAsPaddedString
+   (
+      This       : access ICalendar_Interface
+      ; minDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Nanosecond
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Nanosecond
+   (
+      This       : access ICalendar_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddNanoseconds
+   (
+      This       : access ICalendar_Interface
+      ; nanoseconds : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NanosecondAsString
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NanosecondAsPaddedString
+   (
+      This       : access ICalendar_Interface
+      ; minDigits : Windows.Int32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Compare
+   (
+      This       : access ICalendar_Interface
+      ; other : Windows.Globalization.ICalendar
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CompareDateTime
+   (
+      This       : access ICalendar_Interface
+      ; other : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CopyTo
+   (
+      This       : access ICalendar_Interface
+      ; other : Windows.Globalization.ICalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstMinuteInThisHour
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastMinuteInThisHour
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfMinutesInThisHour
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstSecondInThisMinute
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastSecondInThisMinute
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NumberOfSecondsInThisMinute
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResolvedLanguage
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsDaylightSavingTime
+   (
+      This       : access ICalendar_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICalendarFactory : aliased constant Windows.IID := (2213905426, 58731, 19573, (166, 110, 15, 99, 213, 119, 88, 166 ));
+   
+   type ICalendarFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateCalendarDefaultCalendarAndClock
+   (
+      This       : access ICalendarFactory_Interface
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Globalization.ICalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateCalendar
+   (
+      This       : access ICalendarFactory_Interface
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; calendar : Windows.String
+      ; clock : Windows.String
+      ; RetVal : access Windows.Globalization.ICalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICalendarFactory2 : aliased constant Windows.IID := (3024828300, 51838, 17808, (158, 114, 234, 43, 236, 26, 81, 21 ));
+   
+   type ICalendarFactory2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateCalendarWithTimeZone
+   (
+      This       : access ICalendarFactory2_Interface
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; calendar : Windows.String
+      ; clock : Windows.String
+      ; timeZoneId : Windows.String
+      ; RetVal : access Windows.Globalization.ICalendar
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -326,354 +1120,6 @@ package Windows.Globalization is
    function get_TwentyFourHour
    (
       This       : access IClockIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INumeralSystemIdentifiersStatics : aliased constant Windows.IID := (2781242051, 26825, 19773, (183, 101, 151, 32, 41, 226, 29, 236 ));
-   
-   type INumeralSystemIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Arab
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ArabExt
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Bali
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Beng
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Cham
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Deva
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FullWide
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Gujr
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Guru
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HaniDec
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Java
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Kali
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Khmr
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Knda
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Lana
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LanaTham
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Laoo
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Latn
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Lepc
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Limb
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Mlym
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Mong
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Mtei
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Mymr
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MymrShan
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Nkoo
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Olck
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Orya
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Saur
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Sund
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Talu
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TamlDec
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Telu
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Thai
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Tibt
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Vaii
-   (
-      This       : access INumeralSystemIdentifiersStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INumeralSystemIdentifiersStatics2 : aliased constant Windows.IID := (2130719272, 40411, 18996, (145, 4, 2, 96, 192, 145, 167, 199 ));
-   
-   type INumeralSystemIdentifiersStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Brah
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Osma
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MathBold
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MathDbl
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MathSans
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MathSanb
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MathMono
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ZmthBold
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ZmthDbl
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ZmthSans
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ZmthSanb
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ZmthMono
-   (
-      This       : access INumeralSystemIdentifiersStatics2_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
@@ -1881,6 +2327,152 @@ package Windows.Globalization is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IJapanesePhoneme : aliased constant Windows.IID := (447551435, 6185, 21046, (138, 239, 11, 117, 248, 223, 215, 166 ));
+   
+   type IIterable_IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IJapanesePhoneme_Interface
+      ; RetVal : access Windows.Globalization.IIterator_IJapanesePhoneme
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ILanguage : aliased constant Windows.IID := (1212193296, 25014, 23985, (166, 157, 138, 188, 70, 172, 96, 138 ));
+   
+   type IIterable_ILanguage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ILanguage_Interface
+      ; RetVal : access Windows.Globalization.IIterator_ILanguage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IJapanesePhoneme : aliased constant Windows.IID := (4049381351, 27048, 22093, (156, 32, 77, 167, 90, 119, 52, 50 ));
+   
+   type IIterator_IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IJapanesePhoneme_Interface
+      ; RetVal : access Windows.Globalization.IJapanesePhoneme
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IJapanesePhoneme_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IJapanesePhoneme_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IJapanesePhoneme_Interface
+      ; items : Windows.Globalization.IJapanesePhoneme_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ILanguage : aliased constant Windows.IID := (820615910, 62484, 21059, (141, 178, 170, 179, 142, 163, 241, 241 ));
+   
+   type IIterator_ILanguage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ILanguage_Interface
+      ; RetVal : access Windows.Globalization.ILanguage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_ILanguage_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_ILanguage_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ILanguage_Interface
+      ; items : Windows.Globalization.ILanguage_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJapanesePhoneme : aliased constant Windows.IID := (795513600, 59483, 17382, (137, 125, 93, 130, 248, 98, 223, 33 ));
+   
+   type IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DisplayText
+   (
+      This       : access IJapanesePhoneme_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_YomiText
+   (
+      This       : access IJapanesePhoneme_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsPhraseStart
+   (
+      This       : access IJapanesePhoneme_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJapanesePhoneticAnalyzerStatics : aliased constant Windows.IID := (2292948624, 37854, 16818, (180, 213, 142, 219, 34, 127, 209, 194 ));
+   
+   type IJapanesePhoneticAnalyzerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetWords
+   (
+      This       : access IJapanesePhoneticAnalyzerStatics_Interface
+      ; input : Windows.String
+      ; RetVal : access Windows.Globalization.IVectorView_IJapanesePhoneme -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetWordsWithMonoRubyOption
+   (
+      This       : access IJapanesePhoneticAnalyzerStatics_Interface
+      ; input : Windows.String
+      ; monoRuby : Windows.Boolean
+      ; RetVal : access Windows.Globalization.IVectorView_IJapanesePhoneme -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILanguage : aliased constant Windows.IID := (3933841234, 63426, 16997, (177, 189, 196, 222, 196, 228, 240, 128 ));
    
    type ILanguage_Interface is interface and Windows.IInspectable_Interface;
@@ -1991,723 +2583,349 @@ package Windows.Globalization is
    
    ------------------------------------------------------------------------
    
-   IID_ICalendar : aliased constant Windows.IID := (3392152093, 34521, 16635, (162, 107, 212, 78, 183, 207, 8, 234 ));
+   IID_INumeralSystemIdentifiersStatics : aliased constant Windows.IID := (2781242051, 26825, 19773, (183, 101, 151, 32, 41, 226, 29, 236 ));
    
-   type ICalendar_Interface is interface and Windows.IInspectable_Interface;
+   type INumeralSystemIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function Clone
+   function get_Arab
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Globalization.ICalendar
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetToMin
-   (
-      This       : access ICalendar_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetToMax
-   (
-      This       : access ICalendar_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Languages
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumeralSystem
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function put_NumeralSystem
+   function get_ArabExt
    (
-      This       : access ICalendar_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetCalendarSystem
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function ChangeCalendarSystem
+   function get_Bali
    (
-      This       : access ICalendar_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetClock
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function ChangeClock
+   function get_Beng
    (
-      This       : access ICalendar_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDateTime
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetDateTime
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetToNow
-   (
-      This       : access ICalendar_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FirstEra
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastEra
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfEras
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Era
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Era
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddEras
-   (
-      This       : access ICalendar_Interface
-      ; eras : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function EraAsFullString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function EraAsString
+   function get_Cham
    (
-      This       : access ICalendar_Interface
-      ; idealLength : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_FirstYearInThisEra
+   function get_Deva
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastYearInThisEra
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfYearsInThisEra
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Year
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Year
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddYears
-   (
-      This       : access ICalendar_Interface
-      ; years : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function YearAsString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function YearAsTruncatedString
+   function get_FullWide
    (
-      This       : access ICalendar_Interface
-      ; remainingDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function YearAsPaddedString
+   function get_Gujr
    (
-      This       : access ICalendar_Interface
-      ; minDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_FirstMonthInThisYear
+   function get_Guru
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastMonthInThisYear
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfMonthsInThisYear
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Month
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Month
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddMonths
-   (
-      This       : access ICalendar_Interface
-      ; months : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MonthAsFullString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function MonthAsString
+   function get_HaniDec
    (
-      This       : access ICalendar_Interface
-      ; idealLength : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function MonthAsFullSoloString
+   function get_Java
    (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function MonthAsSoloString
+   function get_Kali
    (
-      This       : access ICalendar_Interface
-      ; idealLength : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function MonthAsNumericString
+   function get_Khmr
    (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function MonthAsPaddedNumericString
+   function get_Knda
    (
-      This       : access ICalendar_Interface
-      ; minDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function AddWeeks
+   function get_Lana
    (
-      This       : access ICalendar_Interface
-      ; weeks : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FirstDayInThisMonth
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastDayInThisMonth
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfDaysInThisMonth
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Day
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Day
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddDays
-   (
-      This       : access ICalendar_Interface
-      ; days : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DayAsString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function DayAsPaddedString
+   function get_LanaTham
    (
-      This       : access ICalendar_Interface
-      ; minDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_DayOfWeek
+   function get_Laoo
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Globalization.DayOfWeek
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DayOfWeekAsFullString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function DayOfWeekAsString
+   function get_Latn
    (
-      This       : access ICalendar_Interface
-      ; idealLength : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function DayOfWeekAsFullSoloString
+   function get_Lepc
    (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function DayOfWeekAsSoloString
+   function get_Limb
    (
-      This       : access ICalendar_Interface
-      ; idealLength : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_FirstPeriodInThisDay
+   function get_Mlym
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastPeriodInThisDay
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfPeriodsInThisDay
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Period
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Period
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddPeriods
-   (
-      This       : access ICalendar_Interface
-      ; periods : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function PeriodAsFullString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function PeriodAsString
+   function get_Mong
    (
-      This       : access ICalendar_Interface
-      ; idealLength : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_FirstHourInThisPeriod
+   function get_Mtei
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastHourInThisPeriod
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfHoursInThisPeriod
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Hour
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Hour
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddHours
-   (
-      This       : access ICalendar_Interface
-      ; hours : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HourAsString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function HourAsPaddedString
+   function get_Mymr
    (
-      This       : access ICalendar_Interface
-      ; minDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Minute
+   function get_MymrShan
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Minute
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddMinutes
-   (
-      This       : access ICalendar_Interface
-      ; minutes : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MinuteAsString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function MinuteAsPaddedString
+   function get_Nkoo
    (
-      This       : access ICalendar_Interface
-      ; minDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Second
+   function get_Olck
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Second
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddSeconds
-   (
-      This       : access ICalendar_Interface
-      ; seconds : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SecondAsString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function SecondAsPaddedString
+   function get_Orya
    (
-      This       : access ICalendar_Interface
-      ; minDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Nanosecond
+   function get_Saur
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Nanosecond
-   (
-      This       : access ICalendar_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddNanoseconds
-   (
-      This       : access ICalendar_Interface
-      ; nanoseconds : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function NanosecondAsString
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function NanosecondAsPaddedString
+   function get_Sund
    (
-      This       : access ICalendar_Interface
-      ; minDigits : Windows.Int32
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function Compare
+   function get_Talu
    (
-      This       : access ICalendar_Interface
-      ; other : Windows.Globalization.ICalendar
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CompareDateTime
-   (
-      This       : access ICalendar_Interface
-      ; other : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CopyTo
-   (
-      This       : access ICalendar_Interface
-      ; other : Windows.Globalization.ICalendar
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FirstMinuteInThisHour
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastMinuteInThisHour
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfMinutesInThisHour
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FirstSecondInThisMinute
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LastSecondInThisMinute
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NumberOfSecondsInThisMinute
-   (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResolvedLanguage
-   (
-      This       : access ICalendar_Interface
+      This       : access INumeralSystemIdentifiersStatics_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_IsDaylightSavingTime
+   function get_TamlDec
    (
-      This       : access ICalendar_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access INumeralSystemIdentifiersStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Telu
+   (
+      This       : access INumeralSystemIdentifiersStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Thai
+   (
+      This       : access INumeralSystemIdentifiersStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Tibt
+   (
+      This       : access INumeralSystemIdentifiersStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Vaii
+   (
+      This       : access INumeralSystemIdentifiersStatics_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ICalendarFactory2 : aliased constant Windows.IID := (3024828300, 51838, 17808, (158, 114, 234, 43, 236, 26, 81, 21 ));
+   IID_INumeralSystemIdentifiersStatics2 : aliased constant Windows.IID := (2130719272, 40411, 18996, (145, 4, 2, 96, 192, 145, 167, 199 ));
    
-   type ICalendarFactory2_Interface is interface and Windows.IInspectable_Interface;
+   type INumeralSystemIdentifiersStatics2_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreateCalendarWithTimeZone
+   function get_Brah
    (
-      This       : access ICalendarFactory2_Interface
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; calendar : Windows.String
-      ; clock : Windows.String
-      ; timeZoneId : Windows.String
-      ; RetVal : access Windows.Globalization.ICalendar
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Osma
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MathBold
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MathDbl
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MathSans
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MathSanb
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MathMono
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZmthBold
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZmthDbl
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZmthSans
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZmthSanb
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZmthMono
+   (
+      This       : access INumeralSystemIdentifiersStatics2_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -2743,263 +2961,6 @@ package Windows.Globalization is
       This       : access ITimeZoneOnCalendar_Interface
       ; idealLength : Windows.Int32
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICalendarFactory : aliased constant Windows.IID := (2213905426, 58731, 19573, (166, 110, 15, 99, 213, 119, 88, 166 ));
-   
-   type ICalendarFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateCalendarDefaultCalendarAndClock
-   (
-      This       : access ICalendarFactory_Interface
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.Globalization.ICalendar
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateCalendar
-   (
-      This       : access ICalendarFactory_Interface
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; calendar : Windows.String
-      ; clock : Windows.String
-      ; RetVal : access Windows.Globalization.ICalendar
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IApplicationLanguagesStatics : aliased constant Windows.IID := (1974732871, 2636, 19090, (149, 101, 253, 99, 201, 95, 122, 237 ));
-   
-   type IApplicationLanguagesStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PrimaryLanguageOverride
-   (
-      This       : access IApplicationLanguagesStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PrimaryLanguageOverride
-   (
-      This       : access IApplicationLanguagesStatics_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Languages
-   (
-      This       : access IApplicationLanguagesStatics_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ManifestLanguages
-   (
-      This       : access IApplicationLanguagesStatics_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IApplicationLanguagesStatics2 : aliased constant Windows.IID := (502324815, 1835, 19835, (143, 6, 203, 45, 180, 15, 43, 181 ));
-   
-   type IApplicationLanguagesStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetLanguagesForUser
-   (
-      This       : access IApplicationLanguagesStatics2_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJapanesePhoneticAnalyzerStatics : aliased constant Windows.IID := (2292948624, 37854, 16818, (180, 213, 142, 219, 34, 127, 209, 194 ));
-   
-   type IJapanesePhoneticAnalyzerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetWords
-   (
-      This       : access IJapanesePhoneticAnalyzerStatics_Interface
-      ; input : Windows.String
-      ; RetVal : access Windows.Globalization.IVectorView_IJapanesePhoneme -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetWordsWithMonoRubyOption
-   (
-      This       : access IJapanesePhoneticAnalyzerStatics_Interface
-      ; input : Windows.String
-      ; monoRuby : Windows.Boolean
-      ; RetVal : access Windows.Globalization.IVectorView_IJapanesePhoneme -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJapanesePhoneme : aliased constant Windows.IID := (795513600, 59483, 17382, (137, 125, 93, 130, 248, 98, 223, 33 ));
-   
-   type IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DisplayText
-   (
-      This       : access IJapanesePhoneme_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_YomiText
-   (
-      This       : access IJapanesePhoneme_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsPhraseStart
-   (
-      This       : access IJapanesePhoneme_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_ILanguage : aliased constant Windows.IID := (820615910, 62484, 21059, (141, 178, 170, 179, 142, 163, 241, 241 ));
-   
-   type IIterator_ILanguage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_ILanguage_Interface
-      ; RetVal : access Windows.Globalization.ILanguage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_ILanguage_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_ILanguage_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_ILanguage_Interface
-      ; items : Windows.Globalization.ILanguage_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ILanguage : aliased constant Windows.IID := (1212193296, 25014, 23985, (166, 157, 138, 188, 70, 172, 96, 138 ));
-   
-   type IIterable_ILanguage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ILanguage_Interface
-      ; RetVal : access Windows.Globalization.IIterator_ILanguage
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_ILanguage : aliased constant Windows.IID := (340463421, 11609, 24018, (176, 18, 144, 142, 195, 224, 100, 53 ));
-   
-   type IVectorView_ILanguage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_ILanguage_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Globalization.ILanguage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_ILanguage_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_ILanguage_Interface
-      ; value : Windows.Globalization.ILanguage
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_ILanguage_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Globalization.ILanguage_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IJapanesePhoneme : aliased constant Windows.IID := (4049381351, 27048, 22093, (156, 32, 77, 167, 90, 119, 52, 50 ));
-   
-   type IIterator_IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IJapanesePhoneme_Interface
-      ; RetVal : access Windows.Globalization.IJapanesePhoneme
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IJapanesePhoneme_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IJapanesePhoneme_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IJapanesePhoneme_Interface
-      ; items : Windows.Globalization.IJapanesePhoneme_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IJapanesePhoneme : aliased constant Windows.IID := (447551435, 6185, 21046, (138, 239, 11, 117, 248, 223, 215, 166 ));
-   
-   type IIterable_IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IJapanesePhoneme_Interface
-      ; RetVal : access Windows.Globalization.IIterator_IJapanesePhoneme
    )
    return Windows.HRESULT is abstract;
    
@@ -3043,24 +3004,47 @@ package Windows.Globalization is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ILanguage : aliased constant Windows.IID := (340463421, 11609, 24018, (176, 18, 144, 142, 195, 224, 100, 53 ));
+   
+   type IVectorView_ILanguage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_ILanguage_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Globalization.ILanguage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ILanguage_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ILanguage_Interface
+      ; value : Windows.Globalization.ILanguage
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_ILanguage_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Globalization.ILanguage_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
-   
-   subtype GeographicRegion is Windows.Globalization.IGeographicRegion;
-   function Create return Windows.Globalization.IGeographicRegion;
-   
-   function CreateGeographicRegion
-   (
-      geographicRegionCode : Windows.String
-   )
-   return Windows.Globalization.IGeographicRegion;
-   
-   subtype Language is Windows.Globalization.ILanguage;
-   function CreateLanguage
-   (
-      languageTag : Windows.String
-   )
-   return Windows.Globalization.ILanguage;
    
    subtype Calendar is Windows.Globalization.ICalendar;
    function Create return Windows.Globalization.ICalendar;
@@ -3088,11 +3072,48 @@ package Windows.Globalization is
    )
    return Windows.Globalization.ICalendar;
    
+   subtype GeographicRegion is Windows.Globalization.IGeographicRegion;
+   function Create return Windows.Globalization.IGeographicRegion;
+   
+   function CreateGeographicRegion
+   (
+      geographicRegionCode : Windows.String
+   )
+   return Windows.Globalization.IGeographicRegion;
+   
    subtype JapanesePhoneme is Windows.Globalization.IJapanesePhoneme;
+   subtype Language is Windows.Globalization.ILanguage;
+   function CreateLanguage
+   (
+      languageTag : Windows.String
+   )
+   return Windows.Globalization.ILanguage;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_PrimaryLanguageOverride
+   return Windows.String;
+   
+   procedure put_PrimaryLanguageOverride
+   (
+      value : Windows.String
+   )
+   ;
+   
+   function get_Languages
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function get_ManifestLanguages
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function GetLanguagesForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.Collections.IVectorView_String;
    
    function get_Persian
    return Windows.String;
@@ -3143,150 +3164,6 @@ package Windows.Globalization is
    return Windows.String;
    
    function get_TwentyFourHour
-   return Windows.String;
-   
-   function get_Brah
-   return Windows.String;
-   
-   function get_Osma
-   return Windows.String;
-   
-   function get_MathBold
-   return Windows.String;
-   
-   function get_MathDbl
-   return Windows.String;
-   
-   function get_MathSans
-   return Windows.String;
-   
-   function get_MathSanb
-   return Windows.String;
-   
-   function get_MathMono
-   return Windows.String;
-   
-   function get_ZmthBold
-   return Windows.String;
-   
-   function get_ZmthDbl
-   return Windows.String;
-   
-   function get_ZmthSans
-   return Windows.String;
-   
-   function get_ZmthSanb
-   return Windows.String;
-   
-   function get_ZmthMono
-   return Windows.String;
-   
-   function get_Arab
-   return Windows.String;
-   
-   function get_ArabExt
-   return Windows.String;
-   
-   function get_Bali
-   return Windows.String;
-   
-   function get_Beng
-   return Windows.String;
-   
-   function get_Cham
-   return Windows.String;
-   
-   function get_Deva
-   return Windows.String;
-   
-   function get_FullWide
-   return Windows.String;
-   
-   function get_Gujr
-   return Windows.String;
-   
-   function get_Guru
-   return Windows.String;
-   
-   function get_HaniDec
-   return Windows.String;
-   
-   function get_Java
-   return Windows.String;
-   
-   function get_Kali
-   return Windows.String;
-   
-   function get_Khmr
-   return Windows.String;
-   
-   function get_Knda
-   return Windows.String;
-   
-   function get_Lana
-   return Windows.String;
-   
-   function get_LanaTham
-   return Windows.String;
-   
-   function get_Laoo
-   return Windows.String;
-   
-   function get_Latn
-   return Windows.String;
-   
-   function get_Lepc
-   return Windows.String;
-   
-   function get_Limb
-   return Windows.String;
-   
-   function get_Mlym
-   return Windows.String;
-   
-   function get_Mong
-   return Windows.String;
-   
-   function get_Mtei
-   return Windows.String;
-   
-   function get_Mymr
-   return Windows.String;
-   
-   function get_MymrShan
-   return Windows.String;
-   
-   function get_Nkoo
-   return Windows.String;
-   
-   function get_Olck
-   return Windows.String;
-   
-   function get_Orya
-   return Windows.String;
-   
-   function get_Saur
-   return Windows.String;
-   
-   function get_Sund
-   return Windows.String;
-   
-   function get_Talu
-   return Windows.String;
-   
-   function get_TamlDec
-   return Windows.String;
-   
-   function get_Telu
-   return Windows.String;
-   
-   function get_Thai_NumeralSystemIdentifiers
-   return Windows.String;
-   
-   function get_Tibt
-   return Windows.String;
-   
-   function get_Vaii
    return Windows.String;
    
    function get_BYN
@@ -3769,6 +3646,19 @@ package Windows.Globalization is
    )
    return Windows.Boolean;
    
+   function GetWords
+   (
+      input : Windows.String
+   )
+   return Windows.Globalization.IVectorView_IJapanesePhoneme;
+   
+   function GetWordsWithMonoRubyOption
+   (
+      input : Windows.String
+      ; monoRuby : Windows.Boolean
+   )
+   return Windows.Globalization.IVectorView_IJapanesePhoneme;
+   
    function TrySetInputMethodLanguageTag
    (
       languageTag : Windows.String
@@ -3784,38 +3674,148 @@ package Windows.Globalization is
    function get_CurrentInputMethodLanguageTag
    return Windows.String;
    
-   function get_PrimaryLanguageOverride
+   function get_Brah
    return Windows.String;
    
-   procedure put_PrimaryLanguageOverride
-   (
-      value : Windows.String
-   )
-   ;
+   function get_Osma
+   return Windows.String;
    
-   function get_Languages
-   return Windows.Foundation.Collections.IVectorView_String;
+   function get_MathBold
+   return Windows.String;
    
-   function get_ManifestLanguages
-   return Windows.Foundation.Collections.IVectorView_String;
+   function get_MathDbl
+   return Windows.String;
    
-   function GetLanguagesForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Foundation.Collections.IVectorView_String;
+   function get_MathSans
+   return Windows.String;
    
-   function GetWords
-   (
-      input : Windows.String
-   )
-   return Windows.Globalization.IVectorView_IJapanesePhoneme;
+   function get_MathSanb
+   return Windows.String;
    
-   function GetWordsWithMonoRubyOption
-   (
-      input : Windows.String
-      ; monoRuby : Windows.Boolean
-   )
-   return Windows.Globalization.IVectorView_IJapanesePhoneme;
+   function get_MathMono
+   return Windows.String;
+   
+   function get_ZmthBold
+   return Windows.String;
+   
+   function get_ZmthDbl
+   return Windows.String;
+   
+   function get_ZmthSans
+   return Windows.String;
+   
+   function get_ZmthSanb
+   return Windows.String;
+   
+   function get_ZmthMono
+   return Windows.String;
+   
+   function get_Arab
+   return Windows.String;
+   
+   function get_ArabExt
+   return Windows.String;
+   
+   function get_Bali
+   return Windows.String;
+   
+   function get_Beng
+   return Windows.String;
+   
+   function get_Cham
+   return Windows.String;
+   
+   function get_Deva
+   return Windows.String;
+   
+   function get_FullWide
+   return Windows.String;
+   
+   function get_Gujr
+   return Windows.String;
+   
+   function get_Guru
+   return Windows.String;
+   
+   function get_HaniDec
+   return Windows.String;
+   
+   function get_Java
+   return Windows.String;
+   
+   function get_Kali
+   return Windows.String;
+   
+   function get_Khmr
+   return Windows.String;
+   
+   function get_Knda
+   return Windows.String;
+   
+   function get_Lana
+   return Windows.String;
+   
+   function get_LanaTham
+   return Windows.String;
+   
+   function get_Laoo
+   return Windows.String;
+   
+   function get_Latn
+   return Windows.String;
+   
+   function get_Lepc
+   return Windows.String;
+   
+   function get_Limb
+   return Windows.String;
+   
+   function get_Mlym
+   return Windows.String;
+   
+   function get_Mong
+   return Windows.String;
+   
+   function get_Mtei
+   return Windows.String;
+   
+   function get_Mymr
+   return Windows.String;
+   
+   function get_MymrShan
+   return Windows.String;
+   
+   function get_Nkoo
+   return Windows.String;
+   
+   function get_Olck
+   return Windows.String;
+   
+   function get_Orya
+   return Windows.String;
+   
+   function get_Saur
+   return Windows.String;
+   
+   function get_Sund
+   return Windows.String;
+   
+   function get_Talu
+   return Windows.String;
+   
+   function get_TamlDec
+   return Windows.String;
+   
+   function get_Telu
+   return Windows.String;
+   
+   function get_Thai_NumeralSystemIdentifiers
+   return Windows.String;
+   
+   function get_Tibt
+   return Windows.String;
+   
+   function get_Vaii
+   return Windows.String;
    
 end;

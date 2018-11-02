@@ -309,6 +309,9 @@ package Windows.UI.Xaml.Input is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IFocusMovementResult_Interface;
+   type AsyncOperationCompletedHandler_IFocusMovementResult is access all AsyncOperationCompletedHandler_IFocusMovementResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IFocusMovementResult_Ptr is access all AsyncOperationCompletedHandler_IFocusMovementResult;
    type DoubleTappedEventHandler_Interface;
    type DoubleTappedEventHandler is access all DoubleTappedEventHandler_Interface'Class;
    type DoubleTappedEventHandler_Ptr is access all DoubleTappedEventHandler;
@@ -348,17 +351,11 @@ package Windows.UI.Xaml.Input is
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface;
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked is access all TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface'Class;
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Ptr is access all TypedEventHandler_IKeyboardAccelerator_add_Invoked;
-   type AsyncOperationCompletedHandler_IFocusMovementResult_Interface;
-   type AsyncOperationCompletedHandler_IFocusMovementResult is access all AsyncOperationCompletedHandler_IFocusMovementResult_Interface'Class;
-   type AsyncOperationCompletedHandler_IFocusMovementResult_Ptr is access all AsyncOperationCompletedHandler_IFocusMovementResult;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ICommand_Interface;
-   type ICommand is access all ICommand_Interface'Class;
-   type ICommand_Ptr is access all ICommand;
    type IAccessKeyDisplayDismissedEventArgs_Interface;
    type IAccessKeyDisplayDismissedEventArgs is access all IAccessKeyDisplayDismissedEventArgs_Interface'Class;
    type IAccessKeyDisplayDismissedEventArgs_Ptr is access all IAccessKeyDisplayDismissedEventArgs;
@@ -377,117 +374,21 @@ package Windows.UI.Xaml.Input is
    type IAccessKeyManagerStatics2_Interface;
    type IAccessKeyManagerStatics2 is access all IAccessKeyManagerStatics2_Interface'Class;
    type IAccessKeyManagerStatics2_Ptr is access all IAccessKeyManagerStatics2;
-   type IInertiaExpansionBehavior_Interface;
-   type IInertiaExpansionBehavior is access all IInertiaExpansionBehavior_Interface'Class;
-   type IInertiaExpansionBehavior_Ptr is access all IInertiaExpansionBehavior;
-   type IInertiaRotationBehavior_Interface;
-   type IInertiaRotationBehavior is access all IInertiaRotationBehavior_Interface'Class;
-   type IInertiaRotationBehavior_Ptr is access all IInertiaRotationBehavior;
-   type IInertiaTranslationBehavior_Interface;
-   type IInertiaTranslationBehavior is access all IInertiaTranslationBehavior_Interface'Class;
-   type IInertiaTranslationBehavior_Ptr is access all IInertiaTranslationBehavior;
-   type IKeyboardAcceleratorInvokedEventArgs_Interface;
-   type IKeyboardAcceleratorInvokedEventArgs is access all IKeyboardAcceleratorInvokedEventArgs_Interface'Class;
-   type IKeyboardAcceleratorInvokedEventArgs_Ptr is access all IKeyboardAcceleratorInvokedEventArgs;
-   type IKeyboardAcceleratorInvokedEventArgs2_Interface;
-   type IKeyboardAcceleratorInvokedEventArgs2 is access all IKeyboardAcceleratorInvokedEventArgs2_Interface'Class;
-   type IKeyboardAcceleratorInvokedEventArgs2_Ptr is access all IKeyboardAcceleratorInvokedEventArgs2;
-   type IManipulationPivot_Interface;
-   type IManipulationPivot is access all IManipulationPivot_Interface'Class;
-   type IManipulationPivot_Ptr is access all IManipulationPivot;
-   type IManipulationPivotFactory_Interface;
-   type IManipulationPivotFactory is access all IManipulationPivotFactory_Interface'Class;
-   type IManipulationPivotFactory_Ptr is access all IManipulationPivotFactory;
-   type IPointer_Interface;
-   type IPointer is access all IPointer_Interface'Class;
-   type IPointer_Ptr is access all IPointer;
-   type IProcessKeyboardAcceleratorEventArgs_Interface;
-   type IProcessKeyboardAcceleratorEventArgs is access all IProcessKeyboardAcceleratorEventArgs_Interface'Class;
-   type IProcessKeyboardAcceleratorEventArgs_Ptr is access all IProcessKeyboardAcceleratorEventArgs;
+   type IAsyncOperation_IFocusMovementResult_Interface;
+   type IAsyncOperation_IFocusMovementResult is access all IAsyncOperation_IFocusMovementResult_Interface'Class;
+   type IAsyncOperation_IFocusMovementResult_Ptr is access all IAsyncOperation_IFocusMovementResult;
    type ICharacterReceivedRoutedEventArgs_Interface;
    type ICharacterReceivedRoutedEventArgs is access all ICharacterReceivedRoutedEventArgs_Interface'Class;
    type ICharacterReceivedRoutedEventArgs_Ptr is access all ICharacterReceivedRoutedEventArgs;
+   type ICommand_Interface;
+   type ICommand is access all ICommand_Interface'Class;
+   type ICommand_Ptr is access all ICommand;
    type IContextRequestedEventArgs_Interface;
    type IContextRequestedEventArgs is access all IContextRequestedEventArgs_Interface'Class;
    type IContextRequestedEventArgs_Ptr is access all IContextRequestedEventArgs;
    type IDoubleTappedRoutedEventArgs_Interface;
    type IDoubleTappedRoutedEventArgs is access all IDoubleTappedRoutedEventArgs_Interface'Class;
    type IDoubleTappedRoutedEventArgs_Ptr is access all IDoubleTappedRoutedEventArgs;
-   type IGettingFocusEventArgs_Interface;
-   type IGettingFocusEventArgs is access all IGettingFocusEventArgs_Interface'Class;
-   type IGettingFocusEventArgs_Ptr is access all IGettingFocusEventArgs;
-   type IGettingFocusEventArgs2_Interface;
-   type IGettingFocusEventArgs2 is access all IGettingFocusEventArgs2_Interface'Class;
-   type IGettingFocusEventArgs2_Ptr is access all IGettingFocusEventArgs2;
-   type IHoldingRoutedEventArgs_Interface;
-   type IHoldingRoutedEventArgs is access all IHoldingRoutedEventArgs_Interface'Class;
-   type IHoldingRoutedEventArgs_Ptr is access all IHoldingRoutedEventArgs;
-   type IInputScope_Interface;
-   type IInputScope is access all IInputScope_Interface'Class;
-   type IInputScope_Ptr is access all IInputScope;
-   type IInputScopeName_Interface;
-   type IInputScopeName is access all IInputScopeName_Interface'Class;
-   type IInputScopeName_Ptr is access all IInputScopeName;
-   type IInputScopeNameFactory_Interface;
-   type IInputScopeNameFactory is access all IInputScopeNameFactory_Interface'Class;
-   type IInputScopeNameFactory_Ptr is access all IInputScopeNameFactory;
-   type IKeyboardAccelerator_Interface;
-   type IKeyboardAccelerator is access all IKeyboardAccelerator_Interface'Class;
-   type IKeyboardAccelerator_Ptr is access all IKeyboardAccelerator;
-   type IKeyboardAcceleratorStatics_Interface;
-   type IKeyboardAcceleratorStatics is access all IKeyboardAcceleratorStatics_Interface'Class;
-   type IKeyboardAcceleratorStatics_Ptr is access all IKeyboardAcceleratorStatics;
-   type IKeyboardAcceleratorFactory_Interface;
-   type IKeyboardAcceleratorFactory is access all IKeyboardAcceleratorFactory_Interface'Class;
-   type IKeyboardAcceleratorFactory_Ptr is access all IKeyboardAcceleratorFactory;
-   type IKeyRoutedEventArgs_Interface;
-   type IKeyRoutedEventArgs is access all IKeyRoutedEventArgs_Interface'Class;
-   type IKeyRoutedEventArgs_Ptr is access all IKeyRoutedEventArgs;
-   type IKeyRoutedEventArgs2_Interface;
-   type IKeyRoutedEventArgs2 is access all IKeyRoutedEventArgs2_Interface'Class;
-   type IKeyRoutedEventArgs2_Ptr is access all IKeyRoutedEventArgs2;
-   type IKeyRoutedEventArgs3_Interface;
-   type IKeyRoutedEventArgs3 is access all IKeyRoutedEventArgs3_Interface'Class;
-   type IKeyRoutedEventArgs3_Ptr is access all IKeyRoutedEventArgs3;
-   type ILosingFocusEventArgs_Interface;
-   type ILosingFocusEventArgs is access all ILosingFocusEventArgs_Interface'Class;
-   type ILosingFocusEventArgs_Ptr is access all ILosingFocusEventArgs;
-   type ILosingFocusEventArgs2_Interface;
-   type ILosingFocusEventArgs2 is access all ILosingFocusEventArgs2_Interface'Class;
-   type ILosingFocusEventArgs2_Ptr is access all ILosingFocusEventArgs2;
-   type IManipulationCompletedRoutedEventArgs_Interface;
-   type IManipulationCompletedRoutedEventArgs is access all IManipulationCompletedRoutedEventArgs_Interface'Class;
-   type IManipulationCompletedRoutedEventArgs_Ptr is access all IManipulationCompletedRoutedEventArgs;
-   type IManipulationDeltaRoutedEventArgs_Interface;
-   type IManipulationDeltaRoutedEventArgs is access all IManipulationDeltaRoutedEventArgs_Interface'Class;
-   type IManipulationDeltaRoutedEventArgs_Ptr is access all IManipulationDeltaRoutedEventArgs;
-   type IManipulationInertiaStartingRoutedEventArgs_Interface;
-   type IManipulationInertiaStartingRoutedEventArgs is access all IManipulationInertiaStartingRoutedEventArgs_Interface'Class;
-   type IManipulationInertiaStartingRoutedEventArgs_Ptr is access all IManipulationInertiaStartingRoutedEventArgs;
-   type IManipulationStartedRoutedEventArgs_Interface;
-   type IManipulationStartedRoutedEventArgs is access all IManipulationStartedRoutedEventArgs_Interface'Class;
-   type IManipulationStartedRoutedEventArgs_Ptr is access all IManipulationStartedRoutedEventArgs;
-   type IManipulationStartedRoutedEventArgsFactory_Interface;
-   type IManipulationStartedRoutedEventArgsFactory is access all IManipulationStartedRoutedEventArgsFactory_Interface'Class;
-   type IManipulationStartedRoutedEventArgsFactory_Ptr is access all IManipulationStartedRoutedEventArgsFactory;
-   type IManipulationStartingRoutedEventArgs_Interface;
-   type IManipulationStartingRoutedEventArgs is access all IManipulationStartingRoutedEventArgs_Interface'Class;
-   type IManipulationStartingRoutedEventArgs_Ptr is access all IManipulationStartingRoutedEventArgs;
-   type INoFocusCandidateFoundEventArgs_Interface;
-   type INoFocusCandidateFoundEventArgs is access all INoFocusCandidateFoundEventArgs_Interface'Class;
-   type INoFocusCandidateFoundEventArgs_Ptr is access all INoFocusCandidateFoundEventArgs;
-   type IPointerRoutedEventArgs_Interface;
-   type IPointerRoutedEventArgs is access all IPointerRoutedEventArgs_Interface'Class;
-   type IPointerRoutedEventArgs_Ptr is access all IPointerRoutedEventArgs;
-   type IPointerRoutedEventArgs2_Interface;
-   type IPointerRoutedEventArgs2 is access all IPointerRoutedEventArgs2_Interface'Class;
-   type IPointerRoutedEventArgs2_Ptr is access all IPointerRoutedEventArgs2;
-   type IRightTappedRoutedEventArgs_Interface;
-   type IRightTappedRoutedEventArgs is access all IRightTappedRoutedEventArgs_Interface'Class;
-   type IRightTappedRoutedEventArgs_Ptr is access all IRightTappedRoutedEventArgs;
-   type ITappedRoutedEventArgs_Interface;
-   type ITappedRoutedEventArgs is access all ITappedRoutedEventArgs_Interface'Class;
-   type ITappedRoutedEventArgs_Ptr is access all ITappedRoutedEventArgs;
    type IFindNextElementOptions_Interface;
    type IFindNextElementOptions is access all IFindNextElementOptions_Interface'Class;
    type IFindNextElementOptions_Ptr is access all IFindNextElementOptions;
@@ -512,82 +413,145 @@ package Windows.UI.Xaml.Input is
    type IFocusMovementResult_Interface;
    type IFocusMovementResult is access all IFocusMovementResult_Interface'Class;
    type IFocusMovementResult_Ptr is access all IFocusMovementResult;
-   type IIterator_IPointer_Interface;
-   type IIterator_IPointer is access all IIterator_IPointer_Interface'Class;
-   type IIterator_IPointer_Ptr is access all IIterator_IPointer;
-   type IIterable_IPointer_Interface;
-   type IIterable_IPointer is access all IIterable_IPointer_Interface'Class;
-   type IIterable_IPointer_Ptr is access all IIterable_IPointer;
-   type IVectorView_IPointer_Interface;
-   type IVectorView_IPointer is access all IVectorView_IPointer_Interface'Class;
-   type IVectorView_IPointer_Ptr is access all IVectorView_IPointer;
-   type IIterator_IKeyboardAccelerator_Interface;
-   type IIterator_IKeyboardAccelerator is access all IIterator_IKeyboardAccelerator_Interface'Class;
-   type IIterator_IKeyboardAccelerator_Ptr is access all IIterator_IKeyboardAccelerator;
-   type IIterable_IKeyboardAccelerator_Interface;
-   type IIterable_IKeyboardAccelerator is access all IIterable_IKeyboardAccelerator_Interface'Class;
-   type IIterable_IKeyboardAccelerator_Ptr is access all IIterable_IKeyboardAccelerator;
-   type IVectorView_IKeyboardAccelerator_Interface;
-   type IVectorView_IKeyboardAccelerator is access all IVectorView_IKeyboardAccelerator_Interface'Class;
-   type IVectorView_IKeyboardAccelerator_Ptr is access all IVectorView_IKeyboardAccelerator;
-   type IVector_IKeyboardAccelerator_Interface;
-   type IVector_IKeyboardAccelerator is access all IVector_IKeyboardAccelerator_Interface'Class;
-   type IVector_IKeyboardAccelerator_Ptr is access all IVector_IKeyboardAccelerator;
-   type IIterator_IInputScopeName_Interface;
-   type IIterator_IInputScopeName is access all IIterator_IInputScopeName_Interface'Class;
-   type IIterator_IInputScopeName_Ptr is access all IIterator_IInputScopeName;
+   type IGettingFocusEventArgs_Interface;
+   type IGettingFocusEventArgs is access all IGettingFocusEventArgs_Interface'Class;
+   type IGettingFocusEventArgs_Ptr is access all IGettingFocusEventArgs;
+   type IGettingFocusEventArgs2_Interface;
+   type IGettingFocusEventArgs2 is access all IGettingFocusEventArgs2_Interface'Class;
+   type IGettingFocusEventArgs2_Ptr is access all IGettingFocusEventArgs2;
+   type IHoldingRoutedEventArgs_Interface;
+   type IHoldingRoutedEventArgs is access all IHoldingRoutedEventArgs_Interface'Class;
+   type IHoldingRoutedEventArgs_Ptr is access all IHoldingRoutedEventArgs;
+   type IInertiaExpansionBehavior_Interface;
+   type IInertiaExpansionBehavior is access all IInertiaExpansionBehavior_Interface'Class;
+   type IInertiaExpansionBehavior_Ptr is access all IInertiaExpansionBehavior;
+   type IInertiaRotationBehavior_Interface;
+   type IInertiaRotationBehavior is access all IInertiaRotationBehavior_Interface'Class;
+   type IInertiaRotationBehavior_Ptr is access all IInertiaRotationBehavior;
+   type IInertiaTranslationBehavior_Interface;
+   type IInertiaTranslationBehavior is access all IInertiaTranslationBehavior_Interface'Class;
+   type IInertiaTranslationBehavior_Ptr is access all IInertiaTranslationBehavior;
+   type IInputScope_Interface;
+   type IInputScope is access all IInputScope_Interface'Class;
+   type IInputScope_Ptr is access all IInputScope;
+   type IInputScopeName_Interface;
+   type IInputScopeName is access all IInputScopeName_Interface'Class;
+   type IInputScopeName_Ptr is access all IInputScopeName;
+   type IInputScopeNameFactory_Interface;
+   type IInputScopeNameFactory is access all IInputScopeNameFactory_Interface'Class;
+   type IInputScopeNameFactory_Ptr is access all IInputScopeNameFactory;
    type IIterable_IInputScopeName_Interface;
    type IIterable_IInputScopeName is access all IIterable_IInputScopeName_Interface'Class;
    type IIterable_IInputScopeName_Ptr is access all IIterable_IInputScopeName;
-   type IVectorView_IInputScopeName_Interface;
-   type IVectorView_IInputScopeName is access all IVectorView_IInputScopeName_Interface'Class;
-   type IVectorView_IInputScopeName_Ptr is access all IVectorView_IInputScopeName;
+   type IIterable_IKeyboardAccelerator_Interface;
+   type IIterable_IKeyboardAccelerator is access all IIterable_IKeyboardAccelerator_Interface'Class;
+   type IIterable_IKeyboardAccelerator_Ptr is access all IIterable_IKeyboardAccelerator;
+   type IIterable_IPointer_Interface;
+   type IIterable_IPointer is access all IIterable_IPointer_Interface'Class;
+   type IIterable_IPointer_Ptr is access all IIterable_IPointer;
+   type IIterator_IInputScopeName_Interface;
+   type IIterator_IInputScopeName is access all IIterator_IInputScopeName_Interface'Class;
+   type IIterator_IInputScopeName_Ptr is access all IIterator_IInputScopeName;
+   type IIterator_IKeyboardAccelerator_Interface;
+   type IIterator_IKeyboardAccelerator is access all IIterator_IKeyboardAccelerator_Interface'Class;
+   type IIterator_IKeyboardAccelerator_Ptr is access all IIterator_IKeyboardAccelerator;
+   type IIterator_IPointer_Interface;
+   type IIterator_IPointer is access all IIterator_IPointer_Interface'Class;
+   type IIterator_IPointer_Ptr is access all IIterator_IPointer;
+   type IKeyboardAccelerator_Interface;
+   type IKeyboardAccelerator is access all IKeyboardAccelerator_Interface'Class;
+   type IKeyboardAccelerator_Ptr is access all IKeyboardAccelerator;
+   type IKeyboardAcceleratorFactory_Interface;
+   type IKeyboardAcceleratorFactory is access all IKeyboardAcceleratorFactory_Interface'Class;
+   type IKeyboardAcceleratorFactory_Ptr is access all IKeyboardAcceleratorFactory;
+   type IKeyboardAcceleratorInvokedEventArgs_Interface;
+   type IKeyboardAcceleratorInvokedEventArgs is access all IKeyboardAcceleratorInvokedEventArgs_Interface'Class;
+   type IKeyboardAcceleratorInvokedEventArgs_Ptr is access all IKeyboardAcceleratorInvokedEventArgs;
+   type IKeyboardAcceleratorInvokedEventArgs2_Interface;
+   type IKeyboardAcceleratorInvokedEventArgs2 is access all IKeyboardAcceleratorInvokedEventArgs2_Interface'Class;
+   type IKeyboardAcceleratorInvokedEventArgs2_Ptr is access all IKeyboardAcceleratorInvokedEventArgs2;
+   type IKeyboardAcceleratorStatics_Interface;
+   type IKeyboardAcceleratorStatics is access all IKeyboardAcceleratorStatics_Interface'Class;
+   type IKeyboardAcceleratorStatics_Ptr is access all IKeyboardAcceleratorStatics;
+   type IKeyRoutedEventArgs_Interface;
+   type IKeyRoutedEventArgs is access all IKeyRoutedEventArgs_Interface'Class;
+   type IKeyRoutedEventArgs_Ptr is access all IKeyRoutedEventArgs;
+   type IKeyRoutedEventArgs2_Interface;
+   type IKeyRoutedEventArgs2 is access all IKeyRoutedEventArgs2_Interface'Class;
+   type IKeyRoutedEventArgs2_Ptr is access all IKeyRoutedEventArgs2;
+   type IKeyRoutedEventArgs3_Interface;
+   type IKeyRoutedEventArgs3 is access all IKeyRoutedEventArgs3_Interface'Class;
+   type IKeyRoutedEventArgs3_Ptr is access all IKeyRoutedEventArgs3;
+   type ILosingFocusEventArgs_Interface;
+   type ILosingFocusEventArgs is access all ILosingFocusEventArgs_Interface'Class;
+   type ILosingFocusEventArgs_Ptr is access all ILosingFocusEventArgs;
+   type ILosingFocusEventArgs2_Interface;
+   type ILosingFocusEventArgs2 is access all ILosingFocusEventArgs2_Interface'Class;
+   type ILosingFocusEventArgs2_Ptr is access all ILosingFocusEventArgs2;
+   type IManipulationCompletedRoutedEventArgs_Interface;
+   type IManipulationCompletedRoutedEventArgs is access all IManipulationCompletedRoutedEventArgs_Interface'Class;
+   type IManipulationCompletedRoutedEventArgs_Ptr is access all IManipulationCompletedRoutedEventArgs;
+   type IManipulationDeltaRoutedEventArgs_Interface;
+   type IManipulationDeltaRoutedEventArgs is access all IManipulationDeltaRoutedEventArgs_Interface'Class;
+   type IManipulationDeltaRoutedEventArgs_Ptr is access all IManipulationDeltaRoutedEventArgs;
+   type IManipulationInertiaStartingRoutedEventArgs_Interface;
+   type IManipulationInertiaStartingRoutedEventArgs is access all IManipulationInertiaStartingRoutedEventArgs_Interface'Class;
+   type IManipulationInertiaStartingRoutedEventArgs_Ptr is access all IManipulationInertiaStartingRoutedEventArgs;
+   type IManipulationPivot_Interface;
+   type IManipulationPivot is access all IManipulationPivot_Interface'Class;
+   type IManipulationPivot_Ptr is access all IManipulationPivot;
+   type IManipulationPivotFactory_Interface;
+   type IManipulationPivotFactory is access all IManipulationPivotFactory_Interface'Class;
+   type IManipulationPivotFactory_Ptr is access all IManipulationPivotFactory;
+   type IManipulationStartedRoutedEventArgs_Interface;
+   type IManipulationStartedRoutedEventArgs is access all IManipulationStartedRoutedEventArgs_Interface'Class;
+   type IManipulationStartedRoutedEventArgs_Ptr is access all IManipulationStartedRoutedEventArgs;
+   type IManipulationStartedRoutedEventArgsFactory_Interface;
+   type IManipulationStartedRoutedEventArgsFactory is access all IManipulationStartedRoutedEventArgsFactory_Interface'Class;
+   type IManipulationStartedRoutedEventArgsFactory_Ptr is access all IManipulationStartedRoutedEventArgsFactory;
+   type IManipulationStartingRoutedEventArgs_Interface;
+   type IManipulationStartingRoutedEventArgs is access all IManipulationStartingRoutedEventArgs_Interface'Class;
+   type IManipulationStartingRoutedEventArgs_Ptr is access all IManipulationStartingRoutedEventArgs;
+   type INoFocusCandidateFoundEventArgs_Interface;
+   type INoFocusCandidateFoundEventArgs is access all INoFocusCandidateFoundEventArgs_Interface'Class;
+   type INoFocusCandidateFoundEventArgs_Ptr is access all INoFocusCandidateFoundEventArgs;
+   type IPointer_Interface;
+   type IPointer is access all IPointer_Interface'Class;
+   type IPointer_Ptr is access all IPointer;
+   type IPointerRoutedEventArgs_Interface;
+   type IPointerRoutedEventArgs is access all IPointerRoutedEventArgs_Interface'Class;
+   type IPointerRoutedEventArgs_Ptr is access all IPointerRoutedEventArgs;
+   type IPointerRoutedEventArgs2_Interface;
+   type IPointerRoutedEventArgs2 is access all IPointerRoutedEventArgs2_Interface'Class;
+   type IPointerRoutedEventArgs2_Ptr is access all IPointerRoutedEventArgs2;
+   type IProcessKeyboardAcceleratorEventArgs_Interface;
+   type IProcessKeyboardAcceleratorEventArgs is access all IProcessKeyboardAcceleratorEventArgs_Interface'Class;
+   type IProcessKeyboardAcceleratorEventArgs_Ptr is access all IProcessKeyboardAcceleratorEventArgs;
+   type IRightTappedRoutedEventArgs_Interface;
+   type IRightTappedRoutedEventArgs is access all IRightTappedRoutedEventArgs_Interface'Class;
+   type IRightTappedRoutedEventArgs_Ptr is access all IRightTappedRoutedEventArgs;
+   type ITappedRoutedEventArgs_Interface;
+   type ITappedRoutedEventArgs is access all ITappedRoutedEventArgs_Interface'Class;
+   type ITappedRoutedEventArgs_Ptr is access all ITappedRoutedEventArgs;
    type IVector_IInputScopeName_Interface;
    type IVector_IInputScopeName is access all IVector_IInputScopeName_Interface'Class;
    type IVector_IInputScopeName_Ptr is access all IVector_IInputScopeName;
-   type IAsyncOperation_IFocusMovementResult_Interface;
-   type IAsyncOperation_IFocusMovementResult is access all IAsyncOperation_IFocusMovementResult_Interface'Class;
-   type IAsyncOperation_IFocusMovementResult_Ptr is access all IAsyncOperation_IFocusMovementResult;
+   type IVector_IKeyboardAccelerator_Interface;
+   type IVector_IKeyboardAccelerator is access all IVector_IKeyboardAccelerator_Interface'Class;
+   type IVector_IKeyboardAccelerator_Ptr is access all IVector_IKeyboardAccelerator;
+   type IVectorView_IInputScopeName_Interface;
+   type IVectorView_IInputScopeName is access all IVectorView_IInputScopeName_Interface'Class;
+   type IVectorView_IInputScopeName_Ptr is access all IVectorView_IInputScopeName;
+   type IVectorView_IKeyboardAccelerator_Interface;
+   type IVectorView_IKeyboardAccelerator is access all IVectorView_IKeyboardAccelerator_Interface'Class;
+   type IVectorView_IKeyboardAccelerator_Ptr is access all IVectorView_IKeyboardAccelerator;
+   type IVectorView_IPointer_Interface;
+   type IVectorView_IPointer is access all IVectorView_IPointer_Interface'Class;
+   type IVectorView_IPointer_Ptr is access all IVectorView_IPointer;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICommand : aliased constant Windows.IID := (3853464898, 51815, 16513, (153, 91, 112, 157, 209, 55, 146, 223 ));
-   
-   type ICommand_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_CanExecuteChanged
-   (
-      This       : access ICommand_Interface
-      ; value : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_CanExecuteChanged
-   (
-      This       : access ICommand_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CanExecute
-   (
-      This       : access ICommand_Interface
-      ; parameter : Windows.Object
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Execute
-   (
-      This       : access ICommand_Interface
-      ; parameter : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -690,260 +654,28 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
-   IID_IInertiaExpansionBehavior : aliased constant Windows.IID := (1964869605, 36162, 17605, (150, 94, 60, 211, 12, 201, 214, 247 ));
+   IID_IAsyncOperation_IFocusMovementResult : aliased constant Windows.IID := (245647723, 14302, 24152, (139, 13, 44, 57, 144, 196, 203, 178 ));
    
-   type IInertiaExpansionBehavior_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IFocusMovementResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_DesiredDeceleration
+   function put_Completed
    (
-      This       : access IInertiaExpansionBehavior_Interface
-      ; RetVal : access Windows.Double
+      This       : access IAsyncOperation_IFocusMovementResult_Interface
+      ; handler : Windows.UI.Xaml.Input.AsyncOperationCompletedHandler_IFocusMovementResult
    )
    return Windows.HRESULT is abstract;
    
-   function put_DesiredDeceleration
+   function get_Completed
    (
-      This       : access IInertiaExpansionBehavior_Interface
-      ; value : Windows.Double
+      This       : access IAsyncOperation_IFocusMovementResult_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.AsyncOperationCompletedHandler_IFocusMovementResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_DesiredExpansion
+   function GetResults
    (
-      This       : access IInertiaExpansionBehavior_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredExpansion
-   (
-      This       : access IInertiaExpansionBehavior_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInertiaRotationBehavior : aliased constant Windows.IID := (1112341294, 48125, 17957, (174, 120, 32, 198, 91, 241, 239, 175 ));
-   
-   type IInertiaRotationBehavior_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DesiredDeceleration
-   (
-      This       : access IInertiaRotationBehavior_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredDeceleration
-   (
-      This       : access IInertiaRotationBehavior_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DesiredRotation
-   (
-      This       : access IInertiaRotationBehavior_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredRotation
-   (
-      This       : access IInertiaRotationBehavior_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInertiaTranslationBehavior : aliased constant Windows.IID := (1171498258, 15154, 18562, (164, 194, 236, 250, 45, 75, 109, 240 ));
-   
-   type IInertiaTranslationBehavior_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DesiredDeceleration
-   (
-      This       : access IInertiaTranslationBehavior_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredDeceleration
-   (
-      This       : access IInertiaTranslationBehavior_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DesiredDisplacement
-   (
-      This       : access IInertiaTranslationBehavior_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DesiredDisplacement
-   (
-      This       : access IInertiaTranslationBehavior_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IKeyboardAcceleratorInvokedEventArgs : aliased constant Windows.IID := (3221947378, 1255, 17429, (177, 125, 215, 107, 148, 144, 222, 43 ));
-   
-   type IKeyboardAcceleratorInvokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Handled
-   (
-      This       : access IKeyboardAcceleratorInvokedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Handled
-   (
-      This       : access IKeyboardAcceleratorInvokedEventArgs_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Element
-   (
-      This       : access IKeyboardAcceleratorInvokedEventArgs_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IKeyboardAcceleratorInvokedEventArgs2 : aliased constant Windows.IID := (3204228280, 22791, 18670, (142, 33, 156, 150, 144, 120, 250, 17 ));
-   
-   type IKeyboardAcceleratorInvokedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_KeyboardAccelerator
-   (
-      This       : access IKeyboardAcceleratorInvokedEventArgs2_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IManipulationPivot : aliased constant Windows.IID := (775436453, 59074, 18840, (130, 172, 24, 116, 139, 20, 22, 102 ));
-   
-   type IManipulationPivot_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Center
-   (
-      This       : access IManipulationPivot_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Center
-   (
-      This       : access IManipulationPivot_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Radius
-   (
-      This       : access IManipulationPivot_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Radius
-   (
-      This       : access IManipulationPivot_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IManipulationPivotFactory : aliased constant Windows.IID := (1829089337, 14082, 17302, (173, 155, 168, 37, 239, 166, 58, 59 ));
-   
-   type IManipulationPivotFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstanceWithCenterAndRadius
-   (
-      This       : access IManipulationPivotFactory_Interface
-      ; center : Windows.Foundation.Point
-      ; radius : Windows.Double
-      ; RetVal : access Windows.UI.Xaml.Input.IManipulationPivot
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPointer : aliased constant Windows.IID := (1592325023, 29821, 16753, (144, 230, 205, 55, 169, 223, 251, 17 ));
-   
-   type IPointer_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PointerId
-   (
-      This       : access IPointer_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PointerDeviceType
-   (
-      This       : access IPointer_Interface
-      ; RetVal : access Windows.Devices.Input.PointerDeviceType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsInContact
-   (
-      This       : access IPointer_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsInRange
-   (
-      This       : access IPointer_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProcessKeyboardAcceleratorEventArgs : aliased constant Windows.IID := (4219060758, 38699, 17420, (155, 131, 43, 65, 152, 220, 240, 157 ));
-   
-   type IProcessKeyboardAcceleratorEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Key
-   (
-      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
-      ; RetVal : access Windows.System.VirtualKey
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Modifiers
-   (
-      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
-      ; RetVal : access Windows.System.VirtualKeyModifiers
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Handled
-   (
-      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Handled
-   (
-      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
-      ; value : Windows.Boolean
+      This       : access IAsyncOperation_IFocusMovementResult_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IFocusMovementResult
    )
    return Windows.HRESULT is abstract;
    
@@ -978,6 +710,42 @@ package Windows.UI.Xaml.Input is
    (
       This       : access ICharacterReceivedRoutedEventArgs_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommand : aliased constant Windows.IID := (3853464898, 51815, 16513, (153, 91, 112, 157, 209, 55, 146, 223 ));
+   
+   type ICommand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_CanExecuteChanged
+   (
+      This       : access ICommand_Interface
+      ; value : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_CanExecuteChanged
+   (
+      This       : access ICommand_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CanExecute
+   (
+      This       : access ICommand_Interface
+      ; parameter : Windows.Object
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Execute
+   (
+      This       : access ICommand_Interface
+      ; parameter : Windows.Object
    )
    return Windows.HRESULT is abstract;
    
@@ -1042,6 +810,217 @@ package Windows.UI.Xaml.Input is
       This       : access IDoubleTappedRoutedEventArgs_Interface
       ; relativeTo : Windows.UI.Xaml.IUIElement
       ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFindNextElementOptions : aliased constant Windows.IID := (3632980523, 18114, 16892, (137, 126, 181, 150, 25, 119, 184, 157 ));
+   
+   type IFindNextElementOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SearchRoot
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SearchRoot
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; value : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExclusionRect
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExclusionRect
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; value : Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HintRect
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HintRect
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; value : Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusNavigationStrategyOverride
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusNavigationStrategyOverride
+   (
+      This       : access IFindNextElementOptions_Interface
+      ; value : Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManager : aliased constant Windows.IID := (3359896843, 15235, 19873, (157, 111, 85, 124, 17, 105, 243, 65 ));
+   
+   type IFocusManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics : aliased constant Windows.IID := (516739878, 33154, 17538, (130, 106, 9, 24, 233, 237, 154, 247 ));
+   
+   type IFocusManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetFocusedElement
+   (
+      This       : access IFocusManagerStatics_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics2 : aliased constant Windows.IID := (2837501793, 56711, 20273, (190, 218, 239, 65, 127, 231, 192, 74 ));
+   
+   type IFocusManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryMoveFocus
+   (
+      This       : access IFocusManagerStatics2_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics3 : aliased constant Windows.IID := (1619025599, 45385, 16765, (131, 241, 186, 235, 86, 14, 42, 71 ));
+   
+   type IFocusManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FindNextFocusableElement
+   (
+      This       : access IFocusManagerStatics3_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindNextFocusableElementWithHint
+   (
+      This       : access IFocusManagerStatics3_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; hintRect : Windows.Foundation.Rect
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics4 : aliased constant Windows.IID := (690450076, 7276, 16714, (186, 28, 150, 239, 213, 150, 43, 205 ));
+   
+   type IFocusManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryMoveFocusWithOptions
+   (
+      This       : access IFocusManagerStatics4_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindNextElement
+   (
+      This       : access IFocusManagerStatics4_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindFirstFocusableElement
+   (
+      This       : access IFocusManagerStatics4_Interface
+      ; searchScope : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindLastFocusableElement
+   (
+      This       : access IFocusManagerStatics4_Interface
+      ; searchScope : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindNextElementWithOptions
+   (
+      This       : access IFocusManagerStatics4_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics5 : aliased constant Windows.IID := (672062561, 8314, 19835, (185, 143, 206, 22, 94, 27, 32, 21 ));
+   
+   type IFocusManagerStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryFocusAsync
+   (
+      This       : access IFocusManagerStatics5_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FocusState
+      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryMoveFocusAsync
+   (
+      This       : access IFocusManagerStatics5_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryMoveFocusWithOptionsAsync
+   (
+      This       : access IFocusManagerStatics5_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusMovementResult : aliased constant Windows.IID := (115337939, 49838, 17595, (191, 171, 156, 115, 222, 132, 7, 164 ));
+   
+   type IFocusMovementResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Succeeded
+   (
+      This       : access IFocusMovementResult_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1186,6 +1165,108 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IInertiaExpansionBehavior : aliased constant Windows.IID := (1964869605, 36162, 17605, (150, 94, 60, 211, 12, 201, 214, 247 ));
+   
+   type IInertiaExpansionBehavior_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DesiredDeceleration
+   (
+      This       : access IInertiaExpansionBehavior_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredDeceleration
+   (
+      This       : access IInertiaExpansionBehavior_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DesiredExpansion
+   (
+      This       : access IInertiaExpansionBehavior_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredExpansion
+   (
+      This       : access IInertiaExpansionBehavior_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInertiaRotationBehavior : aliased constant Windows.IID := (1112341294, 48125, 17957, (174, 120, 32, 198, 91, 241, 239, 175 ));
+   
+   type IInertiaRotationBehavior_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DesiredDeceleration
+   (
+      This       : access IInertiaRotationBehavior_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredDeceleration
+   (
+      This       : access IInertiaRotationBehavior_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DesiredRotation
+   (
+      This       : access IInertiaRotationBehavior_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredRotation
+   (
+      This       : access IInertiaRotationBehavior_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInertiaTranslationBehavior : aliased constant Windows.IID := (1171498258, 15154, 18562, (164, 194, 236, 250, 45, 75, 109, 240 ));
+   
+   type IInertiaTranslationBehavior_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DesiredDeceleration
+   (
+      This       : access IInertiaTranslationBehavior_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredDeceleration
+   (
+      This       : access IInertiaTranslationBehavior_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DesiredDisplacement
+   (
+      This       : access IInertiaTranslationBehavior_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DesiredDisplacement
+   (
+      This       : access IInertiaTranslationBehavior_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IInputScope : aliased constant Windows.IID := (1544521203, 63960, 16928, (182, 102, 4, 93, 7, 77, 155, 250 ));
    
    type IInputScope_Interface is interface and Windows.IInspectable_Interface;
@@ -1228,6 +1309,150 @@ package Windows.UI.Xaml.Input is
       This       : access IInputScopeNameFactory_Interface
       ; nameValue : Windows.UI.Xaml.Input.InputScopeNameValue
       ; RetVal : access Windows.UI.Xaml.Input.IInputScopeName
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IInputScopeName : aliased constant Windows.IID := (2168545942, 38352, 20736, (181, 155, 190, 161, 194, 125, 32, 2 ));
+   
+   type IIterable_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IInputScopeName_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IIterator_IInputScopeName
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IKeyboardAccelerator : aliased constant Windows.IID := (2938003441, 54552, 21793, (180, 14, 111, 82, 77, 4, 193, 41 ));
+   
+   type IIterable_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IKeyboardAccelerator_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IIterator_IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPointer : aliased constant Windows.IID := (1828321369, 8756, 20749, (134, 10, 219, 50, 128, 48, 203, 204 ));
+   
+   type IIterable_IPointer_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IPointer_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IIterator_IPointer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IInputScopeName : aliased constant Windows.IID := (2059497460, 22615, 20481, (184, 127, 50, 112, 147, 246, 131, 146 ));
+   
+   type IIterator_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IInputScopeName_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IInputScopeName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IInputScopeName_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IInputScopeName_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IInputScopeName_Interface
+      ; items : Windows.UI.Xaml.Input.IInputScopeName_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IKeyboardAccelerator : aliased constant Windows.IID := (2339029400, 60064, 20710, (154, 53, 50, 223, 223, 31, 89, 225 ));
+   
+   type IIterator_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IKeyboardAccelerator_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IKeyboardAccelerator_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IKeyboardAccelerator_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IKeyboardAccelerator_Interface
+      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPointer : aliased constant Windows.IID := (2360423549, 34952, 24499, (191, 253, 230, 202, 246, 27, 79, 3 ));
+   
+   type IIterator_IPointer_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPointer_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IPointer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPointer_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPointer_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPointer_Interface
+      ; items : Windows.UI.Xaml.Input.IPointer_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1310,6 +1535,61 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IKeyboardAcceleratorFactory : aliased constant Windows.IID := (1155041945, 19453, 19015, (168, 147, 81, 95, 56, 134, 35, 246 ));
+   
+   type IKeyboardAcceleratorFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IKeyboardAcceleratorFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IKeyboardAcceleratorInvokedEventArgs : aliased constant Windows.IID := (3221947378, 1255, 17429, (177, 125, 215, 107, 148, 144, 222, 43 ));
+   
+   type IKeyboardAcceleratorInvokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Handled
+   (
+      This       : access IKeyboardAcceleratorInvokedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access IKeyboardAcceleratorInvokedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Element
+   (
+      This       : access IKeyboardAcceleratorInvokedEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IKeyboardAcceleratorInvokedEventArgs2 : aliased constant Windows.IID := (3204228280, 22791, 18670, (142, 33, 156, 150, 144, 120, 250, 17 ));
+   
+   type IKeyboardAcceleratorInvokedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyboardAccelerator
+   (
+      This       : access IKeyboardAcceleratorInvokedEventArgs2_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IKeyboardAcceleratorStatics : aliased constant Windows.IID := (1003765073, 39859, 17773, (191, 21, 128, 74, 223, 184, 98, 97 ));
    
    type IKeyboardAcceleratorStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1339,21 +1619,6 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IKeyboardAcceleratorStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IKeyboardAcceleratorFactory : aliased constant Windows.IID := (1155041945, 19453, 19015, (168, 147, 81, 95, 56, 134, 35, 246 ));
-   
-   type IKeyboardAcceleratorFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IKeyboardAcceleratorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
    )
    return Windows.HRESULT is abstract;
    
@@ -1750,6 +2015,55 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IManipulationPivot : aliased constant Windows.IID := (775436453, 59074, 18840, (130, 172, 24, 116, 139, 20, 22, 102 ));
+   
+   type IManipulationPivot_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Center
+   (
+      This       : access IManipulationPivot_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Center
+   (
+      This       : access IManipulationPivot_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Radius
+   (
+      This       : access IManipulationPivot_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Radius
+   (
+      This       : access IManipulationPivot_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IManipulationPivotFactory : aliased constant Windows.IID := (1829089337, 14082, 17302, (173, 155, 168, 37, 239, 166, 58, 59 ));
+   
+   type IManipulationPivotFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstanceWithCenterAndRadius
+   (
+      This       : access IManipulationPivotFactory_Interface
+      ; center : Windows.Foundation.Point
+      ; radius : Windows.Double
+      ; RetVal : access Windows.UI.Xaml.Input.IManipulationPivot
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IManipulationStartedRoutedEventArgs : aliased constant Windows.IID := (1571924485, 40832, 18614, (174, 108, 79, 17, 157, 232, 255, 19 ));
    
    type IManipulationStartedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1915,6 +2229,40 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IPointer : aliased constant Windows.IID := (1592325023, 29821, 16753, (144, 230, 205, 55, 169, 223, 251, 17 ));
+   
+   type IPointer_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PointerId
+   (
+      This       : access IPointer_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PointerDeviceType
+   (
+      This       : access IPointer_Interface
+      ; RetVal : access Windows.Devices.Input.PointerDeviceType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsInContact
+   (
+      This       : access IPointer_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsInRange
+   (
+      This       : access IPointer_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPointerRoutedEventArgs : aliased constant Windows.IID := (3663892234, 38738, 18914, (189, 226, 73, 236, 202, 185, 25, 77 ));
    
    type IPointerRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1973,6 +2321,40 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IPointerRoutedEventArgs2_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProcessKeyboardAcceleratorEventArgs : aliased constant Windows.IID := (4219060758, 38699, 17420, (155, 131, 43, 65, 152, 220, 240, 157 ));
+   
+   type IProcessKeyboardAcceleratorEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Key
+   (
+      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
+      ; RetVal : access Windows.System.VirtualKey
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Modifiers
+   (
+      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
+      ; RetVal : access Windows.System.VirtualKeyModifiers
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access IProcessKeyboardAcceleratorEventArgs_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -2043,573 +2425,6 @@ package Windows.UI.Xaml.Input is
       This       : access ITappedRoutedEventArgs_Interface
       ; relativeTo : Windows.UI.Xaml.IUIElement
       ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFindNextElementOptions : aliased constant Windows.IID := (3632980523, 18114, 16892, (137, 126, 181, 150, 25, 119, 184, 157 ));
-   
-   type IFindNextElementOptions_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SearchRoot
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SearchRoot
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; value : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExclusionRect
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ExclusionRect
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; value : Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HintRect
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_HintRect
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; value : Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_XYFocusNavigationStrategyOverride
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_XYFocusNavigationStrategyOverride
-   (
-      This       : access IFindNextElementOptions_Interface
-      ; value : Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFocusManager : aliased constant Windows.IID := (3359896843, 15235, 19873, (157, 111, 85, 124, 17, 105, 243, 65 ));
-   
-   type IFocusManager_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFocusManagerStatics : aliased constant Windows.IID := (516739878, 33154, 17538, (130, 106, 9, 24, 233, 237, 154, 247 ));
-   
-   type IFocusManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetFocusedElement
-   (
-      This       : access IFocusManagerStatics_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFocusManagerStatics2 : aliased constant Windows.IID := (2837501793, 56711, 20273, (190, 218, 239, 65, 127, 231, 192, 74 ));
-   
-   type IFocusManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function TryMoveFocus
-   (
-      This       : access IFocusManagerStatics2_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFocusManagerStatics3 : aliased constant Windows.IID := (1619025599, 45385, 16765, (131, 241, 186, 235, 86, 14, 42, 71 ));
-   
-   type IFocusManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FindNextFocusableElement
-   (
-      This       : access IFocusManagerStatics3_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; RetVal : access Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindNextFocusableElementWithHint
-   (
-      This       : access IFocusManagerStatics3_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; hintRect : Windows.Foundation.Rect
-      ; RetVal : access Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFocusManagerStatics4 : aliased constant Windows.IID := (690450076, 7276, 16714, (186, 28, 150, 239, 213, 150, 43, 205 ));
-   
-   type IFocusManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
-   
-   function TryMoveFocusWithOptions
-   (
-      This       : access IFocusManagerStatics4_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindNextElement
-   (
-      This       : access IFocusManagerStatics4_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindFirstFocusableElement
-   (
-      This       : access IFocusManagerStatics4_Interface
-      ; searchScope : Windows.UI.Xaml.IDependencyObject
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindLastFocusableElement
-   (
-      This       : access IFocusManagerStatics4_Interface
-      ; searchScope : Windows.UI.Xaml.IDependencyObject
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindNextElementWithOptions
-   (
-      This       : access IFocusManagerStatics4_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
-      ; RetVal : access Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFocusManagerStatics5 : aliased constant Windows.IID := (672062561, 8314, 19835, (185, 143, 206, 22, 94, 27, 32, 21 ));
-   
-   type IFocusManagerStatics5_Interface is interface and Windows.IInspectable_Interface;
-   
-   function TryFocusAsync
-   (
-      This       : access IFocusManagerStatics5_Interface
-      ; element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FocusState
-      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryMoveFocusAsync
-   (
-      This       : access IFocusManagerStatics5_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryMoveFocusWithOptionsAsync
-   (
-      This       : access IFocusManagerStatics5_Interface
-      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
-      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFocusMovementResult : aliased constant Windows.IID := (115337939, 49838, 17595, (191, 171, 156, 115, 222, 132, 7, 164 ));
-   
-   type IFocusMovementResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Succeeded
-   (
-      This       : access IFocusMovementResult_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IPointer : aliased constant Windows.IID := (2360423549, 34952, 24499, (191, 253, 230, 202, 246, 27, 79, 3 ));
-   
-   type IIterator_IPointer_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IPointer_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IPointer
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IPointer_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPointer_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPointer_Interface
-      ; items : Windows.UI.Xaml.Input.IPointer_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IPointer : aliased constant Windows.IID := (1828321369, 8756, 20749, (134, 10, 219, 50, 128, 48, 203, 204 ));
-   
-   type IIterable_IPointer_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IPointer_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IIterator_IPointer
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IPointer : aliased constant Windows.IID := (1649473439, 30312, 20969, (134, 163, 56, 33, 33, 122, 102, 49 ));
-   
-   type IVectorView_IPointer_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IPointer_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Input.IPointer
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IPointer_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IPointer_Interface
-      ; value : Windows.UI.Xaml.Input.IPointer
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IPointer_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Input.IPointer_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IKeyboardAccelerator : aliased constant Windows.IID := (2339029400, 60064, 20710, (154, 53, 50, 223, 223, 31, 89, 225 ));
-   
-   type IIterator_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IKeyboardAccelerator_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IKeyboardAccelerator_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IKeyboardAccelerator_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IKeyboardAccelerator_Interface
-      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IKeyboardAccelerator : aliased constant Windows.IID := (2938003441, 54552, 21793, (180, 14, 111, 82, 77, 4, 193, 41 ));
-   
-   type IIterable_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IKeyboardAccelerator_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IIterator_IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IKeyboardAccelerator : aliased constant Windows.IID := (1298021640, 57980, 23813, (161, 220, 152, 133, 165, 28, 55, 33 ));
-   
-   type IVectorView_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IKeyboardAccelerator_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IKeyboardAccelerator_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IKeyboardAccelerator_Interface
-      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IKeyboardAccelerator_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_IKeyboardAccelerator : aliased constant Windows.IID := (3834806251, 7754, 23523, (189, 163, 98, 207, 78, 82, 2, 88 ));
-   
-   type IVector_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IVectorView_IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_IKeyboardAccelerator_Interface
-      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IInputScopeName : aliased constant Windows.IID := (2059497460, 22615, 20481, (184, 127, 50, 112, 147, 246, 131, 146 ));
-   
-   type IIterator_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IInputScopeName_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IInputScopeName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IInputScopeName_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IInputScopeName_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IInputScopeName_Interface
-      ; items : Windows.UI.Xaml.Input.IInputScopeName_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IInputScopeName : aliased constant Windows.IID := (2168545942, 38352, 20736, (181, 155, 190, 161, 194, 125, 32, 2 ));
-   
-   type IIterable_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IInputScopeName_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IIterator_IInputScopeName
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IInputScopeName : aliased constant Windows.IID := (4241906306, 21288, 21436, (168, 132, 194, 9, 170, 250, 191, 120 ));
-   
-   type IVectorView_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IInputScopeName_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Input.IInputScopeName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IInputScopeName_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IInputScopeName_Interface
-      ; value : Windows.UI.Xaml.Input.IInputScopeName
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IInputScopeName_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Input.IInputScopeName_Ptr
-      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -2710,34 +2525,232 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IFocusMovementResult : aliased constant Windows.IID := (245647723, 14302, 24152, (139, 13, 44, 57, 144, 196, 203, 178 ));
+   IID_IVector_IKeyboardAccelerator : aliased constant Windows.IID := (3834806251, 7754, 23523, (189, 163, 98, 207, 78, 82, 2, 88 ));
    
-   type IAsyncOperation_IFocusMovementResult_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetAt
    (
-      This       : access IAsyncOperation_IFocusMovementResult_Interface
-      ; handler : Windows.UI.Xaml.Input.AsyncOperationCompletedHandler_IFocusMovementResult
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_Size
    (
-      This       : access IAsyncOperation_IFocusMovementResult_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.AsyncOperationCompletedHandler_IFocusMovementResult
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function GetView
    (
-      This       : access IAsyncOperation_IFocusMovementResult_Interface
-      ; RetVal : access Windows.UI.Xaml.Input.IFocusMovementResult
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IVectorView_IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IKeyboardAccelerator_Interface
+      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IInputScopeName : aliased constant Windows.IID := (4241906306, 21288, 21436, (168, 132, 194, 9, 170, 250, 191, 120 ));
+   
+   type IVectorView_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IInputScopeName_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Input.IInputScopeName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IInputScopeName_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IInputScopeName_Interface
+      ; value : Windows.UI.Xaml.Input.IInputScopeName
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IInputScopeName_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Input.IInputScopeName_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IKeyboardAccelerator : aliased constant Windows.IID := (1298021640, 57980, 23813, (161, 220, 152, 133, 165, 28, 55, 33 ));
+   
+   type IVectorView_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IKeyboardAccelerator_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IKeyboardAccelerator_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IKeyboardAccelerator_Interface
+      ; value : Windows.UI.Xaml.Input.IKeyboardAccelerator
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IKeyboardAccelerator_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPointer : aliased constant Windows.IID := (1649473439, 30312, 20969, (134, 163, 56, 33, 33, 122, 102, 49 ));
+   
+   type IVectorView_IPointer_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IPointer_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Input.IPointer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IPointer_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IPointer_Interface
+      ; value : Windows.UI.Xaml.Input.IPointer
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IPointer_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Input.IPointer_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IFocusMovementResult : aliased constant Windows.IID := (464124808, 64573, 23133, (174, 132, 167, 69, 207, 180, 57, 123 ));
+   
+   type AsyncOperationCompletedHandler_IFocusMovementResult_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IFocusMovementResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IFocusMovementResult_Interface
+      ; asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -2909,48 +2922,19 @@ package Windows.UI.Xaml.Input is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IFocusMovementResult : aliased constant Windows.IID := (464124808, 64573, 23133, (174, 132, 167, 69, 207, 180, 57, 123 ));
-   
-   type AsyncOperationCompletedHandler_IFocusMovementResult_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IFocusMovementResult'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IFocusMovementResult_Interface
-      ; asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
-   
-   subtype Pointer is Windows.UI.Xaml.Input.IPointer;
-   subtype AccessKeyDisplayRequestedEventArgs is Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs;
-   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs;
    
    subtype AccessKeyDisplayDismissedEventArgs is Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs;
    function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs;
    
+   subtype AccessKeyDisplayRequestedEventArgs is Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs;
+   function Create return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs;
+   
    subtype AccessKeyInvokedEventArgs is Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs;
    function Create return Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs;
    
-   subtype ProcessKeyboardAcceleratorEventArgs is Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs;
-   subtype KeyboardAcceleratorInvokedEventArgs is Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs;
    subtype AccessKeyManager is Windows.UI.Xaml.Input.IAccessKeyManager;
-   subtype InertiaExpansionBehavior is Windows.UI.Xaml.Input.IInertiaExpansionBehavior;
-   subtype InertiaRotationBehavior is Windows.UI.Xaml.Input.IInertiaRotationBehavior;
-   subtype InertiaTranslationBehavior is Windows.UI.Xaml.Input.IInertiaTranslationBehavior;
-   subtype ManipulationPivot is Windows.UI.Xaml.Input.IManipulationPivot;
-   function Create return Windows.UI.Xaml.Input.IManipulationPivot;
-   
-   function CreateInstanceWithCenterAndRadius
-   (
-      center : Windows.Foundation.Point
-      ; radius : Windows.Double
-   )
-   return Windows.UI.Xaml.Input.IManipulationPivot;
-   
    subtype CharacterReceivedRoutedEventArgs is Windows.UI.Xaml.Input.ICharacterReceivedRoutedEventArgs;
    subtype ContextRequestedEventArgs is Windows.UI.Xaml.Input.IContextRequestedEventArgs;
    function Create return Windows.UI.Xaml.Input.IContextRequestedEventArgs;
@@ -2958,10 +2942,18 @@ package Windows.UI.Xaml.Input is
    subtype DoubleTappedRoutedEventArgs is Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs;
    
+   subtype FindNextElementOptions is Windows.UI.Xaml.Input.IFindNextElementOptions;
+   function Create return Windows.UI.Xaml.Input.IFindNextElementOptions;
+   
+   subtype FocusManager is Windows.UI.Xaml.Input.IFocusManager;
+   subtype FocusMovementResult is Windows.UI.Xaml.Input.IFocusMovementResult;
    subtype GettingFocusEventArgs is Windows.UI.Xaml.Input.IGettingFocusEventArgs;
    subtype HoldingRoutedEventArgs is Windows.UI.Xaml.Input.IHoldingRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.IHoldingRoutedEventArgs;
    
+   subtype InertiaExpansionBehavior is Windows.UI.Xaml.Input.IInertiaExpansionBehavior;
+   subtype InertiaRotationBehavior is Windows.UI.Xaml.Input.IInertiaRotationBehavior;
+   subtype InertiaTranslationBehavior is Windows.UI.Xaml.Input.IInertiaTranslationBehavior;
    subtype InputScope is Windows.UI.Xaml.Input.IInputScope;
    function Create return Windows.UI.Xaml.Input.IInputScope;
    
@@ -3098,6 +3090,7 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
+   subtype KeyboardAcceleratorInvokedEventArgs is Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs;
    subtype KeyRoutedEventArgs is Windows.UI.Xaml.Input.IKeyRoutedEventArgs;
    subtype LosingFocusEventArgs is Windows.UI.Xaml.Input.ILosingFocusEventArgs;
    subtype ManipulationCompletedRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs;
@@ -3108,6 +3101,16 @@ package Windows.UI.Xaml.Input is
    
    subtype ManipulationInertiaStartingRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs;
+   
+   subtype ManipulationPivot is Windows.UI.Xaml.Input.IManipulationPivot;
+   function Create return Windows.UI.Xaml.Input.IManipulationPivot;
+   
+   function CreateInstanceWithCenterAndRadius
+   (
+      center : Windows.Foundation.Point
+      ; radius : Windows.Double
+   )
+   return Windows.UI.Xaml.Input.IManipulationPivot;
    
    subtype ManipulationStartedRoutedEventArgs is Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
    
@@ -3214,18 +3217,15 @@ package Windows.UI.Xaml.Input is
    function Create return Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs;
    
    subtype NoFocusCandidateFoundEventArgs is Windows.UI.Xaml.Input.INoFocusCandidateFoundEventArgs;
+   subtype Pointer is Windows.UI.Xaml.Input.IPointer;
    subtype PointerRoutedEventArgs is Windows.UI.Xaml.Input.IPointerRoutedEventArgs;
+   subtype ProcessKeyboardAcceleratorEventArgs is Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs;
    subtype RightTappedRoutedEventArgs is Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs;
    
    subtype TappedRoutedEventArgs is Windows.UI.Xaml.Input.ITappedRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.ITappedRoutedEventArgs;
    
-   subtype FindNextElementOptions is Windows.UI.Xaml.Input.IFindNextElementOptions;
-   function Create return Windows.UI.Xaml.Input.IFindNextElementOptions;
-   
-   subtype FocusMovementResult is Windows.UI.Xaml.Input.IFocusMovementResult;
-   subtype FocusManager is Windows.UI.Xaml.Input.IFocusManager;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -3257,32 +3257,6 @@ package Windows.UI.Xaml.Input is
    
    procedure ExitDisplayMode
    ;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Input.IKeyboardAccelerator;
-   
-   function get_KeyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ModifiersProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ScopeOwnerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
    
    function GetFocusedElement
    return Windows.Object;
@@ -3357,5 +3331,31 @@ package Windows.UI.Xaml.Input is
       ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
    )
    return Windows.UI.Xaml.IDependencyObject;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Input.IKeyboardAccelerator;
+   
+   function get_KeyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ModifiersProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ScopeOwnerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
    
 end;

@@ -37,6 +37,32 @@ package body Windows.Security.Authentication.Identity.Provider is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface
       ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -63,8 +89,8 @@ package body Windows.Security.Authentication.Identity.Provider is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult
+      This       : access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
+      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -87,32 +113,6 @@ package body Windows.Security.Authentication.Identity.Provider is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
-      ; asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
@@ -124,6 +124,103 @@ package body Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function ShowNotificationMessageAsync
+   (
+      deviceName : Windows.String
+      ; message : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
+      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowNotificationMessageAsync(deviceName, message, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function StartAuthenticationAsync
+   (
+      deviceId : Windows.String
+      ; serviceAuthenticationNonce : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
+      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.StartAuthenticationAsync(deviceId, serviceAuthenticationNonce, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_AuthenticationStageChanged
+   (
+      handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
+      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_AuthenticationStageChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_AuthenticationStageChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
+      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_AuthenticationStageChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetAuthenticationStageInfoAsync
+   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
+      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetAuthenticationStageInfoAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function RegisterDevicePresenceMonitoringAsync
    (
@@ -289,103 +386,6 @@ package body Windows.Security.Authentication.Identity.Provider is
       Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorRegistrationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.UpdateDeviceConfigurationDataAsync(deviceId, deviceConfigurationData, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShowNotificationMessageAsync
-   (
-      deviceName : Windows.String
-      ; message : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
-      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowNotificationMessageAsync(deviceName, message, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function StartAuthenticationAsync
-   (
-      deviceId : Windows.String
-      ; serviceAuthenticationNonce : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
-      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.StartAuthenticationAsync(deviceId, serviceAuthenticationNonce, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function add_AuthenticationStageChanged
-   (
-      handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
-      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_AuthenticationStageChanged(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_AuthenticationStageChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
-      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_AuthenticationStageChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetAuthenticationStageInfoAsync
-   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication");
-      m_Factory     : ISecondaryAuthenticationFactorAuthenticationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryAuthenticationFactorAuthenticationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetAuthenticationStageInfoAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

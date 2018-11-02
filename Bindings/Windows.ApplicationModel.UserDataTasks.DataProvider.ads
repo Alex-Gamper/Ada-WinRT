@@ -35,79 +35,66 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface'Class;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface'Class;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface'Class;
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested;
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface;
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface'Class;
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface'Class;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested;
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface;
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface'Class;
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface'Class;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface'Class;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Ptr is access all TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IUserDataTaskDataProviderTriggerDetails_Interface;
-   type IUserDataTaskDataProviderTriggerDetails is access all IUserDataTaskDataProviderTriggerDetails_Interface'Class;
-   type IUserDataTaskDataProviderTriggerDetails_Ptr is access all IUserDataTaskDataProviderTriggerDetails;
    type IUserDataTaskDataProviderConnection_Interface;
    type IUserDataTaskDataProviderConnection is access all IUserDataTaskDataProviderConnection_Interface'Class;
    type IUserDataTaskDataProviderConnection_Ptr is access all IUserDataTaskDataProviderConnection;
-   type IUserDataTaskListCreateOrUpdateTaskRequest_Interface;
-   type IUserDataTaskListCreateOrUpdateTaskRequest is access all IUserDataTaskListCreateOrUpdateTaskRequest_Interface'Class;
-   type IUserDataTaskListCreateOrUpdateTaskRequest_Ptr is access all IUserDataTaskListCreateOrUpdateTaskRequest;
-   type IUserDataTaskListSyncManagerSyncRequest_Interface;
-   type IUserDataTaskListSyncManagerSyncRequest is access all IUserDataTaskListSyncManagerSyncRequest_Interface'Class;
-   type IUserDataTaskListSyncManagerSyncRequest_Ptr is access all IUserDataTaskListSyncManagerSyncRequest;
-   type IUserDataTaskListSkipOccurrenceRequest_Interface;
-   type IUserDataTaskListSkipOccurrenceRequest is access all IUserDataTaskListSkipOccurrenceRequest_Interface'Class;
-   type IUserDataTaskListSkipOccurrenceRequest_Ptr is access all IUserDataTaskListSkipOccurrenceRequest;
+   type IUserDataTaskDataProviderTriggerDetails_Interface;
+   type IUserDataTaskDataProviderTriggerDetails is access all IUserDataTaskDataProviderTriggerDetails_Interface'Class;
+   type IUserDataTaskDataProviderTriggerDetails_Ptr is access all IUserDataTaskDataProviderTriggerDetails;
    type IUserDataTaskListCompleteTaskRequest_Interface;
    type IUserDataTaskListCompleteTaskRequest is access all IUserDataTaskListCompleteTaskRequest_Interface'Class;
    type IUserDataTaskListCompleteTaskRequest_Ptr is access all IUserDataTaskListCompleteTaskRequest;
-   type IUserDataTaskListDeleteTaskRequest_Interface;
-   type IUserDataTaskListDeleteTaskRequest is access all IUserDataTaskListDeleteTaskRequest_Interface'Class;
-   type IUserDataTaskListDeleteTaskRequest_Ptr is access all IUserDataTaskListDeleteTaskRequest;
-   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface;
-   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs is access all IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface'Class;
-   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Ptr is access all IUserDataTaskListCreateOrUpdateTaskRequestEventArgs;
-   type IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface;
-   type IUserDataTaskListSyncManagerSyncRequestEventArgs is access all IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface'Class;
-   type IUserDataTaskListSyncManagerSyncRequestEventArgs_Ptr is access all IUserDataTaskListSyncManagerSyncRequestEventArgs;
-   type IUserDataTaskListSkipOccurrenceRequestEventArgs_Interface;
-   type IUserDataTaskListSkipOccurrenceRequestEventArgs is access all IUserDataTaskListSkipOccurrenceRequestEventArgs_Interface'Class;
-   type IUserDataTaskListSkipOccurrenceRequestEventArgs_Ptr is access all IUserDataTaskListSkipOccurrenceRequestEventArgs;
    type IUserDataTaskListCompleteTaskRequestEventArgs_Interface;
    type IUserDataTaskListCompleteTaskRequestEventArgs is access all IUserDataTaskListCompleteTaskRequestEventArgs_Interface'Class;
    type IUserDataTaskListCompleteTaskRequestEventArgs_Ptr is access all IUserDataTaskListCompleteTaskRequestEventArgs;
+   type IUserDataTaskListCreateOrUpdateTaskRequest_Interface;
+   type IUserDataTaskListCreateOrUpdateTaskRequest is access all IUserDataTaskListCreateOrUpdateTaskRequest_Interface'Class;
+   type IUserDataTaskListCreateOrUpdateTaskRequest_Ptr is access all IUserDataTaskListCreateOrUpdateTaskRequest;
+   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface;
+   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs is access all IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface'Class;
+   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Ptr is access all IUserDataTaskListCreateOrUpdateTaskRequestEventArgs;
+   type IUserDataTaskListDeleteTaskRequest_Interface;
+   type IUserDataTaskListDeleteTaskRequest is access all IUserDataTaskListDeleteTaskRequest_Interface'Class;
+   type IUserDataTaskListDeleteTaskRequest_Ptr is access all IUserDataTaskListDeleteTaskRequest;
    type IUserDataTaskListDeleteTaskRequestEventArgs_Interface;
    type IUserDataTaskListDeleteTaskRequestEventArgs is access all IUserDataTaskListDeleteTaskRequestEventArgs_Interface'Class;
    type IUserDataTaskListDeleteTaskRequestEventArgs_Ptr is access all IUserDataTaskListDeleteTaskRequestEventArgs;
+   type IUserDataTaskListSkipOccurrenceRequest_Interface;
+   type IUserDataTaskListSkipOccurrenceRequest is access all IUserDataTaskListSkipOccurrenceRequest_Interface'Class;
+   type IUserDataTaskListSkipOccurrenceRequest_Ptr is access all IUserDataTaskListSkipOccurrenceRequest;
+   type IUserDataTaskListSkipOccurrenceRequestEventArgs_Interface;
+   type IUserDataTaskListSkipOccurrenceRequestEventArgs is access all IUserDataTaskListSkipOccurrenceRequestEventArgs_Interface'Class;
+   type IUserDataTaskListSkipOccurrenceRequestEventArgs_Ptr is access all IUserDataTaskListSkipOccurrenceRequestEventArgs;
+   type IUserDataTaskListSyncManagerSyncRequest_Interface;
+   type IUserDataTaskListSyncManagerSyncRequest is access all IUserDataTaskListSyncManagerSyncRequest_Interface'Class;
+   type IUserDataTaskListSyncManagerSyncRequest_Ptr is access all IUserDataTaskListSyncManagerSyncRequest;
+   type IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface;
+   type IUserDataTaskListSyncManagerSyncRequestEventArgs is access all IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface'Class;
+   type IUserDataTaskListSyncManagerSyncRequestEventArgs_Ptr is access all IUserDataTaskListSyncManagerSyncRequestEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserDataTaskDataProviderTriggerDetails : aliased constant Windows.IID := (2921804290, 45513, 17726, (175, 197, 179, 10, 243, 189, 33, 125 ));
-   
-   type IUserDataTaskDataProviderTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Connection
-   (
-      This       : access IUserDataTaskDataProviderTriggerDetails_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -198,97 +185,14 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    ------------------------------------------------------------------------
    
-   IID_IUserDataTaskListCreateOrUpdateTaskRequest : aliased constant Windows.IID := (557020972, 21954, 17152, (130, 121, 4, 50, 110, 7, 204, 228 ));
+   IID_IUserDataTaskDataProviderTriggerDetails : aliased constant Windows.IID := (2921804290, 45513, 17726, (175, 197, 179, 10, 243, 189, 33, 125 ));
    
-   type IUserDataTaskListCreateOrUpdateTaskRequest_Interface is interface and Windows.IInspectable_Interface;
+   type IUserDataTaskDataProviderTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_TaskListId
+   function get_Connection
    (
-      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Task
-   (
-      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataTasks.IUserDataTask
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportCompletedAsync
-   (
-      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
-      ; createdOrUpdatedUserDataTask : Windows.ApplicationModel.UserDataTasks.IUserDataTask
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportFailedAsync
-   (
-      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserDataTaskListSyncManagerSyncRequest : aliased constant Windows.IID := (1084700679, 30096, 16713, (174, 25, 178, 17, 67, 26, 159, 72 ));
-   
-   type IUserDataTaskListSyncManagerSyncRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TaskListId
-   (
-      This       : access IUserDataTaskListSyncManagerSyncRequest_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportCompletedAsync
-   (
-      This       : access IUserDataTaskListSyncManagerSyncRequest_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportFailedAsync
-   (
-      This       : access IUserDataTaskListSyncManagerSyncRequest_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUserDataTaskListSkipOccurrenceRequest : aliased constant Windows.IID := (2877809485, 7379, 17180, (159, 88, 8, 154, 164, 51, 141, 133 ));
-   
-   type IUserDataTaskListSkipOccurrenceRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TaskListId
-   (
-      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TaskId
-   (
-      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportCompletedAsync
-   (
-      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportFailedAsync
-   (
-      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IUserDataTaskDataProviderTriggerDetails_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
    )
    return Windows.HRESULT is abstract;
    
@@ -329,6 +233,81 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    ------------------------------------------------------------------------
    
+   IID_IUserDataTaskListCompleteTaskRequestEventArgs : aliased constant Windows.IID := (3615242557, 19698, 18605, (135, 253, 150, 63, 14, 170, 122, 149 ));
+   
+   type IUserDataTaskListCompleteTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IUserDataTaskListCompleteTaskRequestEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IUserDataTaskListCompleteTaskRequestEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListCreateOrUpdateTaskRequest : aliased constant Windows.IID := (557020972, 21954, 17152, (130, 121, 4, 50, 110, 7, 204, 228 ));
+   
+   type IUserDataTaskListCreateOrUpdateTaskRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TaskListId
+   (
+      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Task
+   (
+      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataTasks.IUserDataTask
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportCompletedAsync
+   (
+      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
+      ; createdOrUpdatedUserDataTask : Windows.ApplicationModel.UserDataTasks.IUserDataTask
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedAsync
+   (
+      This       : access IUserDataTaskListCreateOrUpdateTaskRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListCreateOrUpdateTaskRequestEventArgs : aliased constant Windows.IID := (314923602, 58232, 16795, (174, 56, 165, 233, 230, 4, 71, 110 ));
+   
+   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUserDataTaskListDeleteTaskRequest : aliased constant Windows.IID := (1267088488, 30295, 20285, (176, 116, 212, 126, 200, 223, 7, 231 ));
    
    type IUserDataTaskListDeleteTaskRequest_Interface is interface and Windows.IInspectable_Interface;
@@ -363,41 +342,55 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    ------------------------------------------------------------------------
    
-   IID_IUserDataTaskListCreateOrUpdateTaskRequestEventArgs : aliased constant Windows.IID := (314923602, 58232, 16795, (174, 56, 165, 233, 230, 4, 71, 110 ));
+   IID_IUserDataTaskListDeleteTaskRequestEventArgs : aliased constant Windows.IID := (1617156825, 62818, 16709, (142, 254, 213, 0, 120, 201, 43, 127 ));
    
-   type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IUserDataTaskListDeleteTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
    (
-      This       : access IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequest
+      This       : access IUserDataTaskListDeleteTaskRequestEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequest
    )
    return Windows.HRESULT is abstract;
    
    function GetDeferral
    (
-      This       : access IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface
+      This       : access IUserDataTaskListDeleteTaskRequestEventArgs_Interface
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IUserDataTaskListSyncManagerSyncRequestEventArgs : aliased constant Windows.IID := (2393709586, 30350, 17341, (131, 133, 92, 220, 53, 31, 253, 234 ));
+   IID_IUserDataTaskListSkipOccurrenceRequest : aliased constant Windows.IID := (2877809485, 7379, 17180, (159, 88, 8, 154, 164, 51, 141, 133 ));
    
-   type IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IUserDataTaskListSkipOccurrenceRequest_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Request
+   function get_TaskListId
    (
-      This       : access IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequest
+      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeferral
+   function get_TaskId
    (
-      This       : access IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
+      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportCompletedAsync
+   (
+      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedAsync
+   (
+      This       : access IUserDataTaskListSkipOccurrenceRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
@@ -423,40 +416,47 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    ------------------------------------------------------------------------
    
-   IID_IUserDataTaskListCompleteTaskRequestEventArgs : aliased constant Windows.IID := (3615242557, 19698, 18605, (135, 253, 150, 63, 14, 170, 122, 149 ));
+   IID_IUserDataTaskListSyncManagerSyncRequest : aliased constant Windows.IID := (1084700679, 30096, 16713, (174, 25, 178, 17, 67, 26, 159, 72 ));
    
-   type IUserDataTaskListCompleteTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IUserDataTaskListSyncManagerSyncRequest_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Request
+   function get_TaskListId
    (
-      This       : access IUserDataTaskListCompleteTaskRequestEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequest
+      This       : access IUserDataTaskListSyncManagerSyncRequest_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeferral
+   function ReportCompletedAsync
    (
-      This       : access IUserDataTaskListCompleteTaskRequestEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
+      This       : access IUserDataTaskListSyncManagerSyncRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedAsync
+   (
+      This       : access IUserDataTaskListSyncManagerSyncRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IUserDataTaskListDeleteTaskRequestEventArgs : aliased constant Windows.IID := (1617156825, 62818, 16709, (142, 254, 213, 0, 120, 201, 43, 127 ));
+   IID_IUserDataTaskListSyncManagerSyncRequestEventArgs : aliased constant Windows.IID := (2393709586, 30350, 17341, (131, 133, 92, 220, 53, 31, 253, 234 ));
    
-   type IUserDataTaskListDeleteTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
    (
-      This       : access IUserDataTaskListDeleteTaskRequestEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequest
+      This       : access IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequest
    )
    return Windows.HRESULT is abstract;
    
    function GetDeferral
    (
-      This       : access IUserDataTaskListDeleteTaskRequestEventArgs_Interface
+      This       : access IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
@@ -464,6 +464,19 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested : aliased constant Windows.IID := (1614150135, 54469, 21396, (176, 227, 93, 96, 105, 135, 186, 71 ));
+   
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface
+      ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
+      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -480,14 +493,14 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested : aliased constant Windows.IID := (2976180463, 5756, 22610, (167, 146, 9, 48, 180, 0, 24, 113 ));
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested : aliased constant Windows.IID := (186181256, 45673, 23714, (168, 243, 214, 209, 15, 15, 179, 32 ));
    
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested'access) with null record;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface
+      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface
       ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
-      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs
+      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs
    )
    return Windows.HRESULT;
    
@@ -506,27 +519,14 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested : aliased constant Windows.IID := (1614150135, 54469, 21396, (176, 227, 93, 96, 105, 135, 186, 71 ));
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested : aliased constant Windows.IID := (2976180463, 5756, 22610, (167, 146, 9, 48, 180, 0, 24, 113 ));
    
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested'access) with null record;
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface
+      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface
       ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
-      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested : aliased constant Windows.IID := (186181256, 45673, 23714, (168, 243, 214, 209, 15, 15, 179, 32 ));
-   
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface
-      ; sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
-      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs
+      ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs
    )
    return Windows.HRESULT;
    
@@ -535,17 +535,17 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    
    subtype UserDataTaskDataProviderConnection is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection;
-   subtype UserDataTaskListCreateOrUpdateTaskRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequestEventArgs;
-   subtype UserDataTaskListSyncManagerSyncRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs;
-   subtype UserDataTaskListSkipOccurrenceRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSkipOccurrenceRequestEventArgs;
-   subtype UserDataTaskListCompleteTaskRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs;
-   subtype UserDataTaskListDeleteTaskRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs;
    subtype UserDataTaskDataProviderTriggerDetails is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderTriggerDetails;
-   subtype UserDataTaskListCreateOrUpdateTaskRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequest;
-   subtype UserDataTaskListSyncManagerSyncRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequest;
-   subtype UserDataTaskListSkipOccurrenceRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSkipOccurrenceRequest;
    subtype UserDataTaskListCompleteTaskRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequest;
+   subtype UserDataTaskListCompleteTaskRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs;
+   subtype UserDataTaskListCreateOrUpdateTaskRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequest;
+   subtype UserDataTaskListCreateOrUpdateTaskRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequestEventArgs;
    subtype UserDataTaskListDeleteTaskRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequest;
+   subtype UserDataTaskListDeleteTaskRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs;
+   subtype UserDataTaskListSkipOccurrenceRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSkipOccurrenceRequest;
+   subtype UserDataTaskListSkipOccurrenceRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSkipOccurrenceRequestEventArgs;
+   subtype UserDataTaskListSyncManagerSyncRequest is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequest;
+   subtype UserDataTaskListSyncManagerSyncRequestEventArgs is Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

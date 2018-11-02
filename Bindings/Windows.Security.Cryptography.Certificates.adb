@@ -66,23 +66,6 @@ package body Windows.Security.Cryptography.Certificates is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Security.Cryptography.Certificates.ICertificateExtension is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateExtension");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateExtension) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateExtension'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function CreateCertificate
    (
       certBlob : Windows.Storage.Streams.IBuffer
@@ -103,51 +86,34 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function Create return Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo is
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateExtension is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo");
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateExtension");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateExtension) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ISubjectAlternativeNameInfo'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateExtension'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
    end;
    
-   function Create return Windows.Security.Cryptography.Certificates.ICertificateRequestProperties is
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateKeyUsages is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateRequestProperties");
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateKeyUsages");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateRequestProperties) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateKeyUsages) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateRequestProperties'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Security.Cryptography.Certificates.IPfxImportParameters is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.PfxImportParameters");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.IPfxImportParameters) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IPfxImportParameters'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateKeyUsages'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -165,6 +131,23 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateQuery'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Security.Cryptography.Certificates.ICertificateRequestProperties is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateRequestProperties");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateRequestProperties) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateRequestProperties'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -199,40 +182,6 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IChainValidationParameters'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Security.Cryptography.Certificates.ICertificateKeyUsages is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateKeyUsages");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateKeyUsages) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateKeyUsages'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Security.Cryptography.Certificates.ICmsSignerInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsSignerInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICmsSignerInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICmsSignerInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -277,6 +226,57 @@ package body Windows.Security.Cryptography.Certificates is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function Create return Windows.Security.Cryptography.Certificates.ICmsSignerInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsSignerInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICmsSignerInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICmsSignerInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Security.Cryptography.Certificates.IPfxImportParameters is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.PfxImportParameters");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.IPfxImportParameters) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IPfxImportParameters'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ISubjectAlternativeNameInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------
@@ -418,67 +418,6 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function DecryptTpmAttestationCredentialWithContainerNameAsync
-   (
-      credential : Windows.String
-      ; containerName : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
-      m_Factory     : IKeyAttestationHelperStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DecryptTpmAttestationCredentialWithContainerNameAsync(credential, containerName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function DecryptTpmAttestationCredentialAsync
-   (
-      credential : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
-      m_Factory     : IKeyAttestationHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DecryptTpmAttestationCredentialAsync(credential, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetTpmAttestationCredentialId
-   (
-      credential : Windows.String
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
-      m_Factory     : IKeyAttestationHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetTpmAttestationCredentialId(credential, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetUserStoreByName
    (
       storeName : Windows.String
@@ -590,51 +529,44 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function get_Personal
-   return Windows.String is
+   function GenerateSignatureAsync
+   (
+      data : Windows.Storage.Streams.IBuffer
+      ; signers : Windows.Security.Cryptography.Certificates.IIterable_ICmsSignerInfo
+      ; certificates : Windows.Security.Cryptography.Certificates.IIterable_ICertificate
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
-      m_Factory     : IStandardCertificateStoreNamesStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsAttachedSignature");
+      m_Factory     : ICmsAttachedSignatureStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
+      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICmsAttachedSignatureStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Personal(RetVal'Access);
+         Hr := m_Factory.GenerateSignatureAsync(data, signers, certificates, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_TrustedRootCertificationAuthorities
-   return Windows.String is
+   function GenerateSignatureAsync
+   (
+      data : Windows.Storage.Streams.IInputStream
+      ; signers : Windows.Security.Cryptography.Certificates.IIterable_ICmsSignerInfo
+      ; certificates : Windows.Security.Cryptography.Certificates.IIterable_ICertificate
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
-      m_Factory     : IStandardCertificateStoreNamesStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsDetachedSignature");
+      m_Factory     : ICmsDetachedSignatureStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
+      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICmsDetachedSignatureStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TrustedRootCertificationAuthorities(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IntermediateCertificationAuthorities
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
-      m_Factory     : IStandardCertificateStoreNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IntermediateCertificationAuthorities(RetVal'Access);
+         Hr := m_Factory.GenerateSignatureAsync(data, signers, certificates, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -811,6 +743,67 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
+   function DecryptTpmAttestationCredentialWithContainerNameAsync
+   (
+      credential : Windows.String
+      ; containerName : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
+      m_Factory     : IKeyAttestationHelperStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DecryptTpmAttestationCredentialWithContainerNameAsync(credential, containerName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function DecryptTpmAttestationCredentialAsync
+   (
+      credential : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
+      m_Factory     : IKeyAttestationHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DecryptTpmAttestationCredentialAsync(credential, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTpmAttestationCredentialId
+   (
+      credential : Windows.String
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAttestationHelper");
+      m_Factory     : IKeyAttestationHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAttestationHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTpmAttestationCredentialId(credential, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_SoftwareKeyStorageProvider
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -879,44 +872,51 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function GenerateSignatureAsync
-   (
-      data : Windows.Storage.Streams.IBuffer
-      ; signers : Windows.Security.Cryptography.Certificates.IIterable_ICmsSignerInfo
-      ; certificates : Windows.Security.Cryptography.Certificates.IIterable_ICertificate
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
+   function get_Personal
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsAttachedSignature");
-      m_Factory     : ICmsAttachedSignatureStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
+      m_Factory     : IStandardCertificateStoreNamesStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICmsAttachedSignatureStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GenerateSignatureAsync(data, signers, certificates, RetVal'Access);
+         Hr := m_Factory.get_Personal(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GenerateSignatureAsync
-   (
-      data : Windows.Storage.Streams.IInputStream
-      ; signers : Windows.Security.Cryptography.Certificates.IIterable_ICmsSignerInfo
-      ; certificates : Windows.Security.Cryptography.Certificates.IIterable_ICertificate
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer is
+   function get_TrustedRootCertificationAuthorities
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsDetachedSignature");
-      m_Factory     : ICmsDetachedSignatureStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
+      m_Factory     : IStandardCertificateStoreNamesStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IBuffer;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICmsDetachedSignatureStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GenerateSignatureAsync(data, signers, certificates, RetVal'Access);
+         Hr := m_Factory.get_TrustedRootCertificationAuthorities(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IntermediateCertificationAuthorities
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
+      m_Factory     : IStandardCertificateStoreNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IntermediateCertificationAuthorities(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

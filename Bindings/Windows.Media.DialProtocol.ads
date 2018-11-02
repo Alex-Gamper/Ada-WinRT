@@ -40,22 +40,6 @@ package Windows.Media.DialProtocol is
    -- Enums
    ------------------------------------------------------------------------
    
-   type DialAppState is (
-      Unknown,
-      Stopped,
-      Running,
-      NetworkFailure
-   );
-   for DialAppState use (
-      Unknown => 0,
-      Stopped => 1,
-      Running => 2,
-      NetworkFailure => 3
-   );
-   for DialAppState'Size use 32;
-   
-   type DialAppState_Ptr is access DialAppState;
-   
    type DialAppLaunchResult is (
       Launched,
       FailedToLaunch,
@@ -71,6 +55,22 @@ package Windows.Media.DialProtocol is
    for DialAppLaunchResult'Size use 32;
    
    type DialAppLaunchResult_Ptr is access DialAppLaunchResult;
+   
+   type DialAppState is (
+      Unknown,
+      Stopped,
+      Running,
+      NetworkFailure
+   );
+   for DialAppState use (
+      Unknown => 0,
+      Stopped => 1,
+      Running => 2,
+      NetworkFailure => 3
+   );
+   for DialAppState'Size use 32;
+   
+   type DialAppState_Ptr is access DialAppState;
    
    type DialAppStopResult is (
       Stopped,
@@ -124,56 +124,20 @@ package Windows.Media.DialProtocol is
    type AsyncOperationCompletedHandler_IDialDevice_Interface;
    type AsyncOperationCompletedHandler_IDialDevice is access all AsyncOperationCompletedHandler_IDialDevice_Interface'Class;
    type AsyncOperationCompletedHandler_IDialDevice_Ptr is access all AsyncOperationCompletedHandler_IDialDevice;
+   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface;
+   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed is access all TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface'Class;
+   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Ptr is access all TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed;
    type TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Interface;
    type TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected is access all TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Interface'Class;
    type TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Ptr is access all TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected;
    type TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked_Interface;
    type TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked is access all TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked_Interface'Class;
    type TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked_Ptr is access all TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked;
-   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface;
-   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed is access all TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface'Class;
-   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Ptr is access all TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IDialAppStateDetails_Interface;
-   type IDialAppStateDetails is access all IDialAppStateDetails_Interface'Class;
-   type IDialAppStateDetails_Ptr is access all IDialAppStateDetails;
-   type IDialApp_Interface;
-   type IDialApp is access all IDialApp_Interface'Class;
-   type IDialApp_Ptr is access all IDialApp;
-   type IDialDevice_Interface;
-   type IDialDevice is access all IDialDevice_Interface'Class;
-   type IDialDevice_Ptr is access all IDialDevice;
-   type IDialDevice2_Interface;
-   type IDialDevice2 is access all IDialDevice2_Interface'Class;
-   type IDialDevice2_Ptr is access all IDialDevice2;
-   type IDialDeviceStatics_Interface;
-   type IDialDeviceStatics is access all IDialDeviceStatics_Interface'Class;
-   type IDialDeviceStatics_Ptr is access all IDialDeviceStatics;
-   type IDialDeviceSelectedEventArgs_Interface;
-   type IDialDeviceSelectedEventArgs is access all IDialDeviceSelectedEventArgs_Interface'Class;
-   type IDialDeviceSelectedEventArgs_Ptr is access all IDialDeviceSelectedEventArgs;
-   type IDialDisconnectButtonClickedEventArgs_Interface;
-   type IDialDisconnectButtonClickedEventArgs is access all IDialDisconnectButtonClickedEventArgs_Interface'Class;
-   type IDialDisconnectButtonClickedEventArgs_Ptr is access all IDialDisconnectButtonClickedEventArgs;
-   type IDialDevicePickerFilter_Interface;
-   type IDialDevicePickerFilter is access all IDialDevicePickerFilter_Interface'Class;
-   type IDialDevicePickerFilter_Ptr is access all IDialDevicePickerFilter;
-   type IDialDevicePicker_Interface;
-   type IDialDevicePicker is access all IDialDevicePicker_Interface'Class;
-   type IDialDevicePicker_Ptr is access all IDialDevicePicker;
-   type IDialReceiverAppStatics_Interface;
-   type IDialReceiverAppStatics is access all IDialReceiverAppStatics_Interface'Class;
-   type IDialReceiverAppStatics_Ptr is access all IDialReceiverAppStatics;
-   type IDialReceiverApp_Interface;
-   type IDialReceiverApp is access all IDialReceiverApp_Interface'Class;
-   type IDialReceiverApp_Ptr is access all IDialReceiverApp;
-   type IDialReceiverApp2_Interface;
-   type IDialReceiverApp2 is access all IDialReceiverApp2_Interface'Class;
-   type IDialReceiverApp2_Ptr is access all IDialReceiverApp2;
    type IAsyncOperation_DialAppLaunchResult_Interface;
    type IAsyncOperation_DialAppLaunchResult is access all IAsyncOperation_DialAppLaunchResult_Interface'Class;
    type IAsyncOperation_DialAppLaunchResult_Ptr is access all IAsyncOperation_DialAppLaunchResult;
@@ -186,6 +150,42 @@ package Windows.Media.DialProtocol is
    type IAsyncOperation_IDialDevice_Interface;
    type IAsyncOperation_IDialDevice is access all IAsyncOperation_IDialDevice_Interface'Class;
    type IAsyncOperation_IDialDevice_Ptr is access all IAsyncOperation_IDialDevice;
+   type IDialApp_Interface;
+   type IDialApp is access all IDialApp_Interface'Class;
+   type IDialApp_Ptr is access all IDialApp;
+   type IDialAppStateDetails_Interface;
+   type IDialAppStateDetails is access all IDialAppStateDetails_Interface'Class;
+   type IDialAppStateDetails_Ptr is access all IDialAppStateDetails;
+   type IDialDevice_Interface;
+   type IDialDevice is access all IDialDevice_Interface'Class;
+   type IDialDevice_Ptr is access all IDialDevice;
+   type IDialDevice2_Interface;
+   type IDialDevice2 is access all IDialDevice2_Interface'Class;
+   type IDialDevice2_Ptr is access all IDialDevice2;
+   type IDialDevicePicker_Interface;
+   type IDialDevicePicker is access all IDialDevicePicker_Interface'Class;
+   type IDialDevicePicker_Ptr is access all IDialDevicePicker;
+   type IDialDevicePickerFilter_Interface;
+   type IDialDevicePickerFilter is access all IDialDevicePickerFilter_Interface'Class;
+   type IDialDevicePickerFilter_Ptr is access all IDialDevicePickerFilter;
+   type IDialDeviceSelectedEventArgs_Interface;
+   type IDialDeviceSelectedEventArgs is access all IDialDeviceSelectedEventArgs_Interface'Class;
+   type IDialDeviceSelectedEventArgs_Ptr is access all IDialDeviceSelectedEventArgs;
+   type IDialDeviceStatics_Interface;
+   type IDialDeviceStatics is access all IDialDeviceStatics_Interface'Class;
+   type IDialDeviceStatics_Ptr is access all IDialDeviceStatics;
+   type IDialDisconnectButtonClickedEventArgs_Interface;
+   type IDialDisconnectButtonClickedEventArgs is access all IDialDisconnectButtonClickedEventArgs_Interface'Class;
+   type IDialDisconnectButtonClickedEventArgs_Ptr is access all IDialDisconnectButtonClickedEventArgs;
+   type IDialReceiverApp_Interface;
+   type IDialReceiverApp is access all IDialReceiverApp_Interface'Class;
+   type IDialReceiverApp_Ptr is access all IDialReceiverApp;
+   type IDialReceiverApp2_Interface;
+   type IDialReceiverApp2 is access all IDialReceiverApp2_Interface'Class;
+   type IDialReceiverApp2_Ptr is access all IDialReceiverApp2;
+   type IDialReceiverAppStatics_Interface;
+   type IDialReceiverAppStatics is access all IDialReceiverAppStatics_Interface'Class;
+   type IDialReceiverAppStatics_Ptr is access all IDialReceiverAppStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -193,21 +193,109 @@ package Windows.Media.DialProtocol is
    
    ------------------------------------------------------------------------
    
-   IID_IDialAppStateDetails : aliased constant Windows.IID := (3720651937, 62942, 16397, (190, 164, 140, 132, 102, 187, 41, 97 ));
+   IID_IAsyncOperation_DialAppLaunchResult : aliased constant Windows.IID := (1158857054, 8132, 22088, (189, 73, 81, 83, 58, 63, 230, 180 ));
    
-   type IDialAppStateDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_DialAppLaunchResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_State
+   function put_Completed
    (
-      This       : access IDialAppStateDetails_Interface
-      ; RetVal : access Windows.Media.DialProtocol.DialAppState
+      This       : access IAsyncOperation_DialAppLaunchResult_Interface
+      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppLaunchResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_FullXml
+   function get_Completed
    (
-      This       : access IDialAppStateDetails_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_DialAppLaunchResult_Interface
+      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppLaunchResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_DialAppLaunchResult_Interface
+      ; RetVal : access Windows.Media.DialProtocol.DialAppLaunchResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_DialAppStopResult : aliased constant Windows.IID := (2241393230, 3426, 20858, (150, 28, 49, 252, 167, 58, 206, 221 ));
+   
+   type IAsyncOperation_DialAppStopResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_DialAppStopResult_Interface
+      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppStopResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_DialAppStopResult_Interface
+      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppStopResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_DialAppStopResult_Interface
+      ; RetVal : access Windows.Media.DialProtocol.DialAppStopResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDialAppStateDetails : aliased constant Windows.IID := (3842639778, 11503, 24519, (177, 76, 214, 221, 133, 23, 197, 142 ));
+   
+   type IAsyncOperation_IDialAppStateDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IDialAppStateDetails_Interface
+      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialAppStateDetails
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IDialAppStateDetails_Interface
+      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialAppStateDetails
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IDialAppStateDetails_Interface
+      ; RetVal : access Windows.Media.DialProtocol.IDialAppStateDetails
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDialDevice : aliased constant Windows.IID := (1193061797, 7908, 20928, (182, 181, 191, 114, 245, 245, 4, 34 ));
+   
+   type IAsyncOperation_IDialDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IDialDevice_Interface
+      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IDialDevice_Interface
+      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IDialDevice_Interface
+      ; RetVal : access Windows.Media.DialProtocol.IDialDevice
    )
    return Windows.HRESULT is abstract;
    
@@ -243,6 +331,26 @@ package Windows.Media.DialProtocol is
    (
       This       : access IDialApp_Interface
       ; RetVal : access Windows.Media.DialProtocol.IAsyncOperation_IDialAppStateDetails -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDialAppStateDetails : aliased constant Windows.IID := (3720651937, 62942, 16397, (190, 164, 140, 132, 102, 187, 41, 97 ));
+   
+   type IDialAppStateDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_State
+   (
+      This       : access IDialAppStateDetails_Interface
+      ; RetVal : access Windows.Media.DialProtocol.DialAppState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FullXml
+   (
+      This       : access IDialAppStateDetails_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -284,75 +392,6 @@ package Windows.Media.DialProtocol is
    (
       This       : access IDialDevice2_Interface
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDialDeviceStatics : aliased constant Windows.IID := (2859060373, 504, 18264, (132, 97, 43, 189, 28, 220, 60, 243 ));
-   
-   type IDialDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDeviceSelector
-   (
-      This       : access IDialDeviceStatics_Interface
-      ; appName : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromIdAsync
-   (
-      This       : access IDialDeviceStatics_Interface
-      ; value : Windows.String
-      ; RetVal : access Windows.Media.DialProtocol.IAsyncOperation_IDialDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DeviceInfoSupportsDialAsync
-   (
-      This       : access IDialDeviceStatics_Interface
-      ; device : Windows.Devices.Enumeration.IDeviceInformation
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDialDeviceSelectedEventArgs : aliased constant Windows.IID := (1208717997, 44150, 18411, (156, 6, 161, 147, 4, 218, 2, 71 ));
-   
-   type IDialDeviceSelectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SelectedDialDevice
-   (
-      This       : access IDialDeviceSelectedEventArgs_Interface
-      ; RetVal : access Windows.Media.DialProtocol.IDialDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDialDisconnectButtonClickedEventArgs : aliased constant Windows.IID := (1383485778, 40065, 20053, (173, 194, 14, 190, 153, 205, 227, 182 ));
-   
-   type IDialDisconnectButtonClickedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Device
-   (
-      This       : access IDialDisconnectButtonClickedEventArgs_Interface
-      ; RetVal : access Windows.Media.DialProtocol.IDialDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDialDevicePickerFilter : aliased constant Windows.IID := (3246166970, 34496, 18525, (184, 214, 15, 154, 143, 100, 21, 144 ));
-   
-   type IDialDevicePickerFilter_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SupportedAppNames
-   (
-      This       : access IDialDevicePickerFilter_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -469,14 +508,70 @@ package Windows.Media.DialProtocol is
    
    ------------------------------------------------------------------------
    
-   IID_IDialReceiverAppStatics : aliased constant Windows.IID := (1394096700, 19510, 19714, (178, 138, 242, 169, 218, 56, 236, 82 ));
+   IID_IDialDevicePickerFilter : aliased constant Windows.IID := (3246166970, 34496, 18525, (184, 214, 15, 154, 143, 100, 21, 144 ));
    
-   type IDialReceiverAppStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IDialDevicePickerFilter_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_SupportedAppNames
    (
-      This       : access IDialReceiverAppStatics_Interface
-      ; RetVal : access Windows.Media.DialProtocol.IDialReceiverApp
+      This       : access IDialDevicePickerFilter_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDialDeviceSelectedEventArgs : aliased constant Windows.IID := (1208717997, 44150, 18411, (156, 6, 161, 147, 4, 218, 2, 71 ));
+   
+   type IDialDeviceSelectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedDialDevice
+   (
+      This       : access IDialDeviceSelectedEventArgs_Interface
+      ; RetVal : access Windows.Media.DialProtocol.IDialDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDialDeviceStatics : aliased constant Windows.IID := (2859060373, 504, 18264, (132, 97, 43, 189, 28, 220, 60, 243 ));
+   
+   type IDialDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelector
+   (
+      This       : access IDialDeviceStatics_Interface
+      ; appName : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access IDialDeviceStatics_Interface
+      ; value : Windows.String
+      ; RetVal : access Windows.Media.DialProtocol.IAsyncOperation_IDialDevice -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DeviceInfoSupportsDialAsync
+   (
+      This       : access IDialDeviceStatics_Interface
+      ; device : Windows.Devices.Enumeration.IDeviceInformation
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDialDisconnectButtonClickedEventArgs : aliased constant Windows.IID := (1383485778, 40065, 20053, (173, 194, 14, 190, 153, 205, 227, 182 ));
+   
+   type IDialDisconnectButtonClickedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Device
+   (
+      This       : access IDialDisconnectButtonClickedEventArgs_Interface
+      ; RetVal : access Windows.Media.DialProtocol.IDialDevice
    )
    return Windows.HRESULT is abstract;
    
@@ -516,109 +611,14 @@ package Windows.Media.DialProtocol is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_DialAppLaunchResult : aliased constant Windows.IID := (1158857054, 8132, 22088, (189, 73, 81, 83, 58, 63, 230, 180 ));
+   IID_IDialReceiverAppStatics : aliased constant Windows.IID := (1394096700, 19510, 19714, (178, 138, 242, 169, 218, 56, 236, 82 ));
    
-   type IAsyncOperation_DialAppLaunchResult_Interface is interface and Windows.IInspectable_Interface;
+   type IDialReceiverAppStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_Current
    (
-      This       : access IAsyncOperation_DialAppLaunchResult_Interface
-      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppLaunchResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_DialAppLaunchResult_Interface
-      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppLaunchResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_DialAppLaunchResult_Interface
-      ; RetVal : access Windows.Media.DialProtocol.DialAppLaunchResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_DialAppStopResult : aliased constant Windows.IID := (2241393230, 3426, 20858, (150, 28, 49, 252, 167, 58, 206, 221 ));
-   
-   type IAsyncOperation_DialAppStopResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_DialAppStopResult_Interface
-      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppStopResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_DialAppStopResult_Interface
-      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_DialAppStopResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_DialAppStopResult_Interface
-      ; RetVal : access Windows.Media.DialProtocol.DialAppStopResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IDialAppStateDetails : aliased constant Windows.IID := (3842639778, 11503, 24519, (177, 76, 214, 221, 133, 23, 197, 142 ));
-   
-   type IAsyncOperation_IDialAppStateDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IDialAppStateDetails_Interface
-      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialAppStateDetails
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IDialAppStateDetails_Interface
-      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialAppStateDetails
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IDialAppStateDetails_Interface
-      ; RetVal : access Windows.Media.DialProtocol.IDialAppStateDetails
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IDialDevice : aliased constant Windows.IID := (1193061797, 7908, 20928, (182, 181, 191, 114, 245, 245, 4, 34 ));
-   
-   type IAsyncOperation_IDialDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IDialDevice_Interface
-      ; handler : Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IDialDevice_Interface
-      ; RetVal : access Windows.Media.DialProtocol.AsyncOperationCompletedHandler_IDialDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IDialDevice_Interface
-      ; RetVal : access Windows.Media.DialProtocol.IDialDevice
+      This       : access IDialReceiverAppStatics_Interface
+      ; RetVal : access Windows.Media.DialProtocol.IDialReceiverApp
    )
    return Windows.HRESULT is abstract;
    
@@ -680,6 +680,19 @@ package Windows.Media.DialProtocol is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed : aliased constant Windows.IID := (3670622248, 6980, 24389, (185, 227, 171, 207, 74, 176, 68, 191 ));
+   
+   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface(Callback : access procedure (sender : Windows.Media.DialProtocol.IDialDevicePicker ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface
+      ; sender : Windows.Media.DialProtocol.IDialDevicePicker
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected : aliased constant Windows.IID := (2205532375, 59331, 22204, (152, 128, 70, 182, 156, 161, 13, 69 ));
    
    type TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Interface(Callback : access procedure (sender : Windows.Media.DialProtocol.IDialDevicePicker ; args : Windows.Media.DialProtocol.IDialDeviceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected'access) with null record;
@@ -705,31 +718,18 @@ package Windows.Media.DialProtocol is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed : aliased constant Windows.IID := (3670622248, 6980, 24389, (185, 227, 171, 207, 74, 176, 68, 191 ));
-   
-   type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface(Callback : access procedure (sender : Windows.Media.DialProtocol.IDialDevicePicker ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface
-      ; sender : Windows.Media.DialProtocol.IDialDevicePicker
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype DialAppStateDetails is Windows.Media.DialProtocol.IDialAppStateDetails;
    subtype DialApp is Windows.Media.DialProtocol.IDialApp;
+   subtype DialAppStateDetails is Windows.Media.DialProtocol.IDialAppStateDetails;
    subtype DialDevice is Windows.Media.DialProtocol.IDialDevice;
-   subtype DialDeviceSelectedEventArgs is Windows.Media.DialProtocol.IDialDeviceSelectedEventArgs;
-   subtype DialDisconnectButtonClickedEventArgs is Windows.Media.DialProtocol.IDialDisconnectButtonClickedEventArgs;
-   subtype DialDevicePickerFilter is Windows.Media.DialProtocol.IDialDevicePickerFilter;
    subtype DialDevicePicker is Windows.Media.DialProtocol.IDialDevicePicker;
    function Create return Windows.Media.DialProtocol.IDialDevicePicker;
    
+   subtype DialDevicePickerFilter is Windows.Media.DialProtocol.IDialDevicePickerFilter;
+   subtype DialDeviceSelectedEventArgs is Windows.Media.DialProtocol.IDialDeviceSelectedEventArgs;
+   subtype DialDisconnectButtonClickedEventArgs is Windows.Media.DialProtocol.IDialDisconnectButtonClickedEventArgs;
    subtype DialReceiverApp is Windows.Media.DialProtocol.IDialReceiverApp;
    
    ------------------------------------------------------------------------

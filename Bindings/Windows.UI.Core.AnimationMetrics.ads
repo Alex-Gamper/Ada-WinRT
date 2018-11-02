@@ -36,20 +36,6 @@ package Windows.UI.Core.AnimationMetrics is
    -- Enums
    ------------------------------------------------------------------------
    
-   type PropertyAnimationType is (
-      Scale,
-      Translation,
-      Opacity
-   );
-   for PropertyAnimationType use (
-      Scale => 0,
-      Translation => 1,
-      Opacity => 2
-   );
-   for PropertyAnimationType'Size use 32;
-   
-   type PropertyAnimationType_Ptr is access PropertyAnimationType;
-   
    type AnimationEffect is (
       Expand,
       Collapse,
@@ -178,6 +164,20 @@ package Windows.UI.Core.AnimationMetrics is
    
    type AnimationEffectTarget_Ptr is access AnimationEffectTarget;
    
+   type PropertyAnimationType is (
+      Scale,
+      Translation,
+      Opacity
+   );
+   for PropertyAnimationType use (
+      Scale => 0,
+      Translation => 1,
+      Opacity => 2
+   );
+   for PropertyAnimationType'Size use 32;
+   
+   type PropertyAnimationType_Ptr is access PropertyAnimationType;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -191,27 +191,27 @@ package Windows.UI.Core.AnimationMetrics is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IPropertyAnimation_Interface;
-   type IPropertyAnimation is access all IPropertyAnimation_Interface'Class;
-   type IPropertyAnimation_Ptr is access all IPropertyAnimation;
-   type IScaleAnimation_Interface;
-   type IScaleAnimation is access all IScaleAnimation_Interface'Class;
-   type IScaleAnimation_Ptr is access all IScaleAnimation;
-   type IOpacityAnimation_Interface;
-   type IOpacityAnimation is access all IOpacityAnimation_Interface'Class;
-   type IOpacityAnimation_Ptr is access all IOpacityAnimation;
    type IAnimationDescription_Interface;
    type IAnimationDescription is access all IAnimationDescription_Interface'Class;
    type IAnimationDescription_Ptr is access all IAnimationDescription;
    type IAnimationDescriptionFactory_Interface;
    type IAnimationDescriptionFactory is access all IAnimationDescriptionFactory_Interface'Class;
    type IAnimationDescriptionFactory_Ptr is access all IAnimationDescriptionFactory;
-   type IIterator_IPropertyAnimation_Interface;
-   type IIterator_IPropertyAnimation is access all IIterator_IPropertyAnimation_Interface'Class;
-   type IIterator_IPropertyAnimation_Ptr is access all IIterator_IPropertyAnimation;
    type IIterable_IPropertyAnimation_Interface;
    type IIterable_IPropertyAnimation is access all IIterable_IPropertyAnimation_Interface'Class;
    type IIterable_IPropertyAnimation_Ptr is access all IIterable_IPropertyAnimation;
+   type IIterator_IPropertyAnimation_Interface;
+   type IIterator_IPropertyAnimation is access all IIterator_IPropertyAnimation_Interface'Class;
+   type IIterator_IPropertyAnimation_Ptr is access all IIterator_IPropertyAnimation;
+   type IOpacityAnimation_Interface;
+   type IOpacityAnimation is access all IOpacityAnimation_Interface'Class;
+   type IOpacityAnimation_Ptr is access all IOpacityAnimation;
+   type IPropertyAnimation_Interface;
+   type IPropertyAnimation is access all IPropertyAnimation_Interface'Class;
+   type IPropertyAnimation_Ptr is access all IPropertyAnimation;
+   type IScaleAnimation_Interface;
+   type IScaleAnimation is access all IScaleAnimation_Interface'Class;
+   type IScaleAnimation_Ptr is access all IScaleAnimation;
    type IVectorView_IPropertyAnimation_Interface;
    type IVectorView_IPropertyAnimation is access all IVectorView_IPropertyAnimation_Interface'Class;
    type IVectorView_IPropertyAnimation_Ptr is access all IVectorView_IPropertyAnimation;
@@ -219,6 +219,130 @@ package Windows.UI.Core.AnimationMetrics is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAnimationDescription : aliased constant Windows.IID := (2098308425, 48701, 16862, (176, 129, 5, 193, 73, 150, 47, 155 ));
+   
+   type IAnimationDescription_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Animations
+   (
+      This       : access IAnimationDescription_Interface
+      ; RetVal : access Windows.UI.Core.AnimationMetrics.IVectorView_IPropertyAnimation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StaggerDelay
+   (
+      This       : access IAnimationDescription_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StaggerDelayFactor
+   (
+      This       : access IAnimationDescription_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DelayLimit
+   (
+      This       : access IAnimationDescription_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZOrder
+   (
+      This       : access IAnimationDescription_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAnimationDescriptionFactory : aliased constant Windows.IID := (3336731326, 49659, 18613, (146, 113, 236, 199, 10, 200, 110, 240 ));
+   
+   type IAnimationDescriptionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IAnimationDescriptionFactory_Interface
+      ; effect : Windows.UI.Core.AnimationMetrics.AnimationEffect
+      ; target : Windows.UI.Core.AnimationMetrics.AnimationEffectTarget
+      ; RetVal : access Windows.UI.Core.AnimationMetrics.IAnimationDescription
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPropertyAnimation : aliased constant Windows.IID := (3344899025, 41921, 22657, (157, 160, 30, 205, 184, 229, 27, 195 ));
+   
+   type IIterable_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IPropertyAnimation_Interface
+      ; RetVal : access Windows.UI.Core.AnimationMetrics.IIterator_IPropertyAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPropertyAnimation : aliased constant Windows.IID := (3144128979, 40730, 23118, (169, 64, 148, 95, 26, 184, 196, 254 ));
+   
+   type IIterator_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPropertyAnimation_Interface
+      ; RetVal : access Windows.UI.Core.AnimationMetrics.IPropertyAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPropertyAnimation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPropertyAnimation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPropertyAnimation_Interface
+      ; items : Windows.UI.Core.AnimationMetrics.IPropertyAnimation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IOpacityAnimation : aliased constant Windows.IID := (2151328741, 61054, 17759, (132, 233, 37, 6, 175, 184, 210, 180 ));
+   
+   type IOpacityAnimation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InitialOpacity
+   (
+      This       : access IOpacityAnimation_Interface
+      ; RetVal : access Windows.Foundation.IReference_Single -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FinalOpacity
+   (
+      This       : access IOpacityAnimation_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -304,130 +428,6 @@ package Windows.UI.Core.AnimationMetrics is
    
    ------------------------------------------------------------------------
    
-   IID_IOpacityAnimation : aliased constant Windows.IID := (2151328741, 61054, 17759, (132, 233, 37, 6, 175, 184, 210, 180 ));
-   
-   type IOpacityAnimation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_InitialOpacity
-   (
-      This       : access IOpacityAnimation_Interface
-      ; RetVal : access Windows.Foundation.IReference_Single -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FinalOpacity
-   (
-      This       : access IOpacityAnimation_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAnimationDescription : aliased constant Windows.IID := (2098308425, 48701, 16862, (176, 129, 5, 193, 73, 150, 47, 155 ));
-   
-   type IAnimationDescription_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Animations
-   (
-      This       : access IAnimationDescription_Interface
-      ; RetVal : access Windows.UI.Core.AnimationMetrics.IVectorView_IPropertyAnimation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StaggerDelay
-   (
-      This       : access IAnimationDescription_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StaggerDelayFactor
-   (
-      This       : access IAnimationDescription_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DelayLimit
-   (
-      This       : access IAnimationDescription_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ZOrder
-   (
-      This       : access IAnimationDescription_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAnimationDescriptionFactory : aliased constant Windows.IID := (3336731326, 49659, 18613, (146, 113, 236, 199, 10, 200, 110, 240 ));
-   
-   type IAnimationDescriptionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IAnimationDescriptionFactory_Interface
-      ; effect : Windows.UI.Core.AnimationMetrics.AnimationEffect
-      ; target : Windows.UI.Core.AnimationMetrics.AnimationEffectTarget
-      ; RetVal : access Windows.UI.Core.AnimationMetrics.IAnimationDescription
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IPropertyAnimation : aliased constant Windows.IID := (3144128979, 40730, 23118, (169, 64, 148, 95, 26, 184, 196, 254 ));
-   
-   type IIterator_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IPropertyAnimation_Interface
-      ; RetVal : access Windows.UI.Core.AnimationMetrics.IPropertyAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IPropertyAnimation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPropertyAnimation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPropertyAnimation_Interface
-      ; items : Windows.UI.Core.AnimationMetrics.IPropertyAnimation_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IPropertyAnimation : aliased constant Windows.IID := (3344899025, 41921, 22657, (157, 160, 30, 205, 184, 229, 27, 195 ));
-   
-   type IIterable_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IPropertyAnimation_Interface
-      ; RetVal : access Windows.UI.Core.AnimationMetrics.IIterator_IPropertyAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVectorView_IPropertyAnimation : aliased constant Windows.IID := (980343133, 27216, 24237, (164, 198, 9, 248, 186, 188, 99, 44 ));
    
    type IVectorView_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
@@ -477,10 +477,10 @@ package Windows.UI.Core.AnimationMetrics is
    )
    return Windows.UI.Core.AnimationMetrics.IAnimationDescription;
    
+   subtype OpacityAnimation is Windows.UI.Core.AnimationMetrics.IOpacityAnimation;
    subtype PropertyAnimation is Windows.UI.Core.AnimationMetrics.IPropertyAnimation;
    subtype ScaleAnimation is Windows.UI.Core.AnimationMetrics.IScaleAnimation;
    subtype TranslationAnimation is Windows.UI.Core.AnimationMetrics.IPropertyAnimation;
-   subtype OpacityAnimation is Windows.UI.Core.AnimationMetrics.IOpacityAnimation;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

@@ -36,32 +36,32 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface;
-   type AsyncOperationCompletedHandler_ISocialFeedUpdater is access all AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface'Class;
-   type AsyncOperationCompletedHandler_ISocialFeedUpdater_Ptr is access all AsyncOperationCompletedHandler_ISocialFeedUpdater;
    type AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface;
    type AsyncOperationCompletedHandler_ISocialDashboardItemUpdater is access all AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface'Class;
    type AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Ptr is access all AsyncOperationCompletedHandler_ISocialDashboardItemUpdater;
+   type AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface;
+   type AsyncOperationCompletedHandler_ISocialFeedUpdater is access all AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface'Class;
+   type AsyncOperationCompletedHandler_ISocialFeedUpdater_Ptr is access all AsyncOperationCompletedHandler_ISocialFeedUpdater;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISocialFeedUpdater_Interface;
-   type ISocialFeedUpdater is access all ISocialFeedUpdater_Interface'Class;
-   type ISocialFeedUpdater_Ptr is access all ISocialFeedUpdater;
-   type ISocialDashboardItemUpdater_Interface;
-   type ISocialDashboardItemUpdater is access all ISocialDashboardItemUpdater_Interface'Class;
-   type ISocialDashboardItemUpdater_Ptr is access all ISocialDashboardItemUpdater;
-   type ISocialInfoProviderManagerStatics_Interface;
-   type ISocialInfoProviderManagerStatics is access all ISocialInfoProviderManagerStatics_Interface'Class;
-   type ISocialInfoProviderManagerStatics_Ptr is access all ISocialInfoProviderManagerStatics;
-   type IAsyncOperation_ISocialFeedUpdater_Interface;
-   type IAsyncOperation_ISocialFeedUpdater is access all IAsyncOperation_ISocialFeedUpdater_Interface'Class;
-   type IAsyncOperation_ISocialFeedUpdater_Ptr is access all IAsyncOperation_ISocialFeedUpdater;
    type IAsyncOperation_ISocialDashboardItemUpdater_Interface;
    type IAsyncOperation_ISocialDashboardItemUpdater is access all IAsyncOperation_ISocialDashboardItemUpdater_Interface'Class;
    type IAsyncOperation_ISocialDashboardItemUpdater_Ptr is access all IAsyncOperation_ISocialDashboardItemUpdater;
+   type IAsyncOperation_ISocialFeedUpdater_Interface;
+   type IAsyncOperation_ISocialFeedUpdater is access all IAsyncOperation_ISocialFeedUpdater_Interface'Class;
+   type IAsyncOperation_ISocialFeedUpdater_Ptr is access all IAsyncOperation_ISocialFeedUpdater;
+   type ISocialDashboardItemUpdater_Interface;
+   type ISocialDashboardItemUpdater is access all ISocialDashboardItemUpdater_Interface'Class;
+   type ISocialDashboardItemUpdater_Ptr is access all ISocialDashboardItemUpdater;
+   type ISocialFeedUpdater_Interface;
+   type ISocialFeedUpdater is access all ISocialFeedUpdater_Interface'Class;
+   type ISocialFeedUpdater_Ptr is access all ISocialFeedUpdater;
+   type ISocialInfoProviderManagerStatics_Interface;
+   type ISocialInfoProviderManagerStatics is access all ISocialInfoProviderManagerStatics_Interface'Class;
+   type ISocialInfoProviderManagerStatics_Ptr is access all ISocialInfoProviderManagerStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -69,35 +69,55 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_ISocialFeedUpdater : aliased constant Windows.IID := (2047609511, 60809, 19413, (168, 217, 21, 244, 217, 134, 28, 16 ));
+   IID_IAsyncOperation_ISocialDashboardItemUpdater : aliased constant Windows.IID := (2344397220, 42236, 24546, (182, 177, 14, 90, 117, 208, 91, 7 ));
    
-   type ISocialFeedUpdater_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ISocialDashboardItemUpdater_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_OwnerRemoteId
+   function put_Completed
    (
-      This       : access ISocialFeedUpdater_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_ISocialDashboardItemUpdater_Interface
+      ; handler : Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialDashboardItemUpdater
    )
    return Windows.HRESULT is abstract;
    
-   function get_Kind
+   function get_Completed
    (
-      This       : access ISocialFeedUpdater_Interface
-      ; RetVal : access Windows.ApplicationModel.SocialInfo.SocialFeedKind
+      This       : access IAsyncOperation_ISocialDashboardItemUpdater_Interface
+      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialDashboardItemUpdater
    )
    return Windows.HRESULT is abstract;
    
-   function get_Items
+   function GetResults
    (
-      This       : access ISocialFeedUpdater_Interface
-      ; RetVal : access Windows.ApplicationModel.SocialInfo.IVector_ISocialFeedItem -- Generic Parameter Type
+      This       : access IAsyncOperation_ISocialDashboardItemUpdater_Interface
+      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.ISocialDashboardItemUpdater
    )
    return Windows.HRESULT is abstract;
    
-   function CommitAsync
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISocialFeedUpdater : aliased constant Windows.IID := (1325026729, 50518, 23028, (157, 153, 231, 128, 28, 91, 15, 69 ));
+   
+   type IAsyncOperation_ISocialFeedUpdater_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
    (
-      This       : access ISocialFeedUpdater_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access IAsyncOperation_ISocialFeedUpdater_Interface
+      ; handler : Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialFeedUpdater
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ISocialFeedUpdater_Interface
+      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialFeedUpdater
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ISocialFeedUpdater_Interface
+      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.ISocialFeedUpdater
    )
    return Windows.HRESULT is abstract;
    
@@ -172,6 +192,40 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_ISocialFeedUpdater : aliased constant Windows.IID := (2047609511, 60809, 19413, (168, 217, 21, 244, 217, 134, 28, 16 ));
+   
+   type ISocialFeedUpdater_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OwnerRemoteId
+   (
+      This       : access ISocialFeedUpdater_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access ISocialFeedUpdater_Interface
+      ; RetVal : access Windows.ApplicationModel.SocialInfo.SocialFeedKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Items
+   (
+      This       : access ISocialFeedUpdater_Interface
+      ; RetVal : access Windows.ApplicationModel.SocialInfo.IVector_ISocialFeedItem -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CommitAsync
+   (
+      This       : access ISocialFeedUpdater_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISocialInfoProviderManagerStatics : aliased constant Windows.IID := (461956395, 30599, 18646, (170, 18, 216, 232, 244, 122, 184, 90 ));
    
    type ISocialInfoProviderManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -225,75 +279,8 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ISocialFeedUpdater : aliased constant Windows.IID := (1325026729, 50518, 23028, (157, 153, 231, 128, 28, 91, 15, 69 ));
-   
-   type IAsyncOperation_ISocialFeedUpdater_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ISocialFeedUpdater_Interface
-      ; handler : Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialFeedUpdater
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ISocialFeedUpdater_Interface
-      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialFeedUpdater
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ISocialFeedUpdater_Interface
-      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.ISocialFeedUpdater
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ISocialDashboardItemUpdater : aliased constant Windows.IID := (2344397220, 42236, 24546, (182, 177, 14, 90, 117, 208, 91, 7 ));
-   
-   type IAsyncOperation_ISocialDashboardItemUpdater_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ISocialDashboardItemUpdater_Interface
-      ; handler : Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialDashboardItemUpdater
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ISocialDashboardItemUpdater_Interface
-      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.AsyncOperationCompletedHandler_ISocialDashboardItemUpdater
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ISocialDashboardItemUpdater_Interface
-      ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.ISocialDashboardItemUpdater
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_ISocialFeedUpdater : aliased constant Windows.IID := (186807412, 32960, 24371, (159, 249, 35, 68, 3, 171, 214, 250 ));
-   
-   type AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISocialFeedUpdater'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface
-      ; asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -309,11 +296,24 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_ISocialFeedUpdater : aliased constant Windows.IID := (186807412, 32960, 24371, (159, 249, 35, 68, 3, 171, 214, 250 ));
+   
+   type AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISocialFeedUpdater'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface
+      ; asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SocialFeedUpdater is Windows.ApplicationModel.SocialInfo.Provider.ISocialFeedUpdater;
    subtype SocialDashboardItemUpdater is Windows.ApplicationModel.SocialInfo.Provider.ISocialDashboardItemUpdater;
+   subtype SocialFeedUpdater is Windows.ApplicationModel.SocialInfo.Provider.ISocialFeedUpdater;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

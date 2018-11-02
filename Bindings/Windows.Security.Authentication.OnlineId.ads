@@ -79,58 +79,293 @@ package Windows.Security.Authentication.OnlineId is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IOnlineIdSystemTicketResult_Interface;
+   type IAsyncOperation_IOnlineIdSystemTicketResult is access all IAsyncOperation_IOnlineIdSystemTicketResult_Interface'Class;
+   type IAsyncOperation_IOnlineIdSystemTicketResult_Ptr is access all IAsyncOperation_IOnlineIdSystemTicketResult;
+   type IAsyncOperation_UserIdentity_Interface;
+   type IAsyncOperation_UserIdentity is access all IAsyncOperation_UserIdentity_Interface'Class;
+   type IAsyncOperation_UserIdentity_Ptr is access all IAsyncOperation_UserIdentity;
+   type IIterable_IOnlineIdServiceTicket_Interface;
+   type IIterable_IOnlineIdServiceTicket is access all IIterable_IOnlineIdServiceTicket_Interface'Class;
+   type IIterable_IOnlineIdServiceTicket_Ptr is access all IIterable_IOnlineIdServiceTicket;
+   type IIterable_IOnlineIdServiceTicketRequest_Interface;
+   type IIterable_IOnlineIdServiceTicketRequest is access all IIterable_IOnlineIdServiceTicketRequest_Interface'Class;
+   type IIterable_IOnlineIdServiceTicketRequest_Ptr is access all IIterable_IOnlineIdServiceTicketRequest;
+   type IIterator_IOnlineIdServiceTicket_Interface;
+   type IIterator_IOnlineIdServiceTicket is access all IIterator_IOnlineIdServiceTicket_Interface'Class;
+   type IIterator_IOnlineIdServiceTicket_Ptr is access all IIterator_IOnlineIdServiceTicket;
+   type IIterator_IOnlineIdServiceTicketRequest_Interface;
+   type IIterator_IOnlineIdServiceTicketRequest is access all IIterator_IOnlineIdServiceTicketRequest_Interface'Class;
+   type IIterator_IOnlineIdServiceTicketRequest_Ptr is access all IIterator_IOnlineIdServiceTicketRequest;
+   type IOnlineIdAuthenticator_Interface;
+   type IOnlineIdAuthenticator is access all IOnlineIdAuthenticator_Interface'Class;
+   type IOnlineIdAuthenticator_Ptr is access all IOnlineIdAuthenticator;
+   type IOnlineIdServiceTicket_Interface;
+   type IOnlineIdServiceTicket is access all IOnlineIdServiceTicket_Interface'Class;
+   type IOnlineIdServiceTicket_Ptr is access all IOnlineIdServiceTicket;
    type IOnlineIdServiceTicketRequest_Interface;
    type IOnlineIdServiceTicketRequest is access all IOnlineIdServiceTicketRequest_Interface'Class;
    type IOnlineIdServiceTicketRequest_Ptr is access all IOnlineIdServiceTicketRequest;
    type IOnlineIdServiceTicketRequestFactory_Interface;
    type IOnlineIdServiceTicketRequestFactory is access all IOnlineIdServiceTicketRequestFactory_Interface'Class;
    type IOnlineIdServiceTicketRequestFactory_Ptr is access all IOnlineIdServiceTicketRequestFactory;
-   type IOnlineIdServiceTicket_Interface;
-   type IOnlineIdServiceTicket is access all IOnlineIdServiceTicket_Interface'Class;
-   type IOnlineIdServiceTicket_Ptr is access all IOnlineIdServiceTicket;
-   type IUserIdentity_Interface;
-   type IUserIdentity is access all IUserIdentity_Interface'Class;
-   type IUserIdentity_Ptr is access all IUserIdentity;
-   type IOnlineIdAuthenticator_Interface;
-   type IOnlineIdAuthenticator is access all IOnlineIdAuthenticator_Interface'Class;
-   type IOnlineIdAuthenticator_Ptr is access all IOnlineIdAuthenticator;
-   type IAsyncOperation_UserIdentity_Interface;
-   type IAsyncOperation_UserIdentity is access all IAsyncOperation_UserIdentity_Interface'Class;
-   type IAsyncOperation_UserIdentity_Ptr is access all IAsyncOperation_UserIdentity;
-   type IOnlineIdSystemIdentity_Interface;
-   type IOnlineIdSystemIdentity is access all IOnlineIdSystemIdentity_Interface'Class;
-   type IOnlineIdSystemIdentity_Ptr is access all IOnlineIdSystemIdentity;
-   type IOnlineIdSystemTicketResult_Interface;
-   type IOnlineIdSystemTicketResult is access all IOnlineIdSystemTicketResult_Interface'Class;
-   type IOnlineIdSystemTicketResult_Ptr is access all IOnlineIdSystemTicketResult;
    type IOnlineIdSystemAuthenticatorForUser_Interface;
    type IOnlineIdSystemAuthenticatorForUser is access all IOnlineIdSystemAuthenticatorForUser_Interface'Class;
    type IOnlineIdSystemAuthenticatorForUser_Ptr is access all IOnlineIdSystemAuthenticatorForUser;
    type IOnlineIdSystemAuthenticatorStatics_Interface;
    type IOnlineIdSystemAuthenticatorStatics is access all IOnlineIdSystemAuthenticatorStatics_Interface'Class;
    type IOnlineIdSystemAuthenticatorStatics_Ptr is access all IOnlineIdSystemAuthenticatorStatics;
-   type IIterator_IOnlineIdServiceTicket_Interface;
-   type IIterator_IOnlineIdServiceTicket is access all IIterator_IOnlineIdServiceTicket_Interface'Class;
-   type IIterator_IOnlineIdServiceTicket_Ptr is access all IIterator_IOnlineIdServiceTicket;
-   type IIterable_IOnlineIdServiceTicket_Interface;
-   type IIterable_IOnlineIdServiceTicket is access all IIterable_IOnlineIdServiceTicket_Interface'Class;
-   type IIterable_IOnlineIdServiceTicket_Ptr is access all IIterable_IOnlineIdServiceTicket;
+   type IOnlineIdSystemIdentity_Interface;
+   type IOnlineIdSystemIdentity is access all IOnlineIdSystemIdentity_Interface'Class;
+   type IOnlineIdSystemIdentity_Ptr is access all IOnlineIdSystemIdentity;
+   type IOnlineIdSystemTicketResult_Interface;
+   type IOnlineIdSystemTicketResult is access all IOnlineIdSystemTicketResult_Interface'Class;
+   type IOnlineIdSystemTicketResult_Ptr is access all IOnlineIdSystemTicketResult;
+   type IUserIdentity_Interface;
+   type IUserIdentity is access all IUserIdentity_Interface'Class;
+   type IUserIdentity_Ptr is access all IUserIdentity;
    type IVectorView_IOnlineIdServiceTicket_Interface;
    type IVectorView_IOnlineIdServiceTicket is access all IVectorView_IOnlineIdServiceTicket_Interface'Class;
    type IVectorView_IOnlineIdServiceTicket_Ptr is access all IVectorView_IOnlineIdServiceTicket;
-   type IIterator_IOnlineIdServiceTicketRequest_Interface;
-   type IIterator_IOnlineIdServiceTicketRequest is access all IIterator_IOnlineIdServiceTicketRequest_Interface'Class;
-   type IIterator_IOnlineIdServiceTicketRequest_Ptr is access all IIterator_IOnlineIdServiceTicketRequest;
-   type IIterable_IOnlineIdServiceTicketRequest_Interface;
-   type IIterable_IOnlineIdServiceTicketRequest is access all IIterable_IOnlineIdServiceTicketRequest_Interface'Class;
-   type IIterable_IOnlineIdServiceTicketRequest_Ptr is access all IIterable_IOnlineIdServiceTicketRequest;
-   type IAsyncOperation_IOnlineIdSystemTicketResult_Interface;
-   type IAsyncOperation_IOnlineIdSystemTicketResult is access all IAsyncOperation_IOnlineIdSystemTicketResult_Interface'Class;
-   type IAsyncOperation_IOnlineIdSystemTicketResult_Ptr is access all IAsyncOperation_IOnlineIdSystemTicketResult;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IOnlineIdSystemTicketResult : aliased constant Windows.IID := (372201584, 23114, 20540, (152, 127, 160, 90, 19, 18, 216, 228 ));
+   
+   type IAsyncOperation_IOnlineIdSystemTicketResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IOnlineIdSystemTicketResult_Interface
+      ; handler : Windows.Security.Authentication.OnlineId.AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IOnlineIdSystemTicketResult_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IOnlineIdSystemTicketResult_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_UserIdentity : aliased constant Windows.IID := (3100386785, 16543, 22516, (187, 228, 59, 149, 183, 75, 134, 200 ));
+   
+   type IAsyncOperation_UserIdentity_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_UserIdentity_Interface
+      ; handler : Windows.Security.Authentication.OnlineId.IUserIdentity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UserIdentity_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IUserIdentity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UserIdentity_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IUserIdentity
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IOnlineIdServiceTicket : aliased constant Windows.IID := (2157777684, 38827, 21828, (152, 145, 221, 205, 250, 221, 29, 187 ));
+   
+   type IIterable_IOnlineIdServiceTicket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IOnlineIdServiceTicket_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IIterator_IOnlineIdServiceTicket
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IOnlineIdServiceTicketRequest : aliased constant Windows.IID := (3413300870, 38166, 21005, (162, 116, 250, 76, 209, 118, 44, 178 ));
+   
+   type IIterable_IOnlineIdServiceTicketRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IOnlineIdServiceTicketRequest_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IIterator_IOnlineIdServiceTicketRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IOnlineIdServiceTicket : aliased constant Windows.IID := (60813031, 2178, 20706, (188, 63, 79, 172, 126, 140, 39, 105 ));
+   
+   type IIterator_IOnlineIdServiceTicket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IOnlineIdServiceTicket_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IOnlineIdServiceTicket_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IOnlineIdServiceTicket_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IOnlineIdServiceTicket_Interface
+      ; items : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IOnlineIdServiceTicketRequest : aliased constant Windows.IID := (3064318180, 28220, 23607, (146, 207, 207, 159, 28, 56, 51, 53 ));
+   
+   type IIterator_IOnlineIdServiceTicketRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
+      ; items : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IOnlineIdAuthenticator : aliased constant Windows.IID := (2684614026, 10667, 18455, (184, 132, 215, 81, 109, 173, 24, 185 ));
+   
+   type IOnlineIdAuthenticator_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AuthenticateUserAsync
+   (
+      This       : access IOnlineIdAuthenticator_Interface
+      ; request : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AuthenticateUserAsyncAdvanced
+   (
+      This       : access IOnlineIdAuthenticator_Interface
+      ; requests : Windows.Security.Authentication.OnlineId.IIterable_IOnlineIdServiceTicketRequest
+      ; credentialPromptType : Windows.Security.Authentication.OnlineId.CredentialPromptType
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SignOutUserAsync
+   (
+      This       : access IOnlineIdAuthenticator_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ApplicationId
+   (
+      This       : access IOnlineIdAuthenticator_Interface
+      ; value : Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ApplicationId
+   (
+      This       : access IOnlineIdAuthenticator_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanSignOut
+   (
+      This       : access IOnlineIdAuthenticator_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AuthenticatedSafeCustomerId
+   (
+      This       : access IOnlineIdAuthenticator_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IOnlineIdServiceTicket : aliased constant Windows.IID := (3378271359, 55169, 19092, (172, 184, 197, 152, 116, 35, 140, 38 ));
+   
+   type IOnlineIdServiceTicket_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IOnlineIdServiceTicket_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Request
+   (
+      This       : access IOnlineIdServiceTicket_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ErrorCode
+   (
+      This       : access IOnlineIdServiceTicket_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -177,28 +412,104 @@ package Windows.Security.Authentication.OnlineId is
    
    ------------------------------------------------------------------------
    
-   IID_IOnlineIdServiceTicket : aliased constant Windows.IID := (3378271359, 55169, 19092, (172, 184, 197, 152, 116, 35, 140, 38 ));
+   IID_IOnlineIdSystemAuthenticatorForUser : aliased constant Windows.IID := (1469628155, 7652, 16774, (162, 230, 181, 99, 248, 106, 175, 68 ));
    
-   type IOnlineIdServiceTicket_Interface is interface and Windows.IInspectable_Interface;
+   type IOnlineIdSystemAuthenticatorForUser_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Value
+   function GetTicketAsync
    (
-      This       : access IOnlineIdServiceTicket_Interface
+      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
+      ; request : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IAsyncOperation_IOnlineIdSystemTicketResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ApplicationId
+   (
+      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
+      ; value : Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ApplicationId
+   (
+      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_User
+   (
+      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IOnlineIdSystemAuthenticatorStatics : aliased constant Windows.IID := (2231662482, 63028, 16867, (150, 164, 81, 100, 233, 2, 199, 64 ));
+   
+   type IOnlineIdSystemAuthenticatorStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Default
+   (
+      This       : access IOnlineIdSystemAuthenticatorStatics_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetForUser
+   (
+      This       : access IOnlineIdSystemAuthenticatorStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IOnlineIdSystemIdentity : aliased constant Windows.IID := (1950142989, 46794, 17229, (129, 36, 83, 234, 18, 104, 83, 7 ));
+   
+   type IOnlineIdSystemIdentity_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Ticket
+   (
+      This       : access IOnlineIdSystemIdentity_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Id
+   (
+      This       : access IOnlineIdSystemIdentity_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Request
+   ------------------------------------------------------------------------
+   
+   IID_IOnlineIdSystemTicketResult : aliased constant Windows.IID := (3674890232, 45208, 19149, (157, 19, 158, 100, 6, 82, 181, 182 ));
+   
+   type IOnlineIdSystemTicketResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Identity
    (
-      This       : access IOnlineIdServiceTicket_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
+      This       : access IOnlineIdSystemTicketResult_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity
    )
    return Windows.HRESULT is abstract;
    
-   function get_ErrorCode
+   function get_Status
    (
-      This       : access IOnlineIdServiceTicket_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IOnlineIdSystemTicketResult_Interface
+      ; RetVal : access Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IOnlineIdSystemTicketResult_Interface
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -266,242 +577,6 @@ package Windows.Security.Authentication.OnlineId is
    
    ------------------------------------------------------------------------
    
-   IID_IOnlineIdAuthenticator : aliased constant Windows.IID := (2684614026, 10667, 18455, (184, 132, 215, 81, 109, 173, 24, 185 ));
-   
-   type IOnlineIdAuthenticator_Interface is interface and Windows.IInspectable_Interface;
-   
-   function AuthenticateUserAsync
-   (
-      This       : access IOnlineIdAuthenticator_Interface
-      ; request : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AuthenticateUserAsyncAdvanced
-   (
-      This       : access IOnlineIdAuthenticator_Interface
-      ; requests : Windows.Security.Authentication.OnlineId.IIterable_IOnlineIdServiceTicketRequest
-      ; credentialPromptType : Windows.Security.Authentication.OnlineId.CredentialPromptType
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SignOutUserAsync
-   (
-      This       : access IOnlineIdAuthenticator_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ApplicationId
-   (
-      This       : access IOnlineIdAuthenticator_Interface
-      ; value : Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ApplicationId
-   (
-      This       : access IOnlineIdAuthenticator_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanSignOut
-   (
-      This       : access IOnlineIdAuthenticator_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AuthenticatedSafeCustomerId
-   (
-      This       : access IOnlineIdAuthenticator_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_UserIdentity : aliased constant Windows.IID := (3100386785, 16543, 22516, (187, 228, 59, 149, 183, 75, 134, 200 ));
-   
-   type IAsyncOperation_UserIdentity_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_UserIdentity_Interface
-      ; handler : Windows.Security.Authentication.OnlineId.IUserIdentity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UserIdentity_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IUserIdentity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UserIdentity_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IUserIdentity
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IOnlineIdSystemIdentity : aliased constant Windows.IID := (1950142989, 46794, 17229, (129, 36, 83, 234, 18, 104, 83, 7 ));
-   
-   type IOnlineIdSystemIdentity_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Ticket
-   (
-      This       : access IOnlineIdSystemIdentity_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Id
-   (
-      This       : access IOnlineIdSystemIdentity_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IOnlineIdSystemTicketResult : aliased constant Windows.IID := (3674890232, 45208, 19149, (157, 19, 158, 100, 6, 82, 181, 182 ));
-   
-   type IOnlineIdSystemTicketResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Identity
-   (
-      This       : access IOnlineIdSystemTicketResult_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Status
-   (
-      This       : access IOnlineIdSystemTicketResult_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtendedError
-   (
-      This       : access IOnlineIdSystemTicketResult_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IOnlineIdSystemAuthenticatorForUser : aliased constant Windows.IID := (1469628155, 7652, 16774, (162, 230, 181, 99, 248, 106, 175, 68 ));
-   
-   type IOnlineIdSystemAuthenticatorForUser_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetTicketAsync
-   (
-      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
-      ; request : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IAsyncOperation_IOnlineIdSystemTicketResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ApplicationId
-   (
-      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
-      ; value : Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ApplicationId
-   (
-      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_User
-   (
-      This       : access IOnlineIdSystemAuthenticatorForUser_Interface
-      ; RetVal : access Windows.System.IUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IOnlineIdSystemAuthenticatorStatics : aliased constant Windows.IID := (2231662482, 63028, 16867, (150, 164, 81, 100, 233, 2, 199, 64 ));
-   
-   type IOnlineIdSystemAuthenticatorStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Default
-   (
-      This       : access IOnlineIdSystemAuthenticatorStatics_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetForUser
-   (
-      This       : access IOnlineIdSystemAuthenticatorStatics_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IOnlineIdServiceTicket : aliased constant Windows.IID := (60813031, 2178, 20706, (188, 63, 79, 172, 126, 140, 39, 105 ));
-   
-   type IIterator_IOnlineIdServiceTicket_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IOnlineIdServiceTicket_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IOnlineIdServiceTicket_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IOnlineIdServiceTicket_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IOnlineIdServiceTicket_Interface
-      ; items : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IOnlineIdServiceTicket : aliased constant Windows.IID := (2157777684, 38827, 21828, (152, 145, 221, 205, 250, 221, 29, 187 ));
-   
-   type IIterable_IOnlineIdServiceTicket_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IOnlineIdServiceTicket_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IIterator_IOnlineIdServiceTicket
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVectorView_IOnlineIdServiceTicket : aliased constant Windows.IID := (1173369395, 59304, 23262, (159, 243, 11, 138, 28, 107, 167, 107 ));
    
    type IVectorView_IOnlineIdServiceTicket_Interface is interface and Windows.IInspectable_Interface;
@@ -540,81 +615,6 @@ package Windows.Security.Authentication.OnlineId is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IIterator_IOnlineIdServiceTicketRequest : aliased constant Windows.IID := (3064318180, 28220, 23607, (146, 207, 207, 159, 28, 56, 51, 53 ));
-   
-   type IIterator_IOnlineIdServiceTicketRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IOnlineIdServiceTicketRequest_Interface
-      ; items : Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IOnlineIdServiceTicketRequest : aliased constant Windows.IID := (3413300870, 38166, 21005, (162, 116, 250, 76, 209, 118, 44, 178 ));
-   
-   type IIterable_IOnlineIdServiceTicketRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IOnlineIdServiceTicketRequest_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IIterator_IOnlineIdServiceTicketRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IOnlineIdSystemTicketResult : aliased constant Windows.IID := (372201584, 23114, 20540, (152, 127, 160, 90, 19, 18, 216, 228 ));
-   
-   type IAsyncOperation_IOnlineIdSystemTicketResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IOnlineIdSystemTicketResult_Interface
-      ; handler : Windows.Security.Authentication.OnlineId.AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IOnlineIdSystemTicketResult_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IOnlineIdSystemTicketResult_Interface
-      ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -635,6 +635,10 @@ package Windows.Security.Authentication.OnlineId is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype OnlineIdAuthenticator is Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
+   function Create return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
+   
+   subtype OnlineIdServiceTicket is Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket;
    subtype OnlineIdServiceTicketRequest is Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest;
    function CreateOnlineIdServiceTicketRequest
    (
@@ -649,16 +653,12 @@ package Windows.Security.Authentication.OnlineId is
    )
    return Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest;
    
-   subtype OnlineIdServiceTicket is Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket;
-   subtype UserAuthenticationOperation is Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity;
-   subtype SignOutUserOperation is Windows.Foundation.IAsyncAction;
-   subtype UserIdentity is Windows.Security.Authentication.OnlineId.IUserIdentity;
-   subtype OnlineIdAuthenticator is Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
-   function Create return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
-   
+   subtype OnlineIdSystemAuthenticatorForUser is Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser;
    subtype OnlineIdSystemIdentity is Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity;
    subtype OnlineIdSystemTicketResult is Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult;
-   subtype OnlineIdSystemAuthenticatorForUser is Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser;
+   subtype SignOutUserOperation is Windows.Foundation.IAsyncAction;
+   subtype UserAuthenticationOperation is Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity;
+   subtype UserIdentity is Windows.Security.Authentication.OnlineId.IUserIdentity;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

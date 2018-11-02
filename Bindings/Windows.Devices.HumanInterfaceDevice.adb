@@ -51,8 +51,8 @@ package body Windows.Devices.HumanInterfaceDevice is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IHidInputReport_Interface
-      ; asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport
+      This       : access AsyncOperationCompletedHandler_IHidFeatureReport_Interface
+      ; asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidFeatureReport
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -64,8 +64,8 @@ package body Windows.Devices.HumanInterfaceDevice is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IHidFeatureReport_Interface
-      ; asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidFeatureReport
+      This       : access AsyncOperationCompletedHandler_IHidInputReport_Interface
+      ; asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

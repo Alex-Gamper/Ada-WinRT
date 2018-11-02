@@ -37,34 +37,6 @@ package Windows.Foundation.Diagnostics is
    -- Enums
    ------------------------------------------------------------------------
    
-   type CausalityTraceLevel is (
-      Required,
-      Important,
-      Verbose
-   );
-   for CausalityTraceLevel use (
-      Required => 0,
-      Important => 1,
-      Verbose => 2
-   );
-   for CausalityTraceLevel'Size use 32;
-   
-   type CausalityTraceLevel_Ptr is access CausalityTraceLevel;
-   
-   type CausalitySource is (
-      Application,
-      Library,
-      System
-   );
-   for CausalitySource use (
-      Application => 0,
-      Library => 1,
-      System => 2
-   );
-   for CausalitySource'Size use 32;
-   
-   type CausalitySource_Ptr is access CausalitySource;
-   
    type CausalityRelation is (
       AssignDelegate,
       Join,
@@ -83,6 +55,20 @@ package Windows.Foundation.Diagnostics is
    
    type CausalityRelation_Ptr is access CausalityRelation;
    
+   type CausalitySource is (
+      Application,
+      Library,
+      System
+   );
+   for CausalitySource use (
+      Application => 0,
+      Library => 1,
+      System => 2
+   );
+   for CausalitySource'Size use 32;
+   
+   type CausalitySource_Ptr is access CausalitySource;
+   
    type CausalitySynchronousWork is (
       CompletionNotification,
       ProgressNotification,
@@ -96,6 +82,20 @@ package Windows.Foundation.Diagnostics is
    for CausalitySynchronousWork'Size use 32;
    
    type CausalitySynchronousWork_Ptr is access CausalitySynchronousWork;
+   
+   type CausalityTraceLevel is (
+      Required,
+      Important,
+      Verbose
+   );
+   for CausalityTraceLevel use (
+      Required => 0,
+      Important => 1,
+      Verbose => 2
+   );
+   for CausalityTraceLevel'Size use 32;
+   
+   type CausalityTraceLevel_Ptr is access CausalityTraceLevel;
    
    type ErrorOptions is (
       None,
@@ -114,46 +114,6 @@ package Windows.Foundation.Diagnostics is
    for ErrorOptions'Size use 32;
    
    type ErrorOptions_Ptr is access ErrorOptions;
-   
-   type LoggingLevel is (
-      Verbose,
-      Information,
-      Warning,
-      Error,
-      Critical
-   );
-   for LoggingLevel use (
-      Verbose => 0,
-      Information => 1,
-      Warning => 2,
-      Error => 3,
-      Critical => 4
-   );
-   for LoggingLevel'Size use 32;
-   
-   type LoggingLevel_Ptr is access LoggingLevel;
-   
-   type LoggingOpcode is (
-      Info,
-      Start,
-      Stop,
-      Reply,
-      Resume,
-      Suspend,
-      Send
-   );
-   for LoggingOpcode use (
-      Info => 0,
-      Start => 1,
-      Stop => 2,
-      Reply => 6,
-      Resume => 7,
-      Suspend => 8,
-      Send => 9
-   );
-   for LoggingOpcode'Size use 32;
-   
-   type LoggingOpcode_Ptr is access LoggingOpcode;
    
    type LoggingFieldFormat is (
       Default,
@@ -201,60 +161,100 @@ package Windows.Foundation.Diagnostics is
    
    type LoggingFieldFormat_Ptr is access LoggingFieldFormat;
    
+   type LoggingLevel is (
+      Verbose,
+      Information,
+      Warning,
+      Error,
+      Critical
+   );
+   for LoggingLevel use (
+      Verbose => 0,
+      Information => 1,
+      Warning => 2,
+      Error => 3,
+      Critical => 4
+   );
+   for LoggingLevel'Size use 32;
+   
+   type LoggingLevel_Ptr is access LoggingLevel;
+   
+   type LoggingOpcode is (
+      Info,
+      Start,
+      Stop,
+      Reply,
+      Resume,
+      Suspend,
+      Send
+   );
+   for LoggingOpcode use (
+      Info => 0,
+      Start => 1,
+      Stop => 2,
+      Reply => 6,
+      Resume => 7,
+      Suspend => 8,
+      Send => 9
+   );
+   for LoggingOpcode'Size use 32;
+   
+   type LoggingOpcode_Ptr is access LoggingOpcode;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type EventHandler_ITracingStatusChangedEventArgs_Interface;
-   type EventHandler_ITracingStatusChangedEventArgs is access all EventHandler_ITracingStatusChangedEventArgs_Interface'Class;
-   type EventHandler_ITracingStatusChangedEventArgs_Ptr is access all EventHandler_ITracingStatusChangedEventArgs;
    type AsyncOperationCompletedHandler_IErrorDetails_Interface;
    type AsyncOperationCompletedHandler_IErrorDetails is access all AsyncOperationCompletedHandler_IErrorDetails_Interface'Class;
    type AsyncOperationCompletedHandler_IErrorDetails_Ptr is access all AsyncOperationCompletedHandler_IErrorDetails;
-   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface;
-   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled is access all TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface'Class;
-   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Ptr is access all TypedEventHandler_ILoggingChannel_add_LoggingEnabled;
+   type EventHandler_ITracingStatusChangedEventArgs_Interface;
+   type EventHandler_ITracingStatusChangedEventArgs is access all EventHandler_ITracingStatusChangedEventArgs_Interface'Class;
+   type EventHandler_ITracingStatusChangedEventArgs_Ptr is access all EventHandler_ITracingStatusChangedEventArgs;
    type TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface;
    type TypedEventHandler_IFileLoggingSession_add_LogFileGenerated is access all TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface'Class;
    type TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Ptr is access all TypedEventHandler_IFileLoggingSession_add_LogFileGenerated;
+   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface;
+   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled is access all TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface'Class;
+   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Ptr is access all TypedEventHandler_ILoggingChannel_add_LoggingEnabled;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ITracingStatusChangedEventArgs_Interface;
-   type ITracingStatusChangedEventArgs is access all ITracingStatusChangedEventArgs_Interface'Class;
-   type ITracingStatusChangedEventArgs_Ptr is access all ITracingStatusChangedEventArgs;
    type IAsyncCausalityTracerStatics_Interface;
    type IAsyncCausalityTracerStatics is access all IAsyncCausalityTracerStatics_Interface'Class;
    type IAsyncCausalityTracerStatics_Ptr is access all IAsyncCausalityTracerStatics;
-   type IErrorReportingSettings_Interface;
-   type IErrorReportingSettings is access all IErrorReportingSettings_Interface'Class;
-   type IErrorReportingSettings_Ptr is access all IErrorReportingSettings;
-   type IErrorDetailsStatics_Interface;
-   type IErrorDetailsStatics is access all IErrorDetailsStatics_Interface'Class;
-   type IErrorDetailsStatics_Ptr is access all IErrorDetailsStatics;
+   type IAsyncOperation_IErrorDetails_Interface;
+   type IAsyncOperation_IErrorDetails is access all IAsyncOperation_IErrorDetails_Interface'Class;
+   type IAsyncOperation_IErrorDetails_Ptr is access all IAsyncOperation_IErrorDetails;
    type IErrorDetails_Interface;
    type IErrorDetails is access all IErrorDetails_Interface'Class;
    type IErrorDetails_Ptr is access all IErrorDetails;
-   type ILoggingOptions_Interface;
-   type ILoggingOptions is access all ILoggingOptions_Interface'Class;
-   type ILoggingOptions_Ptr is access all ILoggingOptions;
-   type ILoggingOptionsFactory_Interface;
-   type ILoggingOptionsFactory is access all ILoggingOptionsFactory_Interface'Class;
-   type ILoggingOptionsFactory_Ptr is access all ILoggingOptionsFactory;
-   type ILoggingChannelOptions_Interface;
-   type ILoggingChannelOptions is access all ILoggingChannelOptions_Interface'Class;
-   type ILoggingChannelOptions_Ptr is access all ILoggingChannelOptions;
-   type ILoggingChannelOptionsFactory_Interface;
-   type ILoggingChannelOptionsFactory is access all ILoggingChannelOptionsFactory_Interface'Class;
-   type ILoggingChannelOptionsFactory_Ptr is access all ILoggingChannelOptionsFactory;
-   type ILoggingFields_Interface;
-   type ILoggingFields is access all ILoggingFields_Interface'Class;
-   type ILoggingFields_Ptr is access all ILoggingFields;
-   type ILoggingTarget_Interface;
-   type ILoggingTarget is access all ILoggingTarget_Interface'Class;
-   type ILoggingTarget_Ptr is access all ILoggingTarget;
+   type IErrorDetailsStatics_Interface;
+   type IErrorDetailsStatics is access all IErrorDetailsStatics_Interface'Class;
+   type IErrorDetailsStatics_Ptr is access all IErrorDetailsStatics;
+   type IErrorReportingSettings_Interface;
+   type IErrorReportingSettings is access all IErrorReportingSettings_Interface'Class;
+   type IErrorReportingSettings_Ptr is access all IErrorReportingSettings;
+   type IFileLoggingSession_Interface;
+   type IFileLoggingSession is access all IFileLoggingSession_Interface'Class;
+   type IFileLoggingSession_Ptr is access all IFileLoggingSession;
+   type IFileLoggingSessionFactory_Interface;
+   type IFileLoggingSessionFactory is access all IFileLoggingSessionFactory_Interface'Class;
+   type IFileLoggingSessionFactory_Ptr is access all IFileLoggingSessionFactory;
+   type ILogFileGeneratedEventArgs_Interface;
+   type ILogFileGeneratedEventArgs is access all ILogFileGeneratedEventArgs_Interface'Class;
+   type ILogFileGeneratedEventArgs_Ptr is access all ILogFileGeneratedEventArgs;
+   type ILoggingActivity_Interface;
+   type ILoggingActivity is access all ILoggingActivity_Interface'Class;
+   type ILoggingActivity_Ptr is access all ILoggingActivity;
+   type ILoggingActivity2_Interface;
+   type ILoggingActivity2 is access all ILoggingActivity2_Interface'Class;
+   type ILoggingActivity2_Ptr is access all ILoggingActivity2;
+   type ILoggingActivityFactory_Interface;
+   type ILoggingActivityFactory is access all ILoggingActivityFactory_Interface'Class;
+   type ILoggingActivityFactory_Ptr is access all ILoggingActivityFactory;
    type ILoggingChannel_Interface;
    type ILoggingChannel is access all ILoggingChannel_Interface'Class;
    type ILoggingChannel_Ptr is access all ILoggingChannel;
@@ -267,57 +267,37 @@ package Windows.Foundation.Diagnostics is
    type ILoggingChannelFactory2_Interface;
    type ILoggingChannelFactory2 is access all ILoggingChannelFactory2_Interface'Class;
    type ILoggingChannelFactory2_Ptr is access all ILoggingChannelFactory2;
-   type ILoggingActivity_Interface;
-   type ILoggingActivity is access all ILoggingActivity_Interface'Class;
-   type ILoggingActivity_Ptr is access all ILoggingActivity;
-   type ILoggingActivity2_Interface;
-   type ILoggingActivity2 is access all ILoggingActivity2_Interface'Class;
-   type ILoggingActivity2_Ptr is access all ILoggingActivity2;
-   type ILoggingActivityFactory_Interface;
-   type ILoggingActivityFactory is access all ILoggingActivityFactory_Interface'Class;
-   type ILoggingActivityFactory_Ptr is access all ILoggingActivityFactory;
+   type ILoggingChannelOptions_Interface;
+   type ILoggingChannelOptions is access all ILoggingChannelOptions_Interface'Class;
+   type ILoggingChannelOptions_Ptr is access all ILoggingChannelOptions;
+   type ILoggingChannelOptionsFactory_Interface;
+   type ILoggingChannelOptionsFactory is access all ILoggingChannelOptionsFactory_Interface'Class;
+   type ILoggingChannelOptionsFactory_Ptr is access all ILoggingChannelOptionsFactory;
+   type ILoggingFields_Interface;
+   type ILoggingFields is access all ILoggingFields_Interface'Class;
+   type ILoggingFields_Ptr is access all ILoggingFields;
+   type ILoggingOptions_Interface;
+   type ILoggingOptions is access all ILoggingOptions_Interface'Class;
+   type ILoggingOptions_Ptr is access all ILoggingOptions;
+   type ILoggingOptionsFactory_Interface;
+   type ILoggingOptionsFactory is access all ILoggingOptionsFactory_Interface'Class;
+   type ILoggingOptionsFactory_Ptr is access all ILoggingOptionsFactory;
    type ILoggingSession_Interface;
    type ILoggingSession is access all ILoggingSession_Interface'Class;
    type ILoggingSession_Ptr is access all ILoggingSession;
    type ILoggingSessionFactory_Interface;
    type ILoggingSessionFactory is access all ILoggingSessionFactory_Interface'Class;
    type ILoggingSessionFactory_Ptr is access all ILoggingSessionFactory;
-   type ILogFileGeneratedEventArgs_Interface;
-   type ILogFileGeneratedEventArgs is access all ILogFileGeneratedEventArgs_Interface'Class;
-   type ILogFileGeneratedEventArgs_Ptr is access all ILogFileGeneratedEventArgs;
-   type IFileLoggingSession_Interface;
-   type IFileLoggingSession is access all IFileLoggingSession_Interface'Class;
-   type IFileLoggingSession_Ptr is access all IFileLoggingSession;
-   type IFileLoggingSessionFactory_Interface;
-   type IFileLoggingSessionFactory is access all IFileLoggingSessionFactory_Interface'Class;
-   type IFileLoggingSessionFactory_Ptr is access all IFileLoggingSessionFactory;
-   type IAsyncOperation_IErrorDetails_Interface;
-   type IAsyncOperation_IErrorDetails is access all IAsyncOperation_IErrorDetails_Interface'Class;
-   type IAsyncOperation_IErrorDetails_Ptr is access all IAsyncOperation_IErrorDetails;
+   type ILoggingTarget_Interface;
+   type ILoggingTarget is access all ILoggingTarget_Interface'Class;
+   type ILoggingTarget_Ptr is access all ILoggingTarget;
+   type ITracingStatusChangedEventArgs_Interface;
+   type ITracingStatusChangedEventArgs is access all ITracingStatusChangedEventArgs_Interface'Class;
+   type ITracingStatusChangedEventArgs_Ptr is access all ITracingStatusChangedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (1091270417, 65339, 18303, (156, 154, 210, 239, 218, 48, 45, 195 ));
-   
-   type ITracingStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Enabled
-   (
-      This       : access ITracingStatusChangedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TraceLevel
-   (
-      This       : access ITracingStatusChangedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.Diagnostics.CausalityTraceLevel
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -396,35 +376,28 @@ package Windows.Foundation.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_IErrorReportingSettings : aliased constant Windows.IID := (372676498, 45118, 19361, (139, 184, 210, 143, 74, 180, 210, 192 ));
+   IID_IAsyncOperation_IErrorDetails : aliased constant Windows.IID := (2600800365, 30688, 23588, (130, 176, 155, 45, 200, 247, 150, 113 ));
    
-   type IErrorReportingSettings_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IErrorDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function SetErrorOptions
+   function put_Completed
    (
-      This       : access IErrorReportingSettings_Interface
-      ; value : Windows.Foundation.Diagnostics.ErrorOptions
+      This       : access IAsyncOperation_IErrorDetails_Interface
+      ; handler : Windows.Foundation.Diagnostics.AsyncOperationCompletedHandler_IErrorDetails
    )
    return Windows.HRESULT is abstract;
    
-   function GetErrorOptions
+   function get_Completed
    (
-      This       : access IErrorReportingSettings_Interface
-      ; RetVal : access Windows.Foundation.Diagnostics.ErrorOptions
+      This       : access IAsyncOperation_IErrorDetails_Interface
+      ; RetVal : access Windows.Foundation.Diagnostics.AsyncOperationCompletedHandler_IErrorDetails
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IErrorDetailsStatics : aliased constant Windows.IID := (3077584720, 2845, 18120, (170, 14, 75, 129, 120, 228, 252, 233 ));
-   
-   type IErrorDetailsStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateFromHResultAsync
+   function GetResults
    (
-      This       : access IErrorDetailsStatics_Interface
-      ; errorCode : Windows.Int32
-      ; RetVal : access Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails -- Generic Parameter Type
+      This       : access IAsyncOperation_IErrorDetails_Interface
+      ; RetVal : access Windows.Foundation.Diagnostics.IErrorDetails
    )
    return Windows.HRESULT is abstract;
    
@@ -457,105 +430,327 @@ package Windows.Foundation.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_ILoggingOptions : aliased constant Windows.IID := (2428270672, 402, 20317, (172, 38, 0, 106, 218, 202, 18, 216 ));
+   IID_IErrorDetailsStatics : aliased constant Windows.IID := (3077584720, 2845, 18120, (170, 14, 75, 129, 120, 228, 252, 233 ));
    
-   type ILoggingOptions_Interface is interface and Windows.IInspectable_Interface;
+   type IErrorDetailsStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Keywords
+   function CreateFromHResultAsync
    (
-      This       : access ILoggingOptions_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Keywords
-   (
-      This       : access ILoggingOptions_Interface
-      ; value : Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Tags
-   (
-      This       : access ILoggingOptions_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Tags
-   (
-      This       : access ILoggingOptions_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Task
-   (
-      This       : access ILoggingOptions_Interface
-      ; RetVal : access Windows.Int16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Task
-   (
-      This       : access ILoggingOptions_Interface
-      ; value : Windows.Int16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Opcode
-   (
-      This       : access ILoggingOptions_Interface
-      ; RetVal : access Windows.Foundation.Diagnostics.LoggingOpcode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Opcode
-   (
-      This       : access ILoggingOptions_Interface
-      ; value : Windows.Foundation.Diagnostics.LoggingOpcode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ActivityId
-   (
-      This       : access ILoggingOptions_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ActivityId
-   (
-      This       : access ILoggingOptions_Interface
-      ; value : Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RelatedActivityId
-   (
-      This       : access ILoggingOptions_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RelatedActivityId
-   (
-      This       : access ILoggingOptions_Interface
-      ; value : Windows.Guid
+      This       : access IErrorDetailsStatics_Interface
+      ; errorCode : Windows.Int32
+      ; RetVal : access Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ILoggingOptionsFactory : aliased constant Windows.IID := (3608397515, 39083, 17995, (159, 34, 163, 38, 132, 120, 54, 138 ));
+   IID_IErrorReportingSettings : aliased constant Windows.IID := (372676498, 45118, 19361, (139, 184, 210, 143, 74, 180, 210, 192 ));
    
-   type ILoggingOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IErrorReportingSettings_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreateWithKeywords
+   function SetErrorOptions
    (
-      This       : access ILoggingOptionsFactory_Interface
-      ; keywords : Windows.Int64
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingOptions
+      This       : access IErrorReportingSettings_Interface
+      ; value : Windows.Foundation.Diagnostics.ErrorOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetErrorOptions
+   (
+      This       : access IErrorReportingSettings_Interface
+      ; RetVal : access Windows.Foundation.Diagnostics.ErrorOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileLoggingSession : aliased constant Windows.IID := (617038358, 65234, 16460, (137, 95, 31, 150, 153, 203, 2, 247 ));
+   
+   type IFileLoggingSession_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access IFileLoggingSession_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddLoggingChannel
+   (
+      This       : access IFileLoggingSession_Interface
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddLoggingChannelWithLevel
+   (
+      This       : access IFileLoggingSession_Interface
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+      ; maxLevel : Windows.Foundation.Diagnostics.LoggingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveLoggingChannel
+   (
+      This       : access IFileLoggingSession_Interface
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CloseAndSaveToFileAsync
+   (
+      This       : access IFileLoggingSession_Interface
+      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LogFileGenerated
+   (
+      This       : access IFileLoggingSession_Interface
+      ; handler : TypedEventHandler_IFileLoggingSession_add_LogFileGenerated
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LogFileGenerated
+   (
+      This       : access IFileLoggingSession_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileLoggingSessionFactory : aliased constant Windows.IID := (4003499470, 33863, 19882, (145, 51, 18, 235, 70, 246, 151, 212 ));
+   
+   type IFileLoggingSessionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IFileLoggingSessionFactory_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Foundation.Diagnostics.IFileLoggingSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILogFileGeneratedEventArgs : aliased constant Windows.IID := (647927663, 3384, 19482, (181, 63, 179, 149, 216, 129, 223, 132 ));
+   
+   type ILogFileGeneratedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_File
+   (
+      This       : access ILogFileGeneratedEventArgs_Interface
+      ; RetVal : access Windows.Storage.IStorageFile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingActivity : aliased constant Windows.IID := (3154323777, 46950, 19637, (152, 72, 151, 172, 107, 166, 214, 12 ));
+   
+   type ILoggingActivity_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access ILoggingActivity_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Id
+   (
+      This       : access ILoggingActivity_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingActivity2 : aliased constant Windows.IID := (650287112, 25378, 17770, (175, 130, 128, 200, 100, 47, 23, 139 ));
+   
+   type ILoggingActivity2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Channel
+   (
+      This       : access ILoggingActivity2_Interface
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StopActivity
+   (
+      This       : access ILoggingActivity2_Interface
+      ; stopEventName : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StopActivityWithFields
+   (
+      This       : access ILoggingActivity2_Interface
+      ; stopEventName : Windows.String
+      ; fields : Windows.Foundation.Diagnostics.ILoggingFields
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StopActivityWithFieldsAndOptions
+   (
+      This       : access ILoggingActivity2_Interface
+      ; stopEventName : Windows.String
+      ; fields : Windows.Foundation.Diagnostics.ILoggingFields
+      ; options : Windows.Foundation.Diagnostics.ILoggingOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingActivityFactory : aliased constant Windows.IID := (1798550659, 57610, 19544, (151, 213, 16, 251, 69, 16, 116, 251 ));
+   
+   type ILoggingActivityFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateLoggingActivity
+   (
+      This       : access ILoggingActivityFactory_Interface
+      ; activityName : Windows.String
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingActivity
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateLoggingActivityWithLevel
+   (
+      This       : access ILoggingActivityFactory_Interface
+      ; activityName : Windows.String
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+      ; level : Windows.Foundation.Diagnostics.LoggingLevel
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingActivity
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingChannel : aliased constant Windows.IID := (3919905603, 4567, 20225, (181, 202, 207, 73, 82, 120, 192, 168 ));
+   
+   type ILoggingChannel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access ILoggingChannel_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Enabled
+   (
+      This       : access ILoggingChannel_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Level
+   (
+      This       : access ILoggingChannel_Interface
+      ; RetVal : access Windows.Foundation.Diagnostics.LoggingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LogMessage
+   (
+      This       : access ILoggingChannel_Interface
+      ; eventString : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LogMessageWithLevel
+   (
+      This       : access ILoggingChannel_Interface
+      ; eventString : Windows.String
+      ; level : Windows.Foundation.Diagnostics.LoggingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LogValuePair
+   (
+      This       : access ILoggingChannel_Interface
+      ; value1 : Windows.String
+      ; value2 : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LogValuePairWithLevel
+   (
+      This       : access ILoggingChannel_Interface
+      ; value1 : Windows.String
+      ; value2 : Windows.Int32
+      ; level : Windows.Foundation.Diagnostics.LoggingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LoggingEnabled
+   (
+      This       : access ILoggingChannel_Interface
+      ; handler : TypedEventHandler_ILoggingChannel_add_LoggingEnabled
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LoggingEnabled
+   (
+      This       : access ILoggingChannel_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingChannel2 : aliased constant Windows.IID := (2672573683, 2988, 17829, (158, 51, 186, 243, 243, 162, 70, 165 ));
+   
+   type ILoggingChannel2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access ILoggingChannel2_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingChannelFactory : aliased constant Windows.IID := (1323064220, 44928, 19099, (176, 220, 57, 143, 154, 229, 32, 123 ));
+   
+   type ILoggingChannelFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ILoggingChannelFactory_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingChannelFactory2 : aliased constant Windows.IID := (1282340317, 15143, 19913, (153, 240, 41, 156, 110, 70, 3, 161 ));
+   
+   type ILoggingChannelFactory2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWithOptions
+   (
+      This       : access ILoggingChannelFactory2_Interface
+      ; name : Windows.String
+      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithOptionsAndId
+   (
+      This       : access ILoggingChannelFactory2_Interface
+      ; name : Windows.String
+      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
+      ; id : Windows.Guid
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
    )
    return Windows.HRESULT is abstract;
    
@@ -1624,6 +1819,168 @@ package Windows.Foundation.Diagnostics is
    
    ------------------------------------------------------------------------
    
+   IID_ILoggingOptions : aliased constant Windows.IID := (2428270672, 402, 20317, (172, 38, 0, 106, 218, 202, 18, 216 ));
+   
+   type ILoggingOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Keywords
+   (
+      This       : access ILoggingOptions_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Keywords
+   (
+      This       : access ILoggingOptions_Interface
+      ; value : Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Tags
+   (
+      This       : access ILoggingOptions_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Tags
+   (
+      This       : access ILoggingOptions_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Task
+   (
+      This       : access ILoggingOptions_Interface
+      ; RetVal : access Windows.Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Task
+   (
+      This       : access ILoggingOptions_Interface
+      ; value : Windows.Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Opcode
+   (
+      This       : access ILoggingOptions_Interface
+      ; RetVal : access Windows.Foundation.Diagnostics.LoggingOpcode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Opcode
+   (
+      This       : access ILoggingOptions_Interface
+      ; value : Windows.Foundation.Diagnostics.LoggingOpcode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActivityId
+   (
+      This       : access ILoggingOptions_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ActivityId
+   (
+      This       : access ILoggingOptions_Interface
+      ; value : Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RelatedActivityId
+   (
+      This       : access ILoggingOptions_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RelatedActivityId
+   (
+      This       : access ILoggingOptions_Interface
+      ; value : Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingOptionsFactory : aliased constant Windows.IID := (3608397515, 39083, 17995, (159, 34, 163, 38, 132, 120, 54, 138 ));
+   
+   type ILoggingOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWithKeywords
+   (
+      This       : access ILoggingOptionsFactory_Interface
+      ; keywords : Windows.Int64
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingSession : aliased constant Windows.IID := (1646392070, 37760, 19159, (186, 245, 65, 234, 147, 16, 215, 104 ));
+   
+   type ILoggingSession_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access ILoggingSession_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SaveToFileAsync
+   (
+      This       : access ILoggingSession_Interface
+      ; folder : Windows.Storage.IStorageFolder
+      ; fileName : Windows.String
+      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddLoggingChannel
+   (
+      This       : access ILoggingSession_Interface
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddLoggingChannelWithLevel
+   (
+      This       : access ILoggingSession_Interface
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+      ; maxLevel : Windows.Foundation.Diagnostics.LoggingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveLoggingChannel
+   (
+      This       : access ILoggingSession_Interface
+      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILoggingSessionFactory : aliased constant Windows.IID := (1318289125, 22781, 17888, (140, 47, 161, 50, 239, 249, 92, 30 ));
+   
+   type ILoggingSessionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ILoggingSessionFactory_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILoggingTarget : aliased constant Windows.IID := (1710320693, 58248, 20006, (177, 122, 245, 28, 211, 168, 57, 22 ));
    
    type ILoggingTarget_Interface is interface and Windows.IInspectable_Interface;
@@ -1726,397 +2083,27 @@ package Windows.Foundation.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_ILoggingChannel : aliased constant Windows.IID := (3919905603, 4567, 20225, (181, 202, 207, 73, 82, 120, 192, 168 ));
+   IID_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (1091270417, 65339, 18303, (156, 154, 210, 239, 218, 48, 45, 195 ));
    
-   type ILoggingChannel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Name
-   (
-      This       : access ILoggingChannel_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
+   type ITracingStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Enabled
    (
-      This       : access ILoggingChannel_Interface
+      This       : access ITracingStatusChangedEventArgs_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Level
+   function get_TraceLevel
    (
-      This       : access ILoggingChannel_Interface
-      ; RetVal : access Windows.Foundation.Diagnostics.LoggingLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LogMessage
-   (
-      This       : access ILoggingChannel_Interface
-      ; eventString : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LogMessageWithLevel
-   (
-      This       : access ILoggingChannel_Interface
-      ; eventString : Windows.String
-      ; level : Windows.Foundation.Diagnostics.LoggingLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LogValuePair
-   (
-      This       : access ILoggingChannel_Interface
-      ; value1 : Windows.String
-      ; value2 : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LogValuePairWithLevel
-   (
-      This       : access ILoggingChannel_Interface
-      ; value1 : Windows.String
-      ; value2 : Windows.Int32
-      ; level : Windows.Foundation.Diagnostics.LoggingLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_LoggingEnabled
-   (
-      This       : access ILoggingChannel_Interface
-      ; handler : TypedEventHandler_ILoggingChannel_add_LoggingEnabled
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_LoggingEnabled
-   (
-      This       : access ILoggingChannel_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingChannel2 : aliased constant Windows.IID := (2672573683, 2988, 17829, (158, 51, 186, 243, 243, 162, 70, 165 ));
-   
-   type ILoggingChannel2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access ILoggingChannel2_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingChannelFactory : aliased constant Windows.IID := (1323064220, 44928, 19099, (176, 220, 57, 143, 154, 229, 32, 123 ));
-   
-   type ILoggingChannelFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access ILoggingChannelFactory_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingChannelFactory2 : aliased constant Windows.IID := (1282340317, 15143, 19913, (153, 240, 41, 156, 110, 70, 3, 161 ));
-   
-   type ILoggingChannelFactory2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateWithOptions
-   (
-      This       : access ILoggingChannelFactory2_Interface
-      ; name : Windows.String
-      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithOptionsAndId
-   (
-      This       : access ILoggingChannelFactory2_Interface
-      ; name : Windows.String
-      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
-      ; id : Windows.Guid
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingActivity : aliased constant Windows.IID := (3154323777, 46950, 19637, (152, 72, 151, 172, 107, 166, 214, 12 ));
-   
-   type ILoggingActivity_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Name
-   (
-      This       : access ILoggingActivity_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Id
-   (
-      This       : access ILoggingActivity_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingActivity2 : aliased constant Windows.IID := (650287112, 25378, 17770, (175, 130, 128, 200, 100, 47, 23, 139 ));
-   
-   type ILoggingActivity2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Channel
-   (
-      This       : access ILoggingActivity2_Interface
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function StopActivity
-   (
-      This       : access ILoggingActivity2_Interface
-      ; stopEventName : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function StopActivityWithFields
-   (
-      This       : access ILoggingActivity2_Interface
-      ; stopEventName : Windows.String
-      ; fields : Windows.Foundation.Diagnostics.ILoggingFields
-   )
-   return Windows.HRESULT is abstract;
-   
-   function StopActivityWithFieldsAndOptions
-   (
-      This       : access ILoggingActivity2_Interface
-      ; stopEventName : Windows.String
-      ; fields : Windows.Foundation.Diagnostics.ILoggingFields
-      ; options : Windows.Foundation.Diagnostics.ILoggingOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingActivityFactory : aliased constant Windows.IID := (1798550659, 57610, 19544, (151, 213, 16, 251, 69, 16, 116, 251 ));
-   
-   type ILoggingActivityFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateLoggingActivity
-   (
-      This       : access ILoggingActivityFactory_Interface
-      ; activityName : Windows.String
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingActivity
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateLoggingActivityWithLevel
-   (
-      This       : access ILoggingActivityFactory_Interface
-      ; activityName : Windows.String
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-      ; level : Windows.Foundation.Diagnostics.LoggingLevel
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingActivity
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingSession : aliased constant Windows.IID := (1646392070, 37760, 19159, (186, 245, 65, 234, 147, 16, 215, 104 ));
-   
-   type ILoggingSession_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Name
-   (
-      This       : access ILoggingSession_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SaveToFileAsync
-   (
-      This       : access ILoggingSession_Interface
-      ; folder : Windows.Storage.IStorageFolder
-      ; fileName : Windows.String
-      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddLoggingChannel
-   (
-      This       : access ILoggingSession_Interface
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddLoggingChannelWithLevel
-   (
-      This       : access ILoggingSession_Interface
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-      ; maxLevel : Windows.Foundation.Diagnostics.LoggingLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveLoggingChannel
-   (
-      This       : access ILoggingSession_Interface
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILoggingSessionFactory : aliased constant Windows.IID := (1318289125, 22781, 17888, (140, 47, 161, 50, 239, 249, 92, 30 ));
-   
-   type ILoggingSessionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access ILoggingSessionFactory_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Foundation.Diagnostics.ILoggingSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILogFileGeneratedEventArgs : aliased constant Windows.IID := (647927663, 3384, 19482, (181, 63, 179, 149, 216, 129, 223, 132 ));
-   
-   type ILogFileGeneratedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_File
-   (
-      This       : access ILogFileGeneratedEventArgs_Interface
-      ; RetVal : access Windows.Storage.IStorageFile
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFileLoggingSession : aliased constant Windows.IID := (617038358, 65234, 16460, (137, 95, 31, 150, 153, 203, 2, 247 ));
-   
-   type IFileLoggingSession_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Name
-   (
-      This       : access IFileLoggingSession_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddLoggingChannel
-   (
-      This       : access IFileLoggingSession_Interface
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddLoggingChannelWithLevel
-   (
-      This       : access IFileLoggingSession_Interface
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-      ; maxLevel : Windows.Foundation.Diagnostics.LoggingLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveLoggingChannel
-   (
-      This       : access IFileLoggingSession_Interface
-      ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CloseAndSaveToFileAsync
-   (
-      This       : access IFileLoggingSession_Interface
-      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_LogFileGenerated
-   (
-      This       : access IFileLoggingSession_Interface
-      ; handler : TypedEventHandler_IFileLoggingSession_add_LogFileGenerated
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_LogFileGenerated
-   (
-      This       : access IFileLoggingSession_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFileLoggingSessionFactory : aliased constant Windows.IID := (4003499470, 33863, 19882, (145, 51, 18, 235, 70, 246, 151, 212 ));
-   
-   type IFileLoggingSessionFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IFileLoggingSessionFactory_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Foundation.Diagnostics.IFileLoggingSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IErrorDetails : aliased constant Windows.IID := (2600800365, 30688, 23588, (130, 176, 155, 45, 200, 247, 150, 113 ));
-   
-   type IAsyncOperation_IErrorDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IErrorDetails_Interface
-      ; handler : Windows.Foundation.Diagnostics.AsyncOperationCompletedHandler_IErrorDetails
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IErrorDetails_Interface
-      ; RetVal : access Windows.Foundation.Diagnostics.AsyncOperationCompletedHandler_IErrorDetails
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IErrorDetails_Interface
-      ; RetVal : access Windows.Foundation.Diagnostics.IErrorDetails
+      This       : access ITracingStatusChangedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Diagnostics.CausalityTraceLevel
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_EventHandler_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (737308680, 11956, 22133, (177, 205, 233, 144, 108, 197, 206, 100 ));
-   
-   type EventHandler_ITracingStatusChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ITracingStatusChangedEventArgs'access) with null record;
-   function Invoke
-   (
-      This       : access EventHandler_ITracingStatusChangedEventArgs_Interface
-      ; sender : Windows.Object
-      ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -2133,14 +2120,14 @@ package Windows.Foundation.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_ILoggingChannel_add_LoggingEnabled : aliased constant Windows.IID := (1388954273, 21667, 24313, (154, 255, 1, 78, 124, 69, 70, 85 ));
+   IID_EventHandler_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (737308680, 11956, 22133, (177, 205, 233, 144, 108, 197, 206, 100 ));
    
-   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.ILoggingChannel ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILoggingChannel_add_LoggingEnabled'access) with null record;
+   type EventHandler_ITracingStatusChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ITracingStatusChangedEventArgs'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface
-      ; sender : Windows.Foundation.Diagnostics.ILoggingChannel
-      ; args : Windows.Object
+      This       : access EventHandler_ITracingStatusChangedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -2158,35 +2145,31 @@ package Windows.Foundation.Diagnostics is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ILoggingChannel_add_LoggingEnabled : aliased constant Windows.IID := (1388954273, 21667, 24313, (154, 255, 1, 78, 124, 69, 70, 85 ));
+   
+   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.ILoggingChannel ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILoggingChannel_add_LoggingEnabled'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface
+      ; sender : Windows.Foundation.Diagnostics.ILoggingChannel
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype TracingStatusChangedEventArgs is Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs;
-   subtype RuntimeBrokerErrorSettings is Windows.Foundation.Diagnostics.IErrorReportingSettings;
-   function Create return Windows.Foundation.Diagnostics.IErrorReportingSettings;
-   
    subtype ErrorDetails is Windows.Foundation.Diagnostics.IErrorDetails;
-   subtype LoggingOptions is Windows.Foundation.Diagnostics.ILoggingOptions;
-   function Create return Windows.Foundation.Diagnostics.ILoggingOptions;
-   
-   function CreateWithKeywords
-   (
-      keywords : Windows.Int64
-   )
-   return Windows.Foundation.Diagnostics.ILoggingOptions;
-   
-   subtype LoggingChannelOptions is Windows.Foundation.Diagnostics.ILoggingChannelOptions;
-   function Create return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
-   
+   subtype FileLoggingSession is Windows.Foundation.Diagnostics.IFileLoggingSession;
    function Create
    (
-      group : Windows.Guid
+      name : Windows.String
    )
-   return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
+   return Windows.Foundation.Diagnostics.IFileLoggingSession;
    
-   subtype LoggingFields is Windows.Foundation.Diagnostics.ILoggingFields;
-   function Create return Windows.Foundation.Diagnostics.ILoggingFields;
-   
+   subtype LogFileGeneratedEventArgs is Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs;
    subtype LoggingActivity is Windows.Foundation.Diagnostics.ILoggingActivity;
    function CreateLoggingActivity
    (
@@ -2225,6 +2208,27 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.Foundation.Diagnostics.ILoggingChannel;
    
+   subtype LoggingChannelOptions is Windows.Foundation.Diagnostics.ILoggingChannelOptions;
+   function Create return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
+   
+   function Create
+   (
+      group : Windows.Guid
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
+   
+   subtype LoggingFields is Windows.Foundation.Diagnostics.ILoggingFields;
+   function Create return Windows.Foundation.Diagnostics.ILoggingFields;
+   
+   subtype LoggingOptions is Windows.Foundation.Diagnostics.ILoggingOptions;
+   function Create return Windows.Foundation.Diagnostics.ILoggingOptions;
+   
+   function CreateWithKeywords
+   (
+      keywords : Windows.Int64
+   )
+   return Windows.Foundation.Diagnostics.ILoggingOptions;
+   
    subtype LoggingSession is Windows.Foundation.Diagnostics.ILoggingSession;
    function Create
    (
@@ -2232,14 +2236,10 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.Foundation.Diagnostics.ILoggingSession;
    
-   subtype LogFileGeneratedEventArgs is Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs;
-   subtype FileLoggingSession is Windows.Foundation.Diagnostics.IFileLoggingSession;
-   function Create
-   (
-      name : Windows.String
-   )
-   return Windows.Foundation.Diagnostics.IFileLoggingSession;
+   subtype RuntimeBrokerErrorSettings is Windows.Foundation.Diagnostics.IErrorReportingSettings;
+   function Create return Windows.Foundation.Diagnostics.IErrorReportingSettings;
    
+   subtype TracingStatusChangedEventArgs is Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

@@ -37,7 +37,20 @@ package body Windows.ApplicationModel.LockScreen is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface
+      This       : access TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface
+      ; sender : Windows.ApplicationModel.LockScreen.ILockApplicationHost
+      ; args : Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.LockScreen.ILockApplicationHost(sender), Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface
       ; sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo
       ; args : Windows.Object
    )
@@ -76,7 +89,7 @@ package body Windows.ApplicationModel.LockScreen is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface
+      This       : access TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface
       ; sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo
       ; args : Windows.Object
    )
@@ -84,19 +97,6 @@ package body Windows.ApplicationModel.LockScreen is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.LockScreen.ILockScreenInfo(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface
-      ; sender : Windows.ApplicationModel.LockScreen.ILockApplicationHost
-      ; args : Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.LockScreen.ILockApplicationHost(sender), Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs(args));
       return Hr;
    end;
    

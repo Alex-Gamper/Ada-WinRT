@@ -36,17 +36,26 @@ package Windows.ApplicationModel.Payments.Provider is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface;
-   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult is access all AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface'Class;
-   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Ptr is access all AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult;
    type AsyncOperationCompletedHandler_IPaymentTransaction_Interface;
    type AsyncOperationCompletedHandler_IPaymentTransaction is access all AsyncOperationCompletedHandler_IPaymentTransaction_Interface'Class;
    type AsyncOperationCompletedHandler_IPaymentTransaction_Ptr is access all AsyncOperationCompletedHandler_IPaymentTransaction;
+   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface;
+   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult is access all AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Ptr is access all AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IPaymentTransaction_Interface;
+   type IAsyncOperation_IPaymentTransaction is access all IAsyncOperation_IPaymentTransaction_Interface'Class;
+   type IAsyncOperation_IPaymentTransaction_Ptr is access all IAsyncOperation_IPaymentTransaction;
+   type IAsyncOperation_IPaymentTransactionAcceptResult_Interface;
+   type IAsyncOperation_IPaymentTransactionAcceptResult is access all IAsyncOperation_IPaymentTransactionAcceptResult_Interface'Class;
+   type IAsyncOperation_IPaymentTransactionAcceptResult_Ptr is access all IAsyncOperation_IPaymentTransactionAcceptResult;
+   type IPaymentAppCanMakePaymentTriggerDetails_Interface;
+   type IPaymentAppCanMakePaymentTriggerDetails is access all IPaymentAppCanMakePaymentTriggerDetails_Interface'Class;
+   type IPaymentAppCanMakePaymentTriggerDetails_Ptr is access all IPaymentAppCanMakePaymentTriggerDetails;
    type IPaymentAppManager_Interface;
    type IPaymentAppManager is access all IPaymentAppManager_Interface'Class;
    type IPaymentAppManager_Ptr is access all IPaymentAppManager;
@@ -62,19 +71,84 @@ package Windows.ApplicationModel.Payments.Provider is
    type IPaymentTransactionStatics_Interface;
    type IPaymentTransactionStatics is access all IPaymentTransactionStatics_Interface'Class;
    type IPaymentTransactionStatics_Ptr is access all IPaymentTransactionStatics;
-   type IPaymentAppCanMakePaymentTriggerDetails_Interface;
-   type IPaymentAppCanMakePaymentTriggerDetails is access all IPaymentAppCanMakePaymentTriggerDetails_Interface'Class;
-   type IPaymentAppCanMakePaymentTriggerDetails_Ptr is access all IPaymentAppCanMakePaymentTriggerDetails;
-   type IAsyncOperation_IPaymentTransactionAcceptResult_Interface;
-   type IAsyncOperation_IPaymentTransactionAcceptResult is access all IAsyncOperation_IPaymentTransactionAcceptResult_Interface'Class;
-   type IAsyncOperation_IPaymentTransactionAcceptResult_Ptr is access all IAsyncOperation_IPaymentTransactionAcceptResult;
-   type IAsyncOperation_IPaymentTransaction_Interface;
-   type IAsyncOperation_IPaymentTransaction is access all IAsyncOperation_IPaymentTransaction_Interface'Class;
-   type IAsyncOperation_IPaymentTransaction_Ptr is access all IAsyncOperation_IPaymentTransaction;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPaymentTransaction : aliased constant Windows.IID := (3768205181, 27344, 22735, (171, 76, 46, 76, 156, 121, 24, 115 ));
+   
+   type IAsyncOperation_IPaymentTransaction_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPaymentTransaction_Interface
+      ; handler : Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransaction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPaymentTransaction_Interface
+      ; RetVal : access Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransaction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPaymentTransaction_Interface
+      ; RetVal : access Windows.ApplicationModel.Payments.Provider.IPaymentTransaction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (3326470383, 2147, 21940, (138, 237, 66, 189, 21, 45, 128, 4 ));
+   
+   type IAsyncOperation_IPaymentTransactionAcceptResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPaymentTransactionAcceptResult_Interface
+      ; handler : Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPaymentTransactionAcceptResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPaymentTransactionAcceptResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPaymentAppCanMakePaymentTriggerDetails : aliased constant Windows.IID := (216138224, 35731, 20150, (140, 70, 46, 74, 108, 106, 38, 246 ));
+   
+   type IPaymentAppCanMakePaymentTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IPaymentAppCanMakePaymentTriggerDetails_Interface
+      ; RetVal : access Windows.ApplicationModel.Payments.IPaymentRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportCanMakePaymentResult
+   (
+      This       : access IPaymentAppCanMakePaymentTriggerDetails_Interface
+      ; value : Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -223,95 +297,8 @@ package Windows.ApplicationModel.Payments.Provider is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IPaymentAppCanMakePaymentTriggerDetails : aliased constant Windows.IID := (216138224, 35731, 20150, (140, 70, 46, 74, 108, 106, 38, 246 ));
-   
-   type IPaymentAppCanMakePaymentTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Request
-   (
-      This       : access IPaymentAppCanMakePaymentTriggerDetails_Interface
-      ; RetVal : access Windows.ApplicationModel.Payments.IPaymentRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportCanMakePaymentResult
-   (
-      This       : access IPaymentAppCanMakePaymentTriggerDetails_Interface
-      ; value : Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (3326470383, 2147, 21940, (138, 237, 66, 189, 21, 45, 128, 4 ));
-   
-   type IAsyncOperation_IPaymentTransactionAcceptResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPaymentTransactionAcceptResult_Interface
-      ; handler : Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPaymentTransactionAcceptResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPaymentTransactionAcceptResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPaymentTransaction : aliased constant Windows.IID := (3768205181, 27344, 22735, (171, 76, 46, 76, 156, 121, 24, 115 ));
-   
-   type IAsyncOperation_IPaymentTransaction_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPaymentTransaction_Interface
-      ; handler : Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransaction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPaymentTransaction_Interface
-      ; RetVal : access Windows.ApplicationModel.Payments.Provider.AsyncOperationCompletedHandler_IPaymentTransaction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPaymentTransaction_Interface
-      ; RetVal : access Windows.ApplicationModel.Payments.Provider.IPaymentTransaction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (1161361546, 35247, 20665, (129, 101, 126, 98, 105, 99, 152, 132 ));
-   
-   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -327,13 +314,26 @@ package Windows.ApplicationModel.Payments.Provider is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (1161361546, 35247, 20665, (129, 101, 126, 98, 105, 99, 152, 132 ));
+   
+   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PaymentAppManager is Windows.ApplicationModel.Payments.Provider.IPaymentAppManager;
-   subtype PaymentTransactionAcceptResult is Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult;
-   subtype PaymentTransaction is Windows.ApplicationModel.Payments.Provider.IPaymentTransaction;
    subtype PaymentAppCanMakePaymentTriggerDetails is Windows.ApplicationModel.Payments.Provider.IPaymentAppCanMakePaymentTriggerDetails;
+   subtype PaymentAppManager is Windows.ApplicationModel.Payments.Provider.IPaymentAppManager;
+   subtype PaymentTransaction is Windows.ApplicationModel.Payments.Provider.IPaymentTransaction;
+   subtype PaymentTransactionAcceptResult is Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

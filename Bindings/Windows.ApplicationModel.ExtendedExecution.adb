@@ -36,19 +36,6 @@ package body Windows.ApplicationModel.ExtendedExecution is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IExtendedExecutionSession_add_Revoked_Interface
-      ; sender : Windows.Object
-      ; args : Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_ExtendedExecutionResult_Interface
       ; asyncInfo : Windows.ApplicationModel.ExtendedExecution.IAsyncOperation_ExtendedExecutionResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -57,6 +44,19 @@ package body Windows.ApplicationModel.ExtendedExecution is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IExtendedExecutionSession_add_Revoked_Interface
+      ; sender : Windows.Object
+      ; args : Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs(args));
       return Hr;
    end;
    

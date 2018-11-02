@@ -47,15 +47,15 @@ package Windows.ApplicationModel.Preview.Notes is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface;
-   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged is access all TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface'Class;
-   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Ptr is access all TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged;
    type TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface;
    type TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged is access all TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface'Class;
    type TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Ptr is access all TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged;
    type TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Interface;
    type TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged is access all TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Interface'Class;
    type TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Ptr is access all TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged;
+   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface;
+   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged is access all TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface'Class;
+   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Ptr is access all TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -64,21 +64,21 @@ package Windows.ApplicationModel.Preview.Notes is
    type INotePlacementChangedPreviewEventArgs_Interface;
    type INotePlacementChangedPreviewEventArgs is access all INotePlacementChangedPreviewEventArgs_Interface'Class;
    type INotePlacementChangedPreviewEventArgs_Ptr is access all INotePlacementChangedPreviewEventArgs;
-   type INoteVisibilityChangedPreviewEventArgs_Interface;
-   type INoteVisibilityChangedPreviewEventArgs is access all INoteVisibilityChangedPreviewEventArgs_Interface'Class;
-   type INoteVisibilityChangedPreviewEventArgs_Ptr is access all INoteVisibilityChangedPreviewEventArgs;
-   type INotesWindowManagerPreviewShowNoteOptions_Interface;
-   type INotesWindowManagerPreviewShowNoteOptions is access all INotesWindowManagerPreviewShowNoteOptions_Interface'Class;
-   type INotesWindowManagerPreviewShowNoteOptions_Ptr is access all INotesWindowManagerPreviewShowNoteOptions;
    type INotesWindowManagerPreview_Interface;
    type INotesWindowManagerPreview is access all INotesWindowManagerPreview_Interface'Class;
    type INotesWindowManagerPreview_Ptr is access all INotesWindowManagerPreview;
    type INotesWindowManagerPreview2_Interface;
    type INotesWindowManagerPreview2 is access all INotesWindowManagerPreview2_Interface'Class;
    type INotesWindowManagerPreview2_Ptr is access all INotesWindowManagerPreview2;
+   type INotesWindowManagerPreviewShowNoteOptions_Interface;
+   type INotesWindowManagerPreviewShowNoteOptions is access all INotesWindowManagerPreviewShowNoteOptions_Interface'Class;
+   type INotesWindowManagerPreviewShowNoteOptions_Ptr is access all INotesWindowManagerPreviewShowNoteOptions;
    type INotesWindowManagerPreviewStatics_Interface;
    type INotesWindowManagerPreviewStatics is access all INotesWindowManagerPreviewStatics_Interface'Class;
    type INotesWindowManagerPreviewStatics_Ptr is access all INotesWindowManagerPreviewStatics;
+   type INoteVisibilityChangedPreviewEventArgs_Interface;
+   type INoteVisibilityChangedPreviewEventArgs is access all INoteVisibilityChangedPreviewEventArgs_Interface'Class;
+   type INoteVisibilityChangedPreviewEventArgs_Ptr is access all INoteVisibilityChangedPreviewEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -94,46 +94,6 @@ package Windows.ApplicationModel.Preview.Notes is
    (
       This       : access INotePlacementChangedPreviewEventArgs_Interface
       ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INoteVisibilityChangedPreviewEventArgs : aliased constant Windows.IID := (238314654, 14357, 20470, (131, 179, 161, 77, 23, 18, 14, 36 ));
-   
-   type INoteVisibilityChangedPreviewEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ViewId
-   (
-      This       : access INoteVisibilityChangedPreviewEventArgs_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsVisible
-   (
-      This       : access INoteVisibilityChangedPreviewEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INotesWindowManagerPreviewShowNoteOptions : aliased constant Windows.IID := (2288716246, 42670, 16391, (165, 109, 28, 167, 12, 132, 192, 210 ));
-   
-   type INotesWindowManagerPreviewShowNoteOptions_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ShowWithFocus
-   (
-      This       : access INotesWindowManagerPreviewShowNoteOptions_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ShowWithFocus
-   (
-      This       : access INotesWindowManagerPreviewShowNoteOptions_Interface
-      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -296,6 +256,26 @@ package Windows.ApplicationModel.Preview.Notes is
    
    ------------------------------------------------------------------------
    
+   IID_INotesWindowManagerPreviewShowNoteOptions : aliased constant Windows.IID := (2288716246, 42670, 16391, (165, 109, 28, 167, 12, 132, 192, 210 ));
+   
+   type INotesWindowManagerPreviewShowNoteOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShowWithFocus
+   (
+      This       : access INotesWindowManagerPreviewShowNoteOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ShowWithFocus
+   (
+      This       : access INotesWindowManagerPreviewShowNoteOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_INotesWindowManagerPreviewStatics : aliased constant Windows.IID := (1718144136, 2702, 16679, (163, 142, 153, 84, 69, 134, 138, 120 ));
    
    type INotesWindowManagerPreviewStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -308,21 +288,28 @@ package Windows.ApplicationModel.Preview.Notes is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_INoteVisibilityChangedPreviewEventArgs : aliased constant Windows.IID := (238314654, 14357, 20470, (131, 179, 161, 77, 23, 18, 14, 36 ));
+   
+   type INoteVisibilityChangedPreviewEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ViewId
+   (
+      This       : access INoteVisibilityChangedPreviewEventArgs_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsVisible
+   (
+      This       : access INoteVisibilityChangedPreviewEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged : aliased constant Windows.IID := (1864848891, 27699, 21564, (154, 180, 222, 72, 107, 199, 191, 226 ));
-   
-   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface
-      ; sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -351,15 +338,28 @@ package Windows.ApplicationModel.Preview.Notes is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged : aliased constant Windows.IID := (1864848891, 27699, 21564, (154, 180, 222, 72, 107, 199, 191, 226 ));
+   
+   type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface
+      ; sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype NotePlacementChangedPreviewEventArgs is Windows.ApplicationModel.Preview.Notes.INotePlacementChangedPreviewEventArgs;
-   subtype NoteVisibilityChangedPreviewEventArgs is Windows.ApplicationModel.Preview.Notes.INoteVisibilityChangedPreviewEventArgs;
+   subtype NotesWindowManagerPreview is Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview;
    subtype NotesWindowManagerPreviewShowNoteOptions is Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions;
    function Create return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions;
    
-   subtype NotesWindowManagerPreview is Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview;
+   subtype NoteVisibilityChangedPreviewEventArgs is Windows.ApplicationModel.Preview.Notes.INoteVisibilityChangedPreviewEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

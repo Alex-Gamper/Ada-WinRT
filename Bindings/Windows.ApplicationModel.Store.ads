@@ -39,6 +39,24 @@ package Windows.ApplicationModel.Store is
    -- Enums
    ------------------------------------------------------------------------
    
+   type FulfillmentResult is (
+      Succeeded,
+      NothingToFulfill,
+      PurchasePending,
+      PurchaseReverted,
+      ServerError
+   );
+   for FulfillmentResult use (
+      Succeeded => 0,
+      NothingToFulfill => 1,
+      PurchasePending => 2,
+      PurchaseReverted => 3,
+      ServerError => 4
+   );
+   for FulfillmentResult'Size use 32;
+   
+   type FulfillmentResult_Ptr is access FulfillmentResult;
+   
    type ProductPurchaseStatus is (
       Succeeded,
       AlreadyPurchased,
@@ -69,124 +87,187 @@ package Windows.ApplicationModel.Store is
    
    type ProductType_Ptr is access ProductType;
    
-   type FulfillmentResult is (
-      Succeeded,
-      NothingToFulfill,
-      PurchasePending,
-      PurchaseReverted,
-      ServerError
-   );
-   for FulfillmentResult use (
-      Succeeded => 0,
-      NothingToFulfill => 1,
-      PurchasePending => 2,
-      PurchaseReverted => 3,
-      ServerError => 4
-   );
-   for FulfillmentResult'Size use 32;
-   
-   type FulfillmentResult_Ptr is access FulfillmentResult;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type LicenseChangedEventHandler_Interface;
-   type LicenseChangedEventHandler is access all LicenseChangedEventHandler_Interface'Class;
-   type LicenseChangedEventHandler_Ptr is access all LicenseChangedEventHandler;
-   type AsyncOperationCompletedHandler_IListingInformation_Interface;
-   type AsyncOperationCompletedHandler_IListingInformation is access all AsyncOperationCompletedHandler_IListingInformation_Interface'Class;
-   type AsyncOperationCompletedHandler_IListingInformation_Ptr is access all AsyncOperationCompletedHandler_IListingInformation;
    type AsyncOperationCompletedHandler_FulfillmentResult_Interface;
    type AsyncOperationCompletedHandler_FulfillmentResult is access all AsyncOperationCompletedHandler_FulfillmentResult_Interface'Class;
    type AsyncOperationCompletedHandler_FulfillmentResult_Ptr is access all AsyncOperationCompletedHandler_FulfillmentResult;
+   type AsyncOperationCompletedHandler_IListingInformation_Interface;
+   type AsyncOperationCompletedHandler_IListingInformation is access all AsyncOperationCompletedHandler_IListingInformation_Interface'Class;
+   type AsyncOperationCompletedHandler_IListingInformation_Ptr is access all AsyncOperationCompletedHandler_IListingInformation;
    type AsyncOperationCompletedHandler_IPurchaseResults_Interface;
    type AsyncOperationCompletedHandler_IPurchaseResults is access all AsyncOperationCompletedHandler_IPurchaseResults_Interface'Class;
    type AsyncOperationCompletedHandler_IPurchaseResults_Ptr is access all AsyncOperationCompletedHandler_IPurchaseResults;
+   type LicenseChangedEventHandler_Interface;
+   type LicenseChangedEventHandler is access all LicenseChangedEventHandler_Interface'Class;
+   type LicenseChangedEventHandler_Ptr is access all LicenseChangedEventHandler;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_FulfillmentResult_Interface;
+   type IAsyncOperation_FulfillmentResult is access all IAsyncOperation_FulfillmentResult_Interface'Class;
+   type IAsyncOperation_FulfillmentResult_Ptr is access all IAsyncOperation_FulfillmentResult;
+   type IAsyncOperation_IListingInformation_Interface;
+   type IAsyncOperation_IListingInformation is access all IAsyncOperation_IListingInformation_Interface'Class;
+   type IAsyncOperation_IListingInformation_Ptr is access all IAsyncOperation_IListingInformation;
+   type IAsyncOperation_IPurchaseResults_Interface;
+   type IAsyncOperation_IPurchaseResults is access all IAsyncOperation_IPurchaseResults_Interface'Class;
+   type IAsyncOperation_IPurchaseResults_Ptr is access all IAsyncOperation_IPurchaseResults;
    type ICurrentApp_Interface;
    type ICurrentApp is access all ICurrentApp_Interface'Class;
    type ICurrentApp_Ptr is access all ICurrentApp;
-   type ICurrentAppWithConsumables_Interface;
-   type ICurrentAppWithConsumables is access all ICurrentAppWithConsumables_Interface'Class;
-   type ICurrentAppWithConsumables_Ptr is access all ICurrentAppWithConsumables;
-   type ICurrentAppWithCampaignId_Interface;
-   type ICurrentAppWithCampaignId is access all ICurrentAppWithCampaignId_Interface'Class;
-   type ICurrentAppWithCampaignId_Ptr is access all ICurrentAppWithCampaignId;
    type ICurrentApp2Statics_Interface;
    type ICurrentApp2Statics is access all ICurrentApp2Statics_Interface'Class;
    type ICurrentApp2Statics_Ptr is access all ICurrentApp2Statics;
    type ICurrentAppSimulator_Interface;
    type ICurrentAppSimulator is access all ICurrentAppSimulator_Interface'Class;
    type ICurrentAppSimulator_Ptr is access all ICurrentAppSimulator;
+   type ICurrentAppSimulatorStaticsWithFiltering_Interface;
+   type ICurrentAppSimulatorStaticsWithFiltering is access all ICurrentAppSimulatorStaticsWithFiltering_Interface'Class;
+   type ICurrentAppSimulatorStaticsWithFiltering_Ptr is access all ICurrentAppSimulatorStaticsWithFiltering;
    type ICurrentAppSimulatorWithCampaignId_Interface;
    type ICurrentAppSimulatorWithCampaignId is access all ICurrentAppSimulatorWithCampaignId_Interface'Class;
    type ICurrentAppSimulatorWithCampaignId_Ptr is access all ICurrentAppSimulatorWithCampaignId;
    type ICurrentAppSimulatorWithConsumables_Interface;
    type ICurrentAppSimulatorWithConsumables is access all ICurrentAppSimulatorWithConsumables_Interface'Class;
    type ICurrentAppSimulatorWithConsumables_Ptr is access all ICurrentAppSimulatorWithConsumables;
-   type IPurchaseResults_Interface;
-   type IPurchaseResults is access all IPurchaseResults_Interface'Class;
-   type IPurchaseResults_Ptr is access all IPurchaseResults;
+   type ICurrentAppStaticsWithFiltering_Interface;
+   type ICurrentAppStaticsWithFiltering is access all ICurrentAppStaticsWithFiltering_Interface'Class;
+   type ICurrentAppStaticsWithFiltering_Ptr is access all ICurrentAppStaticsWithFiltering;
+   type ICurrentAppWithCampaignId_Interface;
+   type ICurrentAppWithCampaignId is access all ICurrentAppWithCampaignId_Interface'Class;
+   type ICurrentAppWithCampaignId_Ptr is access all ICurrentAppWithCampaignId;
+   type ICurrentAppWithConsumables_Interface;
+   type ICurrentAppWithConsumables is access all ICurrentAppWithConsumables_Interface'Class;
+   type ICurrentAppWithConsumables_Ptr is access all ICurrentAppWithConsumables;
    type ILicenseInformation_Interface;
    type ILicenseInformation is access all ILicenseInformation_Interface'Class;
    type ILicenseInformation_Ptr is access all ILicenseInformation;
-   type IProductLicense_Interface;
-   type IProductLicense is access all IProductLicense_Interface'Class;
-   type IProductLicense_Ptr is access all IProductLicense;
    type IListingInformation_Interface;
    type IListingInformation is access all IListingInformation_Interface'Class;
    type IListingInformation_Ptr is access all IListingInformation;
    type IListingInformation2_Interface;
    type IListingInformation2 is access all IListingInformation2_Interface'Class;
    type IListingInformation2_Ptr is access all IListingInformation2;
-   type IProductListing_Interface;
-   type IProductListing is access all IProductListing_Interface'Class;
-   type IProductListing_Ptr is access all IProductListing;
-   type IProductListingWithConsumables_Interface;
-   type IProductListingWithConsumables is access all IProductListingWithConsumables_Interface'Class;
-   type IProductListingWithConsumables_Ptr is access all IProductListingWithConsumables;
-   type IProductListing2_Interface;
-   type IProductListing2 is access all IProductListing2_Interface'Class;
-   type IProductListing2_Ptr is access all IProductListing2;
-   type ICurrentAppStaticsWithFiltering_Interface;
-   type ICurrentAppStaticsWithFiltering is access all ICurrentAppStaticsWithFiltering_Interface'Class;
-   type ICurrentAppStaticsWithFiltering_Ptr is access all ICurrentAppStaticsWithFiltering;
-   type ICurrentAppSimulatorStaticsWithFiltering_Interface;
-   type ICurrentAppSimulatorStaticsWithFiltering is access all ICurrentAppSimulatorStaticsWithFiltering_Interface'Class;
-   type ICurrentAppSimulatorStaticsWithFiltering_Ptr is access all ICurrentAppSimulatorStaticsWithFiltering;
+   type IProductLicense_Interface;
+   type IProductLicense is access all IProductLicense_Interface'Class;
+   type IProductLicense_Ptr is access all IProductLicense;
    type IProductLicenseWithFulfillment_Interface;
    type IProductLicenseWithFulfillment is access all IProductLicenseWithFulfillment_Interface'Class;
    type IProductLicenseWithFulfillment_Ptr is access all IProductLicenseWithFulfillment;
+   type IProductListing_Interface;
+   type IProductListing is access all IProductListing_Interface'Class;
+   type IProductListing_Ptr is access all IProductListing;
+   type IProductListing2_Interface;
+   type IProductListing2 is access all IProductListing2_Interface'Class;
+   type IProductListing2_Ptr is access all IProductListing2;
+   type IProductListingWithConsumables_Interface;
+   type IProductListingWithConsumables is access all IProductListingWithConsumables_Interface'Class;
+   type IProductListingWithConsumables_Ptr is access all IProductListingWithConsumables;
    type IProductListingWithMetadata_Interface;
    type IProductListingWithMetadata is access all IProductListingWithMetadata_Interface'Class;
    type IProductListingWithMetadata_Ptr is access all IProductListingWithMetadata;
-   type IUnfulfilledConsumable_Interface;
-   type IUnfulfilledConsumable is access all IUnfulfilledConsumable_Interface'Class;
-   type IUnfulfilledConsumable_Ptr is access all IUnfulfilledConsumable;
    type IProductPurchaseDisplayProperties_Interface;
    type IProductPurchaseDisplayProperties is access all IProductPurchaseDisplayProperties_Interface'Class;
    type IProductPurchaseDisplayProperties_Ptr is access all IProductPurchaseDisplayProperties;
    type IProductPurchaseDisplayPropertiesFactory_Interface;
    type IProductPurchaseDisplayPropertiesFactory is access all IProductPurchaseDisplayPropertiesFactory_Interface'Class;
    type IProductPurchaseDisplayPropertiesFactory_Ptr is access all IProductPurchaseDisplayPropertiesFactory;
-   type IAsyncOperation_IListingInformation_Interface;
-   type IAsyncOperation_IListingInformation is access all IAsyncOperation_IListingInformation_Interface'Class;
-   type IAsyncOperation_IListingInformation_Ptr is access all IAsyncOperation_IListingInformation;
-   type IAsyncOperation_FulfillmentResult_Interface;
-   type IAsyncOperation_FulfillmentResult is access all IAsyncOperation_FulfillmentResult_Interface'Class;
-   type IAsyncOperation_FulfillmentResult_Ptr is access all IAsyncOperation_FulfillmentResult;
-   type IAsyncOperation_IPurchaseResults_Interface;
-   type IAsyncOperation_IPurchaseResults is access all IAsyncOperation_IPurchaseResults_Interface'Class;
-   type IAsyncOperation_IPurchaseResults_Ptr is access all IAsyncOperation_IPurchaseResults;
+   type IPurchaseResults_Interface;
+   type IPurchaseResults is access all IPurchaseResults_Interface'Class;
+   type IPurchaseResults_Ptr is access all IPurchaseResults;
+   type IUnfulfilledConsumable_Interface;
+   type IUnfulfilledConsumable is access all IUnfulfilledConsumable_Interface'Class;
+   type IUnfulfilledConsumable_Ptr is access all IUnfulfilledConsumable;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_FulfillmentResult : aliased constant Windows.IID := (1552232876, 23949, 24071, (182, 238, 124, 171, 150, 147, 14, 138 ));
+   
+   type IAsyncOperation_FulfillmentResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_FulfillmentResult_Interface
+      ; handler : Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_FulfillmentResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_FulfillmentResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_FulfillmentResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_FulfillmentResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.FulfillmentResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IListingInformation : aliased constant Windows.IID := (370540791, 27983, 20493, (147, 168, 9, 173, 107, 90, 196, 171 ));
+   
+   type IAsyncOperation_IListingInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IListingInformation_Interface
+      ; handler : Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IListingInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IListingInformation_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IListingInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IListingInformation_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.IListingInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPurchaseResults : aliased constant Windows.IID := (606038800, 27382, 20836, (133, 235, 186, 230, 189, 174, 11, 232 ));
+   
+   type IAsyncOperation_IPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPurchaseResults_Interface
+      ; handler : Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IPurchaseResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPurchaseResults_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IPurchaseResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPurchaseResults_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.IPurchaseResults
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -250,59 +331,6 @@ package Windows.ApplicationModel.Store is
    (
       This       : access ICurrentApp_Interface
       ; productId : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICurrentAppWithConsumables : aliased constant Windows.IID := (2219704433, 40527, 20345, (153, 90, 95, 145, 23, 46, 108, 239 ));
-   
-   type ICurrentAppWithConsumables_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReportConsumableFulfillmentAsync
-   (
-      This       : access ICurrentAppWithConsumables_Interface
-      ; productId : Windows.String
-      ; transactionId : Windows.Guid
-      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RequestProductPurchaseWithResultsAsync
-   (
-      This       : access ICurrentAppWithConsumables_Interface
-      ; productId : Windows.String
-      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RequestProductPurchaseWithDisplayPropertiesAsync
-   (
-      This       : access ICurrentAppWithConsumables_Interface
-      ; productId : Windows.String
-      ; offerId : Windows.String
-      ; displayProperties : Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties
-      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetUnfulfilledConsumablesAsync
-   (
-      This       : access ICurrentAppWithConsumables_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICurrentAppWithCampaignId : aliased constant Windows.IID := (825183440, 14017, 17574, (179, 43, 67, 45, 96, 142, 77, 214 ));
-   
-   type ICurrentAppWithCampaignId_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAppPurchaseCampaignIdAsync
-   (
-      This       : access ICurrentAppWithCampaignId_Interface
       ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
@@ -407,6 +435,28 @@ package Windows.ApplicationModel.Store is
    
    ------------------------------------------------------------------------
    
+   IID_ICurrentAppSimulatorStaticsWithFiltering : aliased constant Windows.IID := (1635676386, 63599, 19284, (150, 102, 221, 226, 133, 9, 44, 104 ));
+   
+   type ICurrentAppSimulatorStaticsWithFiltering_Interface is interface and Windows.IInspectable_Interface;
+   
+   function LoadListingInformationByProductIdsAsync
+   (
+      This       : access ICurrentAppSimulatorStaticsWithFiltering_Interface
+      ; productIds : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadListingInformationByKeywordsAsync
+   (
+      This       : access ICurrentAppSimulatorStaticsWithFiltering_Interface
+      ; keywords : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICurrentAppSimulatorWithCampaignId : aliased constant Windows.IID := (2221378115, 57088, 18034, (164, 63, 178, 91, 20, 65, 207, 207 ));
    
    type ICurrentAppSimulatorWithCampaignId_Interface is interface and Windows.IInspectable_Interface;
@@ -460,35 +510,83 @@ package Windows.ApplicationModel.Store is
    
    ------------------------------------------------------------------------
    
-   IID_IPurchaseResults : aliased constant Windows.IID := (3981489022, 34390, 20325, (184, 200, 172, 126, 12, 177, 161, 194 ));
+   IID_ICurrentAppStaticsWithFiltering : aliased constant Windows.IID := (3547161922, 36997, 17294, (151, 186, 162, 92, 151, 107, 226, 253 ));
    
-   type IPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
+   type ICurrentAppStaticsWithFiltering_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Status
+   function LoadListingInformationByProductIdsAsync
    (
-      This       : access IPurchaseResults_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.ProductPurchaseStatus
+      This       : access ICurrentAppStaticsWithFiltering_Interface
+      ; productIds : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_TransactionId
+   function LoadListingInformationByKeywordsAsync
    (
-      This       : access IPurchaseResults_Interface
-      ; RetVal : access Windows.Guid
+      This       : access ICurrentAppStaticsWithFiltering_Interface
+      ; keywords : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_ReceiptXml
+   function ReportProductFulfillment
    (
-      This       : access IPurchaseResults_Interface
-      ; RetVal : access Windows.String
+      This       : access ICurrentAppStaticsWithFiltering_Interface
+      ; productId : Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_OfferId
+   ------------------------------------------------------------------------
+   
+   IID_ICurrentAppWithCampaignId : aliased constant Windows.IID := (825183440, 14017, 17574, (179, 43, 67, 45, 96, 142, 77, 214 ));
+   
+   type ICurrentAppWithCampaignId_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAppPurchaseCampaignIdAsync
    (
-      This       : access IPurchaseResults_Interface
-      ; RetVal : access Windows.String
+      This       : access ICurrentAppWithCampaignId_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICurrentAppWithConsumables : aliased constant Windows.IID := (2219704433, 40527, 20345, (153, 90, 95, 145, 23, 46, 108, 239 ));
+   
+   type ICurrentAppWithConsumables_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportConsumableFulfillmentAsync
+   (
+      This       : access ICurrentAppWithConsumables_Interface
+      ; productId : Windows.String
+      ; transactionId : Windows.Guid
+      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestProductPurchaseWithResultsAsync
+   (
+      This       : access ICurrentAppWithConsumables_Interface
+      ; productId : Windows.String
+      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestProductPurchaseWithDisplayPropertiesAsync
+   (
+      This       : access ICurrentAppWithConsumables_Interface
+      ; productId : Windows.String
+      ; offerId : Windows.String
+      ; displayProperties : Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties
+      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetUnfulfilledConsumablesAsync
+   (
+      This       : access ICurrentAppWithConsumables_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -538,33 +636,6 @@ package Windows.ApplicationModel.Store is
    (
       This       : access ILicenseInformation_Interface
       ; cookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProductLicense : aliased constant Windows.IID := (909314247, 11215, 19470, (143, 47, 232, 8, 170, 168, 249, 157 ));
-   
-   type IProductLicense_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ProductId
-   (
-      This       : access IProductLicense_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsActive
-   (
-      This       : access IProductLicense_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExpirationDate
-   (
-      This       : access IProductLicense_Interface
-      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
@@ -652,6 +723,46 @@ package Windows.ApplicationModel.Store is
    
    ------------------------------------------------------------------------
    
+   IID_IProductLicense : aliased constant Windows.IID := (909314247, 11215, 19470, (143, 47, 232, 8, 170, 168, 249, 157 ));
+   
+   type IProductLicense_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProductId
+   (
+      This       : access IProductLicense_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsActive
+   (
+      This       : access IProductLicense_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpirationDate
+   (
+      This       : access IProductLicense_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProductLicenseWithFulfillment : aliased constant Windows.IID := (4233321610, 63079, 16627, (186, 60, 4, 90, 99, 171, 179, 172 ));
+   
+   type IProductLicenseWithFulfillment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsConsumable
+   (
+      This       : access IProductLicenseWithFulfillment_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IProductListing : aliased constant Windows.IID := (1168627373, 51024, 19868, (148, 124, 176, 13, 203, 249, 233, 194 ));
    
    type IProductListing_Interface is interface and Windows.IInspectable_Interface;
@@ -674,19 +785,6 @@ package Windows.ApplicationModel.Store is
    (
       This       : access IProductListing_Interface
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProductListingWithConsumables : aliased constant Windows.IID := (3953039248, 36715, 18463, (147, 167, 92, 58, 99, 6, 129, 73 ));
-   
-   type IProductListingWithConsumables_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ProductType
-   (
-      This       : access IProductListingWithConsumables_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.ProductType
    )
    return Windows.HRESULT is abstract;
    
@@ -726,65 +824,14 @@ package Windows.ApplicationModel.Store is
    
    ------------------------------------------------------------------------
    
-   IID_ICurrentAppStaticsWithFiltering : aliased constant Windows.IID := (3547161922, 36997, 17294, (151, 186, 162, 92, 151, 107, 226, 253 ));
+   IID_IProductListingWithConsumables : aliased constant Windows.IID := (3953039248, 36715, 18463, (147, 167, 92, 58, 99, 6, 129, 73 ));
    
-   type ICurrentAppStaticsWithFiltering_Interface is interface and Windows.IInspectable_Interface;
+   type IProductListingWithConsumables_Interface is interface and Windows.IInspectable_Interface;
    
-   function LoadListingInformationByProductIdsAsync
+   function get_ProductType
    (
-      This       : access ICurrentAppStaticsWithFiltering_Interface
-      ; productIds : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LoadListingInformationByKeywordsAsync
-   (
-      This       : access ICurrentAppStaticsWithFiltering_Interface
-      ; keywords : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportProductFulfillment
-   (
-      This       : access ICurrentAppStaticsWithFiltering_Interface
-      ; productId : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICurrentAppSimulatorStaticsWithFiltering : aliased constant Windows.IID := (1635676386, 63599, 19284, (150, 102, 221, 226, 133, 9, 44, 104 ));
-   
-   type ICurrentAppSimulatorStaticsWithFiltering_Interface is interface and Windows.IInspectable_Interface;
-   
-   function LoadListingInformationByProductIdsAsync
-   (
-      This       : access ICurrentAppSimulatorStaticsWithFiltering_Interface
-      ; productIds : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function LoadListingInformationByKeywordsAsync
-   (
-      This       : access ICurrentAppSimulatorStaticsWithFiltering_Interface
-      ; keywords : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProductLicenseWithFulfillment : aliased constant Windows.IID := (4233321610, 63079, 16627, (186, 60, 4, 90, 99, 171, 179, 172 ));
-   
-   type IProductLicenseWithFulfillment_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsConsumable
-   (
-      This       : access IProductLicenseWithFulfillment_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IProductListingWithConsumables_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.ProductType
    )
    return Windows.HRESULT is abstract;
    
@@ -826,33 +873,6 @@ package Windows.ApplicationModel.Store is
    (
       This       : access IProductListingWithMetadata_Interface
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUnfulfilledConsumable : aliased constant Windows.IID := (771226555, 7389, 19640, (160, 20, 123, 156, 248, 152, 105, 39 ));
-   
-   type IUnfulfilledConsumable_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ProductId
-   (
-      This       : access IUnfulfilledConsumable_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TransactionId
-   (
-      This       : access IUnfulfilledConsumable_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OfferId
-   (
-      This       : access IUnfulfilledConsumable_Interface
-      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -920,82 +940,62 @@ package Windows.ApplicationModel.Store is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IListingInformation : aliased constant Windows.IID := (370540791, 27983, 20493, (147, 168, 9, 173, 107, 90, 196, 171 ));
+   IID_IPurchaseResults : aliased constant Windows.IID := (3981489022, 34390, 20325, (184, 200, 172, 126, 12, 177, 161, 194 ));
    
-   type IAsyncOperation_IListingInformation_Interface is interface and Windows.IInspectable_Interface;
+   type IPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_Status
    (
-      This       : access IAsyncOperation_IListingInformation_Interface
-      ; handler : Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IListingInformation
+      This       : access IPurchaseResults_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.ProductPurchaseStatus
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_TransactionId
    (
-      This       : access IAsyncOperation_IListingInformation_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IListingInformation
+      This       : access IPurchaseResults_Interface
+      ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function get_ReceiptXml
    (
-      This       : access IAsyncOperation_IListingInformation_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.IListingInformation
+      This       : access IPurchaseResults_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_FulfillmentResult : aliased constant Windows.IID := (1552232876, 23949, 24071, (182, 238, 124, 171, 150, 147, 14, 138 ));
-   
-   type IAsyncOperation_FulfillmentResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
+   function get_OfferId
    (
-      This       : access IAsyncOperation_FulfillmentResult_Interface
-      ; handler : Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_FulfillmentResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_FulfillmentResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_FulfillmentResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_FulfillmentResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.FulfillmentResult
+      This       : access IPurchaseResults_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IPurchaseResults : aliased constant Windows.IID := (606038800, 27382, 20836, (133, 235, 186, 230, 189, 174, 11, 232 ));
+   IID_IUnfulfilledConsumable : aliased constant Windows.IID := (771226555, 7389, 19640, (160, 20, 123, 156, 248, 152, 105, 39 ));
    
-   type IAsyncOperation_IPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
+   type IUnfulfilledConsumable_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_ProductId
    (
-      This       : access IAsyncOperation_IPurchaseResults_Interface
-      ; handler : Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IPurchaseResults
+      This       : access IUnfulfilledConsumable_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_TransactionId
    (
-      This       : access IAsyncOperation_IPurchaseResults_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.AsyncOperationCompletedHandler_IPurchaseResults
+      This       : access IUnfulfilledConsumable_Interface
+      ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function get_OfferId
    (
-      This       : access IAsyncOperation_IPurchaseResults_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.IPurchaseResults
+      This       : access IUnfulfilledConsumable_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1005,12 +1005,14 @@ package Windows.ApplicationModel.Store is
    
    ------------------------------------------------------------------------
    
-   IID_LicenseChangedEventHandler : aliased constant Windows.IID := (3567583829, 4969, 19510, (131, 47, 111, 45, 136, 227, 101, 155 ));
+   IID_AsyncOperationCompletedHandler_FulfillmentResult : aliased constant Windows.IID := (2272636105, 47534, 23758, (137, 92, 151, 27, 249, 39, 8, 146 ));
    
-   type LicenseChangedEventHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface(IID_LicenseChangedEventHandler'access) with null record;
+   type AsyncOperationCompletedHandler_FulfillmentResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_FulfillmentResult'access) with null record;
    function Invoke
    (
-      This       : access LicenseChangedEventHandler_Interface
+      This       : access AsyncOperationCompletedHandler_FulfillmentResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
@@ -1029,19 +1031,6 @@ package Windows.ApplicationModel.Store is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_FulfillmentResult : aliased constant Windows.IID := (2272636105, 47534, 23758, (137, 92, 151, 27, 249, 39, 8, 146 ));
-   
-   type AsyncOperationCompletedHandler_FulfillmentResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_FulfillmentResult'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_FulfillmentResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_AsyncOperationCompletedHandler_IPurchaseResults : aliased constant Windows.IID := (615944746, 64945, 20483, (174, 137, 200, 191, 22, 202, 1, 67 ));
    
    type AsyncOperationCompletedHandler_IPurchaseResults_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPurchaseResults'access) with null record;
@@ -1054,12 +1043,24 @@ package Windows.ApplicationModel.Store is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_LicenseChangedEventHandler : aliased constant Windows.IID := (3567583829, 4969, 19510, (131, 47, 111, 45, 136, 227, 101, 155 ));
+   
+   type LicenseChangedEventHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface(IID_LicenseChangedEventHandler'access) with null record;
+   function Invoke
+   (
+      This       : access LicenseChangedEventHandler_Interface
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype LicenseInformation is Windows.ApplicationModel.Store.ILicenseInformation;
    subtype ListingInformation is Windows.ApplicationModel.Store.IListingInformation;
-   subtype PurchaseResults is Windows.ApplicationModel.Store.IPurchaseResults;
+   subtype ProductLicense is Windows.ApplicationModel.Store.IProductLicense;
+   subtype ProductListing is Windows.ApplicationModel.Store.IProductListing;
    subtype ProductPurchaseDisplayProperties is Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
    function Create return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
    
@@ -1069,9 +1070,8 @@ package Windows.ApplicationModel.Store is
    )
    return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
    
+   subtype PurchaseResults is Windows.ApplicationModel.Store.IPurchaseResults;
    subtype UnfulfilledConsumable is Windows.ApplicationModel.Store.IUnfulfilledConsumable;
-   subtype ProductLicense is Windows.ApplicationModel.Store.IProductLicense;
-   subtype ProductListing is Windows.ApplicationModel.Store.IProductListing;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

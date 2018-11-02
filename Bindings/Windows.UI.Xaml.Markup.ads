@@ -69,24 +69,15 @@ package Windows.UI.Xaml.Markup is
    type IDataTemplateComponent_Interface;
    type IDataTemplateComponent is access all IDataTemplateComponent_Interface'Class;
    type IDataTemplateComponent_Ptr is access all IDataTemplateComponent;
-   type IXamlMember_Interface;
-   type IXamlMember is access all IXamlMember_Interface'Class;
-   type IXamlMember_Ptr is access all IXamlMember;
-   type IXamlType_Interface;
-   type IXamlType is access all IXamlType_Interface'Class;
-   type IXamlType_Ptr is access all IXamlType;
-   type IXamlMetadataProvider_Interface;
-   type IXamlMetadataProvider is access all IXamlMetadataProvider_Interface'Class;
-   type IXamlMetadataProvider_Ptr is access all IXamlMetadataProvider;
    type IMarkupExtension_Interface;
    type IMarkupExtension is access all IMarkupExtension_Interface'Class;
    type IMarkupExtension_Ptr is access all IMarkupExtension;
-   type IMarkupExtensionOverrides_Interface;
-   type IMarkupExtensionOverrides is access all IMarkupExtensionOverrides_Interface'Class;
-   type IMarkupExtensionOverrides_Ptr is access all IMarkupExtensionOverrides;
    type IMarkupExtensionFactory_Interface;
    type IMarkupExtensionFactory is access all IMarkupExtensionFactory_Interface'Class;
    type IMarkupExtensionFactory_Ptr is access all IMarkupExtensionFactory;
+   type IMarkupExtensionOverrides_Interface;
+   type IMarkupExtensionOverrides is access all IMarkupExtensionOverrides_Interface'Class;
+   type IMarkupExtensionOverrides_Ptr is access all IMarkupExtensionOverrides;
    type IXamlBinaryWriter_Interface;
    type IXamlBinaryWriter is access all IXamlBinaryWriter_Interface'Class;
    type IXamlBinaryWriter_Ptr is access all IXamlBinaryWriter;
@@ -105,12 +96,21 @@ package Windows.UI.Xaml.Markup is
    type IXamlMarkupHelperStatics_Interface;
    type IXamlMarkupHelperStatics is access all IXamlMarkupHelperStatics_Interface'Class;
    type IXamlMarkupHelperStatics_Ptr is access all IXamlMarkupHelperStatics;
+   type IXamlMember_Interface;
+   type IXamlMember is access all IXamlMember_Interface'Class;
+   type IXamlMember_Ptr is access all IXamlMember;
+   type IXamlMetadataProvider_Interface;
+   type IXamlMetadataProvider is access all IXamlMetadataProvider_Interface'Class;
+   type IXamlMetadataProvider_Ptr is access all IXamlMetadataProvider;
    type IXamlReader_Interface;
    type IXamlReader is access all IXamlReader_Interface'Class;
    type IXamlReader_Ptr is access all IXamlReader;
    type IXamlReaderStatics_Interface;
    type IXamlReaderStatics is access all IXamlReaderStatics_Interface'Class;
    type IXamlReaderStatics_Ptr is access all IXamlReaderStatics;
+   type IXamlType_Interface;
+   type IXamlType is access all IXamlType_Interface'Class;
+   type IXamlType_Ptr is access all IXamlType;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -169,251 +169,9 @@ package Windows.UI.Xaml.Markup is
    
    ------------------------------------------------------------------------
    
-   IID_IXamlMember : aliased constant Windows.IID := (3309434252, 17321, 16918, (183, 24, 224, 177, 27, 20, 233, 62 ));
-   
-   type IXamlMember_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsAttachable
-   (
-      This       : access IXamlMember_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsDependencyProperty
-   (
-      This       : access IXamlMember_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsReadOnly
-   (
-      This       : access IXamlMember_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Name
-   (
-      This       : access IXamlMember_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TargetType
-   (
-      This       : access IXamlMember_Interface
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Type
-   (
-      This       : access IXamlMember_Interface
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetValue
-   (
-      This       : access IXamlMember_Interface
-      ; instance : Windows.Object
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetValue
-   (
-      This       : access IXamlMember_Interface
-      ; instance : Windows.Object
-      ; value : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlType : aliased constant Windows.IID := (2032200369, 41701, 18330, (189, 80, 108, 239, 60, 11, 73, 112 ));
-   
-   type IXamlType_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_BaseType
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ContentProperty
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlMember
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FullName
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsArray
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCollection
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsConstructible
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsDictionary
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsMarkupExtension
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsBindable
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ItemType
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyType
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UnderlyingType
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.UI.Xaml.Interop.TypeName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ActivateInstance
-   (
-      This       : access IXamlType_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateFromString
-   (
-      This       : access IXamlType_Interface
-      ; value : Windows.String
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMember
-   (
-      This       : access IXamlType_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlMember
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddToVector
-   (
-      This       : access IXamlType_Interface
-      ; instance : Windows.Object
-      ; value : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddToMap
-   (
-      This       : access IXamlType_Interface
-      ; instance : Windows.Object
-      ; key : Windows.Object
-      ; value : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RunInitializer
-   (
-      This       : access IXamlType_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IXamlMetadataProvider : aliased constant Windows.IID := (3010878825, 26789, 19250, (136, 97, 253, 185, 12, 31, 88, 54 ));
-   
-   type IXamlMetadataProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetXamlType
-   (
-      This       : access IXamlMetadataProvider_Interface
-      ; type_x : Windows.UI.Xaml.Interop.TypeName
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetXamlTypeByFullName
-   (
-      This       : access IXamlMetadataProvider_Interface
-      ; fullName : Windows.String
-      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetXmlnsDefinitions
-   (
-      This       : access IXamlMetadataProvider_Interface
-      ; RetVal : access Windows.UI.Xaml.Markup.XmlnsDefinition_Ptr -- Array Parameter type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IMarkupExtension : aliased constant Windows.IID := (518209901, 22059, 18542, (158, 229, 15, 12, 188, 200, 4, 140 ));
    
    type IMarkupExtension_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMarkupExtensionOverrides : aliased constant Windows.IID := (959936959, 47552, 20475, (165, 127, 88, 231, 53, 110, 66, 95 ));
-   
-   type IMarkupExtensionOverrides_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ProvideValue
-   (
-      This       : access IMarkupExtensionOverrides_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -427,6 +185,19 @@ package Windows.UI.Xaml.Markup is
       ; outer : Windows.Object
       ; inner : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Markup.IMarkupExtension
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMarkupExtensionOverrides : aliased constant Windows.IID := (959936959, 47552, 20475, (165, 127, 88, 231, 53, 110, 66, 95 ));
+   
+   type IMarkupExtensionOverrides_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ProvideValue
+   (
+      This       : access IMarkupExtensionOverrides_Interface
+      ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
    
@@ -684,6 +455,99 @@ package Windows.UI.Xaml.Markup is
    
    ------------------------------------------------------------------------
    
+   IID_IXamlMember : aliased constant Windows.IID := (3309434252, 17321, 16918, (183, 24, 224, 177, 27, 20, 233, 62 ));
+   
+   type IXamlMember_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsAttachable
+   (
+      This       : access IXamlMember_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsDependencyProperty
+   (
+      This       : access IXamlMember_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsReadOnly
+   (
+      This       : access IXamlMember_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Name
+   (
+      This       : access IXamlMember_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TargetType
+   (
+      This       : access IXamlMember_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Type
+   (
+      This       : access IXamlMember_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetValue
+   (
+      This       : access IXamlMember_Interface
+      ; instance : Windows.Object
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetValue
+   (
+      This       : access IXamlMember_Interface
+      ; instance : Windows.Object
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlMetadataProvider : aliased constant Windows.IID := (3010878825, 26789, 19250, (136, 97, 253, 185, 12, 31, 88, 54 ));
+   
+   type IXamlMetadataProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetXamlType
+   (
+      This       : access IXamlMetadataProvider_Interface
+      ; type_x : Windows.UI.Xaml.Interop.TypeName
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetXamlTypeByFullName
+   (
+      This       : access IXamlMetadataProvider_Interface
+      ; fullName : Windows.String
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetXmlnsDefinitions
+   (
+      This       : access IXamlMetadataProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.XmlnsDefinition_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IXamlReader : aliased constant Windows.IID := (607603953, 52459, 18623, (165, 20, 65, 176, 24, 111, 132, 194 ));
    
    type IXamlReader_Interface is interface and Windows.IInspectable_Interface;
@@ -707,6 +571,142 @@ package Windows.UI.Xaml.Markup is
       This       : access IXamlReaderStatics_Interface
       ; xaml : Windows.String
       ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlType : aliased constant Windows.IID := (2032200369, 41701, 18330, (189, 80, 108, 239, 60, 11, 73, 112 ));
+   
+   type IXamlType_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BaseType
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentProperty
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlMember
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FullName
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsArray
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCollection
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsConstructible
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsDictionary
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsMarkupExtension
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsBindable
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemType
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyType
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UnderlyingType
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.UI.Xaml.Interop.TypeName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ActivateInstance
+   (
+      This       : access IXamlType_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromString
+   (
+      This       : access IXamlType_Interface
+      ; value : Windows.String
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMember
+   (
+      This       : access IXamlType_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlMember
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddToVector
+   (
+      This       : access IXamlType_Interface
+      ; instance : Windows.Object
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddToMap
+   (
+      This       : access IXamlType_Interface
+      ; instance : Windows.Object
+      ; key : Windows.Object
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RunInitializer
+   (
+      This       : access IXamlType_Interface
    )
    return Windows.HRESULT is abstract;
    

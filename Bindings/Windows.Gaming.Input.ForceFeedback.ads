@@ -128,9 +128,9 @@ package Windows.Gaming.Input.ForceFeedback is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IForceFeedbackEffect_Interface;
-   type IForceFeedbackEffect is access all IForceFeedbackEffect_Interface'Class;
-   type IForceFeedbackEffect_Ptr is access all IForceFeedbackEffect;
+   type IAsyncOperation_ForceFeedbackLoadEffectResult_Interface;
+   type IAsyncOperation_ForceFeedbackLoadEffectResult is access all IAsyncOperation_ForceFeedbackLoadEffectResult_Interface'Class;
+   type IAsyncOperation_ForceFeedbackLoadEffectResult_Ptr is access all IAsyncOperation_ForceFeedbackLoadEffectResult;
    type IConditionForceEffect_Interface;
    type IConditionForceEffect is access all IConditionForceEffect_Interface'Class;
    type IConditionForceEffect_Ptr is access all IConditionForceEffect;
@@ -140,6 +140,18 @@ package Windows.Gaming.Input.ForceFeedback is
    type IConstantForceEffect_Interface;
    type IConstantForceEffect is access all IConstantForceEffect_Interface'Class;
    type IConstantForceEffect_Ptr is access all IConstantForceEffect;
+   type IForceFeedbackEffect_Interface;
+   type IForceFeedbackEffect is access all IForceFeedbackEffect_Interface'Class;
+   type IForceFeedbackEffect_Ptr is access all IForceFeedbackEffect;
+   type IForceFeedbackMotor_Interface;
+   type IForceFeedbackMotor is access all IForceFeedbackMotor_Interface'Class;
+   type IForceFeedbackMotor_Ptr is access all IForceFeedbackMotor;
+   type IIterable_IForceFeedbackMotor_Interface;
+   type IIterable_IForceFeedbackMotor is access all IIterable_IForceFeedbackMotor_Interface'Class;
+   type IIterable_IForceFeedbackMotor_Ptr is access all IIterable_IForceFeedbackMotor;
+   type IIterator_IForceFeedbackMotor_Interface;
+   type IIterator_IForceFeedbackMotor is access all IIterator_IForceFeedbackMotor_Interface'Class;
+   type IIterator_IForceFeedbackMotor_Ptr is access all IIterator_IForceFeedbackMotor;
    type IPeriodicForceEffect_Interface;
    type IPeriodicForceEffect is access all IPeriodicForceEffect_Interface'Class;
    type IPeriodicForceEffect_Ptr is access all IPeriodicForceEffect;
@@ -149,18 +161,6 @@ package Windows.Gaming.Input.ForceFeedback is
    type IRampForceEffect_Interface;
    type IRampForceEffect is access all IRampForceEffect_Interface'Class;
    type IRampForceEffect_Ptr is access all IRampForceEffect;
-   type IForceFeedbackMotor_Interface;
-   type IForceFeedbackMotor is access all IForceFeedbackMotor_Interface'Class;
-   type IForceFeedbackMotor_Ptr is access all IForceFeedbackMotor;
-   type IAsyncOperation_ForceFeedbackLoadEffectResult_Interface;
-   type IAsyncOperation_ForceFeedbackLoadEffectResult is access all IAsyncOperation_ForceFeedbackLoadEffectResult_Interface'Class;
-   type IAsyncOperation_ForceFeedbackLoadEffectResult_Ptr is access all IAsyncOperation_ForceFeedbackLoadEffectResult;
-   type IIterator_IForceFeedbackMotor_Interface;
-   type IIterator_IForceFeedbackMotor is access all IIterator_IForceFeedbackMotor_Interface'Class;
-   type IIterator_IForceFeedbackMotor_Ptr is access all IIterator_IForceFeedbackMotor;
-   type IIterable_IForceFeedbackMotor_Interface;
-   type IIterable_IForceFeedbackMotor is access all IIterable_IForceFeedbackMotor_Interface'Class;
-   type IIterable_IForceFeedbackMotor_Ptr is access all IIterable_IForceFeedbackMotor;
    type IVectorView_IForceFeedbackMotor_Interface;
    type IVectorView_IForceFeedbackMotor is access all IVectorView_IForceFeedbackMotor_Interface'Class;
    type IVectorView_IForceFeedbackMotor_Ptr is access all IVectorView_IForceFeedbackMotor;
@@ -171,40 +171,28 @@ package Windows.Gaming.Input.ForceFeedback is
    
    ------------------------------------------------------------------------
    
-   IID_IForceFeedbackEffect : aliased constant Windows.IID := (2709502476, 10980, 18626, (128, 99, 234, 189, 7, 119, 203, 137 ));
+   IID_IAsyncOperation_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (569914620, 59461, 23225, (191, 133, 149, 52, 226, 57, 119, 152 ));
    
-   type IForceFeedbackEffect_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ForceFeedbackLoadEffectResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Gain
+   function put_Completed
    (
-      This       : access IForceFeedbackEffect_Interface
-      ; RetVal : access Windows.Double
+      This       : access IAsyncOperation_ForceFeedbackLoadEffectResult_Interface
+      ; handler : Windows.Gaming.Input.ForceFeedback.AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult
    )
    return Windows.HRESULT is abstract;
    
-   function put_Gain
+   function get_Completed
    (
-      This       : access IForceFeedbackEffect_Interface
-      ; value : Windows.Double
+      This       : access IAsyncOperation_ForceFeedbackLoadEffectResult_Interface
+      ; RetVal : access Windows.Gaming.Input.ForceFeedback.AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_State
+   function GetResults
    (
-      This       : access IForceFeedbackEffect_Interface
-      ; RetVal : access Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Start
-   (
-      This       : access IForceFeedbackEffect_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Stop
-   (
-      This       : access IForceFeedbackEffect_Interface
+      This       : access IAsyncOperation_ForceFeedbackLoadEffectResult_Interface
+      ; RetVal : access Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult
    )
    return Windows.HRESULT is abstract;
    
@@ -279,88 +267,40 @@ package Windows.Gaming.Input.ForceFeedback is
    
    ------------------------------------------------------------------------
    
-   IID_IPeriodicForceEffect : aliased constant Windows.IID := (1548826839, 64629, 19794, (154, 10, 239, 228, 202, 181, 254, 100 ));
+   IID_IForceFeedbackEffect : aliased constant Windows.IID := (2709502476, 10980, 18626, (128, 99, 234, 189, 7, 119, 203, 137 ));
    
-   type IPeriodicForceEffect_Interface is interface and Windows.IInspectable_Interface;
+   type IForceFeedbackEffect_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Kind
+   function get_Gain
    (
-      This       : access IPeriodicForceEffect_Interface
-      ; RetVal : access Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind
+      This       : access IForceFeedbackEffect_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   function SetParameters
+   function put_Gain
    (
-      This       : access IPeriodicForceEffect_Interface
-      ; vector : Windows.Foundation.Numerics.Vector3
-      ; frequency : Windows.Single
-      ; phase : Windows.Single
-      ; bias : Windows.Single
-      ; duration : Windows.Foundation.TimeSpan
+      This       : access IForceFeedbackEffect_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
-   function SetParametersWithEnvelope
+   function get_State
    (
-      This       : access IPeriodicForceEffect_Interface
-      ; vector : Windows.Foundation.Numerics.Vector3
-      ; frequency : Windows.Single
-      ; phase : Windows.Single
-      ; bias : Windows.Single
-      ; attackGain : Windows.Single
-      ; sustainGain : Windows.Single
-      ; releaseGain : Windows.Single
-      ; startDelay : Windows.Foundation.TimeSpan
-      ; attackDuration : Windows.Foundation.TimeSpan
-      ; sustainDuration : Windows.Foundation.TimeSpan
-      ; releaseDuration : Windows.Foundation.TimeSpan
-      ; repeatCount : Windows.UInt32
+      This       : access IForceFeedbackEffect_Interface
+      ; RetVal : access Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPeriodicForceEffectFactory : aliased constant Windows.IID := (1868753690, 38993, 18299, (179, 24, 53, 236, 170, 21, 7, 15 ));
-   
-   type IPeriodicForceEffectFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
+   function Start
    (
-      This       : access IPeriodicForceEffectFactory_Interface
-      ; effectKind : Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind
-      ; RetVal : access Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect
+      This       : access IForceFeedbackEffect_Interface
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IRampForceEffect : aliased constant Windows.IID := (4059566681, 7334, 16512, (181, 109, 180, 63, 51, 84, 208, 82 ));
-   
-   type IRampForceEffect_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetParameters
+   function Stop
    (
-      This       : access IRampForceEffect_Interface
-      ; startVector : Windows.Foundation.Numerics.Vector3
-      ; endVector : Windows.Foundation.Numerics.Vector3
-      ; duration : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetParametersWithEnvelope
-   (
-      This       : access IRampForceEffect_Interface
-      ; startVector : Windows.Foundation.Numerics.Vector3
-      ; endVector : Windows.Foundation.Numerics.Vector3
-      ; attackGain : Windows.Single
-      ; sustainGain : Windows.Single
-      ; releaseGain : Windows.Single
-      ; startDelay : Windows.Foundation.TimeSpan
-      ; attackDuration : Windows.Foundation.TimeSpan
-      ; sustainDuration : Windows.Foundation.TimeSpan
-      ; releaseDuration : Windows.Foundation.TimeSpan
-      ; repeatCount : Windows.UInt32
+      This       : access IForceFeedbackEffect_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -462,28 +402,14 @@ package Windows.Gaming.Input.ForceFeedback is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (569914620, 59461, 23225, (191, 133, 149, 52, 226, 57, 119, 152 ));
+   IID_IIterable_IForceFeedbackMotor : aliased constant Windows.IID := (3242475729, 65184, 20807, (174, 216, 155, 133, 35, 157, 168, 130 ));
    
-   type IAsyncOperation_ForceFeedbackLoadEffectResult_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IForceFeedbackMotor_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function First
    (
-      This       : access IAsyncOperation_ForceFeedbackLoadEffectResult_Interface
-      ; handler : Windows.Gaming.Input.ForceFeedback.AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ForceFeedbackLoadEffectResult_Interface
-      ; RetVal : access Windows.Gaming.Input.ForceFeedback.AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ForceFeedbackLoadEffectResult_Interface
-      ; RetVal : access Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult
+      This       : access IIterable_IForceFeedbackMotor_Interface
+      ; RetVal : access Windows.Gaming.Input.ForceFeedback.IIterator_IForceFeedbackMotor
    )
    return Windows.HRESULT is abstract;
    
@@ -524,14 +450,88 @@ package Windows.Gaming.Input.ForceFeedback is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IForceFeedbackMotor : aliased constant Windows.IID := (3242475729, 65184, 20807, (174, 216, 155, 133, 35, 157, 168, 130 ));
+   IID_IPeriodicForceEffect : aliased constant Windows.IID := (1548826839, 64629, 19794, (154, 10, 239, 228, 202, 181, 254, 100 ));
    
-   type IIterable_IForceFeedbackMotor_Interface is interface and Windows.IInspectable_Interface;
+   type IPeriodicForceEffect_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Kind
    (
-      This       : access IIterable_IForceFeedbackMotor_Interface
-      ; RetVal : access Windows.Gaming.Input.ForceFeedback.IIterator_IForceFeedbackMotor
+      This       : access IPeriodicForceEffect_Interface
+      ; RetVal : access Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetParameters
+   (
+      This       : access IPeriodicForceEffect_Interface
+      ; vector : Windows.Foundation.Numerics.Vector3
+      ; frequency : Windows.Single
+      ; phase : Windows.Single
+      ; bias : Windows.Single
+      ; duration : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetParametersWithEnvelope
+   (
+      This       : access IPeriodicForceEffect_Interface
+      ; vector : Windows.Foundation.Numerics.Vector3
+      ; frequency : Windows.Single
+      ; phase : Windows.Single
+      ; bias : Windows.Single
+      ; attackGain : Windows.Single
+      ; sustainGain : Windows.Single
+      ; releaseGain : Windows.Single
+      ; startDelay : Windows.Foundation.TimeSpan
+      ; attackDuration : Windows.Foundation.TimeSpan
+      ; sustainDuration : Windows.Foundation.TimeSpan
+      ; releaseDuration : Windows.Foundation.TimeSpan
+      ; repeatCount : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPeriodicForceEffectFactory : aliased constant Windows.IID := (1868753690, 38993, 18299, (179, 24, 53, 236, 170, 21, 7, 15 ));
+   
+   type IPeriodicForceEffectFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IPeriodicForceEffectFactory_Interface
+      ; effectKind : Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind
+      ; RetVal : access Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRampForceEffect : aliased constant Windows.IID := (4059566681, 7334, 16512, (181, 109, 180, 63, 51, 84, 208, 82 ));
+   
+   type IRampForceEffect_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetParameters
+   (
+      This       : access IRampForceEffect_Interface
+      ; startVector : Windows.Foundation.Numerics.Vector3
+      ; endVector : Windows.Foundation.Numerics.Vector3
+      ; duration : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetParametersWithEnvelope
+   (
+      This       : access IRampForceEffect_Interface
+      ; startVector : Windows.Foundation.Numerics.Vector3
+      ; endVector : Windows.Foundation.Numerics.Vector3
+      ; attackGain : Windows.Single
+      ; sustainGain : Windows.Single
+      ; releaseGain : Windows.Single
+      ; startDelay : Windows.Foundation.TimeSpan
+      ; attackDuration : Windows.Foundation.TimeSpan
+      ; sustainDuration : Windows.Foundation.TimeSpan
+      ; releaseDuration : Windows.Foundation.TimeSpan
+      ; repeatCount : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -602,6 +602,10 @@ package Windows.Gaming.Input.ForceFeedback is
    )
    return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
+   subtype ConstantForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
+   function Create return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
+   
+   subtype ForceFeedbackMotor is Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor;
    subtype PeriodicForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    function CreateInstance
    (
@@ -609,13 +613,9 @@ package Windows.Gaming.Input.ForceFeedback is
    )
    return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
-   subtype ConstantForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
-   function Create return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
-   
    subtype RampForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    function CreateRampForceEffect return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
-   subtype ForceFeedbackMotor is Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

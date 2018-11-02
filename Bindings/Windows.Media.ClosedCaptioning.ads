@@ -36,29 +36,31 @@ package Windows.Media.ClosedCaptioning is
    -- Enums
    ------------------------------------------------------------------------
    
-   type ClosedCaptionStyle is (
+   type ClosedCaptionColor is (
       Default,
-      MonospacedWithSerifs,
-      ProportionalWithSerifs,
-      MonospacedWithoutSerifs,
-      ProportionalWithoutSerifs,
-      Casual,
-      Cursive,
-      SmallCapitals
+      White,
+      Black,
+      Red,
+      Green,
+      Blue,
+      Yellow,
+      Magenta,
+      Cyan
    );
-   for ClosedCaptionStyle use (
+   for ClosedCaptionColor use (
       Default => 0,
-      MonospacedWithSerifs => 1,
-      ProportionalWithSerifs => 2,
-      MonospacedWithoutSerifs => 3,
-      ProportionalWithoutSerifs => 4,
-      Casual => 5,
-      Cursive => 6,
-      SmallCapitals => 7
+      White => 1,
+      Black => 2,
+      Red => 3,
+      Green => 4,
+      Blue => 5,
+      Yellow => 6,
+      Magenta => 7,
+      Cyan => 8
    );
-   for ClosedCaptionStyle'Size use 32;
+   for ClosedCaptionColor'Size use 32;
    
-   type ClosedCaptionStyle_Ptr is access ClosedCaptionStyle;
+   type ClosedCaptionColor_Ptr is access ClosedCaptionColor;
    
    type ClosedCaptionEdgeEffect is (
       Default,
@@ -98,32 +100,6 @@ package Windows.Media.ClosedCaptioning is
    
    type ClosedCaptionOpacity_Ptr is access ClosedCaptionOpacity;
    
-   type ClosedCaptionColor is (
-      Default,
-      White,
-      Black,
-      Red,
-      Green,
-      Blue,
-      Yellow,
-      Magenta,
-      Cyan
-   );
-   for ClosedCaptionColor use (
-      Default => 0,
-      White => 1,
-      Black => 2,
-      Red => 3,
-      Green => 4,
-      Blue => 5,
-      Yellow => 6,
-      Magenta => 7,
-      Cyan => 8
-   );
-   for ClosedCaptionColor'Size use 32;
-   
-   type ClosedCaptionColor_Ptr is access ClosedCaptionColor;
-   
    type ClosedCaptionSize is (
       Default,
       FiftyPercent,
@@ -141,6 +117,30 @@ package Windows.Media.ClosedCaptioning is
    for ClosedCaptionSize'Size use 32;
    
    type ClosedCaptionSize_Ptr is access ClosedCaptionSize;
+   
+   type ClosedCaptionStyle is (
+      Default,
+      MonospacedWithSerifs,
+      ProportionalWithSerifs,
+      MonospacedWithoutSerifs,
+      ProportionalWithoutSerifs,
+      Casual,
+      Cursive,
+      SmallCapitals
+   );
+   for ClosedCaptionStyle use (
+      Default => 0,
+      MonospacedWithSerifs => 1,
+      ProportionalWithSerifs => 2,
+      MonospacedWithoutSerifs => 3,
+      ProportionalWithoutSerifs => 4,
+      Casual => 5,
+      Cursive => 6,
+      SmallCapitals => 7
+   );
+   for ClosedCaptionStyle'Size use 32;
+   
+   type ClosedCaptionStyle_Ptr is access ClosedCaptionStyle;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces

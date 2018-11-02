@@ -39,14 +39,53 @@ package body Windows.ApplicationModel.Calls is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPhoneLine_add_LineChanged_Interface
-      ; sender : Windows.ApplicationModel.Calls.IPhoneLine
-      ; args : Windows.Object
+      This       : access AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface
+      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryEntry
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.Calls.IPhoneLine(sender), args);
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface
+      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPhoneCallStore_Interface
+      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface
+      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallVideoCapabilities
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -60,6 +99,71 @@ package body Windows.ApplicationModel.Calls is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface
+      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_VoipPhoneCallResourceReservationStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ILockScreenCallUI_add_Closed_Interface
+      ; sender : Windows.ApplicationModel.Calls.ILockScreenCallUI
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Calls.ILockScreenCallUI(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface
+      ; sender : Windows.ApplicationModel.Calls.ILockScreenCallUI
+      ; args : Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Calls.ILockScreenCallUI(sender), Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPhoneLine_add_LineChanged_Interface
+      ; sender : Windows.ApplicationModel.Calls.IPhoneLine
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Calls.IPhoneLine(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface
+      ; sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Calls.IPhoneLineWatcher(sender), args);
       return Hr;
    end;
    
@@ -104,19 +208,6 @@ package body Windows.ApplicationModel.Calls is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface
-      ; sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Calls.IPhoneLineWatcher(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface
       ; sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher
       ; args : Windows.Object
@@ -130,27 +221,27 @@ package body Windows.ApplicationModel.Calls is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IPhoneCallStore_Interface
-      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface
+      ; sender : Windows.ApplicationModel.Calls.IVoipCallCoordinator
+      ; args : Windows.ApplicationModel.Calls.IMuteChangeEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.ApplicationModel.Calls.IVoipCallCoordinator(sender), Windows.ApplicationModel.Calls.IMuteChangeEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface
-      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallVideoCapabilities
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface
+      ; sender : Windows.ApplicationModel.Calls.IVoipPhoneCall
+      ; args : Windows.ApplicationModel.Calls.ICallAnswerEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.ApplicationModel.Calls.IVoipPhoneCall(sender), Windows.ApplicationModel.Calls.ICallAnswerEventArgs(args));
       return Hr;
    end;
    
@@ -182,32 +273,6 @@ package body Windows.ApplicationModel.Calls is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface
-      ; sender : Windows.ApplicationModel.Calls.IVoipPhoneCall
-      ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Calls.IVoipPhoneCall(sender), Windows.ApplicationModel.Calls.ICallStateChangeEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface
-      ; sender : Windows.ApplicationModel.Calls.IVoipPhoneCall
-      ; args : Windows.ApplicationModel.Calls.ICallAnswerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Calls.IVoipPhoneCall(sender), Windows.ApplicationModel.Calls.ICallAnswerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface
       ; sender : Windows.ApplicationModel.Calls.IVoipPhoneCall
       ; args : Windows.ApplicationModel.Calls.ICallRejectEventArgs
@@ -221,79 +286,14 @@ package body Windows.ApplicationModel.Calls is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface
-      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_VoipPhoneCallResourceReservationStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface
+      ; sender : Windows.ApplicationModel.Calls.IVoipPhoneCall
+      ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface
-      ; sender : Windows.ApplicationModel.Calls.IVoipCallCoordinator
-      ; args : Windows.ApplicationModel.Calls.IMuteChangeEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Calls.IVoipCallCoordinator(sender), Windows.ApplicationModel.Calls.IMuteChangeEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface
-      ; sender : Windows.ApplicationModel.Calls.ILockScreenCallUI
-      ; args : Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Calls.ILockScreenCallUI(sender), Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ILockScreenCallUI_add_Closed_Interface
-      ; sender : Windows.ApplicationModel.Calls.ILockScreenCallUI
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Calls.ILockScreenCallUI(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface
-      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryEntry
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface
-      ; asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.ApplicationModel.Calls.IVoipPhoneCall(sender), Windows.ApplicationModel.Calls.ICallStateChangeEventArgs(args));
       return Hr;
    end;
    
@@ -301,17 +301,17 @@ package body Windows.ApplicationModel.Calls is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.ApplicationModel.Calls.IPhoneDialOptions is
+   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneDialOptions");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryEntry");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Calls.IPhoneDialOptions) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Calls.IID_IPhoneDialOptions'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Calls.IID_IPhoneCallHistoryEntry'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -356,23 +356,6 @@ package body Windows.ApplicationModel.Calls is
       return RetVal;
    end;
    
-   function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryEntry");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Calls.IID_IPhoneCallHistoryEntry'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function Create return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions");
@@ -390,6 +373,23 @@ package body Windows.ApplicationModel.Calls is
       return Convert(RetVal);
    end;
    
+   function Create return Windows.ApplicationModel.Calls.IPhoneDialOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneDialOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Calls.IPhoneDialOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Calls.IID_IPhoneDialOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -398,20 +398,130 @@ package body Windows.ApplicationModel.Calls is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function FromIdAsync
-   (
-      lineId : Windows.Guid
-   )
-   return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine is
+   function get_BlockUnknownNumbers
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneLine");
-      m_Factory     : IPhoneLineStatics := null;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
+      m_Factory     : IPhoneCallBlockingStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine;
+      RetVal        : aliased Windows.Boolean;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneLineStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(lineId, RetVal'Access);
+         Hr := m_Factory.get_BlockUnknownNumbers(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_BlockUnknownNumbers
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
+      m_Factory     : IPhoneCallBlockingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_BlockUnknownNumbers(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_BlockPrivateNumbers
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
+      m_Factory     : IPhoneCallBlockingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BlockPrivateNumbers(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_BlockPrivateNumbers
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
+      m_Factory     : IPhoneCallBlockingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_BlockPrivateNumbers(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function SetCallBlockingListAsync
+   (
+      phoneNumberList : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
+      m_Factory     : IPhoneCallBlockingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetCallBlockingListAsync(phoneNumberList, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestStoreAsync
+   (
+      accessType : Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType
+   )
+   return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryManager");
+      m_Factory     : IPhoneCallHistoryManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallHistoryManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestStoreAsync(accessType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryManager");
+      m_Factory     : IPhoneCallHistoryManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallHistoryManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -561,90 +671,20 @@ package body Windows.ApplicationModel.Calls is
       return RetVal;
    end;
    
-   function get_BlockUnknownNumbers
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
-      m_Factory     : IPhoneCallBlockingStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BlockUnknownNumbers(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_BlockUnknownNumbers
+   function FromIdAsync
    (
-      value : Windows.Boolean
+      lineId : Windows.Guid
    )
-   is
+   return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
-      m_Factory     : IPhoneCallBlockingStatics := null;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneLine");
+      m_Factory     : IPhoneLineStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneLineStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.put_BlockUnknownNumbers(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_BlockPrivateNumbers
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
-      m_Factory     : IPhoneCallBlockingStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BlockPrivateNumbers(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_BlockPrivateNumbers
-   (
-      value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
-      m_Factory     : IPhoneCallBlockingStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_BlockPrivateNumbers(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function SetCallBlockingListAsync
-   (
-      phoneNumberList : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
-      m_Factory     : IPhoneCallBlockingStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetCallBlockingListAsync(phoneNumberList, RetVal'Access);
+         Hr := m_Factory.FromIdAsync(lineId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -662,46 +702,6 @@ package body Windows.ApplicationModel.Calls is
       Hr := RoGetActivationFactory(m_hString, IID_IVoipCallCoordinatorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestStoreAsync
-   (
-      accessType : Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType
-   )
-   return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryManager");
-      m_Factory     : IPhoneCallHistoryManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallHistoryManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestStoreAsync(accessType, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryManager");
-      m_Factory     : IPhoneCallHistoryManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallHistoryManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

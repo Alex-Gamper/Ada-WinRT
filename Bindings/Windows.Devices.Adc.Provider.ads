@@ -57,12 +57,12 @@ package Windows.Devices.Adc.Provider is
    type IAdcProvider_Interface;
    type IAdcProvider is access all IAdcProvider_Interface'Class;
    type IAdcProvider_Ptr is access all IAdcProvider;
-   type IIterator_IAdcControllerProvider_Interface;
-   type IIterator_IAdcControllerProvider is access all IIterator_IAdcControllerProvider_Interface'Class;
-   type IIterator_IAdcControllerProvider_Ptr is access all IIterator_IAdcControllerProvider;
    type IIterable_IAdcControllerProvider_Interface;
    type IIterable_IAdcControllerProvider is access all IIterable_IAdcControllerProvider_Interface'Class;
    type IIterable_IAdcControllerProvider_Ptr is access all IIterable_IAdcControllerProvider;
+   type IIterator_IAdcControllerProvider_Interface;
+   type IIterator_IAdcControllerProvider is access all IIterator_IAdcControllerProvider_Interface'Class;
+   type IIterator_IAdcControllerProvider_Ptr is access all IIterator_IAdcControllerProvider;
    type IVectorView_IAdcControllerProvider_Interface;
    type IVectorView_IAdcControllerProvider is access all IVectorView_IAdcControllerProvider_Interface'Class;
    type IVectorView_IAdcControllerProvider_Ptr is access all IVectorView_IAdcControllerProvider;
@@ -164,6 +164,19 @@ package Windows.Devices.Adc.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IAdcControllerProvider : aliased constant Windows.IID := (805597525, 8049, 21027, (132, 130, 229, 21, 157, 1, 55, 208 ));
+   
+   type IIterable_IAdcControllerProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAdcControllerProvider_Interface
+      ; RetVal : access Windows.Devices.Adc.Provider.IIterator_IAdcControllerProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IAdcControllerProvider : aliased constant Windows.IID := (3023752981, 41546, 23296, (183, 16, 23, 55, 186, 85, 10, 24 ));
    
    type IIterator_IAdcControllerProvider_Interface is interface and Windows.IInspectable_Interface;
@@ -194,19 +207,6 @@ package Windows.Devices.Adc.Provider is
       This       : access IIterator_IAdcControllerProvider_Interface
       ; items : Windows.Devices.Adc.Provider.IAdcControllerProvider_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IAdcControllerProvider : aliased constant Windows.IID := (805597525, 8049, 21027, (132, 130, 229, 21, 157, 1, 55, 208 ));
-   
-   type IIterable_IAdcControllerProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IAdcControllerProvider_Interface
-      ; RetVal : access Windows.Devices.Adc.Provider.IIterator_IAdcControllerProvider
    )
    return Windows.HRESULT is abstract;
    

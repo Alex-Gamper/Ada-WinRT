@@ -159,27 +159,27 @@ package Windows.Web is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IUriToStreamResolver_Interface;
-   type IUriToStreamResolver is access all IUriToStreamResolver_Interface'Class;
-   type IUriToStreamResolver_Ptr is access all IUriToStreamResolver;
-   type IWebErrorStatics_Interface;
-   type IWebErrorStatics is access all IWebErrorStatics_Interface'Class;
-   type IWebErrorStatics_Ptr is access all IWebErrorStatics;
-   type IIterator_WebErrorStatus_Interface;
-   type IIterator_WebErrorStatus is access all IIterator_WebErrorStatus_Interface'Class;
-   type IIterator_WebErrorStatus_Ptr is access all IIterator_WebErrorStatus;
    type IIterable_WebErrorStatus_Interface;
    type IIterable_WebErrorStatus is access all IIterable_WebErrorStatus_Interface'Class;
    type IIterable_WebErrorStatus_Ptr is access all IIterable_WebErrorStatus;
-   type IVectorView_WebErrorStatus_Interface;
-   type IVectorView_WebErrorStatus is access all IVectorView_WebErrorStatus_Interface'Class;
-   type IVectorView_WebErrorStatus_Ptr is access all IVectorView_WebErrorStatus;
-   type IVector_WebErrorStatus_Interface;
-   type IVector_WebErrorStatus is access all IVector_WebErrorStatus_Interface'Class;
-   type IVector_WebErrorStatus_Ptr is access all IVector_WebErrorStatus;
+   type IIterator_WebErrorStatus_Interface;
+   type IIterator_WebErrorStatus is access all IIterator_WebErrorStatus_Interface'Class;
+   type IIterator_WebErrorStatus_Ptr is access all IIterator_WebErrorStatus;
    type IReference_WebErrorStatus_Interface;
    type IReference_WebErrorStatus is access all IReference_WebErrorStatus_Interface'Class;
    type IReference_WebErrorStatus_Ptr is access all IReference_WebErrorStatus;
+   type IUriToStreamResolver_Interface;
+   type IUriToStreamResolver is access all IUriToStreamResolver_Interface'Class;
+   type IUriToStreamResolver_Ptr is access all IUriToStreamResolver;
+   type IVector_WebErrorStatus_Interface;
+   type IVector_WebErrorStatus is access all IVector_WebErrorStatus_Interface'Class;
+   type IVector_WebErrorStatus_Ptr is access all IVector_WebErrorStatus;
+   type IVectorView_WebErrorStatus_Interface;
+   type IVectorView_WebErrorStatus is access all IVectorView_WebErrorStatus_Interface'Class;
+   type IVectorView_WebErrorStatus_Ptr is access all IVectorView_WebErrorStatus;
+   type IWebErrorStatics_Interface;
+   type IWebErrorStatics is access all IWebErrorStatics_Interface'Class;
+   type IWebErrorStatics_Ptr is access all IWebErrorStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -187,29 +187,14 @@ package Windows.Web is
    
    ------------------------------------------------------------------------
    
-   IID_IUriToStreamResolver : aliased constant Windows.IID := (2964039786, 39659, 19770, (149, 144, 0, 62, 60, 167, 226, 144 ));
+   IID_IIterable_WebErrorStatus : aliased constant Windows.IID := (2071926830, 42702, 21867, (154, 46, 239, 151, 102, 47, 42, 238 ));
    
-   type IUriToStreamResolver_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_WebErrorStatus_Interface is interface and Windows.IInspectable_Interface;
    
-   function UriToStreamAsync
+   function First
    (
-      This       : access IUriToStreamResolver_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebErrorStatics : aliased constant Windows.IID := (4267796326, 48935, 16484, (135, 183, 101, 99, 187, 17, 206, 46 ));
-   
-   type IWebErrorStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetStatus
-   (
-      This       : access IWebErrorStatics_Interface
-      ; hresult : Windows.Int32
-      ; RetVal : access Windows.Web.WebErrorStatus
+      This       : access IIterable_WebErrorStatus_Interface
+      ; RetVal : access Windows.Web.IIterator_WebErrorStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -250,53 +235,28 @@ package Windows.Web is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_WebErrorStatus : aliased constant Windows.IID := (2071926830, 42702, 21867, (154, 46, 239, 151, 102, 47, 42, 238 ));
+   IID_IReference_WebErrorStatus : aliased constant Windows.IID := (4071777078, 27293, 21726, (142, 202, 0, 214, 200, 113, 228, 105 ));
    
-   type IIterable_WebErrorStatus_Interface is interface and Windows.IInspectable_Interface;
+   type IReference_WebErrorStatus_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Value
    (
-      This       : access IIterable_WebErrorStatus_Interface
-      ; RetVal : access Windows.Web.IIterator_WebErrorStatus
+      This       : access IReference_WebErrorStatus_Interface
+      ; RetVal : access Windows.Web.WebErrorStatus
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_WebErrorStatus : aliased constant Windows.IID := (4124118338, 42870, 21306, (143, 75, 46, 28, 110, 91, 191, 36 ));
+   IID_IUriToStreamResolver : aliased constant Windows.IID := (2964039786, 39659, 19770, (149, 144, 0, 62, 60, 167, 226, 144 ));
    
-   type IVectorView_WebErrorStatus_Interface is interface and Windows.IInspectable_Interface;
+   type IUriToStreamResolver_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetAt
+   function UriToStreamAsync
    (
-      This       : access IVectorView_WebErrorStatus_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Web.WebErrorStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_WebErrorStatus_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_WebErrorStatus_Interface
-      ; value : Windows.Web.WebErrorStatus
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_WebErrorStatus_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Web.WebErrorStatus_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IUriToStreamResolver_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -397,13 +357,53 @@ package Windows.Web is
    
    ------------------------------------------------------------------------
    
-   IID_IReference_WebErrorStatus : aliased constant Windows.IID := (4071777078, 27293, 21726, (142, 202, 0, 214, 200, 113, 228, 105 ));
+   IID_IVectorView_WebErrorStatus : aliased constant Windows.IID := (4124118338, 42870, 21306, (143, 75, 46, 28, 110, 91, 191, 36 ));
    
-   type IReference_WebErrorStatus_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_WebErrorStatus_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Value
+   function GetAt
    (
-      This       : access IReference_WebErrorStatus_Interface
+      This       : access IVectorView_WebErrorStatus_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Web.WebErrorStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_WebErrorStatus_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_WebErrorStatus_Interface
+      ; value : Windows.Web.WebErrorStatus
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_WebErrorStatus_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Web.WebErrorStatus_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebErrorStatics : aliased constant Windows.IID := (4267796326, 48935, 16484, (135, 183, 101, 99, 187, 17, 206, 46 ));
+   
+   type IWebErrorStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetStatus
+   (
+      This       : access IWebErrorStatics_Interface
+      ; hresult : Windows.Int32
       ; RetVal : access Windows.Web.WebErrorStatus
    )
    return Windows.HRESULT is abstract;

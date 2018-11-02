@@ -45,6 +45,19 @@ package body Windows.Media.Editing is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface
+      ; asyncInfo : Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IMediaClip_Interface
       ; asyncInfo : Windows.Media.Editing.IAsyncOperation_IMediaClip
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -69,22 +82,26 @@ package body Windows.Media.Editing is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface
-      ; asyncInfo : Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Media.Editing.IMediaComposition is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Editing.MediaComposition");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Editing.IMediaComposition) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Editing.IID_IMediaComposition'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create
    (
@@ -126,23 +143,6 @@ package body Windows.Media.Editing is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.Media.Editing.IMediaComposition is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Editing.MediaComposition");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Editing.IMediaComposition) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Editing.IID_IMediaComposition'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    function Create return Windows.Media.Editing.IMediaOverlayLayer is
@@ -189,6 +189,46 @@ package body Windows.Media.Editing is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateFromEmbeddedAudioTrack
+   (
+      embeddedAudioTrack : Windows.Media.Editing.IEmbeddedAudioTrack
+   )
+   return Windows.Media.Editing.IBackgroundAudioTrack is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Editing.BackgroundAudioTrack");
+      m_Factory     : IBackgroundAudioTrackStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Editing.IBackgroundAudioTrack;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundAudioTrackStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromEmbeddedAudioTrack(embeddedAudioTrack, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromFileAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Editing.BackgroundAudioTrack");
+      m_Factory     : IBackgroundAudioTrackStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundAudioTrackStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromFileAsync(file, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreateFromColor
    (
@@ -267,46 +307,6 @@ package body Windows.Media.Editing is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaClipStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromSurface(surface, originalDuration, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromEmbeddedAudioTrack
-   (
-      embeddedAudioTrack : Windows.Media.Editing.IEmbeddedAudioTrack
-   )
-   return Windows.Media.Editing.IBackgroundAudioTrack is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Editing.BackgroundAudioTrack");
-      m_Factory     : IBackgroundAudioTrackStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Editing.IBackgroundAudioTrack;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundAudioTrackStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromEmbeddedAudioTrack(embeddedAudioTrack, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromFileAsync
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   return Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Editing.BackgroundAudioTrack");
-      m_Factory     : IBackgroundAudioTrackStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundAudioTrackStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromFileAsync(file, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -102,12 +102,6 @@ package Windows.UI.Composition.Interactions is
    type IInteractionTracker_Interface;
    type IInteractionTracker is access all IInteractionTracker_Interface'Class;
    type IInteractionTracker_Ptr is access all IInteractionTracker;
-   type IInteractionTrackerOwner_Interface;
-   type IInteractionTrackerOwner is access all IInteractionTrackerOwner_Interface'Class;
-   type IInteractionTrackerOwner_Ptr is access all IInteractionTrackerOwner;
-   type IInteractionTrackerStatics_Interface;
-   type IInteractionTrackerStatics is access all IInteractionTrackerStatics_Interface'Class;
-   type IInteractionTrackerStatics_Ptr is access all IInteractionTrackerStatics;
    type IInteractionTracker2_Interface;
    type IInteractionTracker2 is access all IInteractionTracker2_Interface'Class;
    type IInteractionTracker2_Ptr is access all IInteractionTracker2;
@@ -120,12 +114,18 @@ package Windows.UI.Composition.Interactions is
    type IInteractionTrackerIdleStateEnteredArgs_Interface;
    type IInteractionTrackerIdleStateEnteredArgs is access all IInteractionTrackerIdleStateEnteredArgs_Interface'Class;
    type IInteractionTrackerIdleStateEnteredArgs_Ptr is access all IInteractionTrackerIdleStateEnteredArgs;
-   type IInteractionTrackerInteractingStateEnteredArgs_Interface;
-   type IInteractionTrackerInteractingStateEnteredArgs is access all IInteractionTrackerInteractingStateEnteredArgs_Interface'Class;
-   type IInteractionTrackerInteractingStateEnteredArgs_Ptr is access all IInteractionTrackerInteractingStateEnteredArgs;
    type IInteractionTrackerInertiaModifier_Interface;
    type IInteractionTrackerInertiaModifier is access all IInteractionTrackerInertiaModifier_Interface'Class;
    type IInteractionTrackerInertiaModifier_Ptr is access all IInteractionTrackerInertiaModifier;
+   type IInteractionTrackerInertiaModifierFactory_Interface;
+   type IInteractionTrackerInertiaModifierFactory is access all IInteractionTrackerInertiaModifierFactory_Interface'Class;
+   type IInteractionTrackerInertiaModifierFactory_Ptr is access all IInteractionTrackerInertiaModifierFactory;
+   type IInteractionTrackerInertiaMotion_Interface;
+   type IInteractionTrackerInertiaMotion is access all IInteractionTrackerInertiaMotion_Interface'Class;
+   type IInteractionTrackerInertiaMotion_Ptr is access all IInteractionTrackerInertiaMotion;
+   type IInteractionTrackerInertiaMotionStatics_Interface;
+   type IInteractionTrackerInertiaMotionStatics is access all IInteractionTrackerInertiaMotionStatics_Interface'Class;
+   type IInteractionTrackerInertiaMotionStatics_Ptr is access all IInteractionTrackerInertiaMotionStatics;
    type IInteractionTrackerInertiaNaturalMotion_Interface;
    type IInteractionTrackerInertiaNaturalMotion is access all IInteractionTrackerInertiaNaturalMotion_Interface'Class;
    type IInteractionTrackerInertiaNaturalMotion_Ptr is access all IInteractionTrackerInertiaNaturalMotion;
@@ -138,36 +138,27 @@ package Windows.UI.Composition.Interactions is
    type IInteractionTrackerInertiaRestingValueStatics_Interface;
    type IInteractionTrackerInertiaRestingValueStatics is access all IInteractionTrackerInertiaRestingValueStatics_Interface'Class;
    type IInteractionTrackerInertiaRestingValueStatics_Ptr is access all IInteractionTrackerInertiaRestingValueStatics;
-   type IInteractionTrackerInertiaMotion_Interface;
-   type IInteractionTrackerInertiaMotion is access all IInteractionTrackerInertiaMotion_Interface'Class;
-   type IInteractionTrackerInertiaMotion_Ptr is access all IInteractionTrackerInertiaMotion;
-   type IInteractionTrackerInertiaMotionStatics_Interface;
-   type IInteractionTrackerInertiaMotionStatics is access all IInteractionTrackerInertiaMotionStatics_Interface'Class;
-   type IInteractionTrackerInertiaMotionStatics_Ptr is access all IInteractionTrackerInertiaMotionStatics;
    type IInteractionTrackerInertiaStateEnteredArgs_Interface;
    type IInteractionTrackerInertiaStateEnteredArgs is access all IInteractionTrackerInertiaStateEnteredArgs_Interface'Class;
    type IInteractionTrackerInertiaStateEnteredArgs_Ptr is access all IInteractionTrackerInertiaStateEnteredArgs;
+   type IInteractionTrackerInteractingStateEnteredArgs_Interface;
+   type IInteractionTrackerInteractingStateEnteredArgs is access all IInteractionTrackerInteractingStateEnteredArgs_Interface'Class;
+   type IInteractionTrackerInteractingStateEnteredArgs_Ptr is access all IInteractionTrackerInteractingStateEnteredArgs;
+   type IInteractionTrackerOwner_Interface;
+   type IInteractionTrackerOwner is access all IInteractionTrackerOwner_Interface'Class;
+   type IInteractionTrackerOwner_Ptr is access all IInteractionTrackerOwner;
    type IInteractionTrackerRequestIgnoredArgs_Interface;
    type IInteractionTrackerRequestIgnoredArgs is access all IInteractionTrackerRequestIgnoredArgs_Interface'Class;
    type IInteractionTrackerRequestIgnoredArgs_Ptr is access all IInteractionTrackerRequestIgnoredArgs;
+   type IInteractionTrackerStatics_Interface;
+   type IInteractionTrackerStatics is access all IInteractionTrackerStatics_Interface'Class;
+   type IInteractionTrackerStatics_Ptr is access all IInteractionTrackerStatics;
    type IInteractionTrackerValuesChangedArgs_Interface;
    type IInteractionTrackerValuesChangedArgs is access all IInteractionTrackerValuesChangedArgs_Interface'Class;
    type IInteractionTrackerValuesChangedArgs_Ptr is access all IInteractionTrackerValuesChangedArgs;
    type IInteractionTrackerVector2InertiaModifier_Interface;
    type IInteractionTrackerVector2InertiaModifier is access all IInteractionTrackerVector2InertiaModifier_Interface'Class;
    type IInteractionTrackerVector2InertiaModifier_Ptr is access all IInteractionTrackerVector2InertiaModifier;
-   type IVisualInteractionSource_Interface;
-   type IVisualInteractionSource is access all IVisualInteractionSource_Interface'Class;
-   type IVisualInteractionSource_Ptr is access all IVisualInteractionSource;
-   type IVisualInteractionSourceStatics_Interface;
-   type IVisualInteractionSourceStatics is access all IVisualInteractionSourceStatics_Interface'Class;
-   type IVisualInteractionSourceStatics_Ptr is access all IVisualInteractionSourceStatics;
-   type IVisualInteractionSource2_Interface;
-   type IVisualInteractionSource2 is access all IVisualInteractionSource2_Interface'Class;
-   type IVisualInteractionSource2_Ptr is access all IVisualInteractionSource2;
-   type IInteractionTrackerInertiaModifierFactory_Interface;
-   type IInteractionTrackerInertiaModifierFactory is access all IInteractionTrackerInertiaModifierFactory_Interface'Class;
-   type IInteractionTrackerInertiaModifierFactory_Ptr is access all IInteractionTrackerInertiaModifierFactory;
    type IInteractionTrackerVector2InertiaModifierFactory_Interface;
    type IInteractionTrackerVector2InertiaModifierFactory is access all IInteractionTrackerVector2InertiaModifierFactory_Interface'Class;
    type IInteractionTrackerVector2InertiaModifierFactory_Ptr is access all IInteractionTrackerVector2InertiaModifierFactory;
@@ -177,30 +168,39 @@ package Windows.UI.Composition.Interactions is
    type IInteractionTrackerVector2InertiaNaturalMotionStatics_Interface;
    type IInteractionTrackerVector2InertiaNaturalMotionStatics is access all IInteractionTrackerVector2InertiaNaturalMotionStatics_Interface'Class;
    type IInteractionTrackerVector2InertiaNaturalMotionStatics_Ptr is access all IInteractionTrackerVector2InertiaNaturalMotionStatics;
-   type IVisualInteractionSourceObjectFactory_Interface;
-   type IVisualInteractionSourceObjectFactory is access all IVisualInteractionSourceObjectFactory_Interface'Class;
-   type IVisualInteractionSourceObjectFactory_Ptr is access all IVisualInteractionSourceObjectFactory;
-   type IIterable_ICompositionInteractionSource_Interface;
-   type IIterable_ICompositionInteractionSource is access all IIterable_ICompositionInteractionSource_Interface'Class;
-   type IIterable_ICompositionInteractionSource_Ptr is access all IIterable_ICompositionInteractionSource;
-   type IIterator_IInteractionTrackerInertiaModifier_Interface;
-   type IIterator_IInteractionTrackerInertiaModifier is access all IIterator_IInteractionTrackerInertiaModifier_Interface'Class;
-   type IIterator_IInteractionTrackerInertiaModifier_Ptr is access all IIterator_IInteractionTrackerInertiaModifier;
-   type IIterable_IInteractionTrackerInertiaModifier_Interface;
-   type IIterable_IInteractionTrackerInertiaModifier is access all IIterable_IInteractionTrackerInertiaModifier_Interface'Class;
-   type IIterable_IInteractionTrackerInertiaModifier_Ptr is access all IIterable_IInteractionTrackerInertiaModifier;
-   type IIterator_ICompositionConditionalValue_Interface;
-   type IIterator_ICompositionConditionalValue is access all IIterator_ICompositionConditionalValue_Interface'Class;
-   type IIterator_ICompositionConditionalValue_Ptr is access all IIterator_ICompositionConditionalValue;
    type IIterable_ICompositionConditionalValue_Interface;
    type IIterable_ICompositionConditionalValue is access all IIterable_ICompositionConditionalValue_Interface'Class;
    type IIterable_ICompositionConditionalValue_Ptr is access all IIterable_ICompositionConditionalValue;
-   type IIterator_IInteractionTrackerVector2InertiaModifier_Interface;
-   type IIterator_IInteractionTrackerVector2InertiaModifier is access all IIterator_IInteractionTrackerVector2InertiaModifier_Interface'Class;
-   type IIterator_IInteractionTrackerVector2InertiaModifier_Ptr is access all IIterator_IInteractionTrackerVector2InertiaModifier;
+   type IIterable_ICompositionInteractionSource_Interface;
+   type IIterable_ICompositionInteractionSource is access all IIterable_ICompositionInteractionSource_Interface'Class;
+   type IIterable_ICompositionInteractionSource_Ptr is access all IIterable_ICompositionInteractionSource;
+   type IIterable_IInteractionTrackerInertiaModifier_Interface;
+   type IIterable_IInteractionTrackerInertiaModifier is access all IIterable_IInteractionTrackerInertiaModifier_Interface'Class;
+   type IIterable_IInteractionTrackerInertiaModifier_Ptr is access all IIterable_IInteractionTrackerInertiaModifier;
    type IIterable_IInteractionTrackerVector2InertiaModifier_Interface;
    type IIterable_IInteractionTrackerVector2InertiaModifier is access all IIterable_IInteractionTrackerVector2InertiaModifier_Interface'Class;
    type IIterable_IInteractionTrackerVector2InertiaModifier_Ptr is access all IIterable_IInteractionTrackerVector2InertiaModifier;
+   type IIterator_ICompositionConditionalValue_Interface;
+   type IIterator_ICompositionConditionalValue is access all IIterator_ICompositionConditionalValue_Interface'Class;
+   type IIterator_ICompositionConditionalValue_Ptr is access all IIterator_ICompositionConditionalValue;
+   type IIterator_IInteractionTrackerInertiaModifier_Interface;
+   type IIterator_IInteractionTrackerInertiaModifier is access all IIterator_IInteractionTrackerInertiaModifier_Interface'Class;
+   type IIterator_IInteractionTrackerInertiaModifier_Ptr is access all IIterator_IInteractionTrackerInertiaModifier;
+   type IIterator_IInteractionTrackerVector2InertiaModifier_Interface;
+   type IIterator_IInteractionTrackerVector2InertiaModifier is access all IIterator_IInteractionTrackerVector2InertiaModifier_Interface'Class;
+   type IIterator_IInteractionTrackerVector2InertiaModifier_Ptr is access all IIterator_IInteractionTrackerVector2InertiaModifier;
+   type IVisualInteractionSource_Interface;
+   type IVisualInteractionSource is access all IVisualInteractionSource_Interface'Class;
+   type IVisualInteractionSource_Ptr is access all IVisualInteractionSource;
+   type IVisualInteractionSource2_Interface;
+   type IVisualInteractionSource2 is access all IVisualInteractionSource2_Interface'Class;
+   type IVisualInteractionSource2_Ptr is access all IVisualInteractionSource2;
+   type IVisualInteractionSourceObjectFactory_Interface;
+   type IVisualInteractionSourceObjectFactory is access all IVisualInteractionSourceObjectFactory_Interface'Class;
+   type IVisualInteractionSourceObjectFactory_Ptr is access all IVisualInteractionSourceObjectFactory;
+   type IVisualInteractionSourceStatics_Interface;
+   type IVisualInteractionSourceStatics is access all IVisualInteractionSourceStatics_Interface'Class;
+   type IVisualInteractionSourceStatics_Ptr is access all IVisualInteractionSourceStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -544,83 +544,6 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
-   IID_IInteractionTrackerOwner : aliased constant Windows.IID := (3677260531, 19947, 20051, (178, 156, 176, 108, 159, 150, 214, 81 ));
-   
-   type IInteractionTrackerOwner_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CustomAnimationStateEntered
-   (
-      This       : access IInteractionTrackerOwner_Interface
-      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
-      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IdleStateEntered
-   (
-      This       : access IInteractionTrackerOwner_Interface
-      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
-      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InertiaStateEntered
-   (
-      This       : access IInteractionTrackerOwner_Interface
-      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
-      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InteractingStateEntered
-   (
-      This       : access IInteractionTrackerOwner_Interface
-      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
-      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerInteractingStateEnteredArgs
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RequestIgnored
-   (
-      This       : access IInteractionTrackerOwner_Interface
-      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
-      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerRequestIgnoredArgs
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ValuesChanged
-   (
-      This       : access IInteractionTrackerOwner_Interface
-      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
-      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerValuesChangedArgs
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInteractionTrackerStatics : aliased constant Windows.IID := (3148208055, 26000, 17560, (141, 108, 235, 98, 181, 20, 201, 42 ));
-   
-   type IInteractionTrackerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IInteractionTrackerStatics_Interface
-      ; compositor : Windows.UI.Composition.ICompositor
-      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTracker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithOwner
-   (
-      This       : access IInteractionTrackerStatics_Interface
-      ; compositor : Windows.UI.Composition.ICompositor
-      ; owner : Windows.UI.Composition.Interactions.IInteractionTrackerOwner
-      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTracker
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IInteractionTracker2 : aliased constant Windows.IID := (628529726, 52845, 17548, (131, 134, 146, 98, 13, 36, 7, 86 ));
    
    type IInteractionTracker2_Interface is interface and Windows.IInspectable_Interface;
@@ -680,22 +603,63 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
-   IID_IInteractionTrackerInteractingStateEnteredArgs : aliased constant Windows.IID := (2804300089, 41339, 16401, (153, 253, 181, 194, 79, 20, 55, 72 ));
+   IID_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (2699217184, 9908, 19874, (139, 97, 94, 104, 57, 121, 187, 226 ));
    
-   type IInteractionTrackerInteractingStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_RequestId
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaModifierFactory : aliased constant Windows.IID := (2570590462, 51534, 19334, (135, 243, 146, 38, 101, 186, 70, 185 ));
+   
+   type IInteractionTrackerInertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaMotion : aliased constant Windows.IID := (76689372, 61780, 19640, (191, 51, 204, 27, 166, 17, 230, 219 ));
+   
+   type IInteractionTrackerInertiaMotion_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Condition
    (
-      This       : access IInteractionTrackerInteractingStateEnteredArgs_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IInteractionTrackerInertiaMotion_Interface
+      ; RetVal : access Windows.UI.Composition.IExpressionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Condition
+   (
+      This       : access IInteractionTrackerInertiaMotion_Interface
+      ; value : Windows.UI.Composition.IExpressionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Motion
+   (
+      This       : access IInteractionTrackerInertiaMotion_Interface
+      ; RetVal : access Windows.UI.Composition.IExpressionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Motion
+   (
+      This       : access IInteractionTrackerInertiaMotion_Interface
+      ; value : Windows.UI.Composition.IExpressionAnimation
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (2699217184, 9908, 19874, (139, 97, 94, 104, 57, 121, 187, 226 ));
+   IID_IInteractionTrackerInertiaMotionStatics : aliased constant Windows.IID := (2361933270, 47739, 17178, (132, 75, 110, 172, 145, 48, 249, 154 ));
    
-   type IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
+   type IInteractionTrackerInertiaMotionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IInteractionTrackerInertiaMotionStatics_Interface
+      ; compositor : Windows.UI.Composition.ICompositor
+      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -795,54 +759,6 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
-   IID_IInteractionTrackerInertiaMotion : aliased constant Windows.IID := (76689372, 61780, 19640, (191, 51, 204, 27, 166, 17, 230, 219 ));
-   
-   type IInteractionTrackerInertiaMotion_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Condition
-   (
-      This       : access IInteractionTrackerInertiaMotion_Interface
-      ; RetVal : access Windows.UI.Composition.IExpressionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Condition
-   (
-      This       : access IInteractionTrackerInertiaMotion_Interface
-      ; value : Windows.UI.Composition.IExpressionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Motion
-   (
-      This       : access IInteractionTrackerInertiaMotion_Interface
-      ; RetVal : access Windows.UI.Composition.IExpressionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Motion
-   (
-      This       : access IInteractionTrackerInertiaMotion_Interface
-      ; value : Windows.UI.Composition.IExpressionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInteractionTrackerInertiaMotionStatics : aliased constant Windows.IID := (2361933270, 47739, 17178, (132, 75, 110, 172, 145, 48, 249, 154 ));
-   
-   type IInteractionTrackerInertiaMotionStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IInteractionTrackerInertiaMotionStatics_Interface
-      ; compositor : Windows.UI.Composition.ICompositor
-      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IInteractionTrackerInertiaStateEnteredArgs : aliased constant Windows.IID := (2266008818, 59391, 20349, (159, 253, 215, 47, 30, 64, 155, 99 ));
    
    type IInteractionTrackerInertiaStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -898,6 +814,73 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
+   IID_IInteractionTrackerInteractingStateEnteredArgs : aliased constant Windows.IID := (2804300089, 41339, 16401, (153, 253, 181, 194, 79, 20, 55, 72 ));
+   
+   type IInteractionTrackerInteractingStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RequestId
+   (
+      This       : access IInteractionTrackerInteractingStateEnteredArgs_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerOwner : aliased constant Windows.IID := (3677260531, 19947, 20051, (178, 156, 176, 108, 159, 150, 214, 81 ));
+   
+   type IInteractionTrackerOwner_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CustomAnimationStateEntered
+   (
+      This       : access IInteractionTrackerOwner_Interface
+      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IdleStateEntered
+   (
+      This       : access IInteractionTrackerOwner_Interface
+      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InertiaStateEntered
+   (
+      This       : access IInteractionTrackerOwner_Interface
+      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InteractingStateEntered
+   (
+      This       : access IInteractionTrackerOwner_Interface
+      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerInteractingStateEnteredArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestIgnored
+   (
+      This       : access IInteractionTrackerOwner_Interface
+      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerRequestIgnoredArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ValuesChanged
+   (
+      This       : access IInteractionTrackerOwner_Interface
+      ; sender : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; args : Windows.UI.Composition.Interactions.IInteractionTrackerValuesChangedArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IInteractionTrackerRequestIgnoredArgs : aliased constant Windows.IID := (2162000625, 52773, 18575, (145, 221, 203, 100, 85, 204, 255, 46 ));
    
    type IInteractionTrackerRequestIgnoredArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -906,6 +889,29 @@ package Windows.UI.Composition.Interactions is
    (
       This       : access IInteractionTrackerRequestIgnoredArgs_Interface
       ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerStatics : aliased constant Windows.IID := (3148208055, 26000, 17560, (141, 108, 235, 98, 181, 20, 201, 42 ));
+   
+   type IInteractionTrackerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IInteractionTrackerStatics_Interface
+      ; compositor : Windows.UI.Composition.ICompositor
+      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTracker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithOwner
+   (
+      This       : access IInteractionTrackerStatics_Interface
+      ; compositor : Windows.UI.Composition.ICompositor
+      ; owner : Windows.UI.Composition.Interactions.IInteractionTrackerOwner
+      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTracker
    )
    return Windows.HRESULT is abstract;
    
@@ -941,6 +947,217 @@ package Windows.UI.Composition.Interactions is
    IID_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (2279639728, 12422, 18515, (164, 183, 119, 136, 42, 213, 215, 227 ));
    
    type IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerVector2InertiaModifierFactory : aliased constant Windows.IID := (1946277572, 27757, 18655, (188, 62, 23, 30, 34, 126, 125, 127 ));
+   
+   type IInteractionTrackerVector2InertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerVector2InertiaNaturalMotion : aliased constant Windows.IID := (1595369820, 5677, 19463, (148, 0, 194, 130, 178, 130, 118, 202 ));
+   
+   type IInteractionTrackerVector2InertiaNaturalMotion_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Condition
+   (
+      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
+      ; RetVal : access Windows.UI.Composition.IExpressionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Condition
+   (
+      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
+      ; value : Windows.UI.Composition.IExpressionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NaturalMotion
+   (
+      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
+      ; RetVal : access Windows.UI.Composition.IVector2NaturalMotionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_NaturalMotion
+   (
+      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
+      ; value : Windows.UI.Composition.IVector2NaturalMotionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerVector2InertiaNaturalMotionStatics : aliased constant Windows.IID := (2181044808, 2496, 17231, (129, 137, 20, 28, 102, 223, 54, 47 ));
+   
+   type IInteractionTrackerVector2InertiaNaturalMotionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IInteractionTrackerVector2InertiaNaturalMotionStatics_Interface
+      ; compositor : Windows.UI.Composition.ICompositor
+      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ICompositionConditionalValue : aliased constant Windows.IID := (2993177723, 62745, 23781, (137, 205, 183, 225, 188, 86, 82, 238 ));
+   
+   type IIterable_ICompositionConditionalValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ICompositionConditionalValue_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.IIterator_ICompositionConditionalValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ICompositionInteractionSource : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_ICompositionInteractionSource_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ICompositionInteractionSource_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.ICompositionInteractionSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (2586074176, 43750, 23035, (135, 245, 75, 176, 85, 153, 240, 177 ));
+   
+   type IIterable_IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IInteractionTrackerInertiaModifier_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.IIterator_IInteractionTrackerInertiaModifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (988467160, 51185, 22540, (162, 59, 153, 102, 110, 66, 230, 43 ));
+   
+   type IIterable_IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IInteractionTrackerVector2InertiaModifier_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.IIterator_IInteractionTrackerVector2InertiaModifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ICompositionConditionalValue : aliased constant Windows.IID := (2322968621, 14737, 21926, (191, 226, 130, 203, 125, 214, 91, 152 ));
+   
+   type IIterator_ICompositionConditionalValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ICompositionConditionalValue_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.ICompositionConditionalValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_ICompositionConditionalValue_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_ICompositionConditionalValue_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ICompositionConditionalValue_Interface
+      ; items : Windows.UI.Composition.Interactions.ICompositionConditionalValue_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (1180794247, 11474, 24113, (154, 48, 234, 134, 248, 170, 124, 161 ));
+   
+   type IIterator_IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
+      ; items : Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (2002963115, 23362, 22872, (159, 73, 6, 174, 253, 67, 173, 117 ));
+   
+   type IIterator_IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
+      ; items : Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -1090,20 +1307,6 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
-   IID_IVisualInteractionSourceStatics : aliased constant Windows.IID := (916022753, 34373, 20341, (186, 0, 100, 121, 205, 16, 200, 230 ));
-   
-   type IVisualInteractionSourceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IVisualInteractionSourceStatics_Interface
-      ; source : Windows.UI.Composition.IVisual
-      ; RetVal : access Windows.UI.Composition.Interactions.IVisualInteractionSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVisualInteractionSource2 : aliased constant Windows.IID := (2861648019, 42812, 16717, (128, 208, 36, 155, 173, 47, 189, 147 ));
    
    type IVisualInteractionSource2_Interface is interface and Windows.IInspectable_Interface;
@@ -1187,224 +1390,21 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
-   IID_IInteractionTrackerInertiaModifierFactory : aliased constant Windows.IID := (2570590462, 51534, 19334, (135, 243, 146, 38, 101, 186, 70, 185 ));
-   
-   type IInteractionTrackerInertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInteractionTrackerVector2InertiaModifierFactory : aliased constant Windows.IID := (1946277572, 27757, 18655, (188, 62, 23, 30, 34, 126, 125, 127 ));
-   
-   type IInteractionTrackerVector2InertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInteractionTrackerVector2InertiaNaturalMotion : aliased constant Windows.IID := (1595369820, 5677, 19463, (148, 0, 194, 130, 178, 130, 118, 202 ));
-   
-   type IInteractionTrackerVector2InertiaNaturalMotion_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Condition
-   (
-      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
-      ; RetVal : access Windows.UI.Composition.IExpressionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Condition
-   (
-      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
-      ; value : Windows.UI.Composition.IExpressionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NaturalMotion
-   (
-      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
-      ; RetVal : access Windows.UI.Composition.IVector2NaturalMotionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_NaturalMotion
-   (
-      This       : access IInteractionTrackerVector2InertiaNaturalMotion_Interface
-      ; value : Windows.UI.Composition.IVector2NaturalMotionAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInteractionTrackerVector2InertiaNaturalMotionStatics : aliased constant Windows.IID := (2181044808, 2496, 17231, (129, 137, 20, 28, 102, 223, 54, 47 ));
-   
-   type IInteractionTrackerVector2InertiaNaturalMotionStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IInteractionTrackerVector2InertiaNaturalMotionStatics_Interface
-      ; compositor : Windows.UI.Composition.ICompositor
-      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVisualInteractionSourceObjectFactory : aliased constant Windows.IID := (2999619964, 59786, 16882, (179, 201, 137, 28, 146, 102, 200, 246 ));
    
    type IVisualInteractionSourceObjectFactory_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_ICompositionInteractionSource : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IVisualInteractionSourceStatics : aliased constant Windows.IID := (916022753, 34373, 20341, (186, 0, 100, 121, 205, 16, 200, 230 ));
    
-   type IIterable_ICompositionInteractionSource_Interface is interface and Windows.IInspectable_Interface;
+   type IVisualInteractionSourceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function Create
    (
-      This       : access IIterable_ICompositionInteractionSource_Interface
-      ; RetVal : access Windows.UI.Composition.Interactions.ICompositionInteractionSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (1180794247, 11474, 24113, (154, 48, 234, 134, 248, 170, 124, 161 ));
-   
-   type IIterator_IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
-      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IInteractionTrackerInertiaModifier_Interface
-      ; items : Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (2586074176, 43750, 23035, (135, 245, 75, 176, 85, 153, 240, 177 ));
-   
-   type IIterable_IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IInteractionTrackerInertiaModifier_Interface
-      ; RetVal : access Windows.UI.Composition.Interactions.IIterator_IInteractionTrackerInertiaModifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_ICompositionConditionalValue : aliased constant Windows.IID := (2322968621, 14737, 21926, (191, 226, 130, 203, 125, 214, 91, 152 ));
-   
-   type IIterator_ICompositionConditionalValue_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_ICompositionConditionalValue_Interface
-      ; RetVal : access Windows.UI.Composition.Interactions.ICompositionConditionalValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_ICompositionConditionalValue_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_ICompositionConditionalValue_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_ICompositionConditionalValue_Interface
-      ; items : Windows.UI.Composition.Interactions.ICompositionConditionalValue_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ICompositionConditionalValue : aliased constant Windows.IID := (2993177723, 62745, 23781, (137, 205, 183, 225, 188, 86, 82, 238 ));
-   
-   type IIterable_ICompositionConditionalValue_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ICompositionConditionalValue_Interface
-      ; RetVal : access Windows.UI.Composition.Interactions.IIterator_ICompositionConditionalValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (2002963115, 23362, 22872, (159, 73, 6, 174, 253, 67, 173, 117 ));
-   
-   type IIterator_IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
-      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IInteractionTrackerVector2InertiaModifier_Interface
-      ; items : Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (988467160, 51185, 22540, (162, 59, 153, 102, 110, 66, 230, 43 ));
-   
-   type IIterable_IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IInteractionTrackerVector2InertiaModifier_Interface
-      ; RetVal : access Windows.UI.Composition.Interactions.IIterator_IInteractionTrackerVector2InertiaModifier
+      This       : access IVisualInteractionSourceStatics_Interface
+      ; source : Windows.UI.Composition.IVisual
+      ; RetVal : access Windows.UI.Composition.Interactions.IVisualInteractionSource
    )
    return Windows.HRESULT is abstract;
    
@@ -1412,22 +1412,22 @@ package Windows.UI.Composition.Interactions is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype CompositionConditionalValue is Windows.UI.Composition.Interactions.ICompositionConditionalValue;
+   subtype CompositionInteractionSourceCollection is Windows.UI.Composition.Interactions.ICompositionInteractionSourceCollection;
+   subtype InteractionTracker is Windows.UI.Composition.Interactions.IInteractionTracker;
    subtype InteractionTrackerCustomAnimationStateEnteredArgs is Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs;
    subtype InteractionTrackerIdleStateEnteredArgs is Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs;
+   subtype InteractionTrackerInertiaModifier is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier;
+   subtype InteractionTrackerInertiaMotion is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion;
+   subtype InteractionTrackerInertiaNaturalMotion is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion;
+   subtype InteractionTrackerInertiaRestingValue is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValue;
    subtype InteractionTrackerInertiaStateEnteredArgs is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs;
    subtype InteractionTrackerInteractingStateEnteredArgs is Windows.UI.Composition.Interactions.IInteractionTrackerInteractingStateEnteredArgs;
    subtype InteractionTrackerRequestIgnoredArgs is Windows.UI.Composition.Interactions.IInteractionTrackerRequestIgnoredArgs;
    subtype InteractionTrackerValuesChangedArgs is Windows.UI.Composition.Interactions.IInteractionTrackerValuesChangedArgs;
-   subtype CompositionConditionalValue is Windows.UI.Composition.Interactions.ICompositionConditionalValue;
-   subtype CompositionInteractionSourceCollection is Windows.UI.Composition.Interactions.ICompositionInteractionSourceCollection;
-   subtype InteractionTracker is Windows.UI.Composition.Interactions.IInteractionTracker;
-   subtype InteractionTrackerInertiaModifier is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier;
    subtype InteractionTrackerVector2InertiaModifier is Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier;
-   subtype InteractionTrackerInertiaNaturalMotion is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion;
-   subtype InteractionTrackerInertiaRestingValue is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValue;
-   subtype InteractionTrackerInertiaMotion is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion;
-   subtype VisualInteractionSource is Windows.UI.Composition.Interactions.IVisualInteractionSource;
    subtype InteractionTrackerVector2InertiaNaturalMotion is Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion;
+   subtype VisualInteractionSource is Windows.UI.Composition.Interactions.IVisualInteractionSource;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -1456,6 +1456,12 @@ package Windows.UI.Composition.Interactions is
    (
       compositor : Windows.UI.Composition.ICompositor
    )
+   return Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion;
+   
+   function Create
+   (
+      compositor : Windows.UI.Composition.ICompositor
+   )
    return Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion;
    
    function Create
@@ -1468,18 +1474,12 @@ package Windows.UI.Composition.Interactions is
    (
       compositor : Windows.UI.Composition.ICompositor
    )
-   return Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion;
+   return Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion;
    
    function Create
    (
       source : Windows.UI.Composition.IVisual
    )
    return Windows.UI.Composition.Interactions.IVisualInteractionSource;
-   
-   function Create
-   (
-      compositor : Windows.UI.Composition.ICompositor
-   )
-   return Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion;
    
 end;

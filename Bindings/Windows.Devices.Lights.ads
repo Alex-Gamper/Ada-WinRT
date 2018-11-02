@@ -48,18 +48,18 @@ package Windows.Devices.Lights is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ILampStatics_Interface;
-   type ILampStatics is access all ILampStatics_Interface'Class;
-   type ILampStatics_Ptr is access all ILampStatics;
+   type IAsyncOperation_ILamp_Interface;
+   type IAsyncOperation_ILamp is access all IAsyncOperation_ILamp_Interface'Class;
+   type IAsyncOperation_ILamp_Ptr is access all IAsyncOperation_ILamp;
    type ILamp_Interface;
    type ILamp is access all ILamp_Interface'Class;
    type ILamp_Ptr is access all ILamp;
    type ILampAvailabilityChangedEventArgs_Interface;
    type ILampAvailabilityChangedEventArgs is access all ILampAvailabilityChangedEventArgs_Interface'Class;
    type ILampAvailabilityChangedEventArgs_Ptr is access all ILampAvailabilityChangedEventArgs;
-   type IAsyncOperation_ILamp_Interface;
-   type IAsyncOperation_ILamp is access all IAsyncOperation_ILamp_Interface'Class;
-   type IAsyncOperation_ILamp_Ptr is access all IAsyncOperation_ILamp;
+   type ILampStatics_Interface;
+   type ILampStatics is access all ILampStatics_Interface'Class;
+   type ILampStatics_Ptr is access all ILampStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -67,29 +67,28 @@ package Windows.Devices.Lights is
    
    ------------------------------------------------------------------------
    
-   IID_ILampStatics : aliased constant Windows.IID := (2820817260, 34949, 16414, (184, 33, 142, 139, 56, 168, 232, 236 ));
+   IID_IAsyncOperation_ILamp : aliased constant Windows.IID := (1386651133, 61654, 22833, (184, 225, 243, 128, 102, 215, 27, 242 ));
    
-   type ILampStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ILamp_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDeviceSelector
+   function put_Completed
    (
-      This       : access ILampStatics_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_ILamp_Interface
+      ; handler : Windows.Devices.Lights.AsyncOperationCompletedHandler_ILamp
    )
    return Windows.HRESULT is abstract;
    
-   function FromIdAsync
+   function get_Completed
    (
-      This       : access ILampStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Lights.IAsyncOperation_ILamp -- Generic Parameter Type
+      This       : access IAsyncOperation_ILamp_Interface
+      ; RetVal : access Windows.Devices.Lights.AsyncOperationCompletedHandler_ILamp
    )
    return Windows.HRESULT is abstract;
    
-   function GetDefaultAsync
+   function GetResults
    (
-      This       : access ILampStatics_Interface
-      ; RetVal : access Windows.Devices.Lights.IAsyncOperation_ILamp -- Generic Parameter Type
+      This       : access IAsyncOperation_ILamp_Interface
+      ; RetVal : access Windows.Devices.Lights.ILamp
    )
    return Windows.HRESULT is abstract;
    
@@ -185,28 +184,29 @@ package Windows.Devices.Lights is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_ILamp : aliased constant Windows.IID := (1386651133, 61654, 22833, (184, 225, 243, 128, 102, 215, 27, 242 ));
+   IID_ILampStatics : aliased constant Windows.IID := (2820817260, 34949, 16414, (184, 33, 142, 139, 56, 168, 232, 236 ));
    
-   type IAsyncOperation_ILamp_Interface is interface and Windows.IInspectable_Interface;
+   type ILampStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetDeviceSelector
    (
-      This       : access IAsyncOperation_ILamp_Interface
-      ; handler : Windows.Devices.Lights.AsyncOperationCompletedHandler_ILamp
+      This       : access ILampStatics_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function FromIdAsync
    (
-      This       : access IAsyncOperation_ILamp_Interface
-      ; RetVal : access Windows.Devices.Lights.AsyncOperationCompletedHandler_ILamp
+      This       : access ILampStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Lights.IAsyncOperation_ILamp -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function GetDefaultAsync
    (
-      This       : access IAsyncOperation_ILamp_Interface
-      ; RetVal : access Windows.Devices.Lights.ILamp
+      This       : access ILampStatics_Interface
+      ; RetVal : access Windows.Devices.Lights.IAsyncOperation_ILamp -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

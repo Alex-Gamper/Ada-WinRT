@@ -43,6 +43,18 @@ package Windows.Security.Authentication.Web.Provider is
    -- Enums
    ------------------------------------------------------------------------
    
+   type WebAccountClientViewType is (
+      IdOnly,
+      IdAndProperties
+   );
+   for WebAccountClientViewType use (
+      IdOnly => 0,
+      IdAndProperties => 1
+   );
+   for WebAccountClientViewType'Size use 32;
+   
+   type WebAccountClientViewType_Ptr is access WebAccountClientViewType;
+   
    type WebAccountProviderOperationKind is (
       RequestToken,
       GetTokenSilently,
@@ -65,30 +77,6 @@ package Windows.Security.Authentication.Web.Provider is
    
    type WebAccountProviderOperationKind_Ptr is access WebAccountProviderOperationKind;
    
-   type WebAccountSelectionOptions is (
-      Default,
-      New_x
-   );
-   for WebAccountSelectionOptions use (
-      Default => 0,
-      New_x => 1
-   );
-   for WebAccountSelectionOptions'Size use 32;
-   
-   type WebAccountSelectionOptions_Ptr is access WebAccountSelectionOptions;
-   
-   type WebAccountClientViewType is (
-      IdOnly,
-      IdAndProperties
-   );
-   for WebAccountClientViewType use (
-      IdOnly => 0,
-      IdAndProperties => 1
-   );
-   for WebAccountClientViewType'Size use 32;
-   
-   type WebAccountClientViewType_Ptr is access WebAccountClientViewType;
-   
    type WebAccountScope is (
       PerUser,
       PerApplication
@@ -101,13 +89,136 @@ package Windows.Security.Authentication.Web.Provider is
    
    type WebAccountScope_Ptr is access WebAccountScope;
    
+   type WebAccountSelectionOptions is (
+      Default,
+      New_x
+   );
+   for WebAccountSelectionOptions use (
+      Default => 0,
+      New_x => 1
+   );
+   for WebAccountSelectionOptions'Size use 32;
+   
+   type WebAccountSelectionOptions_Ptr is access WebAccountSelectionOptions;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface;
+   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync is access all IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface'Class;
+   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Ptr is access all IIterable_IWebAccountManagerStatics_AddWebAccountAsync;
+   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface;
+   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync is access all IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface'Class;
+   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Ptr is access all IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync is access all IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface'Class;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Ptr is access all IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface'Class;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Ptr is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface'Class;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Ptr is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync;
+   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface;
+   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync is access all IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface'Class;
+   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Ptr is access all IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync;
+   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface;
+   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync is access all IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface'Class;
+   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Ptr is access all IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync;
+   type IIterable_IWebProviderTokenResponse_Interface;
+   type IIterable_IWebProviderTokenResponse is access all IIterable_IWebProviderTokenResponse_Interface'Class;
+   type IIterable_IWebProviderTokenResponse_Ptr is access all IIterable_IWebProviderTokenResponse;
+   type IIterator_IWebProviderTokenResponse_Interface;
+   type IIterator_IWebProviderTokenResponse is access all IIterator_IWebProviderTokenResponse_Interface'Class;
+   type IIterator_IWebProviderTokenResponse_Ptr is access all IIterator_IWebProviderTokenResponse;
+   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface;
+   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync is access all IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface'Class;
+   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Ptr is access all IMapView_IWebAccountManagerStatics_AddWebAccountAsync;
+   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface;
+   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync is access all IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface'Class;
+   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Ptr is access all IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync is access all IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface'Class;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Ptr is access all IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface'Class;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Ptr is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface'Class;
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Ptr is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync;
+   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface;
+   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync is access all IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface'Class;
+   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Ptr is access all IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync;
+   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface;
+   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync is access all IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface'Class;
+   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Ptr is access all IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync;
+   type IVector_IWebProviderTokenResponse_Interface;
+   type IVector_IWebProviderTokenResponse is access all IVector_IWebProviderTokenResponse_Interface'Class;
+   type IVector_IWebProviderTokenResponse_Ptr is access all IVector_IWebProviderTokenResponse;
+   type IVectorView_IWebProviderTokenResponse_Interface;
+   type IVectorView_IWebProviderTokenResponse is access all IVectorView_IWebProviderTokenResponse_Interface'Class;
+   type IVectorView_IWebProviderTokenResponse_Ptr is access all IVectorView_IWebProviderTokenResponse;
+   type IWebAccountClientView_Interface;
+   type IWebAccountClientView is access all IWebAccountClientView_Interface'Class;
+   type IWebAccountClientView_Ptr is access all IWebAccountClientView;
+   type IWebAccountClientViewFactory_Interface;
+   type IWebAccountClientViewFactory is access all IWebAccountClientViewFactory_Interface'Class;
+   type IWebAccountClientViewFactory_Ptr is access all IWebAccountClientViewFactory;
+   type IWebAccountManagerStatics_Interface;
+   type IWebAccountManagerStatics is access all IWebAccountManagerStatics_Interface'Class;
+   type IWebAccountManagerStatics_Ptr is access all IWebAccountManagerStatics;
+   type IWebAccountManagerStatics2_Interface;
+   type IWebAccountManagerStatics2 is access all IWebAccountManagerStatics2_Interface'Class;
+   type IWebAccountManagerStatics2_Ptr is access all IWebAccountManagerStatics2;
+   type IWebAccountManagerStatics3_Interface;
+   type IWebAccountManagerStatics3 is access all IWebAccountManagerStatics3_Interface'Class;
+   type IWebAccountManagerStatics3_Ptr is access all IWebAccountManagerStatics3;
+   type IWebAccountManagerStatics4_Interface;
+   type IWebAccountManagerStatics4 is access all IWebAccountManagerStatics4_Interface'Class;
+   type IWebAccountManagerStatics4_Ptr is access all IWebAccountManagerStatics4;
+   type IWebAccountMapManagerStatics_Interface;
+   type IWebAccountMapManagerStatics is access all IWebAccountMapManagerStatics_Interface'Class;
+   type IWebAccountMapManagerStatics_Ptr is access all IWebAccountMapManagerStatics;
+   type IWebAccountProviderAddAccountOperation_Interface;
+   type IWebAccountProviderAddAccountOperation is access all IWebAccountProviderAddAccountOperation_Interface'Class;
+   type IWebAccountProviderAddAccountOperation_Ptr is access all IWebAccountProviderAddAccountOperation;
+   type IWebAccountProviderBaseReportOperation_Interface;
+   type IWebAccountProviderBaseReportOperation is access all IWebAccountProviderBaseReportOperation_Interface'Class;
+   type IWebAccountProviderBaseReportOperation_Ptr is access all IWebAccountProviderBaseReportOperation;
+   type IWebAccountProviderDeleteAccountOperation_Interface;
+   type IWebAccountProviderDeleteAccountOperation is access all IWebAccountProviderDeleteAccountOperation_Interface'Class;
+   type IWebAccountProviderDeleteAccountOperation_Ptr is access all IWebAccountProviderDeleteAccountOperation;
+   type IWebAccountProviderManageAccountOperation_Interface;
+   type IWebAccountProviderManageAccountOperation is access all IWebAccountProviderManageAccountOperation_Interface'Class;
+   type IWebAccountProviderManageAccountOperation_Ptr is access all IWebAccountProviderManageAccountOperation;
    type IWebAccountProviderOperation_Interface;
    type IWebAccountProviderOperation is access all IWebAccountProviderOperation_Interface'Class;
    type IWebAccountProviderOperation_Ptr is access all IWebAccountProviderOperation;
+   type IWebAccountProviderRetrieveCookiesOperation_Interface;
+   type IWebAccountProviderRetrieveCookiesOperation is access all IWebAccountProviderRetrieveCookiesOperation_Interface'Class;
+   type IWebAccountProviderRetrieveCookiesOperation_Ptr is access all IWebAccountProviderRetrieveCookiesOperation;
+   type IWebAccountProviderSignOutAccountOperation_Interface;
+   type IWebAccountProviderSignOutAccountOperation is access all IWebAccountProviderSignOutAccountOperation_Interface'Class;
+   type IWebAccountProviderSignOutAccountOperation_Ptr is access all IWebAccountProviderSignOutAccountOperation;
+   type IWebAccountProviderSilentReportOperation_Interface;
+   type IWebAccountProviderSilentReportOperation is access all IWebAccountProviderSilentReportOperation_Interface'Class;
+   type IWebAccountProviderSilentReportOperation_Ptr is access all IWebAccountProviderSilentReportOperation;
+   type IWebAccountProviderTokenObjects_Interface;
+   type IWebAccountProviderTokenObjects is access all IWebAccountProviderTokenObjects_Interface'Class;
+   type IWebAccountProviderTokenObjects_Ptr is access all IWebAccountProviderTokenObjects;
+   type IWebAccountProviderTokenObjects2_Interface;
+   type IWebAccountProviderTokenObjects2 is access all IWebAccountProviderTokenObjects2_Interface'Class;
+   type IWebAccountProviderTokenObjects2_Ptr is access all IWebAccountProviderTokenObjects2;
+   type IWebAccountProviderTokenOperation_Interface;
+   type IWebAccountProviderTokenOperation is access all IWebAccountProviderTokenOperation_Interface'Class;
+   type IWebAccountProviderTokenOperation_Ptr is access all IWebAccountProviderTokenOperation;
+   type IWebAccountProviderUIReportOperation_Interface;
+   type IWebAccountProviderUIReportOperation is access all IWebAccountProviderUIReportOperation_Interface'Class;
+   type IWebAccountProviderUIReportOperation_Ptr is access all IWebAccountProviderUIReportOperation;
+   type IWebAccountScopeManagerStatics_Interface;
+   type IWebAccountScopeManagerStatics is access all IWebAccountScopeManagerStatics_Interface'Class;
+   type IWebAccountScopeManagerStatics_Ptr is access all IWebAccountScopeManagerStatics;
    type IWebProviderTokenRequest_Interface;
    type IWebProviderTokenRequest is access all IWebProviderTokenRequest_Interface'Class;
    type IWebProviderTokenRequest_Ptr is access all IWebProviderTokenRequest;
@@ -123,117 +234,6 @@ package Windows.Security.Authentication.Web.Provider is
    type IWebProviderTokenResponseFactory_Interface;
    type IWebProviderTokenResponseFactory is access all IWebProviderTokenResponseFactory_Interface'Class;
    type IWebProviderTokenResponseFactory_Ptr is access all IWebProviderTokenResponseFactory;
-   type IWebAccountClientView_Interface;
-   type IWebAccountClientView is access all IWebAccountClientView_Interface'Class;
-   type IWebAccountClientView_Ptr is access all IWebAccountClientView;
-   type IWebAccountClientViewFactory_Interface;
-   type IWebAccountClientViewFactory is access all IWebAccountClientViewFactory_Interface'Class;
-   type IWebAccountClientViewFactory_Ptr is access all IWebAccountClientViewFactory;
-   type IWebAccountManagerStatics_Interface;
-   type IWebAccountManagerStatics is access all IWebAccountManagerStatics_Interface'Class;
-   type IWebAccountManagerStatics_Ptr is access all IWebAccountManagerStatics;
-   type IWebAccountManagerStatics2_Interface;
-   type IWebAccountManagerStatics2 is access all IWebAccountManagerStatics2_Interface'Class;
-   type IWebAccountManagerStatics2_Ptr is access all IWebAccountManagerStatics2;
-   type IWebAccountScopeManagerStatics_Interface;
-   type IWebAccountScopeManagerStatics is access all IWebAccountScopeManagerStatics_Interface'Class;
-   type IWebAccountScopeManagerStatics_Ptr is access all IWebAccountScopeManagerStatics;
-   type IWebAccountMapManagerStatics_Interface;
-   type IWebAccountMapManagerStatics is access all IWebAccountMapManagerStatics_Interface'Class;
-   type IWebAccountMapManagerStatics_Ptr is access all IWebAccountMapManagerStatics;
-   type IWebAccountManagerStatics3_Interface;
-   type IWebAccountManagerStatics3 is access all IWebAccountManagerStatics3_Interface'Class;
-   type IWebAccountManagerStatics3_Ptr is access all IWebAccountManagerStatics3;
-   type IWebAccountManagerStatics4_Interface;
-   type IWebAccountManagerStatics4 is access all IWebAccountManagerStatics4_Interface'Class;
-   type IWebAccountManagerStatics4_Ptr is access all IWebAccountManagerStatics4;
-   type IWebAccountProviderBaseReportOperation_Interface;
-   type IWebAccountProviderBaseReportOperation is access all IWebAccountProviderBaseReportOperation_Interface'Class;
-   type IWebAccountProviderBaseReportOperation_Ptr is access all IWebAccountProviderBaseReportOperation;
-   type IWebAccountProviderUIReportOperation_Interface;
-   type IWebAccountProviderUIReportOperation is access all IWebAccountProviderUIReportOperation_Interface'Class;
-   type IWebAccountProviderUIReportOperation_Ptr is access all IWebAccountProviderUIReportOperation;
-   type IWebAccountProviderSilentReportOperation_Interface;
-   type IWebAccountProviderSilentReportOperation is access all IWebAccountProviderSilentReportOperation_Interface'Class;
-   type IWebAccountProviderSilentReportOperation_Ptr is access all IWebAccountProviderSilentReportOperation;
-   type IWebAccountProviderTokenOperation_Interface;
-   type IWebAccountProviderTokenOperation is access all IWebAccountProviderTokenOperation_Interface'Class;
-   type IWebAccountProviderTokenOperation_Ptr is access all IWebAccountProviderTokenOperation;
-   type IWebAccountProviderAddAccountOperation_Interface;
-   type IWebAccountProviderAddAccountOperation is access all IWebAccountProviderAddAccountOperation_Interface'Class;
-   type IWebAccountProviderAddAccountOperation_Ptr is access all IWebAccountProviderAddAccountOperation;
-   type IWebAccountProviderManageAccountOperation_Interface;
-   type IWebAccountProviderManageAccountOperation is access all IWebAccountProviderManageAccountOperation_Interface'Class;
-   type IWebAccountProviderManageAccountOperation_Ptr is access all IWebAccountProviderManageAccountOperation;
-   type IWebAccountProviderDeleteAccountOperation_Interface;
-   type IWebAccountProviderDeleteAccountOperation is access all IWebAccountProviderDeleteAccountOperation_Interface'Class;
-   type IWebAccountProviderDeleteAccountOperation_Ptr is access all IWebAccountProviderDeleteAccountOperation;
-   type IWebAccountProviderSignOutAccountOperation_Interface;
-   type IWebAccountProviderSignOutAccountOperation is access all IWebAccountProviderSignOutAccountOperation_Interface'Class;
-   type IWebAccountProviderSignOutAccountOperation_Ptr is access all IWebAccountProviderSignOutAccountOperation;
-   type IWebAccountProviderRetrieveCookiesOperation_Interface;
-   type IWebAccountProviderRetrieveCookiesOperation is access all IWebAccountProviderRetrieveCookiesOperation_Interface'Class;
-   type IWebAccountProviderRetrieveCookiesOperation_Ptr is access all IWebAccountProviderRetrieveCookiesOperation;
-   type IWebAccountProviderTokenObjects_Interface;
-   type IWebAccountProviderTokenObjects is access all IWebAccountProviderTokenObjects_Interface'Class;
-   type IWebAccountProviderTokenObjects_Ptr is access all IWebAccountProviderTokenObjects;
-   type IWebAccountProviderTokenObjects2_Interface;
-   type IWebAccountProviderTokenObjects2 is access all IWebAccountProviderTokenObjects2_Interface'Class;
-   type IWebAccountProviderTokenObjects2_Ptr is access all IWebAccountProviderTokenObjects2;
-   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface;
-   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync is access all IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface'Class;
-   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Ptr is access all IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync;
-   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface;
-   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync is access all IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface'Class;
-   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Ptr is access all IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync;
-   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface;
-   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync is access all IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface'Class;
-   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Ptr is access all IIterable_IWebAccountManagerStatics_AddWebAccountAsync;
-   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface;
-   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync is access all IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface'Class;
-   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Ptr is access all IMapView_IWebAccountManagerStatics_AddWebAccountAsync;
-   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface;
-   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync is access all IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface'Class;
-   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Ptr is access all IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync;
-   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface;
-   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync is access all IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface'Class;
-   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Ptr is access all IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync;
-   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface;
-   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync is access all IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface'Class;
-   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Ptr is access all IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync;
-   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface;
-   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync is access all IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface'Class;
-   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Ptr is access all IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync is access all IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface'Class;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Ptr is access all IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync is access all IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface'Class;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Ptr is access all IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface'Class;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Ptr is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface'Class;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Ptr is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface'Class;
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Ptr is access all IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface'Class;
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Ptr is access all IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync;
-   type IIterator_IWebProviderTokenResponse_Interface;
-   type IIterator_IWebProviderTokenResponse is access all IIterator_IWebProviderTokenResponse_Interface'Class;
-   type IIterator_IWebProviderTokenResponse_Ptr is access all IIterator_IWebProviderTokenResponse;
-   type IIterable_IWebProviderTokenResponse_Interface;
-   type IIterable_IWebProviderTokenResponse is access all IIterable_IWebProviderTokenResponse_Interface'Class;
-   type IIterable_IWebProviderTokenResponse_Ptr is access all IIterable_IWebProviderTokenResponse;
-   type IVectorView_IWebProviderTokenResponse_Interface;
-   type IVectorView_IWebProviderTokenResponse is access all IVectorView_IWebProviderTokenResponse_Interface'Class;
-   type IVectorView_IWebProviderTokenResponse_Ptr is access all IVectorView_IWebProviderTokenResponse;
-   type IVector_IWebProviderTokenResponse_Interface;
-   type IVector_IWebProviderTokenResponse is access all IVector_IWebProviderTokenResponse_Interface'Class;
-   type IVector_IWebProviderTokenResponse_Ptr is access all IVector_IWebProviderTokenResponse;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -241,127 +241,533 @@ package Windows.Security.Authentication.Web.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IWebAccountProviderOperation : aliased constant Windows.IID := (1834820646, 4273, 16794, (164, 78, 249, 197, 22, 21, 116, 230 ));
+   IID_IIterable_IWebAccountManagerStatics_AddWebAccountAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IWebAccountProviderOperation_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Kind
+   function First
    (
-      This       : access IWebAccountProviderOperation_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind
+      This       : access IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IWebProviderTokenRequest : aliased constant Windows.IID := (504919947, 34821, 17739, (159, 17, 70, 141, 42, 241, 9, 90 ));
+   IID_IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IWebProviderTokenRequest_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ClientRequest
+   function First
    (
-      This       : access IWebProviderTokenRequest_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WebAccounts
-   (
-      This       : access IWebProviderTokenRequest_Interface
-      ; RetVal : access Windows.Security.Credentials.IVectorView_IWebAccount -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WebAccountSelectionOptions
-   (
-      This       : access IWebProviderTokenRequest_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ApplicationCallbackUri
-   (
-      This       : access IWebProviderTokenRequest_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetApplicationTokenBindingKeyAsync
-   (
-      This       : access IWebProviderTokenRequest_Interface
-      ; keyType : Windows.Security.Authentication.Web.TokenBindingKeyType
-      ; target : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Security.Cryptography.Core.IAsyncOperation_ICryptographicKey -- Generic Parameter Type
+      This       : access IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IWebProviderTokenRequest2 : aliased constant Windows.IID := (3050778188, 4273, 19110, (136, 177, 11, 108, 158, 12, 30, 70 ));
+   IID_IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IWebProviderTokenRequest2_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetApplicationTokenBindingKeyIdAsync
+   function First
    (
-      This       : access IWebProviderTokenRequest2_Interface
-      ; keyType : Windows.Security.Authentication.Web.TokenBindingKeyType
-      ; target : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
+      This       : access IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IWebProviderTokenRequest3 : aliased constant Windows.IID := (455546538, 17033, 17518, (146, 86, 218, 251, 111, 102, 165, 30 ));
+   IID_IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IWebProviderTokenRequest3_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ApplicationPackageFamilyName
+   function First
    (
-      This       : access IWebProviderTokenRequest3_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ApplicationProcessName
-   (
-      This       : access IWebProviderTokenRequest3_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CheckApplicationForCapabilityAsync
-   (
-      This       : access IWebProviderTokenRequest3_Interface
-      ; capabilityName : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+      This       : access IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IWebProviderTokenResponse : aliased constant Windows.IID := (4011931539, 61269, 16774, (183, 206, 140, 178, 231, 249, 132, 158 ));
+   IID_IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ClientResponse
+   function First
    (
-      This       : access IWebProviderTokenResponse_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenResponse
+      This       : access IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IWebProviderTokenResponseFactory : aliased constant Windows.IID := (4199143834, 9658, 16503, (156, 250, 157, 180, 222, 167, 183, 26 ));
+   IID_IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IWebProviderTokenResponseFactory_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface is interface and Windows.IInspectable_Interface;
    
-   function Create
+   function First
    (
-      This       : access IWebProviderTokenResponseFactory_Interface
-      ; webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
+      This       : access IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IWebProviderTokenResponse : aliased constant Windows.IID := (3921330742, 49271, 21818, (180, 174, 181, 143, 176, 184, 153, 24 ));
+   
+   type IIterable_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IWebProviderTokenResponse_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.IIterator_IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IWebProviderTokenResponse : aliased constant Windows.IID := (3948380765, 23254, 24288, (141, 198, 165, 60, 30, 130, 227, 171 ));
+   
+   type IIterator_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IWebProviderTokenResponse_Interface
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IWebProviderTokenResponse_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IWebProviderTokenResponse_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IWebProviderTokenResponse_Interface
+      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IWebAccountManagerStatics_AddWebAccountAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
+   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
+      ; first : access Windows.Address
+      ; second : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_IWebProviderTokenResponse : aliased constant Windows.IID := (1316672975, 14607, 24269, (183, 20, 60, 101, 75, 132, 203, 186 ));
+   
+   type IVector_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.IVectorView_IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IWebProviderTokenResponse_Interface
+      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWebProviderTokenResponse : aliased constant Windows.IID := (451298487, 38969, 22619, (135, 146, 236, 213, 5, 11, 136, 187 ));
+   
+   type IVectorView_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IWebProviderTokenResponse_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IWebProviderTokenResponse_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IWebProviderTokenResponse_Interface
+      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IWebProviderTokenResponse_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -527,83 +933,6 @@ package Windows.Security.Authentication.Web.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IWebAccountScopeManagerStatics : aliased constant Windows.IID := (1550639996, 4786, 16954, (191, 61, 133, 184, 215, 229, 54, 86 ));
-   
-   type IWebAccountScopeManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function AddWebAccountWithScopeAsync
-   (
-      This       : access IWebAccountScopeManagerStatics_Interface
-      ; webAccountId : Windows.String
-      ; webAccountUserName : Windows.String
-      ; props : IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccount -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetScopeAsync
-   (
-      This       : access IWebAccountScopeManagerStatics_Interface
-      ; webAccount : Windows.Security.Credentials.IWebAccount
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetScope
-   (
-      This       : access IWebAccountScopeManagerStatics_Interface
-      ; webAccount : Windows.Security.Credentials.IWebAccount
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountScope
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebAccountMapManagerStatics : aliased constant Windows.IID := (3908715631, 14875, 18596, (142, 144, 30, 89, 202, 111, 84, 219 ));
-   
-   type IWebAccountMapManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function AddWebAccountWithScopeAndMapAsync
-   (
-      This       : access IWebAccountMapManagerStatics_Interface
-      ; webAccountId : Windows.String
-      ; webAccountUserName : Windows.String
-      ; props : IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-      ; perUserWebAccountId : Windows.String
-      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccount -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetPerAppToPerUserAccountAsync
-   (
-      This       : access IWebAccountMapManagerStatics_Interface
-      ; perAppAccount : Windows.Security.Credentials.IWebAccount
-      ; perUserWebAccountId : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetPerUserFromPerAppAccountAsync
-   (
-      This       : access IWebAccountMapManagerStatics_Interface
-      ; perAppAccount : Windows.Security.Credentials.IWebAccount
-      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccount -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ClearPerUserFromPerAppAccountAsync
-   (
-      This       : access IWebAccountMapManagerStatics_Interface
-      ; perAppAccount : Windows.Security.Credentials.IWebAccount
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IWebAccountManagerStatics3 : aliased constant Windows.IID := (3712295846, 35407, 19106, (177, 94, 3, 245, 80, 175, 19, 89 ));
    
    type IWebAccountManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
@@ -675,6 +1004,61 @@ package Windows.Security.Authentication.Web.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IWebAccountMapManagerStatics : aliased constant Windows.IID := (3908715631, 14875, 18596, (142, 144, 30, 89, 202, 111, 84, 219 ));
+   
+   type IWebAccountMapManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddWebAccountWithScopeAndMapAsync
+   (
+      This       : access IWebAccountMapManagerStatics_Interface
+      ; webAccountId : Windows.String
+      ; webAccountUserName : Windows.String
+      ; props : IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+      ; perUserWebAccountId : Windows.String
+      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccount -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetPerAppToPerUserAccountAsync
+   (
+      This       : access IWebAccountMapManagerStatics_Interface
+      ; perAppAccount : Windows.Security.Credentials.IWebAccount
+      ; perUserWebAccountId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetPerUserFromPerAppAccountAsync
+   (
+      This       : access IWebAccountMapManagerStatics_Interface
+      ; perAppAccount : Windows.Security.Credentials.IWebAccount
+      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccount -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearPerUserFromPerAppAccountAsync
+   (
+      This       : access IWebAccountMapManagerStatics_Interface
+      ; perAppAccount : Windows.Security.Credentials.IWebAccount
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebAccountProviderAddAccountOperation : aliased constant Windows.IID := (1944837327, 17272, 19577, (147, 53, 165, 215, 171, 129, 89, 78 ));
+   
+   type IWebAccountProviderAddAccountOperation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportCompleted
+   (
+      This       : access IWebAccountProviderAddAccountOperation_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWebAccountProviderBaseReportOperation : aliased constant Windows.IID := (3148131515, 39227, 19799, (187, 228, 20, 33, 227, 102, 139, 76 ));
    
    type IWebAccountProviderBaseReportOperation_Interface is interface and Windows.IInspectable_Interface;
@@ -694,78 +1078,14 @@ package Windows.Security.Authentication.Web.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IWebAccountProviderUIReportOperation : aliased constant Windows.IID := (687837907, 36736, 17147, (148, 79, 178, 16, 123, 189, 66, 230 ));
+   IID_IWebAccountProviderDeleteAccountOperation : aliased constant Windows.IID := (180046008, 40449, 18889, (163, 85, 125, 72, 202, 247, 214, 202 ));
    
-   type IWebAccountProviderUIReportOperation_Interface is interface and Windows.IInspectable_Interface;
+   type IWebAccountProviderDeleteAccountOperation_Interface is interface and Windows.IInspectable_Interface;
    
-   function ReportUserCanceled
+   function get_WebAccount
    (
-      This       : access IWebAccountProviderUIReportOperation_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebAccountProviderSilentReportOperation : aliased constant Windows.IID := (3769976312, 15119, 17626, (146, 76, 123, 24, 186, 170, 98, 169 ));
-   
-   type IWebAccountProviderSilentReportOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReportUserInteractionRequired
-   (
-      This       : access IWebAccountProviderSilentReportOperation_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReportUserInteractionRequiredWithError
-   (
-      This       : access IWebAccountProviderSilentReportOperation_Interface
-      ; value : Windows.Security.Authentication.Web.Core.IWebProviderError
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebAccountProviderTokenOperation : aliased constant Windows.IID := (2512786366, 8244, 19512, (148, 52, 210, 108, 20, 178, 180, 178 ));
-   
-   type IWebAccountProviderTokenOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ProviderRequest
-   (
-      This       : access IWebAccountProviderTokenOperation_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProviderResponses
-   (
-      This       : access IWebAccountProviderTokenOperation_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.IVector_IWebProviderTokenResponse -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CacheExpirationTime
-   (
-      This       : access IWebAccountProviderTokenOperation_Interface
-      ; value : Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CacheExpirationTime
-   (
-      This       : access IWebAccountProviderTokenOperation_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebAccountProviderAddAccountOperation : aliased constant Windows.IID := (1944837327, 17272, 19577, (147, 53, 165, 215, 171, 129, 89, 78 ));
-   
-   type IWebAccountProviderAddAccountOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReportCompleted
-   (
-      This       : access IWebAccountProviderAddAccountOperation_Interface
+      This       : access IWebAccountProviderDeleteAccountOperation_Interface
+      ; RetVal : access Windows.Security.Credentials.IWebAccount
    )
    return Windows.HRESULT is abstract;
    
@@ -790,41 +1110,14 @@ package Windows.Security.Authentication.Web.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IWebAccountProviderDeleteAccountOperation : aliased constant Windows.IID := (180046008, 40449, 18889, (163, 85, 125, 72, 202, 247, 214, 202 ));
+   IID_IWebAccountProviderOperation : aliased constant Windows.IID := (1834820646, 4273, 16794, (164, 78, 249, 197, 22, 21, 116, 230 ));
    
-   type IWebAccountProviderDeleteAccountOperation_Interface is interface and Windows.IInspectable_Interface;
+   type IWebAccountProviderOperation_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_WebAccount
+   function get_Kind
    (
-      This       : access IWebAccountProviderDeleteAccountOperation_Interface
-      ; RetVal : access Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebAccountProviderSignOutAccountOperation : aliased constant Windows.IID := (3096502813, 3157, 18364, (140, 114, 4, 166, 252, 124, 172, 7 ));
-   
-   type IWebAccountProviderSignOutAccountOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_WebAccount
-   (
-      This       : access IWebAccountProviderSignOutAccountOperation_Interface
-      ; RetVal : access Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ApplicationCallbackUri
-   (
-      This       : access IWebAccountProviderSignOutAccountOperation_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ClientId
-   (
-      This       : access IWebAccountProviderSignOutAccountOperation_Interface
-      ; RetVal : access Windows.String
+      This       : access IWebAccountProviderOperation_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind
    )
    return Windows.HRESULT is abstract;
    
@@ -871,6 +1164,52 @@ package Windows.Security.Authentication.Web.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IWebAccountProviderSignOutAccountOperation : aliased constant Windows.IID := (3096502813, 3157, 18364, (140, 114, 4, 166, 252, 124, 172, 7 ));
+   
+   type IWebAccountProviderSignOutAccountOperation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WebAccount
+   (
+      This       : access IWebAccountProviderSignOutAccountOperation_Interface
+      ; RetVal : access Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ApplicationCallbackUri
+   (
+      This       : access IWebAccountProviderSignOutAccountOperation_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ClientId
+   (
+      This       : access IWebAccountProviderSignOutAccountOperation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebAccountProviderSilentReportOperation : aliased constant Windows.IID := (3769976312, 15119, 17626, (146, 76, 123, 24, 186, 170, 98, 169 ));
+   
+   type IWebAccountProviderSilentReportOperation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportUserInteractionRequired
+   (
+      This       : access IWebAccountProviderSilentReportOperation_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportUserInteractionRequiredWithError
+   (
+      This       : access IWebAccountProviderSilentReportOperation_Interface
+      ; value : Windows.Security.Authentication.Web.Core.IWebProviderError
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWebAccountProviderTokenObjects : aliased constant Windows.IID := (1083123787, 4904, 17115, (137, 164, 11, 206, 122, 113, 125, 142 ));
    
    type IWebAccountProviderTokenObjects_Interface is interface and Windows.IInspectable_Interface;
@@ -897,547 +1236,200 @@ package Windows.Security.Authentication.Web.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IWebAccountProviderTokenOperation : aliased constant Windows.IID := (2512786366, 8244, 19512, (148, 52, 210, 108, 20, 178, 180, 178 ));
    
-   type IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface is interface and Windows.IInspectable_Interface;
+   type IWebAccountProviderTokenOperation_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_ProviderRequest
    (
-      This       : access IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
+      This       : access IWebAccountProviderTokenOperation_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderResponses
+   (
+      This       : access IWebAccountProviderTokenOperation_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.IVector_IWebProviderTokenResponse -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CacheExpirationTime
+   (
+      This       : access IWebAccountProviderTokenOperation_Interface
+      ; value : Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CacheExpirationTime
+   (
+      This       : access IWebAccountProviderTokenOperation_Interface
+      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   IID_IWebAccountProviderUIReportOperation : aliased constant Windows.IID := (687837907, 36736, 17147, (148, 79, 178, 16, 123, 189, 66, 230 ));
    
-   type IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface is interface and Windows.IInspectable_Interface;
+   type IWebAccountProviderUIReportOperation_Interface is interface and Windows.IInspectable_Interface;
    
-   function Lookup
+   function ReportUserCanceled
    (
-      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
-      ; key : Windows.String
+      This       : access IWebAccountProviderUIReportOperation_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebAccountScopeManagerStatics : aliased constant Windows.IID := (1550639996, 4786, 16954, (191, 61, 133, 184, 215, 229, 54, 86 ));
+   
+   type IWebAccountScopeManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddWebAccountWithScopeAsync
+   (
+      This       : access IWebAccountScopeManagerStatics_Interface
+      ; webAccountId : Windows.String
+      ; webAccountUserName : Windows.String
+      ; props : IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccount -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetScopeAsync
+   (
+      This       : access IWebAccountScopeManagerStatics_Interface
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetScope
+   (
+      This       : access IWebAccountScopeManagerStatics_Interface
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountScope
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebProviderTokenRequest : aliased constant Windows.IID := (504919947, 34821, 17739, (159, 17, 70, 141, 42, 241, 9, 90 ));
+   
+   type IWebProviderTokenRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ClientRequest
+   (
+      This       : access IWebProviderTokenRequest_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WebAccounts
+   (
+      This       : access IWebProviderTokenRequest_Interface
+      ; RetVal : access Windows.Security.Credentials.IVectorView_IWebAccount -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WebAccountSelectionOptions
+   (
+      This       : access IWebProviderTokenRequest_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ApplicationCallbackUri
+   (
+      This       : access IWebProviderTokenRequest_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetApplicationTokenBindingKeyAsync
+   (
+      This       : access IWebProviderTokenRequest_Interface
+      ; keyType : Windows.Security.Authentication.Web.TokenBindingKeyType
+      ; target : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Security.Cryptography.Core.IAsyncOperation_ICryptographicKey -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebProviderTokenRequest2 : aliased constant Windows.IID := (3050778188, 4273, 19110, (136, 177, 11, 108, 158, 12, 30, 70 ));
+   
+   type IWebProviderTokenRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetApplicationTokenBindingKeyIdAsync
+   (
+      This       : access IWebProviderTokenRequest2_Interface
+      ; keyType : Windows.Security.Authentication.Web.TokenBindingKeyType
+      ; target : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebProviderTokenRequest3 : aliased constant Windows.IID := (455546538, 17033, 17518, (146, 86, 218, 251, 111, 102, 165, 30 ));
+   
+   type IWebProviderTokenRequest3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ApplicationPackageFamilyName
+   (
+      This       : access IWebProviderTokenRequest3_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_ApplicationProcessName
    (
-      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebAccountManagerStatics_AddWebAccountAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebAccountManagerStatics_AddWebAccountAsync_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapView_IWebAccountManagerStatics_AddWebAccountAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
-   
-   type IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
-      ; key : Windows.String
+      This       : access IWebProviderTokenRequest3_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function CheckApplicationForCapabilityAsync
    (
-      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IWebAccountManagerStatics_AddWebAccountAsync_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
+      This       : access IWebProviderTokenRequest3_Interface
+      ; capabilityName : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IWebProviderTokenResponse : aliased constant Windows.IID := (4011931539, 61269, 16774, (183, 206, 140, 178, 231, 249, 132, 158 ));
    
-   type IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface is interface and Windows.IInspectable_Interface;
+   type IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_ClientResponse
    (
-      This       : access IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
+      This       : access IWebProviderTokenResponse_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenResponse
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   IID_IWebProviderTokenResponseFactory : aliased constant Windows.IID := (4199143834, 9658, 16503, (156, 250, 157, 180, 222, 167, 183, 26 ));
    
-   type IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface is interface and Windows.IInspectable_Interface;
+   type IWebProviderTokenResponseFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function Lookup
+   function Create
    (
-      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
-   
-   type IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
-   
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
-   
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
-      ; RetVal : access Windows.Foundation.Collections.IIterator_String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
-   
-   type IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Split
-   (
-      This       : access IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync_Interface
-      ; first : access Windows.Address
-      ; second : access Windows.Address
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IWebProviderTokenResponse : aliased constant Windows.IID := (3948380765, 23254, 24288, (141, 198, 165, 60, 30, 130, 227, 171 ));
-   
-   type IIterator_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IWebProviderTokenResponse_Interface
+      This       : access IWebProviderTokenResponseFactory_Interface
+      ; webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IWebProviderTokenResponse_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IWebProviderTokenResponse_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IWebProviderTokenResponse_Interface
-      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebProviderTokenResponse : aliased constant Windows.IID := (3921330742, 49271, 21818, (180, 174, 181, 143, 176, 184, 153, 24 ));
-   
-   type IIterable_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebProviderTokenResponse_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.IIterator_IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IWebProviderTokenResponse : aliased constant Windows.IID := (451298487, 38969, 22619, (135, 146, 236, 213, 5, 11, 136, 187 ));
-   
-   type IVectorView_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IWebProviderTokenResponse_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IWebProviderTokenResponse_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IWebProviderTokenResponse_Interface
-      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IWebProviderTokenResponse_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_IWebProviderTokenResponse : aliased constant Windows.IID := (1316672975, 14607, 24269, (183, 20, 60, 101, 75, 132, 203, 186 ));
-   
-   type IVector_IWebProviderTokenResponse_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.IVectorView_IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; value : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_IWebProviderTokenResponse_Interface
-      ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
-   
-   subtype WebProviderTokenRequest is Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest;
-   subtype WebProviderTokenResponse is Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse;
-   function Create
-   (
-      webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
-   )
-   return Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse;
    
    subtype WebAccountClientView is Windows.Security.Authentication.Web.Provider.IWebAccountClientView;
    function Create
@@ -1455,14 +1447,22 @@ package Windows.Security.Authentication.Web.Provider is
    )
    return Windows.Security.Authentication.Web.Provider.IWebAccountClientView;
    
-   subtype WebAccountProviderRequestTokenOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;
-   subtype WebAccountProviderGetTokenSilentOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;
    subtype WebAccountProviderAddAccountOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderAddAccountOperation;
-   subtype WebAccountProviderManageAccountOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderManageAccountOperation;
    subtype WebAccountProviderDeleteAccountOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderDeleteAccountOperation;
-   subtype WebAccountProviderSignOutAccountOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderSignOutAccountOperation;
+   subtype WebAccountProviderGetTokenSilentOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;
+   subtype WebAccountProviderManageAccountOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderManageAccountOperation;
+   subtype WebAccountProviderRequestTokenOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;
    subtype WebAccountProviderRetrieveCookiesOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderRetrieveCookiesOperation;
+   subtype WebAccountProviderSignOutAccountOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderSignOutAccountOperation;
    subtype WebAccountProviderTriggerDetails is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects;
+   subtype WebProviderTokenRequest is Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest;
+   subtype WebProviderTokenResponse is Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse;
+   function Create
+   (
+      webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
+   )
+   return Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

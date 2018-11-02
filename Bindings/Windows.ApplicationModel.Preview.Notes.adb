@@ -38,19 +38,6 @@ package body Windows.ApplicationModel.Preview.Notes is
    
    function Invoke
    (
-      This       : access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface
-      ; sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface
       ; sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview
       ; args : Windows.ApplicationModel.Preview.Notes.INotePlacementChangedPreviewEventArgs
@@ -72,6 +59,19 @@ package body Windows.ApplicationModel.Preview.Notes is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview(sender), Windows.ApplicationModel.Preview.Notes.INoteVisibilityChangedPreviewEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface
+      ; sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview(sender), args);
       return Hr;
    end;
    

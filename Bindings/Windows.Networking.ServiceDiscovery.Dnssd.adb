@@ -39,6 +39,19 @@ package body Windows.Networking.ServiceDiscovery.Dnssd is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface
+      ; asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface
       ; sender : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher
       ; args : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance
@@ -76,22 +89,26 @@ package body Windows.Networking.ServiceDiscovery.Dnssd is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface
-      ; asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Networking.ServiceDiscovery.Dnssd.IID_IDnssdRegistrationResult'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create
    (
@@ -113,23 +130,6 @@ package body Windows.Networking.ServiceDiscovery.Dnssd is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.ServiceDiscovery.Dnssd.IID_IDnssdRegistrationResult'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

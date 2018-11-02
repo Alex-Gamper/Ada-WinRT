@@ -41,6 +41,30 @@ package Windows.UI.StartScreen is
    -- Enums
    ------------------------------------------------------------------------
    
+   type ForegroundText is (
+      Dark,
+      Light
+   );
+   for ForegroundText use (
+      Dark => 0,
+      Light => 1
+   );
+   for ForegroundText'Size use 32;
+   
+   type ForegroundText_Ptr is access ForegroundText;
+   
+   type JumpListItemKind is (
+      Arguments,
+      Separator
+   );
+   for JumpListItemKind use (
+      Arguments => 0,
+      Separator => 1
+   );
+   for JumpListItemKind'Size use 32;
+   
+   type JumpListItemKind_Ptr is access JumpListItemKind;
+   
    type JumpListSystemGroupKind is (
       None,
       Frequent,
@@ -55,17 +79,17 @@ package Windows.UI.StartScreen is
    
    type JumpListSystemGroupKind_Ptr is access JumpListSystemGroupKind;
    
-   type JumpListItemKind is (
-      Arguments,
-      Separator
+   type TileMixedRealityModelActivationBehavior is (
+      Default,
+      None
    );
-   for JumpListItemKind use (
-      Arguments => 0,
-      Separator => 1
+   for TileMixedRealityModelActivationBehavior use (
+      Default => 0,
+      None => 1
    );
-   for JumpListItemKind'Size use 32;
+   for TileMixedRealityModelActivationBehavior'Size use 32;
    
-   type JumpListItemKind_Ptr is access JumpListItemKind;
+   type TileMixedRealityModelActivationBehavior_Ptr is access TileMixedRealityModelActivationBehavior;
    
    
    type TileOptions is new Windows.UInt32;
@@ -92,30 +116,6 @@ package Windows.UI.StartScreen is
    
    type TileSize_Ptr is access TileSize;
    
-   type ForegroundText is (
-      Dark,
-      Light
-   );
-   for ForegroundText use (
-      Dark => 0,
-      Light => 1
-   );
-   for ForegroundText'Size use 32;
-   
-   type ForegroundText_Ptr is access ForegroundText;
-   
-   type TileMixedRealityModelActivationBehavior is (
-      Default,
-      None
-   );
-   for TileMixedRealityModelActivationBehavior use (
-      Default => 0,
-      None => 1
-   );
-   for TileMixedRealityModelActivationBehavior'Size use 32;
-   
-   type TileMixedRealityModelActivationBehavior_Ptr is access TileMixedRealityModelActivationBehavior;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -131,15 +131,30 @@ package Windows.UI.StartScreen is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IJumpList_Interface;
+   type IAsyncOperation_IJumpList is access all IAsyncOperation_IJumpList_Interface'Class;
+   type IAsyncOperation_IJumpList_Ptr is access all IAsyncOperation_IJumpList;
+   type IIterable_IJumpListItem_Interface;
+   type IIterable_IJumpListItem is access all IIterable_IJumpListItem_Interface'Class;
+   type IIterable_IJumpListItem_Ptr is access all IIterable_IJumpListItem;
+   type IIterable_ISecondaryTileVisualElements_Interface;
+   type IIterable_ISecondaryTileVisualElements is access all IIterable_ISecondaryTileVisualElements_Interface'Class;
+   type IIterable_ISecondaryTileVisualElements_Ptr is access all IIterable_ISecondaryTileVisualElements;
+   type IIterator_IJumpListItem_Interface;
+   type IIterator_IJumpListItem is access all IIterator_IJumpListItem_Interface'Class;
+   type IIterator_IJumpListItem_Ptr is access all IIterator_IJumpListItem;
+   type IIterator_ISecondaryTileVisualElements_Interface;
+   type IIterator_ISecondaryTileVisualElements is access all IIterator_ISecondaryTileVisualElements_Interface'Class;
+   type IIterator_ISecondaryTileVisualElements_Ptr is access all IIterator_ISecondaryTileVisualElements;
+   type IJumpList_Interface;
+   type IJumpList is access all IJumpList_Interface'Class;
+   type IJumpList_Ptr is access all IJumpList;
    type IJumpListItem_Interface;
    type IJumpListItem is access all IJumpListItem_Interface'Class;
    type IJumpListItem_Ptr is access all IJumpListItem;
    type IJumpListItemStatics_Interface;
    type IJumpListItemStatics is access all IJumpListItemStatics_Interface'Class;
    type IJumpListItemStatics_Ptr is access all IJumpListItemStatics;
-   type IJumpList_Interface;
-   type IJumpList is access all IJumpList_Interface'Class;
-   type IJumpList_Ptr is access all IJumpList;
    type IJumpListStatics_Interface;
    type IJumpListStatics is access all IJumpListStatics_Interface'Class;
    type IJumpListStatics_Ptr is access all IJumpListStatics;
@@ -149,24 +164,6 @@ package Windows.UI.StartScreen is
    type ISecondaryTile2_Interface;
    type ISecondaryTile2 is access all ISecondaryTile2_Interface'Class;
    type ISecondaryTile2_Ptr is access all ISecondaryTile2;
-   type ISecondaryTileVisualElements_Interface;
-   type ISecondaryTileVisualElements is access all ISecondaryTileVisualElements_Interface'Class;
-   type ISecondaryTileVisualElements_Ptr is access all ISecondaryTileVisualElements;
-   type ISecondaryTileVisualElements2_Interface;
-   type ISecondaryTileVisualElements2 is access all ISecondaryTileVisualElements2_Interface'Class;
-   type ISecondaryTileVisualElements2_Ptr is access all ISecondaryTileVisualElements2;
-   type ISecondaryTileVisualElements3_Interface;
-   type ISecondaryTileVisualElements3 is access all ISecondaryTileVisualElements3_Interface'Class;
-   type ISecondaryTileVisualElements3_Ptr is access all ISecondaryTileVisualElements3;
-   type ITileMixedRealityModel_Interface;
-   type ITileMixedRealityModel is access all ITileMixedRealityModel_Interface'Class;
-   type ITileMixedRealityModel_Ptr is access all ITileMixedRealityModel;
-   type ITileMixedRealityModel2_Interface;
-   type ITileMixedRealityModel2 is access all ITileMixedRealityModel2_Interface'Class;
-   type ITileMixedRealityModel2_Ptr is access all ITileMixedRealityModel2;
-   type ISecondaryTileVisualElements4_Interface;
-   type ISecondaryTileVisualElements4 is access all ISecondaryTileVisualElements4_Interface'Class;
-   type ISecondaryTileVisualElements4_Ptr is access all ISecondaryTileVisualElements4;
    type ISecondaryTileFactory_Interface;
    type ISecondaryTileFactory is access all ISecondaryTileFactory_Interface'Class;
    type ISecondaryTileFactory_Ptr is access all ISecondaryTileFactory;
@@ -176,49 +173,209 @@ package Windows.UI.StartScreen is
    type ISecondaryTileStatics_Interface;
    type ISecondaryTileStatics is access all ISecondaryTileStatics_Interface'Class;
    type ISecondaryTileStatics_Ptr is access all ISecondaryTileStatics;
-   type IVisualElementsRequestedEventArgs_Interface;
-   type IVisualElementsRequestedEventArgs is access all IVisualElementsRequestedEventArgs_Interface'Class;
-   type IVisualElementsRequestedEventArgs_Ptr is access all IVisualElementsRequestedEventArgs;
-   type IVisualElementsRequest_Interface;
-   type IVisualElementsRequest is access all IVisualElementsRequest_Interface'Class;
-   type IVisualElementsRequest_Ptr is access all IVisualElementsRequest;
-   type IVisualElementsRequestDeferral_Interface;
-   type IVisualElementsRequestDeferral is access all IVisualElementsRequestDeferral_Interface'Class;
-   type IVisualElementsRequestDeferral_Ptr is access all IVisualElementsRequestDeferral;
+   type ISecondaryTileVisualElements_Interface;
+   type ISecondaryTileVisualElements is access all ISecondaryTileVisualElements_Interface'Class;
+   type ISecondaryTileVisualElements_Ptr is access all ISecondaryTileVisualElements;
+   type ISecondaryTileVisualElements2_Interface;
+   type ISecondaryTileVisualElements2 is access all ISecondaryTileVisualElements2_Interface'Class;
+   type ISecondaryTileVisualElements2_Ptr is access all ISecondaryTileVisualElements2;
+   type ISecondaryTileVisualElements3_Interface;
+   type ISecondaryTileVisualElements3 is access all ISecondaryTileVisualElements3_Interface'Class;
+   type ISecondaryTileVisualElements3_Ptr is access all ISecondaryTileVisualElements3;
+   type ISecondaryTileVisualElements4_Interface;
+   type ISecondaryTileVisualElements4 is access all ISecondaryTileVisualElements4_Interface'Class;
+   type ISecondaryTileVisualElements4_Ptr is access all ISecondaryTileVisualElements4;
    type IStartScreenManager_Interface;
    type IStartScreenManager is access all IStartScreenManager_Interface'Class;
    type IStartScreenManager_Ptr is access all IStartScreenManager;
    type IStartScreenManagerStatics_Interface;
    type IStartScreenManagerStatics is access all IStartScreenManagerStatics_Interface'Class;
    type IStartScreenManagerStatics_Ptr is access all IStartScreenManagerStatics;
-   type IIterator_IJumpListItem_Interface;
-   type IIterator_IJumpListItem is access all IIterator_IJumpListItem_Interface'Class;
-   type IIterator_IJumpListItem_Ptr is access all IIterator_IJumpListItem;
-   type IIterable_IJumpListItem_Interface;
-   type IIterable_IJumpListItem is access all IIterable_IJumpListItem_Interface'Class;
-   type IIterable_IJumpListItem_Ptr is access all IIterable_IJumpListItem;
-   type IVectorView_IJumpListItem_Interface;
-   type IVectorView_IJumpListItem is access all IVectorView_IJumpListItem_Interface'Class;
-   type IVectorView_IJumpListItem_Ptr is access all IVectorView_IJumpListItem;
+   type ITileMixedRealityModel_Interface;
+   type ITileMixedRealityModel is access all ITileMixedRealityModel_Interface'Class;
+   type ITileMixedRealityModel_Ptr is access all ITileMixedRealityModel;
+   type ITileMixedRealityModel2_Interface;
+   type ITileMixedRealityModel2 is access all ITileMixedRealityModel2_Interface'Class;
+   type ITileMixedRealityModel2_Ptr is access all ITileMixedRealityModel2;
    type IVector_IJumpListItem_Interface;
    type IVector_IJumpListItem is access all IVector_IJumpListItem_Interface'Class;
    type IVector_IJumpListItem_Ptr is access all IVector_IJumpListItem;
-   type IAsyncOperation_IJumpList_Interface;
-   type IAsyncOperation_IJumpList is access all IAsyncOperation_IJumpList_Interface'Class;
-   type IAsyncOperation_IJumpList_Ptr is access all IAsyncOperation_IJumpList;
-   type IIterator_ISecondaryTileVisualElements_Interface;
-   type IIterator_ISecondaryTileVisualElements is access all IIterator_ISecondaryTileVisualElements_Interface'Class;
-   type IIterator_ISecondaryTileVisualElements_Ptr is access all IIterator_ISecondaryTileVisualElements;
-   type IIterable_ISecondaryTileVisualElements_Interface;
-   type IIterable_ISecondaryTileVisualElements is access all IIterable_ISecondaryTileVisualElements_Interface'Class;
-   type IIterable_ISecondaryTileVisualElements_Ptr is access all IIterable_ISecondaryTileVisualElements;
+   type IVectorView_IJumpListItem_Interface;
+   type IVectorView_IJumpListItem is access all IVectorView_IJumpListItem_Interface'Class;
+   type IVectorView_IJumpListItem_Ptr is access all IVectorView_IJumpListItem;
    type IVectorView_ISecondaryTileVisualElements_Interface;
    type IVectorView_ISecondaryTileVisualElements is access all IVectorView_ISecondaryTileVisualElements_Interface'Class;
    type IVectorView_ISecondaryTileVisualElements_Ptr is access all IVectorView_ISecondaryTileVisualElements;
+   type IVisualElementsRequest_Interface;
+   type IVisualElementsRequest is access all IVisualElementsRequest_Interface'Class;
+   type IVisualElementsRequest_Ptr is access all IVisualElementsRequest;
+   type IVisualElementsRequestDeferral_Interface;
+   type IVisualElementsRequestDeferral is access all IVisualElementsRequestDeferral_Interface'Class;
+   type IVisualElementsRequestDeferral_Ptr is access all IVisualElementsRequestDeferral;
+   type IVisualElementsRequestedEventArgs_Interface;
+   type IVisualElementsRequestedEventArgs is access all IVisualElementsRequestedEventArgs_Interface'Class;
+   type IVisualElementsRequestedEventArgs_Ptr is access all IVisualElementsRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IJumpList : aliased constant Windows.IID := (469797976, 29499, 23362, (150, 42, 179, 51, 40, 35, 108, 211 ));
+   
+   type IAsyncOperation_IJumpList_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IJumpList_Interface
+      ; handler : Windows.UI.StartScreen.AsyncOperationCompletedHandler_IJumpList
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IJumpList_Interface
+      ; RetVal : access Windows.UI.StartScreen.AsyncOperationCompletedHandler_IJumpList
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IJumpList_Interface
+      ; RetVal : access Windows.UI.StartScreen.IJumpList
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IJumpListItem : aliased constant Windows.IID := (319451764, 6907, 23568, (171, 234, 97, 216, 22, 146, 164, 150 ));
+   
+   type IIterable_IJumpListItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IJumpListItem_Interface
+      ; RetVal : access Windows.UI.StartScreen.IIterator_IJumpListItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ISecondaryTileVisualElements : aliased constant Windows.IID := (1861731156, 61779, 23379, (153, 194, 224, 69, 199, 140, 206, 8 ));
+   
+   type IIterable_ISecondaryTileVisualElements_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ISecondaryTileVisualElements_Interface
+      ; RetVal : access Windows.UI.StartScreen.IIterator_ISecondaryTileVisualElements
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IJumpListItem : aliased constant Windows.IID := (4137639108, 79, 21483, (137, 230, 120, 110, 70, 5, 136, 164 ));
+   
+   type IIterator_IJumpListItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IJumpListItem_Interface
+      ; RetVal : access Windows.UI.StartScreen.IJumpListItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IJumpListItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IJumpListItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IJumpListItem_Interface
+      ; items : Windows.UI.StartScreen.IJumpListItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ISecondaryTileVisualElements : aliased constant Windows.IID := (3150373228, 51918, 21040, (136, 4, 34, 152, 55, 81, 104, 172 ));
+   
+   type IIterator_ISecondaryTileVisualElements_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ISecondaryTileVisualElements_Interface
+      ; RetVal : access Windows.UI.StartScreen.ISecondaryTileVisualElements
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_ISecondaryTileVisualElements_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_ISecondaryTileVisualElements_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ISecondaryTileVisualElements_Interface
+      ; items : Windows.UI.StartScreen.ISecondaryTileVisualElements_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJumpList : aliased constant Windows.IID := (2955103294, 52591, 19638, (166, 17, 97, 253, 80, 95, 62, 209 ));
+   
+   type IJumpList_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Items
+   (
+      This       : access IJumpList_Interface
+      ; RetVal : access Windows.UI.StartScreen.IVector_IJumpListItem -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemGroupKind
+   (
+      This       : access IJumpList_Interface
+      ; RetVal : access Windows.UI.StartScreen.JumpListSystemGroupKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SystemGroupKind
+   (
+      This       : access IJumpList_Interface
+      ; value : Windows.UI.StartScreen.JumpListSystemGroupKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SaveAsync
+   (
+      This       : access IJumpList_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -322,40 +479,6 @@ package Windows.UI.StartScreen is
    (
       This       : access IJumpListItemStatics_Interface
       ; RetVal : access Windows.UI.StartScreen.IJumpListItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJumpList : aliased constant Windows.IID := (2955103294, 52591, 19638, (166, 17, 97, 253, 80, 95, 62, 209 ));
-   
-   type IJumpList_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Items
-   (
-      This       : access IJumpList_Interface
-      ; RetVal : access Windows.UI.StartScreen.IVector_IJumpListItem -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SystemGroupKind
-   (
-      This       : access IJumpList_Interface
-      ; RetVal : access Windows.UI.StartScreen.JumpListSystemGroupKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SystemGroupKind
-   (
-      This       : access IJumpList_Interface
-      ; value : Windows.UI.StartScreen.JumpListSystemGroupKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SaveAsync
-   (
-      This       : access IJumpList_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
@@ -682,6 +805,101 @@ package Windows.UI.StartScreen is
    
    ------------------------------------------------------------------------
    
+   IID_ISecondaryTileFactory : aliased constant Windows.IID := (1475685536, 20924, 19135, (142, 191, 98, 122, 3, 152, 176, 90 ));
+   
+   type ISecondaryTileFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateTile
+   (
+      This       : access ISecondaryTileFactory_Interface
+      ; tileId : Windows.String
+      ; shortName : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; tileOptions : Windows.UI.StartScreen.TileOptions
+      ; logoReference : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWideTile
+   (
+      This       : access ISecondaryTileFactory_Interface
+      ; tileId : Windows.String
+      ; shortName : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; tileOptions : Windows.UI.StartScreen.TileOptions
+      ; logoReference : Windows.Foundation.IUriRuntimeClass
+      ; wideLogoReference : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithId
+   (
+      This       : access ISecondaryTileFactory_Interface
+      ; tileId : Windows.String
+      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecondaryTileFactory2 : aliased constant Windows.IID := (659262011, 21037, 17550, (158, 178, 208, 103, 42, 179, 69, 200 ));
+   
+   type ISecondaryTileFactory2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateMinimalTile
+   (
+      This       : access ISecondaryTileFactory2_Interface
+      ; tileId : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
+      ; desiredSize : Windows.UI.StartScreen.TileSize
+      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecondaryTileStatics : aliased constant Windows.IID := (2576387502, 53329, 18038, (135, 254, 158, 194, 66, 216, 60, 116 ));
+   
+   type ISecondaryTileStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Exists
+   (
+      This       : access ISecondaryTileStatics_Interface
+      ; tileId : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindAllAsync
+   (
+      This       : access ISecondaryTileStatics_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindAllForApplicationAsync
+   (
+      This       : access ISecondaryTileStatics_Interface
+      ; applicationId : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindAllForPackageAsync
+   (
+      This       : access ISecondaryTileStatics_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISecondaryTileVisualElements : aliased constant Windows.IID := (495842099, 33118, 16703, (159, 80, 168, 29, 167, 10, 150, 178 ));
    
    type ISecondaryTileVisualElements_Interface is interface and Windows.IInspectable_Interface;
@@ -868,60 +1086,6 @@ package Windows.UI.StartScreen is
    
    ------------------------------------------------------------------------
    
-   IID_ITileMixedRealityModel : aliased constant Windows.IID := (2960543323, 34941, 16962, (154, 25, 61, 10, 78, 167, 128, 49 ));
-   
-   type ITileMixedRealityModel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Uri
-   (
-      This       : access ITileMixedRealityModel_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Uri
-   (
-      This       : access ITileMixedRealityModel_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_BoundingBox
-   (
-      This       : access ITileMixedRealityModel_Interface
-      ; value : Windows.Perception.Spatial.IReference_SpatialBoundingBox
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BoundingBox
-   (
-      This       : access ITileMixedRealityModel_Interface
-      ; RetVal : access Windows.Perception.Spatial.IReference_SpatialBoundingBox -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITileMixedRealityModel2 : aliased constant Windows.IID := (1133801650, 55237, 16651, (131, 25, 148, 134, 162, 123, 108, 103 ));
-   
-   type ITileMixedRealityModel2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_ActivationBehavior
-   (
-      This       : access ITileMixedRealityModel2_Interface
-      ; value : Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ActivationBehavior
-   (
-      This       : access ITileMixedRealityModel2_Interface
-      ; RetVal : access Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_ISecondaryTileVisualElements4 : aliased constant Windows.IID := (1716936983, 46404, 16594, (141, 18, 116, 212, 236, 36, 208, 76 ));
    
    type ISecondaryTileVisualElements4_Interface is interface and Windows.IInspectable_Interface;
@@ -930,160 +1094,6 @@ package Windows.UI.StartScreen is
    (
       This       : access ISecondaryTileVisualElements4_Interface
       ; RetVal : access Windows.UI.StartScreen.ITileMixedRealityModel
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISecondaryTileFactory : aliased constant Windows.IID := (1475685536, 20924, 19135, (142, 191, 98, 122, 3, 152, 176, 90 ));
-   
-   type ISecondaryTileFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateTile
-   (
-      This       : access ISecondaryTileFactory_Interface
-      ; tileId : Windows.String
-      ; shortName : Windows.String
-      ; displayName : Windows.String
-      ; arguments : Windows.String
-      ; tileOptions : Windows.UI.StartScreen.TileOptions
-      ; logoReference : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWideTile
-   (
-      This       : access ISecondaryTileFactory_Interface
-      ; tileId : Windows.String
-      ; shortName : Windows.String
-      ; displayName : Windows.String
-      ; arguments : Windows.String
-      ; tileOptions : Windows.UI.StartScreen.TileOptions
-      ; logoReference : Windows.Foundation.IUriRuntimeClass
-      ; wideLogoReference : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithId
-   (
-      This       : access ISecondaryTileFactory_Interface
-      ; tileId : Windows.String
-      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISecondaryTileFactory2 : aliased constant Windows.IID := (659262011, 21037, 17550, (158, 178, 208, 103, 42, 179, 69, 200 ));
-   
-   type ISecondaryTileFactory2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateMinimalTile
-   (
-      This       : access ISecondaryTileFactory2_Interface
-      ; tileId : Windows.String
-      ; displayName : Windows.String
-      ; arguments : Windows.String
-      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
-      ; desiredSize : Windows.UI.StartScreen.TileSize
-      ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISecondaryTileStatics : aliased constant Windows.IID := (2576387502, 53329, 18038, (135, 254, 158, 194, 66, 216, 60, 116 ));
-   
-   type ISecondaryTileStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Exists
-   (
-      This       : access ISecondaryTileStatics_Interface
-      ; tileId : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindAllAsync
-   (
-      This       : access ISecondaryTileStatics_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindAllForApplicationAsync
-   (
-      This       : access ISecondaryTileStatics_Interface
-      ; applicationId : Windows.String
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindAllForPackageAsync
-   (
-      This       : access ISecondaryTileStatics_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVisualElementsRequestedEventArgs : aliased constant Windows.IID := (2070923650, 14861, 20174, (175, 150, 205, 23, 225, 176, 11, 45 ));
-   
-   type IVisualElementsRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Request
-   (
-      This       : access IVisualElementsRequestedEventArgs_Interface
-      ; RetVal : access Windows.UI.StartScreen.IVisualElementsRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVisualElementsRequest : aliased constant Windows.IID := (3241685818, 37640, 16498, (136, 204, 208, 104, 219, 52, 124, 104 ));
-   
-   type IVisualElementsRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_VisualElements
-   (
-      This       : access IVisualElementsRequest_Interface
-      ; RetVal : access Windows.UI.StartScreen.ISecondaryTileVisualElements
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AlternateVisualElements
-   (
-      This       : access IVisualElementsRequest_Interface
-      ; RetVal : access Windows.UI.StartScreen.IVectorView_ISecondaryTileVisualElements -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Deadline
-   (
-      This       : access IVisualElementsRequest_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IVisualElementsRequest_Interface
-      ; RetVal : access Windows.UI.StartScreen.IVisualElementsRequestDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVisualElementsRequestDeferral : aliased constant Windows.IID := (2707779248, 294, 17239, (130, 4, 189, 130, 187, 42, 4, 109 ));
-   
-   type IVisualElementsRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Complete
-   (
-      This       : access IVisualElementsRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -1147,88 +1157,55 @@ package Windows.UI.StartScreen is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IJumpListItem : aliased constant Windows.IID := (4137639108, 79, 21483, (137, 230, 120, 110, 70, 5, 136, 164 ));
+   IID_ITileMixedRealityModel : aliased constant Windows.IID := (2960543323, 34941, 16962, (154, 25, 61, 10, 78, 167, 128, 49 ));
    
-   type IIterator_IJumpListItem_Interface is interface and Windows.IInspectable_Interface;
+   type ITileMixedRealityModel_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function put_Uri
    (
-      This       : access IIterator_IJumpListItem_Interface
-      ; RetVal : access Windows.UI.StartScreen.IJumpListItem
+      This       : access ITileMixedRealityModel_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_Uri
    (
-      This       : access IIterator_IJumpListItem_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access ITileMixedRealityModel_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
+   function put_BoundingBox
    (
-      This       : access IIterator_IJumpListItem_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access ITileMixedRealityModel_Interface
+      ; value : Windows.Perception.Spatial.IReference_SpatialBoundingBox
    )
    return Windows.HRESULT is abstract;
    
-   function GetMany
+   function get_BoundingBox
    (
-      This       : access IIterator_IJumpListItem_Interface
-      ; items : Windows.UI.StartScreen.IJumpListItem_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IJumpListItem : aliased constant Windows.IID := (319451764, 6907, 23568, (171, 234, 97, 216, 22, 146, 164, 150 ));
-   
-   type IIterable_IJumpListItem_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IJumpListItem_Interface
-      ; RetVal : access Windows.UI.StartScreen.IIterator_IJumpListItem
+      This       : access ITileMixedRealityModel_Interface
+      ; RetVal : access Windows.Perception.Spatial.IReference_SpatialBoundingBox -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_IJumpListItem : aliased constant Windows.IID := (3191966697, 43890, 22192, (182, 211, 236, 112, 239, 17, 246, 99 ));
+   IID_ITileMixedRealityModel2 : aliased constant Windows.IID := (1133801650, 55237, 16651, (131, 25, 148, 134, 162, 123, 108, 103 ));
    
-   type IVectorView_IJumpListItem_Interface is interface and Windows.IInspectable_Interface;
+   type ITileMixedRealityModel2_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetAt
+   function put_ActivationBehavior
    (
-      This       : access IVectorView_IJumpListItem_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.StartScreen.IJumpListItem
+      This       : access ITileMixedRealityModel2_Interface
+      ; value : Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_ActivationBehavior
    (
-      This       : access IVectorView_IJumpListItem_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IJumpListItem_Interface
-      ; value : Windows.UI.StartScreen.IJumpListItem
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IJumpListItem_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.StartScreen.IJumpListItem_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access ITileMixedRealityModel2_Interface
+      ; RetVal : access Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior
    )
    return Windows.HRESULT is abstract;
    
@@ -1329,76 +1306,40 @@ package Windows.UI.StartScreen is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IJumpList : aliased constant Windows.IID := (469797976, 29499, 23362, (150, 42, 179, 51, 40, 35, 108, 211 ));
+   IID_IVectorView_IJumpListItem : aliased constant Windows.IID := (3191966697, 43890, 22192, (182, 211, 236, 112, 239, 17, 246, 99 ));
    
-   type IAsyncOperation_IJumpList_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IJumpListItem_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetAt
    (
-      This       : access IAsyncOperation_IJumpList_Interface
-      ; handler : Windows.UI.StartScreen.AsyncOperationCompletedHandler_IJumpList
+      This       : access IVectorView_IJumpListItem_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.StartScreen.IJumpListItem
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_Size
    (
-      This       : access IAsyncOperation_IJumpList_Interface
-      ; RetVal : access Windows.UI.StartScreen.AsyncOperationCompletedHandler_IJumpList
+      This       : access IVectorView_IJumpListItem_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function IndexOf
    (
-      This       : access IAsyncOperation_IJumpList_Interface
-      ; RetVal : access Windows.UI.StartScreen.IJumpList
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_ISecondaryTileVisualElements : aliased constant Windows.IID := (3150373228, 51918, 21040, (136, 4, 34, 152, 55, 81, 104, 172 ));
-   
-   type IIterator_ISecondaryTileVisualElements_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_ISecondaryTileVisualElements_Interface
-      ; RetVal : access Windows.UI.StartScreen.ISecondaryTileVisualElements
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_ISecondaryTileVisualElements_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_ISecondaryTileVisualElements_Interface
+      This       : access IVectorView_IJumpListItem_Interface
+      ; value : Windows.UI.StartScreen.IJumpListItem
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_ISecondaryTileVisualElements_Interface
-      ; items : Windows.UI.StartScreen.ISecondaryTileVisualElements_Ptr
+      This       : access IVectorView_IJumpListItem_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.StartScreen.IJumpListItem_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ISecondaryTileVisualElements : aliased constant Windows.IID := (1861731156, 61779, 23379, (153, 194, 224, 69, 199, 140, 206, 8 ));
-   
-   type IIterable_ISecondaryTileVisualElements_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ISecondaryTileVisualElements_Interface
-      ; RetVal : access Windows.UI.StartScreen.IIterator_ISecondaryTileVisualElements
    )
    return Windows.HRESULT is abstract;
    
@@ -1442,6 +1383,65 @@ package Windows.UI.StartScreen is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVisualElementsRequest : aliased constant Windows.IID := (3241685818, 37640, 16498, (136, 204, 208, 104, 219, 52, 124, 104 ));
+   
+   type IVisualElementsRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_VisualElements
+   (
+      This       : access IVisualElementsRequest_Interface
+      ; RetVal : access Windows.UI.StartScreen.ISecondaryTileVisualElements
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AlternateVisualElements
+   (
+      This       : access IVisualElementsRequest_Interface
+      ; RetVal : access Windows.UI.StartScreen.IVectorView_ISecondaryTileVisualElements -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Deadline
+   (
+      This       : access IVisualElementsRequest_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IVisualElementsRequest_Interface
+      ; RetVal : access Windows.UI.StartScreen.IVisualElementsRequestDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVisualElementsRequestDeferral : aliased constant Windows.IID := (2707779248, 294, 17239, (130, 4, 189, 130, 187, 42, 4, 109 ));
+   
+   type IVisualElementsRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Complete
+   (
+      This       : access IVisualElementsRequestDeferral_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVisualElementsRequestedEventArgs : aliased constant Windows.IID := (2070923650, 14861, 20174, (175, 150, 205, 23, 225, 176, 11, 45 ));
+   
+   type IVisualElementsRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IVisualElementsRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.StartScreen.IVisualElementsRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1475,9 +1475,8 @@ package Windows.UI.StartScreen is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype JumpListItem is Windows.UI.StartScreen.IJumpListItem;
    subtype JumpList is Windows.UI.StartScreen.IJumpList;
-   subtype SecondaryTileVisualElements is Windows.UI.StartScreen.ISecondaryTileVisualElements;
+   subtype JumpListItem is Windows.UI.StartScreen.IJumpListItem;
    subtype SecondaryTile is Windows.UI.StartScreen.ISecondaryTile;
    function Create return Windows.UI.StartScreen.ISecondaryTile;
    
@@ -1520,15 +1519,22 @@ package Windows.UI.StartScreen is
    )
    return Windows.UI.StartScreen.ISecondaryTile;
    
-   subtype VisualElementsRequestedEventArgs is Windows.UI.StartScreen.IVisualElementsRequestedEventArgs;
+   subtype SecondaryTileVisualElements is Windows.UI.StartScreen.ISecondaryTileVisualElements;
+   subtype StartScreenManager is Windows.UI.StartScreen.IStartScreenManager;
    subtype TileMixedRealityModel is Windows.UI.StartScreen.ITileMixedRealityModel;
    subtype VisualElementsRequest is Windows.UI.StartScreen.IVisualElementsRequest;
    subtype VisualElementsRequestDeferral is Windows.UI.StartScreen.IVisualElementsRequestDeferral;
-   subtype StartScreenManager is Windows.UI.StartScreen.IStartScreenManager;
+   subtype VisualElementsRequestedEventArgs is Windows.UI.StartScreen.IVisualElementsRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function LoadCurrentAsync
+   return Windows.UI.StartScreen.IAsyncOperation_IJumpList;
+   
+   function IsSupported
+   return Windows.Boolean;
    
    function CreateWithArguments
    (
@@ -1539,12 +1545,6 @@ package Windows.UI.StartScreen is
    
    function CreateSeparator
    return Windows.UI.StartScreen.IJumpListItem;
-   
-   function LoadCurrentAsync
-   return Windows.UI.StartScreen.IAsyncOperation_IJumpList;
-   
-   function IsSupported
-   return Windows.Boolean;
    
    function Exists
    (

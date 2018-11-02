@@ -62,32 +62,19 @@ package Windows.ApplicationModel.Contacts.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IContactRemovedEventArgs_Interface;
-   type IContactRemovedEventArgs is access all IContactRemovedEventArgs_Interface'Class;
-   type IContactRemovedEventArgs_Ptr is access all IContactRemovedEventArgs;
    type IContactPickerUI_Interface;
    type IContactPickerUI is access all IContactPickerUI_Interface'Class;
    type IContactPickerUI_Ptr is access all IContactPickerUI;
    type IContactPickerUI2_Interface;
    type IContactPickerUI2 is access all IContactPickerUI2_Interface'Class;
    type IContactPickerUI2_Ptr is access all IContactPickerUI2;
+   type IContactRemovedEventArgs_Interface;
+   type IContactRemovedEventArgs is access all IContactRemovedEventArgs_Interface'Class;
+   type IContactRemovedEventArgs_Ptr is access all IContactRemovedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactRemovedEventArgs : aliased constant Windows.IID := (1865761592, 13058, 19731, (173, 141, 173, 204, 15, 249, 228, 124 ));
-   
-   type IContactRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IContactRemovedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -170,6 +157,19 @@ package Windows.ApplicationModel.Contacts.Provider is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IContactRemovedEventArgs : aliased constant Windows.IID := (1865761592, 13058, 19731, (173, 141, 173, 204, 15, 249, 228, 124 ));
+   
+   type IContactRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IContactRemovedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -190,8 +190,8 @@ package Windows.ApplicationModel.Contacts.Provider is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype ContactRemovedEventArgs is Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs;
    subtype ContactPickerUI is Windows.ApplicationModel.Contacts.Provider.IContactPickerUI;
+   subtype ContactRemovedEventArgs is Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

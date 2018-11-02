@@ -54,12 +54,6 @@ package Windows.Media.AppBroadcasting is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IAppBroadcastingUI_Interface;
-   type IAppBroadcastingUI is access all IAppBroadcastingUI_Interface'Class;
-   type IAppBroadcastingUI_Ptr is access all IAppBroadcastingUI;
-   type IAppBroadcastingUIStatics_Interface;
-   type IAppBroadcastingUIStatics is access all IAppBroadcastingUIStatics_Interface'Class;
-   type IAppBroadcastingUIStatics_Ptr is access all IAppBroadcastingUIStatics;
    type IAppBroadcastingMonitor_Interface;
    type IAppBroadcastingMonitor is access all IAppBroadcastingMonitor_Interface'Class;
    type IAppBroadcastingMonitor_Ptr is access all IAppBroadcastingMonitor;
@@ -69,50 +63,16 @@ package Windows.Media.AppBroadcasting is
    type IAppBroadcastingStatusDetails_Interface;
    type IAppBroadcastingStatusDetails is access all IAppBroadcastingStatusDetails_Interface'Class;
    type IAppBroadcastingStatusDetails_Ptr is access all IAppBroadcastingStatusDetails;
+   type IAppBroadcastingUI_Interface;
+   type IAppBroadcastingUI is access all IAppBroadcastingUI_Interface'Class;
+   type IAppBroadcastingUI_Ptr is access all IAppBroadcastingUI;
+   type IAppBroadcastingUIStatics_Interface;
+   type IAppBroadcastingUIStatics is access all IAppBroadcastingUIStatics_Interface'Class;
+   type IAppBroadcastingUIStatics_Ptr is access all IAppBroadcastingUIStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppBroadcastingUI : aliased constant Windows.IID := (3849297807, 61081, 19914, (163, 195, 112, 175, 61, 180, 79, 95 ));
-   
-   type IAppBroadcastingUI_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetStatus
-   (
-      This       : access IAppBroadcastingUI_Interface
-      ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowBroadcastUI
-   (
-      This       : access IAppBroadcastingUI_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppBroadcastingUIStatics : aliased constant Windows.IID := (1437116317, 9163, 17785, (156, 52, 136, 111, 224, 44, 4, 90 ));
-   
-   type IAppBroadcastingUIStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDefault
-   (
-      This       : access IAppBroadcastingUIStatics_Interface
-      ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingUI
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetForUser
-   (
-      This       : access IAppBroadcastingUIStatics_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingUI
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -225,6 +185,46 @@ package Windows.Media.AppBroadcasting is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IAppBroadcastingUI : aliased constant Windows.IID := (3849297807, 61081, 19914, (163, 195, 112, 175, 61, 180, 79, 95 ));
+   
+   type IAppBroadcastingUI_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetStatus
+   (
+      This       : access IAppBroadcastingUI_Interface
+      ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowBroadcastUI
+   (
+      This       : access IAppBroadcastingUI_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppBroadcastingUIStatics : aliased constant Windows.IID := (1437116317, 9163, 17785, (156, 52, 136, 111, 224, 44, 4, 90 ));
+   
+   type IAppBroadcastingUIStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IAppBroadcastingUIStatics_Interface
+      ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingUI
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetForUser
+   (
+      This       : access IAppBroadcastingUIStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingUI
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -245,12 +245,12 @@ package Windows.Media.AppBroadcasting is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype AppBroadcastingStatus is Windows.Media.AppBroadcasting.IAppBroadcastingStatus;
-   subtype AppBroadcastingUI is Windows.Media.AppBroadcasting.IAppBroadcastingUI;
    subtype AppBroadcastingMonitor is Windows.Media.AppBroadcasting.IAppBroadcastingMonitor;
    function Create return Windows.Media.AppBroadcasting.IAppBroadcastingMonitor;
    
+   subtype AppBroadcastingStatus is Windows.Media.AppBroadcasting.IAppBroadcastingStatus;
    subtype AppBroadcastingStatusDetails is Windows.Media.AppBroadcasting.IAppBroadcastingStatusDetails;
+   subtype AppBroadcastingUI is Windows.Media.AppBroadcasting.IAppBroadcastingUI;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

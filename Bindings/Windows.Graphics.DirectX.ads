@@ -50,6 +50,64 @@ package Windows.Graphics.DirectX is
    
    type DirectXAlphaMode_Ptr is access DirectXAlphaMode;
    
+   type DirectXColorSpace is (
+      RgbFullG22NoneP709,
+      RgbFullG10NoneP709,
+      RgbStudioG22NoneP709,
+      RgbStudioG22NoneP2020,
+      Reserved,
+      YccFullG22NoneP709X601,
+      YccStudioG22LeftP601,
+      YccFullG22LeftP601,
+      YccStudioG22LeftP709,
+      YccFullG22LeftP709,
+      YccStudioG22LeftP2020,
+      YccFullG22LeftP2020,
+      RgbFullG2084NoneP2020,
+      YccStudioG2084LeftP2020,
+      RgbStudioG2084NoneP2020,
+      YccStudioG22TopLeftP2020,
+      YccStudioG2084TopLeftP2020,
+      RgbFullG22NoneP2020,
+      YccStudioGHlgTopLeftP2020,
+      YccFullGHlgTopLeftP2020,
+      RgbStudioG24NoneP709,
+      RgbStudioG24NoneP2020,
+      YccStudioG24LeftP709,
+      YccStudioG24LeftP2020,
+      YccStudioG24TopLeftP2020
+   );
+   for DirectXColorSpace use (
+      RgbFullG22NoneP709 => 0,
+      RgbFullG10NoneP709 => 1,
+      RgbStudioG22NoneP709 => 2,
+      RgbStudioG22NoneP2020 => 3,
+      Reserved => 4,
+      YccFullG22NoneP709X601 => 5,
+      YccStudioG22LeftP601 => 6,
+      YccFullG22LeftP601 => 7,
+      YccStudioG22LeftP709 => 8,
+      YccFullG22LeftP709 => 9,
+      YccStudioG22LeftP2020 => 10,
+      YccFullG22LeftP2020 => 11,
+      RgbFullG2084NoneP2020 => 12,
+      YccStudioG2084LeftP2020 => 13,
+      RgbStudioG2084NoneP2020 => 14,
+      YccStudioG22TopLeftP2020 => 15,
+      YccStudioG2084TopLeftP2020 => 16,
+      RgbFullG22NoneP2020 => 17,
+      YccStudioGHlgTopLeftP2020 => 18,
+      YccFullGHlgTopLeftP2020 => 19,
+      RgbStudioG24NoneP709 => 20,
+      RgbStudioG24NoneP2020 => 21,
+      YccStudioG24LeftP709 => 22,
+      YccStudioG24LeftP2020 => 23,
+      YccStudioG24TopLeftP2020 => 24
+   );
+   for DirectXColorSpace'Size use 32;
+   
+   type DirectXColorSpace_Ptr is access DirectXColorSpace;
+   
    type DirectXPixelFormat is (
       Unknown,
       R32G32B32A32Typeless,
@@ -296,74 +354,16 @@ package Windows.Graphics.DirectX is
    
    type DirectXPixelFormat_Ptr is access DirectXPixelFormat;
    
-   type DirectXColorSpace is (
-      RgbFullG22NoneP709,
-      RgbFullG10NoneP709,
-      RgbStudioG22NoneP709,
-      RgbStudioG22NoneP2020,
-      Reserved,
-      YccFullG22NoneP709X601,
-      YccStudioG22LeftP601,
-      YccFullG22LeftP601,
-      YccStudioG22LeftP709,
-      YccFullG22LeftP709,
-      YccStudioG22LeftP2020,
-      YccFullG22LeftP2020,
-      RgbFullG2084NoneP2020,
-      YccStudioG2084LeftP2020,
-      RgbStudioG2084NoneP2020,
-      YccStudioG22TopLeftP2020,
-      YccStudioG2084TopLeftP2020,
-      RgbFullG22NoneP2020,
-      YccStudioGHlgTopLeftP2020,
-      YccFullGHlgTopLeftP2020,
-      RgbStudioG24NoneP709,
-      RgbStudioG24NoneP2020,
-      YccStudioG24LeftP709,
-      YccStudioG24LeftP2020,
-      YccStudioG24TopLeftP2020
-   );
-   for DirectXColorSpace use (
-      RgbFullG22NoneP709 => 0,
-      RgbFullG10NoneP709 => 1,
-      RgbStudioG22NoneP709 => 2,
-      RgbStudioG22NoneP2020 => 3,
-      Reserved => 4,
-      YccFullG22NoneP709X601 => 5,
-      YccStudioG22LeftP601 => 6,
-      YccFullG22LeftP601 => 7,
-      YccStudioG22LeftP709 => 8,
-      YccFullG22LeftP709 => 9,
-      YccStudioG22LeftP2020 => 10,
-      YccFullG22LeftP2020 => 11,
-      RgbFullG2084NoneP2020 => 12,
-      YccStudioG2084LeftP2020 => 13,
-      RgbStudioG2084NoneP2020 => 14,
-      YccStudioG22TopLeftP2020 => 15,
-      YccStudioG2084TopLeftP2020 => 16,
-      RgbFullG22NoneP2020 => 17,
-      YccStudioGHlgTopLeftP2020 => 18,
-      YccFullGHlgTopLeftP2020 => 19,
-      RgbStudioG24NoneP709 => 20,
-      RgbStudioG24NoneP2020 => 21,
-      YccStudioG24LeftP709 => 22,
-      YccStudioG24LeftP2020 => 23,
-      YccStudioG24TopLeftP2020 => 24
-   );
-   for DirectXColorSpace'Size use 32;
-   
-   type DirectXColorSpace_Ptr is access DirectXColorSpace;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IIterator_DirectXPixelFormat_Interface;
-   type IIterator_DirectXPixelFormat is access all IIterator_DirectXPixelFormat_Interface'Class;
-   type IIterator_DirectXPixelFormat_Ptr is access all IIterator_DirectXPixelFormat;
    type IIterable_DirectXPixelFormat_Interface;
    type IIterable_DirectXPixelFormat is access all IIterable_DirectXPixelFormat_Interface'Class;
    type IIterable_DirectXPixelFormat_Ptr is access all IIterable_DirectXPixelFormat;
+   type IIterator_DirectXPixelFormat_Interface;
+   type IIterator_DirectXPixelFormat is access all IIterator_DirectXPixelFormat_Interface'Class;
+   type IIterator_DirectXPixelFormat_Ptr is access all IIterator_DirectXPixelFormat;
    type IVectorView_DirectXPixelFormat_Interface;
    type IVectorView_DirectXPixelFormat is access all IVectorView_DirectXPixelFormat_Interface'Class;
    type IVectorView_DirectXPixelFormat_Ptr is access all IVectorView_DirectXPixelFormat;
@@ -371,6 +371,19 @@ package Windows.Graphics.DirectX is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_DirectXPixelFormat : aliased constant Windows.IID := (956887750, 6894, 20777, (185, 166, 42, 110, 1, 217, 80, 126 ));
+   
+   type IIterable_DirectXPixelFormat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_DirectXPixelFormat_Interface
+      ; RetVal : access Windows.Graphics.DirectX.IIterator_DirectXPixelFormat
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -404,19 +417,6 @@ package Windows.Graphics.DirectX is
       This       : access IIterator_DirectXPixelFormat_Interface
       ; items : Windows.Graphics.DirectX.DirectXPixelFormat_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_DirectXPixelFormat : aliased constant Windows.IID := (956887750, 6894, 20777, (185, 166, 42, 110, 1, 217, 80, 126 ));
-   
-   type IIterable_DirectXPixelFormat_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_DirectXPixelFormat_Interface
-      ; RetVal : access Windows.Graphics.DirectX.IIterator_DirectXPixelFormat
    )
    return Windows.HRESULT is abstract;
    

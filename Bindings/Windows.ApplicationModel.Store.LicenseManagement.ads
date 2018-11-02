@@ -62,21 +62,21 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ILicenseSatisfactionResult_Interface;
-   type ILicenseSatisfactionResult is access all ILicenseSatisfactionResult_Interface'Class;
-   type ILicenseSatisfactionResult_Ptr is access all ILicenseSatisfactionResult;
-   type ILicenseSatisfactionInfo_Interface;
-   type ILicenseSatisfactionInfo is access all ILicenseSatisfactionInfo_Interface'Class;
-   type ILicenseSatisfactionInfo_Ptr is access all ILicenseSatisfactionInfo;
+   type IAsyncOperation_ILicenseSatisfactionResult_Interface;
+   type IAsyncOperation_ILicenseSatisfactionResult is access all IAsyncOperation_ILicenseSatisfactionResult_Interface'Class;
+   type IAsyncOperation_ILicenseSatisfactionResult_Ptr is access all IAsyncOperation_ILicenseSatisfactionResult;
    type ILicenseManagerStatics_Interface;
    type ILicenseManagerStatics is access all ILicenseManagerStatics_Interface'Class;
    type ILicenseManagerStatics_Ptr is access all ILicenseManagerStatics;
    type ILicenseManagerStatics2_Interface;
    type ILicenseManagerStatics2 is access all ILicenseManagerStatics2_Interface'Class;
    type ILicenseManagerStatics2_Ptr is access all ILicenseManagerStatics2;
-   type IAsyncOperation_ILicenseSatisfactionResult_Interface;
-   type IAsyncOperation_ILicenseSatisfactionResult is access all IAsyncOperation_ILicenseSatisfactionResult_Interface'Class;
-   type IAsyncOperation_ILicenseSatisfactionResult_Ptr is access all IAsyncOperation_ILicenseSatisfactionResult;
+   type ILicenseSatisfactionInfo_Interface;
+   type ILicenseSatisfactionInfo is access all ILicenseSatisfactionInfo_Interface'Class;
+   type ILicenseSatisfactionInfo_Ptr is access all ILicenseSatisfactionInfo;
+   type ILicenseSatisfactionResult_Interface;
+   type ILicenseSatisfactionResult is access all ILicenseSatisfactionResult_Interface'Class;
+   type ILicenseSatisfactionResult_Ptr is access all ILicenseSatisfactionResult;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -84,21 +84,65 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    
    ------------------------------------------------------------------------
    
-   IID_ILicenseSatisfactionResult : aliased constant Windows.IID := (1013403507, 15495, 20193, (130, 1, 244, 40, 53, 155, 211, 175 ));
+   IID_IAsyncOperation_ILicenseSatisfactionResult : aliased constant Windows.IID := (3091495881, 43512, 22631, (139, 48, 205, 52, 114, 14, 220, 49 ));
    
-   type ILicenseSatisfactionResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ILicenseSatisfactionResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_LicenseSatisfactionInfos
+   function put_Completed
    (
-      This       : access ILicenseSatisfactionResult_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IAsyncOperation_ILicenseSatisfactionResult_Interface
+      ; handler : Windows.ApplicationModel.Store.LicenseManagement.AsyncOperationCompletedHandler_ILicenseSatisfactionResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_ExtendedError
+   function get_Completed
    (
-      This       : access ILicenseSatisfactionResult_Interface
-      ; RetVal : access Windows.HResult
+      This       : access IAsyncOperation_ILicenseSatisfactionResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.AsyncOperationCompletedHandler_ILicenseSatisfactionResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ILicenseSatisfactionResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.ILicenseSatisfactionResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILicenseManagerStatics : aliased constant Windows.IID := (3047963360, 55879, 20256, (154, 35, 9, 24, 44, 148, 118, 255 ));
+   
+   type ILicenseManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddLicenseAsync
+   (
+      This       : access ILicenseManagerStatics_Interface
+      ; license : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetSatisfactionInfosAsync
+   (
+      This       : access ILicenseManagerStatics_Interface
+      ; contentIds : Windows.Foundation.Collections.IIterable_String
+      ; keyIds : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.IAsyncOperation_ILicenseSatisfactionResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILicenseManagerStatics2 : aliased constant Windows.IID := (2871968891, 8057, 17536, (184, 126, 44, 73, 158, 96, 27, 163 ));
+   
+   type ILicenseManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RefreshLicensesAsync
+   (
+      This       : access ILicenseManagerStatics2_Interface
+      ; refreshOption : Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
@@ -159,65 +203,21 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    
    ------------------------------------------------------------------------
    
-   IID_ILicenseManagerStatics : aliased constant Windows.IID := (3047963360, 55879, 20256, (154, 35, 9, 24, 44, 148, 118, 255 ));
+   IID_ILicenseSatisfactionResult : aliased constant Windows.IID := (1013403507, 15495, 20193, (130, 1, 244, 40, 53, 155, 211, 175 ));
    
-   type ILicenseManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   type ILicenseSatisfactionResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function AddLicenseAsync
+   function get_LicenseSatisfactionInfos
    (
-      This       : access ILicenseManagerStatics_Interface
-      ; license : Windows.Storage.Streams.IBuffer
-      ; RetVal : access Windows.Foundation.IAsyncAction
+      This       : access ILicenseSatisfactionResult_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function GetSatisfactionInfosAsync
+   function get_ExtendedError
    (
-      This       : access ILicenseManagerStatics_Interface
-      ; contentIds : Windows.Foundation.Collections.IIterable_String
-      ; keyIds : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.IAsyncOperation_ILicenseSatisfactionResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILicenseManagerStatics2 : aliased constant Windows.IID := (2871968891, 8057, 17536, (184, 126, 44, 73, 158, 96, 27, 163 ));
-   
-   type ILicenseManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RefreshLicensesAsync
-   (
-      This       : access ILicenseManagerStatics2_Interface
-      ; refreshOption : Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ILicenseSatisfactionResult : aliased constant Windows.IID := (3091495881, 43512, 22631, (139, 48, 205, 52, 114, 14, 220, 49 ));
-   
-   type IAsyncOperation_ILicenseSatisfactionResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ILicenseSatisfactionResult_Interface
-      ; handler : Windows.ApplicationModel.Store.LicenseManagement.AsyncOperationCompletedHandler_ILicenseSatisfactionResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ILicenseSatisfactionResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.AsyncOperationCompletedHandler_ILicenseSatisfactionResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ILicenseSatisfactionResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.ILicenseSatisfactionResult
+      This       : access ILicenseSatisfactionResult_Interface
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    

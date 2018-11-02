@@ -41,15 +41,15 @@ package Windows.ApplicationModel.Resources is
    type IResourceLoader2_Interface;
    type IResourceLoader2 is access all IResourceLoader2_Interface'Class;
    type IResourceLoader2_Ptr is access all IResourceLoader2;
+   type IResourceLoaderFactory_Interface;
+   type IResourceLoaderFactory is access all IResourceLoaderFactory_Interface'Class;
+   type IResourceLoaderFactory_Ptr is access all IResourceLoaderFactory;
    type IResourceLoaderStatics_Interface;
    type IResourceLoaderStatics is access all IResourceLoaderStatics_Interface'Class;
    type IResourceLoaderStatics_Ptr is access all IResourceLoaderStatics;
    type IResourceLoaderStatics2_Interface;
    type IResourceLoaderStatics2 is access all IResourceLoaderStatics2_Interface'Class;
    type IResourceLoaderStatics2_Ptr is access all IResourceLoaderStatics2;
-   type IResourceLoaderFactory_Interface;
-   type IResourceLoaderFactory is access all IResourceLoaderFactory_Interface'Class;
-   type IResourceLoaderFactory_Ptr is access all IResourceLoaderFactory;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -80,6 +80,20 @@ package Windows.ApplicationModel.Resources is
       This       : access IResourceLoader2_Interface
       ; uri : Windows.Foundation.IUriRuntimeClass
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IResourceLoaderFactory : aliased constant Windows.IID := (3275372035, 27100, 17029, (160, 119, 213, 192, 228, 124, 203, 232 ));
+   
+   type IResourceLoaderFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateResourceLoaderByName
+   (
+      This       : access IResourceLoaderFactory_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
    )
    return Windows.HRESULT is abstract;
    
@@ -128,20 +142,6 @@ package Windows.ApplicationModel.Resources is
    function GetForViewIndependentUseWithName
    (
       This       : access IResourceLoaderStatics2_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IResourceLoaderFactory : aliased constant Windows.IID := (3275372035, 27100, 17029, (160, 119, 213, 192, 228, 124, 203, 232 ));
-   
-   type IResourceLoaderFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateResourceLoaderByName
-   (
-      This       : access IResourceLoaderFactory_Interface
       ; name : Windows.String
       ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
    )

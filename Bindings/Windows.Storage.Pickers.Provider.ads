@@ -82,12 +82,12 @@ package Windows.Storage.Pickers.Provider is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface;
-   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved is access all TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface'Class;
-   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Ptr is access all TypedEventHandler_IFileOpenPickerUI_add_FileRemoved;
    type TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface;
    type TypedEventHandler_IFileOpenPickerUI_add_Closing is access all TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface'Class;
    type TypedEventHandler_IFileOpenPickerUI_add_Closing_Ptr is access all TypedEventHandler_IFileOpenPickerUI_add_Closing;
+   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface;
+   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved is access all TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface'Class;
+   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Ptr is access all TypedEventHandler_IFileOpenPickerUI_add_FileRemoved;
    type TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface;
    type TypedEventHandler_IFileSavePickerUI_add_FileNameChanged is access all TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface'Class;
    type TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Ptr is access all TypedEventHandler_IFileSavePickerUI_add_FileNameChanged;
@@ -99,50 +99,37 @@ package Windows.Storage.Pickers.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IFileRemovedEventArgs_Interface;
-   type IFileRemovedEventArgs is access all IFileRemovedEventArgs_Interface'Class;
-   type IFileRemovedEventArgs_Ptr is access all IFileRemovedEventArgs;
    type IFileOpenPickerUI_Interface;
    type IFileOpenPickerUI is access all IFileOpenPickerUI_Interface'Class;
    type IFileOpenPickerUI_Ptr is access all IFileOpenPickerUI;
+   type IFileRemovedEventArgs_Interface;
+   type IFileRemovedEventArgs is access all IFileRemovedEventArgs_Interface'Class;
+   type IFileRemovedEventArgs_Ptr is access all IFileRemovedEventArgs;
+   type IFileSavePickerUI_Interface;
+   type IFileSavePickerUI is access all IFileSavePickerUI_Interface'Class;
+   type IFileSavePickerUI_Ptr is access all IFileSavePickerUI;
+   type IPickerClosingDeferral_Interface;
+   type IPickerClosingDeferral is access all IPickerClosingDeferral_Interface'Class;
+   type IPickerClosingDeferral_Ptr is access all IPickerClosingDeferral;
    type IPickerClosingEventArgs_Interface;
    type IPickerClosingEventArgs is access all IPickerClosingEventArgs_Interface'Class;
    type IPickerClosingEventArgs_Ptr is access all IPickerClosingEventArgs;
    type IPickerClosingOperation_Interface;
    type IPickerClosingOperation is access all IPickerClosingOperation_Interface'Class;
    type IPickerClosingOperation_Ptr is access all IPickerClosingOperation;
-   type IPickerClosingDeferral_Interface;
-   type IPickerClosingDeferral is access all IPickerClosingDeferral_Interface'Class;
-   type IPickerClosingDeferral_Ptr is access all IPickerClosingDeferral;
-   type IFileSavePickerUI_Interface;
-   type IFileSavePickerUI is access all IFileSavePickerUI_Interface'Class;
-   type IFileSavePickerUI_Ptr is access all IFileSavePickerUI;
-   type ITargetFileRequestedEventArgs_Interface;
-   type ITargetFileRequestedEventArgs is access all ITargetFileRequestedEventArgs_Interface'Class;
-   type ITargetFileRequestedEventArgs_Ptr is access all ITargetFileRequestedEventArgs;
    type ITargetFileRequest_Interface;
    type ITargetFileRequest is access all ITargetFileRequest_Interface'Class;
    type ITargetFileRequest_Ptr is access all ITargetFileRequest;
    type ITargetFileRequestDeferral_Interface;
    type ITargetFileRequestDeferral is access all ITargetFileRequestDeferral_Interface'Class;
    type ITargetFileRequestDeferral_Ptr is access all ITargetFileRequestDeferral;
+   type ITargetFileRequestedEventArgs_Interface;
+   type ITargetFileRequestedEventArgs is access all ITargetFileRequestedEventArgs_Interface'Class;
+   type ITargetFileRequestedEventArgs_Ptr is access all ITargetFileRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFileRemovedEventArgs : aliased constant Windows.IID := (319045031, 32714, 19499, (158, 202, 104, 144, 249, 240, 1, 133 ));
-   
-   type IFileRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IFileRemovedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -249,53 +236,14 @@ package Windows.Storage.Pickers.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_IPickerClosingEventArgs : aliased constant Windows.IID := (2119823908, 45874, 20242, (139, 159, 168, 194, 240, 107, 50, 205 ));
+   IID_IFileRemovedEventArgs : aliased constant Windows.IID := (319045031, 32714, 19499, (158, 202, 104, 144, 249, 240, 1, 133 ));
    
-   type IPickerClosingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IFileRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ClosingOperation
+   function get_Id
    (
-      This       : access IPickerClosingEventArgs_Interface
-      ; RetVal : access Windows.Storage.Pickers.Provider.IPickerClosingOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCanceled
-   (
-      This       : access IPickerClosingEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPickerClosingOperation : aliased constant Windows.IID := (1290402692, 48878, 20025, (167, 115, 252, 95, 14, 174, 50, 141 ));
-   
-   type IPickerClosingOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDeferral
-   (
-      This       : access IPickerClosingOperation_Interface
-      ; RetVal : access Windows.Storage.Pickers.Provider.IPickerClosingDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Deadline
-   (
-      This       : access IPickerClosingOperation_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPickerClosingDeferral : aliased constant Windows.IID := (2063071006, 6759, 18993, (174, 128, 233, 7, 112, 138, 97, 155 ));
-   
-   type IPickerClosingDeferral_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Complete
-   (
-      This       : access IPickerClosingDeferral_Interface
+      This       : access IFileRemovedEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -380,14 +328,53 @@ package Windows.Storage.Pickers.Provider is
    
    ------------------------------------------------------------------------
    
-   IID_ITargetFileRequestedEventArgs : aliased constant Windows.IID := (2976111553, 6993, 19593, (165, 145, 15, 212, 11, 60, 87, 201 ));
+   IID_IPickerClosingDeferral : aliased constant Windows.IID := (2063071006, 6759, 18993, (174, 128, 233, 7, 112, 138, 97, 155 ));
    
-   type ITargetFileRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IPickerClosingDeferral_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Request
+   function Complete
    (
-      This       : access ITargetFileRequestedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Pickers.Provider.ITargetFileRequest
+      This       : access IPickerClosingDeferral_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPickerClosingEventArgs : aliased constant Windows.IID := (2119823908, 45874, 20242, (139, 159, 168, 194, 240, 107, 50, 205 ));
+   
+   type IPickerClosingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ClosingOperation
+   (
+      This       : access IPickerClosingEventArgs_Interface
+      ; RetVal : access Windows.Storage.Pickers.Provider.IPickerClosingOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCanceled
+   (
+      This       : access IPickerClosingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPickerClosingOperation : aliased constant Windows.IID := (1290402692, 48878, 20025, (167, 115, 252, 95, 14, 174, 50, 141 ));
+   
+   type IPickerClosingOperation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeferral
+   (
+      This       : access IPickerClosingOperation_Interface
+      ; RetVal : access Windows.Storage.Pickers.Provider.IPickerClosingDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Deadline
+   (
+      This       : access IPickerClosingOperation_Interface
+      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
@@ -431,21 +418,21 @@ package Windows.Storage.Pickers.Provider is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_ITargetFileRequestedEventArgs : aliased constant Windows.IID := (2976111553, 6993, 19593, (165, 145, 15, 212, 11, 60, 87, 201 ));
+   
+   type ITargetFileRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access ITargetFileRequestedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Pickers.Provider.ITargetFileRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IFileOpenPickerUI_add_FileRemoved : aliased constant Windows.IID := (4059769145, 26971, 24406, (132, 26, 165, 42, 125, 20, 133, 114 ));
-   
-   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFileOpenPickerUI_add_FileRemoved'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface
-      ; sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI
-      ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -457,6 +444,19 @@ package Windows.Storage.Pickers.Provider is
       This       : access TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface
       ; sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI
       ; args : Windows.Storage.Pickers.Provider.IPickerClosingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IFileOpenPickerUI_add_FileRemoved : aliased constant Windows.IID := (4059769145, 26971, 24406, (132, 26, 165, 42, 125, 20, 133, 114 ));
+   
+   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFileOpenPickerUI_add_FileRemoved'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface
+      ; sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI
+      ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs
    )
    return Windows.HRESULT;
    
@@ -490,15 +490,15 @@ package Windows.Storage.Pickers.Provider is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype FileRemovedEventArgs is Windows.Storage.Pickers.Provider.IFileRemovedEventArgs;
    subtype FileOpenPickerUI is Windows.Storage.Pickers.Provider.IFileOpenPickerUI;
+   subtype FileRemovedEventArgs is Windows.Storage.Pickers.Provider.IFileRemovedEventArgs;
+   subtype FileSavePickerUI is Windows.Storage.Pickers.Provider.IFileSavePickerUI;
+   subtype PickerClosingDeferral is Windows.Storage.Pickers.Provider.IPickerClosingDeferral;
    subtype PickerClosingEventArgs is Windows.Storage.Pickers.Provider.IPickerClosingEventArgs;
    subtype PickerClosingOperation is Windows.Storage.Pickers.Provider.IPickerClosingOperation;
-   subtype PickerClosingDeferral is Windows.Storage.Pickers.Provider.IPickerClosingDeferral;
-   subtype FileSavePickerUI is Windows.Storage.Pickers.Provider.IFileSavePickerUI;
-   subtype TargetFileRequestedEventArgs is Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs;
    subtype TargetFileRequest is Windows.Storage.Pickers.Provider.ITargetFileRequest;
    subtype TargetFileRequestDeferral is Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral;
+   subtype TargetFileRequestedEventArgs is Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

@@ -52,22 +52,44 @@ package Windows.UI.Composition.Effects is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISceneLightingEffect_Interface;
-   type ISceneLightingEffect is access all ISceneLightingEffect_Interface'Class;
-   type ISceneLightingEffect_Ptr is access all ISceneLightingEffect;
-   type ISceneLightingEffect2_Interface;
-   type ISceneLightingEffect2 is access all ISceneLightingEffect2_Interface'Class;
-   type ISceneLightingEffect2_Ptr is access all ISceneLightingEffect2;
    type IGraphicsEffect_Imported_Interface;
    type IGraphicsEffect_Imported is access all IGraphicsEffect_Imported_Interface'Class;
    type IGraphicsEffect_Imported_Ptr is access all IGraphicsEffect_Imported;
    type IGraphicsEffectSource_Imported_Interface;
    type IGraphicsEffectSource_Imported is access all IGraphicsEffectSource_Imported_Interface'Class;
    type IGraphicsEffectSource_Imported_Ptr is access all IGraphicsEffectSource_Imported;
+   type ISceneLightingEffect_Interface;
+   type ISceneLightingEffect is access all ISceneLightingEffect_Interface'Class;
+   type ISceneLightingEffect_Ptr is access all ISceneLightingEffect;
+   type ISceneLightingEffect2_Interface;
+   type ISceneLightingEffect2 is access all ISceneLightingEffect2_Interface'Class;
+   type ISceneLightingEffect2_Ptr is access all ISceneLightingEffect2;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   type IGraphicsEffect_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access IGraphicsEffect_Imported_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Name
+   (
+      This       : access IGraphicsEffect_Imported_Interface
+      ; name : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IGraphicsEffectSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -164,28 +186,6 @@ package Windows.UI.Composition.Effects is
       ; value : Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel
    )
    return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IGraphicsEffect_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Name
-   (
-      This       : access IGraphicsEffect_Imported_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Name
-   (
-      This       : access IGraphicsEffect_Imported_Interface
-      ; name : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IGraphicsEffectSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    -- Classes

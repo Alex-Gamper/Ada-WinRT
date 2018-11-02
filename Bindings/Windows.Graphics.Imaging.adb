@@ -38,6 +38,45 @@ package body Windows.Graphics.Imaging is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IBitmapDecoder_Interface
+      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBitmapEncoder_Interface
+      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBitmapFrame_Interface
+      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface
       ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IMap_String_BitmapTypedValue
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -75,48 +114,26 @@ package body Windows.Graphics.Imaging is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBitmapDecoder_Interface
-      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBitmapFrame_Interface
-      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBitmapEncoder_Interface
-      ; asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Graphics.Imaging.IMap_String_BitmapTypedValue is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Imaging.BitmapPropertySet");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Imaging.IMap_String_BitmapTypedValue) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Imaging.IID_IMap_String_BitmapTypedValue'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create return Windows.Graphics.Imaging.IBitmapTransform is
       Hr            : Windows.HResult := S_OK;
@@ -154,23 +171,6 @@ package body Windows.Graphics.Imaging is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.Graphics.Imaging.IMap_String_BitmapTypedValue is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Imaging.BitmapPropertySet");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Imaging.IMap_String_BitmapTypedValue) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Imaging.IID_IMap_String_BitmapTypedValue'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    function Create

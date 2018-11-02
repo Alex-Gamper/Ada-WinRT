@@ -72,37 +72,16 @@ package Windows.Devices.Portable is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IStorageDeviceStatics_Interface;
-   type IStorageDeviceStatics is access all IStorageDeviceStatics_Interface'Class;
-   type IStorageDeviceStatics_Ptr is access all IStorageDeviceStatics;
    type IServiceDeviceStatics_Interface;
    type IServiceDeviceStatics is access all IServiceDeviceStatics_Interface'Class;
    type IServiceDeviceStatics_Ptr is access all IServiceDeviceStatics;
+   type IStorageDeviceStatics_Interface;
+   type IStorageDeviceStatics is access all IStorageDeviceStatics_Interface'Class;
+   type IStorageDeviceStatics_Ptr is access all IStorageDeviceStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStorageDeviceStatics : aliased constant Windows.IID := (1590576366, 6947, 19922, (134, 82, 188, 22, 79, 0, 49, 40 ));
-   
-   type IStorageDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromId
-   (
-      This       : access IStorageDeviceStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Storage.IStorageFolder
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeviceSelector
-   (
-      This       : access IStorageDeviceStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -127,6 +106,27 @@ package Windows.Devices.Portable is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IStorageDeviceStatics : aliased constant Windows.IID := (1590576366, 6947, 19922, (134, 82, 188, 22, 79, 0, 49, 40 ));
+   
+   type IStorageDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromId
+   (
+      This       : access IStorageDeviceStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelector
+   (
+      This       : access IStorageDeviceStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -134,15 +134,6 @@ package Windows.Devices.Portable is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromId
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Storage.IStorageFolder;
-   
-   function GetDeviceSelector
-   return Windows.String;
    
    function GetDeviceSelector
    (
@@ -154,6 +145,15 @@ package Windows.Devices.Portable is
    (
       serviceId : Windows.Guid
    )
+   return Windows.String;
+   
+   function FromId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Storage.IStorageFolder;
+   
+   function GetDeviceSelector
    return Windows.String;
    
 end;

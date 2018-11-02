@@ -73,24 +73,6 @@ package Windows.Security.Credentials.UI is
    
    type CredentialSaveOption_Ptr is access CredentialSaveOption;
    
-   type UserConsentVerifierAvailability is (
-      Available,
-      DeviceNotPresent,
-      NotConfiguredForUser,
-      DisabledByPolicy,
-      DeviceBusy
-   );
-   for UserConsentVerifierAvailability use (
-      Available => 0,
-      DeviceNotPresent => 1,
-      NotConfiguredForUser => 2,
-      DisabledByPolicy => 3,
-      DeviceBusy => 4
-   );
-   for UserConsentVerifierAvailability'Size use 32;
-   
-   type UserConsentVerifierAvailability_Ptr is access UserConsentVerifierAvailability;
-   
    type UserConsentVerificationResult is (
       Verified,
       DeviceNotPresent,
@@ -113,6 +95,24 @@ package Windows.Security.Credentials.UI is
    
    type UserConsentVerificationResult_Ptr is access UserConsentVerificationResult;
    
+   type UserConsentVerifierAvailability is (
+      Available,
+      DeviceNotPresent,
+      NotConfiguredForUser,
+      DisabledByPolicy,
+      DeviceBusy
+   );
+   for UserConsentVerifierAvailability use (
+      Available => 0,
+      DeviceNotPresent => 1,
+      NotConfiguredForUser => 2,
+      DisabledByPolicy => 3,
+      DeviceBusy => 4
+   );
+   for UserConsentVerifierAvailability'Size use 32;
+   
+   type UserConsentVerifierAvailability_Ptr is access UserConsentVerifierAvailability;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -120,42 +120,123 @@ package Windows.Security.Credentials.UI is
    type AsyncOperationCompletedHandler_ICredentialPickerResults_Interface;
    type AsyncOperationCompletedHandler_ICredentialPickerResults is access all AsyncOperationCompletedHandler_ICredentialPickerResults_Interface'Class;
    type AsyncOperationCompletedHandler_ICredentialPickerResults_Ptr is access all AsyncOperationCompletedHandler_ICredentialPickerResults;
-   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface;
-   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability is access all AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface'Class;
-   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Ptr is access all AsyncOperationCompletedHandler_UserConsentVerifierAvailability;
    type AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface;
    type AsyncOperationCompletedHandler_UserConsentVerificationResult is access all AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface'Class;
    type AsyncOperationCompletedHandler_UserConsentVerificationResult_Ptr is access all AsyncOperationCompletedHandler_UserConsentVerificationResult;
+   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface;
+   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability is access all AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface'Class;
+   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Ptr is access all AsyncOperationCompletedHandler_UserConsentVerifierAvailability;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ICredentialPickerOptions_Interface;
-   type ICredentialPickerOptions is access all ICredentialPickerOptions_Interface'Class;
-   type ICredentialPickerOptions_Ptr is access all ICredentialPickerOptions;
-   type ICredentialPickerStatics_Interface;
-   type ICredentialPickerStatics is access all ICredentialPickerStatics_Interface'Class;
-   type ICredentialPickerStatics_Ptr is access all ICredentialPickerStatics;
-   type ICredentialPickerResults_Interface;
-   type ICredentialPickerResults is access all ICredentialPickerResults_Interface'Class;
-   type ICredentialPickerResults_Ptr is access all ICredentialPickerResults;
-   type IUserConsentVerifierStatics_Interface;
-   type IUserConsentVerifierStatics is access all IUserConsentVerifierStatics_Interface'Class;
-   type IUserConsentVerifierStatics_Ptr is access all IUserConsentVerifierStatics;
    type IAsyncOperation_ICredentialPickerResults_Interface;
    type IAsyncOperation_ICredentialPickerResults is access all IAsyncOperation_ICredentialPickerResults_Interface'Class;
    type IAsyncOperation_ICredentialPickerResults_Ptr is access all IAsyncOperation_ICredentialPickerResults;
-   type IAsyncOperation_UserConsentVerifierAvailability_Interface;
-   type IAsyncOperation_UserConsentVerifierAvailability is access all IAsyncOperation_UserConsentVerifierAvailability_Interface'Class;
-   type IAsyncOperation_UserConsentVerifierAvailability_Ptr is access all IAsyncOperation_UserConsentVerifierAvailability;
    type IAsyncOperation_UserConsentVerificationResult_Interface;
    type IAsyncOperation_UserConsentVerificationResult is access all IAsyncOperation_UserConsentVerificationResult_Interface'Class;
    type IAsyncOperation_UserConsentVerificationResult_Ptr is access all IAsyncOperation_UserConsentVerificationResult;
+   type IAsyncOperation_UserConsentVerifierAvailability_Interface;
+   type IAsyncOperation_UserConsentVerifierAvailability is access all IAsyncOperation_UserConsentVerifierAvailability_Interface'Class;
+   type IAsyncOperation_UserConsentVerifierAvailability_Ptr is access all IAsyncOperation_UserConsentVerifierAvailability;
+   type ICredentialPickerOptions_Interface;
+   type ICredentialPickerOptions is access all ICredentialPickerOptions_Interface'Class;
+   type ICredentialPickerOptions_Ptr is access all ICredentialPickerOptions;
+   type ICredentialPickerResults_Interface;
+   type ICredentialPickerResults is access all ICredentialPickerResults_Interface'Class;
+   type ICredentialPickerResults_Ptr is access all ICredentialPickerResults;
+   type ICredentialPickerStatics_Interface;
+   type ICredentialPickerStatics is access all ICredentialPickerStatics_Interface'Class;
+   type ICredentialPickerStatics_Ptr is access all ICredentialPickerStatics;
+   type IUserConsentVerifierStatics_Interface;
+   type IUserConsentVerifierStatics is access all IUserConsentVerifierStatics_Interface'Class;
+   type IUserConsentVerifierStatics_Ptr is access all IUserConsentVerifierStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICredentialPickerResults : aliased constant Windows.IID := (2214398372, 8701, 23553, (156, 246, 130, 147, 178, 146, 154, 159 ));
+   
+   type IAsyncOperation_ICredentialPickerResults_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ICredentialPickerResults_Interface
+      ; handler : Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_ICredentialPickerResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ICredentialPickerResults_Interface
+      ; RetVal : access Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_ICredentialPickerResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ICredentialPickerResults_Interface
+      ; RetVal : access Windows.Security.Credentials.UI.ICredentialPickerResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_UserConsentVerificationResult : aliased constant Windows.IID := (4250497021, 8984, 21903, (157, 190, 210, 29, 244, 55, 100, 165 ));
+   
+   type IAsyncOperation_UserConsentVerificationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_UserConsentVerificationResult_Interface
+      ; handler : Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerificationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UserConsentVerificationResult_Interface
+      ; RetVal : access Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerificationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UserConsentVerificationResult_Interface
+      ; RetVal : access Windows.Security.Credentials.UI.UserConsentVerificationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_UserConsentVerifierAvailability : aliased constant Windows.IID := (3721626867, 55320, 23939, (171, 75, 50, 17, 156, 40, 88, 124 ));
+   
+   type IAsyncOperation_UserConsentVerifierAvailability_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_UserConsentVerifierAvailability_Interface
+      ; handler : Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerifierAvailability
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UserConsentVerifierAvailability_Interface
+      ; RetVal : access Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerifierAvailability
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UserConsentVerifierAvailability_Interface
+      ; RetVal : access Windows.Security.Credentials.UI.UserConsentVerifierAvailability
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -305,39 +386,6 @@ package Windows.Security.Credentials.UI is
    
    ------------------------------------------------------------------------
    
-   IID_ICredentialPickerStatics : aliased constant Windows.IID := (2855951475, 51690, 18306, (153, 251, 230, 215, 233, 56, 225, 45 ));
-   
-   type ICredentialPickerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function PickWithOptionsAsync
-   (
-      This       : access ICredentialPickerStatics_Interface
-      ; options : Windows.Security.Credentials.UI.ICredentialPickerOptions
-      ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function PickWithMessageAsync
-   (
-      This       : access ICredentialPickerStatics_Interface
-      ; targetName : Windows.String
-      ; message : Windows.String
-      ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function PickWithCaptionAsync
-   (
-      This       : access ICredentialPickerStatics_Interface
-      ; targetName : Windows.String
-      ; message : Windows.String
-      ; caption : Windows.String
-      ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_ICredentialPickerResults : aliased constant Windows.IID := (424212890, 52272, 16652, (156, 56, 204, 8, 132, 197, 179, 215 ));
    
    type ICredentialPickerResults_Interface is interface and Windows.IInspectable_Interface;
@@ -393,6 +441,39 @@ package Windows.Security.Credentials.UI is
    
    ------------------------------------------------------------------------
    
+   IID_ICredentialPickerStatics : aliased constant Windows.IID := (2855951475, 51690, 18306, (153, 251, 230, 215, 233, 56, 225, 45 ));
+   
+   type ICredentialPickerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function PickWithOptionsAsync
+   (
+      This       : access ICredentialPickerStatics_Interface
+      ; options : Windows.Security.Credentials.UI.ICredentialPickerOptions
+      ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PickWithMessageAsync
+   (
+      This       : access ICredentialPickerStatics_Interface
+      ; targetName : Windows.String
+      ; message : Windows.String
+      ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PickWithCaptionAsync
+   (
+      This       : access ICredentialPickerStatics_Interface
+      ; targetName : Windows.String
+      ; message : Windows.String
+      ; caption : Windows.String
+      ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUserConsentVerifierStatics : aliased constant Windows.IID := (2941206417, 22092, 19932, (184, 181, 151, 52, 71, 98, 124, 101 ));
    
    type IUserConsentVerifierStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -409,87 +490,6 @@ package Windows.Security.Credentials.UI is
       This       : access IUserConsentVerifierStatics_Interface
       ; message : Windows.String
       ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ICredentialPickerResults : aliased constant Windows.IID := (2214398372, 8701, 23553, (156, 246, 130, 147, 178, 146, 154, 159 ));
-   
-   type IAsyncOperation_ICredentialPickerResults_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ICredentialPickerResults_Interface
-      ; handler : Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_ICredentialPickerResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ICredentialPickerResults_Interface
-      ; RetVal : access Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_ICredentialPickerResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ICredentialPickerResults_Interface
-      ; RetVal : access Windows.Security.Credentials.UI.ICredentialPickerResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_UserConsentVerifierAvailability : aliased constant Windows.IID := (3721626867, 55320, 23939, (171, 75, 50, 17, 156, 40, 88, 124 ));
-   
-   type IAsyncOperation_UserConsentVerifierAvailability_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_UserConsentVerifierAvailability_Interface
-      ; handler : Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerifierAvailability
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UserConsentVerifierAvailability_Interface
-      ; RetVal : access Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerifierAvailability
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UserConsentVerifierAvailability_Interface
-      ; RetVal : access Windows.Security.Credentials.UI.UserConsentVerifierAvailability
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_UserConsentVerificationResult : aliased constant Windows.IID := (4250497021, 8984, 21903, (157, 190, 210, 29, 244, 55, 100, 165 ));
-   
-   type IAsyncOperation_UserConsentVerificationResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_UserConsentVerificationResult_Interface
-      ; handler : Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerificationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UserConsentVerificationResult_Interface
-      ; RetVal : access Windows.Security.Credentials.UI.AsyncOperationCompletedHandler_UserConsentVerificationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UserConsentVerificationResult_Interface
-      ; RetVal : access Windows.Security.Credentials.UI.UserConsentVerificationResult
    )
    return Windows.HRESULT is abstract;
    
@@ -512,19 +512,6 @@ package Windows.Security.Credentials.UI is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_UserConsentVerifierAvailability : aliased constant Windows.IID := (681083252, 44258, 23573, (160, 223, 88, 10, 38, 217, 66, 148 ));
-   
-   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UserConsentVerifierAvailability'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface
-      ; asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_AsyncOperationCompletedHandler_UserConsentVerificationResult : aliased constant Windows.IID := (218089161, 19499, 23764, (179, 140, 123, 141, 243, 255, 90, 251 ));
    
    type AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UserConsentVerificationResult'access) with null record;
@@ -532,6 +519,19 @@ package Windows.Security.Credentials.UI is
    (
       This       : access AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface
       ; asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_UserConsentVerifierAvailability : aliased constant Windows.IID := (681083252, 44258, 23573, (160, 223, 88, 10, 38, 217, 66, 148 ));
+   
+   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UserConsentVerifierAvailability'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface
+      ; asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;

@@ -39,23 +39,32 @@ package Windows.Graphics.Capture is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface;
-   type TypedEventHandler_IGraphicsCaptureItem_add_Closed is access all TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface'Class;
-   type TypedEventHandler_IGraphicsCaptureItem_add_Closed_Ptr is access all TypedEventHandler_IGraphicsCaptureItem_add_Closed;
    type AsyncOperationCompletedHandler_IGraphicsCaptureItem_Interface;
    type AsyncOperationCompletedHandler_IGraphicsCaptureItem is access all AsyncOperationCompletedHandler_IGraphicsCaptureItem_Interface'Class;
    type AsyncOperationCompletedHandler_IGraphicsCaptureItem_Ptr is access all AsyncOperationCompletedHandler_IGraphicsCaptureItem;
    type TypedEventHandler_IDirect3D11CaptureFramePool_add_FrameArrived_Interface;
    type TypedEventHandler_IDirect3D11CaptureFramePool_add_FrameArrived is access all TypedEventHandler_IDirect3D11CaptureFramePool_add_FrameArrived_Interface'Class;
    type TypedEventHandler_IDirect3D11CaptureFramePool_add_FrameArrived_Ptr is access all TypedEventHandler_IDirect3D11CaptureFramePool_add_FrameArrived;
+   type TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface;
+   type TypedEventHandler_IGraphicsCaptureItem_add_Closed is access all TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface'Class;
+   type TypedEventHandler_IGraphicsCaptureItem_add_Closed_Ptr is access all TypedEventHandler_IGraphicsCaptureItem_add_Closed;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IGraphicsCaptureItem_Interface;
+   type IAsyncOperation_IGraphicsCaptureItem is access all IAsyncOperation_IGraphicsCaptureItem_Interface'Class;
+   type IAsyncOperation_IGraphicsCaptureItem_Ptr is access all IAsyncOperation_IGraphicsCaptureItem;
    type IDirect3D11CaptureFrame_Interface;
    type IDirect3D11CaptureFrame is access all IDirect3D11CaptureFrame_Interface'Class;
    type IDirect3D11CaptureFrame_Ptr is access all IDirect3D11CaptureFrame;
+   type IDirect3D11CaptureFramePool_Interface;
+   type IDirect3D11CaptureFramePool is access all IDirect3D11CaptureFramePool_Interface'Class;
+   type IDirect3D11CaptureFramePool_Ptr is access all IDirect3D11CaptureFramePool;
+   type IDirect3D11CaptureFramePoolStatics_Interface;
+   type IDirect3D11CaptureFramePoolStatics is access all IDirect3D11CaptureFramePoolStatics_Interface'Class;
+   type IDirect3D11CaptureFramePoolStatics_Ptr is access all IDirect3D11CaptureFramePoolStatics;
    type IGraphicsCaptureItem_Interface;
    type IGraphicsCaptureItem is access all IGraphicsCaptureItem_Interface'Class;
    type IGraphicsCaptureItem_Ptr is access all IGraphicsCaptureItem;
@@ -68,19 +77,37 @@ package Windows.Graphics.Capture is
    type IGraphicsCaptureSessionStatics_Interface;
    type IGraphicsCaptureSessionStatics is access all IGraphicsCaptureSessionStatics_Interface'Class;
    type IGraphicsCaptureSessionStatics_Ptr is access all IGraphicsCaptureSessionStatics;
-   type IDirect3D11CaptureFramePool_Interface;
-   type IDirect3D11CaptureFramePool is access all IDirect3D11CaptureFramePool_Interface'Class;
-   type IDirect3D11CaptureFramePool_Ptr is access all IDirect3D11CaptureFramePool;
-   type IDirect3D11CaptureFramePoolStatics_Interface;
-   type IDirect3D11CaptureFramePoolStatics is access all IDirect3D11CaptureFramePoolStatics_Interface'Class;
-   type IDirect3D11CaptureFramePoolStatics_Ptr is access all IDirect3D11CaptureFramePoolStatics;
-   type IAsyncOperation_IGraphicsCaptureItem_Interface;
-   type IAsyncOperation_IGraphicsCaptureItem is access all IAsyncOperation_IGraphicsCaptureItem_Interface'Class;
-   type IAsyncOperation_IGraphicsCaptureItem_Ptr is access all IAsyncOperation_IGraphicsCaptureItem;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGraphicsCaptureItem : aliased constant Windows.IID := (30208686, 4185, 23895, (168, 5, 10, 29, 252, 84, 202, 185 ));
+   
+   type IAsyncOperation_IGraphicsCaptureItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IGraphicsCaptureItem_Interface
+      ; handler : Windows.Graphics.Capture.AsyncOperationCompletedHandler_IGraphicsCaptureItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IGraphicsCaptureItem_Interface
+      ; RetVal : access Windows.Graphics.Capture.AsyncOperationCompletedHandler_IGraphicsCaptureItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IGraphicsCaptureItem_Interface
+      ; RetVal : access Windows.Graphics.Capture.IGraphicsCaptureItem
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -106,6 +133,76 @@ package Windows.Graphics.Capture is
    (
       This       : access IDirect3D11CaptureFrame_Interface
       ; RetVal : access Windows.Graphics.SizeInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDirect3D11CaptureFramePool : aliased constant Windows.IID := (619408674, 6517, 16942, (130, 231, 120, 13, 189, 141, 223, 36 ));
+   
+   type IDirect3D11CaptureFramePool_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Recreate
+   (
+      This       : access IDirect3D11CaptureFramePool_Interface
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; numberOfBuffers : Windows.Int32
+      ; size : Windows.Graphics.SizeInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryGetNextFrame
+   (
+      This       : access IDirect3D11CaptureFramePool_Interface
+      ; RetVal : access Windows.Graphics.Capture.IDirect3D11CaptureFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_FrameArrived
+   (
+      This       : access IDirect3D11CaptureFramePool_Interface
+      ; handler : TypedEventHandler_IDirect3D11CaptureFramePool_add_FrameArrived
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_FrameArrived
+   (
+      This       : access IDirect3D11CaptureFramePool_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateCaptureSession
+   (
+      This       : access IDirect3D11CaptureFramePool_Interface
+      ; item : Windows.Graphics.Capture.IGraphicsCaptureItem
+      ; RetVal : access Windows.Graphics.Capture.IGraphicsCaptureSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DispatcherQueue
+   (
+      This       : access IDirect3D11CaptureFramePool_Interface
+      ; RetVal : access Windows.System.IDispatcherQueue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDirect3D11CaptureFramePoolStatics : aliased constant Windows.IID := (2005140842, 26538, 19795, (174, 84, 16, 136, 213, 168, 202, 33 ));
+   
+   type IDirect3D11CaptureFramePoolStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IDirect3D11CaptureFramePoolStatics_Interface
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; numberOfBuffers : Windows.Int32
+      ; size : Windows.Graphics.SizeInt32
+      ; RetVal : access Windows.Graphics.Capture.IDirect3D11CaptureFramePool
    )
    return Windows.HRESULT is abstract;
    
@@ -183,118 +280,8 @@ package Windows.Graphics.Capture is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IDirect3D11CaptureFramePool : aliased constant Windows.IID := (619408674, 6517, 16942, (130, 231, 120, 13, 189, 141, 223, 36 ));
-   
-   type IDirect3D11CaptureFramePool_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Recreate
-   (
-      This       : access IDirect3D11CaptureFramePool_Interface
-      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
-      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
-      ; numberOfBuffers : Windows.Int32
-      ; size : Windows.Graphics.SizeInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryGetNextFrame
-   (
-      This       : access IDirect3D11CaptureFramePool_Interface
-      ; RetVal : access Windows.Graphics.Capture.IDirect3D11CaptureFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_FrameArrived
-   (
-      This       : access IDirect3D11CaptureFramePool_Interface
-      ; handler : TypedEventHandler_IDirect3D11CaptureFramePool_add_FrameArrived
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_FrameArrived
-   (
-      This       : access IDirect3D11CaptureFramePool_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateCaptureSession
-   (
-      This       : access IDirect3D11CaptureFramePool_Interface
-      ; item : Windows.Graphics.Capture.IGraphicsCaptureItem
-      ; RetVal : access Windows.Graphics.Capture.IGraphicsCaptureSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DispatcherQueue
-   (
-      This       : access IDirect3D11CaptureFramePool_Interface
-      ; RetVal : access Windows.System.IDispatcherQueue
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDirect3D11CaptureFramePoolStatics : aliased constant Windows.IID := (2005140842, 26538, 19795, (174, 84, 16, 136, 213, 168, 202, 33 ));
-   
-   type IDirect3D11CaptureFramePoolStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IDirect3D11CaptureFramePoolStatics_Interface
-      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
-      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
-      ; numberOfBuffers : Windows.Int32
-      ; size : Windows.Graphics.SizeInt32
-      ; RetVal : access Windows.Graphics.Capture.IDirect3D11CaptureFramePool
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IGraphicsCaptureItem : aliased constant Windows.IID := (30208686, 4185, 23895, (168, 5, 10, 29, 252, 84, 202, 185 ));
-   
-   type IAsyncOperation_IGraphicsCaptureItem_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IGraphicsCaptureItem_Interface
-      ; handler : Windows.Graphics.Capture.AsyncOperationCompletedHandler_IGraphicsCaptureItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IGraphicsCaptureItem_Interface
-      ; RetVal : access Windows.Graphics.Capture.AsyncOperationCompletedHandler_IGraphicsCaptureItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IGraphicsCaptureItem_Interface
-      ; RetVal : access Windows.Graphics.Capture.IGraphicsCaptureItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IGraphicsCaptureItem_add_Closed : aliased constant Windows.IID := (3922071744, 42636, 23513, (128, 33, 133, 137, 52, 110, 238, 226 ));
-   
-   type TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface(Callback : access procedure (sender : Windows.Graphics.Capture.IGraphicsCaptureItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGraphicsCaptureItem_add_Closed'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface
-      ; sender : Windows.Graphics.Capture.IGraphicsCaptureItem
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -323,16 +310,29 @@ package Windows.Graphics.Capture is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IGraphicsCaptureItem_add_Closed : aliased constant Windows.IID := (3922071744, 42636, 23513, (128, 33, 133, 137, 52, 110, 238, 226 ));
+   
+   type TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface(Callback : access procedure (sender : Windows.Graphics.Capture.IGraphicsCaptureItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGraphicsCaptureItem_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface
+      ; sender : Windows.Graphics.Capture.IGraphicsCaptureItem
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype GraphicsCaptureItem is Windows.Graphics.Capture.IGraphicsCaptureItem;
    subtype Direct3D11CaptureFrame is Windows.Graphics.Capture.IDirect3D11CaptureFrame;
    subtype Direct3D11CaptureFramePool is Windows.Graphics.Capture.IDirect3D11CaptureFramePool;
-   subtype GraphicsCaptureSession is Windows.Graphics.Capture.IGraphicsCaptureSession;
+   subtype GraphicsCaptureItem is Windows.Graphics.Capture.IGraphicsCaptureItem;
    subtype GraphicsCapturePicker is Windows.Graphics.Capture.IGraphicsCapturePicker;
    function Create return Windows.Graphics.Capture.IGraphicsCapturePicker;
    
+   subtype GraphicsCaptureSession is Windows.Graphics.Capture.IGraphicsCaptureSession;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

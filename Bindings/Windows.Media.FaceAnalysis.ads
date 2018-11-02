@@ -49,6 +49,12 @@ package Windows.Media.FaceAnalysis is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IFaceDetector_Interface;
+   type IAsyncOperation_IFaceDetector is access all IAsyncOperation_IFaceDetector_Interface'Class;
+   type IAsyncOperation_IFaceDetector_Ptr is access all IAsyncOperation_IFaceDetector;
+   type IAsyncOperation_IFaceTracker_Interface;
+   type IAsyncOperation_IFaceTracker is access all IAsyncOperation_IFaceTracker_Interface'Class;
+   type IAsyncOperation_IFaceTracker_Ptr is access all IAsyncOperation_IFaceTracker;
    type IDetectedFace_Interface;
    type IDetectedFace is access all IDetectedFace_Interface'Class;
    type IDetectedFace_Ptr is access all IDetectedFace;
@@ -64,18 +70,12 @@ package Windows.Media.FaceAnalysis is
    type IFaceTrackerStatics_Interface;
    type IFaceTrackerStatics is access all IFaceTrackerStatics_Interface'Class;
    type IFaceTrackerStatics_Ptr is access all IFaceTrackerStatics;
-   type IAsyncOperation_IFaceDetector_Interface;
-   type IAsyncOperation_IFaceDetector is access all IAsyncOperation_IFaceDetector_Interface'Class;
-   type IAsyncOperation_IFaceDetector_Ptr is access all IAsyncOperation_IFaceDetector;
-   type IAsyncOperation_IFaceTracker_Interface;
-   type IAsyncOperation_IFaceTracker is access all IAsyncOperation_IFaceTracker_Interface'Class;
-   type IAsyncOperation_IFaceTracker_Ptr is access all IAsyncOperation_IFaceTracker;
-   type IIterator_IDetectedFace_Interface;
-   type IIterator_IDetectedFace is access all IIterator_IDetectedFace_Interface'Class;
-   type IIterator_IDetectedFace_Ptr is access all IIterator_IDetectedFace;
    type IIterable_IDetectedFace_Interface;
    type IIterable_IDetectedFace is access all IIterable_IDetectedFace_Interface'Class;
    type IIterable_IDetectedFace_Ptr is access all IIterable_IDetectedFace;
+   type IIterator_IDetectedFace_Interface;
+   type IIterator_IDetectedFace is access all IIterator_IDetectedFace_Interface'Class;
+   type IIterator_IDetectedFace_Ptr is access all IIterator_IDetectedFace;
    type IVectorView_IDetectedFace_Interface;
    type IVectorView_IDetectedFace is access all IVectorView_IDetectedFace_Interface'Class;
    type IVectorView_IDetectedFace_Ptr is access all IVectorView_IDetectedFace;
@@ -83,6 +83,60 @@ package Windows.Media.FaceAnalysis is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IFaceDetector : aliased constant Windows.IID := (3222543570, 31333, 20812, (191, 196, 180, 158, 153, 31, 3, 235 ));
+   
+   type IAsyncOperation_IFaceDetector_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IFaceDetector_Interface
+      ; handler : Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceDetector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IFaceDetector_Interface
+      ; RetVal : access Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceDetector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IFaceDetector_Interface
+      ; RetVal : access Windows.Media.FaceAnalysis.IFaceDetector
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IFaceTracker : aliased constant Windows.IID := (2134034048, 58238, 21402, (137, 147, 42, 187, 234, 113, 175, 218 ));
+   
+   type IAsyncOperation_IFaceTracker_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IFaceTracker_Interface
+      ; handler : Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceTracker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IFaceTracker_Interface
+      ; RetVal : access Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceTracker
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IFaceTracker_Interface
+      ; RetVal : access Windows.Media.FaceAnalysis.IFaceTracker
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -262,55 +316,14 @@ package Windows.Media.FaceAnalysis is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IFaceDetector : aliased constant Windows.IID := (3222543570, 31333, 20812, (191, 196, 180, 158, 153, 31, 3, 235 ));
+   IID_IIterable_IDetectedFace : aliased constant Windows.IID := (624194339, 13654, 23739, (152, 85, 43, 88, 86, 67, 127, 77 ));
    
-   type IAsyncOperation_IFaceDetector_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IDetectedFace_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function First
    (
-      This       : access IAsyncOperation_IFaceDetector_Interface
-      ; handler : Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceDetector
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IFaceDetector_Interface
-      ; RetVal : access Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceDetector
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IFaceDetector_Interface
-      ; RetVal : access Windows.Media.FaceAnalysis.IFaceDetector
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IFaceTracker : aliased constant Windows.IID := (2134034048, 58238, 21402, (137, 147, 42, 187, 234, 113, 175, 218 ));
-   
-   type IAsyncOperation_IFaceTracker_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IFaceTracker_Interface
-      ; handler : Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceTracker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IFaceTracker_Interface
-      ; RetVal : access Windows.Media.FaceAnalysis.AsyncOperationCompletedHandler_IFaceTracker
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IFaceTracker_Interface
-      ; RetVal : access Windows.Media.FaceAnalysis.IFaceTracker
+      This       : access IIterable_IDetectedFace_Interface
+      ; RetVal : access Windows.Media.FaceAnalysis.IIterator_IDetectedFace
    )
    return Windows.HRESULT is abstract;
    
@@ -346,19 +359,6 @@ package Windows.Media.FaceAnalysis is
       This       : access IIterator_IDetectedFace_Interface
       ; items : Windows.Media.FaceAnalysis.IDetectedFace_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IDetectedFace : aliased constant Windows.IID := (624194339, 13654, 23739, (152, 85, 43, 88, 86, 67, 127, 77 ));
-   
-   type IIterable_IDetectedFace_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IDetectedFace_Interface
-      ; RetVal : access Windows.Media.FaceAnalysis.IIterator_IDetectedFace
    )
    return Windows.HRESULT is abstract;
    
@@ -436,15 +436,15 @@ package Windows.Media.FaceAnalysis is
    ------------------------------------------------------------------------
    
    subtype DetectedFace is Windows.Media.FaceAnalysis.IDetectedFace;
-   subtype FaceTracker is Windows.Media.FaceAnalysis.IFaceTracker;
    subtype FaceDetector is Windows.Media.FaceAnalysis.IFaceDetector;
+   subtype FaceTracker is Windows.Media.FaceAnalysis.IFaceTracker;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
    function CreateAsync
-   return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker;
+   return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceDetector;
    
    function GetSupportedBitmapPixelFormats
    return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
@@ -459,18 +459,18 @@ package Windows.Media.FaceAnalysis is
    return Windows.Boolean;
    
    function CreateAsync
-   return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceDetector;
+   return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker;
    
-   function GetSupportedBitmapPixelFormats_IFaceDetector
+   function GetSupportedBitmapPixelFormats_IFaceTracker
    return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
    
-   function IsBitmapPixelFormatSupported_IFaceDetector
+   function IsBitmapPixelFormatSupported_IFaceTracker
    (
       bitmapPixelFormat : Windows.Graphics.Imaging.BitmapPixelFormat
    )
    return Windows.Boolean;
    
-   function get_IsSupported_IFaceDetector
+   function get_IsSupported_IFaceTracker
    return Windows.Boolean;
    
 end;

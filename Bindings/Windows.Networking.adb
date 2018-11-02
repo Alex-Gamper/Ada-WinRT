@@ -36,26 +36,6 @@ package body Windows.Networking is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateHostName
-   (
-      hostName : Windows.String
-   )
-   return Windows.Networking.IHostName is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.HostName");
-      m_Factory     : Windows.Networking.IHostNameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.IHostName := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHostNameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateHostName(hostName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateEndpointPair
    (
       localHostName : Windows.Networking.IHostName
@@ -73,6 +53,26 @@ package body Windows.Networking is
       Hr := RoGetActivationFactory(m_hString, IID_IEndpointPairFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateEndpointPair(localHostName, localServiceName, remoteHostName, remoteServiceName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateHostName
+   (
+      hostName : Windows.String
+   )
+   return Windows.Networking.IHostName is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.HostName");
+      m_Factory     : Windows.Networking.IHostNameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.IHostName := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHostNameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateHostName(hostName, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

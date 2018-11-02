@@ -69,6 +69,26 @@ package body Windows.Devices.Gpio is
    (
       pin : Windows.Devices.Gpio.IGpioPin
    )
+   return Windows.Devices.Gpio.IGpioChangeCounter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Gpio.GpioChangeCounter");
+      m_Factory     : Windows.Devices.Gpio.IGpioChangeCounterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Gpio.IGpioChangeCounter := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGpioChangeCounterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(pin, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      pin : Windows.Devices.Gpio.IGpioPin
+   )
    return Windows.Devices.Gpio.IGpioChangeReader is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Gpio.GpioChangeReader");
@@ -100,26 +120,6 @@ package body Windows.Devices.Gpio is
       Hr := RoGetActivationFactory(m_hString, IID_IGpioChangeReaderFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithCapacity(pin, minCapacity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      pin : Windows.Devices.Gpio.IGpioPin
-   )
-   return Windows.Devices.Gpio.IGpioChangeCounter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Gpio.GpioChangeCounter");
-      m_Factory     : Windows.Devices.Gpio.IGpioChangeCounterFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Gpio.IGpioChangeCounter := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGpioChangeCounterFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(pin, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

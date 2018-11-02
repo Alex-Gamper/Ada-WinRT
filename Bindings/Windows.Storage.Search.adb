@@ -40,6 +40,19 @@ package body Windows.Storage.Search is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IndexedState_Interface
+      ; asyncInfo : Windows.Storage.Search.IAsyncOperation_IndexedState
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IStorageQueryResultBase_add_ContentsChanged_Interface
       ; sender : Windows.Storage.Search.IStorageQueryResultBase
       ; args : Windows.Object
@@ -64,39 +77,9 @@ package body Windows.Storage.Search is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IndexedState_Interface
-      ; asyncInfo : Windows.Storage.Search.IAsyncOperation_IndexedState
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.Storage.Search.IValueAndLanguage is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Search.ValueAndLanguage");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Storage.Search.IValueAndLanguage) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Storage.Search.IID_IValueAndLanguage'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create return Windows.Storage.Search.IIndexableContent is
       Hr            : Windows.HResult := S_OK;
@@ -171,6 +154,23 @@ package body Windows.Storage.Search is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function Create return Windows.Storage.Search.IValueAndLanguage is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Search.ValueAndLanguage");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Storage.Search.IValueAndLanguage) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Storage.Search.IID_IValueAndLanguage'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

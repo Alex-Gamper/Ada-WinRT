@@ -73,48 +73,75 @@ package Windows.Gaming.Preview.GamesEnumeration is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IGameListEntry_Interface;
+   type AsyncOperationCompletedHandler_IGameListEntry is access all AsyncOperationCompletedHandler_IGameListEntry_Interface'Class;
+   type AsyncOperationCompletedHandler_IGameListEntry_Ptr is access all AsyncOperationCompletedHandler_IGameListEntry;
    type GameListChangedEventHandler_Interface;
    type GameListChangedEventHandler is access all GameListChangedEventHandler_Interface'Class;
    type GameListChangedEventHandler_Ptr is access all GameListChangedEventHandler;
    type GameListRemovedEventHandler_Interface;
    type GameListRemovedEventHandler is access all GameListRemovedEventHandler_Interface'Class;
    type GameListRemovedEventHandler_Ptr is access all GameListRemovedEventHandler;
-   type AsyncOperationCompletedHandler_IGameListEntry_Interface;
-   type AsyncOperationCompletedHandler_IGameListEntry is access all AsyncOperationCompletedHandler_IGameListEntry_Interface'Class;
-   type AsyncOperationCompletedHandler_IGameListEntry_Ptr is access all AsyncOperationCompletedHandler_IGameListEntry;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IGameListEntry_Interface;
+   type IAsyncOperation_IGameListEntry is access all IAsyncOperation_IGameListEntry_Interface'Class;
+   type IAsyncOperation_IGameListEntry_Ptr is access all IAsyncOperation_IGameListEntry;
    type IGameListEntry_Interface;
    type IGameListEntry is access all IGameListEntry_Interface'Class;
    type IGameListEntry_Ptr is access all IGameListEntry;
-   type IGameModeConfiguration_Interface;
-   type IGameModeConfiguration is access all IGameModeConfiguration_Interface'Class;
-   type IGameModeConfiguration_Ptr is access all IGameModeConfiguration;
    type IGameListEntry2_Interface;
    type IGameListEntry2 is access all IGameListEntry2_Interface'Class;
    type IGameListEntry2_Ptr is access all IGameListEntry2;
-   type IGameModeUserConfiguration_Interface;
-   type IGameModeUserConfiguration is access all IGameModeUserConfiguration_Interface'Class;
-   type IGameModeUserConfiguration_Ptr is access all IGameModeUserConfiguration;
-   type IGameModeUserConfigurationStatics_Interface;
-   type IGameModeUserConfigurationStatics is access all IGameModeUserConfigurationStatics_Interface'Class;
-   type IGameModeUserConfigurationStatics_Ptr is access all IGameModeUserConfigurationStatics;
    type IGameListStatics_Interface;
    type IGameListStatics is access all IGameListStatics_Interface'Class;
    type IGameListStatics_Ptr is access all IGameListStatics;
    type IGameListStatics2_Interface;
    type IGameListStatics2 is access all IGameListStatics2_Interface'Class;
    type IGameListStatics2_Ptr is access all IGameListStatics2;
-   type IAsyncOperation_IGameListEntry_Interface;
-   type IAsyncOperation_IGameListEntry is access all IAsyncOperation_IGameListEntry_Interface'Class;
-   type IAsyncOperation_IGameListEntry_Ptr is access all IAsyncOperation_IGameListEntry;
+   type IGameModeConfiguration_Interface;
+   type IGameModeConfiguration is access all IGameModeConfiguration_Interface'Class;
+   type IGameModeConfiguration_Ptr is access all IGameModeConfiguration;
+   type IGameModeUserConfiguration_Interface;
+   type IGameModeUserConfiguration is access all IGameModeUserConfiguration_Interface'Class;
+   type IGameModeUserConfiguration_Ptr is access all IGameModeUserConfiguration;
+   type IGameModeUserConfigurationStatics_Interface;
+   type IGameModeUserConfigurationStatics is access all IGameModeUserConfigurationStatics_Interface'Class;
+   type IGameModeUserConfigurationStatics_Ptr is access all IGameModeUserConfigurationStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGameListEntry : aliased constant Windows.IID := (935113442, 40047, 22104, (164, 59, 237, 40, 254, 12, 132, 88 ));
+   
+   type IAsyncOperation_IGameListEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IGameListEntry_Interface
+      ; handler : Windows.Gaming.Preview.GamesEnumeration.AsyncOperationCompletedHandler_IGameListEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IGameListEntry_Interface
+      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.AsyncOperationCompletedHandler_IGameListEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IGameListEntry_Interface
+      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -155,6 +182,161 @@ package Windows.Gaming.Preview.GamesEnumeration is
       This       : access IGameListEntry_Interface
       ; value : Windows.Gaming.Preview.GamesEnumeration.GameListCategory
       ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGameListEntry2 : aliased constant Windows.IID := (3628765067, 34633, 18981, (144, 211, 246, 197, 164, 39, 136, 109 ));
+   
+   type IGameListEntry2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LaunchableState
+   (
+      This       : access IGameListEntry2_Interface
+      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LauncherExecutable
+   (
+      This       : access IGameListEntry2_Interface
+      ; RetVal : access Windows.Storage.IStorageFile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LaunchParameters
+   (
+      This       : access IGameListEntry2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetLauncherExecutableFileAsync
+   (
+      This       : access IGameListEntry2_Interface
+      ; executableFile : Windows.Storage.IStorageFile
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetLauncherExecutableFileWithParamsAsync
+   (
+      This       : access IGameListEntry2_Interface
+      ; executableFile : Windows.Storage.IStorageFile
+      ; launchParams : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TitleId
+   (
+      This       : access IGameListEntry2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetTitleIdAsync
+   (
+      This       : access IGameListEntry2_Interface
+      ; id : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GameModeConfiguration
+   (
+      This       : access IGameListEntry2_Interface
+      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGameListStatics : aliased constant Windows.IID := (769462127, 40038, 19205, (148, 92, 214, 237, 120, 73, 27, 140 ));
+   
+   type IGameListStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FindAllAsync
+   (
+      This       : access IGameListStatics_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindAllAsyncPackageFamilyName
+   (
+      This       : access IGameListStatics_Interface
+      ; packageFamilyName : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_GameAdded
+   (
+      This       : access IGameListStatics_Interface
+      ; handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GameAdded
+   (
+      This       : access IGameListStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_GameRemoved
+   (
+      This       : access IGameListStatics_Interface
+      ; handler : Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GameRemoved
+   (
+      This       : access IGameListStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_GameUpdated
+   (
+      This       : access IGameListStatics_Interface
+      ; handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GameUpdated
+   (
+      This       : access IGameListStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGameListStatics2 : aliased constant Windows.IID := (962535576, 59930, 17834, (146, 104, 168, 57, 5, 104, 111, 39 ));
+   
+   type IGameListStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function MergeEntriesAsync
+   (
+      This       : access IGameListStatics2_Interface
+      ; left : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
+      ; right : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
+      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UnmergeEntryAsync
+   (
+      This       : access IGameListStatics2_Interface
+      ; mergedEntry : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -292,72 +474,6 @@ package Windows.Gaming.Preview.GamesEnumeration is
    
    ------------------------------------------------------------------------
    
-   IID_IGameListEntry2 : aliased constant Windows.IID := (3628765067, 34633, 18981, (144, 211, 246, 197, 164, 39, 136, 109 ));
-   
-   type IGameListEntry2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_LaunchableState
-   (
-      This       : access IGameListEntry2_Interface
-      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LauncherExecutable
-   (
-      This       : access IGameListEntry2_Interface
-      ; RetVal : access Windows.Storage.IStorageFile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LaunchParameters
-   (
-      This       : access IGameListEntry2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetLauncherExecutableFileAsync
-   (
-      This       : access IGameListEntry2_Interface
-      ; executableFile : Windows.Storage.IStorageFile
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetLauncherExecutableFileWithParamsAsync
-   (
-      This       : access IGameListEntry2_Interface
-      ; executableFile : Windows.Storage.IStorageFile
-      ; launchParams : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TitleId
-   (
-      This       : access IGameListEntry2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetTitleIdAsync
-   (
-      This       : access IGameListEntry2_Interface
-      ; id : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_GameModeConfiguration
-   (
-      This       : access IGameListEntry2_Interface
-      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IGameModeUserConfiguration : aliased constant Windows.IID := (1926449908, 30059, 18191, (160, 194, 186, 98, 169, 7, 149, 219 ));
    
    type IGameModeUserConfiguration_Interface is interface and Windows.IInspectable_Interface;
@@ -390,124 +506,21 @@ package Windows.Gaming.Preview.GamesEnumeration is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IGameListStatics : aliased constant Windows.IID := (769462127, 40038, 19205, (148, 92, 214, 237, 120, 73, 27, 140 ));
-   
-   type IGameListStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FindAllAsync
-   (
-      This       : access IGameListStatics_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindAllAsyncPackageFamilyName
-   (
-      This       : access IGameListStatics_Interface
-      ; packageFamilyName : Windows.String
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_GameAdded
-   (
-      This       : access IGameListStatics_Interface
-      ; handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_GameAdded
-   (
-      This       : access IGameListStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_GameRemoved
-   (
-      This       : access IGameListStatics_Interface
-      ; handler : Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_GameRemoved
-   (
-      This       : access IGameListStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_GameUpdated
-   (
-      This       : access IGameListStatics_Interface
-      ; handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_GameUpdated
-   (
-      This       : access IGameListStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGameListStatics2 : aliased constant Windows.IID := (962535576, 59930, 17834, (146, 104, 168, 57, 5, 104, 111, 39 ));
-   
-   type IGameListStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function MergeEntriesAsync
-   (
-      This       : access IGameListStatics2_Interface
-      ; left : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
-      ; right : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
-      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function UnmergeEntryAsync
-   (
-      This       : access IGameListStatics2_Interface
-      ; mergedEntry : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IGameListEntry : aliased constant Windows.IID := (935113442, 40047, 22104, (164, 59, 237, 40, 254, 12, 132, 88 ));
-   
-   type IAsyncOperation_IGameListEntry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IGameListEntry_Interface
-      ; handler : Windows.Gaming.Preview.GamesEnumeration.AsyncOperationCompletedHandler_IGameListEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IGameListEntry_Interface
-      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.AsyncOperationCompletedHandler_IGameListEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IGameListEntry_Interface
-      ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IGameListEntry : aliased constant Windows.IID := (2809304032, 54536, 21890, (172, 118, 140, 150, 5, 250, 29, 233 ));
+   
+   type AsyncOperationCompletedHandler_IGameListEntry_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameListEntry'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGameListEntry_Interface
+      ; asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -534,32 +547,16 @@ package Windows.Gaming.Preview.GamesEnumeration is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IGameListEntry : aliased constant Windows.IID := (2809304032, 54536, 21890, (172, 118, 140, 150, 5, 250, 29, 233 ));
-   
-   type AsyncOperationCompletedHandler_IGameListEntry_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameListEntry'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGameListEntry_Interface
-      ; asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype GameModeConfiguration is Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration;
    subtype GameListEntry is Windows.Gaming.Preview.GamesEnumeration.IGameListEntry;
+   subtype GameModeConfiguration is Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration;
    subtype GameModeUserConfiguration is Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function GetDefault
-   return Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration;
    
    function FindAllAsync
    return Windows.Address;
@@ -618,5 +615,8 @@ package Windows.Gaming.Preview.GamesEnumeration is
       mergedEntry : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
    )
    return Windows.Address;
+   
+   function GetDefault
+   return Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration;
    
 end;

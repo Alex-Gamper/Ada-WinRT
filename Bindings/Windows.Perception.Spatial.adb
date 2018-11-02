@@ -39,21 +39,21 @@ package body Windows.Perception.Spatial is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface
-      ; sender : Windows.Perception.Spatial.ISpatialAnchor
-      ; args : Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs
+      This       : access AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface
+      ; asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Perception.Spatial.ISpatialAnchor(sender), Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface
-      ; asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore
+      This       : access AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface
+      ; asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialStageFrameOfReference
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -73,6 +73,71 @@ package body Windows.Perception.Spatial is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface
+      ; sender : Windows.Perception.Spatial.ISpatialAnchor
+      ; args : Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Perception.Spatial.ISpatialAnchor(sender), Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface
+      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
+      ; args : Windows.Perception.Spatial.ISpatialEntityAddedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), Windows.Perception.Spatial.ISpatialEntityAddedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface
+      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface
+      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
+      ; args : Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface
+      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
+      ; args : Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs(args));
       return Hr;
    end;
    
@@ -99,71 +164,6 @@ package body Windows.Perception.Spatial is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Perception.Spatial.ISpatialLocator(sender), Windows.Perception.Spatial.ISpatialLocatorPositionalTrackingDeactivatingEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface
-      ; asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialStageFrameOfReference
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface
-      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
-      ; args : Windows.Perception.Spatial.ISpatialEntityAddedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), Windows.Perception.Spatial.ISpatialEntityAddedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface
-      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
-      ; args : Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface
-      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
-      ; args : Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface
-      ; sender : Windows.Perception.Spatial.ISpatialEntityWatcher
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Perception.Spatial.ISpatialEntityWatcher(sender), args);
       return Hr;
    end;
    
@@ -277,23 +277,6 @@ package body Windows.Perception.Spatial is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryCreateWithPositionAndOrientationRelativeTo(coordinateSystem, position, orientation, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Perception.Spatial.ISpatialLocator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialLocator");
-      m_Factory     : ISpatialLocatorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Perception.Spatial.ISpatialLocator;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialLocatorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -459,6 +442,60 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
+   function get_IsSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialEntityStore");
+      m_Factory     : ISpatialEntityStoreStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialEntityStoreStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryGetForRemoteSystemSession
+   (
+      session : Windows.System.RemoteSystems.IRemoteSystemSession
+   )
+   return Windows.Perception.Spatial.ISpatialEntityStore is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialEntityStore");
+      m_Factory     : ISpatialEntityStoreStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.ISpatialEntityStore;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialEntityStoreStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryGetForRemoteSystemSession(session, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Perception.Spatial.ISpatialLocator is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialLocator");
+      m_Factory     : ISpatialLocatorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.ISpatialLocator;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialLocatorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Current
    return Windows.Perception.Spatial.ISpatialStageFrameOfReference is
       Hr            : Windows.HRESULT := S_OK;
@@ -525,43 +562,6 @@ package body Windows.Perception.Spatial is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialStageFrameOfReferenceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestNewStageAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialEntityStore");
-      m_Factory     : ISpatialEntityStoreStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialEntityStoreStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryGetForRemoteSystemSession
-   (
-      session : Windows.System.RemoteSystems.IRemoteSystemSession
-   )
-   return Windows.Perception.Spatial.ISpatialEntityStore is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialEntityStore");
-      m_Factory     : ISpatialEntityStoreStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Perception.Spatial.ISpatialEntityStore;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialEntityStoreStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryGetForRemoteSystemSession(session, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

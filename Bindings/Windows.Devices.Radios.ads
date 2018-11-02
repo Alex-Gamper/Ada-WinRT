@@ -36,21 +36,21 @@ package Windows.Devices.Radios is
    -- Enums
    ------------------------------------------------------------------------
    
-   type RadioState is (
-      Unknown,
-      On,
-      Off,
-      Disabled
+   type RadioAccessStatus is (
+      Unspecified,
+      Allowed,
+      DeniedByUser,
+      DeniedBySystem
    );
-   for RadioState use (
-      Unknown => 0,
-      On => 1,
-      Off => 2,
-      Disabled => 3
+   for RadioAccessStatus use (
+      Unspecified => 0,
+      Allowed => 1,
+      DeniedByUser => 2,
+      DeniedBySystem => 3
    );
-   for RadioState'Size use 32;
+   for RadioAccessStatus'Size use 32;
    
-   type RadioState_Ptr is access RadioState;
+   type RadioAccessStatus_Ptr is access RadioAccessStatus;
    
    type RadioKind is (
       Other,
@@ -70,21 +70,21 @@ package Windows.Devices.Radios is
    
    type RadioKind_Ptr is access RadioKind;
    
-   type RadioAccessStatus is (
-      Unspecified,
-      Allowed,
-      DeniedByUser,
-      DeniedBySystem
+   type RadioState is (
+      Unknown,
+      On,
+      Off,
+      Disabled
    );
-   for RadioAccessStatus use (
-      Unspecified => 0,
-      Allowed => 1,
-      DeniedByUser => 2,
-      DeniedBySystem => 3
+   for RadioState use (
+      Unknown => 0,
+      On => 1,
+      Off => 2,
+      Disabled => 3
    );
-   for RadioAccessStatus'Size use 32;
+   for RadioState'Size use 32;
    
-   type RadioAccessStatus_Ptr is access RadioAccessStatus;
+   type RadioState_Ptr is access RadioState;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -104,18 +104,18 @@ package Windows.Devices.Radios is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IRadioStatics_Interface;
-   type IRadioStatics is access all IRadioStatics_Interface'Class;
-   type IRadioStatics_Ptr is access all IRadioStatics;
-   type IRadio_Interface;
-   type IRadio is access all IRadio_Interface'Class;
-   type IRadio_Ptr is access all IRadio;
    type IAsyncOperation_IRadio_Interface;
    type IAsyncOperation_IRadio is access all IAsyncOperation_IRadio_Interface'Class;
    type IAsyncOperation_IRadio_Ptr is access all IAsyncOperation_IRadio;
    type IAsyncOperation_RadioAccessStatus_Interface;
    type IAsyncOperation_RadioAccessStatus is access all IAsyncOperation_RadioAccessStatus_Interface'Class;
    type IAsyncOperation_RadioAccessStatus_Ptr is access all IAsyncOperation_RadioAccessStatus;
+   type IRadio_Interface;
+   type IRadio is access all IRadio_Interface'Class;
+   type IRadio_Ptr is access all IRadio;
+   type IRadioStatics_Interface;
+   type IRadioStatics is access all IRadioStatics_Interface'Class;
+   type IRadioStatics_Ptr is access all IRadioStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -123,36 +123,55 @@ package Windows.Devices.Radios is
    
    ------------------------------------------------------------------------
    
-   IID_IRadioStatics : aliased constant Windows.IID := (1605804334, 26571, 18094, (170, 233, 101, 145, 159, 134, 239, 244 ));
+   IID_IAsyncOperation_IRadio : aliased constant Windows.IID := (3938856000, 36284, 22612, (139, 160, 183, 185, 148, 14, 115, 137 ));
    
-   type IRadioStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IRadio_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetRadiosAsync
+   function put_Completed
    (
-      This       : access IRadioStatics_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IAsyncOperation_IRadio_Interface
+      ; handler : Windows.Devices.Radios.AsyncOperationCompletedHandler_IRadio
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelector
+   function get_Completed
    (
-      This       : access IRadioStatics_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IRadio_Interface
+      ; RetVal : access Windows.Devices.Radios.AsyncOperationCompletedHandler_IRadio
    )
    return Windows.HRESULT is abstract;
    
-   function FromIdAsync
+   function GetResults
    (
-      This       : access IRadioStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Radios.IAsyncOperation_IRadio -- Generic Parameter Type
+      This       : access IAsyncOperation_IRadio_Interface
+      ; RetVal : access Windows.Devices.Radios.IRadio
    )
    return Windows.HRESULT is abstract;
    
-   function RequestAccessAsync
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_RadioAccessStatus : aliased constant Windows.IID := (570110191, 1839, 20524, (152, 152, 208, 195, 178, 205, 154, 197 ));
+   
+   type IAsyncOperation_RadioAccessStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
    (
-      This       : access IRadioStatics_Interface
-      ; RetVal : access Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus -- Generic Parameter Type
+      This       : access IAsyncOperation_RadioAccessStatus_Interface
+      ; handler : Windows.Devices.Radios.AsyncOperationCompletedHandler_RadioAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_RadioAccessStatus_Interface
+      ; RetVal : access Windows.Devices.Radios.AsyncOperationCompletedHandler_RadioAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_RadioAccessStatus_Interface
+      ; RetVal : access Windows.Devices.Radios.RadioAccessStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -208,55 +227,36 @@ package Windows.Devices.Radios is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IRadio : aliased constant Windows.IID := (3938856000, 36284, 22612, (139, 160, 183, 185, 148, 14, 115, 137 ));
+   IID_IRadioStatics : aliased constant Windows.IID := (1605804334, 26571, 18094, (170, 233, 101, 145, 159, 134, 239, 244 ));
    
-   type IAsyncOperation_IRadio_Interface is interface and Windows.IInspectable_Interface;
+   type IRadioStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetRadiosAsync
    (
-      This       : access IAsyncOperation_IRadio_Interface
-      ; handler : Windows.Devices.Radios.AsyncOperationCompletedHandler_IRadio
+      This       : access IRadioStatics_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function GetDeviceSelector
    (
-      This       : access IAsyncOperation_IRadio_Interface
-      ; RetVal : access Windows.Devices.Radios.AsyncOperationCompletedHandler_IRadio
+      This       : access IRadioStatics_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function FromIdAsync
    (
-      This       : access IAsyncOperation_IRadio_Interface
-      ; RetVal : access Windows.Devices.Radios.IRadio
+      This       : access IRadioStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Radios.IAsyncOperation_IRadio -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_RadioAccessStatus : aliased constant Windows.IID := (570110191, 1839, 20524, (152, 152, 208, 195, 178, 205, 154, 197 ));
-   
-   type IAsyncOperation_RadioAccessStatus_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
+   function RequestAccessAsync
    (
-      This       : access IAsyncOperation_RadioAccessStatus_Interface
-      ; handler : Windows.Devices.Radios.AsyncOperationCompletedHandler_RadioAccessStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_RadioAccessStatus_Interface
-      ; RetVal : access Windows.Devices.Radios.AsyncOperationCompletedHandler_RadioAccessStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_RadioAccessStatus_Interface
-      ; RetVal : access Windows.Devices.Radios.RadioAccessStatus
+      This       : access IRadioStatics_Interface
+      ; RetVal : access Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

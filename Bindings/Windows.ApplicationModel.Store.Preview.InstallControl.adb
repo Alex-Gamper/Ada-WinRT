@@ -38,6 +38,32 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IAppInstallItem_Interface
+      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IAppInstallItem_add_Completed_Interface
       ; sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
       ; args : Windows.Object
@@ -88,47 +114,21 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IAppInstallItem_Interface
-      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions is
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Store.Preview.InstallControl.IID_IAppUpdateOptions'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Store.Preview.InstallControl.IID_IAppInstallManager'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -152,17 +152,17 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager is
+   function Create return Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager");
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Store.Preview.InstallControl.IID_IAppInstallManager'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Store.Preview.InstallControl.IID_IAppUpdateOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -73,32 +73,32 @@ package Windows.Media.Transcoding is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type AsyncOperationCompletedHandler_TranscodeFailureReason_Interface;
-   type AsyncOperationCompletedHandler_TranscodeFailureReason is access all AsyncOperationCompletedHandler_TranscodeFailureReason_Interface'Class;
-   type AsyncOperationCompletedHandler_TranscodeFailureReason_Ptr is access all AsyncOperationCompletedHandler_TranscodeFailureReason;
    type AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface;
    type AsyncOperationCompletedHandler_IPrepareTranscodeResult is access all AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface'Class;
    type AsyncOperationCompletedHandler_IPrepareTranscodeResult_Ptr is access all AsyncOperationCompletedHandler_IPrepareTranscodeResult;
+   type AsyncOperationCompletedHandler_TranscodeFailureReason_Interface;
+   type AsyncOperationCompletedHandler_TranscodeFailureReason is access all AsyncOperationCompletedHandler_TranscodeFailureReason_Interface'Class;
+   type AsyncOperationCompletedHandler_TranscodeFailureReason_Ptr is access all AsyncOperationCompletedHandler_TranscodeFailureReason;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IMediaTranscoder2_Interface;
-   type IMediaTranscoder2 is access all IMediaTranscoder2_Interface'Class;
-   type IMediaTranscoder2_Ptr is access all IMediaTranscoder2;
-   type IMediaTranscoder_Interface;
-   type IMediaTranscoder is access all IMediaTranscoder_Interface'Class;
-   type IMediaTranscoder_Ptr is access all IMediaTranscoder;
-   type IPrepareTranscodeResult_Interface;
-   type IPrepareTranscodeResult is access all IPrepareTranscodeResult_Interface'Class;
-   type IPrepareTranscodeResult_Ptr is access all IPrepareTranscodeResult;
-   type IAsyncOperation_TranscodeFailureReason_Interface;
-   type IAsyncOperation_TranscodeFailureReason is access all IAsyncOperation_TranscodeFailureReason_Interface'Class;
-   type IAsyncOperation_TranscodeFailureReason_Ptr is access all IAsyncOperation_TranscodeFailureReason;
    type IAsyncOperation_IPrepareTranscodeResult_Interface;
    type IAsyncOperation_IPrepareTranscodeResult is access all IAsyncOperation_IPrepareTranscodeResult_Interface'Class;
    type IAsyncOperation_IPrepareTranscodeResult_Ptr is access all IAsyncOperation_IPrepareTranscodeResult;
+   type IAsyncOperation_TranscodeFailureReason_Interface;
+   type IAsyncOperation_TranscodeFailureReason is access all IAsyncOperation_TranscodeFailureReason_Interface'Class;
+   type IAsyncOperation_TranscodeFailureReason_Ptr is access all IAsyncOperation_TranscodeFailureReason;
+   type IMediaTranscoder_Interface;
+   type IMediaTranscoder is access all IMediaTranscoder_Interface'Class;
+   type IMediaTranscoder_Ptr is access all IMediaTranscoder;
+   type IMediaTranscoder2_Interface;
+   type IMediaTranscoder2 is access all IMediaTranscoder2_Interface'Class;
+   type IMediaTranscoder2_Ptr is access all IMediaTranscoder2;
+   type IPrepareTranscodeResult_Interface;
+   type IPrepareTranscodeResult is access all IPrepareTranscodeResult_Interface'Class;
+   type IPrepareTranscodeResult_Ptr is access all IPrepareTranscodeResult;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -106,31 +106,55 @@ package Windows.Media.Transcoding is
    
    ------------------------------------------------------------------------
    
-   IID_IMediaTranscoder2 : aliased constant Windows.IID := (1079188852, 13792, 20228, (133, 116, 202, 139, 196, 229, 160, 130 ));
+   IID_IAsyncOperation_IPrepareTranscodeResult : aliased constant Windows.IID := (4126178323, 12359, 23467, (142, 183, 110, 93, 125, 20, 175, 174 ));
    
-   type IMediaTranscoder2_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IPrepareTranscodeResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function PrepareMediaStreamSourceTranscodeAsync
+   function put_Completed
    (
-      This       : access IMediaTranscoder2_Interface
-      ; source : Windows.Media.Core.IMediaSource
-      ; destination : Windows.Storage.Streams.IRandomAccessStream
-      ; profile : Windows.Media.MediaProperties.IMediaEncodingProfile
-      ; RetVal : access Windows.Media.Transcoding.IAsyncOperation_IPrepareTranscodeResult -- Generic Parameter Type
+      This       : access IAsyncOperation_IPrepareTranscodeResult_Interface
+      ; handler : Windows.Media.Transcoding.AsyncOperationCompletedHandler_IPrepareTranscodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function put_VideoProcessingAlgorithm
+   function get_Completed
    (
-      This       : access IMediaTranscoder2_Interface
-      ; value : Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
+      This       : access IAsyncOperation_IPrepareTranscodeResult_Interface
+      ; RetVal : access Windows.Media.Transcoding.AsyncOperationCompletedHandler_IPrepareTranscodeResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_VideoProcessingAlgorithm
+   function GetResults
    (
-      This       : access IMediaTranscoder2_Interface
-      ; RetVal : access Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
+      This       : access IAsyncOperation_IPrepareTranscodeResult_Interface
+      ; RetVal : access Windows.Media.Transcoding.IPrepareTranscodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_TranscodeFailureReason : aliased constant Windows.IID := (34809104, 14489, 21079, (190, 217, 164, 62, 81, 73, 210, 140 ));
+   
+   type IAsyncOperation_TranscodeFailureReason_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_TranscodeFailureReason_Interface
+      ; handler : Windows.Media.Transcoding.AsyncOperationCompletedHandler_TranscodeFailureReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_TranscodeFailureReason_Interface
+      ; RetVal : access Windows.Media.Transcoding.AsyncOperationCompletedHandler_TranscodeFailureReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_TranscodeFailureReason_Interface
+      ; RetVal : access Windows.Media.Transcoding.TranscodeFailureReason
    )
    return Windows.HRESULT is abstract;
    
@@ -256,6 +280,36 @@ package Windows.Media.Transcoding is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaTranscoder2 : aliased constant Windows.IID := (1079188852, 13792, 20228, (133, 116, 202, 139, 196, 229, 160, 130 ));
+   
+   type IMediaTranscoder2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function PrepareMediaStreamSourceTranscodeAsync
+   (
+      This       : access IMediaTranscoder2_Interface
+      ; source : Windows.Media.Core.IMediaSource
+      ; destination : Windows.Storage.Streams.IRandomAccessStream
+      ; profile : Windows.Media.MediaProperties.IMediaEncodingProfile
+      ; RetVal : access Windows.Media.Transcoding.IAsyncOperation_IPrepareTranscodeResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_VideoProcessingAlgorithm
+   (
+      This       : access IMediaTranscoder2_Interface
+      ; value : Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VideoProcessingAlgorithm
+   (
+      This       : access IMediaTranscoder2_Interface
+      ; RetVal : access Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPrepareTranscodeResult : aliased constant Windows.IID := (99769806, 39247, 18996, (157, 104, 151, 204, 206, 23, 48, 214 ));
    
    type IPrepareTranscodeResult_Interface is interface and Windows.IInspectable_Interface;
@@ -282,75 +336,8 @@ package Windows.Media.Transcoding is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_TranscodeFailureReason : aliased constant Windows.IID := (34809104, 14489, 21079, (190, 217, 164, 62, 81, 73, 210, 140 ));
-   
-   type IAsyncOperation_TranscodeFailureReason_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_TranscodeFailureReason_Interface
-      ; handler : Windows.Media.Transcoding.AsyncOperationCompletedHandler_TranscodeFailureReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_TranscodeFailureReason_Interface
-      ; RetVal : access Windows.Media.Transcoding.AsyncOperationCompletedHandler_TranscodeFailureReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_TranscodeFailureReason_Interface
-      ; RetVal : access Windows.Media.Transcoding.TranscodeFailureReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPrepareTranscodeResult : aliased constant Windows.IID := (4126178323, 12359, 23467, (142, 183, 110, 93, 125, 20, 175, 174 ));
-   
-   type IAsyncOperation_IPrepareTranscodeResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPrepareTranscodeResult_Interface
-      ; handler : Windows.Media.Transcoding.AsyncOperationCompletedHandler_IPrepareTranscodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPrepareTranscodeResult_Interface
-      ; RetVal : access Windows.Media.Transcoding.AsyncOperationCompletedHandler_IPrepareTranscodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPrepareTranscodeResult_Interface
-      ; RetVal : access Windows.Media.Transcoding.IPrepareTranscodeResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_TranscodeFailureReason : aliased constant Windows.IID := (3291144895, 57748, 20857, (184, 173, 3, 181, 28, 4, 225, 218 ));
-   
-   type AsyncOperationCompletedHandler_TranscodeFailureReason_Interface(Callback : access procedure (asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_TranscodeFailureReason'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface
-      ; asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -366,13 +353,26 @@ package Windows.Media.Transcoding is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_TranscodeFailureReason : aliased constant Windows.IID := (3291144895, 57748, 20857, (184, 173, 3, 181, 28, 4, 225, 218 ));
+   
+   type AsyncOperationCompletedHandler_TranscodeFailureReason_Interface(Callback : access procedure (asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_TranscodeFailureReason'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface
+      ; asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PrepareTranscodeResult is Windows.Media.Transcoding.IPrepareTranscodeResult;
    subtype MediaTranscoder is Windows.Media.Transcoding.IMediaTranscoder;
    function Create return Windows.Media.Transcoding.IMediaTranscoder;
    
+   subtype PrepareTranscodeResult is Windows.Media.Transcoding.IPrepareTranscodeResult;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

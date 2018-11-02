@@ -68,6 +68,58 @@ package body Windows.Media is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IMediaTimelineController_add_PositionChanged_Interface
+      ; sender : Windows.Media.IMediaTimelineController
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.IMediaTimelineController(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaTimelineController_add_StateChanged_Interface
+      ; sender : Windows.Media.IMediaTimelineController
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.IMediaTimelineController(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaTimelineController2_add_Ended_Interface
+      ; sender : Windows.Media.IMediaTimelineController
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.IMediaTimelineController(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaTimelineController2_add_Failed_Interface
+      ; sender : Windows.Media.IMediaTimelineController
+      ; args : Windows.Media.IMediaTimelineControllerFailedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.IMediaTimelineController(sender), Windows.Media.IMediaTimelineControllerFailedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_ISystemMediaTransportControls_add_ButtonPressed_Interface
       ; sender : Windows.Media.ISystemMediaTransportControls
       ; args : Windows.Media.ISystemMediaTransportControlsButtonPressedEventArgs
@@ -89,6 +141,19 @@ package body Windows.Media is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.ISystemMediaTransportControls(sender), Windows.Media.ISystemMediaTransportControlsPropertyChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested_Interface
+      ; sender : Windows.Media.ISystemMediaTransportControls
+      ; args : Windows.Media.IAutoRepeatModeChangeRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.ISystemMediaTransportControls(sender), Windows.Media.IAutoRepeatModeChangeRequestedEventArgs(args));
       return Hr;
    end;
    
@@ -131,74 +196,80 @@ package body Windows.Media is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested_Interface
-      ; sender : Windows.Media.ISystemMediaTransportControls
-      ; args : Windows.Media.IAutoRepeatModeChangeRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.ISystemMediaTransportControls(sender), Windows.Media.IAutoRepeatModeChangeRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaTimelineController_add_PositionChanged_Interface
-      ; sender : Windows.Media.IMediaTimelineController
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.IMediaTimelineController(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaTimelineController_add_StateChanged_Interface
-      ; sender : Windows.Media.IMediaTimelineController
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.IMediaTimelineController(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaTimelineController2_add_Failed_Interface
-      ; sender : Windows.Media.IMediaTimelineController
-      ; args : Windows.Media.IMediaTimelineControllerFailedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.IMediaTimelineController(sender), Windows.Media.IMediaTimelineControllerFailedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaTimelineController2_add_Ended_Interface
-      ; sender : Windows.Media.IMediaTimelineController
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.IMediaTimelineController(sender), args);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create
+   (
+      capacity : Windows.UInt32
+   )
+   return Windows.Media.IAudioFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.AudioFrame");
+      m_Factory     : Windows.Media.IAudioFrameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IAudioFrame := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioFrameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(capacity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Media.IMediaExtensionManager is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaExtensionManager");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.IMediaExtensionManager) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.IID_IMediaExtensionManager'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.IMediaTimelineController is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaTimelineController");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.IMediaTimelineController) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.IID_IMediaTimelineController'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.ISystemMediaTransportControlsTimelineProperties is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.SystemMediaTransportControlsTimelineProperties");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.ISystemMediaTransportControlsTimelineProperties) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.IID_ISystemMediaTransportControlsTimelineProperties'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create
    (
@@ -245,77 +316,6 @@ package body Windows.Media is
       return RetVal;
    end;
    
-   function Create
-   (
-      capacity : Windows.UInt32
-   )
-   return Windows.Media.IAudioFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.AudioFrame");
-      m_Factory     : Windows.Media.IAudioFrameFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.IAudioFrame := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioFrameFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(capacity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Media.ISystemMediaTransportControlsTimelineProperties is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SystemMediaTransportControlsTimelineProperties");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.ISystemMediaTransportControlsTimelineProperties) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.IID_ISystemMediaTransportControlsTimelineProperties'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.IMediaTimelineController is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaTimelineController");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.IMediaTimelineController) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.IID_IMediaTimelineController'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.IMediaExtensionManager is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaExtensionManager");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.IMediaExtensionManager) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.IID_IMediaExtensionManager'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -323,142 +323,6 @@ package body Windows.Media is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function CreateAsDirect3D11SurfaceBacked
-   (
-      format : Windows.Graphics.DirectX.DirectXPixelFormat
-      ; width : Windows.Int32
-      ; height : Windows.Int32
-   )
-   return Windows.Media.IVideoFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
-      m_Factory     : IVideoFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.IVideoFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateAsDirect3D11SurfaceBacked(format, width, height, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateAsDirect3D11SurfaceBackedWithDevice
-   (
-      format : Windows.Graphics.DirectX.DirectXPixelFormat
-      ; width : Windows.Int32
-      ; height : Windows.Int32
-      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
-   )
-   return Windows.Media.IVideoFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
-      m_Factory     : IVideoFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.IVideoFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateAsDirect3D11SurfaceBackedWithDevice(format, width, height, device, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWithSoftwareBitmap
-   (
-      bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
-   )
-   return Windows.Media.IVideoFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
-      m_Factory     : IVideoFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.IVideoFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithSoftwareBitmap(bitmap, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWithDirect3D11Surface
-   (
-      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
-   )
-   return Windows.Media.IVideoFrame is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
-      m_Factory     : IVideoFrameStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.IVideoFrame;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithDirect3D11Surface(surface, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Bookmark
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaMarkerTypes");
-      m_Factory     : IMediaMarkerTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaMarkerTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Bookmark(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
-   return Windows.Media.ISystemMediaTransportControls is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SystemMediaTransportControls");
-      m_Factory     : ISystemMediaTransportControlsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.ISystemMediaTransportControls;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISystemMediaTransportControlsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoStabilization
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.VideoEffects");
-      m_Factory     : IVideoEffectsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVideoEffectsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoStabilization(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function add_SoundLevelChanged
    (
@@ -1067,6 +931,142 @@ package body Windows.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AlbumArt(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Bookmark
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaMarkerTypes");
+      m_Factory     : IMediaMarkerTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaMarkerTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Bookmark(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.Media.ISystemMediaTransportControls is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.SystemMediaTransportControls");
+      m_Factory     : ISystemMediaTransportControlsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.ISystemMediaTransportControls;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISystemMediaTransportControlsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoStabilization
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoEffects");
+      m_Factory     : IVideoEffectsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoEffectsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoStabilization(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateAsDirect3D11SurfaceBacked
+   (
+      format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAsDirect3D11SurfaceBacked(format, width, height, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateAsDirect3D11SurfaceBackedWithDevice
+   (
+      format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAsDirect3D11SurfaceBackedWithDevice(format, width, height, device, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithSoftwareBitmap
+   (
+      bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithSoftwareBitmap(bitmap, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithDirect3D11Surface
+   (
+      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithDirect3D11Surface(surface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -35,6 +35,23 @@ package body Windows.Globalization.PhoneNumberFormatting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function Create return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.PhoneNumberFormatting.IID_IPhoneNumberFormatter'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create
    (
       number : Windows.String
@@ -55,23 +72,6 @@ package body Windows.Globalization.PhoneNumberFormatting is
       return RetVal;
    end;
    
-   function Create return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.PhoneNumberFormatting.IID_IPhoneNumberFormatter'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -79,49 +79,6 @@ package body Windows.Globalization.PhoneNumberFormatting is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function TryParse
-   (
-      input : Windows.String
-      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
-   )
-   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo");
-      m_Factory     : IPhoneNumberInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneNumberInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryParse(input, phoneNumber, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryParseWithRegion
-   (
-      input : Windows.String
-      ; regionCode : Windows.String
-      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
-   )
-   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo");
-      m_Factory     : IPhoneNumberInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneNumberInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryParseWithRegion(input, regionCode, phoneNumber, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    procedure TryCreate
    (
@@ -197,6 +154,49 @@ package body Windows.Globalization.PhoneNumberFormatting is
       Hr := RoGetActivationFactory(m_hString, IID_IPhoneNumberFormatterStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.WrapWithLeftToRightMarkers(number, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryParse
+   (
+      input : Windows.String
+      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
+   )
+   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo");
+      m_Factory     : IPhoneNumberInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneNumberInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryParse(input, phoneNumber, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryParseWithRegion
+   (
+      input : Windows.String
+      ; regionCode : Windows.String
+      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
+   )
+   return Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo");
+      m_Factory     : IPhoneNumberInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneNumberInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryParseWithRegion(input, regionCode, phoneNumber, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

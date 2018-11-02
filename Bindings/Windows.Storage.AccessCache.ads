@@ -92,12 +92,12 @@ package Windows.Storage.AccessCache is
    type IItemRemovedEventArgs_Interface;
    type IItemRemovedEventArgs is access all IItemRemovedEventArgs_Interface'Class;
    type IItemRemovedEventArgs_Ptr is access all IItemRemovedEventArgs;
-   type IVectorView_AccessListEntry_Interface;
-   type IVectorView_AccessListEntry is access all IVectorView_AccessListEntry_Interface'Class;
-   type IVectorView_AccessListEntry_Ptr is access all IVectorView_AccessListEntry;
    type IIterable_AccessListEntry_Interface;
    type IIterable_AccessListEntry is access all IIterable_AccessListEntry_Interface'Class;
    type IIterable_AccessListEntry_Ptr is access all IIterable_AccessListEntry;
+   type IStorageApplicationPermissionsStatics_Interface;
+   type IStorageApplicationPermissionsStatics is access all IStorageApplicationPermissionsStatics_Interface'Class;
+   type IStorageApplicationPermissionsStatics_Ptr is access all IStorageApplicationPermissionsStatics;
    type IStorageItemAccessList_Interface;
    type IStorageItemAccessList is access all IStorageItemAccessList_Interface'Class;
    type IStorageItemAccessList_Ptr is access all IStorageItemAccessList;
@@ -107,9 +107,9 @@ package Windows.Storage.AccessCache is
    type IStorageItemMostRecentlyUsedList2_Interface;
    type IStorageItemMostRecentlyUsedList2 is access all IStorageItemMostRecentlyUsedList2_Interface'Class;
    type IStorageItemMostRecentlyUsedList2_Ptr is access all IStorageItemMostRecentlyUsedList2;
-   type IStorageApplicationPermissionsStatics_Interface;
-   type IStorageApplicationPermissionsStatics is access all IStorageApplicationPermissionsStatics_Interface'Class;
-   type IStorageApplicationPermissionsStatics_Ptr is access all IStorageApplicationPermissionsStatics;
+   type IVectorView_AccessListEntry_Interface;
+   type IVectorView_AccessListEntry is access all IVectorView_AccessListEntry_Interface'Class;
+   type IVectorView_AccessListEntry_Ptr is access all IVectorView_AccessListEntry;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -130,45 +130,6 @@ package Windows.Storage.AccessCache is
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_AccessListEntry : aliased constant Windows.IID := (1119132554, 12308, 23847, (143, 44, 30, 245, 238, 137, 236, 0 ));
-   
-   type IVectorView_AccessListEntry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_AccessListEntry_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Storage.AccessCache.AccessListEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_AccessListEntry_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_AccessListEntry_Interface
-      ; value : Windows.Storage.AccessCache.AccessListEntry
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_AccessListEntry_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Storage.AccessCache.AccessListEntry_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IIterable_AccessListEntry : aliased constant Windows.IID := (1234551472, 29547, 22669, (174, 66, 111, 105, 176, 37, 179, 136 ));
    
    type IIterable_AccessListEntry_Interface is interface and Windows.IInspectable_Interface;
@@ -177,6 +138,26 @@ package Windows.Storage.AccessCache is
    (
       This       : access IIterable_AccessListEntry_Interface
       ; RetVal : access Windows.Storage.AccessCache.AccessListEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageApplicationPermissionsStatics : aliased constant Windows.IID := (1133633450, 53299, 18681, (128, 96, 62, 200, 71, 210, 227, 241 ));
+   
+   type IStorageApplicationPermissionsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FutureAccessList
+   (
+      This       : access IStorageApplicationPermissionsStatics_Interface
+      ; RetVal : access Windows.Storage.AccessCache.IStorageItemAccessList
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MostRecentlyUsedList
+   (
+      This       : access IStorageApplicationPermissionsStatics_Interface
+      ; RetVal : access Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList
    )
    return Windows.HRESULT is abstract;
    
@@ -363,21 +344,40 @@ package Windows.Storage.AccessCache is
    
    ------------------------------------------------------------------------
    
-   IID_IStorageApplicationPermissionsStatics : aliased constant Windows.IID := (1133633450, 53299, 18681, (128, 96, 62, 200, 71, 210, 227, 241 ));
+   IID_IVectorView_AccessListEntry : aliased constant Windows.IID := (1119132554, 12308, 23847, (143, 44, 30, 245, 238, 137, 236, 0 ));
    
-   type IStorageApplicationPermissionsStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_AccessListEntry_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_FutureAccessList
+   function GetAt
    (
-      This       : access IStorageApplicationPermissionsStatics_Interface
-      ; RetVal : access Windows.Storage.AccessCache.IStorageItemAccessList
+      This       : access IVectorView_AccessListEntry_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Storage.AccessCache.AccessListEntry
    )
    return Windows.HRESULT is abstract;
    
-   function get_MostRecentlyUsedList
+   function get_Size
    (
-      This       : access IStorageApplicationPermissionsStatics_Interface
-      ; RetVal : access Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList
+      This       : access IVectorView_AccessListEntry_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_AccessListEntry_Interface
+      ; value : Windows.Storage.AccessCache.AccessListEntry
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_AccessListEntry_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Storage.AccessCache.AccessListEntry_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -403,9 +403,9 @@ package Windows.Storage.AccessCache is
    ------------------------------------------------------------------------
    
    subtype AccessListEntryView is Windows.Storage.AccessCache.IVectorView_AccessListEntry;
-   subtype StorageItemMostRecentlyUsedList is Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList;
    subtype ItemRemovedEventArgs is Windows.Storage.AccessCache.IItemRemovedEventArgs;
    subtype StorageItemAccessList is Windows.Storage.AccessCache.IStorageItemAccessList;
+   subtype StorageItemMostRecentlyUsedList is Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

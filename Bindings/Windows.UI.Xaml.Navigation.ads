@@ -92,6 +92,12 @@ package Windows.UI.Xaml.Navigation is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IIterable_IPageStackEntry_Interface;
+   type IIterable_IPageStackEntry is access all IIterable_IPageStackEntry_Interface'Class;
+   type IIterable_IPageStackEntry_Ptr is access all IIterable_IPageStackEntry;
+   type IIterator_IPageStackEntry_Interface;
+   type IIterator_IPageStackEntry is access all IIterator_IPageStackEntry_Interface'Class;
+   type IIterator_IPageStackEntry_Ptr is access all IIterator_IPageStackEntry;
    type INavigatingCancelEventArgs_Interface;
    type INavigatingCancelEventArgs is access all INavigatingCancelEventArgs_Interface'Class;
    type INavigatingCancelEventArgs_Ptr is access all INavigatingCancelEventArgs;
@@ -110,28 +116,70 @@ package Windows.UI.Xaml.Navigation is
    type IPageStackEntry_Interface;
    type IPageStackEntry is access all IPageStackEntry_Interface'Class;
    type IPageStackEntry_Ptr is access all IPageStackEntry;
-   type IPageStackEntryStatics_Interface;
-   type IPageStackEntryStatics is access all IPageStackEntryStatics_Interface'Class;
-   type IPageStackEntryStatics_Ptr is access all IPageStackEntryStatics;
    type IPageStackEntryFactory_Interface;
    type IPageStackEntryFactory is access all IPageStackEntryFactory_Interface'Class;
    type IPageStackEntryFactory_Ptr is access all IPageStackEntryFactory;
-   type IIterator_IPageStackEntry_Interface;
-   type IIterator_IPageStackEntry is access all IIterator_IPageStackEntry_Interface'Class;
-   type IIterator_IPageStackEntry_Ptr is access all IIterator_IPageStackEntry;
-   type IIterable_IPageStackEntry_Interface;
-   type IIterable_IPageStackEntry is access all IIterable_IPageStackEntry_Interface'Class;
-   type IIterable_IPageStackEntry_Ptr is access all IIterable_IPageStackEntry;
-   type IVectorView_IPageStackEntry_Interface;
-   type IVectorView_IPageStackEntry is access all IVectorView_IPageStackEntry_Interface'Class;
-   type IVectorView_IPageStackEntry_Ptr is access all IVectorView_IPageStackEntry;
+   type IPageStackEntryStatics_Interface;
+   type IPageStackEntryStatics is access all IPageStackEntryStatics_Interface'Class;
+   type IPageStackEntryStatics_Ptr is access all IPageStackEntryStatics;
    type IVector_IPageStackEntry_Interface;
    type IVector_IPageStackEntry is access all IVector_IPageStackEntry_Interface'Class;
    type IVector_IPageStackEntry_Ptr is access all IVector_IPageStackEntry;
+   type IVectorView_IPageStackEntry_Interface;
+   type IVectorView_IPageStackEntry is access all IVectorView_IPageStackEntry_Interface'Class;
+   type IVectorView_IPageStackEntry_Ptr is access all IVectorView_IPageStackEntry;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPageStackEntry : aliased constant Windows.IID := (3710023845, 19476, 22887, (138, 65, 154, 71, 195, 197, 196, 167 ));
+   
+   type IIterable_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IPageStackEntry_Interface
+      ; RetVal : access Windows.UI.Xaml.Navigation.IIterator_IPageStackEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPageStackEntry : aliased constant Windows.IID := (3097274732, 57041, 21437, (135, 68, 202, 168, 78, 135, 186, 135 ));
+   
+   type IIterator_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPageStackEntry_Interface
+      ; RetVal : access Windows.UI.Xaml.Navigation.IPageStackEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPageStackEntry_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPageStackEntry_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPageStackEntry_Interface
+      ; items : Windows.UI.Xaml.Navigation.IPageStackEntry_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -311,19 +359,6 @@ package Windows.UI.Xaml.Navigation is
    
    ------------------------------------------------------------------------
    
-   IID_IPageStackEntryStatics : aliased constant Windows.IID := (2901407971, 9324, 16435, (159, 1, 1, 203, 13, 165, 37, 78 ));
-   
-   type IPageStackEntryStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_SourcePageTypeProperty
-   (
-      This       : access IPageStackEntryStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPageStackEntryFactory : aliased constant Windows.IID := (1146356874, 43193, 20344, (155, 132, 31, 81, 245, 136, 81, 255 ));
    
    type IPageStackEntryFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -340,88 +375,14 @@ package Windows.UI.Xaml.Navigation is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IPageStackEntry : aliased constant Windows.IID := (3097274732, 57041, 21437, (135, 68, 202, 168, 78, 135, 186, 135 ));
+   IID_IPageStackEntryStatics : aliased constant Windows.IID := (2901407971, 9324, 16435, (159, 1, 1, 203, 13, 165, 37, 78 ));
    
-   type IIterator_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
+   type IPageStackEntryStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_SourcePageTypeProperty
    (
-      This       : access IIterator_IPageStackEntry_Interface
-      ; RetVal : access Windows.UI.Xaml.Navigation.IPageStackEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IPageStackEntry_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPageStackEntry_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPageStackEntry_Interface
-      ; items : Windows.UI.Xaml.Navigation.IPageStackEntry_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IPageStackEntry : aliased constant Windows.IID := (3710023845, 19476, 22887, (138, 65, 154, 71, 195, 197, 196, 167 ));
-   
-   type IIterable_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IPageStackEntry_Interface
-      ; RetVal : access Windows.UI.Xaml.Navigation.IIterator_IPageStackEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IPageStackEntry : aliased constant Windows.IID := (2943188652, 2159, 23647, (190, 75, 8, 88, 175, 117, 6, 247 ));
-   
-   type IVectorView_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IPageStackEntry_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Navigation.IPageStackEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IPageStackEntry_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IPageStackEntry_Interface
-      ; value : Windows.UI.Xaml.Navigation.IPageStackEntry
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IPageStackEntry_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Navigation.IPageStackEntry_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IPageStackEntryStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -521,6 +482,45 @@ package Windows.UI.Xaml.Navigation is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPageStackEntry : aliased constant Windows.IID := (2943188652, 2159, 23647, (190, 75, 8, 88, 175, 117, 6, 247 ));
+   
+   type IVectorView_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IPageStackEntry_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Navigation.IPageStackEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IPageStackEntry_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IPageStackEntry_Interface
+      ; value : Windows.UI.Xaml.Navigation.IPageStackEntry
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IPageStackEntry_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Navigation.IPageStackEntry_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -593,8 +593,8 @@ package Windows.UI.Xaml.Navigation is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype NavigationEventArgs is Windows.UI.Xaml.Navigation.INavigationEventArgs;
    subtype NavigatingCancelEventArgs is Windows.UI.Xaml.Navigation.INavigatingCancelEventArgs;
+   subtype NavigationEventArgs is Windows.UI.Xaml.Navigation.INavigationEventArgs;
    subtype NavigationFailedEventArgs is Windows.UI.Xaml.Navigation.INavigationFailedEventArgs;
    subtype PageStackEntry is Windows.UI.Xaml.Navigation.IPageStackEntry;
    function CreateInstance

@@ -39,19 +39,6 @@ package body Windows.Services.Maps.Guidance is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface
-      ; sender : Windows.Services.Maps.Guidance.IGuidanceNavigator
-      ; args : Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Services.Maps.Guidance.IGuidanceNavigator(sender), Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface
       ; sender : Windows.Services.Maps.Guidance.IGuidanceNavigator
       ; args : Windows.Object
@@ -65,14 +52,14 @@ package body Windows.Services.Maps.Guidance is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface
+      This       : access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface
       ; sender : Windows.Services.Maps.Guidance.IGuidanceNavigator
-      ; args : Windows.Object
+      ; args : Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Services.Maps.Guidance.IGuidanceNavigator(sender), args);
+      This.Callback(Windows.Services.Maps.Guidance.IGuidanceNavigator(sender), Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs(args));
       return Hr;
    end;
    
@@ -92,6 +79,19 @@ package body Windows.Services.Maps.Guidance is
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface
+      ; sender : Windows.Services.Maps.Guidance.IGuidanceNavigator
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Services.Maps.Guidance.IGuidanceNavigator(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface
       ; sender : Windows.Services.Maps.Guidance.IGuidanceNavigator
       ; args : Windows.Object
    )
@@ -153,6 +153,40 @@ package body Windows.Services.Maps.Guidance is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetCurrent
+   return Windows.Services.Maps.Guidance.IGuidanceNavigator is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.Guidance.GuidanceNavigator");
+      m_Factory     : IGuidanceNavigatorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Maps.Guidance.IGuidanceNavigator;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGuidanceNavigatorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCurrent(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UseAppProvidedVoice
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.Guidance.GuidanceNavigator");
+      m_Factory     : IGuidanceNavigatorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGuidanceNavigatorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UseAppProvidedVoice(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CanCreateFromMapRoute
    (
       mapRoute : Windows.Services.Maps.IMapRoute
@@ -187,40 +221,6 @@ package body Windows.Services.Maps.Guidance is
       Hr := RoGetActivationFactory(m_hString, IID_IGuidanceRouteStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryCreateFromMapRoute(mapRoute, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetCurrent
-   return Windows.Services.Maps.Guidance.IGuidanceNavigator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.Guidance.GuidanceNavigator");
-      m_Factory     : IGuidanceNavigatorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Services.Maps.Guidance.IGuidanceNavigator;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGuidanceNavigatorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetCurrent(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UseAppProvidedVoice
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.Guidance.GuidanceNavigator");
-      m_Factory     : IGuidanceNavigatorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGuidanceNavigatorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UseAppProvidedVoice(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

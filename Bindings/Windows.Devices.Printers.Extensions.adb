@@ -36,19 +36,6 @@ package body Windows.Devices.Printers.Extensions is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface
-      ; sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
-      ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Printers.Extensions.IPrintTaskConfiguration(sender), Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface
       ; sender : Windows.Devices.Printers.Extensions.IPrint3DWorkflow
       ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrintRequestedEventArgs
@@ -70,6 +57,19 @@ package body Windows.Devices.Printers.Extensions is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.Printers.Extensions.IPrint3DWorkflow(sender), Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrinterChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface
+      ; sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
+      ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Printers.Extensions.IPrintTaskConfiguration(sender), Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs(args));
       return Hr;
    end;
    

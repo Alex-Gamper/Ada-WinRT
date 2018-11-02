@@ -37,33 +37,8 @@ package body Windows.Devices.Sms is
    
    function Invoke
    (
-      This       : access SmsMessageReceivedEventHandler_Interface
-      ; sender : Windows.Devices.Sms.ISmsDevice
-      ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Sms.ISmsDevice(sender), Windows.Devices.Sms.ISmsMessageReceivedEventArgs(e));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access SmsDeviceStatusChangedEventHandler_Interface
-      ; sender : Windows.Devices.Sms.ISmsDevice
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Sms.ISmsDevice(sender));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ISmsMessage_Interface
-      ; asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsMessage
+      This       : access AsyncOperationCompletedHandler_ISmsDevice_Interface
+      ; asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -75,8 +50,8 @@ package body Windows.Devices.Sms is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_ISmsDevice_Interface
-      ; asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice
+      This       : access AsyncOperationCompletedHandler_ISmsMessage_Interface
+      ; asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsMessage
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -96,6 +71,31 @@ package body Windows.Devices.Sms is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access SmsDeviceStatusChangedEventHandler_Interface
+      ; sender : Windows.Devices.Sms.ISmsDevice
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Sms.ISmsDevice(sender));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access SmsMessageReceivedEventHandler_Interface
+      ; sender : Windows.Devices.Sms.ISmsDevice
+      ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Sms.ISmsDevice(sender), Windows.Devices.Sms.ISmsMessageReceivedEventArgs(e));
       return Hr;
    end;
    
@@ -129,57 +129,6 @@ package body Windows.Devices.Sms is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Devices.Sms.ISmsBinaryMessage is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsBinaryMessage");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Sms.ISmsBinaryMessage) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Sms.IID_ISmsBinaryMessage'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Devices.Sms.ISmsTextMessage is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Sms.ISmsTextMessage) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Sms.IID_ISmsTextMessage'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Devices.Sms.ISmsTextMessage2 is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage2");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Sms.ISmsTextMessage2) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Sms.IID_ISmsTextMessage2'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function Create return Windows.Devices.Sms.ISmsAppMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsAppMessage");
@@ -191,6 +140,23 @@ package body Windows.Devices.Sms is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Devices.Sms.IID_ISmsAppMessage'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Devices.Sms.ISmsBinaryMessage is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsBinaryMessage");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Sms.ISmsBinaryMessage) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Sms.IID_ISmsBinaryMessage'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -237,6 +203,40 @@ package body Windows.Devices.Sms is
       return RetVal;
    end;
    
+   function Create return Windows.Devices.Sms.ISmsTextMessage is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Sms.ISmsTextMessage) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Sms.IID_ISmsTextMessage'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Devices.Sms.ISmsTextMessage2 is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage2");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Sms.ISmsTextMessage2) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Sms.IID_ISmsTextMessage2'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -244,47 +244,6 @@ package body Windows.Devices.Sms is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromBinaryMessage
-   (
-      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
-   )
-   return Windows.Devices.Sms.ISmsTextMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
-      m_Factory     : ISmsTextMessageStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sms.ISmsTextMessage;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmsTextMessageStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromBinaryMessage(binaryMessage, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromBinaryData
-   (
-      format : Windows.Devices.Sms.SmsDataFormat
-      ; value : Windows.UInt8_Ptr
-   )
-   return Windows.Devices.Sms.ISmsTextMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
-      m_Factory     : ISmsTextMessageStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sms.ISmsTextMessage;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmsTextMessageStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromBinaryData(format, value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function FromNetworkAccountIdAsync
    (
@@ -466,6 +425,47 @@ package body Windows.Devices.Sms is
       Hr := RoGetActivationFactory(m_hString, IID_ISmsMessageRegistrationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Register(id, filterRules, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromBinaryMessage
+   (
+      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
+   )
+   return Windows.Devices.Sms.ISmsTextMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
+      m_Factory     : ISmsTextMessageStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sms.ISmsTextMessage;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmsTextMessageStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromBinaryMessage(binaryMessage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromBinaryData
+   (
+      format : Windows.Devices.Sms.SmsDataFormat
+      ; value : Windows.UInt8_Ptr
+   )
+   return Windows.Devices.Sms.ISmsTextMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
+      m_Factory     : ISmsTextMessageStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sms.ISmsTextMessage;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmsTextMessageStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromBinaryData(format, value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

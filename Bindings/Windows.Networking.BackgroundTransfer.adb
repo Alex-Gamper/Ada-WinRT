@@ -42,8 +42,8 @@ package body Windows.Networking.BackgroundTransfer is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface
-      ; asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult
+      This       : access AsyncOperationCompletedHandler_IDownloadOperation_Interface
+      ; asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IDownloadOperation
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -55,8 +55,8 @@ package body Windows.Networking.BackgroundTransfer is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IDownloadOperation_Interface
-      ; asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IDownloadOperation
+      This       : access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface
+      ; asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -95,6 +95,43 @@ package body Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundDownloader");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.BackgroundTransfer.IBackgroundDownloader) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Networking.BackgroundTransfer.IID_IBackgroundDownloader'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateWithCompletionGroup
+   (
+      completionGroup : Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundDownloader");
+      m_Factory     : Windows.Networking.BackgroundTransfer.IBackgroundDownloaderFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.BackgroundTransfer.IBackgroundDownloader := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundDownloaderFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithCompletionGroup(completionGroup, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function Create return Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup is
       Hr            : Windows.HResult := S_OK;
@@ -171,43 +208,6 @@ package body Windows.Networking.BackgroundTransfer is
       return RetVal;
    end;
    
-   function Create return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundDownloader");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.BackgroundTransfer.IBackgroundDownloader) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.BackgroundTransfer.IID_IBackgroundDownloader'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateWithCompletionGroup
-   (
-      completionGroup : Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
-   )
-   return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundDownloader");
-      m_Factory     : Windows.Networking.BackgroundTransfer.IBackgroundDownloaderFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.BackgroundTransfer.IBackgroundDownloader := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundDownloaderFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithCompletionGroup(completionGroup, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function Create return Windows.Networking.BackgroundTransfer.IBackgroundUploader is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundUploader");
@@ -252,26 +252,6 @@ package body Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function CreateGroup
-   (
-      name : Windows.String
-   )
-   return Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferGroup");
-      m_Factory     : IBackgroundTransferGroupStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundTransferGroupStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateGroup(name, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function GetCurrentDownloadsAsync
    return Windows.Address is
@@ -350,6 +330,46 @@ package body Windows.Networking.BackgroundTransfer is
       return RetVal;
    end;
    
+   function GetStatus
+   (
+      hresult : Windows.Int32
+   )
+   return Windows.Web.WebErrorStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferError");
+      m_Factory     : IBackgroundTransferErrorStaticMethods := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.WebErrorStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundTransferErrorStaticMethods'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStatus(hresult, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateGroup
+   (
+      name : Windows.String
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferGroup");
+      m_Factory     : IBackgroundTransferGroupStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundTransferGroupStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateGroup(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function RequestUnconstrainedUploadsAsync
    (
       operations : Windows.Networking.BackgroundTransfer.IIterable_IUploadOperation
@@ -421,26 +441,6 @@ package body Windows.Networking.BackgroundTransfer is
       Hr := RoGetActivationFactory(m_hString, IID_IBackgroundUploaderStaticMethods2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetCurrentUploadsForTransferGroupAsync(group, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStatus
-   (
-      hresult : Windows.Int32
-   )
-   return Windows.Web.WebErrorStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferError");
-      m_Factory     : IBackgroundTransferErrorStaticMethods := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Web.WebErrorStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundTransferErrorStaticMethods'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStatus(hresult, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

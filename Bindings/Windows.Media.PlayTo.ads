@@ -38,20 +38,6 @@ package Windows.Media.PlayTo is
    -- Enums
    ------------------------------------------------------------------------
    
-   type PlayToConnectionState is (
-      Disconnected,
-      Connected,
-      Rendering
-   );
-   for PlayToConnectionState use (
-      Disconnected => 0,
-      Connected => 1,
-      Rendering => 2
-   );
-   for PlayToConnectionState'Size use 32;
-   
-   type PlayToConnectionState_Ptr is access PlayToConnectionState;
-   
    type PlayToConnectionError is (
       None,
       DeviceNotResponding,
@@ -70,96 +56,104 @@ package Windows.Media.PlayTo is
    
    type PlayToConnectionError_Ptr is access PlayToConnectionError;
    
+   type PlayToConnectionState is (
+      Disconnected,
+      Connected,
+      Rendering
+   );
+   for PlayToConnectionState use (
+      Disconnected => 0,
+      Connected => 1,
+      Rendering => 2
+   );
+   for PlayToConnectionState'Size use 32;
+   
+   type PlayToConnectionState_Ptr is access PlayToConnectionState;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_PlayRequested is access all TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_PlayRequested;
-   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_PauseRequested is access all TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_PauseRequested;
-   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested;
-   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested;
-   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested;
-   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested;
-   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested;
-   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested is access all TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested;
-   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface;
-   type TypedEventHandler_IPlayToReceiver_add_StopRequested is access all TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface'Class;
-   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_StopRequested;
+   type TypedEventHandler_IPlayToConnection_add_Error_Interface;
+   type TypedEventHandler_IPlayToConnection_add_Error is access all TypedEventHandler_IPlayToConnection_add_Error_Interface'Class;
+   type TypedEventHandler_IPlayToConnection_add_Error_Ptr is access all TypedEventHandler_IPlayToConnection_add_Error;
    type TypedEventHandler_IPlayToConnection_add_StateChanged_Interface;
    type TypedEventHandler_IPlayToConnection_add_StateChanged is access all TypedEventHandler_IPlayToConnection_add_StateChanged_Interface'Class;
    type TypedEventHandler_IPlayToConnection_add_StateChanged_Ptr is access all TypedEventHandler_IPlayToConnection_add_StateChanged;
    type TypedEventHandler_IPlayToConnection_add_Transferred_Interface;
    type TypedEventHandler_IPlayToConnection_add_Transferred is access all TypedEventHandler_IPlayToConnection_add_Transferred_Interface'Class;
    type TypedEventHandler_IPlayToConnection_add_Transferred_Ptr is access all TypedEventHandler_IPlayToConnection_add_Transferred;
-   type TypedEventHandler_IPlayToConnection_add_Error_Interface;
-   type TypedEventHandler_IPlayToConnection_add_Error is access all TypedEventHandler_IPlayToConnection_add_Error_Interface'Class;
-   type TypedEventHandler_IPlayToConnection_add_Error_Ptr is access all TypedEventHandler_IPlayToConnection_add_Error;
    type TypedEventHandler_IPlayToManager_add_SourceRequested_Interface;
    type TypedEventHandler_IPlayToManager_add_SourceRequested is access all TypedEventHandler_IPlayToManager_add_SourceRequested_Interface'Class;
    type TypedEventHandler_IPlayToManager_add_SourceRequested_Ptr is access all TypedEventHandler_IPlayToManager_add_SourceRequested;
    type TypedEventHandler_IPlayToManager_add_SourceSelected_Interface;
    type TypedEventHandler_IPlayToManager_add_SourceSelected is access all TypedEventHandler_IPlayToManager_add_SourceSelected_Interface'Class;
    type TypedEventHandler_IPlayToManager_add_SourceSelected_Ptr is access all TypedEventHandler_IPlayToManager_add_SourceSelected;
+   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested;
+   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested;
+   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_PauseRequested is access all TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_PauseRequested;
+   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested;
+   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_PlayRequested is access all TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_PlayRequested;
+   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested;
+   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_StopRequested is access all TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_StopRequested;
+   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested is access all TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested;
+   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface;
+   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested is access all TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface'Class;
+   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Ptr is access all TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISourceChangeRequestedEventArgs_Interface;
-   type ISourceChangeRequestedEventArgs is access all ISourceChangeRequestedEventArgs_Interface'Class;
-   type ISourceChangeRequestedEventArgs_Ptr is access all ISourceChangeRequestedEventArgs;
-   type IPlaybackRateChangeRequestedEventArgs_Interface;
-   type IPlaybackRateChangeRequestedEventArgs is access all IPlaybackRateChangeRequestedEventArgs_Interface'Class;
-   type IPlaybackRateChangeRequestedEventArgs_Ptr is access all IPlaybackRateChangeRequestedEventArgs;
    type ICurrentTimeChangeRequestedEventArgs_Interface;
    type ICurrentTimeChangeRequestedEventArgs is access all ICurrentTimeChangeRequestedEventArgs_Interface'Class;
    type ICurrentTimeChangeRequestedEventArgs_Ptr is access all ICurrentTimeChangeRequestedEventArgs;
    type IMuteChangeRequestedEventArgs_Interface;
    type IMuteChangeRequestedEventArgs is access all IMuteChangeRequestedEventArgs_Interface'Class;
    type IMuteChangeRequestedEventArgs_Ptr is access all IMuteChangeRequestedEventArgs;
-   type IVolumeChangeRequestedEventArgs_Interface;
-   type IVolumeChangeRequestedEventArgs is access all IVolumeChangeRequestedEventArgs_Interface'Class;
-   type IVolumeChangeRequestedEventArgs_Ptr is access all IVolumeChangeRequestedEventArgs;
-   type IPlayToReceiver_Interface;
-   type IPlayToReceiver is access all IPlayToReceiver_Interface'Class;
-   type IPlayToReceiver_Ptr is access all IPlayToReceiver;
-   type IPlayToSource_Interface;
-   type IPlayToSource is access all IPlayToSource_Interface'Class;
-   type IPlayToSource_Ptr is access all IPlayToSource;
-   type IPlayToSourceWithPreferredSourceUri_Interface;
-   type IPlayToSourceWithPreferredSourceUri is access all IPlayToSourceWithPreferredSourceUri_Interface'Class;
-   type IPlayToSourceWithPreferredSourceUri_Ptr is access all IPlayToSourceWithPreferredSourceUri;
+   type IPlaybackRateChangeRequestedEventArgs_Interface;
+   type IPlaybackRateChangeRequestedEventArgs is access all IPlaybackRateChangeRequestedEventArgs_Interface'Class;
+   type IPlaybackRateChangeRequestedEventArgs_Ptr is access all IPlaybackRateChangeRequestedEventArgs;
+   type IPlayToConnection_Interface;
+   type IPlayToConnection is access all IPlayToConnection_Interface'Class;
+   type IPlayToConnection_Ptr is access all IPlayToConnection;
+   type IPlayToConnectionErrorEventArgs_Interface;
+   type IPlayToConnectionErrorEventArgs is access all IPlayToConnectionErrorEventArgs_Interface'Class;
+   type IPlayToConnectionErrorEventArgs_Ptr is access all IPlayToConnectionErrorEventArgs;
    type IPlayToConnectionStateChangedEventArgs_Interface;
    type IPlayToConnectionStateChangedEventArgs is access all IPlayToConnectionStateChangedEventArgs_Interface'Class;
    type IPlayToConnectionStateChangedEventArgs_Ptr is access all IPlayToConnectionStateChangedEventArgs;
    type IPlayToConnectionTransferredEventArgs_Interface;
    type IPlayToConnectionTransferredEventArgs is access all IPlayToConnectionTransferredEventArgs_Interface'Class;
    type IPlayToConnectionTransferredEventArgs_Ptr is access all IPlayToConnectionTransferredEventArgs;
-   type IPlayToConnectionErrorEventArgs_Interface;
-   type IPlayToConnectionErrorEventArgs is access all IPlayToConnectionErrorEventArgs_Interface'Class;
-   type IPlayToConnectionErrorEventArgs_Ptr is access all IPlayToConnectionErrorEventArgs;
-   type IPlayToConnection_Interface;
-   type IPlayToConnection is access all IPlayToConnection_Interface'Class;
-   type IPlayToConnection_Ptr is access all IPlayToConnection;
-   type IPlayToSourceSelectedEventArgs_Interface;
-   type IPlayToSourceSelectedEventArgs is access all IPlayToSourceSelectedEventArgs_Interface'Class;
-   type IPlayToSourceSelectedEventArgs_Ptr is access all IPlayToSourceSelectedEventArgs;
+   type IPlayToManager_Interface;
+   type IPlayToManager is access all IPlayToManager_Interface'Class;
+   type IPlayToManager_Ptr is access all IPlayToManager;
+   type IPlayToManagerStatics_Interface;
+   type IPlayToManagerStatics is access all IPlayToManagerStatics_Interface'Class;
+   type IPlayToManagerStatics_Ptr is access all IPlayToManagerStatics;
+   type IPlayToReceiver_Interface;
+   type IPlayToReceiver is access all IPlayToReceiver_Interface'Class;
+   type IPlayToReceiver_Ptr is access all IPlayToReceiver;
+   type IPlayToSource_Interface;
+   type IPlayToSource is access all IPlayToSource_Interface'Class;
+   type IPlayToSource_Ptr is access all IPlayToSource;
    type IPlayToSourceDeferral_Interface;
    type IPlayToSourceDeferral is access all IPlayToSourceDeferral_Interface'Class;
    type IPlayToSourceDeferral_Ptr is access all IPlayToSourceDeferral;
@@ -169,105 +163,22 @@ package Windows.Media.PlayTo is
    type IPlayToSourceRequestedEventArgs_Interface;
    type IPlayToSourceRequestedEventArgs is access all IPlayToSourceRequestedEventArgs_Interface'Class;
    type IPlayToSourceRequestedEventArgs_Ptr is access all IPlayToSourceRequestedEventArgs;
-   type IPlayToManager_Interface;
-   type IPlayToManager is access all IPlayToManager_Interface'Class;
-   type IPlayToManager_Ptr is access all IPlayToManager;
-   type IPlayToManagerStatics_Interface;
-   type IPlayToManagerStatics is access all IPlayToManagerStatics_Interface'Class;
-   type IPlayToManagerStatics_Ptr is access all IPlayToManagerStatics;
+   type IPlayToSourceSelectedEventArgs_Interface;
+   type IPlayToSourceSelectedEventArgs is access all IPlayToSourceSelectedEventArgs_Interface'Class;
+   type IPlayToSourceSelectedEventArgs_Ptr is access all IPlayToSourceSelectedEventArgs;
+   type IPlayToSourceWithPreferredSourceUri_Interface;
+   type IPlayToSourceWithPreferredSourceUri is access all IPlayToSourceWithPreferredSourceUri_Interface'Class;
+   type IPlayToSourceWithPreferredSourceUri_Ptr is access all IPlayToSourceWithPreferredSourceUri;
+   type ISourceChangeRequestedEventArgs_Interface;
+   type ISourceChangeRequestedEventArgs is access all ISourceChangeRequestedEventArgs_Interface'Class;
+   type ISourceChangeRequestedEventArgs_Ptr is access all ISourceChangeRequestedEventArgs;
+   type IVolumeChangeRequestedEventArgs_Interface;
+   type IVolumeChangeRequestedEventArgs is access all IVolumeChangeRequestedEventArgs_Interface'Class;
+   type IVolumeChangeRequestedEventArgs_Ptr is access all IVolumeChangeRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISourceChangeRequestedEventArgs : aliased constant Windows.IID := (4215224982, 31398, 19083, (134, 231, 84, 246, 198, 211, 79, 100 ));
-   
-   type ISourceChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Stream
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Title
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Author
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Album
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Genre
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Date
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Thumbnail
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Rating
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Properties
-   (
-      This       : access ISourceChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPlaybackRateChangeRequestedEventArgs : aliased constant Windows.IID := (257319342, 11400, 19658, (133, 64, 213, 134, 9, 93, 19, 165 ));
-   
-   type IPlaybackRateChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Rate
-   (
-      This       : access IPlaybackRateChangeRequestedEventArgs_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -297,14 +208,201 @@ package Windows.Media.PlayTo is
    
    ------------------------------------------------------------------------
    
-   IID_IVolumeChangeRequestedEventArgs : aliased constant Windows.IID := (1862430044, 53109, 19499, (145, 62, 109, 124, 108, 50, 145, 121 ));
+   IID_IPlaybackRateChangeRequestedEventArgs : aliased constant Windows.IID := (257319342, 11400, 19658, (133, 64, 213, 134, 9, 93, 19, 165 ));
    
-   type IVolumeChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IPlaybackRateChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Volume
+   function get_Rate
    (
-      This       : access IVolumeChangeRequestedEventArgs_Interface
+      This       : access IPlaybackRateChangeRequestedEventArgs_Interface
       ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlayToConnection : aliased constant Windows.IID := (288341960, 62005, 20446, (141, 65, 155, 242, 124, 158, 154, 64 ));
+   
+   type IPlayToConnection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_State
+   (
+      This       : access IPlayToConnection_Interface
+      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_StateChanged
+   (
+      This       : access IPlayToConnection_Interface
+      ; handler : TypedEventHandler_IPlayToConnection_add_StateChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_StateChanged
+   (
+      This       : access IPlayToConnection_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Transferred
+   (
+      This       : access IPlayToConnection_Interface
+      ; handler : TypedEventHandler_IPlayToConnection_add_Transferred
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Transferred
+   (
+      This       : access IPlayToConnection_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Error
+   (
+      This       : access IPlayToConnection_Interface
+      ; handler : TypedEventHandler_IPlayToConnection_add_Error
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Error
+   (
+      This       : access IPlayToConnection_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlayToConnectionErrorEventArgs : aliased constant Windows.IID := (3210653094, 35046, 17503, (157, 64, 217, 185, 248, 147, 152, 150 ));
+   
+   type IPlayToConnectionErrorEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Code
+   (
+      This       : access IPlayToConnectionErrorEventArgs_Interface
+      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionError
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Message
+   (
+      This       : access IPlayToConnectionErrorEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlayToConnectionStateChangedEventArgs : aliased constant Windows.IID := (1757721871, 3104, 18816, (134, 2, 88, 198, 34, 56, 212, 35 ));
+   
+   type IPlayToConnectionStateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PreviousState
+   (
+      This       : access IPlayToConnectionStateChangedEventArgs_Interface
+      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentState
+   (
+      This       : access IPlayToConnectionStateChangedEventArgs_Interface
+      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionState
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlayToConnectionTransferredEventArgs : aliased constant Windows.IID := (4209187130, 1667, 18393, (141, 240, 24, 203, 180, 137, 132, 216 ));
+   
+   type IPlayToConnectionTransferredEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PreviousSource
+   (
+      This       : access IPlayToConnectionTransferredEventArgs_Interface
+      ; RetVal : access Windows.Media.PlayTo.IPlayToSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentSource
+   (
+      This       : access IPlayToConnectionTransferredEventArgs_Interface
+      ; RetVal : access Windows.Media.PlayTo.IPlayToSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlayToManager : aliased constant Windows.IID := (4117373038, 7031, 17135, (143, 13, 185, 73, 248, 217, 178, 96 ));
+   
+   type IPlayToManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_SourceRequested
+   (
+      This       : access IPlayToManager_Interface
+      ; handler : TypedEventHandler_IPlayToManager_add_SourceRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SourceRequested
+   (
+      This       : access IPlayToManager_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SourceSelected
+   (
+      This       : access IPlayToManager_Interface
+      ; handler : TypedEventHandler_IPlayToManager_add_SourceSelected
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SourceSelected
+   (
+      This       : access IPlayToManager_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DefaultSourceSelection
+   (
+      This       : access IPlayToManager_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DefaultSourceSelection
+   (
+      This       : access IPlayToManager_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlayToManagerStatics : aliased constant Windows.IID := (1692838023, 14722, 20283, (186, 32, 97, 85, 228, 53, 50, 91 ));
+   
+   type IPlayToManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForCurrentView
+   (
+      This       : access IPlayToManagerStatics_Interface
+      ; RetVal : access Windows.Media.PlayTo.IPlayToManager
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowPlayToUI
+   (
+      This       : access IPlayToManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -638,185 +736,6 @@ package Windows.Media.PlayTo is
    
    ------------------------------------------------------------------------
    
-   IID_IPlayToSourceWithPreferredSourceUri : aliased constant Windows.IID := (2863813611, 13057, 19908, (175, 186, 178, 242, 237, 150, 53, 160 ));
-   
-   type IPlayToSourceWithPreferredSourceUri_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PreferredSourceUri
-   (
-      This       : access IPlayToSourceWithPreferredSourceUri_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PreferredSourceUri
-   (
-      This       : access IPlayToSourceWithPreferredSourceUri_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPlayToConnectionStateChangedEventArgs : aliased constant Windows.IID := (1757721871, 3104, 18816, (134, 2, 88, 198, 34, 56, 212, 35 ));
-   
-   type IPlayToConnectionStateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PreviousState
-   (
-      This       : access IPlayToConnectionStateChangedEventArgs_Interface
-      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CurrentState
-   (
-      This       : access IPlayToConnectionStateChangedEventArgs_Interface
-      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionState
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPlayToConnectionTransferredEventArgs : aliased constant Windows.IID := (4209187130, 1667, 18393, (141, 240, 24, 203, 180, 137, 132, 216 ));
-   
-   type IPlayToConnectionTransferredEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PreviousSource
-   (
-      This       : access IPlayToConnectionTransferredEventArgs_Interface
-      ; RetVal : access Windows.Media.PlayTo.IPlayToSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CurrentSource
-   (
-      This       : access IPlayToConnectionTransferredEventArgs_Interface
-      ; RetVal : access Windows.Media.PlayTo.IPlayToSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPlayToConnectionErrorEventArgs : aliased constant Windows.IID := (3210653094, 35046, 17503, (157, 64, 217, 185, 248, 147, 152, 150 ));
-   
-   type IPlayToConnectionErrorEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Code
-   (
-      This       : access IPlayToConnectionErrorEventArgs_Interface
-      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionError
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Message
-   (
-      This       : access IPlayToConnectionErrorEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPlayToConnection : aliased constant Windows.IID := (288341960, 62005, 20446, (141, 65, 155, 242, 124, 158, 154, 64 ));
-   
-   type IPlayToConnection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_State
-   (
-      This       : access IPlayToConnection_Interface
-      ; RetVal : access Windows.Media.PlayTo.PlayToConnectionState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_StateChanged
-   (
-      This       : access IPlayToConnection_Interface
-      ; handler : TypedEventHandler_IPlayToConnection_add_StateChanged
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_StateChanged
-   (
-      This       : access IPlayToConnection_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Transferred
-   (
-      This       : access IPlayToConnection_Interface
-      ; handler : TypedEventHandler_IPlayToConnection_add_Transferred
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Transferred
-   (
-      This       : access IPlayToConnection_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Error
-   (
-      This       : access IPlayToConnection_Interface
-      ; handler : TypedEventHandler_IPlayToConnection_add_Error
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Error
-   (
-      This       : access IPlayToConnection_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPlayToSourceSelectedEventArgs : aliased constant Windows.IID := (211649809, 20994, 19915, (140, 103, 171, 218, 18, 187, 60, 18 ));
-   
-   type IPlayToSourceSelectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FriendlyName
-   (
-      This       : access IPlayToSourceSelectedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Icon
-   (
-      This       : access IPlayToSourceSelectedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SupportsImage
-   (
-      This       : access IPlayToSourceSelectedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SupportsAudio
-   (
-      This       : access IPlayToSourceSelectedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SupportsVideo
-   (
-      This       : access IPlayToSourceSelectedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPlayToSourceDeferral : aliased constant Windows.IID := (1090554141, 10126, 20265, (133, 155, 169, 229, 1, 5, 62, 125 ));
    
    type IPlayToSourceDeferral_Interface is interface and Windows.IInspectable_Interface;
@@ -876,70 +795,151 @@ package Windows.Media.PlayTo is
    
    ------------------------------------------------------------------------
    
-   IID_IPlayToManager : aliased constant Windows.IID := (4117373038, 7031, 17135, (143, 13, 185, 73, 248, 217, 178, 96 ));
+   IID_IPlayToSourceSelectedEventArgs : aliased constant Windows.IID := (211649809, 20994, 19915, (140, 103, 171, 218, 18, 187, 60, 18 ));
    
-   type IPlayToManager_Interface is interface and Windows.IInspectable_Interface;
+   type IPlayToSourceSelectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function add_SourceRequested
+   function get_FriendlyName
    (
-      This       : access IPlayToManager_Interface
-      ; handler : TypedEventHandler_IPlayToManager_add_SourceRequested
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access IPlayToSourceSelectedEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function remove_SourceRequested
+   function get_Icon
    (
-      This       : access IPlayToManager_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
+      This       : access IPlayToSourceSelectedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
    )
    return Windows.HRESULT is abstract;
    
-   function add_SourceSelected
+   function get_SupportsImage
    (
-      This       : access IPlayToManager_Interface
-      ; handler : TypedEventHandler_IPlayToManager_add_SourceSelected
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access IPlayToSourceSelectedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function remove_SourceSelected
+   function get_SupportsAudio
    (
-      This       : access IPlayToManager_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
+      This       : access IPlayToSourceSelectedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_DefaultSourceSelection
+   function get_SupportsVideo
    (
-      This       : access IPlayToManager_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DefaultSourceSelection
-   (
-      This       : access IPlayToManager_Interface
+      This       : access IPlayToSourceSelectedEventArgs_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPlayToManagerStatics : aliased constant Windows.IID := (1692838023, 14722, 20283, (186, 32, 97, 85, 228, 53, 50, 91 ));
+   IID_IPlayToSourceWithPreferredSourceUri : aliased constant Windows.IID := (2863813611, 13057, 19908, (175, 186, 178, 242, 237, 150, 53, 160 ));
    
-   type IPlayToManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IPlayToSourceWithPreferredSourceUri_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetForCurrentView
+   function get_PreferredSourceUri
    (
-      This       : access IPlayToManagerStatics_Interface
-      ; RetVal : access Windows.Media.PlayTo.IPlayToManager
+      This       : access IPlayToSourceWithPreferredSourceUri_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function ShowPlayToUI
+   function put_PreferredSourceUri
    (
-      This       : access IPlayToManagerStatics_Interface
+      This       : access IPlayToSourceWithPreferredSourceUri_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISourceChangeRequestedEventArgs : aliased constant Windows.IID := (4215224982, 31398, 19083, (134, 231, 84, 246, 198, 211, 79, 100 ));
+   
+   type ISourceChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Stream
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Title
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Author
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Album
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Genre
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Date
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Thumbnail
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rating
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access ISourceChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVolumeChangeRequestedEventArgs : aliased constant Windows.IID := (1862430044, 53109, 19499, (145, 62, 109, 124, 108, 50, 145, 121 ));
+   
+   type IVolumeChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Volume
+   (
+      This       : access IVolumeChangeRequestedEventArgs_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -949,118 +949,14 @@ package Windows.Media.PlayTo is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IPlayToReceiver_add_PlayRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   IID_TypedEventHandler_IPlayToConnection_add_Error : aliased constant Windows.IID := (2405015357, 13909, 22931, (161, 25, 116, 30, 196, 238, 110, 66 ));
    
-   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PlayRequested'access) with null record;
+   type TypedEventHandler_IPlayToConnection_add_Error_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToConnection_add_Error'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_PauseRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PauseRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested : aliased constant Windows.IID := (342282356, 47028, 22548, (178, 215, 132, 124, 90, 231, 216, 125 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested : aliased constant Windows.IID := (3881386902, 22723, 21270, (188, 79, 29, 19, 234, 219, 239, 253 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested : aliased constant Windows.IID := (1118560159, 5286, 23583, (131, 155, 134, 2, 149, 5, 177, 208 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested : aliased constant Windows.IID := (108318597, 46845, 22822, (155, 114, 53, 254, 81, 122, 63, 68 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested : aliased constant Windows.IID := (2621406340, 39757, 23772, (129, 68, 28, 47, 97, 123, 110, 222 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPlayToReceiver_add_StopRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
-   
-   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_StopRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
+      This       : access TypedEventHandler_IPlayToConnection_add_Error_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToConnection
+      ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs
    )
    return Windows.HRESULT;
    
@@ -1092,19 +988,6 @@ package Windows.Media.PlayTo is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IPlayToConnection_add_Error : aliased constant Windows.IID := (2405015357, 13909, 22931, (161, 25, 116, 30, 196, 238, 110, 66 ));
-   
-   type TypedEventHandler_IPlayToConnection_add_Error_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToConnection_add_Error'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToConnection_add_Error_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToConnection
-      ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_IPlayToManager_add_SourceRequested : aliased constant Windows.IID := (1791620004, 14774, 20952, (142, 8, 241, 55, 144, 142, 146, 47 ));
    
    type TypedEventHandler_IPlayToManager_add_SourceRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToManager ; args : Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToManager_add_SourceRequested'access) with null record;
@@ -1130,27 +1013,144 @@ package Windows.Media.PlayTo is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested : aliased constant Windows.IID := (1118560159, 5286, 23583, (131, 155, 134, 2, 149, 5, 177, 208 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested : aliased constant Windows.IID := (108318597, 46845, 22822, (155, 114, 53, 254, 81, 122, 63, 68 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_PauseRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PauseRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested : aliased constant Windows.IID := (3881386902, 22723, 21270, (188, 79, 29, 19, 234, 219, 239, 253 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_PlayRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PlayRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested : aliased constant Windows.IID := (342282356, 47028, 22548, (178, 215, 132, 124, 90, 231, 216, 125 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_StopRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_StopRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested : aliased constant Windows.IID := (2621406340, 39757, 23772, (129, 68, 28, 47, 97, 123, 110, 222 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SourceChangeRequestedEventArgs is Windows.Media.PlayTo.ISourceChangeRequestedEventArgs;
-   subtype PlaybackRateChangeRequestedEventArgs is Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs;
    subtype CurrentTimeChangeRequestedEventArgs is Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs;
    subtype MuteChangeRequestedEventArgs is Windows.Media.PlayTo.IMuteChangeRequestedEventArgs;
-   subtype VolumeChangeRequestedEventArgs is Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs;
+   subtype PlaybackRateChangeRequestedEventArgs is Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs;
+   subtype PlayToConnection is Windows.Media.PlayTo.IPlayToConnection;
+   subtype PlayToConnectionErrorEventArgs is Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs;
+   subtype PlayToConnectionStateChangedEventArgs is Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs;
+   subtype PlayToConnectionTransferredEventArgs is Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs;
+   subtype PlayToManager is Windows.Media.PlayTo.IPlayToManager;
    subtype PlayToReceiver is Windows.Media.PlayTo.IPlayToReceiver;
    function Create return Windows.Media.PlayTo.IPlayToReceiver;
    
-   subtype PlayToConnection is Windows.Media.PlayTo.IPlayToConnection;
    subtype PlayToSource is Windows.Media.PlayTo.IPlayToSource;
-   subtype PlayToConnectionStateChangedEventArgs is Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs;
-   subtype PlayToConnectionTransferredEventArgs is Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs;
-   subtype PlayToConnectionErrorEventArgs is Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs;
-   subtype PlayToSourceSelectedEventArgs is Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs;
    subtype PlayToSourceDeferral is Windows.Media.PlayTo.IPlayToSourceDeferral;
    subtype PlayToSourceRequest is Windows.Media.PlayTo.IPlayToSourceRequest;
    subtype PlayToSourceRequestedEventArgs is Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs;
-   subtype PlayToManager is Windows.Media.PlayTo.IPlayToManager;
+   subtype PlayToSourceSelectedEventArgs is Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs;
+   subtype SourceChangeRequestedEventArgs is Windows.Media.PlayTo.ISourceChangeRequestedEventArgs;
+   subtype VolumeChangeRequestedEventArgs is Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

@@ -64,21 +64,21 @@ package Windows.Storage.Compression is
    type ICompressor_Interface;
    type ICompressor is access all ICompressor_Interface'Class;
    type ICompressor_Ptr is access all ICompressor;
-   type IDecompressor_Interface;
-   type IDecompressor is access all IDecompressor_Interface'Class;
-   type IDecompressor_Ptr is access all IDecompressor;
    type ICompressorFactory_Interface;
    type ICompressorFactory is access all ICompressorFactory_Interface'Class;
    type ICompressorFactory_Ptr is access all ICompressorFactory;
+   type IDecompressor_Interface;
+   type IDecompressor is access all IDecompressor_Interface'Class;
+   type IDecompressor_Ptr is access all IDecompressor;
    type IDecompressorFactory_Interface;
    type IDecompressorFactory is access all IDecompressorFactory_Interface'Class;
    type IDecompressorFactory_Ptr is access all IDecompressorFactory;
-   type IOutputStream_Imported_Interface;
-   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
-   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
    type IInputStream_Imported_Interface;
    type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
    type IInputStream_Imported_Ptr is access all IInputStream_Imported;
+   type IOutputStream_Imported_Interface;
+   type IOutputStream_Imported is access all IOutputStream_Imported_Interface'Class;
+   type IOutputStream_Imported_Ptr is access all IOutputStream_Imported;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -101,19 +101,6 @@ package Windows.Storage.Compression is
    (
       This       : access ICompressor_Interface
       ; RetVal : access Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDecompressor : aliased constant Windows.IID := (3095658054, 54922, 19595, (173, 160, 78, 232, 19, 252, 82, 131 ));
-   
-   type IDecompressor_Interface is interface and Windows.IInspectable_Interface;
-   
-   function DetachStream
-   (
-      This       : access IDecompressor_Interface
-      ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
    
@@ -143,6 +130,19 @@ package Windows.Storage.Compression is
    
    ------------------------------------------------------------------------
    
+   IID_IDecompressor : aliased constant Windows.IID := (3095658054, 54922, 19595, (173, 160, 78, 232, 19, 252, 82, 131 ));
+   
+   type IDecompressor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function DetachStream
+   (
+      This       : access IDecompressor_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDecompressorFactory : aliased constant Windows.IID := (1396171346, 7586, 17121, (136, 52, 3, 121, 210, 141, 116, 47 ));
    
    type IDecompressorFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -152,6 +152,20 @@ package Windows.Storage.Compression is
       This       : access IDecompressorFactory_Interface
       ; underlyingStream : Windows.Storage.Streams.IInputStream
       ; RetVal : access Windows.Storage.Compression.IDecompressor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReadAsync
+   (
+      This       : access IInputStream_Imported_Interface
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; count : Windows.UInt32
+      ; options : Windows.Storage.Streams.InputStreamOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -171,20 +185,6 @@ package Windows.Storage.Compression is
    (
       This       : access IOutputStream_Imported_Interface
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReadAsync
-   (
-      This       : access IInputStream_Imported_Interface
-      ; buffer : Windows.Storage.Streams.IBuffer
-      ; count : Windows.UInt32
-      ; options : Windows.Storage.Streams.InputStreamOptions
-      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

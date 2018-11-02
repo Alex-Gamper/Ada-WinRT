@@ -51,19 +51,6 @@ package body Windows.Media.Import is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged_Interface
-      ; sender : Windows.Media.Import.IPhotoImportFindItemsResult
-      ; args : Windows.Media.Import.IPhotoImportSelectionChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Import.IPhotoImportFindItemsResult(sender), Windows.Media.Import.IPhotoImportSelectionChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported_Interface
       ; sender : Windows.Media.Import.IPhotoImportFindItemsResult
       ; args : Windows.Media.Import.IPhotoImportItemImportedEventArgs
@@ -72,6 +59,19 @@ package body Windows.Media.Import is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Import.IPhotoImportFindItemsResult(sender), Windows.Media.Import.IPhotoImportItemImportedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged_Interface
+      ; sender : Windows.Media.Import.IPhotoImportFindItemsResult
+      ; args : Windows.Media.Import.IPhotoImportSelectionChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Import.IPhotoImportFindItemsResult(sender), Windows.Media.Import.IPhotoImportSelectionChangedEventArgs(args));
       return Hr;
    end;
    
@@ -86,46 +86,6 @@ package body Windows.Media.Import is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromIdAsync
-   (
-      sourceId : Windows.String
-   )
-   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportSource");
-      m_Factory     : IPhotoImportSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(sourceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromFolderAsync
-   (
-      sourceRootFolder : Windows.Storage.IStorageFolder
-   )
-   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportSource");
-      m_Factory     : IPhotoImportSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromFolderAsync(sourceRootFolder, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function IsSupportedAsync
    return Windows.Foundation.IAsyncOperation_Boolean is
@@ -172,6 +132,46 @@ package body Windows.Media.Import is
       Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetPendingOperations(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      sourceId : Windows.String
+   )
+   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportSource");
+      m_Factory     : IPhotoImportSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(sourceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromFolderAsync
+   (
+      sourceRootFolder : Windows.Storage.IStorageFolder
+   )
+   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportSource");
+      m_Factory     : IPhotoImportSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromFolderAsync(sourceRootFolder, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

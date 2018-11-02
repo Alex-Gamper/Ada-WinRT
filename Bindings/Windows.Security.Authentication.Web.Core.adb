@@ -38,19 +38,6 @@ package body Windows.Security.Authentication.Web.Core is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface
-      ; asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IFindAllAccountsResult_Interface
       ; asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IFindAllAccountsResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -64,14 +51,27 @@ package body Windows.Security.Authentication.Web.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface
-      ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
-      ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs
+      This       : access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface
+      ; asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), Windows.Security.Authentication.Web.Core.IWebAccountEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface
+      ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), args);
       return Hr;
    end;
    
@@ -90,20 +90,41 @@ package body Windows.Security.Authentication.Web.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface
+      This       : access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface
       ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
-      ; args : Windows.Object
+      ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), args);
+      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), Windows.Security.Authentication.Web.Core.IWebAccountEventArgs(args));
       return Hr;
    end;
    
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create
+   (
+      errorCode : Windows.UInt32
+      ; errorMessage : Windows.String
+   )
+   return Windows.Security.Authentication.Web.Core.IWebProviderError is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebProviderError");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebProviderErrorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebProviderError := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebProviderErrorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(errorCode, errorMessage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function Create
    (
@@ -185,27 +206,6 @@ package body Windows.Security.Authentication.Web.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IWebTokenRequestFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithScope(provider, scope, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      errorCode : Windows.UInt32
-      ; errorMessage : Windows.String
-   )
-   return Windows.Security.Authentication.Web.Core.IWebProviderError is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebProviderError");
-      m_Factory     : Windows.Security.Authentication.Web.Core.IWebProviderErrorFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebProviderError := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebProviderErrorFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(errorCode, errorMessage, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

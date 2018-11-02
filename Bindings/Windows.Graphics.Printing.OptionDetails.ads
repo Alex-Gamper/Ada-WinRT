@@ -74,83 +74,32 @@ package Windows.Graphics.Printing.OptionDetails is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface;
-   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged is access all TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface'Class;
-   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Ptr is access all TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged;
    type TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface;
    type TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation is access all TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface'Class;
    type TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Ptr is access all TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation;
+   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface;
+   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged is access all TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface'Class;
+   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Ptr is access all TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IPrintOptionDetails_Interface;
-   type IPrintOptionDetails is access all IPrintOptionDetails_Interface'Class;
-   type IPrintOptionDetails_Ptr is access all IPrintOptionDetails;
-   type IPrintCopiesOptionDetails_Interface;
-   type IPrintCopiesOptionDetails is access all IPrintCopiesOptionDetails_Interface'Class;
-   type IPrintCopiesOptionDetails_Ptr is access all IPrintCopiesOptionDetails;
-   type IPrintMediaSizeOptionDetails_Interface;
-   type IPrintMediaSizeOptionDetails is access all IPrintMediaSizeOptionDetails_Interface'Class;
-   type IPrintMediaSizeOptionDetails_Ptr is access all IPrintMediaSizeOptionDetails;
-   type IPrintMediaTypeOptionDetails_Interface;
-   type IPrintMediaTypeOptionDetails is access all IPrintMediaTypeOptionDetails_Interface'Class;
-   type IPrintMediaTypeOptionDetails_Ptr is access all IPrintMediaTypeOptionDetails;
-   type IPrintOrientationOptionDetails_Interface;
-   type IPrintOrientationOptionDetails is access all IPrintOrientationOptionDetails_Interface'Class;
-   type IPrintOrientationOptionDetails_Ptr is access all IPrintOrientationOptionDetails;
-   type IPrintQualityOptionDetails_Interface;
-   type IPrintQualityOptionDetails is access all IPrintQualityOptionDetails_Interface'Class;
-   type IPrintQualityOptionDetails_Ptr is access all IPrintQualityOptionDetails;
-   type IPrintColorModeOptionDetails_Interface;
-   type IPrintColorModeOptionDetails is access all IPrintColorModeOptionDetails_Interface'Class;
-   type IPrintColorModeOptionDetails_Ptr is access all IPrintColorModeOptionDetails;
-   type IPrintDuplexOptionDetails_Interface;
-   type IPrintDuplexOptionDetails is access all IPrintDuplexOptionDetails_Interface'Class;
-   type IPrintDuplexOptionDetails_Ptr is access all IPrintDuplexOptionDetails;
-   type IPrintCollationOptionDetails_Interface;
-   type IPrintCollationOptionDetails is access all IPrintCollationOptionDetails_Interface'Class;
-   type IPrintCollationOptionDetails_Ptr is access all IPrintCollationOptionDetails;
-   type IPrintStapleOptionDetails_Interface;
-   type IPrintStapleOptionDetails is access all IPrintStapleOptionDetails_Interface'Class;
-   type IPrintStapleOptionDetails_Ptr is access all IPrintStapleOptionDetails;
-   type IPrintHolePunchOptionDetails_Interface;
-   type IPrintHolePunchOptionDetails is access all IPrintHolePunchOptionDetails_Interface'Class;
-   type IPrintHolePunchOptionDetails_Ptr is access all IPrintHolePunchOptionDetails;
    type IPrintBindingOptionDetails_Interface;
    type IPrintBindingOptionDetails is access all IPrintBindingOptionDetails_Interface'Class;
    type IPrintBindingOptionDetails_Ptr is access all IPrintBindingOptionDetails;
    type IPrintBorderingOptionDetails_Interface;
    type IPrintBorderingOptionDetails is access all IPrintBorderingOptionDetails_Interface'Class;
    type IPrintBorderingOptionDetails_Ptr is access all IPrintBorderingOptionDetails;
-   type IPrintPageRangeOptionDetails_Interface;
-   type IPrintPageRangeOptionDetails is access all IPrintPageRangeOptionDetails_Interface'Class;
-   type IPrintPageRangeOptionDetails_Ptr is access all IPrintPageRangeOptionDetails;
-   type IPrintCustomTextOptionDetails2_Interface;
-   type IPrintCustomTextOptionDetails2 is access all IPrintCustomTextOptionDetails2_Interface'Class;
-   type IPrintCustomTextOptionDetails2_Ptr is access all IPrintCustomTextOptionDetails2;
-   type IPrintCustomToggleOptionDetails_Interface;
-   type IPrintCustomToggleOptionDetails is access all IPrintCustomToggleOptionDetails_Interface'Class;
-   type IPrintCustomToggleOptionDetails_Ptr is access all IPrintCustomToggleOptionDetails;
-   type IPrintCustomItemListOptionDetails3_Interface;
-   type IPrintCustomItemListOptionDetails3 is access all IPrintCustomItemListOptionDetails3_Interface'Class;
-   type IPrintCustomItemListOptionDetails3_Ptr is access all IPrintCustomItemListOptionDetails3;
-   type IPrintNumberOptionDetails_Interface;
-   type IPrintNumberOptionDetails is access all IPrintNumberOptionDetails_Interface'Class;
-   type IPrintNumberOptionDetails_Ptr is access all IPrintNumberOptionDetails;
-   type IPrintTextOptionDetails_Interface;
-   type IPrintTextOptionDetails is access all IPrintTextOptionDetails_Interface'Class;
-   type IPrintTextOptionDetails_Ptr is access all IPrintTextOptionDetails;
-   type IPrintItemListOptionDetails_Interface;
-   type IPrintItemListOptionDetails is access all IPrintItemListOptionDetails_Interface'Class;
-   type IPrintItemListOptionDetails_Ptr is access all IPrintItemListOptionDetails;
-   type IPrintCustomOptionDetails_Interface;
-   type IPrintCustomOptionDetails is access all IPrintCustomOptionDetails_Interface'Class;
-   type IPrintCustomOptionDetails_Ptr is access all IPrintCustomOptionDetails;
-   type IPrintCustomTextOptionDetails_Interface;
-   type IPrintCustomTextOptionDetails is access all IPrintCustomTextOptionDetails_Interface'Class;
-   type IPrintCustomTextOptionDetails_Ptr is access all IPrintCustomTextOptionDetails;
+   type IPrintCollationOptionDetails_Interface;
+   type IPrintCollationOptionDetails is access all IPrintCollationOptionDetails_Interface'Class;
+   type IPrintCollationOptionDetails_Ptr is access all IPrintCollationOptionDetails;
+   type IPrintColorModeOptionDetails_Interface;
+   type IPrintColorModeOptionDetails is access all IPrintColorModeOptionDetails_Interface'Class;
+   type IPrintColorModeOptionDetails_Ptr is access all IPrintColorModeOptionDetails;
+   type IPrintCopiesOptionDetails_Interface;
+   type IPrintCopiesOptionDetails is access all IPrintCopiesOptionDetails_Interface'Class;
+   type IPrintCopiesOptionDetails_Ptr is access all IPrintCopiesOptionDetails;
    type IPrintCustomItemDetails_Interface;
    type IPrintCustomItemDetails is access all IPrintCustomItemDetails_Interface'Class;
    type IPrintCustomItemDetails_Ptr is access all IPrintCustomItemDetails;
@@ -160,6 +109,54 @@ package Windows.Graphics.Printing.OptionDetails is
    type IPrintCustomItemListOptionDetails2_Interface;
    type IPrintCustomItemListOptionDetails2 is access all IPrintCustomItemListOptionDetails2_Interface'Class;
    type IPrintCustomItemListOptionDetails2_Ptr is access all IPrintCustomItemListOptionDetails2;
+   type IPrintCustomItemListOptionDetails3_Interface;
+   type IPrintCustomItemListOptionDetails3 is access all IPrintCustomItemListOptionDetails3_Interface'Class;
+   type IPrintCustomItemListOptionDetails3_Ptr is access all IPrintCustomItemListOptionDetails3;
+   type IPrintCustomOptionDetails_Interface;
+   type IPrintCustomOptionDetails is access all IPrintCustomOptionDetails_Interface'Class;
+   type IPrintCustomOptionDetails_Ptr is access all IPrintCustomOptionDetails;
+   type IPrintCustomTextOptionDetails_Interface;
+   type IPrintCustomTextOptionDetails is access all IPrintCustomTextOptionDetails_Interface'Class;
+   type IPrintCustomTextOptionDetails_Ptr is access all IPrintCustomTextOptionDetails;
+   type IPrintCustomTextOptionDetails2_Interface;
+   type IPrintCustomTextOptionDetails2 is access all IPrintCustomTextOptionDetails2_Interface'Class;
+   type IPrintCustomTextOptionDetails2_Ptr is access all IPrintCustomTextOptionDetails2;
+   type IPrintCustomToggleOptionDetails_Interface;
+   type IPrintCustomToggleOptionDetails is access all IPrintCustomToggleOptionDetails_Interface'Class;
+   type IPrintCustomToggleOptionDetails_Ptr is access all IPrintCustomToggleOptionDetails;
+   type IPrintDuplexOptionDetails_Interface;
+   type IPrintDuplexOptionDetails is access all IPrintDuplexOptionDetails_Interface'Class;
+   type IPrintDuplexOptionDetails_Ptr is access all IPrintDuplexOptionDetails;
+   type IPrintHolePunchOptionDetails_Interface;
+   type IPrintHolePunchOptionDetails is access all IPrintHolePunchOptionDetails_Interface'Class;
+   type IPrintHolePunchOptionDetails_Ptr is access all IPrintHolePunchOptionDetails;
+   type IPrintItemListOptionDetails_Interface;
+   type IPrintItemListOptionDetails is access all IPrintItemListOptionDetails_Interface'Class;
+   type IPrintItemListOptionDetails_Ptr is access all IPrintItemListOptionDetails;
+   type IPrintMediaSizeOptionDetails_Interface;
+   type IPrintMediaSizeOptionDetails is access all IPrintMediaSizeOptionDetails_Interface'Class;
+   type IPrintMediaSizeOptionDetails_Ptr is access all IPrintMediaSizeOptionDetails;
+   type IPrintMediaTypeOptionDetails_Interface;
+   type IPrintMediaTypeOptionDetails is access all IPrintMediaTypeOptionDetails_Interface'Class;
+   type IPrintMediaTypeOptionDetails_Ptr is access all IPrintMediaTypeOptionDetails;
+   type IPrintNumberOptionDetails_Interface;
+   type IPrintNumberOptionDetails is access all IPrintNumberOptionDetails_Interface'Class;
+   type IPrintNumberOptionDetails_Ptr is access all IPrintNumberOptionDetails;
+   type IPrintOptionDetails_Interface;
+   type IPrintOptionDetails is access all IPrintOptionDetails_Interface'Class;
+   type IPrintOptionDetails_Ptr is access all IPrintOptionDetails;
+   type IPrintOrientationOptionDetails_Interface;
+   type IPrintOrientationOptionDetails is access all IPrintOrientationOptionDetails_Interface'Class;
+   type IPrintOrientationOptionDetails_Ptr is access all IPrintOrientationOptionDetails;
+   type IPrintPageRangeOptionDetails_Interface;
+   type IPrintPageRangeOptionDetails is access all IPrintPageRangeOptionDetails_Interface'Class;
+   type IPrintPageRangeOptionDetails_Ptr is access all IPrintPageRangeOptionDetails;
+   type IPrintQualityOptionDetails_Interface;
+   type IPrintQualityOptionDetails is access all IPrintQualityOptionDetails_Interface'Class;
+   type IPrintQualityOptionDetails_Ptr is access all IPrintQualityOptionDetails;
+   type IPrintStapleOptionDetails_Interface;
+   type IPrintStapleOptionDetails is access all IPrintStapleOptionDetails_Interface'Class;
+   type IPrintStapleOptionDetails_Ptr is access all IPrintStapleOptionDetails;
    type IPrintTaskOptionChangedEventArgs_Interface;
    type IPrintTaskOptionChangedEventArgs is access all IPrintTaskOptionChangedEventArgs_Interface'Class;
    type IPrintTaskOptionChangedEventArgs_Ptr is access all IPrintTaskOptionChangedEventArgs;
@@ -172,413 +169,13 @@ package Windows.Graphics.Printing.OptionDetails is
    type IPrintTaskOptionDetailsStatic_Interface;
    type IPrintTaskOptionDetailsStatic is access all IPrintTaskOptionDetailsStatic_Interface'Class;
    type IPrintTaskOptionDetailsStatic_Ptr is access all IPrintTaskOptionDetailsStatic;
+   type IPrintTextOptionDetails_Interface;
+   type IPrintTextOptionDetails is access all IPrintTextOptionDetails_Interface'Class;
+   type IPrintTextOptionDetails_Ptr is access all IPrintTextOptionDetails;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintOptionDetails : aliased constant Windows.IID := (956729039, 54914, 18783, (173, 254, 215, 51, 63, 92, 24, 8 ));
-   
-   type IPrintOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_OptionId
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OptionType
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; RetVal : access Windows.Graphics.Printing.OptionDetails.PrintOptionType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ErrorText
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ErrorText
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_State
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; value : Windows.Graphics.Printing.OptionDetails.PrintOptionStates
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_State
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; RetVal : access Windows.Graphics.Printing.OptionDetails.PrintOptionStates
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Value
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TrySetValue
-   (
-      This       : access IPrintOptionDetails_Interface
-      ; value : Windows.Object
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintCopiesOptionDetails : aliased constant Windows.IID := (1107636377, 17209, 17219, (137, 141, 44, 71, 181, 224, 195, 65 ));
-   
-   type IPrintCopiesOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintCopiesOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintCopiesOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintCopiesOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintCopiesOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintMediaSizeOptionDetails : aliased constant Windows.IID := (1821203407, 49343, 18376, (184, 74, 98, 142, 125, 13, 26, 29 ));
-   
-   type IPrintMediaSizeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintMediaSizeOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintMediaSizeOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintMediaSizeOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintMediaSizeOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintMediaTypeOptionDetails : aliased constant Windows.IID := (4173791243, 44019, 19132, (142, 134, 34, 171, 197, 116, 74, 67 ));
-   
-   type IPrintMediaTypeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintMediaTypeOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintMediaTypeOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintMediaTypeOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintMediaTypeOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintOrientationOptionDetails : aliased constant Windows.IID := (1187219577, 26336, 19872, (135, 180, 210, 84, 87, 130, 78, 183 ));
-   
-   type IPrintOrientationOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintOrientationOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintOrientationOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintOrientationOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintOrientationOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintQualityOptionDetails : aliased constant Windows.IID := (768633761, 52762, 17638, (132, 249, 58, 146, 234, 30, 48, 68 ));
-   
-   type IPrintQualityOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintQualityOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintQualityOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintQualityOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintQualityOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintColorModeOptionDetails : aliased constant Windows.IID := (3685316356, 61910, 18499, (164, 132, 155, 68, 124, 220, 243, 182 ));
-   
-   type IPrintColorModeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintColorModeOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintColorModeOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintColorModeOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintColorModeOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintDuplexOptionDetails : aliased constant Windows.IID := (4242097553, 54436, 17658, (179, 254, 66, 224, 186, 40, 213, 173 ));
-   
-   type IPrintDuplexOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintDuplexOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintDuplexOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintDuplexOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintDuplexOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintCollationOptionDetails : aliased constant Windows.IID := (3601576294, 42406, 16604, (172, 195, 115, 159, 40, 241, 229, 211 ));
-   
-   type IPrintCollationOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintCollationOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintCollationOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintCollationOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintCollationOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintStapleOptionDetails : aliased constant Windows.IID := (3560011197, 39947, 17632, (132, 246, 206, 235, 206, 101, 56, 0 ));
-   
-   type IPrintStapleOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintStapleOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintStapleOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintStapleOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintStapleOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintHolePunchOptionDetails : aliased constant Windows.IID := (2799574808, 18476, 18007, (157, 113, 141, 221, 219, 234, 30, 30 ));
-   
-   type IPrintHolePunchOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_WarningText
-   (
-      This       : access IPrintHolePunchOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WarningText
-   (
-      This       : access IPrintHolePunchOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Description
-   (
-      This       : access IPrintHolePunchOptionDetails_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IPrintHolePunchOptionDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -650,35 +247,234 @@ package Windows.Graphics.Printing.OptionDetails is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintPageRangeOptionDetails : aliased constant Windows.IID := (1511646391, 11240, 19111, (158, 165, 222, 251, 232, 113, 59, 78 ));
+   IID_IPrintCollationOptionDetails : aliased constant Windows.IID := (3601576294, 42406, 16604, (172, 195, 115, 159, 40, 241, 229, 211 ));
    
-   type IPrintPageRangeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IPrintCollationOptionDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function put_WarningText
    (
-      This       : access IPrintPageRangeOptionDetails_Interface
+      This       : access IPrintCollationOptionDetails_Interface
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function get_WarningText
    (
-      This       : access IPrintPageRangeOptionDetails_Interface
+      This       : access IPrintCollationOptionDetails_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function put_Description
    (
-      This       : access IPrintPageRangeOptionDetails_Interface
+      This       : access IPrintCollationOptionDetails_Interface
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function get_Description
    (
-      This       : access IPrintPageRangeOptionDetails_Interface
+      This       : access IPrintCollationOptionDetails_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintColorModeOptionDetails : aliased constant Windows.IID := (3685316356, 61910, 18499, (164, 132, 155, 68, 124, 220, 243, 182 ));
+   
+   type IPrintColorModeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WarningText
+   (
+      This       : access IPrintColorModeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintColorModeOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintColorModeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintColorModeOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintCopiesOptionDetails : aliased constant Windows.IID := (1107636377, 17209, 17219, (137, 141, 44, 71, 181, 224, 195, 65 ));
+   
+   type IPrintCopiesOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WarningText
+   (
+      This       : access IPrintCopiesOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintCopiesOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintCopiesOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintCopiesOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintCustomItemDetails : aliased constant Windows.IID := (1459926583, 23610, 17562, (170, 54, 179, 41, 27, 17, 146, 253 ));
+   
+   type IPrintCustomItemDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ItemId
+   (
+      This       : access IPrintCustomItemDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemDisplayName
+   (
+      This       : access IPrintCustomItemDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemDisplayName
+   (
+      This       : access IPrintCustomItemDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintCustomItemListOptionDetails : aliased constant Windows.IID := (2784689544, 22770, 20157, (185, 15, 81, 228, 242, 148, 76, 93 ));
+   
+   type IPrintCustomItemListOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddItem
+   (
+      This       : access IPrintCustomItemListOptionDetails_Interface
+      ; itemId : Windows.String
+      ; displayName : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintCustomItemListOptionDetails2 : aliased constant Windows.IID := (3386258749, 25884, 19001, (144, 110, 16, 145, 161, 128, 27, 241 ));
+   
+   type IPrintCustomItemListOptionDetails2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddItem
+   (
+      This       : access IPrintCustomItemListOptionDetails2_Interface
+      ; itemId : Windows.String
+      ; displayName : Windows.String
+      ; description : Windows.String
+      ; icon : Windows.Storage.Streams.IRandomAccessStreamWithContentType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintCustomItemListOptionDetails3 : aliased constant Windows.IID := (1335997759, 15412, 18536, (164, 7, 252, 94, 171, 37, 155, 33 ));
+   
+   type IPrintCustomItemListOptionDetails3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WarningText
+   (
+      This       : access IPrintCustomItemListOptionDetails3_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintCustomItemListOptionDetails3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintCustomItemListOptionDetails3_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintCustomItemListOptionDetails3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintCustomOptionDetails : aliased constant Windows.IID := (3811302940, 10415, 19344, (149, 218, 163, 172, 243, 32, 185, 41 ));
+   
+   type IPrintCustomOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_DisplayName
+   (
+      This       : access IPrintCustomOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayName
+   (
+      This       : access IPrintCustomOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintCustomTextOptionDetails : aliased constant Windows.IID := (718369272, 51389, 18693, (145, 146, 13, 117, 19, 110, 139, 49 ));
+   
+   type IPrintCustomTextOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_MaxCharacters
+   (
+      This       : access IPrintCustomTextOptionDetails_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxCharacters
+   (
+      This       : access IPrintCustomTextOptionDetails_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -752,34 +548,149 @@ package Windows.Graphics.Printing.OptionDetails is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintCustomItemListOptionDetails3 : aliased constant Windows.IID := (1335997759, 15412, 18536, (164, 7, 252, 94, 171, 37, 155, 33 ));
+   IID_IPrintDuplexOptionDetails : aliased constant Windows.IID := (4242097553, 54436, 17658, (179, 254, 66, 224, 186, 40, 213, 173 ));
    
-   type IPrintCustomItemListOptionDetails3_Interface is interface and Windows.IInspectable_Interface;
+   type IPrintDuplexOptionDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function put_WarningText
    (
-      This       : access IPrintCustomItemListOptionDetails3_Interface
+      This       : access IPrintDuplexOptionDetails_Interface
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function get_WarningText
    (
-      This       : access IPrintCustomItemListOptionDetails3_Interface
+      This       : access IPrintDuplexOptionDetails_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function put_Description
    (
-      This       : access IPrintCustomItemListOptionDetails3_Interface
+      This       : access IPrintDuplexOptionDetails_Interface
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
    function get_Description
    (
-      This       : access IPrintCustomItemListOptionDetails3_Interface
+      This       : access IPrintDuplexOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintHolePunchOptionDetails : aliased constant Windows.IID := (2799574808, 18476, 18007, (157, 113, 141, 221, 219, 234, 30, 30 ));
+   
+   type IPrintHolePunchOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WarningText
+   (
+      This       : access IPrintHolePunchOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintHolePunchOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintHolePunchOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintHolePunchOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintItemListOptionDetails : aliased constant Windows.IID := (2585941951, 65121, 17368, (162, 79, 163, 246, 171, 115, 32, 231 ));
+   
+   type IPrintItemListOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Items
+   (
+      This       : access IPrintItemListOptionDetails_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Object -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintMediaSizeOptionDetails : aliased constant Windows.IID := (1821203407, 49343, 18376, (184, 74, 98, 142, 125, 13, 26, 29 ));
+   
+   type IPrintMediaSizeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WarningText
+   (
+      This       : access IPrintMediaSizeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintMediaSizeOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintMediaSizeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintMediaSizeOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintMediaTypeOptionDetails : aliased constant Windows.IID := (4173791243, 44019, 19132, (142, 134, 34, 171, 197, 116, 74, 67 ));
+   
+   type IPrintMediaTypeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WarningText
+   (
+      This       : access IPrintMediaTypeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintMediaTypeOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintMediaTypeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintMediaTypeOptionDetails_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
@@ -806,124 +717,200 @@ package Windows.Graphics.Printing.OptionDetails is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintTextOptionDetails : aliased constant Windows.IID := (2910184803, 23780, 18108, (153, 24, 171, 159, 173, 20, 76, 91 ));
+   IID_IPrintOptionDetails : aliased constant Windows.IID := (956729039, 54914, 18783, (173, 254, 215, 51, 63, 92, 24, 8 ));
    
-   type IPrintTextOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IPrintOptionDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_MaxCharacters
+   function get_OptionId
    (
-      This       : access IPrintTextOptionDetails_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IPrintOptionDetails_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPrintItemListOptionDetails : aliased constant Windows.IID := (2585941951, 65121, 17368, (162, 79, 163, 246, 171, 115, 32, 231 ));
-   
-   type IPrintItemListOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Items
+   function get_OptionType
    (
-      This       : access IPrintItemListOptionDetails_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_Object -- Generic Parameter Type
+      This       : access IPrintOptionDetails_Interface
+      ; RetVal : access Windows.Graphics.Printing.OptionDetails.PrintOptionType
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPrintCustomOptionDetails : aliased constant Windows.IID := (3811302940, 10415, 19344, (149, 218, 163, 172, 243, 32, 185, 41 ));
-   
-   type IPrintCustomOptionDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_DisplayName
+   function put_ErrorText
    (
-      This       : access IPrintCustomOptionDetails_Interface
+      This       : access IPrintOptionDetails_Interface
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_DisplayName
+   function get_ErrorText
    (
-      This       : access IPrintCustomOptionDetails_Interface
+      This       : access IPrintOptionDetails_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_State
+   (
+      This       : access IPrintOptionDetails_Interface
+      ; value : Windows.Graphics.Printing.OptionDetails.PrintOptionStates
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_State
+   (
+      This       : access IPrintOptionDetails_Interface
+      ; RetVal : access Windows.Graphics.Printing.OptionDetails.PrintOptionStates
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Value
+   (
+      This       : access IPrintOptionDetails_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySetValue
+   (
+      This       : access IPrintOptionDetails_Interface
+      ; value : Windows.Object
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPrintCustomTextOptionDetails : aliased constant Windows.IID := (718369272, 51389, 18693, (145, 146, 13, 117, 19, 110, 139, 49 ));
+   IID_IPrintOrientationOptionDetails : aliased constant Windows.IID := (1187219577, 26336, 19872, (135, 180, 210, 84, 87, 130, 78, 183 ));
    
-   type IPrintCustomTextOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IPrintOrientationOptionDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_MaxCharacters
+   function put_WarningText
    (
-      This       : access IPrintCustomTextOptionDetails_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MaxCharacters
-   (
-      This       : access IPrintCustomTextOptionDetails_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPrintCustomItemDetails : aliased constant Windows.IID := (1459926583, 23610, 17562, (170, 54, 179, 41, 27, 17, 146, 253 ));
-   
-   type IPrintCustomItemDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ItemId
-   (
-      This       : access IPrintCustomItemDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ItemDisplayName
-   (
-      This       : access IPrintCustomItemDetails_Interface
+      This       : access IPrintOrientationOptionDetails_Interface
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_ItemDisplayName
+   function get_WarningText
    (
-      This       : access IPrintCustomItemDetails_Interface
+      This       : access IPrintOrientationOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintOrientationOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintOrientationOptionDetails_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPrintCustomItemListOptionDetails : aliased constant Windows.IID := (2784689544, 22770, 20157, (185, 15, 81, 228, 242, 148, 76, 93 ));
+   IID_IPrintPageRangeOptionDetails : aliased constant Windows.IID := (1511646391, 11240, 19111, (158, 165, 222, 251, 232, 113, 59, 78 ));
    
-   type IPrintCustomItemListOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IPrintPageRangeOptionDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function AddItem
+   function put_WarningText
    (
-      This       : access IPrintCustomItemListOptionDetails_Interface
-      ; itemId : Windows.String
-      ; displayName : Windows.String
+      This       : access IPrintPageRangeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintPageRangeOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintPageRangeOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintPageRangeOptionDetails_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPrintCustomItemListOptionDetails2 : aliased constant Windows.IID := (3386258749, 25884, 19001, (144, 110, 16, 145, 161, 128, 27, 241 ));
+   IID_IPrintQualityOptionDetails : aliased constant Windows.IID := (768633761, 52762, 17638, (132, 249, 58, 146, 234, 30, 48, 68 ));
    
-   type IPrintCustomItemListOptionDetails2_Interface is interface and Windows.IInspectable_Interface;
+   type IPrintQualityOptionDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function AddItem
+   function put_WarningText
    (
-      This       : access IPrintCustomItemListOptionDetails2_Interface
-      ; itemId : Windows.String
-      ; displayName : Windows.String
-      ; description : Windows.String
-      ; icon : Windows.Storage.Streams.IRandomAccessStreamWithContentType
+      This       : access IPrintQualityOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintQualityOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintQualityOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintQualityOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintStapleOptionDetails : aliased constant Windows.IID := (3560011197, 39947, 17632, (132, 246, 206, 235, 206, 101, 56, 0 ));
+   
+   type IPrintStapleOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_WarningText
+   (
+      This       : access IPrintStapleOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WarningText
+   (
+      This       : access IPrintStapleOptionDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPrintStapleOptionDetails_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPrintStapleOptionDetails_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1031,21 +1018,21 @@ package Windows.Graphics.Printing.OptionDetails is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IPrintTextOptionDetails : aliased constant Windows.IID := (2910184803, 23780, 18108, (153, 24, 171, 159, 173, 20, 76, 91 ));
+   
+   type IPrintTextOptionDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MaxCharacters
+   (
+      This       : access IPrintTextOptionDetails_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged : aliased constant Windows.IID := (455034219, 34849, 22830, (180, 167, 155, 76, 55, 18, 81, 142 ));
-   
-   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface
-      ; sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails
-      ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1061,26 +1048,39 @@ package Windows.Graphics.Printing.OptionDetails is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged : aliased constant Windows.IID := (455034219, 34849, 22830, (180, 167, 155, 76, 55, 18, 81, 142 ));
+   
+   type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface
+      ; sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails
+      ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype PrintBindingOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintBorderingOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintCollationOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintColorModeOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
    subtype PrintCopiesOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintCustomItemDetails is Windows.Graphics.Printing.OptionDetails.IPrintCustomItemDetails;
+   subtype PrintCustomItemListOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintCustomTextOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintCustomToggleOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintDuplexOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintHolePunchOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
    subtype PrintMediaSizeOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
    subtype PrintMediaTypeOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
    subtype PrintOrientationOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintQualityOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintColorModeOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintDuplexOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintCollationOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintStapleOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintHolePunchOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintBindingOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintBorderingOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
    subtype PrintPageRangeOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintCustomTextOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintCustomToggleOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
-   subtype PrintCustomItemDetails is Windows.Graphics.Printing.OptionDetails.IPrintCustomItemDetails;
-   subtype PrintCustomItemListOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintQualityOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
+   subtype PrintStapleOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails;
    subtype PrintTaskOptionChangedEventArgs is Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs;
    subtype PrintTaskOptionDetails is Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails;
    

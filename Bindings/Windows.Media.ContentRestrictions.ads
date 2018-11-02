@@ -38,6 +38,22 @@ package Windows.Media.ContentRestrictions is
    -- Enums
    ------------------------------------------------------------------------
    
+   type ContentAccessRestrictionLevel is (
+      Allow,
+      Warn,
+      Block,
+      Hide
+   );
+   for ContentAccessRestrictionLevel use (
+      Allow => 0,
+      Warn => 1,
+      Block => 2,
+      Hide => 3
+   );
+   for ContentAccessRestrictionLevel'Size use 32;
+   
+   type ContentAccessRestrictionLevel_Ptr is access ContentAccessRestrictionLevel;
+   
    type RatedContentCategory is (
       General,
       Application,
@@ -58,62 +74,127 @@ package Windows.Media.ContentRestrictions is
    
    type RatedContentCategory_Ptr is access RatedContentCategory;
    
-   type ContentAccessRestrictionLevel is (
-      Allow,
-      Warn,
-      Block,
-      Hide
-   );
-   for ContentAccessRestrictionLevel use (
-      Allow => 0,
-      Warn => 1,
-      Block => 2,
-      Hide => 3
-   );
-   for ContentAccessRestrictionLevel'Size use 32;
-   
-   type ContentAccessRestrictionLevel_Ptr is access ContentAccessRestrictionLevel;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface;
-   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy is access all AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface'Class;
-   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Ptr is access all AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy;
    type AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Interface;
    type AsyncOperationCompletedHandler_ContentAccessRestrictionLevel is access all AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Interface'Class;
    type AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Ptr is access all AsyncOperationCompletedHandler_ContentAccessRestrictionLevel;
+   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface;
+   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy is access all AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface'Class;
+   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Ptr is access all AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_ContentAccessRestrictionLevel_Interface;
+   type IAsyncOperation_ContentAccessRestrictionLevel is access all IAsyncOperation_ContentAccessRestrictionLevel_Interface'Class;
+   type IAsyncOperation_ContentAccessRestrictionLevel_Ptr is access all IAsyncOperation_ContentAccessRestrictionLevel;
+   type IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface;
+   type IAsyncOperation_IContentRestrictionsBrowsePolicy is access all IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface'Class;
+   type IAsyncOperation_IContentRestrictionsBrowsePolicy_Ptr is access all IAsyncOperation_IContentRestrictionsBrowsePolicy;
+   type IContentRestrictionsBrowsePolicy_Interface;
+   type IContentRestrictionsBrowsePolicy is access all IContentRestrictionsBrowsePolicy_Interface'Class;
+   type IContentRestrictionsBrowsePolicy_Ptr is access all IContentRestrictionsBrowsePolicy;
    type IRatedContentDescription_Interface;
    type IRatedContentDescription is access all IRatedContentDescription_Interface'Class;
    type IRatedContentDescription_Ptr is access all IRatedContentDescription;
    type IRatedContentDescriptionFactory_Interface;
    type IRatedContentDescriptionFactory is access all IRatedContentDescriptionFactory_Interface'Class;
    type IRatedContentDescriptionFactory_Ptr is access all IRatedContentDescriptionFactory;
-   type IContentRestrictionsBrowsePolicy_Interface;
-   type IContentRestrictionsBrowsePolicy is access all IContentRestrictionsBrowsePolicy_Interface'Class;
-   type IContentRestrictionsBrowsePolicy_Ptr is access all IContentRestrictionsBrowsePolicy;
    type IRatedContentRestrictions_Interface;
    type IRatedContentRestrictions is access all IRatedContentRestrictions_Interface'Class;
    type IRatedContentRestrictions_Ptr is access all IRatedContentRestrictions;
    type IRatedContentRestrictionsFactory_Interface;
    type IRatedContentRestrictionsFactory is access all IRatedContentRestrictionsFactory_Interface'Class;
    type IRatedContentRestrictionsFactory_Ptr is access all IRatedContentRestrictionsFactory;
-   type IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface;
-   type IAsyncOperation_IContentRestrictionsBrowsePolicy is access all IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface'Class;
-   type IAsyncOperation_IContentRestrictionsBrowsePolicy_Ptr is access all IAsyncOperation_IContentRestrictionsBrowsePolicy;
-   type IAsyncOperation_ContentAccessRestrictionLevel_Interface;
-   type IAsyncOperation_ContentAccessRestrictionLevel is access all IAsyncOperation_ContentAccessRestrictionLevel_Interface'Class;
-   type IAsyncOperation_ContentAccessRestrictionLevel_Ptr is access all IAsyncOperation_ContentAccessRestrictionLevel;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ContentAccessRestrictionLevel : aliased constant Windows.IID := (2248933753, 48641, 21613, (169, 206, 89, 86, 70, 76, 152, 171 ));
+   
+   type IAsyncOperation_ContentAccessRestrictionLevel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ContentAccessRestrictionLevel_Interface
+      ; handler : Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_ContentAccessRestrictionLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ContentAccessRestrictionLevel_Interface
+      ; RetVal : access Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_ContentAccessRestrictionLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ContentAccessRestrictionLevel_Interface
+      ; RetVal : access Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2922617266, 51157, 24347, (159, 185, 248, 189, 129, 233, 249, 190 ));
+   
+   type IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface
+      ; handler : Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface
+      ; RetVal : access Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface
+      ; RetVal : access Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2348888996, 17454, 17946, (135, 87, 250, 210, 245, 189, 55, 228 ));
+   
+   type IContentRestrictionsBrowsePolicy_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_GeographicRegion
+   (
+      This       : access IContentRestrictionsBrowsePolicy_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxBrowsableAgeRating
+   (
+      This       : access IContentRestrictionsBrowsePolicy_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PreferredAgeRating
+   (
+      This       : access IContentRestrictionsBrowsePolicy_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -209,33 +290,6 @@ package Windows.Media.ContentRestrictions is
    
    ------------------------------------------------------------------------
    
-   IID_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2348888996, 17454, 17946, (135, 87, 250, 210, 245, 189, 55, 228 ));
-   
-   type IContentRestrictionsBrowsePolicy_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_GeographicRegion
-   (
-      This       : access IContentRestrictionsBrowsePolicy_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MaxBrowsableAgeRating
-   (
-      This       : access IContentRestrictionsBrowsePolicy_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PreferredAgeRating
-   (
-      This       : access IContentRestrictionsBrowsePolicy_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IRatedContentRestrictions : aliased constant Windows.IID := (1065296843, 47623, 17409, (164, 157, 139, 146, 34, 32, 87, 35 ));
    
    type IRatedContentRestrictions_Interface is interface and Windows.IInspectable_Interface;
@@ -293,75 +347,8 @@ package Windows.Media.ContentRestrictions is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2922617266, 51157, 24347, (159, 185, 248, 189, 129, 233, 249, 190 ));
-   
-   type IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface
-      ; handler : Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface
-      ; RetVal : access Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface
-      ; RetVal : access Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ContentAccessRestrictionLevel : aliased constant Windows.IID := (2248933753, 48641, 21613, (169, 206, 89, 86, 70, 76, 152, 171 ));
-   
-   type IAsyncOperation_ContentAccessRestrictionLevel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ContentAccessRestrictionLevel_Interface
-      ; handler : Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_ContentAccessRestrictionLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ContentAccessRestrictionLevel_Interface
-      ; RetVal : access Windows.Media.ContentRestrictions.AsyncOperationCompletedHandler_ContentAccessRestrictionLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ContentAccessRestrictionLevel_Interface
-      ; RetVal : access Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (1924012566, 50949, 21735, (177, 196, 252, 5, 160, 224, 122, 119 ));
-   
-   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface(Callback : access procedure (asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface
-      ; asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -377,9 +364,23 @@ package Windows.Media.ContentRestrictions is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (1924012566, 50949, 21735, (177, 196, 252, 5, 160, 224, 122, 119 ));
+   
+   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface(Callback : access procedure (asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface
+      ; asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype ContentRestrictionsBrowsePolicy is Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy;
    subtype RatedContentDescription is Windows.Media.ContentRestrictions.IRatedContentDescription;
    function Create
    (
@@ -389,7 +390,6 @@ package Windows.Media.ContentRestrictions is
    )
    return Windows.Media.ContentRestrictions.IRatedContentDescription;
    
-   subtype ContentRestrictionsBrowsePolicy is Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy;
    subtype RatedContentRestrictions is Windows.Media.ContentRestrictions.IRatedContentRestrictions;
    function Create return Windows.Media.ContentRestrictions.IRatedContentRestrictions;
    

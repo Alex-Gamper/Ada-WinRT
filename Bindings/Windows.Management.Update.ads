@@ -39,12 +39,12 @@ package Windows.Management.Update is
    type IPreviewBuildsManager_Interface;
    type IPreviewBuildsManager is access all IPreviewBuildsManager_Interface'Class;
    type IPreviewBuildsManager_Ptr is access all IPreviewBuildsManager;
-   type IPreviewBuildsState_Interface;
-   type IPreviewBuildsState is access all IPreviewBuildsState_Interface'Class;
-   type IPreviewBuildsState_Ptr is access all IPreviewBuildsState;
    type IPreviewBuildsManagerStatics_Interface;
    type IPreviewBuildsManagerStatics is access all IPreviewBuildsManagerStatics_Interface'Class;
    type IPreviewBuildsManagerStatics_Ptr is access all IPreviewBuildsManagerStatics;
+   type IPreviewBuildsState_Interface;
+   type IPreviewBuildsState is access all IPreviewBuildsState_Interface'Class;
+   type IPreviewBuildsState_Ptr is access all IPreviewBuildsState;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -86,19 +86,6 @@ package Windows.Management.Update is
    
    ------------------------------------------------------------------------
    
-   IID_IPreviewBuildsState : aliased constant Windows.IID := (2733805630, 45603, 24419, (117, 70, 62, 142, 172, 7, 10, 46 ));
-   
-   type IPreviewBuildsState_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Properties
-   (
-      This       : access IPreviewBuildsState_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPreviewBuildsManagerStatics : aliased constant Windows.IID := (1044523143, 45330, 23152, (125, 161, 151, 215, 141, 50, 170, 41 ));
    
    type IPreviewBuildsManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -118,11 +105,24 @@ package Windows.Management.Update is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IPreviewBuildsState : aliased constant Windows.IID := (2733805630, 45603, 24419, (117, 70, 62, 142, 172, 7, 10, 46 ));
+   
+   type IPreviewBuildsState_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Properties
+   (
+      This       : access IPreviewBuildsState_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PreviewBuildsState is Windows.Management.Update.IPreviewBuildsState;
    subtype PreviewBuildsManager is Windows.Management.Update.IPreviewBuildsManager;
+   subtype PreviewBuildsState is Windows.Management.Update.IPreviewBuildsState;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

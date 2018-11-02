@@ -50,8 +50,8 @@ package body Windows.Security.Credentials.UI is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface
-      ; asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability
+      This       : access AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface
+      ; asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -63,8 +63,8 @@ package body Windows.Security.Credentials.UI is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface
-      ; asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult
+      This       : access AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface
+      ; asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

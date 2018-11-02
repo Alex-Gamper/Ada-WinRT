@@ -43,16 +43,30 @@ package Windows.Management.Deployment.Preview is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IInstalledClassicAppInfo_Interface;
-   type IInstalledClassicAppInfo is access all IInstalledClassicAppInfo_Interface'Class;
-   type IInstalledClassicAppInfo_Ptr is access all IInstalledClassicAppInfo;
    type IClassicAppManagerStatics_Interface;
    type IClassicAppManagerStatics is access all IClassicAppManagerStatics_Interface'Class;
    type IClassicAppManagerStatics_Ptr is access all IClassicAppManagerStatics;
+   type IInstalledClassicAppInfo_Interface;
+   type IInstalledClassicAppInfo is access all IInstalledClassicAppInfo_Interface'Class;
+   type IInstalledClassicAppInfo_Ptr is access all IInstalledClassicAppInfo;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClassicAppManagerStatics : aliased constant Windows.IID := (3808089704, 34860, 20275, (176, 53, 13, 247, 185, 13, 103, 230 ));
+   
+   type IClassicAppManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FindInstalledApp
+   (
+      This       : access IClassicAppManagerStatics_Interface
+      ; appUninstallKey : Windows.String
+      ; RetVal : access Windows.Management.Deployment.Preview.IInstalledClassicAppInfo
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -71,20 +85,6 @@ package Windows.Management.Deployment.Preview is
    (
       This       : access IInstalledClassicAppInfo_Interface
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IClassicAppManagerStatics : aliased constant Windows.IID := (3808089704, 34860, 20275, (176, 53, 13, 247, 185, 13, 103, 230 ));
-   
-   type IClassicAppManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FindInstalledApp
-   (
-      This       : access IClassicAppManagerStatics_Interface
-      ; appUninstallKey : Windows.String
-      ; RetVal : access Windows.Management.Deployment.Preview.IInstalledClassicAppInfo
    )
    return Windows.HRESULT is abstract;
    

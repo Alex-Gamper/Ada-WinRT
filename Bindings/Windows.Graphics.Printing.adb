@@ -50,20 +50,33 @@ package body Windows.Graphics.Printing is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPrintTask_add_Previewing_Interface
-      ; sender : Windows.Graphics.Printing.IPrintTask
-      ; args : Windows.Object
+      This       : access TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface
+      ; sender : Windows.Graphics.Printing.IPrintManager
+      ; args : Windows.Graphics.Printing.IPrintTaskRequestedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Graphics.Printing.IPrintTask(sender), args);
+      This.Callback(Windows.Graphics.Printing.IPrintManager(sender), Windows.Graphics.Printing.IPrintTaskRequestedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPrintTask_add_Submitting_Interface
+      This       : access TypedEventHandler_IPrintTask_add_Completed_Interface
+      ; sender : Windows.Graphics.Printing.IPrintTask
+      ; args : Windows.Graphics.Printing.IPrintTaskCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Printing.IPrintTask(sender), Windows.Graphics.Printing.IPrintTaskCompletedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPrintTask_add_Previewing_Interface
       ; sender : Windows.Graphics.Printing.IPrintTask
       ; args : Windows.Object
    )
@@ -89,33 +102,37 @@ package body Windows.Graphics.Printing is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPrintTask_add_Completed_Interface
+      This       : access TypedEventHandler_IPrintTask_add_Submitting_Interface
       ; sender : Windows.Graphics.Printing.IPrintTask
-      ; args : Windows.Graphics.Printing.IPrintTaskCompletedEventArgs
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Graphics.Printing.IPrintTask(sender), Windows.Graphics.Printing.IPrintTaskCompletedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface
-      ; sender : Windows.Graphics.Printing.IPrintManager
-      ; args : Windows.Graphics.Printing.IPrintTaskRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Printing.IPrintManager(sender), Windows.Graphics.Printing.IPrintTaskRequestedEventArgs(args));
+      This.Callback(Windows.Graphics.Printing.IPrintTask(sender), args);
       return Hr;
    end;
    
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Graphics.Printing.IPrintPageInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintPageInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing.IPrintPageInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Graphics.Printing.IID_IPrintPageInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create
    (
@@ -158,23 +175,6 @@ package body Windows.Graphics.Printing is
       return RetVal;
    end;
    
-   function Create return Windows.Graphics.Printing.IPrintPageInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintPageInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Graphics.Printing.IPrintPageInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Graphics.Printing.IID_IPrintPageInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -182,6 +182,57 @@ package body Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function IsSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
+      m_Factory     : IPrintManagerStatic2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.Graphics.Printing.IPrintManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
+      m_Factory     : IPrintManagerStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Printing.IPrintManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShowPrintUIAsync
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
+      m_Factory     : IPrintManagerStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowPrintUIAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function get_MediaSize
    return Windows.String is
@@ -432,57 +483,6 @@ package body Windows.Graphics.Printing is
       Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_CustomPageRanges(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
-      m_Factory     : IPrintManagerStatic2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
-   return Windows.Graphics.Printing.IPrintManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
-      m_Factory     : IPrintManagerStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Printing.IPrintManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShowPrintUIAsync
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintManager");
-      m_Factory     : IPrintManagerStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrintManagerStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowPrintUIAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

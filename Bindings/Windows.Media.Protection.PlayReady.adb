@@ -39,6 +39,19 @@ package body Windows.Media.Protection.PlayReady is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface
+      ; asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDLicenseFetchResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_INDSendResult_Interface
       ; asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDSendResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -52,22 +65,22 @@ package body Windows.Media.Protection.PlayReady is
    
    function Invoke
    (
-      This       : access TypedEventHandler_INDClient_add_RegistrationCompleted_Interface
-      ; sender : Windows.Media.Protection.PlayReady.INDClient
-      ; args : Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs
+      This       : access AsyncOperationCompletedHandler_INDStartResult_Interface
+      ; asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDStartResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Protection.PlayReady.INDClient(sender), args);
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface
+      This       : access TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface
       ; sender : Windows.Media.Protection.PlayReady.INDClient
-      ; args : Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs
+      ; args : Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -91,6 +104,32 @@ package body Windows.Media.Protection.PlayReady is
    
    function Invoke
    (
+      This       : access TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface
+      ; sender : Windows.Media.Protection.PlayReady.INDClient
+      ; args : Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Protection.PlayReady.INDClient(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_INDClient_add_RegistrationCompleted_Interface
+      ; sender : Windows.Media.Protection.PlayReady.INDClient
+      ; args : Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Protection.PlayReady.INDClient(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_INDClient_add_ReRegistrationNeeded_Interface
       ; sender : Windows.Media.Protection.PlayReady.INDClient
       ; args : Windows.Object
@@ -102,48 +141,146 @@ package body Windows.Media.Protection.PlayReady is
       return Hr;
    end;
    
-   function Invoke
-   (
-      This       : access TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface
-      ; sender : Windows.Media.Protection.PlayReady.INDClient
-      ; args : Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Protection.PlayReady.INDClient(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_INDStartResult_Interface
-      ; asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDStartResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface
-      ; asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDLicenseFetchResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function CreateInstance
+   (
+      downloadEngine : Windows.Media.Protection.PlayReady.INDDownloadEngine
+      ; streamParser : Windows.Media.Protection.PlayReady.INDStreamParser
+      ; pMessenger : Windows.Media.Protection.PlayReady.INDMessenger
+   )
+   return Windows.Media.Protection.PlayReady.INDClient is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDClient");
+      m_Factory     : Windows.Media.Protection.PlayReady.INDClientFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.INDClient := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INDClientFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(downloadEngine, streamParser, pMessenger, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      customDataTypeIDBytes : Windows.UInt8_Ptr
+      ; customDataBytes : Windows.UInt8_Ptr
+   )
+   return Windows.Media.Protection.PlayReady.INDCustomData is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDCustomData");
+      m_Factory     : Windows.Media.Protection.PlayReady.INDCustomDataFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.INDCustomData := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INDCustomDataFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(customDataTypeIDBytes, customDataBytes, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_INDDownloadEngineNotifier'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateInstance
+   (
+      contentIDType : Windows.Media.Protection.PlayReady.NDContentIDType
+      ; contentIDBytes : Windows.UInt8_Ptr
+      ; licenseFetchChallengeCustomData : Windows.Media.Protection.PlayReady.INDCustomData
+   )
+   return Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor");
+      m_Factory     : Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INDLicenseFetchDescriptorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(contentIDType, contentIDBytes, licenseFetchChallengeCustomData, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Media.Protection.PlayReady.INDStorageFileHelper is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDStorageFileHelper");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.INDStorageFileHelper) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_INDStorageFileHelper'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Protection.PlayReady.INDStreamParserNotifier is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDStreamParserNotifier");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.INDStreamParserNotifier) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_INDStreamParserNotifier'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateInstance
+   (
+      remoteHostName : Windows.String
+      ; remoteHostPort : Windows.UInt32
+   )
+   return Windows.Media.Protection.PlayReady.INDMessenger is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDTCPMessenger");
+      m_Factory     : Windows.Media.Protection.PlayReady.INDTCPMessengerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.INDMessenger := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INDTCPMessengerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(remoteHostName, remoteHostPort, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreateInstanceFromWindowsMediaDrmHeader
    (
@@ -242,21 +379,24 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function Create return Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest");
-      Instance      : aliased IInspectable := null;
+   function CreateInstance
+   (
+      domainAccountId : Windows.Guid
+   )
+   return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyDomain is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyDomainIterable");
+      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadyDomainIterableFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest) with inline;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.IIterable_IPlayReadyDomain := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyDomainIterableFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_IPlayReadyIndividualizationServiceRequest'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateInstance(domainAccountId, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function Create return Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest is
@@ -287,6 +427,57 @@ package body Windows.Media.Protection.PlayReady is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_IPlayReadyDomainLeaveServiceRequest'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_IPlayReadyIndividualizationServiceRequest'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_IPlayReadyITADataGenerator'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_IPlayReadyLicenseAcquisitionServiceRequest'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -331,21 +522,24 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function Create return Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest");
-      Instance      : aliased IInspectable := null;
+   function CreateInstance
+   (
+      configuration : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyLicenseSession");
+      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadyLicenseSessionFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest) with inline;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyLicenseSessionFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_IPlayReadyLicenseAcquisitionServiceRequest'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateInstance(configuration, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function Create return Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest is
@@ -384,18 +578,18 @@ package body Windows.Media.Protection.PlayReady is
    
    function CreateInstance
    (
-      domainAccountId : Windows.Guid
+      publisherCertBytes : Windows.UInt8_Ptr
    )
-   return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyDomain is
+   return Windows.Media.Protection.PlayReady.IIterable_IPlayReadySecureStopServiceRequest is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyDomainIterable");
-      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadyDomainIterableFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable");
+      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadySecureStopIterableFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.IIterable_IPlayReadyDomain := null;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.IIterable_IPlayReadySecureStopServiceRequest := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyDomainIterableFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadySecureStopIterableFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(domainAccountId, RetVal'Access);
+         Hr := m_Factory.CreateInstance(publisherCertBytes, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -441,200 +635,6 @@ package body Windows.Media.Protection.PlayReady is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      publisherCertBytes : Windows.UInt8_Ptr
-   )
-   return Windows.Media.Protection.PlayReady.IIterable_IPlayReadySecureStopServiceRequest is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable");
-      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadySecureStopIterableFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.IIterable_IPlayReadySecureStopServiceRequest := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadySecureStopIterableFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(publisherCertBytes, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_IPlayReadyITADataGenerator'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateInstance
-   (
-      configuration : Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyLicenseSession");
-      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadyLicenseSessionFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyLicenseSessionFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(configuration, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_INDDownloadEngineNotifier'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Protection.PlayReady.INDStreamParserNotifier is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDStreamParserNotifier");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.INDStreamParserNotifier) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_INDStreamParserNotifier'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateInstance
-   (
-      remoteHostName : Windows.String
-      ; remoteHostPort : Windows.UInt32
-   )
-   return Windows.Media.Protection.PlayReady.INDMessenger is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDTCPMessenger");
-      m_Factory     : Windows.Media.Protection.PlayReady.INDTCPMessengerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.INDMessenger := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INDTCPMessengerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(remoteHostName, remoteHostPort, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      contentIDType : Windows.Media.Protection.PlayReady.NDContentIDType
-      ; contentIDBytes : Windows.UInt8_Ptr
-      ; licenseFetchChallengeCustomData : Windows.Media.Protection.PlayReady.INDCustomData
-   )
-   return Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor");
-      m_Factory     : Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptorFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INDLicenseFetchDescriptorFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(contentIDType, contentIDBytes, licenseFetchChallengeCustomData, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      customDataTypeIDBytes : Windows.UInt8_Ptr
-      ; customDataBytes : Windows.UInt8_Ptr
-   )
-   return Windows.Media.Protection.PlayReady.INDCustomData is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDCustomData");
-      m_Factory     : Windows.Media.Protection.PlayReady.INDCustomDataFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.INDCustomData := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INDCustomDataFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(customDataTypeIDBytes, customDataBytes, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      downloadEngine : Windows.Media.Protection.PlayReady.INDDownloadEngine
-      ; streamParser : Windows.Media.Protection.PlayReady.INDStreamParser
-      ; pMessenger : Windows.Media.Protection.PlayReady.INDMessenger
-   )
-   return Windows.Media.Protection.PlayReady.INDClient is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDClient");
-      m_Factory     : Windows.Media.Protection.PlayReady.INDClientFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.INDClient := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INDClientFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(downloadEngine, streamParser, pMessenger, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Media.Protection.PlayReady.INDStorageFileHelper is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.NDStorageFileHelper");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.PlayReady.INDStorageFileHelper) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Protection.PlayReady.IID_INDStorageFileHelper'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

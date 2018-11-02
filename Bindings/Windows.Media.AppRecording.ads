@@ -80,33 +80,33 @@ package Windows.Media.AppRecording is
    type IAppRecordingManagerStatics_Interface;
    type IAppRecordingManagerStatics is access all IAppRecordingManagerStatics_Interface'Class;
    type IAppRecordingManagerStatics_Ptr is access all IAppRecordingManagerStatics;
+   type IAppRecordingResult_Interface;
+   type IAppRecordingResult is access all IAppRecordingResult_Interface'Class;
+   type IAppRecordingResult_Ptr is access all IAppRecordingResult;
+   type IAppRecordingSavedScreenshotInfo_Interface;
+   type IAppRecordingSavedScreenshotInfo is access all IAppRecordingSavedScreenshotInfo_Interface'Class;
+   type IAppRecordingSavedScreenshotInfo_Ptr is access all IAppRecordingSavedScreenshotInfo;
+   type IAppRecordingSaveScreenshotResult_Interface;
+   type IAppRecordingSaveScreenshotResult is access all IAppRecordingSaveScreenshotResult_Interface'Class;
+   type IAppRecordingSaveScreenshotResult_Ptr is access all IAppRecordingSaveScreenshotResult;
    type IAppRecordingStatus_Interface;
    type IAppRecordingStatus is access all IAppRecordingStatus_Interface'Class;
    type IAppRecordingStatus_Ptr is access all IAppRecordingStatus;
    type IAppRecordingStatusDetails_Interface;
    type IAppRecordingStatusDetails is access all IAppRecordingStatusDetails_Interface'Class;
    type IAppRecordingStatusDetails_Ptr is access all IAppRecordingStatusDetails;
-   type IAppRecordingResult_Interface;
-   type IAppRecordingResult is access all IAppRecordingResult_Interface'Class;
-   type IAppRecordingResult_Ptr is access all IAppRecordingResult;
-   type IAppRecordingSaveScreenshotResult_Interface;
-   type IAppRecordingSaveScreenshotResult is access all IAppRecordingSaveScreenshotResult_Interface'Class;
-   type IAppRecordingSaveScreenshotResult_Ptr is access all IAppRecordingSaveScreenshotResult;
-   type IAppRecordingSavedScreenshotInfo_Interface;
-   type IAppRecordingSavedScreenshotInfo is access all IAppRecordingSavedScreenshotInfo_Interface'Class;
-   type IAppRecordingSavedScreenshotInfo_Ptr is access all IAppRecordingSavedScreenshotInfo;
    type IAsyncOperation_IAppRecordingResult_Interface;
    type IAsyncOperation_IAppRecordingResult is access all IAsyncOperation_IAppRecordingResult_Interface'Class;
    type IAsyncOperation_IAppRecordingResult_Ptr is access all IAsyncOperation_IAppRecordingResult;
    type IAsyncOperation_IAppRecordingSaveScreenshotResult_Interface;
    type IAsyncOperation_IAppRecordingSaveScreenshotResult is access all IAsyncOperation_IAppRecordingSaveScreenshotResult_Interface'Class;
    type IAsyncOperation_IAppRecordingSaveScreenshotResult_Ptr is access all IAsyncOperation_IAppRecordingSaveScreenshotResult;
-   type IIterator_IAppRecordingSavedScreenshotInfo_Interface;
-   type IIterator_IAppRecordingSavedScreenshotInfo is access all IIterator_IAppRecordingSavedScreenshotInfo_Interface'Class;
-   type IIterator_IAppRecordingSavedScreenshotInfo_Ptr is access all IIterator_IAppRecordingSavedScreenshotInfo;
    type IIterable_IAppRecordingSavedScreenshotInfo_Interface;
    type IIterable_IAppRecordingSavedScreenshotInfo is access all IIterable_IAppRecordingSavedScreenshotInfo_Interface'Class;
    type IIterable_IAppRecordingSavedScreenshotInfo_Ptr is access all IIterable_IAppRecordingSavedScreenshotInfo;
+   type IIterator_IAppRecordingSavedScreenshotInfo_Interface;
+   type IIterator_IAppRecordingSavedScreenshotInfo is access all IIterator_IAppRecordingSavedScreenshotInfo_Interface'Class;
+   type IIterator_IAppRecordingSavedScreenshotInfo_Ptr is access all IIterator_IAppRecordingSavedScreenshotInfo;
    type IVectorView_IAppRecordingSavedScreenshotInfo_Interface;
    type IVectorView_IAppRecordingSavedScreenshotInfo is access all IVectorView_IAppRecordingSavedScreenshotInfo_Interface'Class;
    type IVectorView_IAppRecordingSavedScreenshotInfo_Ptr is access all IVectorView_IAppRecordingSavedScreenshotInfo;
@@ -174,6 +174,87 @@ package Windows.Media.AppRecording is
    (
       This       : access IAppRecordingManagerStatics_Interface
       ; RetVal : access Windows.Media.AppRecording.IAppRecordingManager
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppRecordingResult : aliased constant Windows.IID := (982517860, 50797, 18169, (178, 217, 91, 194, 218, 208, 112, 215 ));
+   
+   type IAppRecordingResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Succeeded
+   (
+      This       : access IAppRecordingResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IAppRecordingResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Duration
+   (
+      This       : access IAppRecordingResult_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsFileTruncated
+   (
+      This       : access IAppRecordingResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (2607033610, 6298, 19712, (191, 37, 225, 187, 18, 73, 213, 148 ));
+   
+   type IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_File
+   (
+      This       : access IAppRecordingSavedScreenshotInfo_Interface
+      ; RetVal : access Windows.Storage.IStorageFile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MediaEncodingSubtype
+   (
+      This       : access IAppRecordingSavedScreenshotInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2623245578, 2747, 17495, (170, 238, 36, 249, 193, 46, 199, 120 ));
+   
+   type IAppRecordingSaveScreenshotResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Succeeded
+   (
+      This       : access IAppRecordingSaveScreenshotResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IAppRecordingSaveScreenshotResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SavedScreenshotInfos
+   (
+      This       : access IAppRecordingSaveScreenshotResult_Interface
+      ; RetVal : access Windows.Media.AppRecording.IVectorView_IAppRecordingSavedScreenshotInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -282,87 +363,6 @@ package Windows.Media.AppRecording is
    
    ------------------------------------------------------------------------
    
-   IID_IAppRecordingResult : aliased constant Windows.IID := (982517860, 50797, 18169, (178, 217, 91, 194, 218, 208, 112, 215 ));
-   
-   type IAppRecordingResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Succeeded
-   (
-      This       : access IAppRecordingResult_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtendedError
-   (
-      This       : access IAppRecordingResult_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Duration
-   (
-      This       : access IAppRecordingResult_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsFileTruncated
-   (
-      This       : access IAppRecordingResult_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2623245578, 2747, 17495, (170, 238, 36, 249, 193, 46, 199, 120 ));
-   
-   type IAppRecordingSaveScreenshotResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Succeeded
-   (
-      This       : access IAppRecordingSaveScreenshotResult_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtendedError
-   (
-      This       : access IAppRecordingSaveScreenshotResult_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SavedScreenshotInfos
-   (
-      This       : access IAppRecordingSaveScreenshotResult_Interface
-      ; RetVal : access Windows.Media.AppRecording.IVectorView_IAppRecordingSavedScreenshotInfo -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (2607033610, 6298, 19712, (191, 37, 225, 187, 18, 73, 213, 148 ));
-   
-   type IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_File
-   (
-      This       : access IAppRecordingSavedScreenshotInfo_Interface
-      ; RetVal : access Windows.Storage.IStorageFile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MediaEncodingSubtype
-   (
-      This       : access IAppRecordingSavedScreenshotInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IAsyncOperation_IAppRecordingResult : aliased constant Windows.IID := (745719574, 12522, 21804, (170, 202, 81, 209, 35, 35, 78, 227 ));
    
    type IAsyncOperation_IAppRecordingResult_Interface is interface and Windows.IInspectable_Interface;
@@ -417,6 +417,19 @@ package Windows.Media.AppRecording is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (3709273124, 31053, 20824, (169, 175, 104, 36, 53, 63, 145, 178 ));
+   
+   type IIterable_IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAppRecordingSavedScreenshotInfo_Interface
+      ; RetVal : access Windows.Media.AppRecording.IIterator_IAppRecordingSavedScreenshotInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (1010855958, 6464, 24107, (136, 48, 197, 75, 236, 187, 224, 218 ));
    
    type IIterator_IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -447,19 +460,6 @@ package Windows.Media.AppRecording is
       This       : access IIterator_IAppRecordingSavedScreenshotInfo_Interface
       ; items : Windows.Media.AppRecording.IAppRecordingSavedScreenshotInfo_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (3709273124, 31053, 20824, (169, 175, 104, 36, 53, 63, 145, 178 ));
-   
-   type IIterable_IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IAppRecordingSavedScreenshotInfo_Interface
-      ; RetVal : access Windows.Media.AppRecording.IIterator_IAppRecordingSavedScreenshotInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -536,12 +536,12 @@ package Windows.Media.AppRecording is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype AppRecordingStatus is Windows.Media.AppRecording.IAppRecordingStatus;
-   subtype AppRecordingResult is Windows.Media.AppRecording.IAppRecordingResult;
-   subtype AppRecordingSaveScreenshotResult is Windows.Media.AppRecording.IAppRecordingSaveScreenshotResult;
    subtype AppRecordingManager is Windows.Media.AppRecording.IAppRecordingManager;
-   subtype AppRecordingStatusDetails is Windows.Media.AppRecording.IAppRecordingStatusDetails;
+   subtype AppRecordingResult is Windows.Media.AppRecording.IAppRecordingResult;
    subtype AppRecordingSavedScreenshotInfo is Windows.Media.AppRecording.IAppRecordingSavedScreenshotInfo;
+   subtype AppRecordingSaveScreenshotResult is Windows.Media.AppRecording.IAppRecordingSaveScreenshotResult;
+   subtype AppRecordingStatus is Windows.Media.AppRecording.IAppRecordingStatus;
+   subtype AppRecordingStatusDetails is Windows.Media.AppRecording.IAppRecordingStatusDetails;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

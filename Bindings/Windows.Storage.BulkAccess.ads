@@ -40,26 +40,23 @@ package Windows.Storage.BulkAccess is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface;
-   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated is access all TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface'Class;
-   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Ptr is access all TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated;
    type TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface;
    type TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated is access all TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface'Class;
    type TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Ptr is access all TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated;
+   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface;
+   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated is access all TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface'Class;
+   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Ptr is access all TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IStorageItemInformation_Interface;
-   type IStorageItemInformation is access all IStorageItemInformation_Interface'Class;
-   type IStorageItemInformation_Ptr is access all IStorageItemInformation;
-   type IFileInformationFactoryFactory_Interface;
-   type IFileInformationFactoryFactory is access all IFileInformationFactoryFactory_Interface'Class;
-   type IFileInformationFactoryFactory_Ptr is access all IFileInformationFactoryFactory;
    type IFileInformationFactory_Interface;
    type IFileInformationFactory is access all IFileInformationFactory_Interface'Class;
    type IFileInformationFactory_Ptr is access all IFileInformationFactory;
+   type IFileInformationFactoryFactory_Interface;
+   type IFileInformationFactoryFactory is access all IFileInformationFactoryFactory_Interface'Class;
+   type IFileInformationFactoryFactory_Ptr is access all IFileInformationFactoryFactory;
    type IInputStreamReference_Imported_Interface;
    type IInputStreamReference_Imported is access all IInputStreamReference_Imported_Interface'Class;
    type IInputStreamReference_Imported_Ptr is access all IInputStreamReference_Imported;
@@ -69,136 +66,13 @@ package Windows.Storage.BulkAccess is
    type IStorageFolderQueryOperations_Imported_Interface;
    type IStorageFolderQueryOperations_Imported is access all IStorageFolderQueryOperations_Imported_Interface'Class;
    type IStorageFolderQueryOperations_Imported_Ptr is access all IStorageFolderQueryOperations_Imported;
+   type IStorageItemInformation_Interface;
+   type IStorageItemInformation is access all IStorageItemInformation_Interface'Class;
+   type IStorageItemInformation_Ptr is access all IStorageItemInformation;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStorageItemInformation : aliased constant Windows.IID := (2275789707, 35186, 20288, (141, 224, 216, 111, 177, 121, 216, 250 ));
-   
-   type IStorageItemInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MusicProperties
-   (
-      This       : access IStorageItemInformation_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IMusicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_VideoProperties
-   (
-      This       : access IStorageItemInformation_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IVideoProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ImageProperties
-   (
-      This       : access IStorageItemInformation_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IImageProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DocumentProperties
-   (
-      This       : access IStorageItemInformation_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IDocumentProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BasicProperties
-   (
-      This       : access IStorageItemInformation_Interface
-      ; RetVal : access Windows.Storage.FileProperties.IBasicProperties
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Thumbnail
-   (
-      This       : access IStorageItemInformation_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_ThumbnailUpdated
-   (
-      This       : access IStorageItemInformation_Interface
-      ; changedHandler : TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ThumbnailUpdated
-   (
-      This       : access IStorageItemInformation_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_PropertiesUpdated
-   (
-      This       : access IStorageItemInformation_Interface
-      ; changedHandler : TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_PropertiesUpdated
-   (
-      This       : access IStorageItemInformation_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFileInformationFactoryFactory : aliased constant Windows.IID := (2229931645, 58530, 20224, (138, 250, 175, 94, 15, 130, 107, 213 ));
-   
-   type IFileInformationFactoryFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateWithMode
-   (
-      This       : access IFileInformationFactoryFactory_Interface
-      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
-      ; mode : Windows.Storage.FileProperties.ThumbnailMode
-      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithModeAndSize
-   (
-      This       : access IFileInformationFactoryFactory_Interface
-      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
-      ; mode : Windows.Storage.FileProperties.ThumbnailMode
-      ; requestedThumbnailSize : Windows.UInt32
-      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithModeAndSizeAndOptions
-   (
-      This       : access IFileInformationFactoryFactory_Interface
-      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
-      ; mode : Windows.Storage.FileProperties.ThumbnailMode
-      ; requestedThumbnailSize : Windows.UInt32
-      ; thumbnailOptions : Windows.Storage.FileProperties.ThumbnailOptions
-      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithModeAndSizeAndOptionsAndFlags
-   (
-      This       : access IFileInformationFactoryFactory_Interface
-      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
-      ; mode : Windows.Storage.FileProperties.ThumbnailMode
-      ; requestedThumbnailSize : Windows.UInt32
-      ; thumbnailOptions : Windows.Storage.FileProperties.ThumbnailOptions
-      ; delayLoad : Windows.Boolean
-      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -272,6 +146,54 @@ package Windows.Storage.BulkAccess is
    (
       This       : access IFileInformationFactory_Interface
       ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileInformationFactoryFactory : aliased constant Windows.IID := (2229931645, 58530, 20224, (138, 250, 175, 94, 15, 130, 107, 213 ));
+   
+   type IFileInformationFactoryFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWithMode
+   (
+      This       : access IFileInformationFactoryFactory_Interface
+      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
+      ; mode : Windows.Storage.FileProperties.ThumbnailMode
+      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithModeAndSize
+   (
+      This       : access IFileInformationFactoryFactory_Interface
+      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
+      ; mode : Windows.Storage.FileProperties.ThumbnailMode
+      ; requestedThumbnailSize : Windows.UInt32
+      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithModeAndSizeAndOptions
+   (
+      This       : access IFileInformationFactoryFactory_Interface
+      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
+      ; mode : Windows.Storage.FileProperties.ThumbnailMode
+      ; requestedThumbnailSize : Windows.UInt32
+      ; thumbnailOptions : Windows.Storage.FileProperties.ThumbnailOptions
+      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithModeAndSizeAndOptionsAndFlags
+   (
+      This       : access IFileInformationFactoryFactory_Interface
+      ; queryResult : Windows.Storage.Search.IStorageQueryResultBase
+      ; mode : Windows.Storage.FileProperties.ThumbnailMode
+      ; requestedThumbnailSize : Windows.UInt32
+      ; thumbnailOptions : Windows.Storage.FileProperties.ThumbnailOptions
+      ; delayLoad : Windows.Boolean
+      ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
    )
    return Windows.HRESULT is abstract;
    
@@ -439,21 +361,86 @@ package Windows.Storage.BulkAccess is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IStorageItemInformation : aliased constant Windows.IID := (2275789707, 35186, 20288, (141, 224, 216, 111, 177, 121, 216, 250 ));
+   
+   type IStorageItemInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MusicProperties
+   (
+      This       : access IStorageItemInformation_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IMusicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VideoProperties
+   (
+      This       : access IStorageItemInformation_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IVideoProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ImageProperties
+   (
+      This       : access IStorageItemInformation_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IImageProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DocumentProperties
+   (
+      This       : access IStorageItemInformation_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IDocumentProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BasicProperties
+   (
+      This       : access IStorageItemInformation_Interface
+      ; RetVal : access Windows.Storage.FileProperties.IBasicProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Thumbnail
+   (
+      This       : access IStorageItemInformation_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ThumbnailUpdated
+   (
+      This       : access IStorageItemInformation_Interface
+      ; changedHandler : TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ThumbnailUpdated
+   (
+      This       : access IStorageItemInformation_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_PropertiesUpdated
+   (
+      This       : access IStorageItemInformation_Interface
+      ; changedHandler : TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_PropertiesUpdated
+   (
+      This       : access IStorageItemInformation_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
-   
-   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface
-      ; sender : Windows.Storage.BulkAccess.IStorageItemInformation
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -469,9 +456,23 @@ package Windows.Storage.BulkAccess is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
+   
+   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface
+      ; sender : Windows.Storage.BulkAccess.IStorageItemInformation
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype FileInformation is Windows.Storage.BulkAccess.IStorageItemInformation;
    subtype FileInformationFactory is Windows.Storage.BulkAccess.IFileInformationFactory;
    function CreateWithMode
    (
@@ -507,7 +508,6 @@ package Windows.Storage.BulkAccess is
    )
    return Windows.Storage.BulkAccess.IFileInformationFactory;
    
-   subtype FileInformation is Windows.Storage.BulkAccess.IStorageItemInformation;
    subtype FolderInformation is Windows.Storage.BulkAccess.IStorageItemInformation;
    
    ------------------------------------------------------------------------

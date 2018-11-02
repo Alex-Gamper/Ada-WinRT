@@ -63,6 +63,18 @@ package Windows.ApplicationModel.Resources.Management is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IIndexedResourceCandidate_Interface;
+   type IIndexedResourceCandidate is access all IIndexedResourceCandidate_Interface'Class;
+   type IIndexedResourceCandidate_Ptr is access all IIndexedResourceCandidate;
+   type IIndexedResourceQualifier_Interface;
+   type IIndexedResourceQualifier is access all IIndexedResourceQualifier_Interface'Class;
+   type IIndexedResourceQualifier_Ptr is access all IIndexedResourceQualifier;
+   type IIterable_IIndexedResourceQualifier_Interface;
+   type IIterable_IIndexedResourceQualifier is access all IIterable_IIndexedResourceQualifier_Interface'Class;
+   type IIterable_IIndexedResourceQualifier_Ptr is access all IIterable_IIndexedResourceQualifier;
+   type IIterator_IIndexedResourceQualifier_Interface;
+   type IIterator_IIndexedResourceQualifier is access all IIterator_IIndexedResourceQualifier_Interface'Class;
+   type IIterator_IIndexedResourceQualifier_Ptr is access all IIterator_IIndexedResourceQualifier;
    type IResourceIndexer_Interface;
    type IResourceIndexer is access all IResourceIndexer_Interface'Class;
    type IResourceIndexer_Ptr is access all IResourceIndexer;
@@ -72,18 +84,6 @@ package Windows.ApplicationModel.Resources.Management is
    type IResourceIndexerFactory2_Interface;
    type IResourceIndexerFactory2 is access all IResourceIndexerFactory2_Interface'Class;
    type IResourceIndexerFactory2_Ptr is access all IResourceIndexerFactory2;
-   type IIndexedResourceQualifier_Interface;
-   type IIndexedResourceQualifier is access all IIndexedResourceQualifier_Interface'Class;
-   type IIndexedResourceQualifier_Ptr is access all IIndexedResourceQualifier;
-   type IIndexedResourceCandidate_Interface;
-   type IIndexedResourceCandidate is access all IIndexedResourceCandidate_Interface'Class;
-   type IIndexedResourceCandidate_Ptr is access all IIndexedResourceCandidate;
-   type IIterator_IIndexedResourceQualifier_Interface;
-   type IIterator_IIndexedResourceQualifier is access all IIterator_IIndexedResourceQualifier_Interface'Class;
-   type IIterator_IIndexedResourceQualifier_Ptr is access all IIterator_IIndexedResourceQualifier;
-   type IIterable_IIndexedResourceQualifier_Interface;
-   type IIterable_IIndexedResourceQualifier is access all IIterable_IIndexedResourceQualifier_Interface'Class;
-   type IIterable_IIndexedResourceQualifier_Ptr is access all IIterable_IIndexedResourceQualifier;
    type IVectorView_IIndexedResourceQualifier_Interface;
    type IVectorView_IIndexedResourceQualifier is access all IVectorView_IIndexedResourceQualifier_Interface'Class;
    type IVectorView_IIndexedResourceQualifier_Ptr is access all IVectorView_IIndexedResourceQualifier;
@@ -91,6 +91,123 @@ package Windows.ApplicationModel.Resources.Management is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIndexedResourceCandidate : aliased constant Windows.IID := (241278707, 64236, 17428, (169, 215, 84, 172, 213, 149, 63, 41 ));
+   
+   type IIndexedResourceCandidate_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Type
+   (
+      This       : access IIndexedResourceCandidate_Interface
+      ; RetVal : access Windows.ApplicationModel.Resources.Management.IndexedResourceType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Uri
+   (
+      This       : access IIndexedResourceCandidate_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Metadata
+   (
+      This       : access IIndexedResourceCandidate_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Qualifiers
+   (
+      This       : access IIndexedResourceCandidate_Interface
+      ; RetVal : access Windows.ApplicationModel.Resources.Management.IVectorView_IIndexedResourceQualifier -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ValueAsString
+   (
+      This       : access IIndexedResourceCandidate_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetQualifierValue
+   (
+      This       : access IIndexedResourceCandidate_Interface
+      ; qualifierName : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIndexedResourceQualifier : aliased constant Windows.IID := (3672357787, 54020, 18815, (161, 104, 163, 64, 4, 44, 138, 219 ));
+   
+   type IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_QualifierName
+   (
+      This       : access IIndexedResourceQualifier_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_QualifierValue
+   (
+      This       : access IIndexedResourceQualifier_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IIndexedResourceQualifier : aliased constant Windows.IID := (3782083669, 29505, 21952, (160, 36, 38, 217, 173, 67, 200, 204 ));
+   
+   type IIterable_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IIndexedResourceQualifier_Interface
+      ; RetVal : access Windows.ApplicationModel.Resources.Management.IIterator_IIndexedResourceQualifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IIndexedResourceQualifier : aliased constant Windows.IID := (438496238, 31122, 20888, (151, 43, 5, 69, 128, 148, 87, 65 ));
+   
+   type IIterator_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IIndexedResourceQualifier_Interface
+      ; RetVal : access Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IIndexedResourceQualifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IIndexedResourceQualifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IIndexedResourceQualifier_Interface
+      ; items : Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -145,123 +262,6 @@ package Windows.ApplicationModel.Resources.Management is
    
    ------------------------------------------------------------------------
    
-   IID_IIndexedResourceQualifier : aliased constant Windows.IID := (3672357787, 54020, 18815, (161, 104, 163, 64, 4, 44, 138, 219 ));
-   
-   type IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_QualifierName
-   (
-      This       : access IIndexedResourceQualifier_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_QualifierValue
-   (
-      This       : access IIndexedResourceQualifier_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIndexedResourceCandidate : aliased constant Windows.IID := (241278707, 64236, 17428, (169, 215, 84, 172, 213, 149, 63, 41 ));
-   
-   type IIndexedResourceCandidate_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Type
-   (
-      This       : access IIndexedResourceCandidate_Interface
-      ; RetVal : access Windows.ApplicationModel.Resources.Management.IndexedResourceType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Uri
-   (
-      This       : access IIndexedResourceCandidate_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Metadata
-   (
-      This       : access IIndexedResourceCandidate_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Qualifiers
-   (
-      This       : access IIndexedResourceCandidate_Interface
-      ; RetVal : access Windows.ApplicationModel.Resources.Management.IVectorView_IIndexedResourceQualifier -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ValueAsString
-   (
-      This       : access IIndexedResourceCandidate_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetQualifierValue
-   (
-      This       : access IIndexedResourceCandidate_Interface
-      ; qualifierName : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IIndexedResourceQualifier : aliased constant Windows.IID := (438496238, 31122, 20888, (151, 43, 5, 69, 128, 148, 87, 65 ));
-   
-   type IIterator_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IIndexedResourceQualifier_Interface
-      ; RetVal : access Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IIndexedResourceQualifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IIndexedResourceQualifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IIndexedResourceQualifier_Interface
-      ; items : Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IIndexedResourceQualifier : aliased constant Windows.IID := (3782083669, 29505, 21952, (160, 36, 38, 217, 173, 67, 200, 204 ));
-   
-   type IIterable_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IIndexedResourceQualifier_Interface
-      ; RetVal : access Windows.ApplicationModel.Resources.Management.IIterator_IIndexedResourceQualifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVectorView_IIndexedResourceQualifier : aliased constant Windows.IID := (597552456, 52740, 20978, (178, 201, 165, 229, 171, 103, 27, 141 ));
    
    type IVectorView_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
@@ -304,6 +304,7 @@ package Windows.ApplicationModel.Resources.Management is
    ------------------------------------------------------------------------
    
    subtype IndexedResourceCandidate is Windows.ApplicationModel.Resources.Management.IIndexedResourceCandidate;
+   subtype IndexedResourceQualifier is Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier;
    subtype ResourceIndexer is Windows.ApplicationModel.Resources.Management.IResourceIndexer;
    function CreateResourceIndexerWithExtension
    (
@@ -318,7 +319,6 @@ package Windows.ApplicationModel.Resources.Management is
    )
    return Windows.ApplicationModel.Resources.Management.IResourceIndexer;
    
-   subtype IndexedResourceQualifier is Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

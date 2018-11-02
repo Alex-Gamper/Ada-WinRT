@@ -40,32 +40,6 @@ package Windows.ApplicationModel.Appointments is
    -- Enums
    ------------------------------------------------------------------------
    
-   type AppointmentStoreAccessType is (
-      AppCalendarsReadWrite,
-      AllCalendarsReadOnly,
-      AllCalendarsReadWrite
-   );
-   for AppointmentStoreAccessType use (
-      AppCalendarsReadWrite => 0,
-      AllCalendarsReadOnly => 1,
-      AllCalendarsReadWrite => 2
-   );
-   for AppointmentStoreAccessType'Size use 32;
-   
-   type AppointmentStoreAccessType_Ptr is access AppointmentStoreAccessType;
-   
-   type AppointmentSensitivity is (
-      Public,
-      Private_x
-   );
-   for AppointmentSensitivity use (
-      Public => 0,
-      Private_x => 1
-   );
-   for AppointmentSensitivity'Size use 32;
-   
-   type AppointmentSensitivity_Ptr is access AppointmentSensitivity;
-   
    type AppointmentBusyStatus is (
       Busy,
       Tentative,
@@ -83,6 +57,108 @@ package Windows.ApplicationModel.Appointments is
    for AppointmentBusyStatus'Size use 32;
    
    type AppointmentBusyStatus_Ptr is access AppointmentBusyStatus;
+   
+   type AppointmentCalendarOtherAppReadAccess is (
+      SystemOnly,
+      Limited_x,
+      Full,
+      None
+   );
+   for AppointmentCalendarOtherAppReadAccess use (
+      SystemOnly => 0,
+      Limited_x => 1,
+      Full => 2,
+      None => 3
+   );
+   for AppointmentCalendarOtherAppReadAccess'Size use 32;
+   
+   type AppointmentCalendarOtherAppReadAccess_Ptr is access AppointmentCalendarOtherAppReadAccess;
+   
+   type AppointmentCalendarOtherAppWriteAccess is (
+      None,
+      SystemOnly,
+      Limited_x
+   );
+   for AppointmentCalendarOtherAppWriteAccess use (
+      None => 0,
+      SystemOnly => 1,
+      Limited_x => 2
+   );
+   for AppointmentCalendarOtherAppWriteAccess'Size use 32;
+   
+   type AppointmentCalendarOtherAppWriteAccess_Ptr is access AppointmentCalendarOtherAppWriteAccess;
+   
+   type AppointmentCalendarSyncStatus is (
+      Idle,
+      Syncing,
+      UpToDate,
+      AuthenticationError,
+      PolicyError,
+      UnknownError,
+      ManualAccountRemovalRequired
+   );
+   for AppointmentCalendarSyncStatus use (
+      Idle => 0,
+      Syncing => 1,
+      UpToDate => 2,
+      AuthenticationError => 3,
+      PolicyError => 4,
+      UnknownError => 5,
+      ManualAccountRemovalRequired => 6
+   );
+   for AppointmentCalendarSyncStatus'Size use 32;
+   
+   type AppointmentCalendarSyncStatus_Ptr is access AppointmentCalendarSyncStatus;
+   
+   type AppointmentConflictType is (
+      None,
+      Adjacent,
+      Overlap
+   );
+   for AppointmentConflictType use (
+      None => 0,
+      Adjacent => 1,
+      Overlap => 2
+   );
+   for AppointmentConflictType'Size use 32;
+   
+   type AppointmentConflictType_Ptr is access AppointmentConflictType;
+   
+   type AppointmentDaysOfWeek is (
+      None,
+      Sunday,
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday,
+      Saturday
+   );
+   for AppointmentDaysOfWeek use (
+      None => 0,
+      Sunday => 1,
+      Monday => 2,
+      Tuesday => 4,
+      Wednesday => 8,
+      Thursday => 16,
+      Friday => 32,
+      Saturday => 64
+   );
+   for AppointmentDaysOfWeek'Size use 32;
+   
+   type AppointmentDaysOfWeek_Ptr is access AppointmentDaysOfWeek;
+   
+   type AppointmentDetailsKind is (
+      PlainText,
+      Html
+   );
+   for AppointmentDetailsKind use (
+      PlainText => 0,
+      Html => 1
+   );
+   for AppointmentDetailsKind'Size use 32;
+   
+   type AppointmentDetailsKind_Ptr is access AppointmentDetailsKind;
    
    type AppointmentParticipantResponse is (
       None,
@@ -136,163 +212,31 @@ package Windows.ApplicationModel.Appointments is
    
    type AppointmentRecurrenceUnit_Ptr is access AppointmentRecurrenceUnit;
    
-   type AppointmentDaysOfWeek is (
-      None,
-      Sunday,
-      Monday,
-      Tuesday,
-      Wednesday,
-      Thursday,
-      Friday,
-      Saturday
+   type AppointmentSensitivity is (
+      Public,
+      Private_x
    );
-   for AppointmentDaysOfWeek use (
-      None => 0,
-      Sunday => 1,
-      Monday => 2,
-      Tuesday => 4,
-      Wednesday => 8,
-      Thursday => 16,
-      Friday => 32,
-      Saturday => 64
+   for AppointmentSensitivity use (
+      Public => 0,
+      Private_x => 1
    );
-   for AppointmentDaysOfWeek'Size use 32;
+   for AppointmentSensitivity'Size use 32;
    
-   type AppointmentDaysOfWeek_Ptr is access AppointmentDaysOfWeek;
+   type AppointmentSensitivity_Ptr is access AppointmentSensitivity;
    
-   type AppointmentWeekOfMonth is (
-      First,
-      Second,
-      Third,
-      Fourth,
-      Last
+   type AppointmentStoreAccessType is (
+      AppCalendarsReadWrite,
+      AllCalendarsReadOnly,
+      AllCalendarsReadWrite
    );
-   for AppointmentWeekOfMonth use (
-      First => 0,
-      Second => 1,
-      Third => 2,
-      Fourth => 3,
-      Last => 4
+   for AppointmentStoreAccessType use (
+      AppCalendarsReadWrite => 0,
+      AllCalendarsReadOnly => 1,
+      AllCalendarsReadWrite => 2
    );
-   for AppointmentWeekOfMonth'Size use 32;
+   for AppointmentStoreAccessType'Size use 32;
    
-   type AppointmentWeekOfMonth_Ptr is access AppointmentWeekOfMonth;
-   
-   type AppointmentCalendarSyncStatus is (
-      Idle,
-      Syncing,
-      UpToDate,
-      AuthenticationError,
-      PolicyError,
-      UnknownError,
-      ManualAccountRemovalRequired
-   );
-   for AppointmentCalendarSyncStatus use (
-      Idle => 0,
-      Syncing => 1,
-      UpToDate => 2,
-      AuthenticationError => 3,
-      PolicyError => 4,
-      UnknownError => 5,
-      ManualAccountRemovalRequired => 6
-   );
-   for AppointmentCalendarSyncStatus'Size use 32;
-   
-   type AppointmentCalendarSyncStatus_Ptr is access AppointmentCalendarSyncStatus;
-   
-   type RecurrenceType is (
-      Master,
-      Instance,
-      ExceptionInstance
-   );
-   for RecurrenceType use (
-      Master => 0,
-      Instance => 1,
-      ExceptionInstance => 2
-   );
-   for RecurrenceType'Size use 32;
-   
-   type RecurrenceType_Ptr is access RecurrenceType;
-   
-   type AppointmentDetailsKind is (
-      PlainText,
-      Html
-   );
-   for AppointmentDetailsKind use (
-      PlainText => 0,
-      Html => 1
-   );
-   for AppointmentDetailsKind'Size use 32;
-   
-   type AppointmentDetailsKind_Ptr is access AppointmentDetailsKind;
-   
-   type FindAppointmentCalendarsOptions is (
-      None,
-      IncludeHidden
-   );
-   for FindAppointmentCalendarsOptions use (
-      None => 0,
-      IncludeHidden => 1
-   );
-   for FindAppointmentCalendarsOptions'Size use 32;
-   
-   type FindAppointmentCalendarsOptions_Ptr is access FindAppointmentCalendarsOptions;
-   
-   type AppointmentSummaryCardView is (
-      System,
-      App
-   );
-   for AppointmentSummaryCardView use (
-      System => 0,
-      App => 1
-   );
-   for AppointmentSummaryCardView'Size use 32;
-   
-   type AppointmentSummaryCardView_Ptr is access AppointmentSummaryCardView;
-   
-   type AppointmentCalendarOtherAppReadAccess is (
-      SystemOnly,
-      Limited_x,
-      Full,
-      None
-   );
-   for AppointmentCalendarOtherAppReadAccess use (
-      SystemOnly => 0,
-      Limited_x => 1,
-      Full => 2,
-      None => 3
-   );
-   for AppointmentCalendarOtherAppReadAccess'Size use 32;
-   
-   type AppointmentCalendarOtherAppReadAccess_Ptr is access AppointmentCalendarOtherAppReadAccess;
-   
-   type AppointmentCalendarOtherAppWriteAccess is (
-      None,
-      SystemOnly,
-      Limited_x
-   );
-   for AppointmentCalendarOtherAppWriteAccess use (
-      None => 0,
-      SystemOnly => 1,
-      Limited_x => 2
-   );
-   for AppointmentCalendarOtherAppWriteAccess'Size use 32;
-   
-   type AppointmentCalendarOtherAppWriteAccess_Ptr is access AppointmentCalendarOtherAppWriteAccess;
-   
-   type AppointmentConflictType is (
-      None,
-      Adjacent,
-      Overlap
-   );
-   for AppointmentConflictType use (
-      None => 0,
-      Adjacent => 1,
-      Overlap => 2
-   );
-   for AppointmentConflictType'Size use 32;
-   
-   type AppointmentConflictType_Ptr is access AppointmentConflictType;
+   type AppointmentStoreAccessType_Ptr is access AppointmentStoreAccessType;
    
    type AppointmentStoreChangeType is (
       AppointmentCreated,
@@ -316,25 +260,81 @@ package Windows.ApplicationModel.Appointments is
    
    type AppointmentStoreChangeType_Ptr is access AppointmentStoreChangeType;
    
+   type AppointmentSummaryCardView is (
+      System,
+      App
+   );
+   for AppointmentSummaryCardView use (
+      System => 0,
+      App => 1
+   );
+   for AppointmentSummaryCardView'Size use 32;
+   
+   type AppointmentSummaryCardView_Ptr is access AppointmentSummaryCardView;
+   
+   type AppointmentWeekOfMonth is (
+      First,
+      Second,
+      Third,
+      Fourth,
+      Last
+   );
+   for AppointmentWeekOfMonth use (
+      First => 0,
+      Second => 1,
+      Third => 2,
+      Fourth => 3,
+      Last => 4
+   );
+   for AppointmentWeekOfMonth'Size use 32;
+   
+   type AppointmentWeekOfMonth_Ptr is access AppointmentWeekOfMonth;
+   
+   type FindAppointmentCalendarsOptions is (
+      None,
+      IncludeHidden
+   );
+   for FindAppointmentCalendarsOptions use (
+      None => 0,
+      IncludeHidden => 1
+   );
+   for FindAppointmentCalendarsOptions'Size use 32;
+   
+   type FindAppointmentCalendarsOptions_Ptr is access FindAppointmentCalendarsOptions;
+   
+   type RecurrenceType is (
+      Master,
+      Instance,
+      ExceptionInstance
+   );
+   for RecurrenceType use (
+      Master => 0,
+      Instance => 1,
+      ExceptionInstance => 2
+   );
+   for RecurrenceType'Size use 32;
+   
+   type RecurrenceType_Ptr is access RecurrenceType;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type AsyncOperationCompletedHandler_IAppointmentStore_Interface;
-   type AsyncOperationCompletedHandler_IAppointmentStore is access all AsyncOperationCompletedHandler_IAppointmentStore_Interface'Class;
-   type AsyncOperationCompletedHandler_IAppointmentStore_Ptr is access all AsyncOperationCompletedHandler_IAppointmentStore;
    type AsyncOperationCompletedHandler_IAppointment_Interface;
    type AsyncOperationCompletedHandler_IAppointment is access all AsyncOperationCompletedHandler_IAppointment_Interface'Class;
    type AsyncOperationCompletedHandler_IAppointment_Ptr is access all AsyncOperationCompletedHandler_IAppointment;
-   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface;
-   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged is access all TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface'Class;
-   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Ptr is access all TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged;
    type AsyncOperationCompletedHandler_IAppointmentCalendar_Interface;
    type AsyncOperationCompletedHandler_IAppointmentCalendar is access all AsyncOperationCompletedHandler_IAppointmentCalendar_Interface'Class;
    type AsyncOperationCompletedHandler_IAppointmentCalendar_Ptr is access all AsyncOperationCompletedHandler_IAppointmentCalendar;
    type AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface;
    type AsyncOperationCompletedHandler_IAppointmentConflictResult is access all AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface'Class;
    type AsyncOperationCompletedHandler_IAppointmentConflictResult_Ptr is access all AsyncOperationCompletedHandler_IAppointmentConflictResult;
+   type AsyncOperationCompletedHandler_IAppointmentStore_Interface;
+   type AsyncOperationCompletedHandler_IAppointmentStore is access all AsyncOperationCompletedHandler_IAppointmentStore_Interface'Class;
+   type AsyncOperationCompletedHandler_IAppointmentStore_Ptr is access all AsyncOperationCompletedHandler_IAppointmentStore;
+   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface;
+   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged is access all TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface'Class;
+   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Ptr is access all TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged;
    type TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface;
    type TypedEventHandler_IAppointmentStore2_add_StoreChanged is access all TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface'Class;
    type TypedEventHandler_IAppointmentStore2_add_StoreChanged_Ptr is access all TypedEventHandler_IAppointmentStore2_add_StoreChanged;
@@ -343,33 +343,6 @@ package Windows.ApplicationModel.Appointments is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IAppointmentManagerStatics_Interface;
-   type IAppointmentManagerStatics is access all IAppointmentManagerStatics_Interface'Class;
-   type IAppointmentManagerStatics_Ptr is access all IAppointmentManagerStatics;
-   type IAppointmentManagerStatics2_Interface;
-   type IAppointmentManagerStatics2 is access all IAppointmentManagerStatics2_Interface'Class;
-   type IAppointmentManagerStatics2_Ptr is access all IAppointmentManagerStatics2;
-   type IAppointmentManagerStatics3_Interface;
-   type IAppointmentManagerStatics3 is access all IAppointmentManagerStatics3_Interface'Class;
-   type IAppointmentManagerStatics3_Ptr is access all IAppointmentManagerStatics3;
-   type IAppointmentManagerForUser_Interface;
-   type IAppointmentManagerForUser is access all IAppointmentManagerForUser_Interface'Class;
-   type IAppointmentManagerForUser_Ptr is access all IAppointmentManagerForUser;
-   type IAppointmentParticipant_Interface;
-   type IAppointmentParticipant is access all IAppointmentParticipant_Interface'Class;
-   type IAppointmentParticipant_Ptr is access all IAppointmentParticipant;
-   type IAppointmentInvitee_Interface;
-   type IAppointmentInvitee is access all IAppointmentInvitee_Interface'Class;
-   type IAppointmentInvitee_Ptr is access all IAppointmentInvitee;
-   type IAppointmentRecurrence_Interface;
-   type IAppointmentRecurrence is access all IAppointmentRecurrence_Interface'Class;
-   type IAppointmentRecurrence_Ptr is access all IAppointmentRecurrence;
-   type IAppointmentRecurrence2_Interface;
-   type IAppointmentRecurrence2 is access all IAppointmentRecurrence2_Interface'Class;
-   type IAppointmentRecurrence2_Ptr is access all IAppointmentRecurrence2;
-   type IAppointmentRecurrence3_Interface;
-   type IAppointmentRecurrence3 is access all IAppointmentRecurrence3_Interface'Class;
-   type IAppointmentRecurrence3_Ptr is access all IAppointmentRecurrence3;
    type IAppointment_Interface;
    type IAppointment is access all IAppointment_Interface'Class;
    type IAppointment_Ptr is access all IAppointment;
@@ -379,9 +352,6 @@ package Windows.ApplicationModel.Appointments is
    type IAppointment3_Interface;
    type IAppointment3 is access all IAppointment3_Interface'Class;
    type IAppointment3_Ptr is access all IAppointment3;
-   type IFindAppointmentsOptions_Interface;
-   type IFindAppointmentsOptions is access all IFindAppointmentsOptions_Interface'Class;
-   type IFindAppointmentsOptions_Ptr is access all IFindAppointmentsOptions;
    type IAppointmentCalendar_Interface;
    type IAppointmentCalendar is access all IAppointmentCalendar_Interface'Class;
    type IAppointmentCalendar_Ptr is access all IAppointmentCalendar;
@@ -397,39 +367,45 @@ package Windows.ApplicationModel.Appointments is
    type IAppointmentCalendarSyncManager2_Interface;
    type IAppointmentCalendarSyncManager2 is access all IAppointmentCalendarSyncManager2_Interface'Class;
    type IAppointmentCalendarSyncManager2_Ptr is access all IAppointmentCalendarSyncManager2;
+   type IAppointmentConflictResult_Interface;
+   type IAppointmentConflictResult is access all IAppointmentConflictResult_Interface'Class;
+   type IAppointmentConflictResult_Ptr is access all IAppointmentConflictResult;
+   type IAppointmentException_Interface;
+   type IAppointmentException is access all IAppointmentException_Interface'Class;
+   type IAppointmentException_Ptr is access all IAppointmentException;
+   type IAppointmentInvitee_Interface;
+   type IAppointmentInvitee is access all IAppointmentInvitee_Interface'Class;
+   type IAppointmentInvitee_Ptr is access all IAppointmentInvitee;
+   type IAppointmentManagerForUser_Interface;
+   type IAppointmentManagerForUser is access all IAppointmentManagerForUser_Interface'Class;
+   type IAppointmentManagerForUser_Ptr is access all IAppointmentManagerForUser;
+   type IAppointmentManagerStatics_Interface;
+   type IAppointmentManagerStatics is access all IAppointmentManagerStatics_Interface'Class;
+   type IAppointmentManagerStatics_Ptr is access all IAppointmentManagerStatics;
+   type IAppointmentManagerStatics2_Interface;
+   type IAppointmentManagerStatics2 is access all IAppointmentManagerStatics2_Interface'Class;
+   type IAppointmentManagerStatics2_Ptr is access all IAppointmentManagerStatics2;
+   type IAppointmentManagerStatics3_Interface;
+   type IAppointmentManagerStatics3 is access all IAppointmentManagerStatics3_Interface'Class;
+   type IAppointmentManagerStatics3_Ptr is access all IAppointmentManagerStatics3;
+   type IAppointmentParticipant_Interface;
+   type IAppointmentParticipant is access all IAppointmentParticipant_Interface'Class;
+   type IAppointmentParticipant_Ptr is access all IAppointmentParticipant;
    type IAppointmentPropertiesStatics_Interface;
    type IAppointmentPropertiesStatics is access all IAppointmentPropertiesStatics_Interface'Class;
    type IAppointmentPropertiesStatics_Ptr is access all IAppointmentPropertiesStatics;
    type IAppointmentPropertiesStatics2_Interface;
    type IAppointmentPropertiesStatics2 is access all IAppointmentPropertiesStatics2_Interface'Class;
    type IAppointmentPropertiesStatics2_Ptr is access all IAppointmentPropertiesStatics2;
-   type IAppointmentConflictResult_Interface;
-   type IAppointmentConflictResult is access all IAppointmentConflictResult_Interface'Class;
-   type IAppointmentConflictResult_Ptr is access all IAppointmentConflictResult;
-   type IAppointmentStoreChange_Interface;
-   type IAppointmentStoreChange is access all IAppointmentStoreChange_Interface'Class;
-   type IAppointmentStoreChange_Ptr is access all IAppointmentStoreChange;
-   type IAppointmentStoreChange2_Interface;
-   type IAppointmentStoreChange2 is access all IAppointmentStoreChange2_Interface'Class;
-   type IAppointmentStoreChange2_Ptr is access all IAppointmentStoreChange2;
-   type IAppointmentStoreChangeReader_Interface;
-   type IAppointmentStoreChangeReader is access all IAppointmentStoreChangeReader_Interface'Class;
-   type IAppointmentStoreChangeReader_Ptr is access all IAppointmentStoreChangeReader;
-   type IAppointmentStoreChangeTracker_Interface;
-   type IAppointmentStoreChangeTracker is access all IAppointmentStoreChangeTracker_Interface'Class;
-   type IAppointmentStoreChangeTracker_Ptr is access all IAppointmentStoreChangeTracker;
-   type IAppointmentStoreChangeTracker2_Interface;
-   type IAppointmentStoreChangeTracker2 is access all IAppointmentStoreChangeTracker2_Interface'Class;
-   type IAppointmentStoreChangeTracker2_Ptr is access all IAppointmentStoreChangeTracker2;
-   type IAppointmentStoreChangedEventArgs_Interface;
-   type IAppointmentStoreChangedEventArgs is access all IAppointmentStoreChangedEventArgs_Interface'Class;
-   type IAppointmentStoreChangedEventArgs_Ptr is access all IAppointmentStoreChangedEventArgs;
-   type IAppointmentStoreChangedDeferral_Interface;
-   type IAppointmentStoreChangedDeferral is access all IAppointmentStoreChangedDeferral_Interface'Class;
-   type IAppointmentStoreChangedDeferral_Ptr is access all IAppointmentStoreChangedDeferral;
-   type IAppointmentStoreNotificationTriggerDetails_Interface;
-   type IAppointmentStoreNotificationTriggerDetails is access all IAppointmentStoreNotificationTriggerDetails_Interface'Class;
-   type IAppointmentStoreNotificationTriggerDetails_Ptr is access all IAppointmentStoreNotificationTriggerDetails;
+   type IAppointmentRecurrence_Interface;
+   type IAppointmentRecurrence is access all IAppointmentRecurrence_Interface'Class;
+   type IAppointmentRecurrence_Ptr is access all IAppointmentRecurrence;
+   type IAppointmentRecurrence2_Interface;
+   type IAppointmentRecurrence2 is access all IAppointmentRecurrence2_Interface'Class;
+   type IAppointmentRecurrence2_Ptr is access all IAppointmentRecurrence2;
+   type IAppointmentRecurrence3_Interface;
+   type IAppointmentRecurrence3 is access all IAppointmentRecurrence3_Interface'Class;
+   type IAppointmentRecurrence3_Ptr is access all IAppointmentRecurrence3;
    type IAppointmentStore_Interface;
    type IAppointmentStore is access all IAppointmentStore_Interface'Class;
    type IAppointmentStore_Ptr is access all IAppointmentStore;
@@ -439,24 +415,30 @@ package Windows.ApplicationModel.Appointments is
    type IAppointmentStore3_Interface;
    type IAppointmentStore3 is access all IAppointmentStore3_Interface'Class;
    type IAppointmentStore3_Ptr is access all IAppointmentStore3;
-   type IAppointmentException_Interface;
-   type IAppointmentException is access all IAppointmentException_Interface'Class;
-   type IAppointmentException_Ptr is access all IAppointmentException;
-   type IAsyncOperation_IAppointmentStore_Interface;
-   type IAsyncOperation_IAppointmentStore is access all IAsyncOperation_IAppointmentStore_Interface'Class;
-   type IAsyncOperation_IAppointmentStore_Ptr is access all IAsyncOperation_IAppointmentStore;
-   type IIterator_IAppointmentInvitee_Interface;
-   type IIterator_IAppointmentInvitee is access all IIterator_IAppointmentInvitee_Interface'Class;
-   type IIterator_IAppointmentInvitee_Ptr is access all IIterator_IAppointmentInvitee;
-   type IIterable_IAppointmentInvitee_Interface;
-   type IIterable_IAppointmentInvitee is access all IIterable_IAppointmentInvitee_Interface'Class;
-   type IIterable_IAppointmentInvitee_Ptr is access all IIterable_IAppointmentInvitee;
-   type IVectorView_IAppointmentInvitee_Interface;
-   type IVectorView_IAppointmentInvitee is access all IVectorView_IAppointmentInvitee_Interface'Class;
-   type IVectorView_IAppointmentInvitee_Ptr is access all IVectorView_IAppointmentInvitee;
-   type IVector_IAppointmentInvitee_Interface;
-   type IVector_IAppointmentInvitee is access all IVector_IAppointmentInvitee_Interface'Class;
-   type IVector_IAppointmentInvitee_Ptr is access all IVector_IAppointmentInvitee;
+   type IAppointmentStoreChange_Interface;
+   type IAppointmentStoreChange is access all IAppointmentStoreChange_Interface'Class;
+   type IAppointmentStoreChange_Ptr is access all IAppointmentStoreChange;
+   type IAppointmentStoreChange2_Interface;
+   type IAppointmentStoreChange2 is access all IAppointmentStoreChange2_Interface'Class;
+   type IAppointmentStoreChange2_Ptr is access all IAppointmentStoreChange2;
+   type IAppointmentStoreChangedDeferral_Interface;
+   type IAppointmentStoreChangedDeferral is access all IAppointmentStoreChangedDeferral_Interface'Class;
+   type IAppointmentStoreChangedDeferral_Ptr is access all IAppointmentStoreChangedDeferral;
+   type IAppointmentStoreChangedEventArgs_Interface;
+   type IAppointmentStoreChangedEventArgs is access all IAppointmentStoreChangedEventArgs_Interface'Class;
+   type IAppointmentStoreChangedEventArgs_Ptr is access all IAppointmentStoreChangedEventArgs;
+   type IAppointmentStoreChangeReader_Interface;
+   type IAppointmentStoreChangeReader is access all IAppointmentStoreChangeReader_Interface'Class;
+   type IAppointmentStoreChangeReader_Ptr is access all IAppointmentStoreChangeReader;
+   type IAppointmentStoreChangeTracker_Interface;
+   type IAppointmentStoreChangeTracker is access all IAppointmentStoreChangeTracker_Interface'Class;
+   type IAppointmentStoreChangeTracker_Ptr is access all IAppointmentStoreChangeTracker;
+   type IAppointmentStoreChangeTracker2_Interface;
+   type IAppointmentStoreChangeTracker2 is access all IAppointmentStoreChangeTracker2_Interface'Class;
+   type IAppointmentStoreChangeTracker2_Ptr is access all IAppointmentStoreChangeTracker2;
+   type IAppointmentStoreNotificationTriggerDetails_Interface;
+   type IAppointmentStoreNotificationTriggerDetails is access all IAppointmentStoreNotificationTriggerDetails_Interface'Class;
+   type IAppointmentStoreNotificationTriggerDetails_Ptr is access all IAppointmentStoreNotificationTriggerDetails;
    type IAsyncOperation_IAppointment_Interface;
    type IAsyncOperation_IAppointment is access all IAsyncOperation_IAppointment_Interface'Class;
    type IAsyncOperation_IAppointment_Ptr is access all IAsyncOperation_IAppointment;
@@ -466,523 +448,28 @@ package Windows.ApplicationModel.Appointments is
    type IAsyncOperation_IAppointmentConflictResult_Interface;
    type IAsyncOperation_IAppointmentConflictResult is access all IAsyncOperation_IAppointmentConflictResult_Interface'Class;
    type IAsyncOperation_IAppointmentConflictResult_Ptr is access all IAsyncOperation_IAppointmentConflictResult;
+   type IAsyncOperation_IAppointmentStore_Interface;
+   type IAsyncOperation_IAppointmentStore is access all IAsyncOperation_IAppointmentStore_Interface'Class;
+   type IAsyncOperation_IAppointmentStore_Ptr is access all IAsyncOperation_IAppointmentStore;
+   type IFindAppointmentsOptions_Interface;
+   type IFindAppointmentsOptions is access all IFindAppointmentsOptions_Interface'Class;
+   type IFindAppointmentsOptions_Ptr is access all IFindAppointmentsOptions;
+   type IIterable_IAppointmentInvitee_Interface;
+   type IIterable_IAppointmentInvitee is access all IIterable_IAppointmentInvitee_Interface'Class;
+   type IIterable_IAppointmentInvitee_Ptr is access all IIterable_IAppointmentInvitee;
+   type IIterator_IAppointmentInvitee_Interface;
+   type IIterator_IAppointmentInvitee is access all IIterator_IAppointmentInvitee_Interface'Class;
+   type IIterator_IAppointmentInvitee_Ptr is access all IIterator_IAppointmentInvitee;
+   type IVector_IAppointmentInvitee_Interface;
+   type IVector_IAppointmentInvitee is access all IVector_IAppointmentInvitee_Interface'Class;
+   type IVector_IAppointmentInvitee_Ptr is access all IVector_IAppointmentInvitee;
+   type IVectorView_IAppointmentInvitee_Interface;
+   type IVectorView_IAppointmentInvitee is access all IVectorView_IAppointmentInvitee_Interface'Class;
+   type IVectorView_IAppointmentInvitee_Ptr is access all IVectorView_IAppointmentInvitee;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentManagerStatics : aliased constant Windows.IID := (976288257, 23616, 18845, (179, 63, 164, 48, 80, 247, 79, 196 ));
-   
-   type IAppointmentManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ShowAddAppointmentAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAddAppointmentWithPlacementAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowReplaceAppointmentAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowReplaceAppointmentWithPlacementAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowReplaceAppointmentWithPlacementAndDateAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; instanceStartDate : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowRemoveAppointmentAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowRemoveAppointmentWithPlacementAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowRemoveAppointmentWithPlacementAndDateAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; instanceStartDate : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowTimeFrameAsync
-   (
-      This       : access IAppointmentManagerStatics_Interface
-      ; timeToShow : Windows.Foundation.DateTime
-      ; duration : Windows.Foundation.TimeSpan
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentManagerStatics2 : aliased constant Windows.IID := (176289293, 53327, 16436, (175, 114, 163, 101, 115, 180, 95, 240 ));
-   
-   type IAppointmentManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ShowAppointmentDetailsAsync
-   (
-      This       : access IAppointmentManagerStatics2_Interface
-      ; appointmentId : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAppointmentDetailsWithDateAsync
-   (
-      This       : access IAppointmentManagerStatics2_Interface
-      ; appointmentId : Windows.String
-      ; instanceStartDate : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowEditNewAppointmentAsync
-   (
-      This       : access IAppointmentManagerStatics2_Interface
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RequestStoreAsync
-   (
-      This       : access IAppointmentManagerStatics2_Interface
-      ; options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentManagerStatics3 : aliased constant Windows.IID := (798679196, 45900, 19911, (163, 93, 202, 253, 136, 174, 62, 198 ));
-   
-   type IAppointmentManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetForUser
-   (
-      This       : access IAppointmentManagerStatics3_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentManagerForUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentManagerForUser : aliased constant Windows.IID := (1881543715, 29644, 18016, (179, 24, 176, 19, 101, 48, 42, 3 ));
-   
-   type IAppointmentManagerForUser_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ShowAddAppointmentAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAddAppointmentWithPlacementAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowReplaceAppointmentAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowReplaceAppointmentWithPlacementAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowReplaceAppointmentWithPlacementAndDateAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; instanceStartDate : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowRemoveAppointmentAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowRemoveAppointmentWithPlacementAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowRemoveAppointmentWithPlacementAndDateAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; instanceStartDate : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowTimeFrameAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; timeToShow : Windows.Foundation.DateTime
-      ; duration : Windows.Foundation.TimeSpan
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAppointmentDetailsAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAppointmentDetailsWithDateAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointmentId : Windows.String
-      ; instanceStartDate : Windows.Foundation.DateTime
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowEditNewAppointmentAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RequestStoreAsync
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_User
-   (
-      This       : access IAppointmentManagerForUser_Interface
-      ; RetVal : access Windows.System.IUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentParticipant : aliased constant Windows.IID := (1633560834, 38680, 18043, (131, 251, 178, 147, 161, 145, 33, 222 ));
-   
-   type IAppointmentParticipant_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DisplayName
-   (
-      This       : access IAppointmentParticipant_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DisplayName
-   (
-      This       : access IAppointmentParticipant_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Address
-   (
-      This       : access IAppointmentParticipant_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Address
-   (
-      This       : access IAppointmentParticipant_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentInvitee : aliased constant Windows.IID := (331286422, 38978, 18779, (176, 231, 239, 143, 121, 192, 112, 29 ));
-   
-   type IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Role
-   (
-      This       : access IAppointmentInvitee_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentParticipantRole
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Role
-   (
-      This       : access IAppointmentInvitee_Interface
-      ; value : Windows.ApplicationModel.Appointments.AppointmentParticipantRole
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Response
-   (
-      This       : access IAppointmentInvitee_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentParticipantResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Response
-   (
-      This       : access IAppointmentInvitee_Interface
-      ; value : Windows.ApplicationModel.Appointments.AppointmentParticipantResponse
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentRecurrence : aliased constant Windows.IID := (3631955587, 5542, 18555, (185, 89, 12, 54, 30, 96, 233, 84 ));
-   
-   type IAppointmentRecurrence_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Unit
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Unit
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Occurrences
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Occurrences
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.Foundation.IReference_UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Until
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Until
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.Foundation.IReference_DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Interval
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Interval
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DaysOfWeek
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DaysOfWeek
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WeekOfMonth
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_WeekOfMonth
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Month
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Month
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Day
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Day
-   (
-      This       : access IAppointmentRecurrence_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentRecurrence2 : aliased constant Windows.IID := (1039377120, 1447, 20304, (159, 134, 176, 63, 148, 54, 37, 77 ));
-   
-   type IAppointmentRecurrence2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecurrenceType
-   (
-      This       : access IAppointmentRecurrence2_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.RecurrenceType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TimeZone
-   (
-      This       : access IAppointmentRecurrence2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TimeZone
-   (
-      This       : access IAppointmentRecurrence2_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentRecurrence3 : aliased constant Windows.IID := (2315228889, 55885, 18967, (141, 210, 28, 235, 194, 181, 255, 157 ));
-   
-   type IAppointmentRecurrence3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CalendarIdentifier
-   (
-      This       : access IAppointmentRecurrence3_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -1349,54 +836,6 @@ package Windows.ApplicationModel.Appointments is
    (
       This       : access IAppointment3_Interface
       ; value : Windows.ApplicationModel.Appointments.AppointmentDetailsKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFindAppointmentsOptions : aliased constant Windows.IID := (1442307157, 39234, 12422, (130, 181, 44, 178, 159, 100, 213, 245 ));
-   
-   type IFindAppointmentsOptions_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CalendarIds
-   (
-      This       : access IFindAppointmentsOptions_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FetchProperties
-   (
-      This       : access IFindAppointmentsOptions_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IncludeHidden
-   (
-      This       : access IFindAppointmentsOptions_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IncludeHidden
-   (
-      This       : access IFindAppointmentsOptions_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MaxCount
-   (
-      This       : access IFindAppointmentsOptions_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_MaxCount
-   (
-      This       : access IFindAppointmentsOptions_Interface
-      ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1902,6 +1341,408 @@ package Windows.ApplicationModel.Appointments is
    
    ------------------------------------------------------------------------
    
+   IID_IAppointmentConflictResult : aliased constant Windows.IID := (3587043518, 12079, 15229, (175, 10, 167, 226, 15, 58, 70, 227 ));
+   
+   type IAppointmentConflictResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Type
+   (
+      This       : access IAppointmentConflictResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentConflictType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Date
+   (
+      This       : access IAppointmentConflictResult_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentException : aliased constant Windows.IID := (2718394215, 5878, 19406, (159, 90, 134, 0, 184, 1, 159, 203 ));
+   
+   type IAppointmentException_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Appointment
+   (
+      This       : access IAppointmentException_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExceptionProperties
+   (
+      This       : access IAppointmentException_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsDeleted
+   (
+      This       : access IAppointmentException_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentInvitee : aliased constant Windows.IID := (331286422, 38978, 18779, (176, 231, 239, 143, 121, 192, 112, 29 ));
+   
+   type IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Role
+   (
+      This       : access IAppointmentInvitee_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentParticipantRole
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Role
+   (
+      This       : access IAppointmentInvitee_Interface
+      ; value : Windows.ApplicationModel.Appointments.AppointmentParticipantRole
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Response
+   (
+      This       : access IAppointmentInvitee_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentParticipantResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Response
+   (
+      This       : access IAppointmentInvitee_Interface
+      ; value : Windows.ApplicationModel.Appointments.AppointmentParticipantResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerForUser : aliased constant Windows.IID := (1881543715, 29644, 18016, (179, 24, 176, 19, 101, 48, 42, 3 ));
+   
+   type IAppointmentManagerForUser_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ShowAddAppointmentAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAddAppointmentWithPlacementAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowReplaceAppointmentAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowReplaceAppointmentWithPlacementAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowReplaceAppointmentWithPlacementAndDateAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; instanceStartDate : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowRemoveAppointmentAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowRemoveAppointmentWithPlacementAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowRemoveAppointmentWithPlacementAndDateAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; instanceStartDate : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowTimeFrameAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; timeToShow : Windows.Foundation.DateTime
+      ; duration : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAppointmentDetailsAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAppointmentDetailsWithDateAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointmentId : Windows.String
+      ; instanceStartDate : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowEditNewAppointmentAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestStoreAsync
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_User
+   (
+      This       : access IAppointmentManagerForUser_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerStatics : aliased constant Windows.IID := (976288257, 23616, 18845, (179, 63, 164, 48, 80, 247, 79, 196 ));
+   
+   type IAppointmentManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ShowAddAppointmentAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAddAppointmentWithPlacementAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowReplaceAppointmentAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowReplaceAppointmentWithPlacementAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowReplaceAppointmentWithPlacementAndDateAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; instanceStartDate : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowRemoveAppointmentAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowRemoveAppointmentWithPlacementAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowRemoveAppointmentWithPlacementAndDateAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; instanceStartDate : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowTimeFrameAsync
+   (
+      This       : access IAppointmentManagerStatics_Interface
+      ; timeToShow : Windows.Foundation.DateTime
+      ; duration : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerStatics2 : aliased constant Windows.IID := (176289293, 53327, 16436, (175, 114, 163, 101, 115, 180, 95, 240 ));
+   
+   type IAppointmentManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ShowAppointmentDetailsAsync
+   (
+      This       : access IAppointmentManagerStatics2_Interface
+      ; appointmentId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAppointmentDetailsWithDateAsync
+   (
+      This       : access IAppointmentManagerStatics2_Interface
+      ; appointmentId : Windows.String
+      ; instanceStartDate : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowEditNewAppointmentAsync
+   (
+      This       : access IAppointmentManagerStatics2_Interface
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestStoreAsync
+   (
+      This       : access IAppointmentManagerStatics2_Interface
+      ; options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerStatics3 : aliased constant Windows.IID := (798679196, 45900, 19911, (163, 93, 202, 253, 136, 174, 62, 198 ));
+   
+   type IAppointmentManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUser
+   (
+      This       : access IAppointmentManagerStatics3_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentManagerForUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentParticipant : aliased constant Windows.IID := (1633560834, 38680, 18043, (131, 251, 178, 147, 161, 145, 33, 222 ));
+   
+   type IAppointmentParticipant_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DisplayName
+   (
+      This       : access IAppointmentParticipant_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DisplayName
+   (
+      This       : access IAppointmentParticipant_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Address
+   (
+      This       : access IAppointmentParticipant_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Address
+   (
+      This       : access IAppointmentParticipant_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAppointmentPropertiesStatics : aliased constant Windows.IID := (622075881, 26798, 15022, (133, 95, 188, 68, 65, 202, 162, 52 ));
    
    type IAppointmentPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -2096,151 +1937,161 @@ package Windows.ApplicationModel.Appointments is
    
    ------------------------------------------------------------------------
    
-   IID_IAppointmentConflictResult : aliased constant Windows.IID := (3587043518, 12079, 15229, (175, 10, 167, 226, 15, 58, 70, 227 ));
+   IID_IAppointmentRecurrence : aliased constant Windows.IID := (3631955587, 5542, 18555, (185, 89, 12, 54, 30, 96, 233, 84 ));
    
-   type IAppointmentConflictResult_Interface is interface and Windows.IInspectable_Interface;
+   type IAppointmentRecurrence_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Type
+   function get_Unit
    (
-      This       : access IAppointmentConflictResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentConflictType
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit
    )
    return Windows.HRESULT is abstract;
    
-   function get_Date
+   function put_Unit
    (
-      This       : access IAppointmentConflictResult_Interface
-      ; RetVal : access Windows.Foundation.DateTime
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentStoreChange : aliased constant Windows.IID := (2779177013, 2611, 13908, (132, 99, 181, 67, 233, 12, 59, 121 ));
-   
-   type IAppointmentStoreChange_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Appointment
+   function get_Occurrences
    (
-      This       : access IAppointmentStoreChange_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointment
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_ChangeType
+   function put_Occurrences
    (
-      This       : access IAppointmentStoreChange_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentStoreChangeType
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentStoreChange2 : aliased constant Windows.IID := (3011317198, 21009, 17410, (166, 8, 169, 111, 231, 11, 142, 226 ));
-   
-   type IAppointmentStoreChange2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AppointmentCalendar
+   function get_Until
    (
-      This       : access IAppointmentStoreChange2_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentCalendar
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentStoreChangeReader : aliased constant Windows.IID := (2334394865, 26099, 17056, (150, 29, 76, 32, 155, 243, 3, 112 ));
-   
-   type IAppointmentStoreChangeReader_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ReadBatchAsync
+   function put_Until
    (
-      This       : access IAppointmentStoreChangeReader_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.Foundation.IReference_DateTime
    )
    return Windows.HRESULT is abstract;
    
-   function AcceptChanges
+   function get_Interval
    (
-      This       : access IAppointmentStoreChangeReader_Interface
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function AcceptChangesThrough
+   function put_Interval
    (
-      This       : access IAppointmentStoreChangeReader_Interface
-      ; lastChangeToAccept : Windows.ApplicationModel.Appointments.IAppointmentStoreChange
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentStoreChangeTracker : aliased constant Windows.IID := (455472305, 36558, 20247, (147, 200, 230, 65, 36, 88, 253, 92 ));
-   
-   type IAppointmentStoreChangeTracker_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetChangeReader
+   function get_DaysOfWeek
    (
-      This       : access IAppointmentStoreChangeTracker_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStoreChangeReader
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek
    )
    return Windows.HRESULT is abstract;
    
-   function Enable
+   function put_DaysOfWeek
    (
-      This       : access IAppointmentStoreChangeTracker_Interface
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek
    )
    return Windows.HRESULT is abstract;
    
-   function Reset
+   function get_WeekOfMonth
    (
-      This       : access IAppointmentStoreChangeTracker_Interface
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentStoreChangeTracker2 : aliased constant Windows.IID := (3060444997, 38210, 19703, (133, 80, 235, 55, 14, 12, 8, 211 ));
-   
-   type IAppointmentStoreChangeTracker2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsTracking
+   function put_WeekOfMonth
    (
-      This       : access IAppointmentStoreChangeTracker2_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAppointmentStoreChangedEventArgs : aliased constant Windows.IID := (579205305, 1937, 16766, (191, 234, 204, 109, 65, 99, 108, 140 ));
-   
-   type IAppointmentStoreChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDeferral
+   function get_Month
    (
-      This       : access IAppointmentStoreChangedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Month
+   (
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Day
+   (
+      This       : access IAppointmentRecurrence_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Day
+   (
+      This       : access IAppointmentRecurrence_Interface
+      ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAppointmentStoreChangedDeferral : aliased constant Windows.IID := (1287135270, 65243, 19395, (150, 98, 149, 169, 190, 253, 244, 223 ));
+   IID_IAppointmentRecurrence2 : aliased constant Windows.IID := (1039377120, 1447, 20304, (159, 134, 176, 63, 148, 54, 37, 77 ));
    
-   type IAppointmentStoreChangedDeferral_Interface is interface and Windows.IInspectable_Interface;
+   type IAppointmentRecurrence2_Interface is interface and Windows.IInspectable_Interface;
    
-   function Complete
+   function get_RecurrenceType
    (
-      This       : access IAppointmentStoreChangedDeferral_Interface
+      This       : access IAppointmentRecurrence2_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.RecurrenceType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TimeZone
+   (
+      This       : access IAppointmentRecurrence2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TimeZone
+   (
+      This       : access IAppointmentRecurrence2_Interface
+      ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAppointmentStoreNotificationTriggerDetails : aliased constant Windows.IID := (2603862801, 49921, 16926, (175, 239, 4, 126, 207, 167, 106, 219 ));
+   IID_IAppointmentRecurrence3 : aliased constant Windows.IID := (2315228889, 55885, 18967, (141, 210, 28, 235, 194, 181, 255, 157 ));
    
-   type IAppointmentStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IAppointmentRecurrence3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CalendarIdentifier
+   (
+      This       : access IAppointmentRecurrence3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -2478,28 +2329,210 @@ package Windows.ApplicationModel.Appointments is
    
    ------------------------------------------------------------------------
    
-   IID_IAppointmentException : aliased constant Windows.IID := (2718394215, 5878, 19406, (159, 90, 134, 0, 184, 1, 159, 203 ));
+   IID_IAppointmentStoreChange : aliased constant Windows.IID := (2779177013, 2611, 13908, (132, 99, 181, 67, 233, 12, 59, 121 ));
    
-   type IAppointmentException_Interface is interface and Windows.IInspectable_Interface;
+   type IAppointmentStoreChange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Appointment
    (
-      This       : access IAppointmentException_Interface
+      This       : access IAppointmentStoreChange_Interface
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointment
    )
    return Windows.HRESULT is abstract;
    
-   function get_ExceptionProperties
+   function get_ChangeType
    (
-      This       : access IAppointmentException_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+      This       : access IAppointmentStoreChange_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentStoreChangeType
    )
    return Windows.HRESULT is abstract;
    
-   function get_IsDeleted
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChange2 : aliased constant Windows.IID := (3011317198, 21009, 17410, (166, 8, 169, 111, 231, 11, 142, 226 ));
+   
+   type IAppointmentStoreChange2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AppointmentCalendar
    (
-      This       : access IAppointmentException_Interface
+      This       : access IAppointmentStoreChange2_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentCalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangedDeferral : aliased constant Windows.IID := (1287135270, 65243, 19395, (150, 98, 149, 169, 190, 253, 244, 223 ));
+   
+   type IAppointmentStoreChangedDeferral_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Complete
+   (
+      This       : access IAppointmentStoreChangedDeferral_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangedEventArgs : aliased constant Windows.IID := (579205305, 1937, 16766, (191, 234, 204, 109, 65, 99, 108, 140 ));
+   
+   type IAppointmentStoreChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeferral
+   (
+      This       : access IAppointmentStoreChangedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangeReader : aliased constant Windows.IID := (2334394865, 26099, 17056, (150, 29, 76, 32, 155, 243, 3, 112 ));
+   
+   type IAppointmentStoreChangeReader_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReadBatchAsync
+   (
+      This       : access IAppointmentStoreChangeReader_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AcceptChanges
+   (
+      This       : access IAppointmentStoreChangeReader_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AcceptChangesThrough
+   (
+      This       : access IAppointmentStoreChangeReader_Interface
+      ; lastChangeToAccept : Windows.ApplicationModel.Appointments.IAppointmentStoreChange
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangeTracker : aliased constant Windows.IID := (455472305, 36558, 20247, (147, 200, 230, 65, 36, 88, 253, 92 ));
+   
+   type IAppointmentStoreChangeTracker_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetChangeReader
+   (
+      This       : access IAppointmentStoreChangeTracker_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStoreChangeReader
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Enable
+   (
+      This       : access IAppointmentStoreChangeTracker_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Reset
+   (
+      This       : access IAppointmentStoreChangeTracker_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangeTracker2 : aliased constant Windows.IID := (3060444997, 38210, 19703, (133, 80, 235, 55, 14, 12, 8, 211 ));
+   
+   type IAppointmentStoreChangeTracker2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsTracking
+   (
+      This       : access IAppointmentStoreChangeTracker2_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreNotificationTriggerDetails : aliased constant Windows.IID := (2603862801, 49921, 16926, (175, 239, 4, 126, 207, 167, 106, 219 ));
+   
+   type IAppointmentStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppointment : aliased constant Windows.IID := (207041272, 23481, 23475, (147, 229, 184, 126, 67, 224, 205, 106 ));
+   
+   type IAsyncOperation_IAppointment_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IAppointment_Interface
+      ; handler : Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IAppointment_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IAppointment_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointment
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppointmentCalendar : aliased constant Windows.IID := (1806793365, 37262, 23248, (187, 194, 188, 197, 250, 31, 249, 54 ));
+   
+   type IAsyncOperation_IAppointmentCalendar_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IAppointmentCalendar_Interface
+      ; handler : Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentCalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IAppointmentCalendar_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentCalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IAppointmentCalendar_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentCalendar
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppointmentConflictResult : aliased constant Windows.IID := (3010856975, 58802, 23266, (153, 1, 134, 207, 119, 186, 93, 0 ));
+   
+   type IAsyncOperation_IAppointmentConflictResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IAppointmentConflictResult_Interface
+      ; handler : Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentConflictResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IAppointmentConflictResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentConflictResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IAppointmentConflictResult_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentConflictResult
    )
    return Windows.HRESULT is abstract;
    
@@ -2527,6 +2560,67 @@ package Windows.ApplicationModel.Appointments is
    (
       This       : access IAsyncOperation_IAppointmentStore_Interface
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStore
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFindAppointmentsOptions : aliased constant Windows.IID := (1442307157, 39234, 12422, (130, 181, 44, 178, 159, 100, 213, 245 ));
+   
+   type IFindAppointmentsOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CalendarIds
+   (
+      This       : access IFindAppointmentsOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FetchProperties
+   (
+      This       : access IFindAppointmentsOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IncludeHidden
+   (
+      This       : access IFindAppointmentsOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IncludeHidden
+   (
+      This       : access IFindAppointmentsOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxCount
+   (
+      This       : access IFindAppointmentsOptions_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MaxCount
+   (
+      This       : access IFindAppointmentsOptions_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IAppointmentInvitee : aliased constant Windows.IID := (4220983465, 61529, 21168, (169, 4, 26, 101, 228, 40, 30, 64 ));
+   
+   type IIterable_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAppointmentInvitee_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.IIterator_IAppointmentInvitee
    )
    return Windows.HRESULT is abstract;
    
@@ -2560,58 +2654,6 @@ package Windows.ApplicationModel.Appointments is
    function GetMany
    (
       This       : access IIterator_IAppointmentInvitee_Interface
-      ; items : Windows.ApplicationModel.Appointments.IAppointmentInvitee_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IAppointmentInvitee : aliased constant Windows.IID := (4220983465, 61529, 21168, (169, 4, 26, 101, 228, 40, 30, 64 ));
-   
-   type IIterable_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IAppointmentInvitee_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IIterator_IAppointmentInvitee
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IAppointmentInvitee : aliased constant Windows.IID := (3123667770, 20866, 24282, (142, 46, 166, 110, 85, 179, 32, 206 ));
-   
-   type IVectorView_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IAppointmentInvitee_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentInvitee
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IAppointmentInvitee_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IAppointmentInvitee_Interface
-      ; value : Windows.ApplicationModel.Appointments.IAppointmentInvitee
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IAppointmentInvitee_Interface
-      ; startIndex : Windows.UInt32
       ; items : Windows.ApplicationModel.Appointments.IAppointmentInvitee_Ptr
       ; RetVal : access Windows.UInt32
    )
@@ -2714,101 +2756,46 @@ package Windows.ApplicationModel.Appointments is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IAppointment : aliased constant Windows.IID := (207041272, 23481, 23475, (147, 229, 184, 126, 67, 224, 205, 106 ));
+   IID_IVectorView_IAppointmentInvitee : aliased constant Windows.IID := (3123667770, 20866, 24282, (142, 46, 166, 110, 85, 179, 32, 206 ));
    
-   type IAsyncOperation_IAppointment_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetAt
    (
-      This       : access IAsyncOperation_IAppointment_Interface
-      ; handler : Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointment
+      This       : access IVectorView_IAppointmentInvitee_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentInvitee
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_Size
    (
-      This       : access IAsyncOperation_IAppointment_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointment
+      This       : access IVectorView_IAppointmentInvitee_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function IndexOf
    (
-      This       : access IAsyncOperation_IAppointment_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointment
+      This       : access IVectorView_IAppointmentInvitee_Interface
+      ; value : Windows.ApplicationModel.Appointments.IAppointmentInvitee
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IAppointmentCalendar : aliased constant Windows.IID := (1806793365, 37262, 23248, (187, 194, 188, 197, 250, 31, 249, 54 ));
-   
-   type IAsyncOperation_IAppointmentCalendar_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
+   function GetMany
    (
-      This       : access IAsyncOperation_IAppointmentCalendar_Interface
-      ; handler : Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentCalendar
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IAppointmentCalendar_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentCalendar
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IAppointmentCalendar_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentCalendar
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IAppointmentConflictResult : aliased constant Windows.IID := (3010856975, 58802, 23266, (153, 1, 134, 207, 119, 186, 93, 0 ));
-   
-   type IAsyncOperation_IAppointmentConflictResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IAppointmentConflictResult_Interface
-      ; handler : Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentConflictResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IAppointmentConflictResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AsyncOperationCompletedHandler_IAppointmentConflictResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IAppointmentConflictResult_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentConflictResult
+      This       : access IVectorView_IAppointmentInvitee_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.Appointments.IAppointmentInvitee_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IAppointmentStore : aliased constant Windows.IID := (3167710506, 43890, 24355, (183, 213, 76, 44, 155, 212, 91, 121 ));
-   
-   type AsyncOperationCompletedHandler_IAppointmentStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppointmentStore'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IAppointmentStore_Interface
-      ; asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -2820,19 +2807,6 @@ package Windows.ApplicationModel.Appointments is
       This       : access AsyncOperationCompletedHandler_IAppointment_Interface
       ; asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointment
       ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (3172141278, 27950, 21825, (178, 84, 189, 182, 24, 57, 186, 193 ));
-   
-   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface
-      ; sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager
-      ; args : Windows.Object
    )
    return Windows.HRESULT;
    
@@ -2864,6 +2838,32 @@ package Windows.ApplicationModel.Appointments is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IAppointmentStore : aliased constant Windows.IID := (3167710506, 43890, 24355, (183, 213, 76, 44, 155, 212, 91, 121 ));
+   
+   type AsyncOperationCompletedHandler_IAppointmentStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppointmentStore'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAppointmentStore_Interface
+      ; asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (3172141278, 27950, 21825, (178, 84, 189, 182, 24, 57, 186, 193 ));
+   
+   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface
+      ; sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IAppointmentStore2_add_StoreChanged : aliased constant Windows.IID := (2657256273, 50745, 23791, (171, 29, 139, 234, 233, 215, 93, 82 ));
    
    type TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentStore ; args : Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentStore2_add_StoreChanged'access) with null record;
@@ -2882,30 +2882,30 @@ package Windows.ApplicationModel.Appointments is
    subtype Appointment is Windows.ApplicationModel.Appointments.IAppointment;
    function Create return Windows.ApplicationModel.Appointments.IAppointment;
    
-   subtype AppointmentStore is Windows.ApplicationModel.Appointments.IAppointmentStore;
+   subtype AppointmentCalendar is Windows.ApplicationModel.Appointments.IAppointmentCalendar;
+   subtype AppointmentCalendarSyncManager is Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager;
+   subtype AppointmentConflictResult is Windows.ApplicationModel.Appointments.IAppointmentConflictResult;
+   subtype AppointmentException is Windows.ApplicationModel.Appointments.IAppointmentException;
+   subtype AppointmentInvitee is Windows.ApplicationModel.Appointments.IAppointmentInvitee;
+   function Create return Windows.ApplicationModel.Appointments.IAppointmentInvitee;
+   
    subtype AppointmentManagerForUser is Windows.ApplicationModel.Appointments.IAppointmentManagerForUser;
    subtype AppointmentOrganizer is Windows.ApplicationModel.Appointments.IAppointmentParticipant;
    function Create return Windows.ApplicationModel.Appointments.IAppointmentParticipant;
    
-   subtype AppointmentInvitee is Windows.ApplicationModel.Appointments.IAppointmentInvitee;
-   function Create return Windows.ApplicationModel.Appointments.IAppointmentInvitee;
-   
    subtype AppointmentRecurrence is Windows.ApplicationModel.Appointments.IAppointmentRecurrence;
    function Create return Windows.ApplicationModel.Appointments.IAppointmentRecurrence;
    
+   subtype AppointmentStore is Windows.ApplicationModel.Appointments.IAppointmentStore;
+   subtype AppointmentStoreChange is Windows.ApplicationModel.Appointments.IAppointmentStoreChange;
+   subtype AppointmentStoreChangedDeferral is Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral;
+   subtype AppointmentStoreChangedEventArgs is Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs;
+   subtype AppointmentStoreChangeReader is Windows.ApplicationModel.Appointments.IAppointmentStoreChangeReader;
+   subtype AppointmentStoreChangeTracker is Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker;
+   subtype AppointmentStoreNotificationTriggerDetails is Windows.ApplicationModel.Appointments.IAppointmentStoreNotificationTriggerDetails;
    subtype FindAppointmentsOptions is Windows.ApplicationModel.Appointments.IFindAppointmentsOptions;
    function Create return Windows.ApplicationModel.Appointments.IFindAppointmentsOptions;
    
-   subtype AppointmentException is Windows.ApplicationModel.Appointments.IAppointmentException;
-   subtype AppointmentCalendarSyncManager is Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager;
-   subtype AppointmentCalendar is Windows.ApplicationModel.Appointments.IAppointmentCalendar;
-   subtype AppointmentStoreChange is Windows.ApplicationModel.Appointments.IAppointmentStoreChange;
-   subtype AppointmentStoreChangeReader is Windows.ApplicationModel.Appointments.IAppointmentStoreChangeReader;
-   subtype AppointmentStoreChangedDeferral is Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral;
-   subtype AppointmentStoreChangeTracker is Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker;
-   subtype AppointmentConflictResult is Windows.ApplicationModel.Appointments.IAppointmentConflictResult;
-   subtype AppointmentStoreChangedEventArgs is Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs;
-   subtype AppointmentStoreNotificationTriggerDetails is Windows.ApplicationModel.Appointments.IAppointmentStoreNotificationTriggerDetails;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

@@ -39,8 +39,8 @@ package body Windows.Security.Credentials is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface
-      ; asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult
+      This       : access AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface
+      ; asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialAttestationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -65,8 +65,8 @@ package body Windows.Security.Credentials is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface
-      ; asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialAttestationResult
+      This       : access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface
+      ; asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -105,50 +105,6 @@ package body Windows.Security.Credentials is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function CreateWebAccountProvider
-   (
-      id : Windows.String
-      ; displayName : Windows.String
-      ; iconUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Security.Credentials.IWebAccountProvider is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Credentials.WebAccountProvider");
-      m_Factory     : Windows.Security.Credentials.IWebAccountProviderFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Credentials.IWebAccountProvider := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountProviderFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWebAccountProvider(id, displayName, iconUri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWebAccount
-   (
-      webAccountProvider : Windows.Security.Credentials.IWebAccountProvider
-      ; userName : Windows.String
-      ; state : Windows.Security.Credentials.WebAccountState
-   )
-   return Windows.Security.Credentials.IWebAccount is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Credentials.WebAccount");
-      m_Factory     : Windows.Security.Credentials.IWebAccountFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Credentials.IWebAccount := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWebAccount(webAccountProvider, userName, state, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function Create return Windows.Security.Credentials.IPasswordCredential is
       Hr            : Windows.HResult := S_OK;
@@ -189,6 +145,23 @@ package body Windows.Security.Credentials is
       return RetVal;
    end;
    
+   function Create return Windows.Foundation.Collections.IPropertySet is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Credentials.PasswordCredentialPropertyStore");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Collections.IPropertySet) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Foundation.Collections.IID_IPropertySet'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.Security.Credentials.IPasswordVault is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Credentials.PasswordVault");
@@ -206,21 +179,48 @@ package body Windows.Security.Credentials is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.Foundation.Collections.IPropertySet is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Credentials.PasswordCredentialPropertyStore");
-      Instance      : aliased IInspectable := null;
+   function CreateWebAccount
+   (
+      webAccountProvider : Windows.Security.Credentials.IWebAccountProvider
+      ; userName : Windows.String
+      ; state : Windows.Security.Credentials.WebAccountState
+   )
+   return Windows.Security.Credentials.IWebAccount is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Credentials.WebAccount");
+      m_Factory     : Windows.Security.Credentials.IWebAccountFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Collections.IPropertySet) with inline;
+      RetVal        : aliased Windows.Security.Credentials.IWebAccount := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Foundation.Collections.IID_IPropertySet'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateWebAccount(webAccountProvider, userName, state, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
+   end;
+   
+   function CreateWebAccountProvider
+   (
+      id : Windows.String
+      ; displayName : Windows.String
+      ; iconUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Security.Credentials.IWebAccountProvider is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Credentials.WebAccountProvider");
+      m_Factory     : Windows.Security.Credentials.IWebAccountProviderFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IWebAccountProvider := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAccountProviderFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWebAccountProvider(id, displayName, iconUri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    ------------------------------------------------------------------------

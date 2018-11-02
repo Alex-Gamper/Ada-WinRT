@@ -58,24 +58,6 @@ package Windows.ApplicationModel.Activation is
    -- Enums
    ------------------------------------------------------------------------
    
-   type ApplicationExecutionState is (
-      NotRunning,
-      Running,
-      Suspended,
-      Terminated,
-      ClosedByUser
-   );
-   for ApplicationExecutionState use (
-      NotRunning => 0,
-      Running => 1,
-      Suspended => 2,
-      Terminated => 3,
-      ClosedByUser => 4
-   );
-   for ApplicationExecutionState'Size use 32;
-   
-   type ApplicationExecutionState_Ptr is access ApplicationExecutionState;
-   
    type ActivationKind is (
       Launch,
       Search,
@@ -164,6 +146,24 @@ package Windows.ApplicationModel.Activation is
    
    type ActivationKind_Ptr is access ActivationKind;
    
+   type ApplicationExecutionState is (
+      NotRunning,
+      Running,
+      Suspended,
+      Terminated,
+      ClosedByUser
+   );
+   for ApplicationExecutionState use (
+      NotRunning => 0,
+      Running => 1,
+      Suspended => 2,
+      Terminated => 3,
+      ClosedByUser => 4
+   );
+   for ApplicationExecutionState'Size use 32;
+   
+   type ApplicationExecutionState_Ptr is access ApplicationExecutionState;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -192,125 +192,155 @@ package Windows.ApplicationModel.Activation is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_ISplashScreen_add_Dismissed_Interface;
-   type TypedEventHandler_ISplashScreen_add_Dismissed is access all TypedEventHandler_ISplashScreen_add_Dismissed_Interface'Class;
-   type TypedEventHandler_ISplashScreen_add_Dismissed_Ptr is access all TypedEventHandler_ISplashScreen_add_Dismissed;
    type EventHandler_IBackgroundActivatedEventArgs_Interface;
    type EventHandler_IBackgroundActivatedEventArgs is access all EventHandler_IBackgroundActivatedEventArgs_Interface'Class;
    type EventHandler_IBackgroundActivatedEventArgs_Ptr is access all EventHandler_IBackgroundActivatedEventArgs;
+   type TypedEventHandler_ISplashScreen_add_Dismissed_Interface;
+   type TypedEventHandler_ISplashScreen_add_Dismissed is access all TypedEventHandler_ISplashScreen_add_Dismissed_Interface'Class;
+   type TypedEventHandler_ISplashScreen_add_Dismissed_Ptr is access all TypedEventHandler_ISplashScreen_add_Dismissed;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IBackgroundActivatedEventArgs_Interface;
-   type IBackgroundActivatedEventArgs is access all IBackgroundActivatedEventArgs_Interface'Class;
-   type IBackgroundActivatedEventArgs_Ptr is access all IBackgroundActivatedEventArgs;
-   type IContactPanelActivatedEventArgs_Interface;
-   type IContactPanelActivatedEventArgs is access all IContactPanelActivatedEventArgs_Interface'Class;
-   type IContactPanelActivatedEventArgs_Ptr is access all IContactPanelActivatedEventArgs;
-   type ISplashScreen_Interface;
-   type ISplashScreen is access all ISplashScreen_Interface'Class;
-   type ISplashScreen_Ptr is access all ISplashScreen;
    type IActivatedEventArgs_Interface;
    type IActivatedEventArgs is access all IActivatedEventArgs_Interface'Class;
    type IActivatedEventArgs_Ptr is access all IActivatedEventArgs;
-   type IPrintTaskSettingsActivatedEventArgs_Interface;
-   type IPrintTaskSettingsActivatedEventArgs is access all IPrintTaskSettingsActivatedEventArgs_Interface'Class;
-   type IPrintTaskSettingsActivatedEventArgs_Ptr is access all IPrintTaskSettingsActivatedEventArgs;
-   type IPrint3DWorkflowActivatedEventArgs_Interface;
-   type IPrint3DWorkflowActivatedEventArgs is access all IPrint3DWorkflowActivatedEventArgs_Interface'Class;
-   type IPrint3DWorkflowActivatedEventArgs_Ptr is access all IPrint3DWorkflowActivatedEventArgs;
-   type ICameraSettingsActivatedEventArgs_Interface;
-   type ICameraSettingsActivatedEventArgs is access all ICameraSettingsActivatedEventArgs_Interface'Class;
-   type ICameraSettingsActivatedEventArgs_Ptr is access all ICameraSettingsActivatedEventArgs;
-   type IContactPickerActivatedEventArgs_Interface;
-   type IContactPickerActivatedEventArgs is access all IContactPickerActivatedEventArgs_Interface'Class;
-   type IContactPickerActivatedEventArgs_Ptr is access all IContactPickerActivatedEventArgs;
-   type IContactActivatedEventArgs_Interface;
-   type IContactActivatedEventArgs is access all IContactActivatedEventArgs_Interface'Class;
-   type IContactActivatedEventArgs_Ptr is access all IContactActivatedEventArgs;
-   type IContactCallActivatedEventArgs_Interface;
-   type IContactCallActivatedEventArgs is access all IContactCallActivatedEventArgs_Interface'Class;
-   type IContactCallActivatedEventArgs_Ptr is access all IContactCallActivatedEventArgs;
-   type IContactMessageActivatedEventArgs_Interface;
-   type IContactMessageActivatedEventArgs is access all IContactMessageActivatedEventArgs_Interface'Class;
-   type IContactMessageActivatedEventArgs_Ptr is access all IContactMessageActivatedEventArgs;
-   type IContactMapActivatedEventArgs_Interface;
-   type IContactMapActivatedEventArgs is access all IContactMapActivatedEventArgs_Interface'Class;
-   type IContactMapActivatedEventArgs_Ptr is access all IContactMapActivatedEventArgs;
-   type IContactPostActivatedEventArgs_Interface;
-   type IContactPostActivatedEventArgs is access all IContactPostActivatedEventArgs_Interface'Class;
-   type IContactPostActivatedEventArgs_Ptr is access all IContactPostActivatedEventArgs;
-   type IContactVideoCallActivatedEventArgs_Interface;
-   type IContactVideoCallActivatedEventArgs is access all IContactVideoCallActivatedEventArgs_Interface'Class;
-   type IContactVideoCallActivatedEventArgs_Ptr is access all IContactVideoCallActivatedEventArgs;
-   type IContactsProviderActivatedEventArgs_Interface;
-   type IContactsProviderActivatedEventArgs is access all IContactsProviderActivatedEventArgs_Interface'Class;
-   type IContactsProviderActivatedEventArgs_Ptr is access all IContactsProviderActivatedEventArgs;
-   type IWalletActionActivatedEventArgs_Interface;
-   type IWalletActionActivatedEventArgs is access all IWalletActionActivatedEventArgs_Interface'Class;
-   type IWalletActionActivatedEventArgs_Ptr is access all IWalletActionActivatedEventArgs;
-   type IAppointmentsProviderActivatedEventArgs_Interface;
-   type IAppointmentsProviderActivatedEventArgs is access all IAppointmentsProviderActivatedEventArgs_Interface'Class;
-   type IAppointmentsProviderActivatedEventArgs_Ptr is access all IAppointmentsProviderActivatedEventArgs;
-   type IAppointmentsProviderAddAppointmentActivatedEventArgs_Interface;
-   type IAppointmentsProviderAddAppointmentActivatedEventArgs is access all IAppointmentsProviderAddAppointmentActivatedEventArgs_Interface'Class;
-   type IAppointmentsProviderAddAppointmentActivatedEventArgs_Ptr is access all IAppointmentsProviderAddAppointmentActivatedEventArgs;
-   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface;
-   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs is access all IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface'Class;
-   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Ptr is access all IAppointmentsProviderReplaceAppointmentActivatedEventArgs;
-   type IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Interface;
-   type IAppointmentsProviderRemoveAppointmentActivatedEventArgs is access all IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Interface'Class;
-   type IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Ptr is access all IAppointmentsProviderRemoveAppointmentActivatedEventArgs;
-   type IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Interface;
-   type IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs is access all IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Interface'Class;
-   type IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Ptr is access all IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;
-   type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Interface;
-   type IAppointmentsProviderShowTimeFrameActivatedEventArgs is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs_Interface'Class;
-   type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Ptr is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs;
-   type IShareTargetActivatedEventArgs_Interface;
-   type IShareTargetActivatedEventArgs is access all IShareTargetActivatedEventArgs_Interface'Class;
-   type IShareTargetActivatedEventArgs_Ptr is access all IShareTargetActivatedEventArgs;
-   type IUserDataAccountProviderActivatedEventArgs_Interface;
-   type IUserDataAccountProviderActivatedEventArgs is access all IUserDataAccountProviderActivatedEventArgs_Interface'Class;
-   type IUserDataAccountProviderActivatedEventArgs_Ptr is access all IUserDataAccountProviderActivatedEventArgs;
    type IActivatedEventArgsWithUser_Interface;
    type IActivatedEventArgsWithUser is access all IActivatedEventArgsWithUser_Interface'Class;
    type IActivatedEventArgsWithUser_Ptr is access all IActivatedEventArgsWithUser;
    type IApplicationViewActivatedEventArgs_Interface;
    type IApplicationViewActivatedEventArgs is access all IApplicationViewActivatedEventArgs_Interface'Class;
    type IApplicationViewActivatedEventArgs_Ptr is access all IApplicationViewActivatedEventArgs;
-   type IViewSwitcherProvider_Interface;
-   type IViewSwitcherProvider is access all IViewSwitcherProvider_Interface'Class;
-   type IViewSwitcherProvider_Ptr is access all IViewSwitcherProvider;
-   type IPrelaunchActivatedEventArgs_Interface;
-   type IPrelaunchActivatedEventArgs is access all IPrelaunchActivatedEventArgs_Interface'Class;
-   type IPrelaunchActivatedEventArgs_Ptr is access all IPrelaunchActivatedEventArgs;
-   type ILaunchActivatedEventArgs_Interface;
-   type ILaunchActivatedEventArgs is access all ILaunchActivatedEventArgs_Interface'Class;
-   type ILaunchActivatedEventArgs_Ptr is access all ILaunchActivatedEventArgs;
-   type ILockScreenCallActivatedEventArgs_Interface;
-   type ILockScreenCallActivatedEventArgs is access all ILockScreenCallActivatedEventArgs_Interface'Class;
-   type ILockScreenCallActivatedEventArgs_Ptr is access all ILockScreenCallActivatedEventArgs;
-   type ILaunchActivatedEventArgs2_Interface;
-   type ILaunchActivatedEventArgs2 is access all ILaunchActivatedEventArgs2_Interface'Class;
-   type ILaunchActivatedEventArgs2_Ptr is access all ILaunchActivatedEventArgs2;
-   type ISearchActivatedEventArgs_Interface;
-   type ISearchActivatedEventArgs is access all ISearchActivatedEventArgs_Interface'Class;
-   type ISearchActivatedEventArgs_Ptr is access all ISearchActivatedEventArgs;
-   type ISearchActivatedEventArgsWithLinguisticDetails_Interface;
-   type ISearchActivatedEventArgsWithLinguisticDetails is access all ISearchActivatedEventArgsWithLinguisticDetails_Interface'Class;
-   type ISearchActivatedEventArgsWithLinguisticDetails_Ptr is access all ISearchActivatedEventArgsWithLinguisticDetails;
+   type IAppointmentsProviderActivatedEventArgs_Interface;
+   type IAppointmentsProviderActivatedEventArgs is access all IAppointmentsProviderActivatedEventArgs_Interface'Class;
+   type IAppointmentsProviderActivatedEventArgs_Ptr is access all IAppointmentsProviderActivatedEventArgs;
+   type IAppointmentsProviderAddAppointmentActivatedEventArgs_Interface;
+   type IAppointmentsProviderAddAppointmentActivatedEventArgs is access all IAppointmentsProviderAddAppointmentActivatedEventArgs_Interface'Class;
+   type IAppointmentsProviderAddAppointmentActivatedEventArgs_Ptr is access all IAppointmentsProviderAddAppointmentActivatedEventArgs;
+   type IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Interface;
+   type IAppointmentsProviderRemoveAppointmentActivatedEventArgs is access all IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Interface'Class;
+   type IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Ptr is access all IAppointmentsProviderRemoveAppointmentActivatedEventArgs;
+   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface;
+   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs is access all IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface'Class;
+   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Ptr is access all IAppointmentsProviderReplaceAppointmentActivatedEventArgs;
+   type IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Interface;
+   type IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs is access all IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Interface'Class;
+   type IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Ptr is access all IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;
+   type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Interface;
+   type IAppointmentsProviderShowTimeFrameActivatedEventArgs is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs_Interface'Class;
+   type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Ptr is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs;
+   type IBackgroundActivatedEventArgs_Interface;
+   type IBackgroundActivatedEventArgs is access all IBackgroundActivatedEventArgs_Interface'Class;
+   type IBackgroundActivatedEventArgs_Ptr is access all IBackgroundActivatedEventArgs;
+   type IBarcodeScannerPreviewActivatedEventArgs_Interface;
+   type IBarcodeScannerPreviewActivatedEventArgs is access all IBarcodeScannerPreviewActivatedEventArgs_Interface'Class;
+   type IBarcodeScannerPreviewActivatedEventArgs_Ptr is access all IBarcodeScannerPreviewActivatedEventArgs;
+   type ICachedFileUpdaterActivatedEventArgs_Interface;
+   type ICachedFileUpdaterActivatedEventArgs is access all ICachedFileUpdaterActivatedEventArgs_Interface'Class;
+   type ICachedFileUpdaterActivatedEventArgs_Ptr is access all ICachedFileUpdaterActivatedEventArgs;
+   type ICameraSettingsActivatedEventArgs_Interface;
+   type ICameraSettingsActivatedEventArgs is access all ICameraSettingsActivatedEventArgs_Interface'Class;
+   type ICameraSettingsActivatedEventArgs_Ptr is access all ICameraSettingsActivatedEventArgs;
+   type ICommandLineActivatedEventArgs_Interface;
+   type ICommandLineActivatedEventArgs is access all ICommandLineActivatedEventArgs_Interface'Class;
+   type ICommandLineActivatedEventArgs_Ptr is access all ICommandLineActivatedEventArgs;
+   type ICommandLineActivationOperation_Interface;
+   type ICommandLineActivationOperation is access all ICommandLineActivationOperation_Interface'Class;
+   type ICommandLineActivationOperation_Ptr is access all ICommandLineActivationOperation;
+   type IContactActivatedEventArgs_Interface;
+   type IContactActivatedEventArgs is access all IContactActivatedEventArgs_Interface'Class;
+   type IContactActivatedEventArgs_Ptr is access all IContactActivatedEventArgs;
+   type IContactCallActivatedEventArgs_Interface;
+   type IContactCallActivatedEventArgs is access all IContactCallActivatedEventArgs_Interface'Class;
+   type IContactCallActivatedEventArgs_Ptr is access all IContactCallActivatedEventArgs;
+   type IContactMapActivatedEventArgs_Interface;
+   type IContactMapActivatedEventArgs is access all IContactMapActivatedEventArgs_Interface'Class;
+   type IContactMapActivatedEventArgs_Ptr is access all IContactMapActivatedEventArgs;
+   type IContactMessageActivatedEventArgs_Interface;
+   type IContactMessageActivatedEventArgs is access all IContactMessageActivatedEventArgs_Interface'Class;
+   type IContactMessageActivatedEventArgs_Ptr is access all IContactMessageActivatedEventArgs;
+   type IContactPanelActivatedEventArgs_Interface;
+   type IContactPanelActivatedEventArgs is access all IContactPanelActivatedEventArgs_Interface'Class;
+   type IContactPanelActivatedEventArgs_Ptr is access all IContactPanelActivatedEventArgs;
+   type IContactPickerActivatedEventArgs_Interface;
+   type IContactPickerActivatedEventArgs is access all IContactPickerActivatedEventArgs_Interface'Class;
+   type IContactPickerActivatedEventArgs_Ptr is access all IContactPickerActivatedEventArgs;
+   type IContactPostActivatedEventArgs_Interface;
+   type IContactPostActivatedEventArgs is access all IContactPostActivatedEventArgs_Interface'Class;
+   type IContactPostActivatedEventArgs_Ptr is access all IContactPostActivatedEventArgs;
+   type IContactsProviderActivatedEventArgs_Interface;
+   type IContactsProviderActivatedEventArgs is access all IContactsProviderActivatedEventArgs_Interface'Class;
+   type IContactsProviderActivatedEventArgs_Ptr is access all IContactsProviderActivatedEventArgs;
+   type IContactVideoCallActivatedEventArgs_Interface;
+   type IContactVideoCallActivatedEventArgs is access all IContactVideoCallActivatedEventArgs_Interface'Class;
+   type IContactVideoCallActivatedEventArgs_Ptr is access all IContactVideoCallActivatedEventArgs;
+   type IContinuationActivatedEventArgs_Interface;
+   type IContinuationActivatedEventArgs is access all IContinuationActivatedEventArgs_Interface'Class;
+   type IContinuationActivatedEventArgs_Ptr is access all IContinuationActivatedEventArgs;
+   type IDeviceActivatedEventArgs_Interface;
+   type IDeviceActivatedEventArgs is access all IDeviceActivatedEventArgs_Interface'Class;
+   type IDeviceActivatedEventArgs_Ptr is access all IDeviceActivatedEventArgs;
+   type IDevicePairingActivatedEventArgs_Interface;
+   type IDevicePairingActivatedEventArgs is access all IDevicePairingActivatedEventArgs_Interface'Class;
+   type IDevicePairingActivatedEventArgs_Ptr is access all IDevicePairingActivatedEventArgs;
+   type IDialReceiverActivatedEventArgs_Interface;
+   type IDialReceiverActivatedEventArgs is access all IDialReceiverActivatedEventArgs_Interface'Class;
+   type IDialReceiverActivatedEventArgs_Ptr is access all IDialReceiverActivatedEventArgs;
    type IFileActivatedEventArgs_Interface;
    type IFileActivatedEventArgs is access all IFileActivatedEventArgs_Interface'Class;
    type IFileActivatedEventArgs_Ptr is access all IFileActivatedEventArgs;
-   type IFileActivatedEventArgsWithNeighboringFiles_Interface;
-   type IFileActivatedEventArgsWithNeighboringFiles is access all IFileActivatedEventArgsWithNeighboringFiles_Interface'Class;
-   type IFileActivatedEventArgsWithNeighboringFiles_Ptr is access all IFileActivatedEventArgsWithNeighboringFiles;
    type IFileActivatedEventArgsWithCallerPackageFamilyName_Interface;
    type IFileActivatedEventArgsWithCallerPackageFamilyName is access all IFileActivatedEventArgsWithCallerPackageFamilyName_Interface'Class;
    type IFileActivatedEventArgsWithCallerPackageFamilyName_Ptr is access all IFileActivatedEventArgsWithCallerPackageFamilyName;
+   type IFileActivatedEventArgsWithNeighboringFiles_Interface;
+   type IFileActivatedEventArgsWithNeighboringFiles is access all IFileActivatedEventArgsWithNeighboringFiles_Interface'Class;
+   type IFileActivatedEventArgsWithNeighboringFiles_Ptr is access all IFileActivatedEventArgsWithNeighboringFiles;
+   type IFileOpenPickerActivatedEventArgs_Interface;
+   type IFileOpenPickerActivatedEventArgs is access all IFileOpenPickerActivatedEventArgs_Interface'Class;
+   type IFileOpenPickerActivatedEventArgs_Ptr is access all IFileOpenPickerActivatedEventArgs;
+   type IFileOpenPickerActivatedEventArgs2_Interface;
+   type IFileOpenPickerActivatedEventArgs2 is access all IFileOpenPickerActivatedEventArgs2_Interface'Class;
+   type IFileOpenPickerActivatedEventArgs2_Ptr is access all IFileOpenPickerActivatedEventArgs2;
+   type IFileOpenPickerContinuationEventArgs_Interface;
+   type IFileOpenPickerContinuationEventArgs is access all IFileOpenPickerContinuationEventArgs_Interface'Class;
+   type IFileOpenPickerContinuationEventArgs_Ptr is access all IFileOpenPickerContinuationEventArgs;
+   type IFileSavePickerActivatedEventArgs_Interface;
+   type IFileSavePickerActivatedEventArgs is access all IFileSavePickerActivatedEventArgs_Interface'Class;
+   type IFileSavePickerActivatedEventArgs_Ptr is access all IFileSavePickerActivatedEventArgs;
+   type IFileSavePickerActivatedEventArgs2_Interface;
+   type IFileSavePickerActivatedEventArgs2 is access all IFileSavePickerActivatedEventArgs2_Interface'Class;
+   type IFileSavePickerActivatedEventArgs2_Ptr is access all IFileSavePickerActivatedEventArgs2;
+   type IFileSavePickerContinuationEventArgs_Interface;
+   type IFileSavePickerContinuationEventArgs is access all IFileSavePickerContinuationEventArgs_Interface'Class;
+   type IFileSavePickerContinuationEventArgs_Ptr is access all IFileSavePickerContinuationEventArgs;
+   type IFolderPickerContinuationEventArgs_Interface;
+   type IFolderPickerContinuationEventArgs is access all IFolderPickerContinuationEventArgs_Interface'Class;
+   type IFolderPickerContinuationEventArgs_Ptr is access all IFolderPickerContinuationEventArgs;
+   type ILaunchActivatedEventArgs_Interface;
+   type ILaunchActivatedEventArgs is access all ILaunchActivatedEventArgs_Interface'Class;
+   type ILaunchActivatedEventArgs_Ptr is access all ILaunchActivatedEventArgs;
+   type ILaunchActivatedEventArgs2_Interface;
+   type ILaunchActivatedEventArgs2 is access all ILaunchActivatedEventArgs2_Interface'Class;
+   type ILaunchActivatedEventArgs2_Ptr is access all ILaunchActivatedEventArgs2;
+   type ILockScreenActivatedEventArgs_Interface;
+   type ILockScreenActivatedEventArgs is access all ILockScreenActivatedEventArgs_Interface'Class;
+   type ILockScreenActivatedEventArgs_Ptr is access all ILockScreenActivatedEventArgs;
+   type ILockScreenCallActivatedEventArgs_Interface;
+   type ILockScreenCallActivatedEventArgs is access all ILockScreenCallActivatedEventArgs_Interface'Class;
+   type ILockScreenCallActivatedEventArgs_Ptr is access all ILockScreenCallActivatedEventArgs;
+   type IPickerReturnedActivatedEventArgs_Interface;
+   type IPickerReturnedActivatedEventArgs is access all IPickerReturnedActivatedEventArgs_Interface'Class;
+   type IPickerReturnedActivatedEventArgs_Ptr is access all IPickerReturnedActivatedEventArgs;
+   type IPrelaunchActivatedEventArgs_Interface;
+   type IPrelaunchActivatedEventArgs is access all IPrelaunchActivatedEventArgs_Interface'Class;
+   type IPrelaunchActivatedEventArgs_Ptr is access all IPrelaunchActivatedEventArgs;
+   type IPrint3DWorkflowActivatedEventArgs_Interface;
+   type IPrint3DWorkflowActivatedEventArgs is access all IPrint3DWorkflowActivatedEventArgs_Interface'Class;
+   type IPrint3DWorkflowActivatedEventArgs_Ptr is access all IPrint3DWorkflowActivatedEventArgs;
+   type IPrintTaskSettingsActivatedEventArgs_Interface;
+   type IPrintTaskSettingsActivatedEventArgs is access all IPrintTaskSettingsActivatedEventArgs_Interface'Class;
+   type IPrintTaskSettingsActivatedEventArgs_Ptr is access all IPrintTaskSettingsActivatedEventArgs;
    type IProtocolActivatedEventArgs_Interface;
    type IProtocolActivatedEventArgs is access all IProtocolActivatedEventArgs_Interface'Class;
    type IProtocolActivatedEventArgs_Ptr is access all IProtocolActivatedEventArgs;
@@ -320,143 +350,52 @@ package Windows.ApplicationModel.Activation is
    type IProtocolForResultsActivatedEventArgs_Interface;
    type IProtocolForResultsActivatedEventArgs is access all IProtocolForResultsActivatedEventArgs_Interface'Class;
    type IProtocolForResultsActivatedEventArgs_Ptr is access all IProtocolForResultsActivatedEventArgs;
-   type IFileOpenPickerActivatedEventArgs_Interface;
-   type IFileOpenPickerActivatedEventArgs is access all IFileOpenPickerActivatedEventArgs_Interface'Class;
-   type IFileOpenPickerActivatedEventArgs_Ptr is access all IFileOpenPickerActivatedEventArgs;
-   type IFileOpenPickerActivatedEventArgs2_Interface;
-   type IFileOpenPickerActivatedEventArgs2 is access all IFileOpenPickerActivatedEventArgs2_Interface'Class;
-   type IFileOpenPickerActivatedEventArgs2_Ptr is access all IFileOpenPickerActivatedEventArgs2;
-   type IFileSavePickerActivatedEventArgs_Interface;
-   type IFileSavePickerActivatedEventArgs is access all IFileSavePickerActivatedEventArgs_Interface'Class;
-   type IFileSavePickerActivatedEventArgs_Ptr is access all IFileSavePickerActivatedEventArgs;
-   type IFileSavePickerActivatedEventArgs2_Interface;
-   type IFileSavePickerActivatedEventArgs2 is access all IFileSavePickerActivatedEventArgs2_Interface'Class;
-   type IFileSavePickerActivatedEventArgs2_Ptr is access all IFileSavePickerActivatedEventArgs2;
-   type ICachedFileUpdaterActivatedEventArgs_Interface;
-   type ICachedFileUpdaterActivatedEventArgs is access all ICachedFileUpdaterActivatedEventArgs_Interface'Class;
-   type ICachedFileUpdaterActivatedEventArgs_Ptr is access all ICachedFileUpdaterActivatedEventArgs;
-   type IDeviceActivatedEventArgs_Interface;
-   type IDeviceActivatedEventArgs is access all IDeviceActivatedEventArgs_Interface'Class;
-   type IDeviceActivatedEventArgs_Ptr is access all IDeviceActivatedEventArgs;
-   type IPickerReturnedActivatedEventArgs_Interface;
-   type IPickerReturnedActivatedEventArgs is access all IPickerReturnedActivatedEventArgs_Interface'Class;
-   type IPickerReturnedActivatedEventArgs_Ptr is access all IPickerReturnedActivatedEventArgs;
    type IRestrictedLaunchActivatedEventArgs_Interface;
    type IRestrictedLaunchActivatedEventArgs is access all IRestrictedLaunchActivatedEventArgs_Interface'Class;
    type IRestrictedLaunchActivatedEventArgs_Ptr is access all IRestrictedLaunchActivatedEventArgs;
-   type ILockScreenActivatedEventArgs_Interface;
-   type ILockScreenActivatedEventArgs is access all ILockScreenActivatedEventArgs_Interface'Class;
-   type ILockScreenActivatedEventArgs_Ptr is access all ILockScreenActivatedEventArgs;
-   type IContinuationActivatedEventArgs_Interface;
-   type IContinuationActivatedEventArgs is access all IContinuationActivatedEventArgs_Interface'Class;
-   type IContinuationActivatedEventArgs_Ptr is access all IContinuationActivatedEventArgs;
-   type IFileOpenPickerContinuationEventArgs_Interface;
-   type IFileOpenPickerContinuationEventArgs is access all IFileOpenPickerContinuationEventArgs_Interface'Class;
-   type IFileOpenPickerContinuationEventArgs_Ptr is access all IFileOpenPickerContinuationEventArgs;
-   type IFileSavePickerContinuationEventArgs_Interface;
-   type IFileSavePickerContinuationEventArgs is access all IFileSavePickerContinuationEventArgs_Interface'Class;
-   type IFileSavePickerContinuationEventArgs_Ptr is access all IFileSavePickerContinuationEventArgs;
-   type IFolderPickerContinuationEventArgs_Interface;
-   type IFolderPickerContinuationEventArgs is access all IFolderPickerContinuationEventArgs_Interface'Class;
-   type IFolderPickerContinuationEventArgs_Ptr is access all IFolderPickerContinuationEventArgs;
-   type IWebAuthenticationBrokerContinuationEventArgs_Interface;
-   type IWebAuthenticationBrokerContinuationEventArgs is access all IWebAuthenticationBrokerContinuationEventArgs_Interface'Class;
-   type IWebAuthenticationBrokerContinuationEventArgs_Ptr is access all IWebAuthenticationBrokerContinuationEventArgs;
-   type IWebAccountProviderActivatedEventArgs_Interface;
-   type IWebAccountProviderActivatedEventArgs is access all IWebAccountProviderActivatedEventArgs_Interface'Class;
-   type IWebAccountProviderActivatedEventArgs_Ptr is access all IWebAccountProviderActivatedEventArgs;
-   type IToastNotificationActivatedEventArgs_Interface;
-   type IToastNotificationActivatedEventArgs is access all IToastNotificationActivatedEventArgs_Interface'Class;
-   type IToastNotificationActivatedEventArgs_Ptr is access all IToastNotificationActivatedEventArgs;
-   type IDialReceiverActivatedEventArgs_Interface;
-   type IDialReceiverActivatedEventArgs is access all IDialReceiverActivatedEventArgs_Interface'Class;
-   type IDialReceiverActivatedEventArgs_Ptr is access all IDialReceiverActivatedEventArgs;
-   type ITileActivatedInfo_Interface;
-   type ITileActivatedInfo is access all ITileActivatedInfo_Interface'Class;
-   type ITileActivatedInfo_Ptr is access all ITileActivatedInfo;
-   type ICommandLineActivationOperation_Interface;
-   type ICommandLineActivationOperation is access all ICommandLineActivationOperation_Interface'Class;
-   type ICommandLineActivationOperation_Ptr is access all ICommandLineActivationOperation;
-   type ICommandLineActivatedEventArgs_Interface;
-   type ICommandLineActivatedEventArgs is access all ICommandLineActivatedEventArgs_Interface'Class;
-   type ICommandLineActivatedEventArgs_Ptr is access all ICommandLineActivatedEventArgs;
+   type ISearchActivatedEventArgs_Interface;
+   type ISearchActivatedEventArgs is access all ISearchActivatedEventArgs_Interface'Class;
+   type ISearchActivatedEventArgs_Ptr is access all ISearchActivatedEventArgs;
+   type ISearchActivatedEventArgsWithLinguisticDetails_Interface;
+   type ISearchActivatedEventArgsWithLinguisticDetails is access all ISearchActivatedEventArgsWithLinguisticDetails_Interface'Class;
+   type ISearchActivatedEventArgsWithLinguisticDetails_Ptr is access all ISearchActivatedEventArgsWithLinguisticDetails;
+   type IShareTargetActivatedEventArgs_Interface;
+   type IShareTargetActivatedEventArgs is access all IShareTargetActivatedEventArgs_Interface'Class;
+   type IShareTargetActivatedEventArgs_Ptr is access all IShareTargetActivatedEventArgs;
+   type ISplashScreen_Interface;
+   type ISplashScreen is access all ISplashScreen_Interface'Class;
+   type ISplashScreen_Ptr is access all ISplashScreen;
    type IStartupTaskActivatedEventArgs_Interface;
    type IStartupTaskActivatedEventArgs is access all IStartupTaskActivatedEventArgs_Interface'Class;
    type IStartupTaskActivatedEventArgs_Ptr is access all IStartupTaskActivatedEventArgs;
-   type IBarcodeScannerPreviewActivatedEventArgs_Interface;
-   type IBarcodeScannerPreviewActivatedEventArgs is access all IBarcodeScannerPreviewActivatedEventArgs_Interface'Class;
-   type IBarcodeScannerPreviewActivatedEventArgs_Ptr is access all IBarcodeScannerPreviewActivatedEventArgs;
-   type IDevicePairingActivatedEventArgs_Interface;
-   type IDevicePairingActivatedEventArgs is access all IDevicePairingActivatedEventArgs_Interface'Class;
-   type IDevicePairingActivatedEventArgs_Ptr is access all IDevicePairingActivatedEventArgs;
+   type ITileActivatedInfo_Interface;
+   type ITileActivatedInfo is access all ITileActivatedInfo_Interface'Class;
+   type ITileActivatedInfo_Ptr is access all ITileActivatedInfo;
+   type IToastNotificationActivatedEventArgs_Interface;
+   type IToastNotificationActivatedEventArgs is access all IToastNotificationActivatedEventArgs_Interface'Class;
+   type IToastNotificationActivatedEventArgs_Ptr is access all IToastNotificationActivatedEventArgs;
+   type IUserDataAccountProviderActivatedEventArgs_Interface;
+   type IUserDataAccountProviderActivatedEventArgs is access all IUserDataAccountProviderActivatedEventArgs_Interface'Class;
+   type IUserDataAccountProviderActivatedEventArgs_Ptr is access all IUserDataAccountProviderActivatedEventArgs;
+   type IViewSwitcherProvider_Interface;
+   type IViewSwitcherProvider is access all IViewSwitcherProvider_Interface'Class;
+   type IViewSwitcherProvider_Ptr is access all IViewSwitcherProvider;
    type IVoiceCommandActivatedEventArgs_Interface;
    type IVoiceCommandActivatedEventArgs is access all IVoiceCommandActivatedEventArgs_Interface'Class;
    type IVoiceCommandActivatedEventArgs_Ptr is access all IVoiceCommandActivatedEventArgs;
+   type IWalletActionActivatedEventArgs_Interface;
+   type IWalletActionActivatedEventArgs is access all IWalletActionActivatedEventArgs_Interface'Class;
+   type IWalletActionActivatedEventArgs_Ptr is access all IWalletActionActivatedEventArgs;
+   type IWebAccountProviderActivatedEventArgs_Interface;
+   type IWebAccountProviderActivatedEventArgs is access all IWebAccountProviderActivatedEventArgs_Interface'Class;
+   type IWebAccountProviderActivatedEventArgs_Ptr is access all IWebAccountProviderActivatedEventArgs;
+   type IWebAuthenticationBrokerContinuationEventArgs_Interface;
+   type IWebAuthenticationBrokerContinuationEventArgs is access all IWebAuthenticationBrokerContinuationEventArgs_Interface'Class;
+   type IWebAuthenticationBrokerContinuationEventArgs_Ptr is access all IWebAuthenticationBrokerContinuationEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBackgroundActivatedEventArgs : aliased constant Windows.IID := (2870263520, 59232, 17422, (169, 28, 68, 121, 109, 227, 169, 45 ));
-   
-   type IBackgroundActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TaskInstance
-   (
-      This       : access IBackgroundActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskInstance
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactPanelActivatedEventArgs : aliased constant Windows.IID := (1388012516, 54228, 19299, (128, 81, 74, 242, 8, 44, 171, 128 ));
-   
-   type IContactPanelActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ContactPanel
-   (
-      This       : access IContactPanelActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContactPanel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Contact
-   (
-      This       : access IContactPanelActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISplashScreen : aliased constant Windows.IID := (3394082652, 54486, 17392, (151, 192, 8, 51, 198, 57, 28, 36 ));
-   
-   type ISplashScreen_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ImageLocation
-   (
-      This       : access ISplashScreen_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Dismissed
-   (
-      This       : access ISplashScreen_Interface
-      ; handler : TypedEventHandler_ISplashScreen_add_Dismissed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Dismissed
-   (
-      This       : access ISplashScreen_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -487,241 +426,27 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintTaskSettingsActivatedEventArgs : aliased constant Windows.IID := (3996164297, 52822, 18533, (186, 142, 137, 84, 172, 39, 17, 7 ));
+   IID_IActivatedEventArgsWithUser : aliased constant Windows.IID := (485530526, 39266, 18742, (128, 255, 175, 200, 232, 174, 92, 140 ));
    
-   type IPrintTaskSettingsActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IActivatedEventArgsWithUser_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Configuration
+   function get_User
    (
-      This       : access IPrintTaskSettingsActivatedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
+      This       : access IActivatedEventArgsWithUser_Interface
+      ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPrint3DWorkflowActivatedEventArgs : aliased constant Windows.IID := (1062725515, 62124, 17945, (131, 2, 239, 133, 94, 28, 155, 144 ));
+   IID_IApplicationViewActivatedEventArgs : aliased constant Windows.IID := (2467098443, 47145, 16636, (136, 244, 133, 19, 232, 166, 71, 56 ));
    
-   type IPrint3DWorkflowActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IApplicationViewActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Workflow
+   function get_CurrentlyShownApplicationViewId
    (
-      This       : access IPrint3DWorkflowActivatedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Printers.Extensions.IPrint3DWorkflow
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICameraSettingsActivatedEventArgs : aliased constant Windows.IID := (4217873672, 11693, 18698, (145, 112, 220, 160, 54, 235, 17, 75 ));
-   
-   type ICameraSettingsActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_VideoDeviceController
-   (
-      This       : access ICameraSettingsActivatedEventArgs_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_VideoDeviceExtension
-   (
-      This       : access ICameraSettingsActivatedEventArgs_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactPickerActivatedEventArgs : aliased constant Windows.IID := (3461851879, 25673, 17831, (151, 31, 209, 19, 190, 122, 137, 54 ));
-   
-   type IContactPickerActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ContactPickerUI
-   (
-      This       : access IContactPickerActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.Provider.IContactPickerUI
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactActivatedEventArgs : aliased constant Windows.IID := (3592921540, 49189, 19521, (157, 239, 241, 234, 250, 208, 117, 231 ));
-   
-   type IContactActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Verb
-   (
-      This       : access IContactActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactCallActivatedEventArgs : aliased constant Windows.IID := (3269399751, 12523, 16838, (179, 188, 91, 22, 148, 249, 218, 179 ));
-   
-   type IContactCallActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ServiceId
-   (
-      This       : access IContactCallActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServiceUserId
-   (
-      This       : access IContactCallActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Contact
-   (
-      This       : access IContactCallActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactMessageActivatedEventArgs : aliased constant Windows.IID := (3730410930, 3587, 17328, (191, 86, 188, 196, 11, 49, 98, 223 ));
-   
-   type IContactMessageActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ServiceId
-   (
-      This       : access IContactMessageActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServiceUserId
-   (
-      This       : access IContactMessageActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Contact
-   (
-      This       : access IContactMessageActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactMapActivatedEventArgs : aliased constant Windows.IID := (3006003312, 61159, 19154, (170, 241, 168, 126, 255, 207, 0, 164 ));
-   
-   type IContactMapActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Address
-   (
-      This       : access IContactMapActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContactAddress
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Contact
-   (
-      This       : access IContactMapActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactPostActivatedEventArgs : aliased constant Windows.IID := (3009035367, 61927, 18005, (173, 110, 72, 87, 88, 143, 85, 47 ));
-   
-   type IContactPostActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ServiceId
-   (
-      This       : access IContactPostActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServiceUserId
-   (
-      This       : access IContactPostActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Contact
-   (
-      This       : access IContactPostActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactVideoCallActivatedEventArgs : aliased constant Windows.IID := (1627889080, 58343, 19279, (133, 141, 92, 99, 169, 110, 246, 132 ));
-   
-   type IContactVideoCallActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ServiceId
-   (
-      This       : access IContactVideoCallActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServiceUserId
-   (
-      This       : access IContactVideoCallActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Contact
-   (
-      This       : access IContactVideoCallActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContactsProviderActivatedEventArgs : aliased constant Windows.IID := (1166073000, 22352, 18710, (170, 82, 192, 130, 149, 33, 235, 148 ));
-   
-   type IContactsProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Verb
-   (
-      This       : access IContactsProviderActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWalletActionActivatedEventArgs : aliased constant Windows.IID := (4244374139, 6682, 19746, (146, 63, 174, 111, 69, 250, 82, 217 ));
-   
-   type IWalletActionActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ItemId
-   (
-      This       : access IWalletActionActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ActionKind
-   (
-      This       : access IWalletActionActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Wallet.WalletActionKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ActionId
-   (
-      This       : access IWalletActionActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
+      This       : access IApplicationViewActivatedEventArgs_Interface
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
@@ -753,19 +478,6 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
-   IID_IAppointmentsProviderReplaceAppointmentActivatedEventArgs : aliased constant Windows.IID := (357677012, 43393, 16487, (138, 98, 5, 36, 228, 173, 225, 33 ));
-   
-   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ReplaceAppointmentOperation
-   (
-      This       : access IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IAppointmentsProviderRemoveAppointmentActivatedEventArgs : aliased constant Windows.IID := (1964980920, 2958, 17692, (159, 21, 150, 110, 105, 155, 172, 37 ));
    
    type IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -774,6 +486,19 @@ package Windows.ApplicationModel.Activation is
    (
       This       : access IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Interface
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IRemoveAppointmentOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppointmentsProviderReplaceAppointmentActivatedEventArgs : aliased constant Windows.IID := (357677012, 43393, 16487, (138, 98, 5, 36, 228, 173, 225, 33 ));
+   
+   type IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReplaceAppointmentOperation
+   (
+      This       : access IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation
    )
    return Windows.HRESULT is abstract;
    
@@ -826,158 +551,360 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
-   IID_IShareTargetActivatedEventArgs : aliased constant Windows.IID := (1272641992, 52658, 19147, (191, 195, 102, 72, 86, 51, 120, 236 ));
+   IID_IBackgroundActivatedEventArgs : aliased constant Windows.IID := (2870263520, 59232, 17422, (169, 28, 68, 121, 109, 227, 169, 45 ));
    
-   type IShareTargetActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IBackgroundActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ShareOperation
+   function get_TaskInstance
    (
-      This       : access IShareTargetActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
+      This       : access IBackgroundActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IUserDataAccountProviderActivatedEventArgs : aliased constant Windows.IID := (466220835, 36593, 19025, (166, 58, 254, 113, 30, 234, 182, 7 ));
+   IID_IBarcodeScannerPreviewActivatedEventArgs : aliased constant Windows.IID := (1735555452, 39359, 17225, (175, 34, 228, 18, 53, 96, 55, 28 ));
    
-   type IUserDataAccountProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IBarcodeScannerPreviewActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ConnectionId
+   (
+      This       : access IBarcodeScannerPreviewActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICachedFileUpdaterActivatedEventArgs : aliased constant Windows.IID := (3496915399, 14341, 20171, (183, 87, 108, 241, 94, 38, 254, 243 ));
+   
+   type ICachedFileUpdaterActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CachedFileUpdaterUI
+   (
+      This       : access ICachedFileUpdaterActivatedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Provider.ICachedFileUpdaterUI
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICameraSettingsActivatedEventArgs : aliased constant Windows.IID := (4217873672, 11693, 18698, (145, 112, 220, 160, 54, 235, 17, 75 ));
+   
+   type ICameraSettingsActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_VideoDeviceController
+   (
+      This       : access ICameraSettingsActivatedEventArgs_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VideoDeviceExtension
+   (
+      This       : access ICameraSettingsActivatedEventArgs_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommandLineActivatedEventArgs : aliased constant Windows.IID := (1158039340, 106, 18667, (138, 251, 208, 122, 178, 94, 51, 102 ));
+   
+   type ICommandLineActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
    (
-      This       : access IUserDataAccountProviderActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation
+      This       : access ICommandLineActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.ICommandLineActivationOperation
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IActivatedEventArgsWithUser : aliased constant Windows.IID := (485530526, 39266, 18742, (128, 255, 175, 200, 232, 174, 92, 140 ));
+   IID_ICommandLineActivationOperation : aliased constant Windows.IID := (2571839553, 50590, 20329, (188, 253, 182, 30, 212, 230, 34, 235 ));
    
-   type IActivatedEventArgsWithUser_Interface is interface and Windows.IInspectable_Interface;
+   type ICommandLineActivationOperation_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_User
+   function get_Arguments
    (
-      This       : access IActivatedEventArgsWithUser_Interface
-      ; RetVal : access Windows.System.IUser
+      This       : access ICommandLineActivationOperation_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IApplicationViewActivatedEventArgs : aliased constant Windows.IID := (2467098443, 47145, 16636, (136, 244, 133, 19, 232, 166, 71, 56 ));
-   
-   type IApplicationViewActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CurrentlyShownApplicationViewId
+   function get_CurrentDirectoryPath
    (
-      This       : access IApplicationViewActivatedEventArgs_Interface
+      This       : access ICommandLineActivationOperation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExitCode
+   (
+      This       : access ICommandLineActivationOperation_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExitCode
+   (
+      This       : access ICommandLineActivationOperation_Interface
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IViewSwitcherProvider : aliased constant Windows.IID := (871532710, 23596, 19751, (186, 199, 117, 54, 8, 143, 18, 25 ));
-   
-   type IViewSwitcherProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ViewSwitcher
+   function GetDeferral
    (
-      This       : access IViewSwitcherProvider_Interface
-      ; RetVal : access Windows.UI.ViewManagement.IActivationViewSwitcher
+      This       : access ICommandLineActivationOperation_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPrelaunchActivatedEventArgs : aliased constant Windows.IID := (205812091, 6647, 18646, (176, 70, 207, 34, 130, 110, 170, 116 ));
+   IID_IContactActivatedEventArgs : aliased constant Windows.IID := (3592921540, 49189, 19521, (157, 239, 241, 234, 250, 208, 117, 231 ));
    
-   type IPrelaunchActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IContactActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_PrelaunchActivated
+   function get_Verb
    (
-      This       : access IPrelaunchActivatedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILaunchActivatedEventArgs : aliased constant Windows.IID := (4224269862, 41290, 19279, (130, 176, 51, 190, 217, 32, 175, 82 ));
-   
-   type ILaunchActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Arguments
-   (
-      This       : access ILaunchActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TileId
-   (
-      This       : access ILaunchActivatedEventArgs_Interface
+      This       : access IContactActivatedEventArgs_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ILockScreenCallActivatedEventArgs : aliased constant Windows.IID := (116621246, 46578, 17547, (177, 62, 227, 40, 172, 28, 81, 106 ));
+   IID_IContactCallActivatedEventArgs : aliased constant Windows.IID := (3269399751, 12523, 16838, (179, 188, 91, 22, 148, 249, 218, 179 ));
    
-   type ILockScreenCallActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IContactCallActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_CallUI
+   function get_ServiceId
    (
-      This       : access ILockScreenCallActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Calls.ILockScreenCallUI
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILaunchActivatedEventArgs2 : aliased constant Windows.IID := (265518780, 40393, 18101, (154, 206, 189, 149, 212, 86, 83, 69 ));
-   
-   type ILaunchActivatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TileActivatedInfo
-   (
-      This       : access ILaunchActivatedEventArgs2_Interface
-      ; RetVal : access Windows.ApplicationModel.Activation.ITileActivatedInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISearchActivatedEventArgs : aliased constant Windows.IID := (2360568145, 22728, 17379, (148, 188, 65, 211, 63, 139, 99, 14 ));
-   
-   type ISearchActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_QueryText
-   (
-      This       : access ISearchActivatedEventArgs_Interface
+      This       : access IContactCallActivatedEventArgs_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Language
+   function get_ServiceUserId
    (
-      This       : access ISearchActivatedEventArgs_Interface
+      This       : access IContactCallActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Contact
+   (
+      This       : access IContactCallActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContactMapActivatedEventArgs : aliased constant Windows.IID := (3006003312, 61159, 19154, (170, 241, 168, 126, 255, 207, 0, 164 ));
+   
+   type IContactMapActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Address
+   (
+      This       : access IContactMapActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContactAddress
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Contact
+   (
+      This       : access IContactMapActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContactMessageActivatedEventArgs : aliased constant Windows.IID := (3730410930, 3587, 17328, (191, 86, 188, 196, 11, 49, 98, 223 ));
+   
+   type IContactMessageActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ServiceId
+   (
+      This       : access IContactMessageActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServiceUserId
+   (
+      This       : access IContactMessageActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Contact
+   (
+      This       : access IContactMessageActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContactPanelActivatedEventArgs : aliased constant Windows.IID := (1388012516, 54228, 19299, (128, 81, 74, 242, 8, 44, 171, 128 ));
+   
+   type IContactPanelActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactPanel
+   (
+      This       : access IContactPanelActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContactPanel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Contact
+   (
+      This       : access IContactPanelActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContactPickerActivatedEventArgs : aliased constant Windows.IID := (3461851879, 25673, 17831, (151, 31, 209, 19, 190, 122, 137, 54 ));
+   
+   type IContactPickerActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactPickerUI
+   (
+      This       : access IContactPickerActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.Provider.IContactPickerUI
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContactPostActivatedEventArgs : aliased constant Windows.IID := (3009035367, 61927, 18005, (173, 110, 72, 87, 88, 143, 85, 47 ));
+   
+   type IContactPostActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ServiceId
+   (
+      This       : access IContactPostActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServiceUserId
+   (
+      This       : access IContactPostActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Contact
+   (
+      This       : access IContactPostActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContactsProviderActivatedEventArgs : aliased constant Windows.IID := (1166073000, 22352, 18710, (170, 82, 192, 130, 149, 33, 235, 148 ));
+   
+   type IContactsProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Verb
+   (
+      This       : access IContactsProviderActivatedEventArgs_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISearchActivatedEventArgsWithLinguisticDetails : aliased constant Windows.IID := (3231658970, 2219, 18737, (155, 124, 69, 16, 37, 242, 31, 129 ));
+   IID_IContactVideoCallActivatedEventArgs : aliased constant Windows.IID := (1627889080, 58343, 19279, (133, 141, 92, 99, 169, 110, 246, 132 ));
    
-   type ISearchActivatedEventArgsWithLinguisticDetails_Interface is interface and Windows.IInspectable_Interface;
+   type IContactVideoCallActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_LinguisticDetails
+   function get_ServiceId
    (
-      This       : access ISearchActivatedEventArgsWithLinguisticDetails_Interface
-      ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails
+      This       : access IContactVideoCallActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServiceUserId
+   (
+      This       : access IContactVideoCallActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Contact
+   (
+      This       : access IContactVideoCallActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Contacts.IContact
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContinuationActivatedEventArgs : aliased constant Windows.IID := (3850438325, 5471, 19092, (167, 66, 199, 224, 143, 78, 24, 140 ));
+   
+   type IContinuationActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContinuationData
+   (
+      This       : access IContinuationActivatedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDeviceActivatedEventArgs : aliased constant Windows.IID := (3444619689, 52752, 17618, (130, 52, 195, 85, 160, 115, 239, 51 ));
+   
+   type IDeviceActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceInformationId
+   (
+      This       : access IDeviceActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Verb
+   (
+      This       : access IDeviceActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDevicePairingActivatedEventArgs : aliased constant Windows.IID := (3953185252, 60614, 16712, (148, 237, 244, 179, 126, 192, 91, 62 ));
+   
+   type IDevicePairingActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceInformation
+   (
+      This       : access IDevicePairingActivatedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDialReceiverActivatedEventArgs : aliased constant Windows.IID := (4218912471, 34286, 17774, (164, 77, 133, 215, 48, 231, 10, 237 ));
+   
+   type IDialReceiverActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AppName
+   (
+      This       : access IDialReceiverActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1003,6 +930,19 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
+   IID_IFileActivatedEventArgsWithCallerPackageFamilyName : aliased constant Windows.IID := (761327723, 53855, 19749, (134, 83, 225, 197, 225, 16, 131, 9 ));
+   
+   type IFileActivatedEventArgsWithCallerPackageFamilyName_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CallerPackageFamilyName
+   (
+      This       : access IFileActivatedEventArgsWithCallerPackageFamilyName_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFileActivatedEventArgsWithNeighboringFiles : aliased constant Windows.IID := (1127981476, 57826, 18685, (183, 252, 181, 214, 238, 230, 80, 51 ));
    
    type IFileActivatedEventArgsWithNeighboringFiles_Interface is interface and Windows.IInspectable_Interface;
@@ -1016,14 +956,210 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
-   IID_IFileActivatedEventArgsWithCallerPackageFamilyName : aliased constant Windows.IID := (761327723, 53855, 19749, (134, 83, 225, 197, 225, 16, 131, 9 ));
+   IID_IFileOpenPickerActivatedEventArgs : aliased constant Windows.IID := (1921151106, 21797, 19442, (188, 9, 31, 80, 149, 212, 150, 77 ));
    
-   type IFileActivatedEventArgsWithCallerPackageFamilyName_Interface is interface and Windows.IInspectable_Interface;
+   type IFileOpenPickerActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FileOpenPickerUI
+   (
+      This       : access IFileOpenPickerActivatedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Pickers.Provider.IFileOpenPickerUI
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileOpenPickerActivatedEventArgs2 : aliased constant Windows.IID := (1584602982, 36127, 17915, (175, 29, 115, 32, 92, 143, 199, 161 ));
+   
+   type IFileOpenPickerActivatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CallerPackageFamilyName
    (
-      This       : access IFileActivatedEventArgsWithCallerPackageFamilyName_Interface
+      This       : access IFileOpenPickerActivatedEventArgs2_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileOpenPickerContinuationEventArgs : aliased constant Windows.IID := (4042932026, 54504, 19155, (156, 52, 35, 8, 243, 47, 206, 201 ));
+   
+   type IFileOpenPickerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Files
+   (
+      This       : access IFileOpenPickerContinuationEventArgs_Interface
+      ; RetVal : access Windows.Storage.IVectorView_IStorageFile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileSavePickerActivatedEventArgs : aliased constant Windows.IID := (2176949489, 29926, 17287, (130, 235, 187, 143, 214, 75, 67, 70 ));
+   
+   type IFileSavePickerActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FileSavePickerUI
+   (
+      This       : access IFileSavePickerActivatedEventArgs_Interface
+      ; RetVal : access Windows.Storage.Pickers.Provider.IFileSavePickerUI
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileSavePickerActivatedEventArgs2 : aliased constant Windows.IID := (1802763795, 11506, 19784, (140, 188, 175, 103, 210, 63, 28, 231 ));
+   
+   type IFileSavePickerActivatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CallerPackageFamilyName
+   (
+      This       : access IFileSavePickerActivatedEventArgs2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EnterpriseId
+   (
+      This       : access IFileSavePickerActivatedEventArgs2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileSavePickerContinuationEventArgs : aliased constant Windows.IID := (746876897, 15277, 20275, (140, 139, 228, 111, 174, 130, 75, 75 ));
+   
+   type IFileSavePickerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_File
+   (
+      This       : access IFileSavePickerContinuationEventArgs_Interface
+      ; RetVal : access Windows.Storage.IStorageFile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFolderPickerContinuationEventArgs : aliased constant Windows.IID := (1367876454, 40779, 18831, (190, 176, 66, 104, 79, 110, 28, 41 ));
+   
+   type IFolderPickerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Folder
+   (
+      This       : access IFolderPickerContinuationEventArgs_Interface
+      ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILaunchActivatedEventArgs : aliased constant Windows.IID := (4224269862, 41290, 19279, (130, 176, 51, 190, 217, 32, 175, 82 ));
+   
+   type ILaunchActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Arguments
+   (
+      This       : access ILaunchActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TileId
+   (
+      This       : access ILaunchActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILaunchActivatedEventArgs2 : aliased constant Windows.IID := (265518780, 40393, 18101, (154, 206, 189, 149, 212, 86, 83, 69 ));
+   
+   type ILaunchActivatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TileActivatedInfo
+   (
+      This       : access ILaunchActivatedEventArgs2_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.ITileActivatedInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILockScreenActivatedEventArgs : aliased constant Windows.IID := (1017608550, 24840, 19009, (130, 32, 238, 125, 19, 60, 133, 50 ));
+   
+   type ILockScreenActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Info
+   (
+      This       : access ILockScreenActivatedEventArgs_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILockScreenCallActivatedEventArgs : aliased constant Windows.IID := (116621246, 46578, 17547, (177, 62, 227, 40, 172, 28, 81, 106 ));
+   
+   type ILockScreenCallActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CallUI
+   (
+      This       : access ILockScreenCallActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Calls.ILockScreenCallUI
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPickerReturnedActivatedEventArgs : aliased constant Windows.IID := (906883001, 43475, 18820, (164, 237, 158, 199, 52, 96, 73, 33 ));
+   
+   type IPickerReturnedActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PickerOperationId
+   (
+      This       : access IPickerReturnedActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrelaunchActivatedEventArgs : aliased constant Windows.IID := (205812091, 6647, 18646, (176, 70, 207, 34, 130, 110, 170, 116 ));
+   
+   type IPrelaunchActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PrelaunchActivated
+   (
+      This       : access IPrelaunchActivatedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrint3DWorkflowActivatedEventArgs : aliased constant Windows.IID := (1062725515, 62124, 17945, (131, 2, 239, 133, 94, 28, 155, 144 ));
+   
+   type IPrint3DWorkflowActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Workflow
+   (
+      This       : access IPrint3DWorkflowActivatedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Printers.Extensions.IPrint3DWorkflow
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintTaskSettingsActivatedEventArgs : aliased constant Windows.IID := (3996164297, 52822, 18533, (186, 142, 137, 84, 172, 39, 17, 7 ));
+   
+   type IPrintTaskSettingsActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Configuration
+   (
+      This       : access IPrintTaskSettingsActivatedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
    )
    return Windows.HRESULT is abstract;
    
@@ -1075,111 +1211,6 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
-   IID_IFileOpenPickerActivatedEventArgs : aliased constant Windows.IID := (1921151106, 21797, 19442, (188, 9, 31, 80, 149, 212, 150, 77 ));
-   
-   type IFileOpenPickerActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FileOpenPickerUI
-   (
-      This       : access IFileOpenPickerActivatedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Pickers.Provider.IFileOpenPickerUI
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFileOpenPickerActivatedEventArgs2 : aliased constant Windows.IID := (1584602982, 36127, 17915, (175, 29, 115, 32, 92, 143, 199, 161 ));
-   
-   type IFileOpenPickerActivatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CallerPackageFamilyName
-   (
-      This       : access IFileOpenPickerActivatedEventArgs2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFileSavePickerActivatedEventArgs : aliased constant Windows.IID := (2176949489, 29926, 17287, (130, 235, 187, 143, 214, 75, 67, 70 ));
-   
-   type IFileSavePickerActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FileSavePickerUI
-   (
-      This       : access IFileSavePickerActivatedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Pickers.Provider.IFileSavePickerUI
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFileSavePickerActivatedEventArgs2 : aliased constant Windows.IID := (1802763795, 11506, 19784, (140, 188, 175, 103, 210, 63, 28, 231 ));
-   
-   type IFileSavePickerActivatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CallerPackageFamilyName
-   (
-      This       : access IFileSavePickerActivatedEventArgs2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EnterpriseId
-   (
-      This       : access IFileSavePickerActivatedEventArgs2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICachedFileUpdaterActivatedEventArgs : aliased constant Windows.IID := (3496915399, 14341, 20171, (183, 87, 108, 241, 94, 38, 254, 243 ));
-   
-   type ICachedFileUpdaterActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CachedFileUpdaterUI
-   (
-      This       : access ICachedFileUpdaterActivatedEventArgs_Interface
-      ; RetVal : access Windows.Storage.Provider.ICachedFileUpdaterUI
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDeviceActivatedEventArgs : aliased constant Windows.IID := (3444619689, 52752, 17618, (130, 52, 195, 85, 160, 115, 239, 51 ));
-   
-   type IDeviceActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DeviceInformationId
-   (
-      This       : access IDeviceActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Verb
-   (
-      This       : access IDeviceActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPickerReturnedActivatedEventArgs : aliased constant Windows.IID := (906883001, 43475, 18820, (164, 237, 158, 199, 52, 96, 73, 33 ));
-   
-   type IPickerReturnedActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PickerOperationId
-   (
-      This       : access IPickerReturnedActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IRestrictedLaunchActivatedEventArgs : aliased constant Windows.IID := (3770133633, 49091, 17220, (165, 218, 25, 253, 90, 39, 186, 174 ));
    
    type IRestrictedLaunchActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1193,92 +1224,101 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
-   IID_ILockScreenActivatedEventArgs : aliased constant Windows.IID := (1017608550, 24840, 19009, (130, 32, 238, 125, 19, 60, 133, 50 ));
+   IID_ISearchActivatedEventArgs : aliased constant Windows.IID := (2360568145, 22728, 17379, (148, 188, 65, 211, 63, 139, 99, 14 ));
    
-   type ILockScreenActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type ISearchActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Info
+   function get_QueryText
    (
-      This       : access ILockScreenActivatedEventArgs_Interface
-      ; RetVal : access Windows.Object
+      This       : access ISearchActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Language
+   (
+      This       : access ISearchActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IContinuationActivatedEventArgs : aliased constant Windows.IID := (3850438325, 5471, 19092, (167, 66, 199, 224, 143, 78, 24, 140 ));
+   IID_ISearchActivatedEventArgsWithLinguisticDetails : aliased constant Windows.IID := (3231658970, 2219, 18737, (155, 124, 69, 16, 37, 242, 31, 129 ));
    
-   type IContinuationActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type ISearchActivatedEventArgsWithLinguisticDetails_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ContinuationData
+   function get_LinguisticDetails
    (
-      This       : access IContinuationActivatedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+      This       : access ISearchActivatedEventArgsWithLinguisticDetails_Interface
+      ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IFileOpenPickerContinuationEventArgs : aliased constant Windows.IID := (4042932026, 54504, 19155, (156, 52, 35, 8, 243, 47, 206, 201 ));
+   IID_IShareTargetActivatedEventArgs : aliased constant Windows.IID := (1272641992, 52658, 19147, (191, 195, 102, 72, 86, 51, 120, 236 ));
    
-   type IFileOpenPickerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IShareTargetActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Files
+   function get_ShareOperation
    (
-      This       : access IFileOpenPickerContinuationEventArgs_Interface
-      ; RetVal : access Windows.Storage.IVectorView_IStorageFile -- Generic Parameter Type
+      This       : access IShareTargetActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IFileSavePickerContinuationEventArgs : aliased constant Windows.IID := (746876897, 15277, 20275, (140, 139, 228, 111, 174, 130, 75, 75 ));
+   IID_ISplashScreen : aliased constant Windows.IID := (3394082652, 54486, 17392, (151, 192, 8, 51, 198, 57, 28, 36 ));
    
-   type IFileSavePickerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type ISplashScreen_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_File
+   function get_ImageLocation
    (
-      This       : access IFileSavePickerContinuationEventArgs_Interface
-      ; RetVal : access Windows.Storage.IStorageFile
+      This       : access ISplashScreen_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Dismissed
+   (
+      This       : access ISplashScreen_Interface
+      ; handler : TypedEventHandler_ISplashScreen_add_Dismissed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Dismissed
+   (
+      This       : access ISplashScreen_Interface
+      ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IFolderPickerContinuationEventArgs : aliased constant Windows.IID := (1367876454, 40779, 18831, (190, 176, 66, 104, 79, 110, 28, 41 ));
+   IID_IStartupTaskActivatedEventArgs : aliased constant Windows.IID := (61938264, 21110, 19857, (134, 33, 84, 97, 24, 100, 213, 250 ));
    
-   type IFolderPickerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IStartupTaskActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Folder
+   function get_TaskId
    (
-      This       : access IFolderPickerContinuationEventArgs_Interface
-      ; RetVal : access Windows.Storage.IStorageFolder
+      This       : access IStartupTaskActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IWebAuthenticationBrokerContinuationEventArgs : aliased constant Windows.IID := (1977459668, 30484, 17725, (183, 255, 185, 94, 58, 23, 9, 218 ));
+   IID_ITileActivatedInfo : aliased constant Windows.IID := (2162467761, 14720, 20247, (183, 56, 137, 25, 78, 11, 143, 101 ));
    
-   type IWebAuthenticationBrokerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type ITileActivatedInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_WebAuthenticationResult
+   function get_RecentlyShownNotifications
    (
-      This       : access IWebAuthenticationBrokerContinuationEventArgs_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.IWebAuthenticationResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebAccountProviderActivatedEventArgs : aliased constant Windows.IID := (1924601716, 39146, 19663, (151, 82, 70, 217, 5, 16, 4, 241 ));
-   
-   type IWebAccountProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Operation
-   (
-      This       : access IWebAccountProviderActivatedEventArgs_Interface
-      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation
+      This       : access ITileActivatedInfo_Interface
+      ; RetVal : access Windows.UI.Notifications.IVectorView_IShownTileNotification -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1304,120 +1344,27 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
-   IID_IDialReceiverActivatedEventArgs : aliased constant Windows.IID := (4218912471, 34286, 17774, (164, 77, 133, 215, 48, 231, 10, 237 ));
+   IID_IUserDataAccountProviderActivatedEventArgs : aliased constant Windows.IID := (466220835, 36593, 19025, (166, 58, 254, 113, 30, 234, 182, 7 ));
    
-   type IDialReceiverActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AppName
-   (
-      This       : access IDialReceiverActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITileActivatedInfo : aliased constant Windows.IID := (2162467761, 14720, 20247, (183, 56, 137, 25, 78, 11, 143, 101 ));
-   
-   type ITileActivatedInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecentlyShownNotifications
-   (
-      This       : access ITileActivatedInfo_Interface
-      ; RetVal : access Windows.UI.Notifications.IVectorView_IShownTileNotification -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICommandLineActivationOperation : aliased constant Windows.IID := (2571839553, 50590, 20329, (188, 253, 182, 30, 212, 230, 34, 235 ));
-   
-   type ICommandLineActivationOperation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Arguments
-   (
-      This       : access ICommandLineActivationOperation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CurrentDirectoryPath
-   (
-      This       : access ICommandLineActivationOperation_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ExitCode
-   (
-      This       : access ICommandLineActivationOperation_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExitCode
-   (
-      This       : access ICommandLineActivationOperation_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access ICommandLineActivationOperation_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICommandLineActivatedEventArgs : aliased constant Windows.IID := (1158039340, 106, 18667, (138, 251, 208, 122, 178, 94, 51, 102 ));
-   
-   type ICommandLineActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IUserDataAccountProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
    (
-      This       : access ICommandLineActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.Activation.ICommandLineActivationOperation
+      This       : access IUserDataAccountProviderActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStartupTaskActivatedEventArgs : aliased constant Windows.IID := (61938264, 21110, 19857, (134, 33, 84, 97, 24, 100, 213, 250 ));
+   IID_IViewSwitcherProvider : aliased constant Windows.IID := (871532710, 23596, 19751, (186, 199, 117, 54, 8, 143, 18, 25 ));
    
-   type IStartupTaskActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IViewSwitcherProvider_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_TaskId
+   function get_ViewSwitcher
    (
-      This       : access IStartupTaskActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBarcodeScannerPreviewActivatedEventArgs : aliased constant Windows.IID := (1735555452, 39359, 17225, (175, 34, 228, 18, 53, 96, 55, 28 ));
-   
-   type IBarcodeScannerPreviewActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ConnectionId
-   (
-      This       : access IBarcodeScannerPreviewActivatedEventArgs_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDevicePairingActivatedEventArgs : aliased constant Windows.IID := (3953185252, 60614, 16712, (148, 237, 244, 179, 126, 192, 91, 62 ));
-   
-   type IDevicePairingActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DeviceInformation
-   (
-      This       : access IDevicePairingActivatedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
+      This       : access IViewSwitcherProvider_Interface
+      ; RetVal : access Windows.UI.ViewManagement.IActivationViewSwitcher
    )
    return Windows.HRESULT is abstract;
    
@@ -1435,21 +1382,61 @@ package Windows.ApplicationModel.Activation is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IWalletActionActivatedEventArgs : aliased constant Windows.IID := (4244374139, 6682, 19746, (146, 63, 174, 111, 69, 250, 82, 217 ));
+   
+   type IWalletActionActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ItemId
+   (
+      This       : access IWalletActionActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActionKind
+   (
+      This       : access IWalletActionActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Wallet.WalletActionKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActionId
+   (
+      This       : access IWalletActionActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebAccountProviderActivatedEventArgs : aliased constant Windows.IID := (1924601716, 39146, 19663, (151, 82, 70, 217, 5, 16, 4, 241 ));
+   
+   type IWebAccountProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Operation
+   (
+      This       : access IWebAccountProviderActivatedEventArgs_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationBrokerContinuationEventArgs : aliased constant Windows.IID := (1977459668, 30484, 17725, (183, 255, 185, 94, 58, 23, 9, 218 ));
+   
+   type IWebAuthenticationBrokerContinuationEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WebAuthenticationResult
+   (
+      This       : access IWebAuthenticationBrokerContinuationEventArgs_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.IWebAuthenticationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_ISplashScreen_add_Dismissed : aliased constant Windows.IID := (1998959269, 10365, 24274, (167, 137, 42, 106, 38, 115, 199, 254 ));
-   
-   type TypedEventHandler_ISplashScreen_add_Dismissed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Activation.ISplashScreen ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISplashScreen_add_Dismissed'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISplashScreen_add_Dismissed_Interface
-      ; sender : Windows.ApplicationModel.Activation.ISplashScreen
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1465,57 +1452,70 @@ package Windows.ApplicationModel.Activation is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ISplashScreen_add_Dismissed : aliased constant Windows.IID := (1998959269, 10365, 24274, (167, 137, 42, 106, 38, 115, 199, 254 ));
+   
+   type TypedEventHandler_ISplashScreen_add_Dismissed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Activation.ISplashScreen ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISplashScreen_add_Dismissed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISplashScreen_add_Dismissed_Interface
+      ; sender : Windows.ApplicationModel.Activation.ISplashScreen
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PrintTaskSettingsActivatedEventArgs is Windows.ApplicationModel.Activation.IPrintTaskSettingsActivatedEventArgs;
-   subtype Print3DWorkflowActivatedEventArgs is Windows.ApplicationModel.Activation.IPrint3DWorkflowActivatedEventArgs;
-   subtype LockScreenCallActivatedEventArgs is Windows.ApplicationModel.Activation.ILockScreenCallActivatedEventArgs;
-   subtype CameraSettingsActivatedEventArgs is Windows.ApplicationModel.Activation.ICameraSettingsActivatedEventArgs;
-   subtype ContactPickerActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPickerActivatedEventArgs;
-   subtype ContactCallActivatedEventArgs is Windows.ApplicationModel.Activation.IContactCallActivatedEventArgs;
-   subtype ContactMessageActivatedEventArgs is Windows.ApplicationModel.Activation.IContactMessageActivatedEventArgs;
-   subtype ContactMapActivatedEventArgs is Windows.ApplicationModel.Activation.IContactMapActivatedEventArgs;
-   subtype ContactPostActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPostActivatedEventArgs;
-   subtype ContactVideoCallActivatedEventArgs is Windows.ApplicationModel.Activation.IContactVideoCallActivatedEventArgs;
-   subtype WalletActionActivatedEventArgs is Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs;
    subtype AppointmentsProviderAddAppointmentActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderAddAppointmentActivatedEventArgs;
-   subtype AppointmentsProviderReplaceAppointmentActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderReplaceAppointmentActivatedEventArgs;
    subtype AppointmentsProviderRemoveAppointmentActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderRemoveAppointmentActivatedEventArgs;
+   subtype AppointmentsProviderReplaceAppointmentActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderReplaceAppointmentActivatedEventArgs;
    subtype AppointmentsProviderShowAppointmentDetailsActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;
    subtype AppointmentsProviderShowTimeFrameActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs;
    subtype BackgroundActivatedEventArgs is Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs;
-   subtype ContactPanelActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs;
-   subtype ShareTargetActivatedEventArgs is Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs;
-   subtype UserDataAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs;
-   subtype SplashScreen is Windows.ApplicationModel.Activation.ISplashScreen;
-   subtype TileActivatedInfo is Windows.ApplicationModel.Activation.ITileActivatedInfo;
-   subtype LaunchActivatedEventArgs is Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs;
-   subtype SearchActivatedEventArgs is Windows.ApplicationModel.Activation.ISearchActivatedEventArgs;
-   subtype FileActivatedEventArgs is Windows.ApplicationModel.Activation.IFileActivatedEventArgs;
-   subtype ProtocolActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs;
-   subtype ProtocolForResultsActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs;
-   subtype FileOpenPickerActivatedEventArgs is Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs;
-   subtype FileSavePickerActivatedEventArgs is Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs;
+   subtype BarcodeScannerPreviewActivatedEventArgs is Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs;
    subtype CachedFileUpdaterActivatedEventArgs is Windows.ApplicationModel.Activation.ICachedFileUpdaterActivatedEventArgs;
+   subtype CameraSettingsActivatedEventArgs is Windows.ApplicationModel.Activation.ICameraSettingsActivatedEventArgs;
+   subtype CommandLineActivatedEventArgs is Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs;
+   subtype CommandLineActivationOperation is Windows.ApplicationModel.Activation.ICommandLineActivationOperation;
+   subtype ContactCallActivatedEventArgs is Windows.ApplicationModel.Activation.IContactCallActivatedEventArgs;
+   subtype ContactMapActivatedEventArgs is Windows.ApplicationModel.Activation.IContactMapActivatedEventArgs;
+   subtype ContactMessageActivatedEventArgs is Windows.ApplicationModel.Activation.IContactMessageActivatedEventArgs;
+   subtype ContactPanelActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs;
+   subtype ContactPickerActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPickerActivatedEventArgs;
+   subtype ContactPostActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPostActivatedEventArgs;
+   subtype ContactVideoCallActivatedEventArgs is Windows.ApplicationModel.Activation.IContactVideoCallActivatedEventArgs;
    subtype DeviceActivatedEventArgs is Windows.ApplicationModel.Activation.IDeviceActivatedEventArgs;
-   subtype PickerReturnedActivatedEventArgs is Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs;
-   subtype RestrictedLaunchActivatedEventArgs is Windows.ApplicationModel.Activation.IRestrictedLaunchActivatedEventArgs;
-   subtype LockScreenActivatedEventArgs is Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs;
+   subtype DevicePairingActivatedEventArgs is Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs;
+   subtype DialReceiverActivatedEventArgs is Windows.ApplicationModel.Activation.IDialReceiverActivatedEventArgs;
+   subtype FileActivatedEventArgs is Windows.ApplicationModel.Activation.IFileActivatedEventArgs;
+   subtype FileOpenPickerActivatedEventArgs is Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs;
    subtype FileOpenPickerContinuationEventArgs is Windows.ApplicationModel.Activation.IFileOpenPickerContinuationEventArgs;
+   subtype FileSavePickerActivatedEventArgs is Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs;
    subtype FileSavePickerContinuationEventArgs is Windows.ApplicationModel.Activation.IFileSavePickerContinuationEventArgs;
    subtype FolderPickerContinuationEventArgs is Windows.ApplicationModel.Activation.IFolderPickerContinuationEventArgs;
-   subtype WebAuthenticationBrokerContinuationEventArgs is Windows.ApplicationModel.Activation.IWebAuthenticationBrokerContinuationEventArgs;
-   subtype WebAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IWebAccountProviderActivatedEventArgs;
-   subtype ToastNotificationActivatedEventArgs is Windows.ApplicationModel.Activation.IToastNotificationActivatedEventArgs;
-   subtype DialReceiverActivatedEventArgs is Windows.ApplicationModel.Activation.IDialReceiverActivatedEventArgs;
+   subtype LaunchActivatedEventArgs is Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs;
+   subtype LockScreenActivatedEventArgs is Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs;
+   subtype LockScreenCallActivatedEventArgs is Windows.ApplicationModel.Activation.ILockScreenCallActivatedEventArgs;
    subtype LockScreenComponentActivatedEventArgs is Windows.ApplicationModel.Activation.IActivatedEventArgs;
-   subtype CommandLineActivationOperation is Windows.ApplicationModel.Activation.ICommandLineActivationOperation;
-   subtype CommandLineActivatedEventArgs is Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs;
+   subtype PickerReturnedActivatedEventArgs is Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs;
+   subtype Print3DWorkflowActivatedEventArgs is Windows.ApplicationModel.Activation.IPrint3DWorkflowActivatedEventArgs;
+   subtype PrintTaskSettingsActivatedEventArgs is Windows.ApplicationModel.Activation.IPrintTaskSettingsActivatedEventArgs;
+   subtype ProtocolActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs;
+   subtype ProtocolForResultsActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs;
+   subtype RestrictedLaunchActivatedEventArgs is Windows.ApplicationModel.Activation.IRestrictedLaunchActivatedEventArgs;
+   subtype SearchActivatedEventArgs is Windows.ApplicationModel.Activation.ISearchActivatedEventArgs;
+   subtype ShareTargetActivatedEventArgs is Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs;
+   subtype SplashScreen is Windows.ApplicationModel.Activation.ISplashScreen;
    subtype StartupTaskActivatedEventArgs is Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs;
-   subtype BarcodeScannerPreviewActivatedEventArgs is Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs;
-   subtype DevicePairingActivatedEventArgs is Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs;
+   subtype TileActivatedInfo is Windows.ApplicationModel.Activation.ITileActivatedInfo;
+   subtype ToastNotificationActivatedEventArgs is Windows.ApplicationModel.Activation.IToastNotificationActivatedEventArgs;
+   subtype UserDataAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs;
    subtype VoiceCommandActivatedEventArgs is Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs;
+   subtype WalletActionActivatedEventArgs is Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs;
+   subtype WebAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IWebAccountProviderActivatedEventArgs;
+   subtype WebAuthenticationBrokerContinuationEventArgs is Windows.ApplicationModel.Activation.IWebAuthenticationBrokerContinuationEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

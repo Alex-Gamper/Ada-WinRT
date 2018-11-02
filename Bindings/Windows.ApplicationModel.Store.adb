@@ -37,19 +37,8 @@ package body Windows.ApplicationModel.Store is
    
    function Invoke
    (
-      This       : access LicenseChangedEventHandler_Interface
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback.all;
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IListingInformation_Interface
-      ; asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation
+      This       : access AsyncOperationCompletedHandler_FulfillmentResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -61,8 +50,8 @@ package body Windows.ApplicationModel.Store is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_FulfillmentResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult
+      This       : access AsyncOperationCompletedHandler_IListingInformation_Interface
+      ; asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -82,6 +71,17 @@ package body Windows.ApplicationModel.Store is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access LicenseChangedEventHandler_Interface
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback.all;
       return Hr;
    end;
    

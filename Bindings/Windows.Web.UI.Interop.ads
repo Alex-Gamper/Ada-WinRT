@@ -43,6 +43,18 @@ package Windows.Web.UI.Interop is
    -- Enums
    ------------------------------------------------------------------------
    
+   type WebViewControlAcceleratorKeyRoutingStage is (
+      Tunneling,
+      Bubbling
+   );
+   for WebViewControlAcceleratorKeyRoutingStage use (
+      Tunneling => 0,
+      Bubbling => 1
+   );
+   for WebViewControlAcceleratorKeyRoutingStage'Size use 32;
+   
+   type WebViewControlAcceleratorKeyRoutingStage_Ptr is access WebViewControlAcceleratorKeyRoutingStage;
+   
    type WebViewControlMoveFocusReason is (
       Programmatic,
       Next,
@@ -71,58 +83,219 @@ package Windows.Web.UI.Interop is
    
    type WebViewControlProcessCapabilityState_Ptr is access WebViewControlProcessCapabilityState;
    
-   type WebViewControlAcceleratorKeyRoutingStage is (
-      Tunneling,
-      Bubbling
-   );
-   for WebViewControlAcceleratorKeyRoutingStage use (
-      Tunneling => 0,
-      Bubbling => 1
-   );
-   for WebViewControlAcceleratorKeyRoutingStage'Size use 32;
-   
-   type WebViewControlAcceleratorKeyRoutingStage_Ptr is access WebViewControlAcceleratorKeyRoutingStage;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface;
-   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested is access all TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface'Class;
-   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Ptr is access all TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested;
-   type TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed_Interface;
-   type TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed is access all TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed_Interface'Class;
-   type TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed_Ptr is access all TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed;
    type TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface;
    type TypedEventHandler_IWebViewControlProcess_add_ProcessExited is access all TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface'Class;
    type TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Ptr is access all TypedEventHandler_IWebViewControlProcess_add_ProcessExited;
+   type TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed_Interface;
+   type TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed is access all TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed_Interface'Class;
+   type TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed_Ptr is access all TypedEventHandler_IWebViewControlSite_add_AcceleratorKeyPressed;
+   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface;
+   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested is access all TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface'Class;
+   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Ptr is access all TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IWebViewControlSite_Interface;
-   type IWebViewControlSite is access all IWebViewControlSite_Interface'Class;
-   type IWebViewControlSite_Ptr is access all IWebViewControlSite;
-   type IWebViewControlProcessOptions_Interface;
-   type IWebViewControlProcessOptions is access all IWebViewControlProcessOptions_Interface'Class;
-   type IWebViewControlProcessOptions_Ptr is access all IWebViewControlProcessOptions;
-   type IWebViewControlProcessFactory_Interface;
-   type IWebViewControlProcessFactory is access all IWebViewControlProcessFactory_Interface'Class;
-   type IWebViewControlProcessFactory_Ptr is access all IWebViewControlProcessFactory;
-   type IWebViewControlProcess_Interface;
-   type IWebViewControlProcess is access all IWebViewControlProcess_Interface'Class;
-   type IWebViewControlProcess_Ptr is access all IWebViewControlProcess;
-   type IWebViewControlMoveFocusRequestedEventArgs_Interface;
-   type IWebViewControlMoveFocusRequestedEventArgs is access all IWebViewControlMoveFocusRequestedEventArgs_Interface'Class;
-   type IWebViewControlMoveFocusRequestedEventArgs_Ptr is access all IWebViewControlMoveFocusRequestedEventArgs;
    type IWebViewControlAcceleratorKeyPressedEventArgs_Interface;
    type IWebViewControlAcceleratorKeyPressedEventArgs is access all IWebViewControlAcceleratorKeyPressedEventArgs_Interface'Class;
    type IWebViewControlAcceleratorKeyPressedEventArgs_Ptr is access all IWebViewControlAcceleratorKeyPressedEventArgs;
+   type IWebViewControlMoveFocusRequestedEventArgs_Interface;
+   type IWebViewControlMoveFocusRequestedEventArgs is access all IWebViewControlMoveFocusRequestedEventArgs_Interface'Class;
+   type IWebViewControlMoveFocusRequestedEventArgs_Ptr is access all IWebViewControlMoveFocusRequestedEventArgs;
+   type IWebViewControlProcess_Interface;
+   type IWebViewControlProcess is access all IWebViewControlProcess_Interface'Class;
+   type IWebViewControlProcess_Ptr is access all IWebViewControlProcess;
+   type IWebViewControlProcessFactory_Interface;
+   type IWebViewControlProcessFactory is access all IWebViewControlProcessFactory_Interface'Class;
+   type IWebViewControlProcessFactory_Ptr is access all IWebViewControlProcessFactory;
+   type IWebViewControlProcessOptions_Interface;
+   type IWebViewControlProcessOptions is access all IWebViewControlProcessOptions_Interface'Class;
+   type IWebViewControlProcessOptions_Ptr is access all IWebViewControlProcessOptions;
+   type IWebViewControlSite_Interface;
+   type IWebViewControlSite is access all IWebViewControlSite_Interface'Class;
+   type IWebViewControlSite_Ptr is access all IWebViewControlSite;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlAcceleratorKeyPressedEventArgs : aliased constant Windows.IID := (2007147838, 31860, 17277, (162, 144, 58, 192, 216, 205, 86, 85 ));
+   
+   type IWebViewControlAcceleratorKeyPressedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EventType
+   (
+      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
+      ; RetVal : access Windows.UI.Core.CoreAcceleratorKeyEventType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VirtualKey
+   (
+      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
+      ; RetVal : access Windows.System.VirtualKey
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyStatus
+   (
+      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
+      ; RetVal : access Windows.UI.Core.CorePhysicalKeyStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RoutingStage
+   (
+      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
+      ; RetVal : access Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlMoveFocusRequestedEventArgs : aliased constant Windows.IID := (1797927949, 19408, 16478, (183, 193, 30, 114, 164, 146, 244, 70 ));
+   
+   type IWebViewControlMoveFocusRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Reason
+   (
+      This       : access IWebViewControlMoveFocusRequestedEventArgs_Interface
+      ; RetVal : access Windows.Web.UI.Interop.WebViewControlMoveFocusReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlProcess : aliased constant Windows.IID := (46605292, 39126, 16970, (182, 62, 198, 19, 108, 54, 160, 242 ));
+   
+   type IWebViewControlProcess_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProcessId
+   (
+      This       : access IWebViewControlProcess_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EnterpriseId
+   (
+      This       : access IWebViewControlProcess_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsPrivateNetworkClientServerCapabilityEnabled
+   (
+      This       : access IWebViewControlProcess_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWebViewControlAsync
+   (
+      This       : access IWebViewControlProcess_Interface
+      ; hostWindowHandle : Windows.Int64
+      ; bounds : Windows.Foundation.Rect
+      ; RetVal : access Windows.Web.UI.IAsyncOperation_IWebViewControl -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetWebViewControls
+   (
+      This       : access IWebViewControlProcess_Interface
+      ; RetVal : access Windows.Web.UI.IVectorView_IWebViewControl -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Terminate_x
+   (
+      This       : access IWebViewControlProcess_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ProcessExited
+   (
+      This       : access IWebViewControlProcess_Interface
+      ; handler : TypedEventHandler_IWebViewControlProcess_add_ProcessExited
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ProcessExited
+   (
+      This       : access IWebViewControlProcess_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlProcessFactory : aliased constant Windows.IID := (1203133689, 41682, 17724, (176, 151, 246, 119, 157, 75, 142, 2 ));
+   
+   type IWebViewControlProcessFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWithOptions
+   (
+      This       : access IWebViewControlProcessFactory_Interface
+      ; processOptions : Windows.Web.UI.Interop.IWebViewControlProcessOptions
+      ; RetVal : access Windows.Web.UI.Interop.IWebViewControlProcess
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlProcessOptions : aliased constant Windows.IID := (483029671, 15318, 18470, (130, 97, 108, 129, 137, 80, 93, 137 ));
+   
+   type IWebViewControlProcessOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_EnterpriseId
+   (
+      This       : access IWebViewControlProcessOptions_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EnterpriseId
+   (
+      This       : access IWebViewControlProcessOptions_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PrivateNetworkClientServerCapability
+   (
+      This       : access IWebViewControlProcessOptions_Interface
+      ; value : Windows.Web.UI.Interop.WebViewControlProcessCapabilityState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PrivateNetworkClientServerCapability
+   (
+      This       : access IWebViewControlProcessOptions_Interface
+      ; RetVal : access Windows.Web.UI.Interop.WebViewControlProcessCapabilityState
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -223,192 +396,19 @@ package Windows.Web.UI.Interop is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IWebViewControlProcessOptions : aliased constant Windows.IID := (483029671, 15318, 18470, (130, 97, 108, 129, 137, 80, 93, 137 ));
-   
-   type IWebViewControlProcessOptions_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_EnterpriseId
-   (
-      This       : access IWebViewControlProcessOptions_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EnterpriseId
-   (
-      This       : access IWebViewControlProcessOptions_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PrivateNetworkClientServerCapability
-   (
-      This       : access IWebViewControlProcessOptions_Interface
-      ; value : Windows.Web.UI.Interop.WebViewControlProcessCapabilityState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PrivateNetworkClientServerCapability
-   (
-      This       : access IWebViewControlProcessOptions_Interface
-      ; RetVal : access Windows.Web.UI.Interop.WebViewControlProcessCapabilityState
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlProcessFactory : aliased constant Windows.IID := (1203133689, 41682, 17724, (176, 151, 246, 119, 157, 75, 142, 2 ));
-   
-   type IWebViewControlProcessFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateWithOptions
-   (
-      This       : access IWebViewControlProcessFactory_Interface
-      ; processOptions : Windows.Web.UI.Interop.IWebViewControlProcessOptions
-      ; RetVal : access Windows.Web.UI.Interop.IWebViewControlProcess
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlProcess : aliased constant Windows.IID := (46605292, 39126, 16970, (182, 62, 198, 19, 108, 54, 160, 242 ));
-   
-   type IWebViewControlProcess_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ProcessId
-   (
-      This       : access IWebViewControlProcess_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EnterpriseId
-   (
-      This       : access IWebViewControlProcess_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsPrivateNetworkClientServerCapabilityEnabled
-   (
-      This       : access IWebViewControlProcess_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWebViewControlAsync
-   (
-      This       : access IWebViewControlProcess_Interface
-      ; hostWindowHandle : Windows.Int64
-      ; bounds : Windows.Foundation.Rect
-      ; RetVal : access Windows.Web.UI.IAsyncOperation_IWebViewControl -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetWebViewControls
-   (
-      This       : access IWebViewControlProcess_Interface
-      ; RetVal : access Windows.Web.UI.IVectorView_IWebViewControl -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Terminate_x
-   (
-      This       : access IWebViewControlProcess_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_ProcessExited
-   (
-      This       : access IWebViewControlProcess_Interface
-      ; handler : TypedEventHandler_IWebViewControlProcess_add_ProcessExited
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_ProcessExited
-   (
-      This       : access IWebViewControlProcess_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlMoveFocusRequestedEventArgs : aliased constant Windows.IID := (1797927949, 19408, 16478, (183, 193, 30, 114, 164, 146, 244, 70 ));
-   
-   type IWebViewControlMoveFocusRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Reason
-   (
-      This       : access IWebViewControlMoveFocusRequestedEventArgs_Interface
-      ; RetVal : access Windows.Web.UI.Interop.WebViewControlMoveFocusReason
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlAcceleratorKeyPressedEventArgs : aliased constant Windows.IID := (2007147838, 31860, 17277, (162, 144, 58, 192, 216, 205, 86, 85 ));
-   
-   type IWebViewControlAcceleratorKeyPressedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EventType
-   (
-      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
-      ; RetVal : access Windows.UI.Core.CoreAcceleratorKeyEventType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_VirtualKey
-   (
-      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
-      ; RetVal : access Windows.System.VirtualKey
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyStatus
-   (
-      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
-      ; RetVal : access Windows.UI.Core.CorePhysicalKeyStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RoutingStage
-   (
-      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
-      ; RetVal : access Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Handled
-   (
-      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Handled
-   (
-      This       : access IWebViewControlAcceleratorKeyPressedEventArgs_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested : aliased constant Windows.IID := (592265408, 11345, 20776, (185, 25, 0, 63, 28, 10, 138, 38 ));
+   IID_TypedEventHandler_IWebViewControlProcess_add_ProcessExited : aliased constant Windows.IID := (205619956, 52300, 22003, (180, 33, 212, 231, 73, 235, 128, 161 ));
    
-   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested'access) with null record;
+   type TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface(Callback : access procedure (sender : Windows.Web.UI.Interop.IWebViewControlProcess ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControlProcess_add_ProcessExited'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs
+      This       : access TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface
+      ; sender : Windows.Web.UI.Interop.IWebViewControlProcess
+      ; args : Windows.Object
    )
    return Windows.HRESULT;
    
@@ -427,14 +427,14 @@ package Windows.Web.UI.Interop is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IWebViewControlProcess_add_ProcessExited : aliased constant Windows.IID := (205619956, 52300, 22003, (180, 33, 212, 231, 73, 235, 128, 161 ));
+   IID_TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested : aliased constant Windows.IID := (592265408, 11345, 20776, (185, 25, 0, 63, 28, 10, 138, 38 ));
    
-   type TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface(Callback : access procedure (sender : Windows.Web.UI.Interop.IWebViewControlProcess ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControlProcess_add_ProcessExited'access) with null record;
+   type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControlProcess_add_ProcessExited_Interface
-      ; sender : Windows.Web.UI.Interop.IWebViewControlProcess
-      ; args : Windows.Object
+      This       : access TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs
    )
    return Windows.HRESULT;
    
@@ -442,6 +442,9 @@ package Windows.Web.UI.Interop is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype WebViewControl is Windows.Web.UI.IWebViewControl;
+   subtype WebViewControlAcceleratorKeyPressedEventArgs is Windows.Web.UI.Interop.IWebViewControlAcceleratorKeyPressedEventArgs;
+   subtype WebViewControlMoveFocusRequestedEventArgs is Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs;
    subtype WebViewControlProcess is Windows.Web.UI.Interop.IWebViewControlProcess;
    function Create return Windows.Web.UI.Interop.IWebViewControlProcess;
    
@@ -451,9 +454,6 @@ package Windows.Web.UI.Interop is
    )
    return Windows.Web.UI.Interop.IWebViewControlProcess;
    
-   subtype WebViewControl is Windows.Web.UI.IWebViewControl;
-   subtype WebViewControlMoveFocusRequestedEventArgs is Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs;
-   subtype WebViewControlAcceleratorKeyPressedEventArgs is Windows.Web.UI.Interop.IWebViewControlAcceleratorKeyPressedEventArgs;
    subtype WebViewControlProcessOptions is Windows.Web.UI.Interop.IWebViewControlProcessOptions;
    function Create return Windows.Web.UI.Interop.IWebViewControlProcessOptions;
    

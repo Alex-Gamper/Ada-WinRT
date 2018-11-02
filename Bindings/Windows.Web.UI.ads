@@ -84,21 +84,15 @@ package Windows.Web.UI is
    type AsyncOperationCompletedHandler_IWebViewControl_Interface;
    type AsyncOperationCompletedHandler_IWebViewControl is access all AsyncOperationCompletedHandler_IWebViewControl_Interface'Class;
    type AsyncOperationCompletedHandler_IWebViewControl_Ptr is access all AsyncOperationCompletedHandler_IWebViewControl;
-   type TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface;
-   type TypedEventHandler_IWebViewControl_add_NavigationStarting is access all TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_NavigationStarting_Ptr is access all TypedEventHandler_IWebViewControl_add_NavigationStarting;
+   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface;
+   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged is access all TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Ptr is access all TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged;
    type TypedEventHandler_IWebViewControl_add_ContentLoading_Interface;
    type TypedEventHandler_IWebViewControl_add_ContentLoading is access all TypedEventHandler_IWebViewControl_add_ContentLoading_Interface'Class;
    type TypedEventHandler_IWebViewControl_add_ContentLoading_Ptr is access all TypedEventHandler_IWebViewControl_add_ContentLoading;
    type TypedEventHandler_IWebViewControl_add_DOMContentLoaded_Interface;
    type TypedEventHandler_IWebViewControl_add_DOMContentLoaded is access all TypedEventHandler_IWebViewControl_add_DOMContentLoaded_Interface'Class;
    type TypedEventHandler_IWebViewControl_add_DOMContentLoaded_Ptr is access all TypedEventHandler_IWebViewControl_add_DOMContentLoaded;
-   type TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface;
-   type TypedEventHandler_IWebViewControl_add_NavigationCompleted is access all TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_NavigationCompleted_Ptr is access all TypedEventHandler_IWebViewControl_add_NavigationCompleted;
-   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface;
-   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting is access all TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Ptr is access all TypedEventHandler_IWebViewControl_add_FrameNavigationStarting;
    type TypedEventHandler_IWebViewControl_add_FrameContentLoading_Interface;
    type TypedEventHandler_IWebViewControl_add_FrameContentLoading is access all TypedEventHandler_IWebViewControl_add_FrameContentLoading_Interface'Class;
    type TypedEventHandler_IWebViewControl_add_FrameContentLoading_Ptr is access all TypedEventHandler_IWebViewControl_add_FrameContentLoading;
@@ -108,30 +102,36 @@ package Windows.Web.UI is
    type TypedEventHandler_IWebViewControl_add_FrameNavigationCompleted_Interface;
    type TypedEventHandler_IWebViewControl_add_FrameNavigationCompleted is access all TypedEventHandler_IWebViewControl_add_FrameNavigationCompleted_Interface'Class;
    type TypedEventHandler_IWebViewControl_add_FrameNavigationCompleted_Ptr is access all TypedEventHandler_IWebViewControl_add_FrameNavigationCompleted;
-   type TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface;
-   type TypedEventHandler_IWebViewControl_add_ScriptNotify is access all TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_ScriptNotify_Ptr is access all TypedEventHandler_IWebViewControl_add_ScriptNotify;
+   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface;
+   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting is access all TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Ptr is access all TypedEventHandler_IWebViewControl_add_FrameNavigationStarting;
    type TypedEventHandler_IWebViewControl_add_LongRunningScriptDetected_Interface;
    type TypedEventHandler_IWebViewControl_add_LongRunningScriptDetected is access all TypedEventHandler_IWebViewControl_add_LongRunningScriptDetected_Interface'Class;
    type TypedEventHandler_IWebViewControl_add_LongRunningScriptDetected_Ptr is access all TypedEventHandler_IWebViewControl_add_LongRunningScriptDetected;
-   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface;
-   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying is access all TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Ptr is access all TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying;
-   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface;
-   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified is access all TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Ptr is access all TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified;
-   type TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface;
-   type TypedEventHandler_IWebViewControl_add_PermissionRequested is access all TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_PermissionRequested_Ptr is access all TypedEventHandler_IWebViewControl_add_PermissionRequested;
-   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface;
-   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified is access all TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Ptr is access all TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified;
+   type TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface;
+   type TypedEventHandler_IWebViewControl_add_NavigationCompleted is access all TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_NavigationCompleted_Ptr is access all TypedEventHandler_IWebViewControl_add_NavigationCompleted;
+   type TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface;
+   type TypedEventHandler_IWebViewControl_add_NavigationStarting is access all TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_NavigationStarting_Ptr is access all TypedEventHandler_IWebViewControl_add_NavigationStarting;
    type TypedEventHandler_IWebViewControl_add_NewWindowRequested_Interface;
    type TypedEventHandler_IWebViewControl_add_NewWindowRequested is access all TypedEventHandler_IWebViewControl_add_NewWindowRequested_Interface'Class;
    type TypedEventHandler_IWebViewControl_add_NewWindowRequested_Ptr is access all TypedEventHandler_IWebViewControl_add_NewWindowRequested;
-   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface;
-   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged is access all TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface'Class;
-   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Ptr is access all TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged;
+   type TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface;
+   type TypedEventHandler_IWebViewControl_add_PermissionRequested is access all TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_PermissionRequested_Ptr is access all TypedEventHandler_IWebViewControl_add_PermissionRequested;
+   type TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface;
+   type TypedEventHandler_IWebViewControl_add_ScriptNotify is access all TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_ScriptNotify_Ptr is access all TypedEventHandler_IWebViewControl_add_ScriptNotify;
+   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface;
+   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying is access all TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Ptr is access all TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying;
+   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface;
+   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified is access all TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Ptr is access all TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified;
+   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface;
+   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified is access all TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface'Class;
+   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Ptr is access all TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified;
    type TypedEventHandler_IWebViewControl_add_WebResourceRequested_Interface;
    type TypedEventHandler_IWebViewControl_add_WebResourceRequested is access all TypedEventHandler_IWebViewControl_add_WebResourceRequested_Interface'Class;
    type TypedEventHandler_IWebViewControl_add_WebResourceRequested_Ptr is access all TypedEventHandler_IWebViewControl_add_WebResourceRequested;
@@ -140,76 +140,277 @@ package Windows.Web.UI is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IWebViewControl_Interface;
-   type IWebViewControl is access all IWebViewControl_Interface'Class;
-   type IWebViewControl_Ptr is access all IWebViewControl;
-   type IWebViewControlSettings_Interface;
-   type IWebViewControlSettings is access all IWebViewControlSettings_Interface'Class;
-   type IWebViewControlSettings_Ptr is access all IWebViewControlSettings;
-   type IWebViewControlDeferredPermissionRequest_Interface;
-   type IWebViewControlDeferredPermissionRequest is access all IWebViewControlDeferredPermissionRequest_Interface'Class;
-   type IWebViewControlDeferredPermissionRequest_Ptr is access all IWebViewControlDeferredPermissionRequest;
-   type IWebViewControlPermissionRequest_Interface;
-   type IWebViewControlPermissionRequest is access all IWebViewControlPermissionRequest_Interface'Class;
-   type IWebViewControlPermissionRequest_Ptr is access all IWebViewControlPermissionRequest;
-   type IWebViewControlNavigationStartingEventArgs_Interface;
-   type IWebViewControlNavigationStartingEventArgs is access all IWebViewControlNavigationStartingEventArgs_Interface'Class;
-   type IWebViewControlNavigationStartingEventArgs_Ptr is access all IWebViewControlNavigationStartingEventArgs;
-   type IWebViewControlContentLoadingEventArgs_Interface;
-   type IWebViewControlContentLoadingEventArgs is access all IWebViewControlContentLoadingEventArgs_Interface'Class;
-   type IWebViewControlContentLoadingEventArgs_Ptr is access all IWebViewControlContentLoadingEventArgs;
-   type IWebViewControlDOMContentLoadedEventArgs_Interface;
-   type IWebViewControlDOMContentLoadedEventArgs is access all IWebViewControlDOMContentLoadedEventArgs_Interface'Class;
-   type IWebViewControlDOMContentLoadedEventArgs_Ptr is access all IWebViewControlDOMContentLoadedEventArgs;
-   type IWebViewControlNavigationCompletedEventArgs_Interface;
-   type IWebViewControlNavigationCompletedEventArgs is access all IWebViewControlNavigationCompletedEventArgs_Interface'Class;
-   type IWebViewControlNavigationCompletedEventArgs_Ptr is access all IWebViewControlNavigationCompletedEventArgs;
-   type IWebViewControlScriptNotifyEventArgs_Interface;
-   type IWebViewControlScriptNotifyEventArgs is access all IWebViewControlScriptNotifyEventArgs_Interface'Class;
-   type IWebViewControlScriptNotifyEventArgs_Ptr is access all IWebViewControlScriptNotifyEventArgs;
-   type IWebViewControlLongRunningScriptDetectedEventArgs_Interface;
-   type IWebViewControlLongRunningScriptDetectedEventArgs is access all IWebViewControlLongRunningScriptDetectedEventArgs_Interface'Class;
-   type IWebViewControlLongRunningScriptDetectedEventArgs_Ptr is access all IWebViewControlLongRunningScriptDetectedEventArgs;
-   type IWebViewControlUnviewableContentIdentifiedEventArgs_Interface;
-   type IWebViewControlUnviewableContentIdentifiedEventArgs is access all IWebViewControlUnviewableContentIdentifiedEventArgs_Interface'Class;
-   type IWebViewControlUnviewableContentIdentifiedEventArgs_Ptr is access all IWebViewControlUnviewableContentIdentifiedEventArgs;
-   type IWebViewControlPermissionRequestedEventArgs_Interface;
-   type IWebViewControlPermissionRequestedEventArgs is access all IWebViewControlPermissionRequestedEventArgs_Interface'Class;
-   type IWebViewControlPermissionRequestedEventArgs_Ptr is access all IWebViewControlPermissionRequestedEventArgs;
-   type IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Interface;
-   type IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs is access all IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Interface'Class;
-   type IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Ptr is access all IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs;
-   type IWebViewControlNewWindowRequestedEventArgs_Interface;
-   type IWebViewControlNewWindowRequestedEventArgs is access all IWebViewControlNewWindowRequestedEventArgs_Interface'Class;
-   type IWebViewControlNewWindowRequestedEventArgs_Ptr is access all IWebViewControlNewWindowRequestedEventArgs;
-   type IWebViewControlWebResourceRequestedEventArgs_Interface;
-   type IWebViewControlWebResourceRequestedEventArgs is access all IWebViewControlWebResourceRequestedEventArgs_Interface'Class;
-   type IWebViewControlWebResourceRequestedEventArgs_Ptr is access all IWebViewControlWebResourceRequestedEventArgs;
    type IAsyncOperation_IWebViewControl_Interface;
    type IAsyncOperation_IWebViewControl is access all IAsyncOperation_IWebViewControl_Interface'Class;
    type IAsyncOperation_IWebViewControl_Ptr is access all IAsyncOperation_IWebViewControl;
-   type IIterator_IWebViewControl_Interface;
-   type IIterator_IWebViewControl is access all IIterator_IWebViewControl_Interface'Class;
-   type IIterator_IWebViewControl_Ptr is access all IIterator_IWebViewControl;
    type IIterable_IWebViewControl_Interface;
    type IIterable_IWebViewControl is access all IIterable_IWebViewControl_Interface'Class;
    type IIterable_IWebViewControl_Ptr is access all IIterable_IWebViewControl;
-   type IVectorView_IWebViewControl_Interface;
-   type IVectorView_IWebViewControl is access all IVectorView_IWebViewControl_Interface'Class;
-   type IVectorView_IWebViewControl_Ptr is access all IVectorView_IWebViewControl;
-   type IIterator_IWebViewControlDeferredPermissionRequest_Interface;
-   type IIterator_IWebViewControlDeferredPermissionRequest is access all IIterator_IWebViewControlDeferredPermissionRequest_Interface'Class;
-   type IIterator_IWebViewControlDeferredPermissionRequest_Ptr is access all IIterator_IWebViewControlDeferredPermissionRequest;
    type IIterable_IWebViewControlDeferredPermissionRequest_Interface;
    type IIterable_IWebViewControlDeferredPermissionRequest is access all IIterable_IWebViewControlDeferredPermissionRequest_Interface'Class;
    type IIterable_IWebViewControlDeferredPermissionRequest_Ptr is access all IIterable_IWebViewControlDeferredPermissionRequest;
+   type IIterator_IWebViewControl_Interface;
+   type IIterator_IWebViewControl is access all IIterator_IWebViewControl_Interface'Class;
+   type IIterator_IWebViewControl_Ptr is access all IIterator_IWebViewControl;
+   type IIterator_IWebViewControlDeferredPermissionRequest_Interface;
+   type IIterator_IWebViewControlDeferredPermissionRequest is access all IIterator_IWebViewControlDeferredPermissionRequest_Interface'Class;
+   type IIterator_IWebViewControlDeferredPermissionRequest_Ptr is access all IIterator_IWebViewControlDeferredPermissionRequest;
+   type IVectorView_IWebViewControl_Interface;
+   type IVectorView_IWebViewControl is access all IVectorView_IWebViewControl_Interface'Class;
+   type IVectorView_IWebViewControl_Ptr is access all IVectorView_IWebViewControl;
    type IVectorView_IWebViewControlDeferredPermissionRequest_Interface;
    type IVectorView_IWebViewControlDeferredPermissionRequest is access all IVectorView_IWebViewControlDeferredPermissionRequest_Interface'Class;
    type IVectorView_IWebViewControlDeferredPermissionRequest_Ptr is access all IVectorView_IWebViewControlDeferredPermissionRequest;
+   type IWebViewControl_Interface;
+   type IWebViewControl is access all IWebViewControl_Interface'Class;
+   type IWebViewControl_Ptr is access all IWebViewControl;
+   type IWebViewControlContentLoadingEventArgs_Interface;
+   type IWebViewControlContentLoadingEventArgs is access all IWebViewControlContentLoadingEventArgs_Interface'Class;
+   type IWebViewControlContentLoadingEventArgs_Ptr is access all IWebViewControlContentLoadingEventArgs;
+   type IWebViewControlDeferredPermissionRequest_Interface;
+   type IWebViewControlDeferredPermissionRequest is access all IWebViewControlDeferredPermissionRequest_Interface'Class;
+   type IWebViewControlDeferredPermissionRequest_Ptr is access all IWebViewControlDeferredPermissionRequest;
+   type IWebViewControlDOMContentLoadedEventArgs_Interface;
+   type IWebViewControlDOMContentLoadedEventArgs is access all IWebViewControlDOMContentLoadedEventArgs_Interface'Class;
+   type IWebViewControlDOMContentLoadedEventArgs_Ptr is access all IWebViewControlDOMContentLoadedEventArgs;
+   type IWebViewControlLongRunningScriptDetectedEventArgs_Interface;
+   type IWebViewControlLongRunningScriptDetectedEventArgs is access all IWebViewControlLongRunningScriptDetectedEventArgs_Interface'Class;
+   type IWebViewControlLongRunningScriptDetectedEventArgs_Ptr is access all IWebViewControlLongRunningScriptDetectedEventArgs;
+   type IWebViewControlNavigationCompletedEventArgs_Interface;
+   type IWebViewControlNavigationCompletedEventArgs is access all IWebViewControlNavigationCompletedEventArgs_Interface'Class;
+   type IWebViewControlNavigationCompletedEventArgs_Ptr is access all IWebViewControlNavigationCompletedEventArgs;
+   type IWebViewControlNavigationStartingEventArgs_Interface;
+   type IWebViewControlNavigationStartingEventArgs is access all IWebViewControlNavigationStartingEventArgs_Interface'Class;
+   type IWebViewControlNavigationStartingEventArgs_Ptr is access all IWebViewControlNavigationStartingEventArgs;
+   type IWebViewControlNewWindowRequestedEventArgs_Interface;
+   type IWebViewControlNewWindowRequestedEventArgs is access all IWebViewControlNewWindowRequestedEventArgs_Interface'Class;
+   type IWebViewControlNewWindowRequestedEventArgs_Ptr is access all IWebViewControlNewWindowRequestedEventArgs;
+   type IWebViewControlPermissionRequest_Interface;
+   type IWebViewControlPermissionRequest is access all IWebViewControlPermissionRequest_Interface'Class;
+   type IWebViewControlPermissionRequest_Ptr is access all IWebViewControlPermissionRequest;
+   type IWebViewControlPermissionRequestedEventArgs_Interface;
+   type IWebViewControlPermissionRequestedEventArgs is access all IWebViewControlPermissionRequestedEventArgs_Interface'Class;
+   type IWebViewControlPermissionRequestedEventArgs_Ptr is access all IWebViewControlPermissionRequestedEventArgs;
+   type IWebViewControlScriptNotifyEventArgs_Interface;
+   type IWebViewControlScriptNotifyEventArgs is access all IWebViewControlScriptNotifyEventArgs_Interface'Class;
+   type IWebViewControlScriptNotifyEventArgs_Ptr is access all IWebViewControlScriptNotifyEventArgs;
+   type IWebViewControlSettings_Interface;
+   type IWebViewControlSettings is access all IWebViewControlSettings_Interface'Class;
+   type IWebViewControlSettings_Ptr is access all IWebViewControlSettings;
+   type IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Interface;
+   type IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs is access all IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Interface'Class;
+   type IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Ptr is access all IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs;
+   type IWebViewControlUnviewableContentIdentifiedEventArgs_Interface;
+   type IWebViewControlUnviewableContentIdentifiedEventArgs is access all IWebViewControlUnviewableContentIdentifiedEventArgs_Interface'Class;
+   type IWebViewControlUnviewableContentIdentifiedEventArgs_Ptr is access all IWebViewControlUnviewableContentIdentifiedEventArgs;
+   type IWebViewControlWebResourceRequestedEventArgs_Interface;
+   type IWebViewControlWebResourceRequestedEventArgs is access all IWebViewControlWebResourceRequestedEventArgs_Interface'Class;
+   type IWebViewControlWebResourceRequestedEventArgs_Ptr is access all IWebViewControlWebResourceRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWebViewControl : aliased constant Windows.IID := (2889689260, 33634, 20934, (178, 204, 22, 243, 103, 39, 88, 241 ));
+   
+   type IAsyncOperation_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IWebViewControl_Interface
+      ; handler : Windows.Web.UI.AsyncOperationCompletedHandler_IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IWebViewControl_Interface
+      ; RetVal : access Windows.Web.UI.AsyncOperationCompletedHandler_IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IWebViewControl_Interface
+      ; RetVal : access Windows.Web.UI.IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IWebViewControl : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IWebViewControl_Interface
+      ; RetVal : access Windows.Web.UI.IIterator_IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IWebViewControlDeferredPermissionRequest : aliased constant Windows.IID := (2441109311, 5067, 21635, (181, 146, 185, 174, 14, 51, 79, 23 ));
+   
+   type IIterable_IWebViewControlDeferredPermissionRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IWebViewControlDeferredPermissionRequest_Interface
+      ; RetVal : access Windows.Web.UI.IIterator_IWebViewControlDeferredPermissionRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IWebViewControl : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterator_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IWebViewControl_Interface
+      ; RetVal : access Windows.Web.UI.IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IWebViewControl_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IWebViewControl_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IWebViewControl_Interface
+      ; items : Windows.Web.UI.IWebViewControl_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IWebViewControlDeferredPermissionRequest : aliased constant Windows.IID := (662339773, 15914, 24552, (149, 210, 204, 134, 247, 35, 191, 66 ));
+   
+   type IIterator_IWebViewControlDeferredPermissionRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
+      ; RetVal : access Windows.Web.UI.IWebViewControlDeferredPermissionRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
+      ; items : Windows.Web.UI.IWebViewControlDeferredPermissionRequest_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWebViewControl : aliased constant Windows.IID := (1590416832, 33410, 24545, (173, 57, 55, 76, 222, 112, 224, 205 ));
+   
+   type IVectorView_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IWebViewControl_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Web.UI.IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IWebViewControl_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IWebViewControl_Interface
+      ; value : Windows.Web.UI.IWebViewControl
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IWebViewControl_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Web.UI.IWebViewControl_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWebViewControlDeferredPermissionRequest : aliased constant Windows.IID := (3221044687, 6516, 21410, (141, 136, 150, 109, 132, 186, 152, 224 ));
+   
+   type IVectorView_IWebViewControlDeferredPermissionRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Web.UI.IWebViewControlDeferredPermissionRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
+      ; value : Windows.Web.UI.IWebViewControlDeferredPermissionRequest
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Web.UI.IWebViewControlDeferredPermissionRequest_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -638,49 +839,14 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_IWebViewControlSettings : aliased constant Windows.IID := (3382083519, 24216, 19709, (140, 206, 39, 176, 145, 30, 61, 232 ));
+   IID_IWebViewControlContentLoadingEventArgs : aliased constant Windows.IID := (2587872434, 47547, 16459, (162, 43, 102, 220, 205, 18, 80, 198 ));
    
-   type IWebViewControlSettings_Interface is interface and Windows.IInspectable_Interface;
+   type IWebViewControlContentLoadingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_IsJavaScriptEnabled
+   function get_Uri
    (
-      This       : access IWebViewControlSettings_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsJavaScriptEnabled
-   (
-      This       : access IWebViewControlSettings_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsIndexedDBEnabled
-   (
-      This       : access IWebViewControlSettings_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsIndexedDBEnabled
-   (
-      This       : access IWebViewControlSettings_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsScriptNotifyAllowed
-   (
-      This       : access IWebViewControlSettings_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsScriptNotifyAllowed
-   (
-      This       : access IWebViewControlSettings_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IWebViewControlContentLoadingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
@@ -720,6 +886,134 @@ package Windows.Web.UI is
    function Deny
    (
       This       : access IWebViewControlDeferredPermissionRequest_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlDOMContentLoadedEventArgs : aliased constant Windows.IID := (3196829704, 38209, 17733, (159, 242, 45, 245, 133, 178, 159, 125 ));
+   
+   type IWebViewControlDOMContentLoadedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Uri
+   (
+      This       : access IWebViewControlDOMContentLoadedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlLongRunningScriptDetectedEventArgs : aliased constant Windows.IID := (711875514, 39092, 17852, (187, 235, 15, 105, 206, 73, 197, 153 ));
+   
+   type IWebViewControlLongRunningScriptDetectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExecutionTime
+   (
+      This       : access IWebViewControlLongRunningScriptDetectedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StopPageScriptExecution
+   (
+      This       : access IWebViewControlLongRunningScriptDetectedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StopPageScriptExecution
+   (
+      This       : access IWebViewControlLongRunningScriptDetectedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlNavigationCompletedEventArgs : aliased constant Windows.IID := (541104408, 18965, 19526, (165, 93, 247, 158, 219, 11, 222, 139 ));
+   
+   type IWebViewControlNavigationCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Uri
+   (
+      This       : access IWebViewControlNavigationCompletedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSuccess
+   (
+      This       : access IWebViewControlNavigationCompletedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WebErrorStatus
+   (
+      This       : access IWebViewControlNavigationCompletedEventArgs_Interface
+      ; RetVal : access Windows.Web.WebErrorStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlNavigationStartingEventArgs : aliased constant Windows.IID := (210786245, 2568, 16839, (134, 59, 113, 227, 169, 84, 145, 55 ));
+   
+   type IWebViewControlNavigationStartingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Uri
+   (
+      This       : access IWebViewControlNavigationStartingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Cancel
+   (
+      This       : access IWebViewControlNavigationStartingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Cancel
+   (
+      This       : access IWebViewControlNavigationStartingEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlNewWindowRequestedEventArgs : aliased constant Windows.IID := (1039420347, 41252, 18133, (160, 131, 208, 44, 172, 223, 245, 173 ));
+   
+   type IWebViewControlNewWindowRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Uri
+   (
+      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Referrer
+   (
+      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -777,81 +1071,14 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_IWebViewControlNavigationStartingEventArgs : aliased constant Windows.IID := (210786245, 2568, 16839, (134, 59, 113, 227, 169, 84, 145, 55 ));
+   IID_IWebViewControlPermissionRequestedEventArgs : aliased constant Windows.IID := (656428369, 9352, 19653, (150, 142, 10, 119, 30, 89, 193, 71 ));
    
-   type IWebViewControlNavigationStartingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IWebViewControlPermissionRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Uri
+   function get_PermissionRequest
    (
-      This       : access IWebViewControlNavigationStartingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Cancel
-   (
-      This       : access IWebViewControlNavigationStartingEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Cancel
-   (
-      This       : access IWebViewControlNavigationStartingEventArgs_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlContentLoadingEventArgs : aliased constant Windows.IID := (2587872434, 47547, 16459, (162, 43, 102, 220, 205, 18, 80, 198 ));
-   
-   type IWebViewControlContentLoadingEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Uri
-   (
-      This       : access IWebViewControlContentLoadingEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlDOMContentLoadedEventArgs : aliased constant Windows.IID := (3196829704, 38209, 17733, (159, 242, 45, 245, 133, 178, 159, 125 ));
-   
-   type IWebViewControlDOMContentLoadedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Uri
-   (
-      This       : access IWebViewControlDOMContentLoadedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlNavigationCompletedEventArgs : aliased constant Windows.IID := (541104408, 18965, 19526, (165, 93, 247, 158, 219, 11, 222, 139 ));
-   
-   type IWebViewControlNavigationCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Uri
-   (
-      This       : access IWebViewControlNavigationCompletedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsSuccess
-   (
-      This       : access IWebViewControlNavigationCompletedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WebErrorStatus
-   (
-      This       : access IWebViewControlNavigationCompletedEventArgs_Interface
-      ; RetVal : access Windows.Web.WebErrorStatus
+      This       : access IWebViewControlPermissionRequestedEventArgs_Interface
+      ; RetVal : access Windows.Web.UI.IWebViewControlPermissionRequest
    )
    return Windows.HRESULT is abstract;
    
@@ -877,68 +1104,49 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_IWebViewControlLongRunningScriptDetectedEventArgs : aliased constant Windows.IID := (711875514, 39092, 17852, (187, 235, 15, 105, 206, 73, 197, 153 ));
+   IID_IWebViewControlSettings : aliased constant Windows.IID := (3382083519, 24216, 19709, (140, 206, 39, 176, 145, 30, 61, 232 ));
    
-   type IWebViewControlLongRunningScriptDetectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IWebViewControlSettings_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ExecutionTime
+   function put_IsJavaScriptEnabled
    (
-      This       : access IWebViewControlLongRunningScriptDetectedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_StopPageScriptExecution
-   (
-      This       : access IWebViewControlLongRunningScriptDetectedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_StopPageScriptExecution
-   (
-      This       : access IWebViewControlLongRunningScriptDetectedEventArgs_Interface
+      This       : access IWebViewControlSettings_Interface
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlUnviewableContentIdentifiedEventArgs : aliased constant Windows.IID := (1251377371, 35058, 20000, (182, 147, 180, 226, 223, 74, 165, 129 ));
-   
-   type IWebViewControlUnviewableContentIdentifiedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Uri
+   function get_IsJavaScriptEnabled
    (
-      This       : access IWebViewControlUnviewableContentIdentifiedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+      This       : access IWebViewControlSettings_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Referrer
+   function put_IsIndexedDBEnabled
    (
-      This       : access IWebViewControlUnviewableContentIdentifiedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+      This       : access IWebViewControlSettings_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_MediaType
+   function get_IsIndexedDBEnabled
    (
-      This       : access IWebViewControlUnviewableContentIdentifiedEventArgs_Interface
-      ; RetVal : access Windows.String
+      This       : access IWebViewControlSettings_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IWebViewControlPermissionRequestedEventArgs : aliased constant Windows.IID := (656428369, 9352, 19653, (150, 142, 10, 119, 30, 89, 193, 71 ));
-   
-   type IWebViewControlPermissionRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PermissionRequest
+   function put_IsScriptNotifyAllowed
    (
-      This       : access IWebViewControlPermissionRequestedEventArgs_Interface
-      ; RetVal : access Windows.Web.UI.IWebViewControlPermissionRequest
+      This       : access IWebViewControlSettings_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsScriptNotifyAllowed
+   (
+      This       : access IWebViewControlSettings_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -971,35 +1179,28 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_IWebViewControlNewWindowRequestedEventArgs : aliased constant Windows.IID := (1039420347, 41252, 18133, (160, 131, 208, 44, 172, 223, 245, 173 ));
+   IID_IWebViewControlUnviewableContentIdentifiedEventArgs : aliased constant Windows.IID := (1251377371, 35058, 20000, (182, 147, 180, 226, 223, 74, 165, 129 ));
    
-   type IWebViewControlNewWindowRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IWebViewControlUnviewableContentIdentifiedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uri
    (
-      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
+      This       : access IWebViewControlUnviewableContentIdentifiedEventArgs_Interface
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
    function get_Referrer
    (
-      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
+      This       : access IWebViewControlUnviewableContentIdentifiedEventArgs_Interface
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function get_Handled
+   function get_MediaType
    (
-      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Handled
-   (
-      This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
-      ; value : Windows.Boolean
+      This       : access IWebViewControlUnviewableContentIdentifiedEventArgs_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1038,207 +1239,6 @@ package Windows.Web.UI is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IWebViewControl : aliased constant Windows.IID := (2889689260, 33634, 20934, (178, 204, 22, 243, 103, 39, 88, 241 ));
-   
-   type IAsyncOperation_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IWebViewControl_Interface
-      ; handler : Windows.Web.UI.AsyncOperationCompletedHandler_IWebViewControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IWebViewControl_Interface
-      ; RetVal : access Windows.Web.UI.AsyncOperationCompletedHandler_IWebViewControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IWebViewControl_Interface
-      ; RetVal : access Windows.Web.UI.IWebViewControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IWebViewControl : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterator_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IWebViewControl_Interface
-      ; RetVal : access Windows.Web.UI.IWebViewControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IWebViewControl_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IWebViewControl_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IWebViewControl_Interface
-      ; items : Windows.Web.UI.IWebViewControl_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebViewControl : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebViewControl_Interface
-      ; RetVal : access Windows.Web.UI.IIterator_IWebViewControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IWebViewControl : aliased constant Windows.IID := (1590416832, 33410, 24545, (173, 57, 55, 76, 222, 112, 224, 205 ));
-   
-   type IVectorView_IWebViewControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IWebViewControl_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Web.UI.IWebViewControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IWebViewControl_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IWebViewControl_Interface
-      ; value : Windows.Web.UI.IWebViewControl
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IWebViewControl_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Web.UI.IWebViewControl_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IWebViewControlDeferredPermissionRequest : aliased constant Windows.IID := (662339773, 15914, 24552, (149, 210, 204, 134, 247, 35, 191, 66 ));
-   
-   type IIterator_IWebViewControlDeferredPermissionRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
-      ; RetVal : access Windows.Web.UI.IWebViewControlDeferredPermissionRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IWebViewControlDeferredPermissionRequest_Interface
-      ; items : Windows.Web.UI.IWebViewControlDeferredPermissionRequest_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWebViewControlDeferredPermissionRequest : aliased constant Windows.IID := (2441109311, 5067, 21635, (181, 146, 185, 174, 14, 51, 79, 23 ));
-   
-   type IIterable_IWebViewControlDeferredPermissionRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWebViewControlDeferredPermissionRequest_Interface
-      ; RetVal : access Windows.Web.UI.IIterator_IWebViewControlDeferredPermissionRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IWebViewControlDeferredPermissionRequest : aliased constant Windows.IID := (3221044687, 6516, 21410, (141, 136, 150, 109, 132, 186, 152, 224 ));
-   
-   type IVectorView_IWebViewControlDeferredPermissionRequest_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Web.UI.IWebViewControlDeferredPermissionRequest
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
-      ; value : Windows.Web.UI.IWebViewControlDeferredPermissionRequest
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IWebViewControlDeferredPermissionRequest_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Web.UI.IWebViewControlDeferredPermissionRequest_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1257,14 +1257,14 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IWebViewControl_add_NavigationStarting : aliased constant Windows.IID := (3912109004, 39657, 23451, (166, 132, 131, 221, 142, 229, 119, 117 ));
+   IID_TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged : aliased constant Windows.IID := (3037238393, 43992, 22917, (138, 147, 76, 32, 138, 133, 227, 164 ));
    
-   type TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_NavigationStarting'access) with null record;
+   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
+      ; args : Windows.Object
    )
    return Windows.HRESULT;
    
@@ -1291,32 +1291,6 @@ package Windows.Web.UI is
       This       : access TypedEventHandler_IWebViewControl_add_DOMContentLoaded_Interface
       ; sender : Windows.Web.UI.IWebViewControl
       ; args : Windows.Web.UI.IWebViewControlDOMContentLoadedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IWebViewControl_add_NavigationCompleted : aliased constant Windows.IID := (1470659667, 18341, 22628, (152, 129, 253, 76, 0, 242, 48, 169 ));
-   
-   type TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_NavigationCompleted'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IWebViewControl_add_FrameNavigationStarting : aliased constant Windows.IID := (3912109004, 39657, 23451, (166, 132, 131, 221, 142, 229, 119, 117 ));
-   
-   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_FrameNavigationStarting'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
    )
    return Windows.HRESULT;
    
@@ -1361,14 +1335,14 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IWebViewControl_add_ScriptNotify : aliased constant Windows.IID := (4002120147, 48066, 21936, (135, 123, 107, 168, 110, 58, 216, 153 ));
+   IID_TypedEventHandler_IWebViewControl_add_FrameNavigationStarting : aliased constant Windows.IID := (3912109004, 39657, 23451, (166, 132, 131, 221, 142, 229, 119, 117 ));
    
-   type TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlScriptNotifyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_ScriptNotify'access) with null record;
+   type TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_FrameNavigationStarting'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlScriptNotifyEventArgs
+      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
    )
    return Windows.HRESULT;
    
@@ -1387,53 +1361,27 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying : aliased constant Windows.IID := (3037238393, 43992, 22917, (138, 147, 76, 32, 138, 133, 227, 164 ));
+   IID_TypedEventHandler_IWebViewControl_add_NavigationCompleted : aliased constant Windows.IID := (1470659667, 18341, 22628, (152, 129, 253, 76, 0, 242, 48, 169 ));
    
-   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying'access) with null record;
+   type TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_NavigationCompleted'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Object
+      ; args : Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs
    )
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified : aliased constant Windows.IID := (1461069539, 38784, 23351, (190, 138, 171, 142, 78, 120, 152, 207 ));
+   IID_TypedEventHandler_IWebViewControl_add_NavigationStarting : aliased constant Windows.IID := (3912109004, 39657, 23451, (166, 132, 131, 221, 142, 229, 119, 117 ));
    
-   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified'access) with null record;
+   type TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_NavigationStarting'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IWebViewControl_add_PermissionRequested : aliased constant Windows.IID := (3855272998, 10856, 24074, (184, 43, 179, 215, 86, 225, 10, 86 ));
-   
-   type TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_PermissionRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified : aliased constant Windows.IID := (2253915404, 24135, 21782, (178, 91, 87, 250, 226, 44, 75, 136 ));
-   
-   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs
+      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
    )
    return Windows.HRESULT;
    
@@ -1452,14 +1400,66 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged : aliased constant Windows.IID := (3037238393, 43992, 22917, (138, 147, 76, 32, 138, 133, 227, 164 ));
+   IID_TypedEventHandler_IWebViewControl_add_PermissionRequested : aliased constant Windows.IID := (3855272998, 10856, 24074, (184, 43, 179, 215, 86, 225, 10, 86 ));
    
-   type TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged'access) with null record;
+   type TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_PermissionRequested'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebViewControl_add_ScriptNotify : aliased constant Windows.IID := (4002120147, 48066, 21936, (135, 123, 107, 168, 110, 58, 216, 153 ));
+   
+   type TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlScriptNotifyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_ScriptNotify'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlScriptNotifyEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying : aliased constant Windows.IID := (3037238393, 43992, 22917, (138, 147, 76, 32, 138, 133, 227, 164 ));
+   
+   type TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface
       ; sender : Windows.Web.UI.IWebViewControl
       ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified : aliased constant Windows.IID := (2253915404, 24135, 21782, (178, 91, 87, 250, 226, 44, 75, 136 ));
+   
+   type TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified : aliased constant Windows.IID := (1461069539, 38784, 23351, (190, 138, 171, 142, 78, 120, 152, 207 ));
+   
+   type TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs
    )
    return Windows.HRESULT;
    
@@ -1480,20 +1480,20 @@ package Windows.Web.UI is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype WebViewControlSettings is Windows.Web.UI.IWebViewControlSettings;
-   subtype WebViewControlDeferredPermissionRequest is Windows.Web.UI.IWebViewControlDeferredPermissionRequest;
-   subtype WebViewControlNavigationStartingEventArgs is Windows.Web.UI.IWebViewControlNavigationStartingEventArgs;
    subtype WebViewControlContentLoadingEventArgs is Windows.Web.UI.IWebViewControlContentLoadingEventArgs;
+   subtype WebViewControlDeferredPermissionRequest is Windows.Web.UI.IWebViewControlDeferredPermissionRequest;
    subtype WebViewControlDOMContentLoadedEventArgs is Windows.Web.UI.IWebViewControlDOMContentLoadedEventArgs;
-   subtype WebViewControlNavigationCompletedEventArgs is Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs;
-   subtype WebViewControlScriptNotifyEventArgs is Windows.Web.UI.IWebViewControlScriptNotifyEventArgs;
    subtype WebViewControlLongRunningScriptDetectedEventArgs is Windows.Web.UI.IWebViewControlLongRunningScriptDetectedEventArgs;
-   subtype WebViewControlUnviewableContentIdentifiedEventArgs is Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs;
-   subtype WebViewControlPermissionRequestedEventArgs is Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs;
-   subtype WebViewControlUnsupportedUriSchemeIdentifiedEventArgs is Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs;
+   subtype WebViewControlNavigationCompletedEventArgs is Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs;
+   subtype WebViewControlNavigationStartingEventArgs is Windows.Web.UI.IWebViewControlNavigationStartingEventArgs;
    subtype WebViewControlNewWindowRequestedEventArgs is Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs;
-   subtype WebViewControlWebResourceRequestedEventArgs is Windows.Web.UI.IWebViewControlWebResourceRequestedEventArgs;
    subtype WebViewControlPermissionRequest is Windows.Web.UI.IWebViewControlPermissionRequest;
+   subtype WebViewControlPermissionRequestedEventArgs is Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs;
+   subtype WebViewControlScriptNotifyEventArgs is Windows.Web.UI.IWebViewControlScriptNotifyEventArgs;
+   subtype WebViewControlSettings is Windows.Web.UI.IWebViewControlSettings;
+   subtype WebViewControlUnsupportedUriSchemeIdentifiedEventArgs is Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs;
+   subtype WebViewControlUnviewableContentIdentifiedEventArgs is Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs;
+   subtype WebViewControlWebResourceRequestedEventArgs is Windows.Web.UI.IWebViewControlWebResourceRequestedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

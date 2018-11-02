@@ -62,6 +62,9 @@ package Windows.Devices.Pwm is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IPwmController_Interface;
+   type IAsyncOperation_IPwmController is access all IAsyncOperation_IPwmController_Interface'Class;
+   type IAsyncOperation_IPwmController_Ptr is access all IAsyncOperation_IPwmController;
    type IPwmController_Interface;
    type IPwmController is access all IPwmController_Interface'Class;
    type IPwmController_Ptr is access all IPwmController;
@@ -77,13 +80,37 @@ package Windows.Devices.Pwm is
    type IPwmPin_Interface;
    type IPwmPin is access all IPwmPin_Interface'Class;
    type IPwmPin_Ptr is access all IPwmPin;
-   type IAsyncOperation_IPwmController_Interface;
-   type IAsyncOperation_IPwmController is access all IAsyncOperation_IPwmController_Interface'Class;
-   type IAsyncOperation_IPwmController_Ptr is access all IAsyncOperation_IPwmController;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPwmController : aliased constant Windows.IID := (170429761, 7968, 23830, (133, 221, 82, 133, 91, 17, 86, 154 ));
+   
+   type IAsyncOperation_IPwmController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPwmController_Interface
+      ; handler : Windows.Devices.Pwm.AsyncOperationCompletedHandler_IPwmController
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPwmController_Interface
+      ; RetVal : access Windows.Devices.Pwm.AsyncOperationCompletedHandler_IPwmController
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPwmController_Interface
+      ; RetVal : access Windows.Devices.Pwm.IPwmController
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -252,33 +279,6 @@ package Windows.Devices.Pwm is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPwmController : aliased constant Windows.IID := (170429761, 7968, 23830, (133, 221, 82, 133, 91, 17, 86, 154 ));
-   
-   type IAsyncOperation_IPwmController_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPwmController_Interface
-      ; handler : Windows.Devices.Pwm.AsyncOperationCompletedHandler_IPwmController
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPwmController_Interface
-      ; RetVal : access Windows.Devices.Pwm.AsyncOperationCompletedHandler_IPwmController
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPwmController_Interface
-      ; RetVal : access Windows.Devices.Pwm.IPwmController
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -299,8 +299,8 @@ package Windows.Devices.Pwm is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype PwmPin is Windows.Devices.Pwm.IPwmPin;
    subtype PwmController is Windows.Devices.Pwm.IPwmController;
+   subtype PwmPin is Windows.Devices.Pwm.IPwmPin;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

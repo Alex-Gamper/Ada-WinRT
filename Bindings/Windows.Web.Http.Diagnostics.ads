@@ -86,47 +86,47 @@ package Windows.Web.Http.Diagnostics is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface;
+   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted is access all TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface'Class;
+   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Ptr is access all TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted;
    type TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface;
    type TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent is access all TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface'Class;
    type TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Ptr is access all TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent;
    type TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface;
    type TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived is access all TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface'Class;
    type TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Ptr is access all TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived;
-   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface;
-   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted is access all TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface'Class;
-   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Ptr is access all TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IHttpDiagnosticSourceLocation_Interface;
-   type IHttpDiagnosticSourceLocation is access all IHttpDiagnosticSourceLocation_Interface'Class;
-   type IHttpDiagnosticSourceLocation_Ptr is access all IHttpDiagnosticSourceLocation;
+   type IHttpDiagnosticProvider_Interface;
+   type IHttpDiagnosticProvider is access all IHttpDiagnosticProvider_Interface'Class;
+   type IHttpDiagnosticProvider_Ptr is access all IHttpDiagnosticProvider;
+   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface;
+   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs is access all IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface'Class;
+   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Ptr is access all IHttpDiagnosticProviderRequestResponseCompletedEventArgs;
+   type IHttpDiagnosticProviderRequestResponseTimestamps_Interface;
+   type IHttpDiagnosticProviderRequestResponseTimestamps is access all IHttpDiagnosticProviderRequestResponseTimestamps_Interface'Class;
+   type IHttpDiagnosticProviderRequestResponseTimestamps_Ptr is access all IHttpDiagnosticProviderRequestResponseTimestamps;
    type IHttpDiagnosticProviderRequestSentEventArgs_Interface;
    type IHttpDiagnosticProviderRequestSentEventArgs is access all IHttpDiagnosticProviderRequestSentEventArgs_Interface'Class;
    type IHttpDiagnosticProviderRequestSentEventArgs_Ptr is access all IHttpDiagnosticProviderRequestSentEventArgs;
    type IHttpDiagnosticProviderResponseReceivedEventArgs_Interface;
    type IHttpDiagnosticProviderResponseReceivedEventArgs is access all IHttpDiagnosticProviderResponseReceivedEventArgs_Interface'Class;
    type IHttpDiagnosticProviderResponseReceivedEventArgs_Ptr is access all IHttpDiagnosticProviderResponseReceivedEventArgs;
-   type IHttpDiagnosticProviderRequestResponseTimestamps_Interface;
-   type IHttpDiagnosticProviderRequestResponseTimestamps is access all IHttpDiagnosticProviderRequestResponseTimestamps_Interface'Class;
-   type IHttpDiagnosticProviderRequestResponseTimestamps_Ptr is access all IHttpDiagnosticProviderRequestResponseTimestamps;
-   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface;
-   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs is access all IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface'Class;
-   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Ptr is access all IHttpDiagnosticProviderRequestResponseCompletedEventArgs;
    type IHttpDiagnosticProviderStatics_Interface;
    type IHttpDiagnosticProviderStatics is access all IHttpDiagnosticProviderStatics_Interface'Class;
    type IHttpDiagnosticProviderStatics_Ptr is access all IHttpDiagnosticProviderStatics;
-   type IHttpDiagnosticProvider_Interface;
-   type IHttpDiagnosticProvider is access all IHttpDiagnosticProvider_Interface'Class;
-   type IHttpDiagnosticProvider_Ptr is access all IHttpDiagnosticProvider;
-   type IIterator_IHttpDiagnosticSourceLocation_Interface;
-   type IIterator_IHttpDiagnosticSourceLocation is access all IIterator_IHttpDiagnosticSourceLocation_Interface'Class;
-   type IIterator_IHttpDiagnosticSourceLocation_Ptr is access all IIterator_IHttpDiagnosticSourceLocation;
+   type IHttpDiagnosticSourceLocation_Interface;
+   type IHttpDiagnosticSourceLocation is access all IHttpDiagnosticSourceLocation_Interface'Class;
+   type IHttpDiagnosticSourceLocation_Ptr is access all IHttpDiagnosticSourceLocation;
    type IIterable_IHttpDiagnosticSourceLocation_Interface;
    type IIterable_IHttpDiagnosticSourceLocation is access all IIterable_IHttpDiagnosticSourceLocation_Interface'Class;
    type IIterable_IHttpDiagnosticSourceLocation_Ptr is access all IIterable_IHttpDiagnosticSourceLocation;
+   type IIterator_IHttpDiagnosticSourceLocation_Interface;
+   type IIterator_IHttpDiagnosticSourceLocation is access all IIterator_IHttpDiagnosticSourceLocation_Interface'Class;
+   type IIterator_IHttpDiagnosticSourceLocation_Ptr is access all IIterator_IHttpDiagnosticSourceLocation;
    type IVectorView_IHttpDiagnosticSourceLocation_Interface;
    type IVectorView_IHttpDiagnosticSourceLocation is access all IVectorView_IHttpDiagnosticSourceLocation_Interface'Class;
    type IVectorView_IHttpDiagnosticSourceLocation_Ptr is access all IVectorView_IHttpDiagnosticSourceLocation;
@@ -137,28 +137,188 @@ package Windows.Web.Http.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1420415584, 34912, 16959, (182, 250, 215, 119, 22, 246, 71, 167 ));
+   IID_IHttpDiagnosticProvider : aliased constant Windows.IID := (3179353345, 41046, 19769, (177, 116, 131, 59, 123, 3, 176, 44 ));
    
-   type IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpDiagnosticProvider_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_SourceUri
+   function Start
    (
-      This       : access IHttpDiagnosticSourceLocation_Interface
+      This       : access IHttpDiagnosticProvider_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IHttpDiagnosticProvider_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_RequestSent
+   (
+      This       : access IHttpDiagnosticProvider_Interface
+      ; handler : TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_RequestSent
+   (
+      This       : access IHttpDiagnosticProvider_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ResponseReceived
+   (
+      This       : access IHttpDiagnosticProvider_Interface
+      ; handler : TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ResponseReceived
+   (
+      This       : access IHttpDiagnosticProvider_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_RequestResponseCompleted
+   (
+      This       : access IHttpDiagnosticProvider_Interface
+      ; handler : TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_RequestResponseCompleted
+   (
+      This       : access IHttpDiagnosticProvider_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProviderRequestResponseCompletedEventArgs : aliased constant Windows.IID := (1935644910, 38134, 17714, (178, 110, 97, 225, 177, 228, 239, 212 ));
+   
+   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ActivityId
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Timestamps
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestedUri
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function get_LineNumber
+   function get_ProcessId
    (
-      This       : access IHttpDiagnosticSourceLocation_Interface
-      ; RetVal : access Windows.UInt64
+      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_ColumnNumber
+   function get_ThreadId
    (
-      This       : access IHttpDiagnosticSourceLocation_Interface
-      ; RetVal : access Windows.UInt64
+      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Initiator
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SourceLocations
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.Diagnostics.IVectorView_IHttpDiagnosticSourceLocation -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProviderRequestResponseTimestamps : aliased constant Windows.IID := (3769622032, 21967, 19457, (145, 212, 162, 5, 87, 216, 73, 240 ));
+   
+   type IHttpDiagnosticProviderRequestResponseTimestamps_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CacheCheckedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ConnectionInitiatedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NameResolvedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SslNegotiatedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ConnectionCompletedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestSentTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestCompletedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResponseReceivedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResponseCompletedTimestamp
+   (
+      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -246,130 +406,6 @@ package Windows.Web.Http.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpDiagnosticProviderRequestResponseTimestamps : aliased constant Windows.IID := (3769622032, 21967, 19457, (145, 212, 162, 5, 87, 216, 73, 240 ));
-   
-   type IHttpDiagnosticProviderRequestResponseTimestamps_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CacheCheckedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ConnectionInitiatedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NameResolvedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SslNegotiatedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ConnectionCompletedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RequestSentTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RequestCompletedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResponseReceivedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResponseCompletedTimestamp
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseTimestamps_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHttpDiagnosticProviderRequestResponseCompletedEventArgs : aliased constant Windows.IID := (1935644910, 38134, 17714, (178, 110, 97, 225, 177, 228, 239, 212 ));
-   
-   type IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ActivityId
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Timestamps
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
-      ; RetVal : access Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RequestedUri
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProcessId
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ThreadId
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Initiator
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
-      ; RetVal : access Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SourceLocations
-   (
-      This       : access IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface
-      ; RetVal : access Windows.Web.Http.Diagnostics.IVectorView_IHttpDiagnosticSourceLocation -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IHttpDiagnosticProviderStatics : aliased constant Windows.IID := (1535266497, 27244, 18380, (175, 236, 30, 134, 188, 38, 5, 59 ));
    
    type IHttpDiagnosticProviderStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -384,64 +420,41 @@ package Windows.Web.Http.Diagnostics is
    
    ------------------------------------------------------------------------
    
-   IID_IHttpDiagnosticProvider : aliased constant Windows.IID := (3179353345, 41046, 19769, (177, 116, 131, 59, 123, 3, 176, 44 ));
+   IID_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1420415584, 34912, 16959, (182, 250, 215, 119, 22, 246, 71, 167 ));
    
-   type IHttpDiagnosticProvider_Interface is interface and Windows.IInspectable_Interface;
+   type IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
    
-   function Start
+   function get_SourceUri
    (
-      This       : access IHttpDiagnosticProvider_Interface
+      This       : access IHttpDiagnosticSourceLocation_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function Stop
+   function get_LineNumber
    (
-      This       : access IHttpDiagnosticProvider_Interface
+      This       : access IHttpDiagnosticSourceLocation_Interface
+      ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
    
-   function add_RequestSent
+   function get_ColumnNumber
    (
-      This       : access IHttpDiagnosticProvider_Interface
-      ; handler : TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access IHttpDiagnosticSourceLocation_Interface
+      ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
    
-   function remove_RequestSent
-   (
-      This       : access IHttpDiagnosticProvider_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
+   ------------------------------------------------------------------------
    
-   function add_ResponseReceived
-   (
-      This       : access IHttpDiagnosticProvider_Interface
-      ; handler : TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
+   IID_IIterable_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1116129818, 42181, 23272, (157, 169, 91, 250, 36, 118, 142, 34 ));
    
-   function remove_ResponseReceived
-   (
-      This       : access IHttpDiagnosticProvider_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
+   type IIterable_IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
    
-   function add_RequestResponseCompleted
+   function First
    (
-      This       : access IHttpDiagnosticProvider_Interface
-      ; handler : TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_RequestResponseCompleted
-   (
-      This       : access IHttpDiagnosticProvider_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
+      This       : access IIterable_IHttpDiagnosticSourceLocation_Interface
+      ; RetVal : access Windows.Web.Http.Diagnostics.IIterator_IHttpDiagnosticSourceLocation
    )
    return Windows.HRESULT is abstract;
    
@@ -477,19 +490,6 @@ package Windows.Web.Http.Diagnostics is
       This       : access IIterator_IHttpDiagnosticSourceLocation_Interface
       ; items : Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1116129818, 42181, 23272, (157, 169, 91, 250, 36, 118, 142, 34 ));
-   
-   type IIterable_IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IHttpDiagnosticSourceLocation_Interface
-      ; RetVal : access Windows.Web.Http.Diagnostics.IIterator_IHttpDiagnosticSourceLocation
    )
    return Windows.HRESULT is abstract;
    
@@ -538,6 +538,19 @@ package Windows.Web.Http.Diagnostics is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted : aliased constant Windows.IID := (578923811, 40077, 23938, (155, 32, 188, 241, 87, 176, 79, 217 ));
+   
+   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface
+      ; sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider
+      ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent : aliased constant Windows.IID := (4175495969, 18365, 21098, (169, 178, 59, 241, 47, 114, 95, 139 ));
    
    type TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent'access) with null record;
@@ -563,28 +576,15 @@ package Windows.Web.Http.Diagnostics is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted : aliased constant Windows.IID := (578923811, 40077, 23938, (155, 32, 188, 241, 87, 176, 79, 217 ));
-   
-   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface
-      ; sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider
-      ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype HttpDiagnosticSourceLocation is Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation;
+   subtype HttpDiagnosticProvider is Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider;
+   subtype HttpDiagnosticProviderRequestResponseCompletedEventArgs is Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs;
+   subtype HttpDiagnosticProviderRequestResponseTimestamps is Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps;
    subtype HttpDiagnosticProviderRequestSentEventArgs is Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs;
    subtype HttpDiagnosticProviderResponseReceivedEventArgs is Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs;
-   subtype HttpDiagnosticProviderRequestResponseTimestamps is Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps;
-   subtype HttpDiagnosticProviderRequestResponseCompletedEventArgs is Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs;
-   subtype HttpDiagnosticProvider is Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider;
+   subtype HttpDiagnosticSourceLocation is Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

@@ -138,51 +138,51 @@ package Windows.UI.Input.Inking.Analysis is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IInkAnalyzer_Interface;
-   type IInkAnalyzer is access all IInkAnalyzer_Interface'Class;
-   type IInkAnalyzer_Ptr is access all IInkAnalyzer;
-   type IInkAnalyzerFactory_Interface;
-   type IInkAnalyzerFactory is access all IInkAnalyzerFactory_Interface'Class;
-   type IInkAnalyzerFactory_Ptr is access all IInkAnalyzerFactory;
-   type IInkAnalysisResult_Interface;
-   type IInkAnalysisResult is access all IInkAnalysisResult_Interface'Class;
-   type IInkAnalysisResult_Ptr is access all IInkAnalysisResult;
+   type IAsyncOperation_IInkAnalysisResult_Interface;
+   type IAsyncOperation_IInkAnalysisResult is access all IAsyncOperation_IInkAnalysisResult_Interface'Class;
+   type IAsyncOperation_IInkAnalysisResult_Ptr is access all IAsyncOperation_IInkAnalysisResult;
+   type IInkAnalysisInkBullet_Interface;
+   type IInkAnalysisInkBullet is access all IInkAnalysisInkBullet_Interface'Class;
+   type IInkAnalysisInkBullet_Ptr is access all IInkAnalysisInkBullet;
+   type IInkAnalysisInkDrawing_Interface;
+   type IInkAnalysisInkDrawing is access all IInkAnalysisInkDrawing_Interface'Class;
+   type IInkAnalysisInkDrawing_Ptr is access all IInkAnalysisInkDrawing;
+   type IInkAnalysisInkWord_Interface;
+   type IInkAnalysisInkWord is access all IInkAnalysisInkWord_Interface'Class;
+   type IInkAnalysisInkWord_Ptr is access all IInkAnalysisInkWord;
+   type IInkAnalysisLine_Interface;
+   type IInkAnalysisLine is access all IInkAnalysisLine_Interface'Class;
+   type IInkAnalysisLine_Ptr is access all IInkAnalysisLine;
+   type IInkAnalysisListItem_Interface;
+   type IInkAnalysisListItem is access all IInkAnalysisListItem_Interface'Class;
+   type IInkAnalysisListItem_Ptr is access all IInkAnalysisListItem;
    type IInkAnalysisNode_Interface;
    type IInkAnalysisNode is access all IInkAnalysisNode_Interface'Class;
    type IInkAnalysisNode_Ptr is access all IInkAnalysisNode;
+   type IInkAnalysisParagraph_Interface;
+   type IInkAnalysisParagraph is access all IInkAnalysisParagraph_Interface'Class;
+   type IInkAnalysisParagraph_Ptr is access all IInkAnalysisParagraph;
+   type IInkAnalysisResult_Interface;
+   type IInkAnalysisResult is access all IInkAnalysisResult_Interface'Class;
+   type IInkAnalysisResult_Ptr is access all IInkAnalysisResult;
    type IInkAnalysisRoot_Interface;
    type IInkAnalysisRoot is access all IInkAnalysisRoot_Interface'Class;
    type IInkAnalysisRoot_Ptr is access all IInkAnalysisRoot;
    type IInkAnalysisWritingRegion_Interface;
    type IInkAnalysisWritingRegion is access all IInkAnalysisWritingRegion_Interface'Class;
    type IInkAnalysisWritingRegion_Ptr is access all IInkAnalysisWritingRegion;
-   type IInkAnalysisParagraph_Interface;
-   type IInkAnalysisParagraph is access all IInkAnalysisParagraph_Interface'Class;
-   type IInkAnalysisParagraph_Ptr is access all IInkAnalysisParagraph;
-   type IInkAnalysisListItem_Interface;
-   type IInkAnalysisListItem is access all IInkAnalysisListItem_Interface'Class;
-   type IInkAnalysisListItem_Ptr is access all IInkAnalysisListItem;
-   type IInkAnalysisInkBullet_Interface;
-   type IInkAnalysisInkBullet is access all IInkAnalysisInkBullet_Interface'Class;
-   type IInkAnalysisInkBullet_Ptr is access all IInkAnalysisInkBullet;
-   type IInkAnalysisLine_Interface;
-   type IInkAnalysisLine is access all IInkAnalysisLine_Interface'Class;
-   type IInkAnalysisLine_Ptr is access all IInkAnalysisLine;
-   type IInkAnalysisInkWord_Interface;
-   type IInkAnalysisInkWord is access all IInkAnalysisInkWord_Interface'Class;
-   type IInkAnalysisInkWord_Ptr is access all IInkAnalysisInkWord;
-   type IInkAnalysisInkDrawing_Interface;
-   type IInkAnalysisInkDrawing is access all IInkAnalysisInkDrawing_Interface'Class;
-   type IInkAnalysisInkDrawing_Ptr is access all IInkAnalysisInkDrawing;
-   type IAsyncOperation_IInkAnalysisResult_Interface;
-   type IAsyncOperation_IInkAnalysisResult is access all IAsyncOperation_IInkAnalysisResult_Interface'Class;
-   type IAsyncOperation_IInkAnalysisResult_Ptr is access all IAsyncOperation_IInkAnalysisResult;
-   type IIterator_IInkAnalysisNode_Interface;
-   type IIterator_IInkAnalysisNode is access all IIterator_IInkAnalysisNode_Interface'Class;
-   type IIterator_IInkAnalysisNode_Ptr is access all IIterator_IInkAnalysisNode;
+   type IInkAnalyzer_Interface;
+   type IInkAnalyzer is access all IInkAnalyzer_Interface'Class;
+   type IInkAnalyzer_Ptr is access all IInkAnalyzer;
+   type IInkAnalyzerFactory_Interface;
+   type IInkAnalyzerFactory is access all IInkAnalyzerFactory_Interface'Class;
+   type IInkAnalyzerFactory_Ptr is access all IInkAnalyzerFactory;
    type IIterable_IInkAnalysisNode_Interface;
    type IIterable_IInkAnalysisNode is access all IIterable_IInkAnalysisNode_Interface'Class;
    type IIterable_IInkAnalysisNode_Ptr is access all IIterable_IInkAnalysisNode;
+   type IIterator_IInkAnalysisNode_Interface;
+   type IIterator_IInkAnalysisNode is access all IIterator_IInkAnalysisNode_Interface'Class;
+   type IIterator_IInkAnalysisNode_Ptr is access all IIterator_IInkAnalysisNode;
    type IVectorView_IInkAnalysisNode_Interface;
    type IVectorView_IInkAnalysisNode is access all IVectorView_IInkAnalysisNode_Interface'Class;
    type IVectorView_IInkAnalysisNode_Ptr is access all IVectorView_IInkAnalysisNode;
@@ -190,6 +190,241 @@ package Windows.UI.Input.Inking.Analysis is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IInkAnalysisResult : aliased constant Windows.IID := (742838717, 28091, 20487, (186, 133, 61, 1, 6, 189, 223, 80 ));
+   
+   type IAsyncOperation_IInkAnalysisResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IInkAnalysisResult_Interface
+      ; handler : Windows.UI.Input.Inking.Analysis.AsyncOperationCompletedHandler_IInkAnalysisResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IInkAnalysisResult_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.AsyncOperationCompletedHandler_IInkAnalysisResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IInkAnalysisResult_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.IInkAnalysisResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisInkBullet : aliased constant Windows.IID := (3993277288, 24848, 16694, (149, 249, 238, 128, 159, 194, 0, 48 ));
+   
+   type IInkAnalysisInkBullet_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecognizedText
+   (
+      This       : access IInkAnalysisInkBullet_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisInkDrawing : aliased constant Windows.IID := (1787161887, 8164, 19989, (137, 140, 142, 17, 35, 119, 224, 33 ));
+   
+   type IInkAnalysisInkDrawing_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DrawingKind
+   (
+      This       : access IInkAnalysisInkDrawing_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Center
+   (
+      This       : access IInkAnalysisInkDrawing_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Points
+   (
+      This       : access IInkAnalysisInkDrawing_Interface
+      ; RetVal : access Windows.Foundation.IVectorView_Point -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisInkWord : aliased constant Windows.IID := (1272064173, 33711, 16436, (143, 59, 248, 104, 125, 255, 244, 54 ));
+   
+   type IInkAnalysisInkWord_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecognizedText
+   (
+      This       : access IInkAnalysisInkWord_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextAlternates
+   (
+      This       : access IInkAnalysisInkWord_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisLine : aliased constant Windows.IID := (2691499149, 11149, 18260, (173, 90, 208, 135, 17, 147, 169, 86 ));
+   
+   type IInkAnalysisLine_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecognizedText
+   (
+      This       : access IInkAnalysisLine_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IndentLevel
+   (
+      This       : access IInkAnalysisLine_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisListItem : aliased constant Windows.IID := (3034825279, 50371, 19514, (161, 166, 157, 133, 84, 126, 229, 134 ));
+   
+   type IInkAnalysisListItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecognizedText
+   (
+      This       : access IInkAnalysisListItem_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisNode : aliased constant Windows.IID := (813899525, 24420, 18988, (186, 55, 79, 72, 135, 135, 149, 116 ));
+   
+   type IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IInkAnalysisNode_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access IInkAnalysisNode_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BoundingRect
+   (
+      This       : access IInkAnalysisNode_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RotatedBoundingRect
+   (
+      This       : access IInkAnalysisNode_Interface
+      ; RetVal : access Windows.Foundation.IVectorView_Point -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Children
+   (
+      This       : access IInkAnalysisNode_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.IVectorView_IInkAnalysisNode -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Parent
+   (
+      This       : access IInkAnalysisNode_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.IInkAnalysisNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetStrokeIds
+   (
+      This       : access IInkAnalysisNode_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisParagraph : aliased constant Windows.IID := (3651994716, 3281, 19924, (166, 139, 235, 31, 18, 179, 215, 39 ));
+   
+   type IInkAnalysisParagraph_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecognizedText
+   (
+      This       : access IInkAnalysisParagraph_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisResult : aliased constant Windows.IID := (2303244921, 41539, 19107, (162, 148, 31, 152, 189, 15, 245, 128 ));
+   
+   type IInkAnalysisResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IInkAnalysisResult_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.InkAnalysisStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisRoot : aliased constant Windows.IID := (1068934084, 12254, 16481, (133, 2, 169, 15, 50, 84, 91, 132 ));
+   
+   type IInkAnalysisRoot_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecognizedText
+   (
+      This       : access IInkAnalysisRoot_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindNodes
+   (
+      This       : access IInkAnalysisRoot_Interface
+      ; nodeKind : Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.IVectorView_IInkAnalysisNode -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisWritingRegion : aliased constant Windows.IID := (3714933297, 48406, 18019, (181, 174, 148, 29, 48, 67, 239, 91 ));
+   
+   type IInkAnalysisWritingRegion_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecognizedText
+   (
+      This       : access IInkAnalysisWritingRegion_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -282,236 +517,14 @@ package Windows.UI.Input.Inking.Analysis is
    
    ------------------------------------------------------------------------
    
-   IID_IInkAnalysisResult : aliased constant Windows.IID := (2303244921, 41539, 19107, (162, 148, 31, 152, 189, 15, 245, 128 ));
+   IID_IIterable_IInkAnalysisNode : aliased constant Windows.IID := (2018444958, 47837, 21080, (189, 143, 66, 206, 32, 92, 201, 90 ));
    
-   type IInkAnalysisResult_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Status
+   function First
    (
-      This       : access IInkAnalysisResult_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.InkAnalysisStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisNode : aliased constant Windows.IID := (813899525, 24420, 18988, (186, 55, 79, 72, 135, 135, 149, 116 ));
-   
-   type IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IInkAnalysisNode_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Kind
-   (
-      This       : access IInkAnalysisNode_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BoundingRect
-   (
-      This       : access IInkAnalysisNode_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RotatedBoundingRect
-   (
-      This       : access IInkAnalysisNode_Interface
-      ; RetVal : access Windows.Foundation.IVectorView_Point -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Children
-   (
-      This       : access IInkAnalysisNode_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.IVectorView_IInkAnalysisNode -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Parent
-   (
-      This       : access IInkAnalysisNode_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.IInkAnalysisNode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetStrokeIds
-   (
-      This       : access IInkAnalysisNode_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisRoot : aliased constant Windows.IID := (1068934084, 12254, 16481, (133, 2, 169, 15, 50, 84, 91, 132 ));
-   
-   type IInkAnalysisRoot_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecognizedText
-   (
-      This       : access IInkAnalysisRoot_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FindNodes
-   (
-      This       : access IInkAnalysisRoot_Interface
-      ; nodeKind : Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.IVectorView_IInkAnalysisNode -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisWritingRegion : aliased constant Windows.IID := (3714933297, 48406, 18019, (181, 174, 148, 29, 48, 67, 239, 91 ));
-   
-   type IInkAnalysisWritingRegion_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecognizedText
-   (
-      This       : access IInkAnalysisWritingRegion_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisParagraph : aliased constant Windows.IID := (3651994716, 3281, 19924, (166, 139, 235, 31, 18, 179, 215, 39 ));
-   
-   type IInkAnalysisParagraph_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecognizedText
-   (
-      This       : access IInkAnalysisParagraph_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisListItem : aliased constant Windows.IID := (3034825279, 50371, 19514, (161, 166, 157, 133, 84, 126, 229, 134 ));
-   
-   type IInkAnalysisListItem_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecognizedText
-   (
-      This       : access IInkAnalysisListItem_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisInkBullet : aliased constant Windows.IID := (3993277288, 24848, 16694, (149, 249, 238, 128, 159, 194, 0, 48 ));
-   
-   type IInkAnalysisInkBullet_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecognizedText
-   (
-      This       : access IInkAnalysisInkBullet_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisLine : aliased constant Windows.IID := (2691499149, 11149, 18260, (173, 90, 208, 135, 17, 147, 169, 86 ));
-   
-   type IInkAnalysisLine_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecognizedText
-   (
-      This       : access IInkAnalysisLine_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IndentLevel
-   (
-      This       : access IInkAnalysisLine_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisInkWord : aliased constant Windows.IID := (1272064173, 33711, 16436, (143, 59, 248, 104, 125, 255, 244, 54 ));
-   
-   type IInkAnalysisInkWord_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RecognizedText
-   (
-      This       : access IInkAnalysisInkWord_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TextAlternates
-   (
-      This       : access IInkAnalysisInkWord_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IInkAnalysisInkDrawing : aliased constant Windows.IID := (1787161887, 8164, 19989, (137, 140, 142, 17, 35, 119, 224, 33 ));
-   
-   type IInkAnalysisInkDrawing_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DrawingKind
-   (
-      This       : access IInkAnalysisInkDrawing_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Center
-   (
-      This       : access IInkAnalysisInkDrawing_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Points
-   (
-      This       : access IInkAnalysisInkDrawing_Interface
-      ; RetVal : access Windows.Foundation.IVectorView_Point -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IInkAnalysisResult : aliased constant Windows.IID := (742838717, 28091, 20487, (186, 133, 61, 1, 6, 189, 223, 80 ));
-   
-   type IAsyncOperation_IInkAnalysisResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IInkAnalysisResult_Interface
-      ; handler : Windows.UI.Input.Inking.Analysis.AsyncOperationCompletedHandler_IInkAnalysisResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IInkAnalysisResult_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.AsyncOperationCompletedHandler_IInkAnalysisResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IInkAnalysisResult_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.IInkAnalysisResult
+      This       : access IIterable_IInkAnalysisNode_Interface
+      ; RetVal : access Windows.UI.Input.Inking.Analysis.IIterator_IInkAnalysisNode
    )
    return Windows.HRESULT is abstract;
    
@@ -547,19 +560,6 @@ package Windows.UI.Input.Inking.Analysis is
       This       : access IIterator_IInkAnalysisNode_Interface
       ; items : Windows.UI.Input.Inking.Analysis.IInkAnalysisNode_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IInkAnalysisNode : aliased constant Windows.IID := (2018444958, 47837, 21080, (189, 143, 66, 206, 32, 92, 201, 90 ));
-   
-   type IIterable_IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IInkAnalysisNode_Interface
-      ; RetVal : access Windows.UI.Input.Inking.Analysis.IIterator_IInkAnalysisNode
    )
    return Windows.HRESULT is abstract;
    
@@ -623,19 +623,19 @@ package Windows.UI.Input.Inking.Analysis is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype InkAnalysisRoot is Windows.UI.Input.Inking.Analysis.IInkAnalysisRoot;
+   subtype InkAnalysisInkBullet is Windows.UI.Input.Inking.Analysis.IInkAnalysisInkBullet;
+   subtype InkAnalysisInkDrawing is Windows.UI.Input.Inking.Analysis.IInkAnalysisInkDrawing;
+   subtype InkAnalysisInkWord is Windows.UI.Input.Inking.Analysis.IInkAnalysisInkWord;
+   subtype InkAnalysisLine is Windows.UI.Input.Inking.Analysis.IInkAnalysisLine;
+   subtype InkAnalysisListItem is Windows.UI.Input.Inking.Analysis.IInkAnalysisListItem;
+   subtype InkAnalysisNode is Windows.UI.Input.Inking.Analysis.IInkAnalysisNode;
+   subtype InkAnalysisParagraph is Windows.UI.Input.Inking.Analysis.IInkAnalysisParagraph;
    subtype InkAnalysisResult is Windows.UI.Input.Inking.Analysis.IInkAnalysisResult;
+   subtype InkAnalysisRoot is Windows.UI.Input.Inking.Analysis.IInkAnalysisRoot;
+   subtype InkAnalysisWritingRegion is Windows.UI.Input.Inking.Analysis.IInkAnalysisWritingRegion;
    subtype InkAnalyzer is Windows.UI.Input.Inking.Analysis.IInkAnalyzer;
    function Create return Windows.UI.Input.Inking.Analysis.IInkAnalyzer;
    
-   subtype InkAnalysisNode is Windows.UI.Input.Inking.Analysis.IInkAnalysisNode;
-   subtype InkAnalysisWritingRegion is Windows.UI.Input.Inking.Analysis.IInkAnalysisWritingRegion;
-   subtype InkAnalysisParagraph is Windows.UI.Input.Inking.Analysis.IInkAnalysisParagraph;
-   subtype InkAnalysisListItem is Windows.UI.Input.Inking.Analysis.IInkAnalysisListItem;
-   subtype InkAnalysisInkBullet is Windows.UI.Input.Inking.Analysis.IInkAnalysisInkBullet;
-   subtype InkAnalysisLine is Windows.UI.Input.Inking.Analysis.IInkAnalysisLine;
-   subtype InkAnalysisInkWord is Windows.UI.Input.Inking.Analysis.IInkAnalysisInkWord;
-   subtype InkAnalysisInkDrawing is Windows.UI.Input.Inking.Analysis.IInkAnalysisInkDrawing;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

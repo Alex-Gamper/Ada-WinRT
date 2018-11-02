@@ -51,27 +51,14 @@ package body Windows.ApplicationModel.AppExtensions is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface
+      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface
       ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
-      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs
+      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog(sender), Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface
-      ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
-      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog(sender), Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs(args));
+      This.Callback(Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog(sender), Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs(args));
       return Hr;
    end;
    
@@ -90,14 +77,27 @@ package body Windows.ApplicationModel.AppExtensions is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface
+      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface
       ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
-      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs
+      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog(sender), Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs(args));
+      This.Callback(Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog(sender), Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface
+      ; sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
+      ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog(sender), Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs(args));
       return Hr;
    end;
    

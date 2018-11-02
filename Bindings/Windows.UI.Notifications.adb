@@ -52,40 +52,14 @@ package body Windows.UI.Notifications is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IToastNotification_add_Dismissed_Interface
-      ; sender : Windows.UI.Notifications.IToastNotification
-      ; args : Windows.UI.Notifications.IToastDismissedEventArgs
+      This       : access AsyncOperationCompletedHandler_IToastNotificationHistory_Interface
+      ; asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Notifications.IToastNotification(sender), Windows.UI.Notifications.IToastDismissedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IToastNotification_add_Activated_Interface
-      ; sender : Windows.UI.Notifications.IToastNotification
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Notifications.IToastNotification(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IToastNotification_add_Failed_Interface
-      ; sender : Windows.UI.Notifications.IToastNotification
-      ; args : Windows.UI.Notifications.IToastFailedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Notifications.IToastNotification(sender), Windows.UI.Notifications.IToastFailedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -104,37 +78,46 @@ package body Windows.UI.Notifications is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IToastNotificationHistory_Interface
-      ; asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access TypedEventHandler_IToastNotification_add_Activated_Interface
+      ; sender : Windows.UI.Notifications.IToastNotification
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.UI.Notifications.IToastNotification(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IToastNotification_add_Dismissed_Interface
+      ; sender : Windows.UI.Notifications.IToastNotification
+      ; args : Windows.UI.Notifications.IToastDismissedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Notifications.IToastNotification(sender), Windows.UI.Notifications.IToastDismissedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IToastNotification_add_Failed_Interface
+      ; sender : Windows.UI.Notifications.IToastNotification
+      ; args : Windows.UI.Notifications.IToastFailedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Notifications.IToastNotification(sender), Windows.UI.Notifications.IToastFailedEventArgs(args));
       return Hr;
    end;
    
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
-   function Create return Windows.UI.Notifications.INotification is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.Notification");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Notifications.INotification) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Notifications.IID_INotification'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
    
    function Create return Windows.UI.Notifications.IAdaptiveNotificationText is
       Hr            : Windows.HResult := S_OK;
@@ -151,67 +134,6 @@ package body Windows.UI.Notifications is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
-   end;
-   
-   function CreateTileNotification
-   (
-      content : Windows.Data.Xml.Dom.IXmlDocument
-   )
-   return Windows.UI.Notifications.ITileNotification is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileNotification");
-      m_Factory     : Windows.UI.Notifications.ITileNotificationFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.ITileNotification := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileNotificationFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateTileNotification(content, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateScheduledTileNotification
-   (
-      content : Windows.Data.Xml.Dom.IXmlDocument
-      ; deliveryTime : Windows.Foundation.DateTime
-   )
-   return Windows.UI.Notifications.IScheduledTileNotification is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ScheduledTileNotification");
-      m_Factory     : Windows.UI.Notifications.IScheduledTileNotificationFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IScheduledTileNotification := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IScheduledTileNotificationFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateScheduledTileNotification(content, deliveryTime, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateTileFlyoutNotification
-   (
-      content : Windows.Data.Xml.Dom.IXmlDocument
-   )
-   return Windows.UI.Notifications.ITileFlyoutNotification is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutNotification");
-      m_Factory     : Windows.UI.Notifications.ITileFlyoutNotificationFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutNotification := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutNotificationFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateTileFlyoutNotification(content, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function CreateBadgeNotification
@@ -234,68 +156,21 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function CreateToastNotification
-   (
-      content : Windows.Data.Xml.Dom.IXmlDocument
-   )
-   return Windows.UI.Notifications.IToastNotification is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotification");
-      m_Factory     : Windows.UI.Notifications.IToastNotificationFactory := null;
+   function Create return Windows.UI.Notifications.INotification is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.Notification");
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IToastNotification := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Notifications.INotification) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateToastNotification(content, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.UI.Notifications.IID_INotification'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateScheduledToastNotification
-   (
-      content : Windows.Data.Xml.Dom.IXmlDocument
-      ; deliveryTime : Windows.Foundation.DateTime
-   )
-   return Windows.UI.Notifications.IScheduledToastNotification is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ScheduledToastNotification");
-      m_Factory     : Windows.UI.Notifications.IScheduledToastNotificationFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IScheduledToastNotification := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IScheduledToastNotificationFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateScheduledToastNotification(content, deliveryTime, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateScheduledToastNotificationRecurring
-   (
-      content : Windows.Data.Xml.Dom.IXmlDocument
-      ; deliveryTime : Windows.Foundation.DateTime
-      ; snoozeInterval : Windows.Foundation.TimeSpan
-      ; maximumSnoozeCount : Windows.UInt32
-   )
-   return Windows.UI.Notifications.IScheduledToastNotification is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ScheduledToastNotification");
-      m_Factory     : Windows.UI.Notifications.IScheduledToastNotificationFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IScheduledToastNotification := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IScheduledToastNotificationFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateScheduledToastNotificationRecurring(content, deliveryTime, snoozeInterval, maximumSnoozeCount, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create return Windows.UI.Notifications.INotificationData is
@@ -356,6 +231,111 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
+   function CreateScheduledTileNotification
+   (
+      content : Windows.Data.Xml.Dom.IXmlDocument
+      ; deliveryTime : Windows.Foundation.DateTime
+   )
+   return Windows.UI.Notifications.IScheduledTileNotification is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ScheduledTileNotification");
+      m_Factory     : Windows.UI.Notifications.IScheduledTileNotificationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IScheduledTileNotification := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IScheduledTileNotificationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateScheduledTileNotification(content, deliveryTime, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateScheduledToastNotification
+   (
+      content : Windows.Data.Xml.Dom.IXmlDocument
+      ; deliveryTime : Windows.Foundation.DateTime
+   )
+   return Windows.UI.Notifications.IScheduledToastNotification is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ScheduledToastNotification");
+      m_Factory     : Windows.UI.Notifications.IScheduledToastNotificationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IScheduledToastNotification := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IScheduledToastNotificationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateScheduledToastNotification(content, deliveryTime, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateScheduledToastNotificationRecurring
+   (
+      content : Windows.Data.Xml.Dom.IXmlDocument
+      ; deliveryTime : Windows.Foundation.DateTime
+      ; snoozeInterval : Windows.Foundation.TimeSpan
+      ; maximumSnoozeCount : Windows.UInt32
+   )
+   return Windows.UI.Notifications.IScheduledToastNotification is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ScheduledToastNotification");
+      m_Factory     : Windows.UI.Notifications.IScheduledToastNotificationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IScheduledToastNotification := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IScheduledToastNotificationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateScheduledToastNotificationRecurring(content, deliveryTime, snoozeInterval, maximumSnoozeCount, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTileFlyoutNotification
+   (
+      content : Windows.Data.Xml.Dom.IXmlDocument
+   )
+   return Windows.UI.Notifications.ITileFlyoutNotification is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutNotification");
+      m_Factory     : Windows.UI.Notifications.ITileFlyoutNotificationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutNotification := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutNotificationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTileFlyoutNotification(content, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTileNotification
+   (
+      content : Windows.Data.Xml.Dom.IXmlDocument
+   )
+   return Windows.UI.Notifications.ITileNotification is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileNotification");
+      m_Factory     : Windows.UI.Notifications.ITileNotificationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.ITileNotification := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITileNotificationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTileNotification(content, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       collectionId : Windows.String
@@ -379,6 +359,26 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
+   function CreateToastNotification
+   (
+      content : Windows.Data.Xml.Dom.IXmlDocument
+   )
+   return Windows.UI.Notifications.IToastNotification is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotification");
+      m_Factory     : Windows.UI.Notifications.IToastNotificationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IToastNotification := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateToastNotification(content, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -386,6 +386,103 @@ package body Windows.UI.Notifications is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.UI.Notifications.IBadgeUpdateManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
+      m_Factory     : IBadgeUpdateManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdateManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateBadgeUpdaterForApplication
+   return Windows.UI.Notifications.IBadgeUpdater is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
+      m_Factory     : IBadgeUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdater;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateBadgeUpdaterForApplication(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateBadgeUpdaterForApplicationWithId
+   (
+      applicationId : Windows.String
+   )
+   return Windows.UI.Notifications.IBadgeUpdater is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
+      m_Factory     : IBadgeUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdater;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateBadgeUpdaterForApplicationWithId(applicationId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateBadgeUpdaterForSecondaryTile
+   (
+      tileId : Windows.String
+   )
+   return Windows.UI.Notifications.IBadgeUpdater is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
+      m_Factory     : IBadgeUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdater;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateBadgeUpdaterForSecondaryTile(tileId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTemplateContent
+   (
+      type_x : Windows.UI.Notifications.BadgeTemplateType
+   )
+   return Windows.Data.Xml.Dom.IXmlDocument is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
+      m_Factory     : IBadgeUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Xml.Dom.IXmlDocument;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTemplateContent(type_x, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function get_Style
    return Windows.String is
@@ -483,23 +580,6 @@ package body Windows.UI.Notifications is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationHintsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Align(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ToastGeneric
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownNotificationBindings");
-      m_Factory     : IKnownNotificationBindingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownNotificationBindingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ToastGeneric(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -829,6 +909,100 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
+   function get_ToastGeneric
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownNotificationBindings");
+      m_Factory     : IKnownNotificationBindingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownNotificationBindingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ToastGeneric(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTileFlyoutUpdaterForApplication
+   return Windows.UI.Notifications.ITileFlyoutUpdater is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
+      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutUpdater;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTileFlyoutUpdaterForApplication(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTileFlyoutUpdaterForApplicationWithId
+   (
+      applicationId : Windows.String
+   )
+   return Windows.UI.Notifications.ITileFlyoutUpdater is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
+      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutUpdater;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTileFlyoutUpdaterForApplicationWithId(applicationId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTileFlyoutUpdaterForSecondaryTile
+   (
+      tileId : Windows.String
+   )
+   return Windows.UI.Notifications.ITileFlyoutUpdater is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
+      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutUpdater;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTileFlyoutUpdaterForSecondaryTile(tileId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTemplateContent
+   (
+      type_x : Windows.UI.Notifications.TileFlyoutTemplateType
+   )
+   return Windows.Data.Xml.Dom.IXmlDocument is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
+      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Xml.Dom.IXmlDocument;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTemplateContent(type_x, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetForUser
    (
       user : Windows.System.IUser
@@ -918,180 +1092,6 @@ package body Windows.UI.Notifications is
       RetVal        : aliased Windows.Data.Xml.Dom.IXmlDocument;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITileUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetTemplateContent(type_x, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.UI.Notifications.IBadgeUpdateManagerForUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
-      m_Factory     : IBadgeUpdateManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdateManagerForUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateBadgeUpdaterForApplication
-   return Windows.UI.Notifications.IBadgeUpdater is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
-      m_Factory     : IBadgeUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdater;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateBadgeUpdaterForApplication(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateBadgeUpdaterForApplicationWithId
-   (
-      applicationId : Windows.String
-   )
-   return Windows.UI.Notifications.IBadgeUpdater is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
-      m_Factory     : IBadgeUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdater;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateBadgeUpdaterForApplicationWithId(applicationId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateBadgeUpdaterForSecondaryTile
-   (
-      tileId : Windows.String
-   )
-   return Windows.UI.Notifications.IBadgeUpdater is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
-      m_Factory     : IBadgeUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IBadgeUpdater;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateBadgeUpdaterForSecondaryTile(tileId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetTemplateContent
-   (
-      type_x : Windows.UI.Notifications.BadgeTemplateType
-   )
-   return Windows.Data.Xml.Dom.IXmlDocument is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.BadgeUpdateManager");
-      m_Factory     : IBadgeUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Xml.Dom.IXmlDocument;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBadgeUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetTemplateContent(type_x, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateTileFlyoutUpdaterForApplication
-   return Windows.UI.Notifications.ITileFlyoutUpdater is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
-      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutUpdater;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateTileFlyoutUpdaterForApplication(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateTileFlyoutUpdaterForApplicationWithId
-   (
-      applicationId : Windows.String
-   )
-   return Windows.UI.Notifications.ITileFlyoutUpdater is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
-      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutUpdater;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateTileFlyoutUpdaterForApplicationWithId(applicationId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateTileFlyoutUpdaterForSecondaryTile
-   (
-      tileId : Windows.String
-   )
-   return Windows.UI.Notifications.ITileFlyoutUpdater is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
-      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.ITileFlyoutUpdater;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateTileFlyoutUpdaterForSecondaryTile(tileId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetTemplateContent
-   (
-      type_x : Windows.UI.Notifications.TileFlyoutTemplateType
-   )
-   return Windows.Data.Xml.Dom.IXmlDocument is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.TileFlyoutUpdateManager");
-      m_Factory     : ITileFlyoutUpdateManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Xml.Dom.IXmlDocument;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileFlyoutUpdateManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetTemplateContent(type_x, RetVal'Access);
          RefCount := m_Factory.Release;

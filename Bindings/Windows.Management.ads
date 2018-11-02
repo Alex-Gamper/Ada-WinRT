@@ -36,6 +36,22 @@ package Windows.Management is
    -- Enums
    ------------------------------------------------------------------------
    
+   type MdmAlertDataType is (
+      String,
+      Base64,
+      Boolean,
+      Integer
+   );
+   for MdmAlertDataType use (
+      String => 0,
+      Base64 => 1,
+      Boolean => 2,
+      Integer => 3
+   );
+   for MdmAlertDataType'Size use 32;
+   
+   type MdmAlertDataType_Ptr is access MdmAlertDataType;
+   
    type MdmAlertMark is (
       None,
       Fatal,
@@ -53,22 +69,6 @@ package Windows.Management is
    for MdmAlertMark'Size use 32;
    
    type MdmAlertMark_Ptr is access MdmAlertMark;
-   
-   type MdmAlertDataType is (
-      String,
-      Base64,
-      Boolean,
-      Integer
-   );
-   for MdmAlertDataType use (
-      String => 0,
-      Base64 => 1,
-      Boolean => 2,
-      Integer => 3
-   );
-   for MdmAlertDataType'Size use 32;
-   
-   type MdmAlertDataType_Ptr is access MdmAlertDataType;
    
    type MdmSessionState is (
       NotStarted,
@@ -96,6 +96,12 @@ package Windows.Management is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IIterable_IMdmAlert_Interface;
+   type IIterable_IMdmAlert is access all IIterable_IMdmAlert_Interface'Class;
+   type IIterable_IMdmAlert_Ptr is access all IIterable_IMdmAlert;
+   type IIterator_IMdmAlert_Interface;
+   type IIterator_IMdmAlert is access all IIterator_IMdmAlert_Interface'Class;
+   type IIterator_IMdmAlert_Ptr is access all IIterator_IMdmAlert;
    type IMdmAlert_Interface;
    type IMdmAlert is access all IMdmAlert_Interface'Class;
    type IMdmAlert_Ptr is access all IMdmAlert;
@@ -105,12 +111,6 @@ package Windows.Management is
    type IMdmSessionManagerStatics_Interface;
    type IMdmSessionManagerStatics is access all IMdmSessionManagerStatics_Interface'Class;
    type IMdmSessionManagerStatics_Ptr is access all IMdmSessionManagerStatics;
-   type IIterator_IMdmAlert_Interface;
-   type IIterator_IMdmAlert is access all IIterator_IMdmAlert_Interface'Class;
-   type IIterator_IMdmAlert_Ptr is access all IIterator_IMdmAlert;
-   type IIterable_IMdmAlert_Interface;
-   type IIterable_IMdmAlert is access all IIterable_IMdmAlert_Interface'Class;
-   type IIterable_IMdmAlert_Ptr is access all IIterable_IMdmAlert;
    type IVectorView_IMdmAlert_Interface;
    type IVectorView_IMdmAlert is access all IVectorView_IMdmAlert_Interface'Class;
    type IVectorView_IMdmAlert_Ptr is access all IVectorView_IMdmAlert;
@@ -118,6 +118,54 @@ package Windows.Management is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IMdmAlert : aliased constant Windows.IID := (2695239644, 8460, 21151, (181, 233, 41, 174, 206, 235, 181, 168 ));
+   
+   type IIterable_IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMdmAlert_Interface
+      ; RetVal : access Windows.Management.IIterator_IMdmAlert
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IMdmAlert : aliased constant Windows.IID := (3030838250, 45471, 23973, (179, 209, 232, 89, 241, 244, 223, 23 ));
+   
+   type IIterator_IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMdmAlert_Interface
+      ; RetVal : access Windows.Management.IMdmAlert
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMdmAlert_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMdmAlert_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMdmAlert_Interface
+      ; items : Windows.Management.IMdmAlert_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -310,54 +358,6 @@ package Windows.Management is
       This       : access IMdmSessionManagerStatics_Interface
       ; sessionId : Windows.String
       ; RetVal : access Windows.Management.IMdmSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IMdmAlert : aliased constant Windows.IID := (3030838250, 45471, 23973, (179, 209, 232, 89, 241, 244, 223, 23 ));
-   
-   type IIterator_IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IMdmAlert_Interface
-      ; RetVal : access Windows.Management.IMdmAlert
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IMdmAlert_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IMdmAlert_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IMdmAlert_Interface
-      ; items : Windows.Management.IMdmAlert_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IMdmAlert : aliased constant Windows.IID := (2695239644, 8460, 21151, (181, 233, 41, 174, 206, 235, 181, 168 ));
-   
-   type IIterable_IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IMdmAlert_Interface
-      ; RetVal : access Windows.Management.IIterator_IMdmAlert
    )
    return Windows.HRESULT is abstract;
    

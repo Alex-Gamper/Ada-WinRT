@@ -75,28 +75,64 @@ package Windows.System.Diagnostics.DevicePortal is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IDevicePortalConnection_Interface;
+   type IDevicePortalConnection is access all IDevicePortalConnection_Interface'Class;
+   type IDevicePortalConnection_Ptr is access all IDevicePortalConnection;
    type IDevicePortalConnectionClosedEventArgs_Interface;
    type IDevicePortalConnectionClosedEventArgs is access all IDevicePortalConnectionClosedEventArgs_Interface'Class;
    type IDevicePortalConnectionClosedEventArgs_Ptr is access all IDevicePortalConnectionClosedEventArgs;
    type IDevicePortalConnectionRequestReceivedEventArgs_Interface;
    type IDevicePortalConnectionRequestReceivedEventArgs is access all IDevicePortalConnectionRequestReceivedEventArgs_Interface'Class;
    type IDevicePortalConnectionRequestReceivedEventArgs_Ptr is access all IDevicePortalConnectionRequestReceivedEventArgs;
-   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface;
-   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs is access all IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface'Class;
-   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Ptr is access all IDevicePortalWebSocketConnectionRequestReceivedEventArgs;
    type IDevicePortalConnectionStatics_Interface;
    type IDevicePortalConnectionStatics is access all IDevicePortalConnectionStatics_Interface'Class;
    type IDevicePortalConnectionStatics_Ptr is access all IDevicePortalConnectionStatics;
-   type IDevicePortalConnection_Interface;
-   type IDevicePortalConnection is access all IDevicePortalConnection_Interface'Class;
-   type IDevicePortalConnection_Ptr is access all IDevicePortalConnection;
    type IDevicePortalWebSocketConnection_Interface;
    type IDevicePortalWebSocketConnection is access all IDevicePortalWebSocketConnection_Interface'Class;
    type IDevicePortalWebSocketConnection_Ptr is access all IDevicePortalWebSocketConnection;
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface;
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs is access all IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface'Class;
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Ptr is access all IDevicePortalWebSocketConnectionRequestReceivedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDevicePortalConnection : aliased constant Windows.IID := (256147281, 4504, 19873, (141, 84, 189, 239, 57, 62, 9, 182 ));
+   
+   type IDevicePortalConnection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Closed
+   (
+      This       : access IDevicePortalConnection_Interface
+      ; handler : TypedEventHandler_IDevicePortalConnection_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IDevicePortalConnection_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_RequestReceived
+   (
+      This       : access IDevicePortalConnection_Interface
+      ; handler : TypedEventHandler_IDevicePortalConnection_add_RequestReceived
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_RequestReceived
+   (
+      This       : access IDevicePortalConnection_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -133,33 +169,6 @@ package Windows.System.Diagnostics.DevicePortal is
    
    ------------------------------------------------------------------------
    
-   IID_IDevicePortalWebSocketConnectionRequestReceivedEventArgs : aliased constant Windows.IID := (2046675642, 5980, 18233, (159, 116, 221, 167, 151, 195, 91, 63 ));
-   
-   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsWebSocketUpgradeRequest
-   (
-      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WebSocketProtocolsRequested
-   (
-      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeferral
-   (
-      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IDevicePortalConnectionStatics : aliased constant Windows.IID := (1270755815, 59833, 17989, (143, 237, 165, 62, 234, 14, 219, 214 ));
    
    type IDevicePortalConnectionStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -169,42 +178,6 @@ package Windows.System.Diagnostics.DevicePortal is
       This       : access IDevicePortalConnectionStatics_Interface
       ; appServiceConnection : Windows.ApplicationModel.AppService.IAppServiceConnection
       ; RetVal : access Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDevicePortalConnection : aliased constant Windows.IID := (256147281, 4504, 19873, (141, 84, 189, 239, 57, 62, 9, 182 ));
-   
-   type IDevicePortalConnection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_Closed
-   (
-      This       : access IDevicePortalConnection_Interface
-      ; handler : TypedEventHandler_IDevicePortalConnection_add_Closed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Closed
-   (
-      This       : access IDevicePortalConnection_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_RequestReceived
-   (
-      This       : access IDevicePortalConnection_Interface
-      ; handler : TypedEventHandler_IDevicePortalConnection_add_RequestReceived
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_RequestReceived
-   (
-      This       : access IDevicePortalConnection_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -265,6 +238,33 @@ package Windows.System.Diagnostics.DevicePortal is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IDevicePortalWebSocketConnectionRequestReceivedEventArgs : aliased constant Windows.IID := (2046675642, 5980, 18233, (159, 116, 221, 167, 151, 195, 91, 63 ));
+   
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsWebSocketUpgradeRequest
+   (
+      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WebSocketProtocolsRequested
+   (
+      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -298,9 +298,9 @@ package Windows.System.Diagnostics.DevicePortal is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype DevicePortalConnection is Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection;
    subtype DevicePortalConnectionClosedEventArgs is Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs;
    subtype DevicePortalConnectionRequestReceivedEventArgs is Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs;
-   subtype DevicePortalConnection is Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

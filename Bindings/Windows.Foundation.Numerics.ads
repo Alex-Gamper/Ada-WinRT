@@ -128,15 +128,15 @@ package Windows.Foundation.Numerics is
    type IReference_Matrix4x4_Interface;
    type IReference_Matrix4x4 is access all IReference_Matrix4x4_Interface'Class;
    type IReference_Matrix4x4_Ptr is access all IReference_Matrix4x4;
-   type IReference_Vector3_Interface;
-   type IReference_Vector3 is access all IReference_Vector3_Interface'Class;
-   type IReference_Vector3_Ptr is access all IReference_Vector3;
-   type IReference_Vector2_Interface;
-   type IReference_Vector2 is access all IReference_Vector2_Interface'Class;
-   type IReference_Vector2_Ptr is access all IReference_Vector2;
    type IReference_Quaternion_Interface;
    type IReference_Quaternion is access all IReference_Quaternion_Interface'Class;
    type IReference_Quaternion_Ptr is access all IReference_Quaternion;
+   type IReference_Vector2_Interface;
+   type IReference_Vector2 is access all IReference_Vector2_Interface'Class;
+   type IReference_Vector2_Ptr is access all IReference_Vector2;
+   type IReference_Vector3_Interface;
+   type IReference_Vector3 is access all IReference_Vector3_Interface'Class;
+   type IReference_Vector3_Ptr is access all IReference_Vector3;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -157,14 +157,14 @@ package Windows.Foundation.Numerics is
    
    ------------------------------------------------------------------------
    
-   IID_IReference_Vector3 : aliased constant Windows.IID := (518484223, 51540, 22986, (167, 84, 97, 153, 169, 190, 40, 44 ));
+   IID_IReference_Quaternion : aliased constant Windows.IID := (2993685691, 49172, 24014, (154, 33, 121, 156, 90, 60, 20, 97 ));
    
-   type IReference_Vector3_Interface is interface and Windows.IInspectable_Interface;
+   type IReference_Quaternion_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
    (
-      This       : access IReference_Vector3_Interface
-      ; RetVal : access Windows.Foundation.Numerics.Vector3
+      This       : access IReference_Quaternion_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Quaternion
    )
    return Windows.HRESULT is abstract;
    
@@ -183,14 +183,14 @@ package Windows.Foundation.Numerics is
    
    ------------------------------------------------------------------------
    
-   IID_IReference_Quaternion : aliased constant Windows.IID := (2993685691, 49172, 24014, (154, 33, 121, 156, 90, 60, 20, 97 ));
+   IID_IReference_Vector3 : aliased constant Windows.IID := (518484223, 51540, 22986, (167, 84, 97, 153, 169, 190, 40, 44 ));
    
-   type IReference_Quaternion_Interface is interface and Windows.IInspectable_Interface;
+   type IReference_Vector3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
    (
-      This       : access IReference_Quaternion_Interface
-      ; RetVal : access Windows.Foundation.Numerics.Quaternion
+      This       : access IReference_Vector3_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
    

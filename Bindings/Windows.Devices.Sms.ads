@@ -38,64 +38,6 @@ package Windows.Devices.Sms is
    -- Enums
    ------------------------------------------------------------------------
    
-   type SmsMessageFilter is (
-      All_x,
-      Unread,
-      Read,
-      Sent,
-      Draft
-   );
-   for SmsMessageFilter use (
-      All_x => 0,
-      Unread => 1,
-      Read => 2,
-      Sent => 3,
-      Draft => 4
-   );
-   for SmsMessageFilter'Size use 32;
-   
-   type SmsMessageFilter_Ptr is access SmsMessageFilter;
-   
-   type SmsMessageClass is (
-      None,
-      Class0,
-      Class1,
-      Class2,
-      Class3
-   );
-   for SmsMessageClass use (
-      None => 0,
-      Class0 => 1,
-      Class1 => 2,
-      Class2 => 3,
-      Class3 => 4
-   );
-   for SmsMessageClass'Size use 32;
-   
-   type SmsMessageClass_Ptr is access SmsMessageClass;
-   
-   type SmsMessageType is (
-      Binary,
-      Text,
-      Wap,
-      App,
-      Broadcast,
-      Voicemail,
-      Status
-   );
-   for SmsMessageType use (
-      Binary => 0,
-      Text => 1,
-      Wap => 2,
-      App => 3,
-      Broadcast => 4,
-      Voicemail => 5,
-      Status => 6
-   );
-   for SmsMessageType'Size use 32;
-   
-   type SmsMessageType_Ptr is access SmsMessageType;
-   
    type CellularClass is (
       None,
       Gsm,
@@ -109,72 +51,6 @@ package Windows.Devices.Sms is
    for CellularClass'Size use 32;
    
    type CellularClass_Ptr is access CellularClass;
-   
-   type SmsDataFormat is (
-      Unknown,
-      CdmaSubmit,
-      GsmSubmit,
-      CdmaDeliver,
-      GsmDeliver
-   );
-   for SmsDataFormat use (
-      Unknown => 0,
-      CdmaSubmit => 1,
-      GsmSubmit => 2,
-      CdmaDeliver => 3,
-      GsmDeliver => 4
-   );
-   for SmsDataFormat'Size use 32;
-   
-   type SmsDataFormat_Ptr is access SmsDataFormat;
-   
-   type SmsEncoding is (
-      Unknown,
-      Optimal,
-      SevenBitAscii,
-      Unicode,
-      GsmSevenBit,
-      EightBit,
-      Latin,
-      Korean,
-      IA5,
-      ShiftJis,
-      LatinHebrew
-   );
-   for SmsEncoding use (
-      Unknown => 0,
-      Optimal => 1,
-      SevenBitAscii => 2,
-      Unicode => 3,
-      GsmSevenBit => 4,
-      EightBit => 5,
-      Latin => 6,
-      Korean => 7,
-      IA5 => 8,
-      ShiftJis => 9,
-      LatinHebrew => 10
-   );
-   for SmsEncoding'Size use 32;
-   
-   type SmsEncoding_Ptr is access SmsEncoding;
-   
-   type SmsGeographicalScope is (
-      None,
-      CellWithImmediateDisplay,
-      LocationArea,
-      Plmn,
-      Cell
-   );
-   for SmsGeographicalScope use (
-      None => 0,
-      CellWithImmediateDisplay => 1,
-      LocationArea => 2,
-      Plmn => 3,
-      Cell => 4
-   );
-   for SmsGeographicalScope'Size use 32;
-   
-   type SmsGeographicalScope_Ptr is access SmsGeographicalScope;
    
    type SmsBroadcastType is (
       Other,
@@ -214,6 +90,24 @@ package Windows.Devices.Sms is
    
    type SmsBroadcastType_Ptr is access SmsBroadcastType;
    
+   type SmsDataFormat is (
+      Unknown,
+      CdmaSubmit,
+      GsmSubmit,
+      CdmaDeliver,
+      GsmDeliver
+   );
+   for SmsDataFormat use (
+      Unknown => 0,
+      CdmaSubmit => 1,
+      GsmSubmit => 2,
+      CdmaDeliver => 3,
+      GsmDeliver => 4
+   );
+   for SmsDataFormat'Size use 32;
+   
+   type SmsDataFormat_Ptr is access SmsDataFormat;
+   
    type SmsDeviceStatus is (
       Off,
       Ready,
@@ -237,6 +131,128 @@ package Windows.Devices.Sms is
    for SmsDeviceStatus'Size use 32;
    
    type SmsDeviceStatus_Ptr is access SmsDeviceStatus;
+   
+   type SmsEncoding is (
+      Unknown,
+      Optimal,
+      SevenBitAscii,
+      Unicode,
+      GsmSevenBit,
+      EightBit,
+      Latin,
+      Korean,
+      IA5,
+      ShiftJis,
+      LatinHebrew
+   );
+   for SmsEncoding use (
+      Unknown => 0,
+      Optimal => 1,
+      SevenBitAscii => 2,
+      Unicode => 3,
+      GsmSevenBit => 4,
+      EightBit => 5,
+      Latin => 6,
+      Korean => 7,
+      IA5 => 8,
+      ShiftJis => 9,
+      LatinHebrew => 10
+   );
+   for SmsEncoding'Size use 32;
+   
+   type SmsEncoding_Ptr is access SmsEncoding;
+   
+   type SmsFilterActionType is (
+      AcceptImmediately,
+      Drop,
+      Peek,
+      Accept_x
+   );
+   for SmsFilterActionType use (
+      AcceptImmediately => 0,
+      Drop => 1,
+      Peek => 2,
+      Accept_x => 3
+   );
+   for SmsFilterActionType'Size use 32;
+   
+   type SmsFilterActionType_Ptr is access SmsFilterActionType;
+   
+   type SmsGeographicalScope is (
+      None,
+      CellWithImmediateDisplay,
+      LocationArea,
+      Plmn,
+      Cell
+   );
+   for SmsGeographicalScope use (
+      None => 0,
+      CellWithImmediateDisplay => 1,
+      LocationArea => 2,
+      Plmn => 3,
+      Cell => 4
+   );
+   for SmsGeographicalScope'Size use 32;
+   
+   type SmsGeographicalScope_Ptr is access SmsGeographicalScope;
+   
+   type SmsMessageClass is (
+      None,
+      Class0,
+      Class1,
+      Class2,
+      Class3
+   );
+   for SmsMessageClass use (
+      None => 0,
+      Class0 => 1,
+      Class1 => 2,
+      Class2 => 3,
+      Class3 => 4
+   );
+   for SmsMessageClass'Size use 32;
+   
+   type SmsMessageClass_Ptr is access SmsMessageClass;
+   
+   type SmsMessageFilter is (
+      All_x,
+      Unread,
+      Read,
+      Sent,
+      Draft
+   );
+   for SmsMessageFilter use (
+      All_x => 0,
+      Unread => 1,
+      Read => 2,
+      Sent => 3,
+      Draft => 4
+   );
+   for SmsMessageFilter'Size use 32;
+   
+   type SmsMessageFilter_Ptr is access SmsMessageFilter;
+   
+   type SmsMessageType is (
+      Binary,
+      Text,
+      Wap,
+      App,
+      Broadcast,
+      Voicemail,
+      Status
+   );
+   for SmsMessageType use (
+      Binary => 0,
+      Text => 1,
+      Wap => 2,
+      App => 3,
+      Broadcast => 4,
+      Voicemail => 5,
+      Status => 6
+   );
+   for SmsMessageType'Size use 32;
+   
+   type SmsMessageType_Ptr is access SmsMessageType;
    
    type SmsModemErrorCode is (
       Other,
@@ -270,22 +286,6 @@ package Windows.Devices.Sms is
    
    type SmsModemErrorCode_Ptr is access SmsModemErrorCode;
    
-   type SmsFilterActionType is (
-      AcceptImmediately,
-      Drop,
-      Peek,
-      Accept_x
-   );
-   for SmsFilterActionType use (
-      AcceptImmediately => 0,
-      Drop => 1,
-      Peek => 2,
-      Accept_x => 3
-   );
-   for SmsFilterActionType'Size use 32;
-   
-   type SmsFilterActionType_Ptr is access SmsFilterActionType;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -310,21 +310,21 @@ package Windows.Devices.Sms is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type SmsMessageReceivedEventHandler_Interface;
-   type SmsMessageReceivedEventHandler is access all SmsMessageReceivedEventHandler_Interface'Class;
-   type SmsMessageReceivedEventHandler_Ptr is access all SmsMessageReceivedEventHandler;
-   type SmsDeviceStatusChangedEventHandler_Interface;
-   type SmsDeviceStatusChangedEventHandler is access all SmsDeviceStatusChangedEventHandler_Interface'Class;
-   type SmsDeviceStatusChangedEventHandler_Ptr is access all SmsDeviceStatusChangedEventHandler;
-   type AsyncOperationCompletedHandler_ISmsMessage_Interface;
-   type AsyncOperationCompletedHandler_ISmsMessage is access all AsyncOperationCompletedHandler_ISmsMessage_Interface'Class;
-   type AsyncOperationCompletedHandler_ISmsMessage_Ptr is access all AsyncOperationCompletedHandler_ISmsMessage;
    type AsyncOperationCompletedHandler_ISmsDevice_Interface;
    type AsyncOperationCompletedHandler_ISmsDevice is access all AsyncOperationCompletedHandler_ISmsDevice_Interface'Class;
    type AsyncOperationCompletedHandler_ISmsDevice_Ptr is access all AsyncOperationCompletedHandler_ISmsDevice;
+   type AsyncOperationCompletedHandler_ISmsMessage_Interface;
+   type AsyncOperationCompletedHandler_ISmsMessage is access all AsyncOperationCompletedHandler_ISmsMessage_Interface'Class;
+   type AsyncOperationCompletedHandler_ISmsMessage_Ptr is access all AsyncOperationCompletedHandler_ISmsMessage;
    type AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface;
    type AsyncOperationCompletedHandler_ISmsSendMessageResult is access all AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface'Class;
    type AsyncOperationCompletedHandler_ISmsSendMessageResult_Ptr is access all AsyncOperationCompletedHandler_ISmsSendMessageResult;
+   type SmsDeviceStatusChangedEventHandler_Interface;
+   type SmsDeviceStatusChangedEventHandler is access all SmsDeviceStatusChangedEventHandler_Interface'Class;
+   type SmsDeviceStatusChangedEventHandler_Ptr is access all SmsDeviceStatusChangedEventHandler;
+   type SmsMessageReceivedEventHandler_Interface;
+   type SmsMessageReceivedEventHandler is access all SmsMessageReceivedEventHandler_Interface'Class;
+   type SmsMessageReceivedEventHandler_Ptr is access all SmsMessageReceivedEventHandler;
    type TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Interface;
    type TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged is access all TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Interface'Class;
    type TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Ptr is access all TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged;
@@ -336,81 +336,72 @@ package Windows.Devices.Sms is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISmsMessage_Interface;
-   type ISmsMessage is access all ISmsMessage_Interface'Class;
-   type ISmsMessage_Ptr is access all ISmsMessage;
-   type ISmsBinaryMessage_Interface;
-   type ISmsBinaryMessage is access all ISmsBinaryMessage_Interface'Class;
-   type ISmsBinaryMessage_Ptr is access all ISmsBinaryMessage;
-   type ISmsTextMessage_Interface;
-   type ISmsTextMessage is access all ISmsTextMessage_Interface'Class;
-   type ISmsTextMessage_Ptr is access all ISmsTextMessage;
-   type ISmsTextMessageStatics_Interface;
-   type ISmsTextMessageStatics is access all ISmsTextMessageStatics_Interface'Class;
-   type ISmsTextMessageStatics_Ptr is access all ISmsTextMessageStatics;
+   type IAsyncOperation_ISmsDevice_Interface;
+   type IAsyncOperation_ISmsDevice is access all IAsyncOperation_ISmsDevice_Interface'Class;
+   type IAsyncOperation_ISmsDevice_Ptr is access all IAsyncOperation_ISmsDevice;
    type IAsyncOperation_ISmsMessage_Interface;
    type IAsyncOperation_ISmsMessage is access all IAsyncOperation_ISmsMessage_Interface'Class;
    type IAsyncOperation_ISmsMessage_Ptr is access all IAsyncOperation_ISmsMessage;
-   type IAsyncOperationWithProgress_ISmsMessage_Int32_Interface;
-   type IAsyncOperationWithProgress_ISmsMessage_Int32 is access all IAsyncOperationWithProgress_ISmsMessage_Int32_Interface'Class;
-   type IAsyncOperationWithProgress_ISmsMessage_Int32_Ptr is access all IAsyncOperationWithProgress_ISmsMessage_Int32;
-   type ISmsDeviceMessageStore_Interface;
-   type ISmsDeviceMessageStore is access all ISmsDeviceMessageStore_Interface'Class;
-   type ISmsDeviceMessageStore_Ptr is access all ISmsDeviceMessageStore;
-   type ISmsMessageReceivedEventArgs_Interface;
-   type ISmsMessageReceivedEventArgs is access all ISmsMessageReceivedEventArgs_Interface'Class;
-   type ISmsMessageReceivedEventArgs_Ptr is access all ISmsMessageReceivedEventArgs;
+   type IAsyncOperation_ISmsSendMessageResult_Interface;
+   type IAsyncOperation_ISmsSendMessageResult is access all IAsyncOperation_ISmsSendMessageResult_Interface'Class;
+   type IAsyncOperation_ISmsSendMessageResult_Ptr is access all IAsyncOperation_ISmsSendMessageResult;
    type IAsyncOperation_SmsDevice_Interface;
    type IAsyncOperation_SmsDevice is access all IAsyncOperation_SmsDevice_Interface'Class;
    type IAsyncOperation_SmsDevice_Ptr is access all IAsyncOperation_SmsDevice;
+   type IAsyncOperationWithProgress_ISmsMessage_Int32_Interface;
+   type IAsyncOperationWithProgress_ISmsMessage_Int32 is access all IAsyncOperationWithProgress_ISmsMessage_Int32_Interface'Class;
+   type IAsyncOperationWithProgress_ISmsMessage_Int32_Ptr is access all IAsyncOperationWithProgress_ISmsMessage_Int32;
+   type IIterable_ISmsBinaryMessage_Interface;
+   type IIterable_ISmsBinaryMessage is access all IIterable_ISmsBinaryMessage_Interface'Class;
+   type IIterable_ISmsBinaryMessage_Ptr is access all IIterable_ISmsBinaryMessage;
+   type IIterable_ISmsFilterRule_Interface;
+   type IIterable_ISmsFilterRule is access all IIterable_ISmsFilterRule_Interface'Class;
+   type IIterable_ISmsFilterRule_Ptr is access all IIterable_ISmsFilterRule;
+   type IIterable_ISmsMessageRegistration_Interface;
+   type IIterable_ISmsMessageRegistration is access all IIterable_ISmsMessageRegistration_Interface'Class;
+   type IIterable_ISmsMessageRegistration_Ptr is access all IIterable_ISmsMessageRegistration;
+   type IIterable_SmsBroadcastType_Interface;
+   type IIterable_SmsBroadcastType is access all IIterable_SmsBroadcastType_Interface'Class;
+   type IIterable_SmsBroadcastType_Ptr is access all IIterable_SmsBroadcastType;
+   type IIterator_ISmsBinaryMessage_Interface;
+   type IIterator_ISmsBinaryMessage is access all IIterator_ISmsBinaryMessage_Interface'Class;
+   type IIterator_ISmsBinaryMessage_Ptr is access all IIterator_ISmsBinaryMessage;
+   type IIterator_ISmsFilterRule_Interface;
+   type IIterator_ISmsFilterRule is access all IIterator_ISmsFilterRule_Interface'Class;
+   type IIterator_ISmsFilterRule_Ptr is access all IIterator_ISmsFilterRule;
+   type IIterator_ISmsMessageRegistration_Interface;
+   type IIterator_ISmsMessageRegistration is access all IIterator_ISmsMessageRegistration_Interface'Class;
+   type IIterator_ISmsMessageRegistration_Ptr is access all IIterator_ISmsMessageRegistration;
+   type IIterator_SmsBroadcastType_Interface;
+   type IIterator_SmsBroadcastType is access all IIterator_SmsBroadcastType_Interface'Class;
+   type IIterator_SmsBroadcastType_Ptr is access all IIterator_SmsBroadcastType;
+   type ISmsAppMessage_Interface;
+   type ISmsAppMessage is access all ISmsAppMessage_Interface'Class;
+   type ISmsAppMessage_Ptr is access all ISmsAppMessage;
+   type ISmsBinaryMessage_Interface;
+   type ISmsBinaryMessage is access all ISmsBinaryMessage_Interface'Class;
+   type ISmsBinaryMessage_Ptr is access all ISmsBinaryMessage;
+   type ISmsBroadcastMessage_Interface;
+   type ISmsBroadcastMessage is access all ISmsBroadcastMessage_Interface'Class;
+   type ISmsBroadcastMessage_Ptr is access all ISmsBroadcastMessage;
+   type ISmsDevice_Interface;
+   type ISmsDevice is access all ISmsDevice_Interface'Class;
+   type ISmsDevice_Ptr is access all ISmsDevice;
+   type ISmsDevice2_Interface;
+   type ISmsDevice2 is access all ISmsDevice2_Interface'Class;
+   type ISmsDevice2_Ptr is access all ISmsDevice2;
+   type ISmsDevice2Statics_Interface;
+   type ISmsDevice2Statics is access all ISmsDevice2Statics_Interface'Class;
+   type ISmsDevice2Statics_Ptr is access all ISmsDevice2Statics;
+   type ISmsDeviceMessageStore_Interface;
+   type ISmsDeviceMessageStore is access all ISmsDeviceMessageStore_Interface'Class;
+   type ISmsDeviceMessageStore_Ptr is access all ISmsDeviceMessageStore;
    type ISmsDeviceStatics_Interface;
    type ISmsDeviceStatics is access all ISmsDeviceStatics_Interface'Class;
    type ISmsDeviceStatics_Ptr is access all ISmsDeviceStatics;
    type ISmsDeviceStatics2_Interface;
    type ISmsDeviceStatics2 is access all ISmsDeviceStatics2_Interface'Class;
    type ISmsDeviceStatics2_Ptr is access all ISmsDeviceStatics2;
-   type ISmsDevice_Interface;
-   type ISmsDevice is access all ISmsDevice_Interface'Class;
-   type ISmsDevice_Ptr is access all ISmsDevice;
-   type ISmsReceivedEventDetails_Interface;
-   type ISmsReceivedEventDetails is access all ISmsReceivedEventDetails_Interface'Class;
-   type ISmsReceivedEventDetails_Ptr is access all ISmsReceivedEventDetails;
-   type ISmsReceivedEventDetails2_Interface;
-   type ISmsReceivedEventDetails2 is access all ISmsReceivedEventDetails2_Interface'Class;
-   type ISmsReceivedEventDetails2_Ptr is access all ISmsReceivedEventDetails2;
-   type ISmsMessageBase_Interface;
-   type ISmsMessageBase is access all ISmsMessageBase_Interface'Class;
-   type ISmsMessageBase_Ptr is access all ISmsMessageBase;
-   type ISmsTextMessage2_Interface;
-   type ISmsTextMessage2 is access all ISmsTextMessage2_Interface'Class;
-   type ISmsTextMessage2_Ptr is access all ISmsTextMessage2;
-   type ISmsWapMessage_Interface;
-   type ISmsWapMessage is access all ISmsWapMessage_Interface'Class;
-   type ISmsWapMessage_Ptr is access all ISmsWapMessage;
-   type ISmsAppMessage_Interface;
-   type ISmsAppMessage is access all ISmsAppMessage_Interface'Class;
-   type ISmsAppMessage_Ptr is access all ISmsAppMessage;
-   type ISmsBroadcastMessage_Interface;
-   type ISmsBroadcastMessage is access all ISmsBroadcastMessage_Interface'Class;
-   type ISmsBroadcastMessage_Ptr is access all ISmsBroadcastMessage;
-   type ISmsVoicemailMessage_Interface;
-   type ISmsVoicemailMessage is access all ISmsVoicemailMessage_Interface'Class;
-   type ISmsVoicemailMessage_Ptr is access all ISmsVoicemailMessage;
-   type ISmsStatusMessage_Interface;
-   type ISmsStatusMessage is access all ISmsStatusMessage_Interface'Class;
-   type ISmsStatusMessage_Ptr is access all ISmsStatusMessage;
-   type ISmsSendMessageResult_Interface;
-   type ISmsSendMessageResult is access all ISmsSendMessageResult_Interface'Class;
-   type ISmsSendMessageResult_Ptr is access all ISmsSendMessageResult;
-   type ISmsDevice2Statics_Interface;
-   type ISmsDevice2Statics is access all ISmsDevice2Statics_Interface'Class;
-   type ISmsDevice2Statics_Ptr is access all ISmsDevice2Statics;
-   type ISmsDevice2_Interface;
-   type ISmsDevice2 is access all ISmsDevice2_Interface'Class;
-   type ISmsDevice2_Ptr is access all ISmsDevice2;
-   type ISmsMessageReceivedTriggerDetails_Interface;
-   type ISmsMessageReceivedTriggerDetails is access all ISmsMessageReceivedTriggerDetails_Interface'Class;
-   type ISmsMessageReceivedTriggerDetails_Ptr is access all ISmsMessageReceivedTriggerDetails;
    type ISmsFilterRule_Interface;
    type ISmsFilterRule is access all ISmsFilterRule_Interface'Class;
    type ISmsFilterRule_Ptr is access all ISmsFilterRule;
@@ -423,63 +414,72 @@ package Windows.Devices.Sms is
    type ISmsFilterRulesFactory_Interface;
    type ISmsFilterRulesFactory is access all ISmsFilterRulesFactory_Interface'Class;
    type ISmsFilterRulesFactory_Ptr is access all ISmsFilterRulesFactory;
-   type ISmsMessageRegistrationStatics_Interface;
-   type ISmsMessageRegistrationStatics is access all ISmsMessageRegistrationStatics_Interface'Class;
-   type ISmsMessageRegistrationStatics_Ptr is access all ISmsMessageRegistrationStatics;
+   type ISmsMessage_Interface;
+   type ISmsMessage is access all ISmsMessage_Interface'Class;
+   type ISmsMessage_Ptr is access all ISmsMessage;
+   type ISmsMessageBase_Interface;
+   type ISmsMessageBase is access all ISmsMessageBase_Interface'Class;
+   type ISmsMessageBase_Ptr is access all ISmsMessageBase;
+   type ISmsMessageReceivedEventArgs_Interface;
+   type ISmsMessageReceivedEventArgs is access all ISmsMessageReceivedEventArgs_Interface'Class;
+   type ISmsMessageReceivedEventArgs_Ptr is access all ISmsMessageReceivedEventArgs;
+   type ISmsMessageReceivedTriggerDetails_Interface;
+   type ISmsMessageReceivedTriggerDetails is access all ISmsMessageReceivedTriggerDetails_Interface'Class;
+   type ISmsMessageReceivedTriggerDetails_Ptr is access all ISmsMessageReceivedTriggerDetails;
    type ISmsMessageRegistration_Interface;
    type ISmsMessageRegistration is access all ISmsMessageRegistration_Interface'Class;
    type ISmsMessageRegistration_Ptr is access all ISmsMessageRegistration;
-   type IIterator_ISmsBinaryMessage_Interface;
-   type IIterator_ISmsBinaryMessage is access all IIterator_ISmsBinaryMessage_Interface'Class;
-   type IIterator_ISmsBinaryMessage_Ptr is access all IIterator_ISmsBinaryMessage;
-   type IIterable_ISmsBinaryMessage_Interface;
-   type IIterable_ISmsBinaryMessage is access all IIterable_ISmsBinaryMessage_Interface'Class;
-   type IIterable_ISmsBinaryMessage_Ptr is access all IIterable_ISmsBinaryMessage;
-   type IVectorView_ISmsBinaryMessage_Interface;
-   type IVectorView_ISmsBinaryMessage is access all IVectorView_ISmsBinaryMessage_Interface'Class;
-   type IVectorView_ISmsBinaryMessage_Ptr is access all IVectorView_ISmsBinaryMessage;
-   type IAsyncOperation_ISmsDevice_Interface;
-   type IAsyncOperation_ISmsDevice is access all IAsyncOperation_ISmsDevice_Interface'Class;
-   type IAsyncOperation_ISmsDevice_Ptr is access all IAsyncOperation_ISmsDevice;
-   type IAsyncOperation_ISmsSendMessageResult_Interface;
-   type IAsyncOperation_ISmsSendMessageResult is access all IAsyncOperation_ISmsSendMessageResult_Interface'Class;
-   type IAsyncOperation_ISmsSendMessageResult_Ptr is access all IAsyncOperation_ISmsSendMessageResult;
-   type IIterator_SmsBroadcastType_Interface;
-   type IIterator_SmsBroadcastType is access all IIterator_SmsBroadcastType_Interface'Class;
-   type IIterator_SmsBroadcastType_Ptr is access all IIterator_SmsBroadcastType;
-   type IIterable_SmsBroadcastType_Interface;
-   type IIterable_SmsBroadcastType is access all IIterable_SmsBroadcastType_Interface'Class;
-   type IIterable_SmsBroadcastType_Ptr is access all IIterable_SmsBroadcastType;
-   type IVectorView_SmsBroadcastType_Interface;
-   type IVectorView_SmsBroadcastType is access all IVectorView_SmsBroadcastType_Interface'Class;
-   type IVectorView_SmsBroadcastType_Ptr is access all IVectorView_SmsBroadcastType;
-   type IVector_SmsBroadcastType_Interface;
-   type IVector_SmsBroadcastType is access all IVector_SmsBroadcastType_Interface'Class;
-   type IVector_SmsBroadcastType_Ptr is access all IVector_SmsBroadcastType;
-   type IIterator_ISmsFilterRule_Interface;
-   type IIterator_ISmsFilterRule is access all IIterator_ISmsFilterRule_Interface'Class;
-   type IIterator_ISmsFilterRule_Ptr is access all IIterator_ISmsFilterRule;
-   type IIterable_ISmsFilterRule_Interface;
-   type IIterable_ISmsFilterRule is access all IIterable_ISmsFilterRule_Interface'Class;
-   type IIterable_ISmsFilterRule_Ptr is access all IIterable_ISmsFilterRule;
-   type IVectorView_ISmsFilterRule_Interface;
-   type IVectorView_ISmsFilterRule is access all IVectorView_ISmsFilterRule_Interface'Class;
-   type IVectorView_ISmsFilterRule_Ptr is access all IVectorView_ISmsFilterRule;
+   type ISmsMessageRegistrationStatics_Interface;
+   type ISmsMessageRegistrationStatics is access all ISmsMessageRegistrationStatics_Interface'Class;
+   type ISmsMessageRegistrationStatics_Ptr is access all ISmsMessageRegistrationStatics;
+   type ISmsReceivedEventDetails_Interface;
+   type ISmsReceivedEventDetails is access all ISmsReceivedEventDetails_Interface'Class;
+   type ISmsReceivedEventDetails_Ptr is access all ISmsReceivedEventDetails;
+   type ISmsReceivedEventDetails2_Interface;
+   type ISmsReceivedEventDetails2 is access all ISmsReceivedEventDetails2_Interface'Class;
+   type ISmsReceivedEventDetails2_Ptr is access all ISmsReceivedEventDetails2;
+   type ISmsSendMessageResult_Interface;
+   type ISmsSendMessageResult is access all ISmsSendMessageResult_Interface'Class;
+   type ISmsSendMessageResult_Ptr is access all ISmsSendMessageResult;
+   type ISmsStatusMessage_Interface;
+   type ISmsStatusMessage is access all ISmsStatusMessage_Interface'Class;
+   type ISmsStatusMessage_Ptr is access all ISmsStatusMessage;
+   type ISmsTextMessage_Interface;
+   type ISmsTextMessage is access all ISmsTextMessage_Interface'Class;
+   type ISmsTextMessage_Ptr is access all ISmsTextMessage;
+   type ISmsTextMessage2_Interface;
+   type ISmsTextMessage2 is access all ISmsTextMessage2_Interface'Class;
+   type ISmsTextMessage2_Ptr is access all ISmsTextMessage2;
+   type ISmsTextMessageStatics_Interface;
+   type ISmsTextMessageStatics is access all ISmsTextMessageStatics_Interface'Class;
+   type ISmsTextMessageStatics_Ptr is access all ISmsTextMessageStatics;
+   type ISmsVoicemailMessage_Interface;
+   type ISmsVoicemailMessage is access all ISmsVoicemailMessage_Interface'Class;
+   type ISmsVoicemailMessage_Ptr is access all ISmsVoicemailMessage;
+   type ISmsWapMessage_Interface;
+   type ISmsWapMessage is access all ISmsWapMessage_Interface'Class;
+   type ISmsWapMessage_Ptr is access all ISmsWapMessage;
    type IVector_ISmsFilterRule_Interface;
    type IVector_ISmsFilterRule is access all IVector_ISmsFilterRule_Interface'Class;
    type IVector_ISmsFilterRule_Ptr is access all IVector_ISmsFilterRule;
-   type IIterator_ISmsMessageRegistration_Interface;
-   type IIterator_ISmsMessageRegistration is access all IIterator_ISmsMessageRegistration_Interface'Class;
-   type IIterator_ISmsMessageRegistration_Ptr is access all IIterator_ISmsMessageRegistration;
-   type IIterable_ISmsMessageRegistration_Interface;
-   type IIterable_ISmsMessageRegistration is access all IIterable_ISmsMessageRegistration_Interface'Class;
-   type IIterable_ISmsMessageRegistration_Ptr is access all IIterable_ISmsMessageRegistration;
-   type IVectorView_ISmsMessageRegistration_Interface;
-   type IVectorView_ISmsMessageRegistration is access all IVectorView_ISmsMessageRegistration_Interface'Class;
-   type IVectorView_ISmsMessageRegistration_Ptr is access all IVectorView_ISmsMessageRegistration;
+   type IVector_SmsBroadcastType_Interface;
+   type IVector_SmsBroadcastType is access all IVector_SmsBroadcastType_Interface'Class;
+   type IVector_SmsBroadcastType_Ptr is access all IVector_SmsBroadcastType;
+   type IVectorView_ISmsBinaryMessage_Interface;
+   type IVectorView_ISmsBinaryMessage is access all IVectorView_ISmsBinaryMessage_Interface'Class;
+   type IVectorView_ISmsBinaryMessage_Ptr is access all IVectorView_ISmsBinaryMessage;
+   type IVectorView_ISmsFilterRule_Interface;
+   type IVectorView_ISmsFilterRule is access all IVectorView_ISmsFilterRule_Interface'Class;
+   type IVectorView_ISmsFilterRule_Ptr is access all IVectorView_ISmsFilterRule;
    type IVectorView_ISmsMessage_Interface;
    type IVectorView_ISmsMessage is access all IVectorView_ISmsMessage_Interface'Class;
    type IVectorView_ISmsMessage_Ptr is access all IVectorView_ISmsMessage;
+   type IVectorView_ISmsMessageRegistration_Interface;
+   type IVectorView_ISmsMessageRegistration is access all IVectorView_ISmsMessageRegistration_Interface'Class;
+   type IVectorView_ISmsMessageRegistration_Ptr is access all IVectorView_ISmsMessageRegistration;
+   type IVectorView_SmsBroadcastType_Interface;
+   type IVectorView_SmsBroadcastType is access all IVectorView_SmsBroadcastType_Interface'Class;
+   type IVectorView_SmsBroadcastType_Ptr is access all IVectorView_SmsBroadcastType;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -487,176 +487,28 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_ISmsMessage : aliased constant Windows.IID := (3980156456, 27012, 19207, (129, 29, 141, 89, 6, 237, 60, 234 ));
+   IID_IAsyncOperation_ISmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
    
-   type ISmsMessage_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ISmsDevice_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Id
+   function put_Completed
    (
-      This       : access ISmsMessage_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IAsyncOperation_ISmsDevice_Interface
+      ; handler : Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsDevice
    )
    return Windows.HRESULT is abstract;
    
-   function get_MessageClass
+   function get_Completed
    (
-      This       : access ISmsMessage_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsMessageClass
+      This       : access IAsyncOperation_ISmsDevice_Interface
+      ; RetVal : access Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsDevice
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_ISmsBinaryMessage : aliased constant Windows.IID := (1542776851, 15187, 19566, (182, 26, 216, 106, 99, 117, 86, 80 ));
-   
-   type ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Format
+   function GetResults
    (
-      This       : access ISmsBinaryMessage_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsDataFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Format
-   (
-      This       : access ISmsBinaryMessage_Interface
-      ; value : Windows.Devices.Sms.SmsDataFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetData
-   (
-      This       : access ISmsBinaryMessage_Interface
-      ; RetVal : access UInt8_Ptr -- Array Parameter type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetData
-   (
-      This       : access ISmsBinaryMessage_Interface
-      ; value : Windows.UInt8_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsTextMessage : aliased constant Windows.IID := (3592196172, 42133, 18559, (154, 111, 151, 21, 72, 197, 188, 159 ));
-   
-   type ISmsTextMessage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Timestamp
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PartReferenceId
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PartNumber
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PartCount
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_To
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_To
-   (
-      This       : access ISmsTextMessage_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_From
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_From
-   (
-      This       : access ISmsTextMessage_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Body
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Body
-   (
-      This       : access ISmsTextMessage_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Encoding
-   (
-      This       : access ISmsTextMessage_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsEncoding
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Encoding
-   (
-      This       : access ISmsTextMessage_Interface
-      ; value : Windows.Devices.Sms.SmsEncoding
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ToBinaryMessages
-   (
-      This       : access ISmsTextMessage_Interface
-      ; format : Windows.Devices.Sms.SmsDataFormat
-      ; RetVal : access Windows.Devices.Sms.IVectorView_ISmsBinaryMessage -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsTextMessageStatics : aliased constant Windows.IID := (2137572845, 15564, 18339, (140, 85, 56, 13, 59, 1, 8, 146 ));
-   
-   type ISmsTextMessageStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromBinaryMessage
-   (
-      This       : access ISmsTextMessageStatics_Interface
-      ; binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
-      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromBinaryData
-   (
-      This       : access ISmsTextMessageStatics_Interface
-      ; format : Windows.Devices.Sms.SmsDataFormat
-      ; value : Windows.UInt8_Ptr
-      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage
+      This       : access IAsyncOperation_ISmsDevice_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsDevice
    )
    return Windows.HRESULT is abstract;
    
@@ -684,6 +536,60 @@ package Windows.Devices.Sms is
    (
       This       : access IAsyncOperation_ISmsMessage_Interface
       ; RetVal : access Windows.Devices.Sms.ISmsMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmsSendMessageResult : aliased constant Windows.IID := (4228516623, 19916, 21079, (188, 97, 52, 53, 227, 2, 206, 31 ));
+   
+   type IAsyncOperation_ISmsSendMessageResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ISmsSendMessageResult_Interface
+      ; handler : Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsSendMessageResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ISmsSendMessageResult_Interface
+      ; RetVal : access Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsSendMessageResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ISmsSendMessageResult_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsSendMessageResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
+   
+   type IAsyncOperation_SmsDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_SmsDevice_Interface
+      ; handler : Windows.Devices.Sms.ISmsDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_SmsDevice_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_SmsDevice_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsDevice
    )
    return Windows.HRESULT is abstract;
    
@@ -730,469 +636,193 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_ISmsDeviceMessageStore : aliased constant Windows.IID := (2559177299, 61832, 17447, (141, 84, 206, 12, 36, 35, 197, 193 ));
+   IID_IIterable_ISmsBinaryMessage : aliased constant Windows.IID := (1450747557, 19802, 20930, (161, 51, 75, 131, 191, 37, 217, 135 ));
    
-   type ISmsDeviceMessageStore_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
    
-   function DeleteMessageAsync
+   function First
    (
-      This       : access ISmsDeviceMessageStore_Interface
-      ; messageId : Windows.UInt32
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DeleteMessagesAsync
-   (
-      This       : access ISmsDeviceMessageStore_Interface
-      ; messageFilter : Windows.Devices.Sms.SmsMessageFilter
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMessageAsync
-   (
-      This       : access ISmsDeviceMessageStore_Interface
-      ; messageId : Windows.UInt32
-      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsMessage -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMessagesAsync
-   (
-      This       : access ISmsDeviceMessageStore_Interface
-      ; messageFilter : Windows.Devices.Sms.SmsMessageFilter
-      ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MaxMessages
-   (
-      This       : access ISmsDeviceMessageStore_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IIterable_ISmsBinaryMessage_Interface
+      ; RetVal : access Windows.Devices.Sms.IIterator_ISmsBinaryMessage
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISmsMessageReceivedEventArgs : aliased constant Windows.IID := (149424792, 47333, 16833, (163, 216, 211, 171, 250, 226, 38, 117 ));
+   IID_IIterable_ISmsFilterRule : aliased constant Windows.IID := (65897063, 40080, 21088, (139, 192, 108, 62, 51, 6, 201, 100 ));
    
-   type ISmsMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_TextMessage
+   function First
    (
-      This       : access ISmsMessageReceivedEventArgs_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage
+      This       : access IIterable_ISmsFilterRule_Interface
+      ; RetVal : access Windows.Devices.Sms.IIterator_ISmsFilterRule
    )
    return Windows.HRESULT is abstract;
    
-   function get_BinaryMessage
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmsMessageRegistration : aliased constant Windows.IID := (4164352522, 30477, 24207, (134, 100, 1, 196, 63, 149, 158, 234 ));
+   
+   type IIterable_ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access ISmsMessageReceivedEventArgs_Interface
+      This       : access IIterable_ISmsMessageRegistration_Interface
+      ; RetVal : access Windows.Devices.Sms.IIterator_ISmsMessageRegistration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_SmsBroadcastType : aliased constant Windows.IID := (304573301, 5950, 20811, (152, 240, 138, 121, 39, 169, 32, 108 ));
+   
+   type IIterable_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_SmsBroadcastType_Interface
+      ; RetVal : access Windows.Devices.Sms.IIterator_SmsBroadcastType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmsBinaryMessage : aliased constant Windows.IID := (333843849, 59914, 23297, (156, 47, 14, 91, 67, 80, 88, 224 ));
+   
+   type IIterator_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ISmsBinaryMessage_Interface
       ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_SmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
-   
-   type IAsyncOperation_SmsDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
+   function get_HasCurrent
    (
-      This       : access IAsyncOperation_SmsDevice_Interface
-      ; handler : Windows.Devices.Sms.ISmsDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_SmsDevice_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_SmsDevice_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsDeviceStatics : aliased constant Windows.IID := (4169992170, 55317, 19921, (162, 52, 69, 32, 206, 70, 4, 164 ));
-   
-   type ISmsDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDeviceSelector
-   (
-      This       : access ISmsDeviceStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromIdAsync
-   (
-      This       : access ISmsDeviceStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDefaultAsync
-   (
-      This       : access ISmsDeviceStatics_Interface
-      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsDeviceStatics2 : aliased constant Windows.IID := (748756103, 2163, 19631, (138, 125, 189, 71, 30, 133, 134, 209 ));
-   
-   type ISmsDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromNetworkAccountIdAsync
-   (
-      This       : access ISmsDeviceStatics2_Interface
-      ; networkAccountId : Windows.String
-      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsDevice : aliased constant Windows.IID := (152539629, 34603, 20204, (156, 114, 171, 17, 98, 123, 52, 236 ));
-   
-   type ISmsDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SendMessageAsync
-   (
-      This       : access ISmsDevice_Interface
-      ; message : Windows.Devices.Sms.ISmsMessage
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CalculateLength
-   (
-      This       : access ISmsDevice_Interface
-      ; message : Windows.Devices.Sms.ISmsTextMessage
-      ; RetVal : access Windows.Devices.Sms.SmsEncodedLength
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AccountPhoneNumber
-   (
-      This       : access ISmsDevice_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CellularClass
-   (
-      This       : access ISmsDevice_Interface
-      ; RetVal : access Windows.Devices.Sms.CellularClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MessageStore
-   (
-      This       : access ISmsDevice_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsDeviceMessageStore
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DeviceStatus
-   (
-      This       : access ISmsDevice_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsDeviceStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_SmsMessageReceived
-   (
-      This       : access ISmsDevice_Interface
-      ; eventHandler : Windows.Devices.Sms.SmsMessageReceivedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_SmsMessageReceived
-   (
-      This       : access ISmsDevice_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_SmsDeviceStatusChanged
-   (
-      This       : access ISmsDevice_Interface
-      ; eventHandler : Windows.Devices.Sms.SmsDeviceStatusChangedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_SmsDeviceStatusChanged
-   (
-      This       : access ISmsDevice_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsReceivedEventDetails : aliased constant Windows.IID := (1538592533, 58477, 19586, (132, 125, 90, 3, 4, 193, 213, 61 ));
-   
-   type ISmsReceivedEventDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DeviceId
-   (
-      This       : access ISmsReceivedEventDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MessageIndex
-   (
-      This       : access ISmsReceivedEventDetails_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsReceivedEventDetails2 : aliased constant Windows.IID := (1088445574, 42932, 18289, (154, 231, 11, 95, 251, 18, 192, 58 ));
-   
-   type ISmsReceivedEventDetails2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MessageClass
-   (
-      This       : access ISmsReceivedEventDetails2_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsMessageClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BinaryMessage
-   (
-      This       : access ISmsReceivedEventDetails2_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsMessageBase : aliased constant Windows.IID := (753991216, 65104, 20422, (170, 136, 76, 207, 226, 122, 41, 234 ));
-   
-   type ISmsMessageBase_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_MessageType
-   (
-      This       : access ISmsMessageBase_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsMessageType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DeviceId
-   (
-      This       : access ISmsMessageBase_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CellularClass
-   (
-      This       : access ISmsMessageBase_Interface
-      ; RetVal : access Windows.Devices.Sms.CellularClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MessageClass
-   (
-      This       : access ISmsMessageBase_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsMessageClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SimIccId
-   (
-      This       : access ISmsMessageBase_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsTextMessage2 : aliased constant Windows.IID := (580966547, 17749, 18261, (181, 161, 231, 253, 132, 149, 95, 141 ));
-   
-   type ISmsTextMessage2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Timestamp
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_To
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_To
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_From
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Body
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Body
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Encoding
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsEncoding
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Encoding
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; value : Windows.Devices.Sms.SmsEncoding
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CallbackNumber
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_CallbackNumber
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsDeliveryNotificationEnabled
-   (
-      This       : access ISmsTextMessage2_Interface
+      This       : access IIterator_ISmsBinaryMessage_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_IsDeliveryNotificationEnabled
+   function MoveNext
    (
-      This       : access ISmsTextMessage2_Interface
-      ; value : Windows.Boolean
+      This       : access IIterator_ISmsBinaryMessage_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_RetryAttemptCount
+   function GetMany
    (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RetryAttemptCount
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TeleserviceId
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProtocolId
-   (
-      This       : access ISmsTextMessage2_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IIterator_ISmsBinaryMessage_Interface
+      ; items : Windows.Devices.Sms.ISmsBinaryMessage_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISmsWapMessage : aliased constant Windows.IID := (3448993603, 31317, 19771, (144, 33, 242, 46, 2, 45, 9, 197 ));
+   IID_IIterator_ISmsFilterRule : aliased constant Windows.IID := (4274506470, 38901, 23065, (179, 42, 216, 240, 186, 39, 111, 52 ));
    
-   type ISmsWapMessage_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Timestamp
+   function get_Current
    (
-      This       : access ISmsWapMessage_Interface
-      ; RetVal : access Windows.Foundation.DateTime
+      This       : access IIterator_ISmsFilterRule_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsFilterRule
    )
    return Windows.HRESULT is abstract;
    
-   function get_To
+   function get_HasCurrent
    (
-      This       : access ISmsWapMessage_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_ISmsFilterRule_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_From
+   function MoveNext
    (
-      This       : access ISmsWapMessage_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_ISmsFilterRule_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_ApplicationId
+   function GetMany
    (
-      This       : access ISmsWapMessage_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_ISmsFilterRule_Interface
+      ; items : Windows.Devices.Sms.ISmsFilterRule_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_ContentType
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmsMessageRegistration : aliased constant Windows.IID := (3994682997, 62409, 23570, (147, 224, 242, 176, 27, 220, 230, 17 ));
+   
+   type IIterator_ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
    (
-      This       : access ISmsWapMessage_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_ISmsMessageRegistration_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsMessageRegistration
    )
    return Windows.HRESULT is abstract;
    
-   function get_BinaryBody
+   function get_HasCurrent
    (
-      This       : access ISmsWapMessage_Interface
-      ; RetVal : access Windows.Storage.Streams.IBuffer
+      This       : access IIterator_ISmsMessageRegistration_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Headers
+   function MoveNext
    (
-      This       : access ISmsWapMessage_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IIterator_ISmsMessageRegistration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ISmsMessageRegistration_Interface
+      ; items : Windows.Devices.Sms.ISmsMessageRegistration_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_SmsBroadcastType : aliased constant Windows.IID := (1682497002, 49613, 20803, (164, 34, 95, 228, 240, 8, 204, 146 ));
+   
+   type IIterator_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_SmsBroadcastType_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsBroadcastType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_SmsBroadcastType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_SmsBroadcastType_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_SmsBroadcastType_Interface
+      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1358,6 +988,40 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
+   IID_ISmsBinaryMessage : aliased constant Windows.IID := (1542776851, 15187, 19566, (182, 26, 216, 106, 99, 117, 86, 80 ));
+   
+   type ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Format
+   (
+      This       : access ISmsBinaryMessage_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsDataFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Format
+   (
+      This       : access ISmsBinaryMessage_Interface
+      ; value : Windows.Devices.Sms.SmsDataFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetData
+   (
+      This       : access ISmsBinaryMessage_Interface
+      ; RetVal : access UInt8_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetData
+   (
+      This       : access ISmsBinaryMessage_Interface
+      ; value : Windows.UInt8_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISmsBroadcastMessage : aliased constant Windows.IID := (1974385649, 58551, 18548, (160, 156, 41, 86, 229, 146, 249, 87 ));
    
    type ISmsBroadcastMessage_Interface is interface and Windows.IInspectable_Interface;
@@ -1434,181 +1098,81 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_ISmsVoicemailMessage : aliased constant Windows.IID := (656056486, 38321, 17663, (188, 184, 184, 253, 215, 224, 139, 195 ));
+   IID_ISmsDevice : aliased constant Windows.IID := (152539629, 34603, 20204, (156, 114, 171, 17, 98, 123, 52, 236 ));
    
-   type ISmsVoicemailMessage_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsDevice_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Timestamp
+   function SendMessageAsync
    (
-      This       : access ISmsVoicemailMessage_Interface
-      ; RetVal : access Windows.Foundation.DateTime
+      This       : access ISmsDevice_Interface
+      ; message : Windows.Devices.Sms.ISmsMessage
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
-   function get_To
+   function CalculateLength
    (
-      This       : access ISmsVoicemailMessage_Interface
+      This       : access ISmsDevice_Interface
+      ; message : Windows.Devices.Sms.ISmsTextMessage
+      ; RetVal : access Windows.Devices.Sms.SmsEncodedLength
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AccountPhoneNumber
+   (
+      This       : access ISmsDevice_Interface
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Body
-   (
-      This       : access ISmsVoicemailMessage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MessageCount
-   (
-      This       : access ISmsVoicemailMessage_Interface
-      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsStatusMessage : aliased constant Windows.IID := (3872555842, 46859, 18039, (147, 121, 201, 120, 63, 223, 248, 244 ));
-   
-   type ISmsStatusMessage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_To
-   (
-      This       : access ISmsStatusMessage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_From
-   (
-      This       : access ISmsStatusMessage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Body
-   (
-      This       : access ISmsStatusMessage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Status
-   (
-      This       : access ISmsStatusMessage_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MessageReferenceNumber
-   (
-      This       : access ISmsStatusMessage_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServiceCenterTimestamp
-   (
-      This       : access ISmsStatusMessage_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DischargeTime
-   (
-      This       : access ISmsStatusMessage_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISmsSendMessageResult : aliased constant Windows.IID := (3675495154, 30921, 20459, (150, 34, 69, 35, 40, 8, 141, 98 ));
-   
-   type ISmsSendMessageResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsSuccessful
-   (
-      This       : access ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MessageReferenceNumbers
-   (
-      This       : access ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_Int32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    function get_CellularClass
    (
-      This       : access ISmsSendMessageResult_Interface
+      This       : access ISmsDevice_Interface
       ; RetVal : access Windows.Devices.Sms.CellularClass
    )
    return Windows.HRESULT is abstract;
    
-   function get_ModemErrorCode
+   function get_MessageStore
    (
-      This       : access ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsModemErrorCode
+      This       : access ISmsDevice_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsDeviceMessageStore
    )
    return Windows.HRESULT is abstract;
    
-   function get_IsErrorTransient
+   function get_DeviceStatus
    (
-      This       : access ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access ISmsDevice_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsDeviceStatus
    )
    return Windows.HRESULT is abstract;
    
-   function get_NetworkCauseCode
+   function add_SmsMessageReceived
    (
-      This       : access ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Int32
+      This       : access ISmsDevice_Interface
+      ; eventHandler : Windows.Devices.Sms.SmsMessageReceivedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
-   function get_TransportFailureCause
+   function remove_SmsMessageReceived
    (
-      This       : access ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Int32
+      This       : access ISmsDevice_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_ISmsDevice2Statics : aliased constant Windows.IID := (1707574053, 4145, 18718, (143, 182, 239, 153, 145, 175, 227, 99 ));
-   
-   type ISmsDevice2Statics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDeviceSelector
+   function add_SmsDeviceStatusChanged
    (
-      This       : access ISmsDevice2Statics_Interface
-      ; RetVal : access Windows.String
+      This       : access ISmsDevice_Interface
+      ; eventHandler : Windows.Devices.Sms.SmsDeviceStatusChangedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
-   function FromId
+   function remove_SmsDeviceStatusChanged
    (
-      This       : access ISmsDevice2Statics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Sms.ISmsDevice2
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDefault
-   (
-      This       : access ISmsDevice2Statics_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsDevice2
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromParentId
-   (
-      This       : access ISmsDevice2Statics_Interface
-      ; parentDeviceId : Windows.String
-      ; RetVal : access Windows.Devices.Sms.ISmsDevice2
+      This       : access ISmsDevice_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1700,68 +1264,124 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_ISmsMessageReceivedTriggerDetails : aliased constant Windows.IID := (735038420, 9815, 16680, (173, 95, 227, 135, 113, 50, 189, 177 ));
+   IID_ISmsDevice2Statics : aliased constant Windows.IID := (1707574053, 4145, 18718, (143, 182, 239, 153, 145, 175, 227, 99 ));
    
-   type ISmsMessageReceivedTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsDevice2Statics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_MessageType
+   function GetDeviceSelector
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsMessageType
+      This       : access ISmsDevice2Statics_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_TextMessage
+   function FromId
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage2
+      This       : access ISmsDevice2Statics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Sms.ISmsDevice2
    )
    return Windows.HRESULT is abstract;
    
-   function get_WapMessage
+   function GetDefault
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsWapMessage
+      This       : access ISmsDevice2Statics_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsDevice2
    )
    return Windows.HRESULT is abstract;
    
-   function get_AppMessage
+   function FromParentId
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsAppMessage
+      This       : access ISmsDevice2Statics_Interface
+      ; parentDeviceId : Windows.String
+      ; RetVal : access Windows.Devices.Sms.ISmsDevice2
    )
    return Windows.HRESULT is abstract;
    
-   function get_BroadcastMessage
+   ------------------------------------------------------------------------
+   
+   IID_ISmsDeviceMessageStore : aliased constant Windows.IID := (2559177299, 61832, 17447, (141, 84, 206, 12, 36, 35, 197, 193 ));
+   
+   type ISmsDeviceMessageStore_Interface is interface and Windows.IInspectable_Interface;
+   
+   function DeleteMessageAsync
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsBroadcastMessage
+      This       : access ISmsDeviceMessageStore_Interface
+      ; messageId : Windows.UInt32
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
-   function get_VoicemailMessage
+   function DeleteMessagesAsync
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsVoicemailMessage
+      This       : access ISmsDeviceMessageStore_Interface
+      ; messageFilter : Windows.Devices.Sms.SmsMessageFilter
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
-   function get_StatusMessage
+   function GetMessageAsync
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsStatusMessage
+      This       : access ISmsDeviceMessageStore_Interface
+      ; messageId : Windows.UInt32
+      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsMessage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function Drop
+   function GetMessagesAsync
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      This       : access ISmsDeviceMessageStore_Interface
+      ; messageFilter : Windows.Devices.Sms.SmsMessageFilter
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function Accept_x
+   function get_MaxMessages
    (
-      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      This       : access ISmsDeviceMessageStore_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsDeviceStatics : aliased constant Windows.IID := (4169992170, 55317, 19921, (162, 52, 69, 32, 206, 70, 4, 164 ));
+   
+   type ISmsDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelector
+   (
+      This       : access ISmsDeviceStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access ISmsDeviceStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDefaultAsync
+   (
+      This       : access ISmsDeviceStatics_Interface
+      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsDeviceStatics2 : aliased constant Windows.IID := (748756103, 2163, 19631, (138, 125, 189, 71, 30, 133, 134, 209 ));
+   
+   type ISmsDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromNetworkAccountIdAsync
+   (
+      This       : access ISmsDeviceStatics2_Interface
+      ; networkAccountId : Windows.String
+      ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1919,23 +1539,149 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_ISmsMessageRegistrationStatics : aliased constant Windows.IID := (1671451748, 10392, 18296, (160, 60, 111, 153, 73, 7, 214, 58 ));
+   IID_ISmsMessage : aliased constant Windows.IID := (3980156456, 27012, 19207, (129, 29, 141, 89, 6, 237, 60, 234 ));
    
-   type ISmsMessageRegistrationStatics_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsMessage_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_AllRegistrations
+   function get_Id
    (
-      This       : access ISmsMessageRegistrationStatics_Interface
-      ; RetVal : access Windows.Devices.Sms.IVectorView_ISmsMessageRegistration -- Generic Parameter Type
+      This       : access ISmsMessage_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function Register
+   function get_MessageClass
    (
-      This       : access ISmsMessageRegistrationStatics_Interface
-      ; id : Windows.String
-      ; filterRules : Windows.Devices.Sms.ISmsFilterRules
-      ; RetVal : access Windows.Devices.Sms.ISmsMessageRegistration
+      This       : access ISmsMessage_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsMessageClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsMessageBase : aliased constant Windows.IID := (753991216, 65104, 20422, (170, 136, 76, 207, 226, 122, 41, 234 ));
+   
+   type ISmsMessageBase_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MessageType
+   (
+      This       : access ISmsMessageBase_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsMessageType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceId
+   (
+      This       : access ISmsMessageBase_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CellularClass
+   (
+      This       : access ISmsMessageBase_Interface
+      ; RetVal : access Windows.Devices.Sms.CellularClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MessageClass
+   (
+      This       : access ISmsMessageBase_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsMessageClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SimIccId
+   (
+      This       : access ISmsMessageBase_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsMessageReceivedEventArgs : aliased constant Windows.IID := (149424792, 47333, 16833, (163, 216, 211, 171, 250, 226, 38, 117 ));
+   
+   type ISmsMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TextMessage
+   (
+      This       : access ISmsMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BinaryMessage
+   (
+      This       : access ISmsMessageReceivedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsMessageReceivedTriggerDetails : aliased constant Windows.IID := (735038420, 9815, 16680, (173, 95, 227, 135, 113, 50, 189, 177 ));
+   
+   type ISmsMessageReceivedTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MessageType
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsMessageType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextMessage
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WapMessage
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsWapMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AppMessage
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsAppMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BroadcastMessage
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsBroadcastMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VoicemailMessage
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsVoicemailMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StatusMessage
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+      ; RetVal : access Windows.Devices.Sms.ISmsStatusMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Drop
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Accept_x
+   (
+      This       : access ISmsMessageReceivedTriggerDetails_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -1975,411 +1721,501 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_ISmsBinaryMessage : aliased constant Windows.IID := (333843849, 59914, 23297, (156, 47, 14, 91, 67, 80, 88, 224 ));
+   IID_ISmsMessageRegistrationStatics : aliased constant Windows.IID := (1671451748, 10392, 18296, (160, 60, 111, 153, 73, 7, 214, 58 ));
    
-   type IIterator_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsMessageRegistrationStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_AllRegistrations
    (
-      This       : access IIterator_ISmsBinaryMessage_Interface
+      This       : access ISmsMessageRegistrationStatics_Interface
+      ; RetVal : access Windows.Devices.Sms.IVectorView_ISmsMessageRegistration -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Register
+   (
+      This       : access ISmsMessageRegistrationStatics_Interface
+      ; id : Windows.String
+      ; filterRules : Windows.Devices.Sms.ISmsFilterRules
+      ; RetVal : access Windows.Devices.Sms.ISmsMessageRegistration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsReceivedEventDetails : aliased constant Windows.IID := (1538592533, 58477, 19586, (132, 125, 90, 3, 4, 193, 213, 61 ));
+   
+   type ISmsReceivedEventDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceId
+   (
+      This       : access ISmsReceivedEventDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MessageIndex
+   (
+      This       : access ISmsReceivedEventDetails_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsReceivedEventDetails2 : aliased constant Windows.IID := (1088445574, 42932, 18289, (154, 231, 11, 95, 251, 18, 192, 58 ));
+   
+   type ISmsReceivedEventDetails2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MessageClass
+   (
+      This       : access ISmsReceivedEventDetails2_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsMessageClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BinaryMessage
+   (
+      This       : access ISmsReceivedEventDetails2_Interface
       ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   ------------------------------------------------------------------------
+   
+   IID_ISmsSendMessageResult : aliased constant Windows.IID := (3675495154, 30921, 20459, (150, 34, 69, 35, 40, 8, 141, 98 ));
+   
+   type ISmsSendMessageResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsSuccessful
    (
-      This       : access IIterator_ISmsBinaryMessage_Interface
+      This       : access ISmsSendMessageResult_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
+   function get_MessageReferenceNumbers
    (
-      This       : access IIterator_ISmsBinaryMessage_Interface
+      This       : access ISmsSendMessageResult_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Int32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CellularClass
+   (
+      This       : access ISmsSendMessageResult_Interface
+      ; RetVal : access Windows.Devices.Sms.CellularClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ModemErrorCode
+   (
+      This       : access ISmsSendMessageResult_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsModemErrorCode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsErrorTransient
+   (
+      This       : access ISmsSendMessageResult_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function GetMany
+   function get_NetworkCauseCode
    (
-      This       : access IIterator_ISmsBinaryMessage_Interface
-      ; items : Windows.Devices.Sms.ISmsBinaryMessage_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access ISmsSendMessageResult_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransportFailureCause
+   (
+      This       : access ISmsSendMessageResult_Interface
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_ISmsBinaryMessage : aliased constant Windows.IID := (1450747557, 19802, 20930, (161, 51, 75, 131, 191, 37, 217, 135 ));
+   IID_ISmsStatusMessage : aliased constant Windows.IID := (3872555842, 46859, 18039, (147, 121, 201, 120, 63, 223, 248, 244 ));
    
-   type IIterable_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsStatusMessage_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_To
    (
-      This       : access IIterable_ISmsBinaryMessage_Interface
-      ; RetVal : access Windows.Devices.Sms.IIterator_ISmsBinaryMessage
+      This       : access ISmsStatusMessage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_From
+   (
+      This       : access ISmsStatusMessage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Body
+   (
+      This       : access ISmsStatusMessage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access ISmsStatusMessage_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MessageReferenceNumber
+   (
+      This       : access ISmsStatusMessage_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServiceCenterTimestamp
+   (
+      This       : access ISmsStatusMessage_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DischargeTime
+   (
+      This       : access ISmsStatusMessage_Interface
+      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_ISmsBinaryMessage : aliased constant Windows.IID := (1856075498, 39402, 23673, (135, 106, 244, 196, 55, 184, 61, 246 ));
+   IID_ISmsTextMessage : aliased constant Windows.IID := (3592196172, 42133, 18559, (154, 111, 151, 21, 72, 197, 188, 159 ));
    
-   type IVectorView_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsTextMessage_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetAt
+   function get_Timestamp
    (
-      This       : access IVectorView_ISmsBinaryMessage_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
+      This       : access ISmsTextMessage_Interface
+      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_PartReferenceId
    (
-      This       : access IVectorView_ISmsBinaryMessage_Interface
+      This       : access ISmsTextMessage_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function IndexOf
+   function get_PartNumber
    (
-      This       : access IVectorView_ISmsBinaryMessage_Interface
-      ; value : Windows.Devices.Sms.ISmsBinaryMessage
-      ; index : access Windows.UInt32
+      This       : access ISmsTextMessage_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PartCount
+   (
+      This       : access ISmsTextMessage_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_To
+   (
+      This       : access ISmsTextMessage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_To
+   (
+      This       : access ISmsTextMessage_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_From
+   (
+      This       : access ISmsTextMessage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_From
+   (
+      This       : access ISmsTextMessage_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Body
+   (
+      This       : access ISmsTextMessage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Body
+   (
+      This       : access ISmsTextMessage_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Encoding
+   (
+      This       : access ISmsTextMessage_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsEncoding
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Encoding
+   (
+      This       : access ISmsTextMessage_Interface
+      ; value : Windows.Devices.Sms.SmsEncoding
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ToBinaryMessages
+   (
+      This       : access ISmsTextMessage_Interface
+      ; format : Windows.Devices.Sms.SmsDataFormat
+      ; RetVal : access Windows.Devices.Sms.IVectorView_ISmsBinaryMessage -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmsTextMessage2 : aliased constant Windows.IID := (580966547, 17749, 18261, (181, 161, 231, 253, 132, 149, 95, 141 ));
+   
+   type ISmsTextMessage2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Timestamp
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_To
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_To
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_From
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Body
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Body
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Encoding
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.Devices.Sms.SmsEncoding
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Encoding
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; value : Windows.Devices.Sms.SmsEncoding
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CallbackNumber
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CallbackNumber
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsDeliveryNotificationEnabled
+   (
+      This       : access ISmsTextMessage2_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function GetMany
+   function put_IsDeliveryNotificationEnabled
    (
-      This       : access IVectorView_ISmsBinaryMessage_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.Sms.ISmsBinaryMessage_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access ISmsTextMessage2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RetryAttemptCount
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RetryAttemptCount
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TeleserviceId
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProtocolId
+   (
+      This       : access ISmsTextMessage2_Interface
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_ISmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
+   IID_ISmsTextMessageStatics : aliased constant Windows.IID := (2137572845, 15564, 18339, (140, 85, 56, 13, 59, 1, 8, 146 ));
    
-   type IAsyncOperation_ISmsDevice_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsTextMessageStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function FromBinaryMessage
    (
-      This       : access IAsyncOperation_ISmsDevice_Interface
-      ; handler : Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsDevice
+      This       : access ISmsTextMessageStatics_Interface
+      ; binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
+      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function FromBinaryData
    (
-      This       : access IAsyncOperation_ISmsDevice_Interface
-      ; RetVal : access Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ISmsDevice_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsDevice
+      This       : access ISmsTextMessageStatics_Interface
+      ; format : Windows.Devices.Sms.SmsDataFormat
+      ; value : Windows.UInt8_Ptr
+      ; RetVal : access Windows.Devices.Sms.ISmsTextMessage
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_ISmsSendMessageResult : aliased constant Windows.IID := (4228516623, 19916, 21079, (188, 97, 52, 53, 227, 2, 206, 31 ));
+   IID_ISmsVoicemailMessage : aliased constant Windows.IID := (656056486, 38321, 17663, (188, 184, 184, 253, 215, 224, 139, 195 ));
    
-   type IAsyncOperation_ISmsSendMessageResult_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsVoicemailMessage_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function get_Timestamp
    (
-      This       : access IAsyncOperation_ISmsSendMessageResult_Interface
-      ; handler : Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsSendMessageResult
+      This       : access ISmsVoicemailMessage_Interface
+      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_To
    (
-      This       : access IAsyncOperation_ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Devices.Sms.AsyncOperationCompletedHandler_ISmsSendMessageResult
+      This       : access ISmsVoicemailMessage_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function get_Body
    (
-      This       : access IAsyncOperation_ISmsSendMessageResult_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsSendMessageResult
+      This       : access ISmsVoicemailMessage_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_SmsBroadcastType : aliased constant Windows.IID := (1682497002, 49613, 20803, (164, 34, 95, 228, 240, 8, 204, 146 ));
-   
-   type IIterator_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
+   function get_MessageCount
    (
-      This       : access IIterator_SmsBroadcastType_Interface
-      ; RetVal : access Windows.Devices.Sms.SmsBroadcastType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_SmsBroadcastType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_SmsBroadcastType_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_SmsBroadcastType_Interface
-      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access ISmsVoicemailMessage_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_SmsBroadcastType : aliased constant Windows.IID := (304573301, 5950, 20811, (152, 240, 138, 121, 39, 169, 32, 108 ));
+   IID_ISmsWapMessage : aliased constant Windows.IID := (3448993603, 31317, 19771, (144, 33, 242, 46, 2, 45, 9, 197 ));
    
-   type IIterable_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
+   type ISmsWapMessage_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Timestamp
    (
-      This       : access IIterable_SmsBroadcastType_Interface
-      ; RetVal : access Windows.Devices.Sms.IIterator_SmsBroadcastType
+      This       : access ISmsWapMessage_Interface
+      ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_SmsBroadcastType : aliased constant Windows.IID := (1080289169, 55853, 24140, (145, 19, 91, 107, 160, 167, 197, 149 ));
-   
-   type IVectorView_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
+   function get_To
    (
-      This       : access IVectorView_SmsBroadcastType_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.Sms.SmsBroadcastType
+      This       : access ISmsWapMessage_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_From
    (
-      This       : access IVectorView_SmsBroadcastType_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access ISmsWapMessage_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function IndexOf
+   function get_ApplicationId
    (
-      This       : access IVectorView_SmsBroadcastType_Interface
-      ; value : Windows.Devices.Sms.SmsBroadcastType
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
+      This       : access ISmsWapMessage_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function GetMany
+   function get_ContentType
    (
-      This       : access IVectorView_SmsBroadcastType_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access ISmsWapMessage_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IVector_SmsBroadcastType : aliased constant Windows.IID := (3614174987, 4952, 22677, (189, 66, 241, 127, 111, 51, 238, 209 ));
-   
-   type IVector_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
+   function get_BinaryBody
    (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.Sms.SmsBroadcastType
+      This       : access ISmsWapMessage_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_Headers
    (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; RetVal : access Windows.Devices.Sms.IVectorView_SmsBroadcastType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; value : Windows.Devices.Sms.SmsBroadcastType
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Devices.Sms.SmsBroadcastType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.Devices.Sms.SmsBroadcastType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; value : Windows.Devices.Sms.SmsBroadcastType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_SmsBroadcastType_Interface
-      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_ISmsFilterRule : aliased constant Windows.IID := (4274506470, 38901, 23065, (179, 42, 216, 240, 186, 39, 111, 52 ));
-   
-   type IIterator_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_ISmsFilterRule_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsFilterRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_ISmsFilterRule_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_ISmsFilterRule_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_ISmsFilterRule_Interface
-      ; items : Windows.Devices.Sms.ISmsFilterRule_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ISmsFilterRule : aliased constant Windows.IID := (65897063, 40080, 21088, (139, 192, 108, 62, 51, 6, 201, 100 ));
-   
-   type IIterable_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ISmsFilterRule_Interface
-      ; RetVal : access Windows.Devices.Sms.IIterator_ISmsFilterRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_ISmsFilterRule : aliased constant Windows.IID := (4092412569, 56886, 23938, (153, 63, 53, 252, 103, 125, 139, 114 ));
-   
-   type IVectorView_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_ISmsFilterRule_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.Sms.ISmsFilterRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_ISmsFilterRule_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_ISmsFilterRule_Interface
-      ; value : Windows.Devices.Sms.ISmsFilterRule
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_ISmsFilterRule_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.Sms.ISmsFilterRule_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access ISmsWapMessage_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -2480,49 +2316,211 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_ISmsMessageRegistration : aliased constant Windows.IID := (3994682997, 62409, 23570, (147, 224, 242, 176, 27, 220, 230, 17 ));
+   IID_IVector_SmsBroadcastType : aliased constant Windows.IID := (3614174987, 4952, 22677, (189, 66, 241, 127, 111, 51, 238, 209 ));
    
-   type IIterator_ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function GetAt
    (
-      This       : access IIterator_ISmsMessageRegistration_Interface
-      ; RetVal : access Windows.Devices.Sms.ISmsMessageRegistration
+      This       : access IVector_SmsBroadcastType_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.Sms.SmsBroadcastType
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_Size
    (
-      This       : access IIterator_ISmsMessageRegistration_Interface
+      This       : access IVector_SmsBroadcastType_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+      ; RetVal : access Windows.Devices.Sms.IVectorView_SmsBroadcastType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+      ; value : Windows.Devices.Sms.SmsBroadcastType
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
+   function SetAt
    (
-      This       : access IIterator_ISmsMessageRegistration_Interface
+      This       : access IVector_SmsBroadcastType_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Devices.Sms.SmsBroadcastType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Devices.Sms.SmsBroadcastType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+      ; value : Windows.Devices.Sms.SmsBroadcastType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_SmsBroadcastType_Interface
+      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_ISmsBinaryMessage : aliased constant Windows.IID := (1856075498, 39402, 23673, (135, 106, 244, 196, 55, 184, 61, 246 ));
+   
+   type IVectorView_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_ISmsBinaryMessage_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ISmsBinaryMessage_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ISmsBinaryMessage_Interface
+      ; value : Windows.Devices.Sms.ISmsBinaryMessage
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_ISmsMessageRegistration_Interface
-      ; items : Windows.Devices.Sms.ISmsMessageRegistration_Ptr
+      This       : access IVectorView_ISmsBinaryMessage_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.Sms.ISmsBinaryMessage_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_ISmsMessageRegistration : aliased constant Windows.IID := (4164352522, 30477, 24207, (134, 100, 1, 196, 63, 149, 158, 234 ));
+   IID_IVectorView_ISmsFilterRule : aliased constant Windows.IID := (4092412569, 56886, 23938, (153, 63, 53, 252, 103, 125, 139, 114 ));
    
-   type IIterable_ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function GetAt
    (
-      This       : access IIterable_ISmsMessageRegistration_Interface
-      ; RetVal : access Windows.Devices.Sms.IIterator_ISmsMessageRegistration
+      This       : access IVectorView_ISmsFilterRule_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.Sms.ISmsFilterRule
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ISmsFilterRule_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ISmsFilterRule_Interface
+      ; value : Windows.Devices.Sms.ISmsFilterRule
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_ISmsFilterRule_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.Sms.ISmsFilterRule_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IVectorView_ISmsMessage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_ISmsMessage_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.Sms.ISmsMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ISmsMessage_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ISmsMessage_Interface
+      ; value : Windows.Devices.Sms.ISmsMessage
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_ISmsMessage_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.Sms.ISmsMessage_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -2567,27 +2565,29 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   type IVectorView_ISmsMessage_Interface is interface and Windows.IInspectable_Interface;
+   IID_IVectorView_SmsBroadcastType : aliased constant Windows.IID := (1080289169, 55853, 24140, (145, 19, 91, 107, 160, 167, 197, 149 ));
+   
+   type IVectorView_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
    (
-      This       : access IVectorView_ISmsMessage_Interface
+      This       : access IVectorView_SmsBroadcastType_Interface
       ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.Sms.ISmsMessage
+      ; RetVal : access Windows.Devices.Sms.SmsBroadcastType
    )
    return Windows.HRESULT is abstract;
    
    function get_Size
    (
-      This       : access IVectorView_ISmsMessage_Interface
+      This       : access IVectorView_SmsBroadcastType_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    function IndexOf
    (
-      This       : access IVectorView_ISmsMessage_Interface
-      ; value : Windows.Devices.Sms.ISmsMessage
+      This       : access IVectorView_SmsBroadcastType_Interface
+      ; value : Windows.Devices.Sms.SmsBroadcastType
       ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
@@ -2595,9 +2595,9 @@ package Windows.Devices.Sms is
    
    function GetMany
    (
-      This       : access IVectorView_ISmsMessage_Interface
+      This       : access IVectorView_SmsBroadcastType_Interface
       ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.Sms.ISmsMessage_Ptr
+      ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -2608,26 +2608,14 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_SmsMessageReceivedEventHandler : aliased constant Windows.IID := (192599049, 60461, 18382, (162, 83, 115, 43, 238, 235, 202, 205 ));
+   IID_AsyncOperationCompletedHandler_ISmsDevice : aliased constant Windows.IID := (1152013444, 17360, 22675, (164, 238, 125, 176, 1, 19, 174, 96 ));
    
-   type SmsMessageReceivedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_SmsMessageReceivedEventHandler'access) with null record;
+   type AsyncOperationCompletedHandler_ISmsDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmsDevice'access) with null record;
    function Invoke
    (
-      This       : access SmsMessageReceivedEventHandler_Interface
-      ; sender : Windows.Devices.Sms.ISmsDevice
-      ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_SmsDeviceStatusChangedEventHandler : aliased constant Windows.IID := (2552959330, 15831, 17944, (175, 137, 12, 39, 45, 93, 6, 216 ));
-   
-   type SmsDeviceStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice)) is new Windows.IMulticastDelegate_Interface(IID_SmsDeviceStatusChangedEventHandler'access) with null record;
-   function Invoke
-   (
-      This       : access SmsDeviceStatusChangedEventHandler_Interface
-      ; sender : Windows.Devices.Sms.ISmsDevice
+      This       : access AsyncOperationCompletedHandler_ISmsDevice_Interface
+      ; asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
@@ -2646,19 +2634,6 @@ package Windows.Devices.Sms is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_ISmsDevice : aliased constant Windows.IID := (1152013444, 17360, 22675, (164, 238, 125, 176, 1, 19, 174, 96 ));
-   
-   type AsyncOperationCompletedHandler_ISmsDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmsDevice'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_ISmsDevice_Interface
-      ; asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_AsyncOperationCompletedHandler_ISmsSendMessageResult : aliased constant Windows.IID := (3352676094, 37382, 24241, (171, 193, 193, 188, 33, 128, 78, 235 ));
    
    type AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsSendMessageResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmsSendMessageResult'access) with null record;
@@ -2667,6 +2642,31 @@ package Windows.Devices.Sms is
       This       : access AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface
       ; asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsSendMessageResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_SmsDeviceStatusChangedEventHandler : aliased constant Windows.IID := (2552959330, 15831, 17944, (175, 137, 12, 39, 45, 93, 6, 216 ));
+   
+   type SmsDeviceStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice)) is new Windows.IMulticastDelegate_Interface(IID_SmsDeviceStatusChangedEventHandler'access) with null record;
+   function Invoke
+   (
+      This       : access SmsDeviceStatusChangedEventHandler_Interface
+      ; sender : Windows.Devices.Sms.ISmsDevice
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_SmsMessageReceivedEventHandler : aliased constant Windows.IID := (192599049, 60461, 18382, (162, 83, 115, 43, 238, 235, 202, 205 ));
+   
+   type SmsMessageReceivedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_SmsMessageReceivedEventHandler'access) with null record;
+   function Invoke
+   (
+      This       : access SmsMessageReceivedEventHandler_Interface
+      ; sender : Windows.Devices.Sms.ISmsDevice
+      ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs
    )
    return Windows.HRESULT;
    
@@ -2700,35 +2700,22 @@ package Windows.Devices.Sms is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SmsBinaryMessage is Windows.Devices.Sms.ISmsBinaryMessage;
-   function Create return Windows.Devices.Sms.ISmsBinaryMessage;
-   
-   subtype SmsTextMessage is Windows.Devices.Sms.ISmsTextMessage;
-   function Create return Windows.Devices.Sms.ISmsTextMessage;
-   
    subtype DeleteSmsMessageOperation is Windows.Foundation.IAsyncAction;
    subtype DeleteSmsMessagesOperation is Windows.Foundation.IAsyncAction;
+   subtype GetSmsDeviceOperation is Windows.Devices.Sms.IAsyncOperation_SmsDevice;
    subtype GetSmsMessageOperation is Windows.Devices.Sms.IAsyncOperation_ISmsMessage;
    subtype GetSmsMessagesOperation is Windows.Devices.Sms.IAsyncOperationWithProgress_ISmsMessage_Int32;
-   subtype SmsDeviceMessageStore is Windows.Devices.Sms.ISmsDeviceMessageStore;
    subtype SendSmsMessageOperation is Windows.Foundation.IAsyncAction;
-   subtype SmsMessageReceivedEventArgs is Windows.Devices.Sms.ISmsMessageReceivedEventArgs;
-   subtype SmsDevice is Windows.Devices.Sms.ISmsDevice;
-   subtype GetSmsDeviceOperation is Windows.Devices.Sms.IAsyncOperation_SmsDevice;
-   subtype SmsReceivedEventDetails is Windows.Devices.Sms.ISmsReceivedEventDetails;
-   subtype SmsTextMessage2 is Windows.Devices.Sms.ISmsTextMessage2;
-   function Create return Windows.Devices.Sms.ISmsTextMessage2;
-   
-   subtype SmsWapMessage is Windows.Devices.Sms.ISmsWapMessage;
    subtype SmsAppMessage is Windows.Devices.Sms.ISmsAppMessage;
    function Create return Windows.Devices.Sms.ISmsAppMessage;
    
+   subtype SmsBinaryMessage is Windows.Devices.Sms.ISmsBinaryMessage;
+   function Create return Windows.Devices.Sms.ISmsBinaryMessage;
+   
    subtype SmsBroadcastMessage is Windows.Devices.Sms.ISmsBroadcastMessage;
-   subtype SmsVoicemailMessage is Windows.Devices.Sms.ISmsVoicemailMessage;
-   subtype SmsStatusMessage is Windows.Devices.Sms.ISmsStatusMessage;
-   subtype SmsSendMessageResult is Windows.Devices.Sms.ISmsSendMessageResult;
+   subtype SmsDevice is Windows.Devices.Sms.ISmsDevice;
    subtype SmsDevice2 is Windows.Devices.Sms.ISmsDevice2;
-   subtype SmsMessageReceivedTriggerDetails is Windows.Devices.Sms.ISmsMessageReceivedTriggerDetails;
+   subtype SmsDeviceMessageStore is Windows.Devices.Sms.ISmsDeviceMessageStore;
    subtype SmsFilterRule is Windows.Devices.Sms.ISmsFilterRule;
    function CreateFilterRule
    (
@@ -2743,24 +2730,24 @@ package Windows.Devices.Sms is
    )
    return Windows.Devices.Sms.ISmsFilterRules;
    
+   subtype SmsMessageReceivedEventArgs is Windows.Devices.Sms.ISmsMessageReceivedEventArgs;
+   subtype SmsMessageReceivedTriggerDetails is Windows.Devices.Sms.ISmsMessageReceivedTriggerDetails;
    subtype SmsMessageRegistration is Windows.Devices.Sms.ISmsMessageRegistration;
+   subtype SmsReceivedEventDetails is Windows.Devices.Sms.ISmsReceivedEventDetails;
+   subtype SmsSendMessageResult is Windows.Devices.Sms.ISmsSendMessageResult;
+   subtype SmsStatusMessage is Windows.Devices.Sms.ISmsStatusMessage;
+   subtype SmsTextMessage is Windows.Devices.Sms.ISmsTextMessage;
+   function Create return Windows.Devices.Sms.ISmsTextMessage;
+   
+   subtype SmsTextMessage2 is Windows.Devices.Sms.ISmsTextMessage2;
+   function Create return Windows.Devices.Sms.ISmsTextMessage2;
+   
+   subtype SmsVoicemailMessage is Windows.Devices.Sms.ISmsVoicemailMessage;
+   subtype SmsWapMessage is Windows.Devices.Sms.ISmsWapMessage;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromBinaryMessage
-   (
-      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
-   )
-   return Windows.Devices.Sms.ISmsTextMessage;
-   
-   function FromBinaryData
-   (
-      format : Windows.Devices.Sms.SmsDataFormat
-      ; value : Windows.UInt8_Ptr
-   )
-   return Windows.Devices.Sms.ISmsTextMessage;
    
    function FromNetworkAccountIdAsync
    (
@@ -2807,5 +2794,18 @@ package Windows.Devices.Sms is
       ; filterRules : Windows.Devices.Sms.ISmsFilterRules
    )
    return Windows.Devices.Sms.ISmsMessageRegistration;
+   
+   function FromBinaryMessage
+   (
+      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
+   )
+   return Windows.Devices.Sms.ISmsTextMessage;
+   
+   function FromBinaryData
+   (
+      format : Windows.Devices.Sms.SmsDataFormat
+      ; value : Windows.UInt8_Ptr
+   )
+   return Windows.Devices.Sms.ISmsTextMessage;
    
 end;

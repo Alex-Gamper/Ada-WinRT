@@ -49,19 +49,6 @@ package body Windows.UI.ViewManagement.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface
-      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
-      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.ViewManagement.Core.ICoreInputView(sender), Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView_Interface
       ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
       ; args : Windows.Object
@@ -70,6 +57,19 @@ package body Windows.UI.ViewManagement.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.Core.ICoreInputView(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface
+      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
+      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.Core.ICoreInputView(sender), Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs(args));
       return Hr;
    end;
    

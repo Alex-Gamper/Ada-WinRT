@@ -42,6 +42,18 @@ package Windows.ApplicationModel.Store.Preview is
    -- Enums
    ------------------------------------------------------------------------
    
+   type StoreLogOptions is (
+      None,
+      TryElevate
+   );
+   for StoreLogOptions use (
+      None => 0,
+      TryElevate => 1
+   );
+   for StoreLogOptions'Size use 32;
+   
+   type StoreLogOptions_Ptr is access StoreLogOptions;
+   
    type StorePreviewProductPurchaseStatus is (
       Succeeded,
       AlreadyPurchased,
@@ -136,18 +148,6 @@ package Windows.ApplicationModel.Store.Preview is
    
    type StoreSystemFeature_Ptr is access StoreSystemFeature;
    
-   type StoreLogOptions is (
-      None,
-      TryElevate
-   );
-   for StoreLogOptions use (
-      None => 0,
-      TryElevate => 1
-   );
-   for StoreLogOptions'Size use 32;
-   
-   type StoreLogOptions_Ptr is access StoreLogOptions;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -160,21 +160,21 @@ package Windows.ApplicationModel.Store.Preview is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IStorePreviewProductInfo_Interface;
-   type IStorePreviewProductInfo is access all IStorePreviewProductInfo_Interface'Class;
-   type IStorePreviewProductInfo_Ptr is access all IStorePreviewProductInfo;
-   type IStorePreviewSkuInfo_Interface;
-   type IStorePreviewSkuInfo is access all IStorePreviewSkuInfo_Interface'Class;
-   type IStorePreviewSkuInfo_Ptr is access all IStorePreviewSkuInfo;
-   type IStorePreviewPurchaseResults_Interface;
-   type IStorePreviewPurchaseResults is access all IStorePreviewPurchaseResults_Interface'Class;
-   type IStorePreviewPurchaseResults_Ptr is access all IStorePreviewPurchaseResults;
-   type IStorePreview_Interface;
-   type IStorePreview is access all IStorePreview_Interface'Class;
-   type IStorePreview_Ptr is access all IStorePreview;
-   type IStoreHardwareManufacturerInfo_Interface;
-   type IStoreHardwareManufacturerInfo is access all IStoreHardwareManufacturerInfo_Interface'Class;
-   type IStoreHardwareManufacturerInfo_Ptr is access all IStoreHardwareManufacturerInfo;
+   type IAsyncOperation_IStorePreviewPurchaseResults_Interface;
+   type IAsyncOperation_IStorePreviewPurchaseResults is access all IAsyncOperation_IStorePreviewPurchaseResults_Interface'Class;
+   type IAsyncOperation_IStorePreviewPurchaseResults_Ptr is access all IAsyncOperation_IStorePreviewPurchaseResults;
+   type IIterable_IStorePreviewSkuInfo_Interface;
+   type IIterable_IStorePreviewSkuInfo is access all IIterable_IStorePreviewSkuInfo_Interface'Class;
+   type IIterable_IStorePreviewSkuInfo_Ptr is access all IIterable_IStorePreviewSkuInfo;
+   type IIterable_StoreSystemFeature_Interface;
+   type IIterable_StoreSystemFeature is access all IIterable_StoreSystemFeature_Interface'Class;
+   type IIterable_StoreSystemFeature_Ptr is access all IIterable_StoreSystemFeature;
+   type IIterator_IStorePreviewSkuInfo_Interface;
+   type IIterator_IStorePreviewSkuInfo is access all IIterator_IStorePreviewSkuInfo_Interface'Class;
+   type IIterator_IStorePreviewSkuInfo_Ptr is access all IIterator_IStorePreviewSkuInfo;
+   type IIterator_StoreSystemFeature_Interface;
+   type IIterator_StoreSystemFeature is access all IIterator_StoreSystemFeature_Interface'Class;
+   type IIterator_StoreSystemFeature_Ptr is access all IIterator_StoreSystemFeature;
    type IStoreConfigurationStatics_Interface;
    type IStoreConfigurationStatics is access all IStoreConfigurationStatics_Interface'Class;
    type IStoreConfigurationStatics_Ptr is access all IStoreConfigurationStatics;
@@ -187,27 +187,27 @@ package Windows.ApplicationModel.Store.Preview is
    type IStoreConfigurationStatics4_Interface;
    type IStoreConfigurationStatics4 is access all IStoreConfigurationStatics4_Interface'Class;
    type IStoreConfigurationStatics4_Ptr is access all IStoreConfigurationStatics4;
-   type IWebAuthenticationCoreManagerHelper_Interface;
-   type IWebAuthenticationCoreManagerHelper is access all IWebAuthenticationCoreManagerHelper_Interface'Class;
-   type IWebAuthenticationCoreManagerHelper_Ptr is access all IWebAuthenticationCoreManagerHelper;
-   type IIterator_IStorePreviewSkuInfo_Interface;
-   type IIterator_IStorePreviewSkuInfo is access all IIterator_IStorePreviewSkuInfo_Interface'Class;
-   type IIterator_IStorePreviewSkuInfo_Ptr is access all IIterator_IStorePreviewSkuInfo;
-   type IIterable_IStorePreviewSkuInfo_Interface;
-   type IIterable_IStorePreviewSkuInfo is access all IIterable_IStorePreviewSkuInfo_Interface'Class;
-   type IIterable_IStorePreviewSkuInfo_Ptr is access all IIterable_IStorePreviewSkuInfo;
+   type IStoreHardwareManufacturerInfo_Interface;
+   type IStoreHardwareManufacturerInfo is access all IStoreHardwareManufacturerInfo_Interface'Class;
+   type IStoreHardwareManufacturerInfo_Ptr is access all IStoreHardwareManufacturerInfo;
+   type IStorePreview_Interface;
+   type IStorePreview is access all IStorePreview_Interface'Class;
+   type IStorePreview_Ptr is access all IStorePreview;
+   type IStorePreviewProductInfo_Interface;
+   type IStorePreviewProductInfo is access all IStorePreviewProductInfo_Interface'Class;
+   type IStorePreviewProductInfo_Ptr is access all IStorePreviewProductInfo;
+   type IStorePreviewPurchaseResults_Interface;
+   type IStorePreviewPurchaseResults is access all IStorePreviewPurchaseResults_Interface'Class;
+   type IStorePreviewPurchaseResults_Ptr is access all IStorePreviewPurchaseResults;
+   type IStorePreviewSkuInfo_Interface;
+   type IStorePreviewSkuInfo is access all IStorePreviewSkuInfo_Interface'Class;
+   type IStorePreviewSkuInfo_Ptr is access all IStorePreviewSkuInfo;
    type IVectorView_IStorePreviewSkuInfo_Interface;
    type IVectorView_IStorePreviewSkuInfo is access all IVectorView_IStorePreviewSkuInfo_Interface'Class;
    type IVectorView_IStorePreviewSkuInfo_Ptr is access all IVectorView_IStorePreviewSkuInfo;
-   type IAsyncOperation_IStorePreviewPurchaseResults_Interface;
-   type IAsyncOperation_IStorePreviewPurchaseResults is access all IAsyncOperation_IStorePreviewPurchaseResults_Interface'Class;
-   type IAsyncOperation_IStorePreviewPurchaseResults_Ptr is access all IAsyncOperation_IStorePreviewPurchaseResults;
-   type IIterator_StoreSystemFeature_Interface;
-   type IIterator_StoreSystemFeature is access all IIterator_StoreSystemFeature_Interface'Class;
-   type IIterator_StoreSystemFeature_Ptr is access all IIterator_StoreSystemFeature;
-   type IIterable_StoreSystemFeature_Interface;
-   type IIterable_StoreSystemFeature is access all IIterable_StoreSystemFeature_Interface'Class;
-   type IIterable_StoreSystemFeature_Ptr is access all IIterable_StoreSystemFeature;
+   type IWebAuthenticationCoreManagerHelper_Interface;
+   type IWebAuthenticationCoreManagerHelper is access all IWebAuthenticationCoreManagerHelper_Interface'Class;
+   type IWebAuthenticationCoreManagerHelper_Ptr is access all IWebAuthenticationCoreManagerHelper;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -215,180 +215,124 @@ package Windows.ApplicationModel.Store.Preview is
    
    ------------------------------------------------------------------------
    
-   IID_IStorePreviewProductInfo : aliased constant Windows.IID := (423091123, 27649, 19613, (133, 205, 91, 171, 170, 194, 179, 81 ));
+   IID_IAsyncOperation_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2594353024, 3531, 24257, (132, 53, 11, 104, 126, 211, 116, 165 ));
    
-   type IStorePreviewProductInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IStorePreviewPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ProductId
+   function put_Completed
    (
-      This       : access IStorePreviewProductInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IStorePreviewPurchaseResults_Interface
+      ; handler : Windows.ApplicationModel.Store.Preview.AsyncOperationCompletedHandler_IStorePreviewPurchaseResults
    )
    return Windows.HRESULT is abstract;
    
-   function get_ProductType
+   function get_Completed
    (
-      This       : access IStorePreviewProductInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IStorePreviewPurchaseResults_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.AsyncOperationCompletedHandler_IStorePreviewPurchaseResults
    )
    return Windows.HRESULT is abstract;
    
-   function get_Title
+   function GetResults
    (
-      This       : access IStorePreviewProductInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IStorePreviewProductInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SkuInfoList
-   (
-      This       : access IStorePreviewProductInfo_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.IVectorView_IStorePreviewSkuInfo -- Generic Parameter Type
+      This       : access IAsyncOperation_IStorePreviewPurchaseResults_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStorePreviewSkuInfo : aliased constant Windows.IID := (2180871906, 2854, 18649, (152, 206, 39, 70, 28, 102, 157, 108 ));
+   IID_IIterable_IStorePreviewSkuInfo : aliased constant Windows.IID := (739083737, 3575, 24038, (150, 46, 188, 143, 20, 159, 175, 25 ));
    
-   type IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ProductId
+   function First
    (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SkuId
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SkuType
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Title
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Description
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CustomDeveloperData
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CurrencyCode
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FormattedListPrice
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtendedData
-   (
-      This       : access IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterable_IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.IIterator_IStorePreviewSkuInfo
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2967121617, 54981, 20051, (160, 67, 251, 160, 216, 230, 18, 49 ));
+   IID_IIterable_StoreSystemFeature : aliased constant Windows.IID := (2561169274, 45352, 21504, (141, 61, 88, 101, 78, 170, 249, 87 ));
    
-   type IStorePreviewPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_StoreSystemFeature_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ProductPurchaseStatus
+   function First
    (
-      This       : access IStorePreviewPurchaseResults_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus
+      This       : access IIterable_StoreSystemFeature_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.IIterator_StoreSystemFeature
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStorePreview : aliased constant Windows.IID := (2316661313, 33806, 18857, (188, 1, 93, 91, 1, 251, 200, 233 ));
+   IID_IIterator_IStorePreviewSkuInfo : aliased constant Windows.IID := (3069817889, 32596, 23846, (156, 55, 159, 157, 122, 200, 147, 235 ));
    
-   type IStorePreview_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function RequestProductPurchaseByProductIdAndSkuIdAsync
+   function get_Current
    (
-      This       : access IStorePreview_Interface
-      ; productId : Windows.String
-      ; skuId : Windows.String
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults -- Generic Parameter Type
+      This       : access IIterator_IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo
    )
    return Windows.HRESULT is abstract;
    
-   function LoadAddOnProductInfosAsync
+   function get_HasCurrent
    (
-      This       : access IStorePreview_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IIterator_IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IStorePreviewSkuInfo_Interface
+      ; items : Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IStoreHardwareManufacturerInfo : aliased constant Windows.IID := (4069710856, 50772, 17324, (162, 31, 52, 128, 28, 157, 51, 136 ));
+   IID_IIterator_StoreSystemFeature : aliased constant Windows.IID := (3494206253, 55466, 21886, (137, 163, 99, 195, 62, 140, 238, 153 ));
    
-   type IStoreHardwareManufacturerInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_StoreSystemFeature_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_HardwareManufacturerId
+   function get_Current
    (
-      This       : access IStoreHardwareManufacturerInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_StoreSystemFeature_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.StoreSystemFeature
    )
    return Windows.HRESULT is abstract;
    
-   function get_StoreContentModifierId
+   function get_HasCurrent
    (
-      This       : access IStoreHardwareManufacturerInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_StoreSystemFeature_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_ModelName
+   function MoveNext
    (
-      This       : access IStoreHardwareManufacturerInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_StoreSystemFeature_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_ManufacturerName
+   function GetMany
    (
-      This       : access IStoreHardwareManufacturerInfo_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_StoreSystemFeature_Interface
+      ; items : Windows.ApplicationModel.Store.Preview.StoreSystemFeature_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -597,74 +541,180 @@ package Windows.ApplicationModel.Store.Preview is
    
    ------------------------------------------------------------------------
    
-   IID_IWebAuthenticationCoreManagerHelper : aliased constant Windows.IID := (111478053, 59157, 16675, (146, 118, 157, 111, 134, 91, 165, 95 ));
+   IID_IStoreHardwareManufacturerInfo : aliased constant Windows.IID := (4069710856, 50772, 17324, (162, 31, 52, 128, 28, 157, 51, 136 ));
    
-   type IWebAuthenticationCoreManagerHelper_Interface is interface and Windows.IInspectable_Interface;
+   type IStoreHardwareManufacturerInfo_Interface is interface and Windows.IInspectable_Interface;
    
-   function RequestTokenWithUIElementHostingAsync
+   function get_HardwareManufacturerId
    (
-      This       : access IWebAuthenticationCoreManagerHelper_Interface
-      ; request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
-      ; uiElement : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult -- Generic Parameter Type
+      This       : access IStoreHardwareManufacturerInfo_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function RequestTokenWithUIElementHostingAndWebAccountAsync
+   function get_StoreContentModifierId
    (
-      This       : access IWebAuthenticationCoreManagerHelper_Interface
-      ; request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
-      ; webAccount : Windows.Security.Credentials.IWebAccount
-      ; uiElement : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult -- Generic Parameter Type
+      This       : access IStoreHardwareManufacturerInfo_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IStorePreviewSkuInfo : aliased constant Windows.IID := (3069817889, 32596, 23846, (156, 55, 159, 157, 122, 200, 147, 235 ));
-   
-   type IIterator_IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
+   function get_ModelName
    (
-      This       : access IIterator_IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo
+      This       : access IStoreHardwareManufacturerInfo_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_ManufacturerName
    (
-      This       : access IIterator_IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IStorePreviewSkuInfo_Interface
-      ; items : Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IStoreHardwareManufacturerInfo_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IStorePreviewSkuInfo : aliased constant Windows.IID := (739083737, 3575, 24038, (150, 46, 188, 143, 20, 159, 175, 25 ));
+   IID_IStorePreview : aliased constant Windows.IID := (2316661313, 33806, 18857, (188, 1, 93, 91, 1, 251, 200, 233 ));
    
-   type IIterable_IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IStorePreview_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function RequestProductPurchaseByProductIdAndSkuIdAsync
    (
-      This       : access IIterable_IStorePreviewSkuInfo_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.IIterator_IStorePreviewSkuInfo
+      This       : access IStorePreview_Interface
+      ; productId : Windows.String
+      ; skuId : Windows.String
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadAddOnProductInfosAsync
+   (
+      This       : access IStorePreview_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorePreviewProductInfo : aliased constant Windows.IID := (423091123, 27649, 19613, (133, 205, 91, 171, 170, 194, 179, 81 ));
+   
+   type IStorePreviewProductInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProductId
+   (
+      This       : access IStorePreviewProductInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProductType
+   (
+      This       : access IStorePreviewProductInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Title
+   (
+      This       : access IStorePreviewProductInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IStorePreviewProductInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SkuInfoList
+   (
+      This       : access IStorePreviewProductInfo_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.IVectorView_IStorePreviewSkuInfo -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2967121617, 54981, 20051, (160, 67, 251, 160, 216, 230, 18, 49 ));
+   
+   type IStorePreviewPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProductPurchaseStatus
+   (
+      This       : access IStorePreviewPurchaseResults_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorePreviewSkuInfo : aliased constant Windows.IID := (2180871906, 2854, 18649, (152, 206, 39, 70, 28, 102, 157, 108 ));
+   
+   type IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProductId
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SkuId
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SkuType
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Title
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CustomDeveloperData
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrencyCode
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FormattedListPrice
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedData
+   (
+      This       : access IStorePreviewSkuInfo_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -709,76 +759,26 @@ package Windows.ApplicationModel.Store.Preview is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2594353024, 3531, 24257, (132, 53, 11, 104, 126, 211, 116, 165 ));
+   IID_IWebAuthenticationCoreManagerHelper : aliased constant Windows.IID := (111478053, 59157, 16675, (146, 118, 157, 111, 134, 91, 165, 95 ));
    
-   type IAsyncOperation_IStorePreviewPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
+   type IWebAuthenticationCoreManagerHelper_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function RequestTokenWithUIElementHostingAsync
    (
-      This       : access IAsyncOperation_IStorePreviewPurchaseResults_Interface
-      ; handler : Windows.ApplicationModel.Store.Preview.AsyncOperationCompletedHandler_IStorePreviewPurchaseResults
+      This       : access IWebAuthenticationCoreManagerHelper_Interface
+      ; request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+      ; uiElement : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function RequestTokenWithUIElementHostingAndWebAccountAsync
    (
-      This       : access IAsyncOperation_IStorePreviewPurchaseResults_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.AsyncOperationCompletedHandler_IStorePreviewPurchaseResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IStorePreviewPurchaseResults_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_StoreSystemFeature : aliased constant Windows.IID := (3494206253, 55466, 21886, (137, 163, 99, 195, 62, 140, 238, 153 ));
-   
-   type IIterator_StoreSystemFeature_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_StoreSystemFeature_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.StoreSystemFeature
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_StoreSystemFeature_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_StoreSystemFeature_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_StoreSystemFeature_Interface
-      ; items : Windows.ApplicationModel.Store.Preview.StoreSystemFeature_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_StoreSystemFeature : aliased constant Windows.IID := (2561169274, 45352, 21504, (141, 61, 88, 101, 78, 170, 249, 87 ));
-   
-   type IIterable_StoreSystemFeature_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_StoreSystemFeature_Interface
-      ; RetVal : access Windows.ApplicationModel.Store.Preview.IIterator_StoreSystemFeature
+      This       : access IWebAuthenticationCoreManagerHelper_Interface
+      ; request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+      ; uiElement : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -803,24 +803,14 @@ package Windows.ApplicationModel.Store.Preview is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype StorePreviewSkuInfo is Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo;
-   subtype StorePreviewPurchaseResults is Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults;
-   subtype StorePreviewProductInfo is Windows.ApplicationModel.Store.Preview.IStorePreviewProductInfo;
    subtype StoreHardwareManufacturerInfo is Windows.ApplicationModel.Store.Preview.IStoreHardwareManufacturerInfo;
+   subtype StorePreviewProductInfo is Windows.ApplicationModel.Store.Preview.IStorePreviewProductInfo;
+   subtype StorePreviewPurchaseResults is Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults;
+   subtype StorePreviewSkuInfo is Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function RequestProductPurchaseByProductIdAndSkuIdAsync
-   (
-      productId : Windows.String
-      ; skuId : Windows.String
-   )
-   return Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults;
-   
-   function LoadAddOnProductInfosAsync
-   return Windows.Address;
    
    function GetStoreWebAccountId
    return Windows.String;
@@ -950,6 +940,16 @@ package Windows.ApplicationModel.Store.Preview is
       ; value : Windows.Foundation.IReference_UInt32
    )
    ;
+   
+   function RequestProductPurchaseByProductIdAndSkuIdAsync
+   (
+      productId : Windows.String
+      ; skuId : Windows.String
+   )
+   return Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults;
+   
+   function LoadAddOnProductInfosAsync
+   return Windows.Address;
    
    function RequestTokenWithUIElementHostingAsync
    (

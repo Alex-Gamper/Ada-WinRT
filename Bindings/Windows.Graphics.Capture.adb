@@ -40,19 +40,6 @@ package body Windows.Graphics.Capture is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface
-      ; sender : Windows.Graphics.Capture.IGraphicsCaptureItem
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Capture.IGraphicsCaptureItem(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IGraphicsCaptureItem_Interface
       ; asyncInfo : Windows.Graphics.Capture.IAsyncOperation_IGraphicsCaptureItem
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -74,6 +61,19 @@ package body Windows.Graphics.Capture is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Graphics.Capture.IDirect3D11CaptureFramePool(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGraphicsCaptureItem_add_Closed_Interface
+      ; sender : Windows.Graphics.Capture.IGraphicsCaptureItem
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Capture.IGraphicsCaptureItem(sender), args);
       return Hr;
    end;
    

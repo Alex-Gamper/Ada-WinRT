@@ -35,6 +35,22 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    -- Enums
    ------------------------------------------------------------------------
    
+   type ExtendedExecutionForegroundReason is (
+      Unspecified,
+      SavingData,
+      BackgroundAudio,
+      Unconstrained
+   );
+   for ExtendedExecutionForegroundReason use (
+      Unspecified => 0,
+      SavingData => 1,
+      BackgroundAudio => 2,
+      Unconstrained => 3
+   );
+   for ExtendedExecutionForegroundReason'Size use 32;
+   
+   type ExtendedExecutionForegroundReason_Ptr is access ExtendedExecutionForegroundReason;
+   
    type ExtendedExecutionForegroundResult is (
       Allowed,
       Denied
@@ -59,50 +75,61 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    
    type ExtendedExecutionForegroundRevokedReason_Ptr is access ExtendedExecutionForegroundRevokedReason;
    
-   type ExtendedExecutionForegroundReason is (
-      Unspecified,
-      SavingData,
-      BackgroundAudio,
-      Unconstrained
-   );
-   for ExtendedExecutionForegroundReason use (
-      Unspecified => 0,
-      SavingData => 1,
-      BackgroundAudio => 2,
-      Unconstrained => 3
-   );
-   for ExtendedExecutionForegroundReason'Size use 32;
-   
-   type ExtendedExecutionForegroundReason_Ptr is access ExtendedExecutionForegroundReason;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface;
-   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked is access all TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface'Class;
-   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Ptr is access all TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked;
    type AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface;
    type AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult is access all AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface'Class;
    type AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Ptr is access all AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult;
+   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface;
+   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked is access all TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface'Class;
+   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Ptr is access all TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_ExtendedExecutionForegroundResult_Interface;
+   type IAsyncOperation_ExtendedExecutionForegroundResult is access all IAsyncOperation_ExtendedExecutionForegroundResult_Interface'Class;
+   type IAsyncOperation_ExtendedExecutionForegroundResult_Ptr is access all IAsyncOperation_ExtendedExecutionForegroundResult;
    type IExtendedExecutionForegroundRevokedEventArgs_Interface;
    type IExtendedExecutionForegroundRevokedEventArgs is access all IExtendedExecutionForegroundRevokedEventArgs_Interface'Class;
    type IExtendedExecutionForegroundRevokedEventArgs_Ptr is access all IExtendedExecutionForegroundRevokedEventArgs;
    type IExtendedExecutionForegroundSession_Interface;
    type IExtendedExecutionForegroundSession is access all IExtendedExecutionForegroundSession_Interface'Class;
    type IExtendedExecutionForegroundSession_Ptr is access all IExtendedExecutionForegroundSession;
-   type IAsyncOperation_ExtendedExecutionForegroundResult_Interface;
-   type IAsyncOperation_ExtendedExecutionForegroundResult is access all IAsyncOperation_ExtendedExecutionForegroundResult_Interface'Class;
-   type IAsyncOperation_ExtendedExecutionForegroundResult_Ptr is access all IAsyncOperation_ExtendedExecutionForegroundResult;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ExtendedExecutionForegroundResult : aliased constant Windows.IID := (2978914319, 35872, 23234, (146, 70, 62, 244, 5, 39, 31, 26 ));
+   
+   type IAsyncOperation_ExtendedExecutionForegroundResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ExtendedExecutionForegroundResult_Interface
+      ; handler : Windows.ApplicationModel.ExtendedExecution.Foreground.AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ExtendedExecutionForegroundResult_Interface
+      ; RetVal : access Windows.ApplicationModel.ExtendedExecution.Foreground.AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ExtendedExecutionForegroundResult_Interface
+      ; RetVal : access Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -174,48 +201,8 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ExtendedExecutionForegroundResult : aliased constant Windows.IID := (2978914319, 35872, 23234, (146, 70, 62, 244, 5, 39, 31, 26 ));
-   
-   type IAsyncOperation_ExtendedExecutionForegroundResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_ExtendedExecutionForegroundResult_Interface
-      ; handler : Windows.ApplicationModel.ExtendedExecution.Foreground.AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_ExtendedExecutionForegroundResult_Interface
-      ; RetVal : access Windows.ApplicationModel.ExtendedExecution.Foreground.AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ExtendedExecutionForegroundResult_Interface
-      ; RetVal : access Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked : aliased constant Windows.IID := (4168358266, 48921, 21634, (154, 177, 52, 146, 61, 230, 115, 141 ));
-   
-   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface
-      ; sender : Windows.Object
-      ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -227,6 +214,19 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
       This       : access AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface
       ; asyncInfo : Windows.ApplicationModel.ExtendedExecution.Foreground.IAsyncOperation_ExtendedExecutionForegroundResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked : aliased constant Windows.IID := (4168358266, 48921, 21634, (154, 177, 52, 146, 61, 230, 115, 141 ));
+   
+   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface
+      ; sender : Windows.Object
+      ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs
    )
    return Windows.HRESULT;
    

@@ -64,46 +64,19 @@ package Windows.UI.Composition.Diagnostics is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type ICompositionDebugHeatMaps_Interface;
+   type ICompositionDebugHeatMaps is access all ICompositionDebugHeatMaps_Interface'Class;
+   type ICompositionDebugHeatMaps_Ptr is access all ICompositionDebugHeatMaps;
    type ICompositionDebugSettings_Interface;
    type ICompositionDebugSettings is access all ICompositionDebugSettings_Interface'Class;
    type ICompositionDebugSettings_Ptr is access all ICompositionDebugSettings;
    type ICompositionDebugSettingsStatics_Interface;
    type ICompositionDebugSettingsStatics is access all ICompositionDebugSettingsStatics_Interface'Class;
    type ICompositionDebugSettingsStatics_Ptr is access all ICompositionDebugSettingsStatics;
-   type ICompositionDebugHeatMaps_Interface;
-   type ICompositionDebugHeatMaps is access all ICompositionDebugHeatMaps_Interface'Class;
-   type ICompositionDebugHeatMaps_Ptr is access all ICompositionDebugHeatMaps;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICompositionDebugSettings : aliased constant Windows.IID := (674338942, 7554, 19768, (183, 183, 239, 209, 28, 123, 195, 209 ));
-   
-   type ICompositionDebugSettings_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_HeatMaps
-   (
-      This       : access ICompositionDebugSettings_Interface
-      ; RetVal : access Windows.UI.Composition.Diagnostics.ICompositionDebugHeatMaps
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICompositionDebugSettingsStatics : aliased constant Windows.IID := (1693196062, 27384, 19192, (184, 20, 200, 112, 253, 90, 149, 5 ));
-   
-   type ICompositionDebugSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function TryGetSettings
-   (
-      This       : access ICompositionDebugSettingsStatics_Interface
-      ; compositor : Windows.UI.Composition.ICompositor
-      ; RetVal : access Windows.UI.Composition.Diagnostics.ICompositionDebugSettings
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -137,6 +110,33 @@ package Windows.UI.Composition.Diagnostics is
    (
       This       : access ICompositionDebugHeatMaps_Interface
       ; subtree : Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionDebugSettings : aliased constant Windows.IID := (674338942, 7554, 19768, (183, 183, 239, 209, 28, 123, 195, 209 ));
+   
+   type ICompositionDebugSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HeatMaps
+   (
+      This       : access ICompositionDebugSettings_Interface
+      ; RetVal : access Windows.UI.Composition.Diagnostics.ICompositionDebugHeatMaps
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionDebugSettingsStatics : aliased constant Windows.IID := (1693196062, 27384, 19192, (184, 20, 200, 112, 253, 90, 149, 5 ));
+   
+   type ICompositionDebugSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryGetSettings
+   (
+      This       : access ICompositionDebugSettingsStatics_Interface
+      ; compositor : Windows.UI.Composition.ICompositor
+      ; RetVal : access Windows.UI.Composition.Diagnostics.ICompositionDebugSettings
    )
    return Windows.HRESULT is abstract;
    

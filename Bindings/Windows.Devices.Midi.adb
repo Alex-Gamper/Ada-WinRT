@@ -64,19 +64,6 @@ package body Windows.Devices.Midi is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IMidiInPort_add_MessageReceived_Interface
-      ; sender : Windows.Devices.Midi.IMidiInPort
-      ; args : Windows.Devices.Midi.IMidiMessageReceivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.Midi.IMidiInPort(sender), Windows.Devices.Midi.IMidiMessageReceivedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IMidiSynthesizer_Interface
       ; asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiSynthesizer
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -88,9 +75,99 @@ package body Windows.Devices.Midi is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMidiInPort_add_MessageReceived_Interface
+      ; sender : Windows.Devices.Midi.IMidiInPort
+      ; args : Windows.Devices.Midi.IMidiMessageReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Midi.IMidiInPort(sender), Windows.Devices.Midi.IMidiMessageReceivedEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Devices.Midi.IMidiMessage is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiActiveSensingMessage");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Midi.IMidiMessage) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Midi.IID_IMidiMessage'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateMidiChannelPressureMessage
+   (
+      channel : Windows.UInt8
+      ; pressure : Windows.UInt8
+   )
+   return Windows.Devices.Midi.IMidiChannelPressureMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiChannelPressureMessage");
+      m_Factory     : Windows.Devices.Midi.IMidiChannelPressureMessageFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Midi.IMidiChannelPressureMessage := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMidiChannelPressureMessageFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMidiChannelPressureMessage(channel, pressure, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateMidiContinueMessage return Windows.Devices.Midi.IMidiMessage is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiContinueMessage");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Midi.IMidiMessage) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Midi.IID_IMidiMessage'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateMidiControlChangeMessage
+   (
+      channel : Windows.UInt8
+      ; controller : Windows.UInt8
+      ; controlValue : Windows.UInt8
+   )
+   return Windows.Devices.Midi.IMidiControlChangeMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiControlChangeMessage");
+      m_Factory     : Windows.Devices.Midi.IMidiControlChangeMessageFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Midi.IMidiControlChangeMessage := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMidiControlChangeMessageFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMidiControlChangeMessage(channel, controller, controlValue, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreateMidiNoteOffMessage
    (
@@ -136,6 +213,27 @@ package body Windows.Devices.Midi is
       return RetVal;
    end;
    
+   function CreateMidiPitchBendChangeMessage
+   (
+      channel : Windows.UInt8
+      ; bend : Windows.UInt16
+   )
+   return Windows.Devices.Midi.IMidiPitchBendChangeMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiPitchBendChangeMessage");
+      m_Factory     : Windows.Devices.Midi.IMidiPitchBendChangeMessageFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Midi.IMidiPitchBendChangeMessage := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMidiPitchBendChangeMessageFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMidiPitchBendChangeMessage(channel, bend, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateMidiPolyphonicKeyPressureMessage
    (
       channel : Windows.UInt8
@@ -158,28 +256,6 @@ package body Windows.Devices.Midi is
       return RetVal;
    end;
    
-   function CreateMidiControlChangeMessage
-   (
-      channel : Windows.UInt8
-      ; controller : Windows.UInt8
-      ; controlValue : Windows.UInt8
-   )
-   return Windows.Devices.Midi.IMidiControlChangeMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiControlChangeMessage");
-      m_Factory     : Windows.Devices.Midi.IMidiControlChangeMessageFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Midi.IMidiControlChangeMessage := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMidiControlChangeMessageFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMidiControlChangeMessage(channel, controller, controlValue, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateMidiProgramChangeMessage
    (
       channel : Windows.UInt8
@@ -195,89 +271,6 @@ package body Windows.Devices.Midi is
       Hr := RoGetActivationFactory(m_hString, IID_IMidiProgramChangeMessageFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateMidiProgramChangeMessage(channel, program, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateMidiChannelPressureMessage
-   (
-      channel : Windows.UInt8
-      ; pressure : Windows.UInt8
-   )
-   return Windows.Devices.Midi.IMidiChannelPressureMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiChannelPressureMessage");
-      m_Factory     : Windows.Devices.Midi.IMidiChannelPressureMessageFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Midi.IMidiChannelPressureMessage := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMidiChannelPressureMessageFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMidiChannelPressureMessage(channel, pressure, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateMidiPitchBendChangeMessage
-   (
-      channel : Windows.UInt8
-      ; bend : Windows.UInt16
-   )
-   return Windows.Devices.Midi.IMidiPitchBendChangeMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiPitchBendChangeMessage");
-      m_Factory     : Windows.Devices.Midi.IMidiPitchBendChangeMessageFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Midi.IMidiPitchBendChangeMessage := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMidiPitchBendChangeMessageFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMidiPitchBendChangeMessage(channel, bend, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateMidiSystemExclusiveMessage
-   (
-      rawData : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Devices.Midi.IMidiMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiSystemExclusiveMessage");
-      m_Factory     : Windows.Devices.Midi.IMidiSystemExclusiveMessageFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Midi.IMidiMessage := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMidiSystemExclusiveMessageFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMidiSystemExclusiveMessage(rawData, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateMidiTimeCodeMessage
-   (
-      frameType : Windows.UInt8
-      ; values : Windows.UInt8
-   )
-   return Windows.Devices.Midi.IMidiTimeCodeMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiTimeCodeMessage");
-      m_Factory     : Windows.Devices.Midi.IMidiTimeCodeMessageFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Midi.IMidiTimeCodeMessage := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMidiTimeCodeMessageFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMidiTimeCodeMessage(frameType, values, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -324,60 +317,9 @@ package body Windows.Devices.Midi is
       return RetVal;
    end;
    
-   function Create return Windows.Devices.Midi.IMidiMessage is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiTuneRequestMessage");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Midi.IMidiMessage) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Midi.IID_IMidiMessage'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateMidiTimingClockMessage return Windows.Devices.Midi.IMidiMessage is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiTimingClockMessage");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Midi.IMidiMessage) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Midi.IID_IMidiMessage'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function CreateMidiStartMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiStartMessage");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Midi.IMidiMessage) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Midi.IID_IMidiMessage'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function CreateMidiContinueMessage return Windows.Devices.Midi.IMidiMessage is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiContinueMessage");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
@@ -409,9 +351,29 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function CreateMidiActiveSensingMessage return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiSystemExclusiveMessage
+   (
+      rawData : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.Midi.IMidiMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiSystemExclusiveMessage");
+      m_Factory     : Windows.Devices.Midi.IMidiSystemExclusiveMessageFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Midi.IMidiMessage := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMidiSystemExclusiveMessageFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMidiSystemExclusiveMessage(rawData, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateMidiSystemResetMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiActiveSensingMessage");
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiSystemResetMessage");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
@@ -426,9 +388,47 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function CreateMidiSystemResetMessage return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiTimeCodeMessage
+   (
+      frameType : Windows.UInt8
+      ; values : Windows.UInt8
+   )
+   return Windows.Devices.Midi.IMidiTimeCodeMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiTimeCodeMessage");
+      m_Factory     : Windows.Devices.Midi.IMidiTimeCodeMessageFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Midi.IMidiTimeCodeMessage := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMidiTimeCodeMessageFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMidiTimeCodeMessage(frameType, values, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateMidiTimingClockMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiSystemResetMessage");
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiTimingClockMessage");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Midi.IMidiMessage) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Midi.IID_IMidiMessage'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateMidiTuneRequestMessage return Windows.Devices.Midi.IMidiMessage is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiTuneRequestMessage");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;

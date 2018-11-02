@@ -39,17 +39,21 @@ package Windows.Management.Deployment is
    -- Enums
    ------------------------------------------------------------------------
    
-   type DeploymentProgressState is (
-      Queued,
-      Processing
+   type AddPackageByAppInstallerOptions is (
+      None,
+      InstallAllResources,
+      ForceTargetAppShutdown,
+      RequiredContentGroupOnly
    );
-   for DeploymentProgressState use (
-      Queued => 0,
-      Processing => 1
+   for AddPackageByAppInstallerOptions use (
+      None => 0,
+      InstallAllResources => 32,
+      ForceTargetAppShutdown => 64,
+      RequiredContentGroupOnly => 256
    );
-   for DeploymentProgressState'Size use 32;
+   for AddPackageByAppInstallerOptions'Size use 32;
    
-   type DeploymentProgressState_Ptr is access DeploymentProgressState;
+   type AddPackageByAppInstallerOptions_Ptr is access AddPackageByAppInstallerOptions;
    
    type DeploymentOptions is (
       None,
@@ -71,55 +75,17 @@ package Windows.Management.Deployment is
    
    type DeploymentOptions_Ptr is access DeploymentOptions;
    
-   type RemovalOptions is (
-      None,
-      PreserveApplicationData
+   type DeploymentProgressState is (
+      Queued,
+      Processing
    );
-   for RemovalOptions use (
-      None => 0,
-      PreserveApplicationData => 4096
+   for DeploymentProgressState use (
+      Queued => 0,
+      Processing => 1
    );
-   for RemovalOptions'Size use 32;
+   for DeploymentProgressState'Size use 32;
    
-   type RemovalOptions_Ptr is access RemovalOptions;
-   
-   type AddPackageByAppInstallerOptions is (
-      None,
-      InstallAllResources,
-      ForceTargetAppShutdown,
-      RequiredContentGroupOnly
-   );
-   for AddPackageByAppInstallerOptions use (
-      None => 0,
-      InstallAllResources => 32,
-      ForceTargetAppShutdown => 64,
-      RequiredContentGroupOnly => 256
-   );
-   for AddPackageByAppInstallerOptions'Size use 32;
-   
-   type AddPackageByAppInstallerOptions_Ptr is access AddPackageByAppInstallerOptions;
-   
-   type PackageTypes is (
-      None,
-      Main,
-      Framework,
-      Resource,
-      Bundle,
-      Xap,
-      Optional
-   );
-   for PackageTypes use (
-      None => 0,
-      Main => 1,
-      Framework => 2,
-      Resource => 4,
-      Bundle => 8,
-      Xap => 16,
-      Optional => 32
-   );
-   for PackageTypes'Size use 32;
-   
-   type PackageTypes_Ptr is access PackageTypes;
+   type DeploymentProgressState_Ptr is access DeploymentProgressState;
    
    type PackageInstallState is (
       NotInstalled,
@@ -171,6 +137,40 @@ package Windows.Management.Deployment is
    
    type PackageStatus_Ptr is access PackageStatus;
    
+   type PackageTypes is (
+      None,
+      Main,
+      Framework,
+      Resource,
+      Bundle,
+      Xap,
+      Optional
+   );
+   for PackageTypes use (
+      None => 0,
+      Main => 1,
+      Framework => 2,
+      Resource => 4,
+      Bundle => 8,
+      Xap => 16,
+      Optional => 32
+   );
+   for PackageTypes'Size use 32;
+   
+   type PackageTypes_Ptr is access PackageTypes;
+   
+   type RemovalOptions is (
+      None,
+      PreserveApplicationData
+   );
+   for RemovalOptions use (
+      None => 0,
+      PreserveApplicationData => 4096
+   );
+   for RemovalOptions'Size use 32;
+   
+   type RemovalOptions_Ptr is access RemovalOptions;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -195,15 +195,27 @@ package Windows.Management.Deployment is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IPackageVolume_Interface;
+   type IAsyncOperation_IPackageVolume is access all IAsyncOperation_IPackageVolume_Interface'Class;
+   type IAsyncOperation_IPackageVolume_Ptr is access all IAsyncOperation_IPackageVolume;
    type IDeploymentResult_Interface;
    type IDeploymentResult is access all IDeploymentResult_Interface'Class;
    type IDeploymentResult_Ptr is access all IDeploymentResult;
    type IDeploymentResult2_Interface;
    type IDeploymentResult2 is access all IDeploymentResult2_Interface'Class;
    type IDeploymentResult2_Ptr is access all IDeploymentResult2;
-   type IPackageUserInformation_Interface;
-   type IPackageUserInformation is access all IPackageUserInformation_Interface'Class;
-   type IPackageUserInformation_Ptr is access all IPackageUserInformation;
+   type IIterable_IPackageUserInformation_Interface;
+   type IIterable_IPackageUserInformation is access all IIterable_IPackageUserInformation_Interface'Class;
+   type IIterable_IPackageUserInformation_Ptr is access all IIterable_IPackageUserInformation;
+   type IIterable_IPackageVolume_Interface;
+   type IIterable_IPackageVolume is access all IIterable_IPackageVolume_Interface'Class;
+   type IIterable_IPackageVolume_Ptr is access all IIterable_IPackageVolume;
+   type IIterator_IPackageUserInformation_Interface;
+   type IIterator_IPackageUserInformation is access all IIterator_IPackageUserInformation_Interface'Class;
+   type IIterator_IPackageUserInformation_Ptr is access all IIterator_IPackageUserInformation;
+   type IIterator_IPackageVolume_Interface;
+   type IIterator_IPackageVolume is access all IIterator_IPackageVolume_Interface'Class;
+   type IIterator_IPackageVolume_Ptr is access all IIterator_IPackageVolume;
    type IPackageManager_Interface;
    type IPackageManager is access all IPackageManager_Interface'Class;
    type IPackageManager_Ptr is access all IPackageManager;
@@ -225,34 +237,49 @@ package Windows.Management.Deployment is
    type IPackageManager7_Interface;
    type IPackageManager7 is access all IPackageManager7_Interface'Class;
    type IPackageManager7_Ptr is access all IPackageManager7;
+   type IPackageManagerDebugSettings_Interface;
+   type IPackageManagerDebugSettings is access all IPackageManagerDebugSettings_Interface'Class;
+   type IPackageManagerDebugSettings_Ptr is access all IPackageManagerDebugSettings;
+   type IPackageUserInformation_Interface;
+   type IPackageUserInformation is access all IPackageUserInformation_Interface'Class;
+   type IPackageUserInformation_Ptr is access all IPackageUserInformation;
    type IPackageVolume_Interface;
    type IPackageVolume is access all IPackageVolume_Interface'Class;
    type IPackageVolume_Ptr is access all IPackageVolume;
    type IPackageVolume2_Interface;
    type IPackageVolume2 is access all IPackageVolume2_Interface'Class;
    type IPackageVolume2_Ptr is access all IPackageVolume2;
-   type IPackageManagerDebugSettings_Interface;
-   type IPackageManagerDebugSettings is access all IPackageManagerDebugSettings_Interface'Class;
-   type IPackageManagerDebugSettings_Ptr is access all IPackageManagerDebugSettings;
-   type IIterator_IPackageUserInformation_Interface;
-   type IIterator_IPackageUserInformation is access all IIterator_IPackageUserInformation_Interface'Class;
-   type IIterator_IPackageUserInformation_Ptr is access all IIterator_IPackageUserInformation;
-   type IIterable_IPackageUserInformation_Interface;
-   type IIterable_IPackageUserInformation is access all IIterable_IPackageUserInformation_Interface'Class;
-   type IIterable_IPackageUserInformation_Ptr is access all IIterable_IPackageUserInformation;
-   type IAsyncOperation_IPackageVolume_Interface;
-   type IAsyncOperation_IPackageVolume is access all IAsyncOperation_IPackageVolume_Interface'Class;
-   type IAsyncOperation_IPackageVolume_Ptr is access all IAsyncOperation_IPackageVolume;
-   type IIterator_IPackageVolume_Interface;
-   type IIterator_IPackageVolume is access all IIterator_IPackageVolume_Interface'Class;
-   type IIterator_IPackageVolume_Ptr is access all IIterator_IPackageVolume;
-   type IIterable_IPackageVolume_Interface;
-   type IIterable_IPackageVolume is access all IIterable_IPackageVolume_Interface'Class;
-   type IIterable_IPackageVolume_Ptr is access all IIterable_IPackageVolume;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPackageVolume : aliased constant Windows.IID := (51768758, 56408, 20940, (165, 25, 68, 144, 26, 210, 207, 21 ));
+   
+   type IAsyncOperation_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPackageVolume_Interface
+      ; handler : Windows.Management.Deployment.AsyncOperationCompletedHandler_IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPackageVolume_Interface
+      ; RetVal : access Windows.Management.Deployment.AsyncOperationCompletedHandler_IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPackageVolume_Interface
+      ; RetVal : access Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -296,21 +323,97 @@ package Windows.Management.Deployment is
    
    ------------------------------------------------------------------------
    
-   IID_IPackageUserInformation : aliased constant Windows.IID := (4130878499, 64009, 19644, (144, 85, 21, 202, 39, 94, 46, 126 ));
+   IID_IIterable_IPackageUserInformation : aliased constant Windows.IID := (873679033, 21192, 23383, (158, 145, 241, 159, 42, 5, 177, 136 ));
    
-   type IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_UserSecurityId
+   function First
    (
-      This       : access IPackageUserInformation_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterable_IPackageUserInformation_Interface
+      ; RetVal : access Windows.Management.Deployment.IIterator_IPackageUserInformation
    )
    return Windows.HRESULT is abstract;
    
-   function get_InstallState
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPackageVolume : aliased constant Windows.IID := (2786693474, 45411, 22177, (153, 128, 219, 12, 63, 78, 146, 132 ));
+   
+   type IIterable_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access IPackageUserInformation_Interface
-      ; RetVal : access Windows.Management.Deployment.PackageInstallState
+      This       : access IIterable_IPackageVolume_Interface
+      ; RetVal : access Windows.Management.Deployment.IIterator_IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPackageUserInformation : aliased constant Windows.IID := (1969620326, 44611, 22616, (173, 166, 213, 125, 218, 233, 2, 119 ));
+   
+   type IIterator_IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPackageUserInformation_Interface
+      ; RetVal : access Windows.Management.Deployment.IPackageUserInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPackageUserInformation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPackageUserInformation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPackageUserInformation_Interface
+      ; items : Windows.Management.Deployment.IPackageUserInformation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IPackageVolume : aliased constant Windows.IID := (2832578358, 20072, 24305, (159, 7, 240, 104, 55, 152, 140, 115 ));
+   
+   type IIterator_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPackageVolume_Interface
+      ; RetVal : access Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPackageVolume_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPackageVolume_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPackageVolume_Interface
+      ; items : Windows.Management.Deployment.IPackageVolume_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -856,6 +959,53 @@ package Windows.Management.Deployment is
    
    ------------------------------------------------------------------------
    
+   IID_IPackageManagerDebugSettings : aliased constant Windows.IID := (442570371, 43400, 20431, (143, 15, 206, 23, 88, 152, 232, 235 ));
+   
+   type IPackageManagerDebugSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetContentGroupStateAsync
+   (
+      This       : access IPackageManagerDebugSettings_Interface
+      ; package_x : Windows.ApplicationModel.IPackage
+      ; contentGroupName : Windows.String
+      ; state : Windows.ApplicationModel.PackageContentGroupState
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetContentGroupStateWithPercentageAsync
+   (
+      This       : access IPackageManagerDebugSettings_Interface
+      ; package_x : Windows.ApplicationModel.IPackage
+      ; contentGroupName : Windows.String
+      ; state : Windows.ApplicationModel.PackageContentGroupState
+      ; completionPercentage : Windows.Double
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackageUserInformation : aliased constant Windows.IID := (4130878499, 64009, 19644, (144, 85, 21, 202, 39, 94, 46, 126 ));
+   
+   type IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UserSecurityId
+   (
+      This       : access IPackageUserInformation_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallState
+   (
+      This       : access IPackageUserInformation_Interface
+      ; RetVal : access Windows.Management.Deployment.PackageInstallState
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPackageVolume : aliased constant Windows.IID := (3475403459, 6720, 17488, (151, 57, 42, 206, 46, 137, 136, 83 ));
    
    type IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
@@ -1055,156 +1205,6 @@ package Windows.Management.Deployment is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IPackageManagerDebugSettings : aliased constant Windows.IID := (442570371, 43400, 20431, (143, 15, 206, 23, 88, 152, 232, 235 ));
-   
-   type IPackageManagerDebugSettings_Interface is interface and Windows.IInspectable_Interface;
-   
-   function SetContentGroupStateAsync
-   (
-      This       : access IPackageManagerDebugSettings_Interface
-      ; package_x : Windows.ApplicationModel.IPackage
-      ; contentGroupName : Windows.String
-      ; state : Windows.ApplicationModel.PackageContentGroupState
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetContentGroupStateWithPercentageAsync
-   (
-      This       : access IPackageManagerDebugSettings_Interface
-      ; package_x : Windows.ApplicationModel.IPackage
-      ; contentGroupName : Windows.String
-      ; state : Windows.ApplicationModel.PackageContentGroupState
-      ; completionPercentage : Windows.Double
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IPackageUserInformation : aliased constant Windows.IID := (1969620326, 44611, 22616, (173, 166, 213, 125, 218, 233, 2, 119 ));
-   
-   type IIterator_IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IPackageUserInformation_Interface
-      ; RetVal : access Windows.Management.Deployment.IPackageUserInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IPackageUserInformation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPackageUserInformation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPackageUserInformation_Interface
-      ; items : Windows.Management.Deployment.IPackageUserInformation_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IPackageUserInformation : aliased constant Windows.IID := (873679033, 21192, 23383, (158, 145, 241, 159, 42, 5, 177, 136 ));
-   
-   type IIterable_IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IPackageUserInformation_Interface
-      ; RetVal : access Windows.Management.Deployment.IIterator_IPackageUserInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPackageVolume : aliased constant Windows.IID := (51768758, 56408, 20940, (165, 25, 68, 144, 26, 210, 207, 21 ));
-   
-   type IAsyncOperation_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPackageVolume_Interface
-      ; handler : Windows.Management.Deployment.AsyncOperationCompletedHandler_IPackageVolume
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPackageVolume_Interface
-      ; RetVal : access Windows.Management.Deployment.AsyncOperationCompletedHandler_IPackageVolume
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPackageVolume_Interface
-      ; RetVal : access Windows.Management.Deployment.IPackageVolume
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IPackageVolume : aliased constant Windows.IID := (2832578358, 20072, 24305, (159, 7, 240, 104, 55, 152, 140, 115 ));
-   
-   type IIterator_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IPackageVolume_Interface
-      ; RetVal : access Windows.Management.Deployment.IPackageVolume
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IPackageVolume_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IPackageVolume_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IPackageVolume_Interface
-      ; items : Windows.Management.Deployment.IPackageVolume_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IPackageVolume : aliased constant Windows.IID := (2786693474, 45411, 22177, (153, 128, 219, 12, 63, 78, 146, 132 ));
-   
-   type IIterable_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IPackageVolume_Interface
-      ; RetVal : access Windows.Management.Deployment.IIterator_IPackageVolume
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1226,12 +1226,12 @@ package Windows.Management.Deployment is
    ------------------------------------------------------------------------
    
    subtype DeploymentResult is Windows.Management.Deployment.IDeploymentResult;
-   subtype PackageUserInformation is Windows.Management.Deployment.IPackageUserInformation;
-   subtype PackageVolume is Windows.Management.Deployment.IPackageVolume;
-   subtype PackageManagerDebugSettings is Windows.Management.Deployment.IPackageManagerDebugSettings;
    subtype PackageManager is Windows.Management.Deployment.IPackageManager;
    function Create return Windows.Management.Deployment.IPackageManager;
    
+   subtype PackageManagerDebugSettings is Windows.Management.Deployment.IPackageManagerDebugSettings;
+   subtype PackageUserInformation is Windows.Management.Deployment.IPackageUserInformation;
+   subtype PackageVolume is Windows.Management.Deployment.IPackageVolume;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

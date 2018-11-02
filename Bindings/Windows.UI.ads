@@ -63,15 +63,15 @@ package Windows.UI is
    type IColorsStatics_Interface;
    type IColorsStatics is access all IColorsStatics_Interface'Class;
    type IColorsStatics_Ptr is access all IColorsStatics;
-   type IReference_Color_Interface;
-   type IReference_Color is access all IReference_Color_Interface'Class;
-   type IReference_Color_Ptr is access all IReference_Color;
-   type IIterator_Color_Interface;
-   type IIterator_Color is access all IIterator_Color_Interface'Class;
-   type IIterator_Color_Ptr is access all IIterator_Color;
    type IIterable_Color_Interface;
    type IIterable_Color is access all IIterable_Color_Interface'Class;
    type IIterable_Color_Ptr is access all IIterable_Color;
+   type IIterator_Color_Interface;
+   type IIterator_Color is access all IIterator_Color_Interface'Class;
+   type IIterator_Color_Ptr is access all IIterator_Color;
+   type IReference_Color_Interface;
+   type IReference_Color is access all IReference_Color_Interface'Class;
+   type IReference_Color_Ptr is access all IReference_Color;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1115,14 +1115,14 @@ package Windows.UI is
    
    ------------------------------------------------------------------------
    
-   IID_IReference_Color : aliased constant Windows.IID := (2878233873, 45249, 23073, (149, 174, 241, 107, 243, 163, 118, 36 ));
+   IID_IIterable_Color : aliased constant Windows.IID := (2469326686, 11311, 24238, (146, 154, 116, 233, 115, 181, 124, 39 ));
    
-   type IReference_Color_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_Color_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Value
+   function First
    (
-      This       : access IReference_Color_Interface
-      ; RetVal : access Windows.UI.Color
+      This       : access IIterable_Color_Interface
+      ; RetVal : access Windows.UI.IIterator_Color
    )
    return Windows.HRESULT is abstract;
    
@@ -1163,14 +1163,14 @@ package Windows.UI is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_Color : aliased constant Windows.IID := (2469326686, 11311, 24238, (146, 154, 116, 233, 115, 181, 124, 39 ));
+   IID_IReference_Color : aliased constant Windows.IID := (2878233873, 45249, 23073, (149, 174, 241, 107, 243, 163, 118, 36 ));
    
-   type IIterable_Color_Interface is interface and Windows.IInspectable_Interface;
+   type IReference_Color_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Value
    (
-      This       : access IIterable_Color_Interface
-      ; RetVal : access Windows.UI.IIterator_Color
+      This       : access IReference_Color_Interface
+      ; RetVal : access Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
    

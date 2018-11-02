@@ -34,22 +34,16 @@ package Windows.Graphics.Effects is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IGraphicsEffectSource_Interface;
-   type IGraphicsEffectSource is access all IGraphicsEffectSource_Interface'Class;
-   type IGraphicsEffectSource_Ptr is access all IGraphicsEffectSource;
    type IGraphicsEffect_Interface;
    type IGraphicsEffect is access all IGraphicsEffect_Interface'Class;
    type IGraphicsEffect_Ptr is access all IGraphicsEffect;
+   type IGraphicsEffectSource_Interface;
+   type IGraphicsEffectSource is access all IGraphicsEffectSource_Interface'Class;
+   type IGraphicsEffectSource_Ptr is access all IGraphicsEffectSource;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGraphicsEffectSource : aliased constant Windows.IID := (764386780, 17209, 20153, (146, 22, 249, 222, 183, 86, 88, 162 ));
-   
-   type IGraphicsEffectSource_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -70,5 +64,11 @@ package Windows.Graphics.Effects is
       ; name : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGraphicsEffectSource : aliased constant Windows.IID := (764386780, 17209, 20153, (146, 22, 249, 222, 183, 86, 88, 162 ));
+   
+   type IGraphicsEffectSource_Interface is interface and Windows.IInspectable_Interface;
    
 end;

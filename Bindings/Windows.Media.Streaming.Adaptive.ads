@@ -62,6 +62,32 @@ package Windows.Media.Streaming.Adaptive is
    
    type AdaptiveMediaSourceCreationStatus_Ptr is access AdaptiveMediaSourceCreationStatus;
    
+   type AdaptiveMediaSourceDiagnosticType is (
+      ManifestUnchangedUponReload,
+      ManifestMismatchUponReload,
+      ManifestSignaledEndOfLiveEventUponReload,
+      MediaSegmentSkipped,
+      ResourceNotFound,
+      ResourceTimedOut,
+      ResourceParsingError,
+      BitrateDisabled,
+      FatalMediaSourceError
+   );
+   for AdaptiveMediaSourceDiagnosticType use (
+      ManifestUnchangedUponReload => 0,
+      ManifestMismatchUponReload => 1,
+      ManifestSignaledEndOfLiveEventUponReload => 2,
+      MediaSegmentSkipped => 3,
+      ResourceNotFound => 4,
+      ResourceTimedOut => 5,
+      ResourceParsingError => 6,
+      BitrateDisabled => 7,
+      FatalMediaSourceError => 8
+   );
+   for AdaptiveMediaSourceDiagnosticType'Size use 32;
+   
+   type AdaptiveMediaSourceDiagnosticType_Ptr is access AdaptiveMediaSourceDiagnosticType;
+   
    type AdaptiveMediaSourceDownloadBitrateChangedReason is (
       SufficientInboundBitsPerSecond,
       InsufficientInboundBitsPerSecond,
@@ -102,32 +128,6 @@ package Windows.Media.Streaming.Adaptive is
    
    type AdaptiveMediaSourceResourceType_Ptr is access AdaptiveMediaSourceResourceType;
    
-   type AdaptiveMediaSourceDiagnosticType is (
-      ManifestUnchangedUponReload,
-      ManifestMismatchUponReload,
-      ManifestSignaledEndOfLiveEventUponReload,
-      MediaSegmentSkipped,
-      ResourceNotFound,
-      ResourceTimedOut,
-      ResourceParsingError,
-      BitrateDisabled,
-      FatalMediaSourceError
-   );
-   for AdaptiveMediaSourceDiagnosticType use (
-      ManifestUnchangedUponReload => 0,
-      ManifestMismatchUponReload => 1,
-      ManifestSignaledEndOfLiveEventUponReload => 2,
-      MediaSegmentSkipped => 3,
-      ResourceNotFound => 4,
-      ResourceTimedOut => 5,
-      ResourceParsingError => 6,
-      BitrateDisabled => 7,
-      FatalMediaSourceError => 8
-   );
-   for AdaptiveMediaSourceDiagnosticType'Size use 32;
-   
-   type AdaptiveMediaSourceDiagnosticType_Ptr is access AdaptiveMediaSourceDiagnosticType;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -138,18 +138,18 @@ package Windows.Media.Streaming.Adaptive is
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface'Class;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Ptr is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged;
-   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface;
-   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged is access all TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface'Class;
-   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Ptr is access all TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged;
-   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface;
-   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface'Class;
-   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Ptr is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface'Class;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Ptr is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface'Class;
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Ptr is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed;
+   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface;
+   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface'Class;
+   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Ptr is access all TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested;
+   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface;
+   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged is access all TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface'Class;
+   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Ptr is access all TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged;
    type TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface;
    type TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable is access all TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface'Class;
    type TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Ptr is access all TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable;
@@ -158,15 +158,6 @@ package Windows.Media.Streaming.Adaptive is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IAdaptiveMediaSourceCreationResult_Interface;
-   type IAdaptiveMediaSourceCreationResult is access all IAdaptiveMediaSourceCreationResult_Interface'Class;
-   type IAdaptiveMediaSourceCreationResult_Ptr is access all IAdaptiveMediaSourceCreationResult;
-   type IAdaptiveMediaSourceCreationResult2_Interface;
-   type IAdaptiveMediaSourceCreationResult2 is access all IAdaptiveMediaSourceCreationResult2_Interface'Class;
-   type IAdaptiveMediaSourceCreationResult2_Ptr is access all IAdaptiveMediaSourceCreationResult2;
-   type IAdaptiveMediaSourceStatics_Interface;
-   type IAdaptiveMediaSourceStatics is access all IAdaptiveMediaSourceStatics_Interface'Class;
-   type IAdaptiveMediaSourceStatics_Ptr is access all IAdaptiveMediaSourceStatics;
    type IAdaptiveMediaSource_Interface;
    type IAdaptiveMediaSource is access all IAdaptiveMediaSource_Interface'Class;
    type IAdaptiveMediaSource_Ptr is access all IAdaptiveMediaSource;
@@ -182,39 +173,33 @@ package Windows.Media.Streaming.Adaptive is
    type IAdaptiveMediaSourceCorrelatedTimes_Interface;
    type IAdaptiveMediaSourceCorrelatedTimes is access all IAdaptiveMediaSourceCorrelatedTimes_Interface'Class;
    type IAdaptiveMediaSourceCorrelatedTimes_Ptr is access all IAdaptiveMediaSourceCorrelatedTimes;
+   type IAdaptiveMediaSourceCreationResult_Interface;
+   type IAdaptiveMediaSourceCreationResult is access all IAdaptiveMediaSourceCreationResult_Interface'Class;
+   type IAdaptiveMediaSourceCreationResult_Ptr is access all IAdaptiveMediaSourceCreationResult;
+   type IAdaptiveMediaSourceCreationResult2_Interface;
+   type IAdaptiveMediaSourceCreationResult2 is access all IAdaptiveMediaSourceCreationResult2_Interface'Class;
+   type IAdaptiveMediaSourceCreationResult2_Ptr is access all IAdaptiveMediaSourceCreationResult2;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface'Class;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Ptr is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface'Class;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Ptr is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs2;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface'Class;
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Ptr is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs3;
+   type IAdaptiveMediaSourceDiagnostics_Interface;
+   type IAdaptiveMediaSourceDiagnostics is access all IAdaptiveMediaSourceDiagnostics_Interface'Class;
+   type IAdaptiveMediaSourceDiagnostics_Ptr is access all IAdaptiveMediaSourceDiagnostics;
    type IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Interface;
    type IAdaptiveMediaSourceDownloadBitrateChangedEventArgs is access all IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Interface'Class;
    type IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Ptr is access all IAdaptiveMediaSourceDownloadBitrateChangedEventArgs;
    type IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Interface;
    type IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 is access all IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Interface'Class;
    type IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Ptr is access all IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2;
-   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface;
-   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs is access all IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface'Class;
-   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Ptr is access all IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs_Interface;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs is access all IAdaptiveMediaSourceDownloadRequestedEventArgs_Interface'Class;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs_Ptr is access all IAdaptiveMediaSourceDownloadRequestedEventArgs;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs2_Interface;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs2 is access all IAdaptiveMediaSourceDownloadRequestedEventArgs2_Interface'Class;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs2_Ptr is access all IAdaptiveMediaSourceDownloadRequestedEventArgs2;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs3_Interface;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs3 is access all IAdaptiveMediaSourceDownloadRequestedEventArgs3_Interface'Class;
-   type IAdaptiveMediaSourceDownloadRequestedEventArgs3_Ptr is access all IAdaptiveMediaSourceDownloadRequestedEventArgs3;
-   type IAdaptiveMediaSourceDownloadResult_Interface;
-   type IAdaptiveMediaSourceDownloadResult is access all IAdaptiveMediaSourceDownloadResult_Interface'Class;
-   type IAdaptiveMediaSourceDownloadResult_Ptr is access all IAdaptiveMediaSourceDownloadResult;
-   type IAdaptiveMediaSourceDownloadResult2_Interface;
-   type IAdaptiveMediaSourceDownloadResult2 is access all IAdaptiveMediaSourceDownloadResult2_Interface'Class;
-   type IAdaptiveMediaSourceDownloadResult2_Ptr is access all IAdaptiveMediaSourceDownloadResult2;
-   type IAdaptiveMediaSourceDownloadRequestedDeferral_Interface;
-   type IAdaptiveMediaSourceDownloadRequestedDeferral is access all IAdaptiveMediaSourceDownloadRequestedDeferral_Interface'Class;
-   type IAdaptiveMediaSourceDownloadRequestedDeferral_Ptr is access all IAdaptiveMediaSourceDownloadRequestedDeferral;
    type IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface;
    type IAdaptiveMediaSourceDownloadCompletedEventArgs is access all IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface'Class;
    type IAdaptiveMediaSourceDownloadCompletedEventArgs_Ptr is access all IAdaptiveMediaSourceDownloadCompletedEventArgs;
-   type IAdaptiveMediaSourceDownloadStatistics_Interface;
-   type IAdaptiveMediaSourceDownloadStatistics is access all IAdaptiveMediaSourceDownloadStatistics_Interface'Class;
-   type IAdaptiveMediaSourceDownloadStatistics_Ptr is access all IAdaptiveMediaSourceDownloadStatistics;
    type IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface;
    type IAdaptiveMediaSourceDownloadCompletedEventArgs2 is access all IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface'Class;
    type IAdaptiveMediaSourceDownloadCompletedEventArgs2_Ptr is access all IAdaptiveMediaSourceDownloadCompletedEventArgs2;
@@ -230,24 +215,39 @@ package Windows.Media.Streaming.Adaptive is
    type IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface;
    type IAdaptiveMediaSourceDownloadFailedEventArgs3 is access all IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface'Class;
    type IAdaptiveMediaSourceDownloadFailedEventArgs3_Ptr is access all IAdaptiveMediaSourceDownloadFailedEventArgs3;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface'Class;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Ptr is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface'Class;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Ptr is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs2;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface'Class;
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Ptr is access all IAdaptiveMediaSourceDiagnosticAvailableEventArgs3;
-   type IAdaptiveMediaSourceDiagnostics_Interface;
-   type IAdaptiveMediaSourceDiagnostics is access all IAdaptiveMediaSourceDiagnostics_Interface'Class;
-   type IAdaptiveMediaSourceDiagnostics_Ptr is access all IAdaptiveMediaSourceDiagnostics;
-   type IMediaSource_Imported_Interface;
-   type IMediaSource_Imported is access all IMediaSource_Imported_Interface'Class;
-   type IMediaSource_Imported_Ptr is access all IMediaSource_Imported;
+   type IAdaptiveMediaSourceDownloadRequestedDeferral_Interface;
+   type IAdaptiveMediaSourceDownloadRequestedDeferral is access all IAdaptiveMediaSourceDownloadRequestedDeferral_Interface'Class;
+   type IAdaptiveMediaSourceDownloadRequestedDeferral_Ptr is access all IAdaptiveMediaSourceDownloadRequestedDeferral;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs_Interface;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs is access all IAdaptiveMediaSourceDownloadRequestedEventArgs_Interface'Class;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs_Ptr is access all IAdaptiveMediaSourceDownloadRequestedEventArgs;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs2_Interface;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs2 is access all IAdaptiveMediaSourceDownloadRequestedEventArgs2_Interface'Class;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs2_Ptr is access all IAdaptiveMediaSourceDownloadRequestedEventArgs2;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs3_Interface;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs3 is access all IAdaptiveMediaSourceDownloadRequestedEventArgs3_Interface'Class;
+   type IAdaptiveMediaSourceDownloadRequestedEventArgs3_Ptr is access all IAdaptiveMediaSourceDownloadRequestedEventArgs3;
+   type IAdaptiveMediaSourceDownloadResult_Interface;
+   type IAdaptiveMediaSourceDownloadResult is access all IAdaptiveMediaSourceDownloadResult_Interface'Class;
+   type IAdaptiveMediaSourceDownloadResult_Ptr is access all IAdaptiveMediaSourceDownloadResult;
+   type IAdaptiveMediaSourceDownloadResult2_Interface;
+   type IAdaptiveMediaSourceDownloadResult2 is access all IAdaptiveMediaSourceDownloadResult2_Interface'Class;
+   type IAdaptiveMediaSourceDownloadResult2_Ptr is access all IAdaptiveMediaSourceDownloadResult2;
+   type IAdaptiveMediaSourceDownloadStatistics_Interface;
+   type IAdaptiveMediaSourceDownloadStatistics is access all IAdaptiveMediaSourceDownloadStatistics_Interface'Class;
+   type IAdaptiveMediaSourceDownloadStatistics_Ptr is access all IAdaptiveMediaSourceDownloadStatistics;
+   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface;
+   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs is access all IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface'Class;
+   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Ptr is access all IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs;
+   type IAdaptiveMediaSourceStatics_Interface;
+   type IAdaptiveMediaSourceStatics is access all IAdaptiveMediaSourceStatics_Interface'Class;
+   type IAdaptiveMediaSourceStatics_Ptr is access all IAdaptiveMediaSourceStatics;
    type IAsyncOperation_IAdaptiveMediaSourceCreationResult_Interface;
    type IAsyncOperation_IAdaptiveMediaSourceCreationResult is access all IAsyncOperation_IAdaptiveMediaSourceCreationResult_Interface'Class;
    type IAsyncOperation_IAdaptiveMediaSourceCreationResult_Ptr is access all IAsyncOperation_IAdaptiveMediaSourceCreationResult;
+   type IMediaSource_Imported_Interface;
+   type IMediaSource_Imported is access all IMediaSource_Imported_Interface'Class;
+   type IMediaSource_Imported_Ptr is access all IMediaSource_Imported;
    type IReference_AdaptiveMediaSourceResourceType_Interface;
    type IReference_AdaptiveMediaSourceResourceType is access all IReference_AdaptiveMediaSourceResourceType_Interface'Class;
    type IReference_AdaptiveMediaSourceResourceType_Ptr is access all IReference_AdaptiveMediaSourceResourceType;
@@ -255,98 +255,6 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceCreationResult : aliased constant Windows.IID := (1183233714, 32783, 20017, (144, 147, 118, 212, 120, 32, 19, 231 ));
-   
-   type IAdaptiveMediaSourceCreationResult_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Status
-   (
-      This       : access IAdaptiveMediaSourceCreationResult_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MediaSource
-   (
-      This       : access IAdaptiveMediaSourceCreationResult_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HttpResponseMessage
-   (
-      This       : access IAdaptiveMediaSourceCreationResult_Interface
-      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceCreationResult2 : aliased constant Windows.IID := (473056191, 7236, 16459, (162, 1, 223, 69, 172, 120, 152, 232 ));
-   
-   type IAdaptiveMediaSourceCreationResult2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExtendedError
-   (
-      This       : access IAdaptiveMediaSourceCreationResult2_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceStatics : aliased constant Windows.IID := (1353104733, 26351, 19667, (149, 121, 158, 102, 5, 7, 220, 63 ));
-   
-   type IAdaptiveMediaSourceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function IsContentTypeSupported
-   (
-      This       : access IAdaptiveMediaSourceStatics_Interface
-      ; contentType : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateFromUriAsync
-   (
-      This       : access IAdaptiveMediaSourceStatics_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateFromUriWithDownloaderAsync
-   (
-      This       : access IAdaptiveMediaSourceStatics_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; httpClient : Windows.Web.Http.IHttpClient
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateFromStreamAsync
-   (
-      This       : access IAdaptiveMediaSourceStatics_Interface
-      ; stream : Windows.Storage.Streams.IInputStream
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; contentType : Windows.String
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateFromStreamWithDownloaderAsync
-   (
-      This       : access IAdaptiveMediaSourceStatics_Interface
-      ; stream : Windows.Storage.Streams.IInputStream
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; contentType : Windows.String
-      ; httpClient : Windows.Web.Http.IHttpClient
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -679,6 +587,169 @@ package Windows.Media.Streaming.Adaptive is
    
    ------------------------------------------------------------------------
    
+   IID_IAdaptiveMediaSourceCreationResult : aliased constant Windows.IID := (1183233714, 32783, 20017, (144, 147, 118, 212, 120, 32, 19, 231 ));
+   
+   type IAdaptiveMediaSourceCreationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IAdaptiveMediaSourceCreationResult_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MediaSource
+   (
+      This       : access IAdaptiveMediaSourceCreationResult_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HttpResponseMessage
+   (
+      This       : access IAdaptiveMediaSourceCreationResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceCreationResult2 : aliased constant Windows.IID := (473056191, 7236, 16459, (162, 1, 223, 69, 172, 120, 152, 232 ));
+   
+   type IAdaptiveMediaSourceCreationResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IAdaptiveMediaSourceCreationResult2_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs : aliased constant Windows.IID := (989220614, 28060, 18762, (183, 169, 179, 165, 222, 230, 173, 104 ));
+   
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DiagnosticType
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestId
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SegmentId
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceType
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IReference_AdaptiveMediaSourceResourceType -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceUri
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceByteRangeOffset
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceByteRangeLength
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Bitrate
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 : aliased constant Windows.IID := (2356009047, 5797, 19871, (129, 14, 0, 189, 144, 27, 62, 249 ));
+   
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 : aliased constant Windows.IID := (3278179541, 56043, 16643, (132, 218, 104, 118, 154, 213, 19, 255 ));
+   
+   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ResourceDuration
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceContentType
+   (
+      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDiagnostics : aliased constant Windows.IID := (2602888808, 38446, 17548, (174, 191, 178, 155, 86, 9, 142, 35 ));
+   
+   type IAdaptiveMediaSourceDiagnostics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_DiagnosticAvailable
+   (
+      This       : access IAdaptiveMediaSourceDiagnostics_Interface
+      ; handler : TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_DiagnosticAvailable
+   (
+      This       : access IAdaptiveMediaSourceDiagnostics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAdaptiveMediaSourceDownloadBitrateChangedEventArgs : aliased constant Windows.IID := (1728842308, 57422, 20223, (129, 106, 23, 57, 159, 120, 244, 186 ));
    
    type IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -712,28 +783,196 @@ package Windows.Media.Streaming.Adaptive is
    
    ------------------------------------------------------------------------
    
-   IID_IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs : aliased constant Windows.IID := (597860205, 32218, 19025, (135, 169, 111, 168, 197, 178, 146, 190 ));
+   IID_IAdaptiveMediaSourceDownloadCompletedEventArgs : aliased constant Windows.IID := (421793219, 23351, 18970, (137, 112, 214, 33, 203, 108, 168, 59 ));
    
-   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_OldValue
+   function get_ResourceType
    (
-      This       : access IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType
    )
    return Windows.HRESULT is abstract;
    
-   function get_NewValue
+   function get_ResourceUri
    (
-      This       : access IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function get_AudioOnly
+   function get_ResourceByteRangeOffset
    (
-      This       : access IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceByteRangeLength
+   (
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HttpResponseMessage
+   (
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDownloadCompletedEventArgs2 : aliased constant Windows.IID := (1883718852, 38474, 16612, (175, 149, 145, 119, 221, 109, 250, 0 ));
+   
+   type IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RequestId
+   (
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Statistics
+   (
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDownloadCompletedEventArgs3 : aliased constant Windows.IID := (260738001, 37810, 18374, (186, 220, 139, 226, 200, 247, 246, 232 ));
+   
+   type IAdaptiveMediaSourceDownloadCompletedEventArgs3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ResourceDuration
+   (
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs3_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceContentType
+   (
+      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDownloadFailedEventArgs : aliased constant Windows.IID := (930320456, 62635, 16548, (177, 53, 198, 223, 216, 189, 127, 241 ));
+   
+   type IAdaptiveMediaSourceDownloadFailedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ResourceType
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceUri
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceByteRangeOffset
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceByteRangeLength
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HttpResponseMessage
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDownloadFailedEventArgs2 : aliased constant Windows.IID := (1888589160, 38524, 18822, (144, 197, 198, 252, 75, 49, 226, 216 ));
+   
+   type IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RequestId
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Statistics
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDownloadFailedEventArgs3 : aliased constant Windows.IID := (3493152073, 4402, 18960, (145, 90, 194, 33, 27, 91, 148, 9 ));
+   
+   type IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ResourceDuration
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResourceContentType
+   (
+      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdaptiveMediaSourceDownloadRequestedDeferral : aliased constant Windows.IID := (96898916, 64032, 19901, (152, 33, 75, 244, 201, 191, 119, 171 ));
+   
+   type IAdaptiveMediaSourceDownloadRequestedDeferral_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Complete
+   (
+      This       : access IAdaptiveMediaSourceDownloadRequestedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -937,59 +1176,6 @@ package Windows.Media.Streaming.Adaptive is
    
    ------------------------------------------------------------------------
    
-   IID_IAdaptiveMediaSourceDownloadRequestedDeferral : aliased constant Windows.IID := (96898916, 64032, 19901, (152, 33, 75, 244, 201, 191, 119, 171 ));
-   
-   type IAdaptiveMediaSourceDownloadRequestedDeferral_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Complete
-   (
-      This       : access IAdaptiveMediaSourceDownloadRequestedDeferral_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDownloadCompletedEventArgs : aliased constant Windows.IID := (421793219, 23351, 18970, (137, 112, 214, 33, 203, 108, 168, 59 ));
-   
-   type IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ResourceType
-   (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceUri
-   (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceByteRangeOffset
-   (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceByteRangeLength
-   (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HttpResponseMessage
-   (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs_Interface
-      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IAdaptiveMediaSourceDownloadStatistics : aliased constant Windows.IID := (2735132411, 59754, 19967, (169, 184, 26, 224, 140, 1, 174, 152 ));
    
    type IAdaptiveMediaSourceDownloadStatistics_Interface is interface and Windows.IInspectable_Interface;
@@ -1024,272 +1210,82 @@ package Windows.Media.Streaming.Adaptive is
    
    ------------------------------------------------------------------------
    
-   IID_IAdaptiveMediaSourceDownloadCompletedEventArgs2 : aliased constant Windows.IID := (1883718852, 38474, 16612, (175, 149, 145, 119, 221, 109, 250, 0 ));
+   IID_IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs : aliased constant Windows.IID := (597860205, 32218, 19025, (135, 169, 111, 168, 197, 178, 146, 190 ));
    
-   type IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   type IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_RequestId
+   function get_OldValue
    (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface
-      ; RetVal : access Windows.Int32
+      This       : access IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_Statistics
+   function get_NewValue
    (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics
+      This       : access IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function get_Position
+   function get_AudioOnly
    (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs2_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDownloadCompletedEventArgs3 : aliased constant Windows.IID := (260738001, 37810, 18374, (186, 220, 139, 226, 200, 247, 246, 232 ));
-   
-   type IAdaptiveMediaSourceDownloadCompletedEventArgs3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ResourceDuration
-   (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs3_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceContentType
-   (
-      This       : access IAdaptiveMediaSourceDownloadCompletedEventArgs3_Interface
-      ; RetVal : access Windows.String
+      This       : access IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IAdaptiveMediaSourceDownloadFailedEventArgs : aliased constant Windows.IID := (930320456, 62635, 16548, (177, 53, 198, 223, 216, 189, 127, 241 ));
+   IID_IAdaptiveMediaSourceStatics : aliased constant Windows.IID := (1353104733, 26351, 19667, (149, 121, 158, 102, 5, 7, 220, 63 ));
    
-   type IAdaptiveMediaSourceDownloadFailedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type IAdaptiveMediaSourceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ResourceType
+   function IsContentTypeSupported
    (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType
+      This       : access IAdaptiveMediaSourceStatics_Interface
+      ; contentType : Windows.String
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_ResourceUri
+   function CreateFromUriAsync
    (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+      This       : access IAdaptiveMediaSourceStatics_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_ResourceByteRangeOffset
+   function CreateFromUriWithDownloaderAsync
    (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+      This       : access IAdaptiveMediaSourceStatics_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; httpClient : Windows.Web.Http.IHttpClient
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_ResourceByteRangeLength
+   function CreateFromStreamAsync
    (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+      This       : access IAdaptiveMediaSourceStatics_Interface
+      ; stream : Windows.Storage.Streams.IInputStream
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; contentType : Windows.String
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_HttpResponseMessage
+   function CreateFromStreamWithDownloaderAsync
    (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs_Interface
-      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+      This       : access IAdaptiveMediaSourceStatics_Interface
+      ; stream : Windows.Storage.Streams.IInputStream
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; contentType : Windows.String
+      ; httpClient : Windows.Web.Http.IHttpClient
+      ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDownloadFailedEventArgs2 : aliased constant Windows.IID := (1888589160, 38524, 18822, (144, 197, 198, 252, 75, 49, 226, 216 ));
-   
-   type IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RequestId
-   (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtendedError
-   (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Statistics
-   (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs2_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDownloadFailedEventArgs3 : aliased constant Windows.IID := (3493152073, 4402, 18960, (145, 90, 194, 33, 27, 91, 148, 9 ));
-   
-   type IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ResourceDuration
-   (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceContentType
-   (
-      This       : access IAdaptiveMediaSourceDownloadFailedEventArgs3_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs : aliased constant Windows.IID := (989220614, 28060, 18762, (183, 169, 179, 165, 222, 230, 173, 104 ));
-   
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DiagnosticType
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RequestId
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SegmentId
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceType
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Media.Streaming.Adaptive.IReference_AdaptiveMediaSourceResourceType -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceUri
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceByteRangeOffset
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceByteRangeLength
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Bitrate
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 : aliased constant Windows.IID := (2356009047, 5797, 19871, (129, 14, 0, 189, 144, 27, 62, 249 ));
-   
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExtendedError
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 : aliased constant Windows.IID := (3278179541, 56043, 16643, (132, 218, 104, 118, 154, 213, 19, 255 ));
-   
-   type IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ResourceDuration
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ResourceContentType
-   (
-      This       : access IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAdaptiveMediaSourceDiagnostics : aliased constant Windows.IID := (2602888808, 38446, 17548, (174, 191, 178, 155, 86, 9, 142, 35 ));
-   
-   type IAdaptiveMediaSourceDiagnostics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_DiagnosticAvailable
-   (
-      This       : access IAdaptiveMediaSourceDiagnostics_Interface
-      ; handler : TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_DiagnosticAvailable
-   (
-      This       : access IAdaptiveMediaSourceDiagnostics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IMediaSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -1317,6 +1313,10 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IMediaSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -1363,32 +1363,6 @@ package Windows.Media.Streaming.Adaptive is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged : aliased constant Windows.IID := (3746516617, 24947, 21403, (148, 216, 105, 183, 203, 117, 120, 167 ));
-   
-   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface
-      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
-      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested : aliased constant Windows.IID := (3552041969, 64910, 22686, (156, 127, 186, 103, 57, 126, 80, 205 ));
-   
-   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface
-      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
-      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted : aliased constant Windows.IID := (3472324061, 9650, 21896, (141, 81, 218, 205, 234, 102, 10, 125 ));
    
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted'access) with null record;
@@ -1415,6 +1389,32 @@ package Windows.Media.Streaming.Adaptive is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested : aliased constant Windows.IID := (3552041969, 64910, 22686, (156, 127, 186, 103, 57, 126, 80, 205 ));
+   
+   type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface
+      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
+      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged : aliased constant Windows.IID := (3746516617, 24947, 21403, (148, 216, 105, 183, 203, 117, 120, 167 ));
+   
+   type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface
+      ; sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
+      ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable : aliased constant Windows.IID := (4249675445, 31803, 22772, (158, 252, 29, 158, 230, 160, 157, 33 ));
    
    type TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable'access) with null record;
@@ -1431,19 +1431,19 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    
    subtype AdaptiveMediaSource is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource;
+   subtype AdaptiveMediaSourceAdvancedSettings is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceAdvancedSettings;
+   subtype AdaptiveMediaSourceCorrelatedTimes is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCorrelatedTimes;
    subtype AdaptiveMediaSourceCreationResult is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult;
+   subtype AdaptiveMediaSourceDiagnosticAvailableEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs;
+   subtype AdaptiveMediaSourceDiagnostics is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics;
    subtype AdaptiveMediaSourceDownloadBitrateChangedEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs;
-   subtype AdaptiveMediaSourcePlaybackBitrateChangedEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs;
-   subtype AdaptiveMediaSourceDownloadRequestedEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs;
    subtype AdaptiveMediaSourceDownloadCompletedEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs;
    subtype AdaptiveMediaSourceDownloadFailedEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs;
-   subtype AdaptiveMediaSourceAdvancedSettings is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceAdvancedSettings;
-   subtype AdaptiveMediaSourceDiagnostics is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics;
-   subtype AdaptiveMediaSourceCorrelatedTimes is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCorrelatedTimes;
-   subtype AdaptiveMediaSourceDownloadResult is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult;
    subtype AdaptiveMediaSourceDownloadRequestedDeferral is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedDeferral;
+   subtype AdaptiveMediaSourceDownloadRequestedEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs;
+   subtype AdaptiveMediaSourceDownloadResult is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult;
    subtype AdaptiveMediaSourceDownloadStatistics is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics;
-   subtype AdaptiveMediaSourceDiagnosticAvailableEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs;
+   subtype AdaptiveMediaSourcePlaybackBitrateChangedEventArgs is Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

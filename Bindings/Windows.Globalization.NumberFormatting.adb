@@ -34,38 +34,46 @@ package body Windows.Globalization.NumberFormatting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Globalization.NumberFormatting.INumberRounder is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder");
-      Instance      : aliased IInspectable := null;
+   function CreateCurrencyFormatterCode
+   (
+      currencyCode : Windows.String
+   )
+   return Windows.Globalization.NumberFormatting.ICurrencyFormatter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.CurrencyFormatter");
+      m_Factory     : Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberRounder) with inline;
+      RetVal        : aliased Windows.Globalization.NumberFormatting.ICurrencyFormatter := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyFormatterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateCurrencyFormatterCode(currencyCode, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
-   function CreateIncrementNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.IncrementNumberRounder");
-      Instance      : aliased IInspectable := null;
+   function CreateCurrencyFormatterCodeContext
+   (
+      currencyCode : Windows.String
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+   )
+   return Windows.Globalization.NumberFormatting.ICurrencyFormatter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.CurrencyFormatter");
+      m_Factory     : Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberRounder) with inline;
+      RetVal        : aliased Windows.Globalization.NumberFormatting.ICurrencyFormatter := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyFormatterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateCurrencyFormatterCodeContext(currencyCode, languages, geographicRegion, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function Create return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
@@ -100,6 +108,60 @@ package body Windows.Globalization.NumberFormatting is
       Hr := RoGetActivationFactory(m_hString, IID_IDecimalFormatterFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateDecimalFormatter(languages, geographicRegion, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Globalization.NumberFormatting.INumberRounder is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.IncrementNumberRounder");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberRounder) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Globalization.NumberFormatting.INumeralSystemTranslator is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.NumeralSystemTranslator");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumeralSystemTranslator) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumeralSystemTranslator'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Globalization.NumberFormatting.INumeralSystemTranslator is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.NumeralSystemTranslator");
+      m_Factory     : Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.NumberFormatting.INumeralSystemTranslator := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemTranslatorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(languages, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -182,83 +244,21 @@ package body Windows.Globalization.NumberFormatting is
       return RetVal;
    end;
    
-   function CreateCurrencyFormatterCode
-   (
-      currencyCode : Windows.String
-   )
-   return Windows.Globalization.NumberFormatting.ICurrencyFormatter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.CurrencyFormatter");
-      m_Factory     : Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.NumberFormatting.ICurrencyFormatter := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyFormatterFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateCurrencyFormatterCode(currencyCode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateCurrencyFormatterCodeContext
-   (
-      currencyCode : Windows.String
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; geographicRegion : Windows.String
-   )
-   return Windows.Globalization.NumberFormatting.ICurrencyFormatter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.CurrencyFormatter");
-      m_Factory     : Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.NumberFormatting.ICurrencyFormatter := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyFormatterFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateCurrencyFormatterCodeContext(currencyCode, languages, geographicRegion, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Globalization.NumberFormatting.INumeralSystemTranslator is
+   function CreateSignificantDigitsNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.NumeralSystemTranslator");
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumeralSystemTranslator) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberRounder) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumeralSystemTranslator'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
-   end;
-   
-   function Create
-   (
-      languages : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Globalization.NumberFormatting.INumeralSystemTranslator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.NumeralSystemTranslator");
-      m_Factory     : Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.NumberFormatting.INumeralSystemTranslator := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemTranslatorFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(languages, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    ------------------------------------------------------------------------

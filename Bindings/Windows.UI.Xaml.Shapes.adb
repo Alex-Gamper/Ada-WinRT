@@ -129,6 +129,120 @@ package body Windows.UI.Xaml.Shapes is
    ------------------------------------------------------------------------
    function QueryInterface
    (
+      This       : access IPath_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IPath or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IPath_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IPath_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IPath_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IPath_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Shapes.IPath");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IPath_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Data
+   (
+      This       : access IPath_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Media.IGeometry
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Data
+   (
+      This       : access IPath_Interface_Impl
+      ; value : Windows.UI.Xaml.Media.IGeometry
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
       This       : access IShape_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
       pvObject   : not null access IUnknown
@@ -472,330 +586,8 @@ package body Windows.UI.Xaml.Shapes is
    end;
    
    ------------------------------------------------------------------------
-   function QueryInterface
-   (
-      This       : access IPath_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown;
-      RefCount : aliased UInt32 := 0;
-      RetVal : aliased IUnknown := null;
-      pragma suppress(Accessibility_Check); -- This can be called from Windows
-   begin
-      if riid.all = IID_IPath or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject);
-         else
-            Hr := E_NOINTERFACE;
-         end if;
-      end if;
-      return Hr;
-   end;
-   
-   function AddRef
-   (
-      This       : access IPath_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount + 1;
-      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function Release
-   (
-      This       : access IPath_Interface_Impl
-   )
-   return Windows.UInt32 is
-      RetVal : Windows.UInt32;
-   begin
-      This.m_RefCount := This.m_RefCount - 1;
-      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
-      return RetVal;
-   end;
-   
-   function GetIids
-   (
-      This       : access IPath_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-   begin
-      return Hr;
-   end;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IPath_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Shapes.IPath");
-   begin
-      className.all := InterfaceName;
-      return Hr;
-   end;
-   
-   function GetTrustLevel
-   (
-      This       : access IPath_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
-   begin
-      trustLevel.all := FullTrust;
-      return Hr;
-   end;
-   
-   function get_Data
-   (
-      This       : access IPath_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.IGeometry
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   function put_Data
-   (
-      This       : access IPath_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.IGeometry
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      return Hr;
-   end;
-   
-   ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Shapes.IShape is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Shapes.IShape;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FillProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FillProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeMiterLimitProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeMiterLimitProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeThicknessProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeStartLineCapProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeStartLineCapProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeEndLineCapProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeEndLineCapProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeLineJoinProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeLineJoinProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeDashOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeDashOffsetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeDashCapProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeDashCapProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StrokeDashArrayProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeDashArrayProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StretchProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
-      m_Factory     : IShapeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StretchProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function get_X1Property
    return Windows.UI.Xaml.IDependencyProperty is
@@ -999,6 +791,214 @@ package body Windows.UI.Xaml.Shapes is
       Hr := RoGetActivationFactory(m_hString, IID_IRectangleStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_RadiusYProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Shapes.IShape is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Shapes.IShape;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FillProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FillProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeMiterLimitProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeMiterLimitProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeThicknessProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeThicknessProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeStartLineCapProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeStartLineCapProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeEndLineCapProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeEndLineCapProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeLineJoinProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeLineJoinProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeDashOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeDashOffsetProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeDashCapProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeDashCapProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeDashArrayProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeDashArrayProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StretchProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Shape");
+      m_Factory     : IShapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StretchProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

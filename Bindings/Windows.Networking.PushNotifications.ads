@@ -73,6 +73,18 @@ package Windows.Networking.PushNotifications is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IPushNotificationChannel_Interface;
+   type IAsyncOperation_IPushNotificationChannel is access all IAsyncOperation_IPushNotificationChannel_Interface'Class;
+   type IAsyncOperation_IPushNotificationChannel_Ptr is access all IAsyncOperation_IPushNotificationChannel;
+   type IPushNotificationChannel_Interface;
+   type IPushNotificationChannel is access all IPushNotificationChannel_Interface'Class;
+   type IPushNotificationChannel_Ptr is access all IPushNotificationChannel;
+   type IPushNotificationChannelManagerForUser_Interface;
+   type IPushNotificationChannelManagerForUser is access all IPushNotificationChannelManagerForUser_Interface'Class;
+   type IPushNotificationChannelManagerForUser_Ptr is access all IPushNotificationChannelManagerForUser;
+   type IPushNotificationChannelManagerForUser2_Interface;
+   type IPushNotificationChannelManagerForUser2 is access all IPushNotificationChannelManagerForUser2_Interface'Class;
+   type IPushNotificationChannelManagerForUser2_Ptr is access all IPushNotificationChannelManagerForUser2;
    type IPushNotificationChannelManagerStatics_Interface;
    type IPushNotificationChannelManagerStatics is access all IPushNotificationChannelManagerStatics_Interface'Class;
    type IPushNotificationChannelManagerStatics_Ptr is access all IPushNotificationChannelManagerStatics;
@@ -82,15 +94,6 @@ package Windows.Networking.PushNotifications is
    type IPushNotificationChannelManagerStatics3_Interface;
    type IPushNotificationChannelManagerStatics3 is access all IPushNotificationChannelManagerStatics3_Interface'Class;
    type IPushNotificationChannelManagerStatics3_Ptr is access all IPushNotificationChannelManagerStatics3;
-   type IPushNotificationChannelManagerForUser_Interface;
-   type IPushNotificationChannelManagerForUser is access all IPushNotificationChannelManagerForUser_Interface'Class;
-   type IPushNotificationChannelManagerForUser_Ptr is access all IPushNotificationChannelManagerForUser;
-   type IPushNotificationChannelManagerForUser2_Interface;
-   type IPushNotificationChannelManagerForUser2 is access all IPushNotificationChannelManagerForUser2_Interface'Class;
-   type IPushNotificationChannelManagerForUser2_Ptr is access all IPushNotificationChannelManagerForUser2;
-   type IPushNotificationChannel_Interface;
-   type IPushNotificationChannel is access all IPushNotificationChannel_Interface'Class;
-   type IPushNotificationChannel_Ptr is access all IPushNotificationChannel;
    type IPushNotificationReceivedEventArgs_Interface;
    type IPushNotificationReceivedEventArgs is access all IPushNotificationReceivedEventArgs_Interface'Class;
    type IPushNotificationReceivedEventArgs_Ptr is access all IPushNotificationReceivedEventArgs;
@@ -100,9 +103,6 @@ package Windows.Networking.PushNotifications is
    type IRawNotification2_Interface;
    type IRawNotification2 is access all IRawNotification2_Interface'Class;
    type IRawNotification2_Ptr is access all IRawNotification2;
-   type IAsyncOperation_IPushNotificationChannel_Interface;
-   type IAsyncOperation_IPushNotificationChannel is access all IAsyncOperation_IPushNotificationChannel_Interface'Class;
-   type IAsyncOperation_IPushNotificationChannel_Ptr is access all IAsyncOperation_IPushNotificationChannel;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -110,57 +110,69 @@ package Windows.Networking.PushNotifications is
    
    ------------------------------------------------------------------------
    
-   IID_IPushNotificationChannelManagerStatics : aliased constant Windows.IID := (2343541605, 30625, 17800, (189, 25, 134, 21, 41, 169, 220, 240 ));
+   IID_IAsyncOperation_IPushNotificationChannel : aliased constant Windows.IID := (1888770569, 13082, 24128, (184, 84, 102, 183, 163, 35, 59, 171 ));
    
-   type IPushNotificationChannelManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IPushNotificationChannel_Interface is interface and Windows.IInspectable_Interface;
    
-   function CreatePushNotificationChannelForApplicationAsync
+   function put_Completed
    (
-      This       : access IPushNotificationChannelManagerStatics_Interface
-      ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
+      This       : access IAsyncOperation_IPushNotificationChannel_Interface
+      ; handler : Windows.Networking.PushNotifications.AsyncOperationCompletedHandler_IPushNotificationChannel
    )
    return Windows.HRESULT is abstract;
    
-   function CreatePushNotificationChannelForApplicationAsyncWithId
+   function get_Completed
    (
-      This       : access IPushNotificationChannelManagerStatics_Interface
-      ; applicationId : Windows.String
-      ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
+      This       : access IAsyncOperation_IPushNotificationChannel_Interface
+      ; RetVal : access Windows.Networking.PushNotifications.AsyncOperationCompletedHandler_IPushNotificationChannel
    )
    return Windows.HRESULT is abstract;
    
-   function CreatePushNotificationChannelForSecondaryTileAsync
+   function GetResults
    (
-      This       : access IPushNotificationChannelManagerStatics_Interface
-      ; tileId : Windows.String
-      ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPushNotificationChannelManagerStatics2 : aliased constant Windows.IID := (3024397917, 42985, 19240, (149, 14, 243, 117, 169, 7, 249, 223 ));
-   
-   type IPushNotificationChannelManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetForUser
-   (
-      This       : access IPushNotificationChannelManagerStatics2_Interface
-      ; user : Windows.System.IUser
-      ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser
+      This       : access IAsyncOperation_IPushNotificationChannel_Interface
+      ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannel
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IPushNotificationChannelManagerStatics3 : aliased constant Windows.IID := (1191313150, 3806, 19007, (174, 120, 191, 164, 113, 73, 105, 37 ));
+   IID_IPushNotificationChannel : aliased constant Windows.IID := (724045870, 61195, 20281, (155, 138, 163, 193, 148, 222, 112, 129 ));
    
-   type IPushNotificationChannelManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   type IPushNotificationChannel_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDefault
+   function get_Uri
    (
-      This       : access IPushNotificationChannelManagerStatics3_Interface
-      ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser
+      This       : access IPushNotificationChannel_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpirationTime
+   (
+      This       : access IPushNotificationChannel_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Close
+   (
+      This       : access IPushNotificationChannel_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_PushNotificationReceived
+   (
+      This       : access IPushNotificationChannel_Interface
+      ; handler : TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_PushNotificationReceived
+   (
+      This       : access IPushNotificationChannel_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -227,42 +239,57 @@ package Windows.Networking.PushNotifications is
    
    ------------------------------------------------------------------------
    
-   IID_IPushNotificationChannel : aliased constant Windows.IID := (724045870, 61195, 20281, (155, 138, 163, 193, 148, 222, 112, 129 ));
+   IID_IPushNotificationChannelManagerStatics : aliased constant Windows.IID := (2343541605, 30625, 17800, (189, 25, 134, 21, 41, 169, 220, 240 ));
    
-   type IPushNotificationChannel_Interface is interface and Windows.IInspectable_Interface;
+   type IPushNotificationChannelManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Uri
+   function CreatePushNotificationChannelForApplicationAsync
    (
-      This       : access IPushNotificationChannel_Interface
-      ; RetVal : access Windows.String
+      This       : access IPushNotificationChannelManagerStatics_Interface
+      ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_ExpirationTime
+   function CreatePushNotificationChannelForApplicationAsyncWithId
    (
-      This       : access IPushNotificationChannel_Interface
-      ; RetVal : access Windows.Foundation.DateTime
+      This       : access IPushNotificationChannelManagerStatics_Interface
+      ; applicationId : Windows.String
+      ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function Close
+   function CreatePushNotificationChannelForSecondaryTileAsync
    (
-      This       : access IPushNotificationChannel_Interface
+      This       : access IPushNotificationChannelManagerStatics_Interface
+      ; tileId : Windows.String
+      ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function add_PushNotificationReceived
+   ------------------------------------------------------------------------
+   
+   IID_IPushNotificationChannelManagerStatics2 : aliased constant Windows.IID := (3024397917, 42985, 19240, (149, 14, 243, 117, 169, 7, 249, 223 ));
+   
+   type IPushNotificationChannelManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUser
    (
-      This       : access IPushNotificationChannel_Interface
-      ; handler : TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access IPushNotificationChannelManagerStatics2_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser
    )
    return Windows.HRESULT is abstract;
    
-   function remove_PushNotificationReceived
+   ------------------------------------------------------------------------
+   
+   IID_IPushNotificationChannelManagerStatics3 : aliased constant Windows.IID := (1191313150, 3806, 19007, (174, 120, 191, 164, 113, 73, 105, 37 ));
+   
+   type IPushNotificationChannelManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
    (
-      This       : access IPushNotificationChannel_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
+      This       : access IPushNotificationChannelManagerStatics3_Interface
+      ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser
    )
    return Windows.HRESULT is abstract;
    
@@ -351,33 +378,6 @@ package Windows.Networking.PushNotifications is
    (
       This       : access IRawNotification2_Interface
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IPushNotificationChannel : aliased constant Windows.IID := (1888770569, 13082, 24128, (184, 84, 102, 183, 163, 35, 59, 171 ));
-   
-   type IAsyncOperation_IPushNotificationChannel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IPushNotificationChannel_Interface
-      ; handler : Windows.Networking.PushNotifications.AsyncOperationCompletedHandler_IPushNotificationChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IPushNotificationChannel_Interface
-      ; RetVal : access Windows.Networking.PushNotifications.AsyncOperationCompletedHandler_IPushNotificationChannel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IPushNotificationChannel_Interface
-      ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannel
    )
    return Windows.HRESULT is abstract;
    

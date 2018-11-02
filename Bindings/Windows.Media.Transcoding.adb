@@ -40,8 +40,8 @@ package body Windows.Media.Transcoding is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface
-      ; asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason
+      This       : access AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface
+      ; asyncInfo : Windows.Media.Transcoding.IAsyncOperation_IPrepareTranscodeResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -53,8 +53,8 @@ package body Windows.Media.Transcoding is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface
-      ; asyncInfo : Windows.Media.Transcoding.IAsyncOperation_IPrepareTranscodeResult
+      This       : access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface
+      ; asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is

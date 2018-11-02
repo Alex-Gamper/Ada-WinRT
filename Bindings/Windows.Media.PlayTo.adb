@@ -37,118 +37,14 @@ package body Windows.Media.PlayTo is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
+      This       : access TypedEventHandler_IPlayToConnection_add_Error_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToConnection
+      ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.ISourceChangeRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.IMuteChangeRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToReceiver
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
+      This.Callback(Windows.Media.PlayTo.IPlayToConnection(sender), Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs(args));
       return Hr;
    end;
    
@@ -180,19 +76,6 @@ package body Windows.Media.PlayTo is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IPlayToConnection_add_Error_Interface
-      ; sender : Windows.Media.PlayTo.IPlayToConnection
-      ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.PlayTo.IPlayToConnection(sender), Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IPlayToManager_add_SourceRequested_Interface
       ; sender : Windows.Media.PlayTo.IPlayToManager
       ; args : Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs
@@ -214,6 +97,123 @@ package body Windows.Media.PlayTo is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.PlayTo.IPlayToManager(sender), Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.IMuteChangeRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.ISourceChangeRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface
+      ; sender : Windows.Media.PlayTo.IPlayToReceiver
+      ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.PlayTo.IPlayToReceiver(sender), Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs(args));
       return Hr;
    end;
    

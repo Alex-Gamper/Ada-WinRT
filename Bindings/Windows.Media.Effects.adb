@@ -46,19 +46,6 @@ package body Windows.Media.Effects is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface
-      ; sender : Windows.Media.Effects.IAudioRenderEffectsManager
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Effects.IAudioRenderEffectsManager(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface
       ; sender : Windows.Media.Effects.IAudioCaptureEffectsManager
       ; args : Windows.Object
@@ -70,6 +57,19 @@ package body Windows.Media.Effects is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface
+      ; sender : Windows.Media.Effects.IAudioRenderEffectsManager
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Effects.IAudioRenderEffectsManager(sender), args);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
@@ -78,6 +78,64 @@ package body Windows.Media.Effects is
    (
       activatableClassId : Windows.String
    )
+   return Windows.Media.Effects.IAudioEffectDefinition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectDefinition");
+      m_Factory     : Windows.Media.Effects.IAudioEffectDefinitionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Effects.IAudioEffectDefinition := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectDefinitionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(activatableClassId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithProperties
+   (
+      activatableClassId : Windows.String
+      ; props : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.Media.Effects.IAudioEffectDefinition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectDefinition");
+      m_Factory     : Windows.Media.Effects.IAudioEffectDefinitionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Effects.IAudioEffectDefinition := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectDefinitionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithProperties(activatableClassId, props, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Media.Effects.ISlowMotionEffectDefinition is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Effects.SlowMotionEffectDefinition");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Effects.ISlowMotionEffectDefinition) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Effects.IID_ISlowMotionEffectDefinition'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      activatableClassId : Windows.String
+   )
    return Windows.Media.Effects.IVideoCompositorDefinition is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Effects.VideoCompositorDefinition");
@@ -148,47 +206,6 @@ package body Windows.Media.Effects is
       RetVal        : aliased Windows.Media.Effects.IVideoEffectDefinition := null;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IVideoEffectDefinitionFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithProperties(activatableClassId, props, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      activatableClassId : Windows.String
-   )
-   return Windows.Media.Effects.IAudioEffectDefinition is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectDefinition");
-      m_Factory     : Windows.Media.Effects.IAudioEffectDefinitionFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Effects.IAudioEffectDefinition := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectDefinitionFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(activatableClassId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWithProperties
-   (
-      activatableClassId : Windows.String
-      ; props : Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.Media.Effects.IAudioEffectDefinition is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectDefinition");
-      m_Factory     : Windows.Media.Effects.IAudioEffectDefinitionFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Effects.IAudioEffectDefinition := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectDefinitionFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithProperties(activatableClassId, props, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -208,23 +225,6 @@ package body Windows.Media.Effects is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Media.Effects.IID_IVideoEffectDefinition'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Effects.ISlowMotionEffectDefinition is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Effects.SlowMotionEffectDefinition");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Effects.ISlowMotionEffectDefinition) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Effects.IID_ISlowMotionEffectDefinition'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

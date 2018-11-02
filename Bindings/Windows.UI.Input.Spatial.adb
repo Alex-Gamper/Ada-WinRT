@@ -42,53 +42,14 @@ package body Windows.UI.Input.Spatial is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs
+      ; args : Windows.UI.Input.Spatial.ISpatialHoldCanceledEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded_Interface
-      ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_Tapped_Interface
-      ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialTappedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialTappedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted_Interface
-      ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialHoldStartedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialHoldStartedEventArgs(args));
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialHoldCanceledEventArgs(args));
       return Hr;
    end;
    
@@ -107,14 +68,40 @@ package body Windows.UI.Input.Spatial is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled_Interface
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialHoldCanceledEventArgs
+      ; args : Windows.UI.Input.Spatial.ISpatialHoldStartedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialHoldCanceledEventArgs(args));
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialHoldStartedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled_Interface
+      ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
+      ; args : Windows.UI.Input.Spatial.ISpatialManipulationCanceledEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialManipulationCanceledEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted_Interface
+      ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
+      ; args : Windows.UI.Input.Spatial.ISpatialManipulationCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialManipulationCompletedEventArgs(args));
       return Hr;
    end;
    
@@ -146,27 +133,27 @@ package body Windows.UI.Input.Spatial is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted_Interface
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialManipulationCompletedEventArgs
+      ; args : Windows.UI.Input.Spatial.ISpatialNavigationCanceledEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialManipulationCompletedEventArgs(args));
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialNavigationCanceledEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled_Interface
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialManipulationCanceledEventArgs
+      ; args : Windows.UI.Input.Spatial.ISpatialNavigationCompletedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialManipulationCanceledEventArgs(args));
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialNavigationCompletedEventArgs(args));
       return Hr;
    end;
    
@@ -198,27 +185,53 @@ package body Windows.UI.Input.Spatial is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted_Interface
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialNavigationCompletedEventArgs
+      ; args : Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialNavigationCompletedEventArgs(args));
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled_Interface
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
-      ; args : Windows.UI.Input.Spatial.ISpatialNavigationCanceledEventArgs
+      ; args : Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialNavigationCanceledEventArgs(args));
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialGestureRecognizer_add_Tapped_Interface
+      ; sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer
+      ; args : Windows.UI.Input.Spatial.ISpatialTappedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Spatial.ISpatialGestureRecognizer(sender), Windows.UI.Input.Spatial.ISpatialTappedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected_Interface
+      ; sender : Windows.UI.Input.Spatial.ISpatialInteractionManager
+      ; args : Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Spatial.ISpatialInteractionManager(sender), Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs(args));
       return Hr;
    end;
    
@@ -238,19 +251,6 @@ package body Windows.UI.Input.Spatial is
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialInteractionManager_add_SourceLost_Interface
-      ; sender : Windows.UI.Input.Spatial.ISpatialInteractionManager
-      ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialInteractionManager(sender), Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialInteractionManager
       ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs
    )
@@ -289,14 +289,14 @@ package body Windows.UI.Input.Spatial is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected_Interface
+      This       : access TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated_Interface
       ; sender : Windows.UI.Input.Spatial.ISpatialInteractionManager
-      ; args : Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs
+      ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.Spatial.ISpatialInteractionManager(sender), Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs(args));
+      This.Callback(Windows.UI.Input.Spatial.ISpatialInteractionManager(sender), Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs(args));
       return Hr;
    end;
    
@@ -332,6 +332,23 @@ package body Windows.UI.Input.Spatial is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetForCurrentView
+   return Windows.UI.Input.Spatial.ISpatialInteractionManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Spatial.SpatialInteractionManager");
+      m_Factory     : ISpatialInteractionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.Spatial.ISpatialInteractionManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialInteractionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function TryGetAtTimestamp
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
@@ -347,23 +364,6 @@ package body Windows.UI.Input.Spatial is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialPointerPoseStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryGetAtTimestamp(coordinateSystem, timestamp, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
-   return Windows.UI.Input.Spatial.ISpatialInteractionManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Spatial.SpatialInteractionManager");
-      m_Factory     : ISpatialInteractionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Spatial.ISpatialInteractionManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialInteractionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

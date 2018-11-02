@@ -70,51 +70,126 @@ package Windows.UI.Popups is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type UICommandInvokedHandler_Interface;
-   type UICommandInvokedHandler is access all UICommandInvokedHandler_Interface'Class;
-   type UICommandInvokedHandler_Ptr is access all UICommandInvokedHandler;
    type AsyncOperationCompletedHandler_IUICommand_Interface;
    type AsyncOperationCompletedHandler_IUICommand is access all AsyncOperationCompletedHandler_IUICommand_Interface'Class;
    type AsyncOperationCompletedHandler_IUICommand_Ptr is access all AsyncOperationCompletedHandler_IUICommand;
+   type UICommandInvokedHandler_Interface;
+   type UICommandInvokedHandler is access all UICommandInvokedHandler_Interface'Class;
+   type UICommandInvokedHandler_Ptr is access all UICommandInvokedHandler;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IUICommand_Interface;
+   type IAsyncOperation_IUICommand is access all IAsyncOperation_IUICommand_Interface'Class;
+   type IAsyncOperation_IUICommand_Ptr is access all IAsyncOperation_IUICommand;
+   type IIterable_IUICommand_Interface;
+   type IIterable_IUICommand is access all IIterable_IUICommand_Interface'Class;
+   type IIterable_IUICommand_Ptr is access all IIterable_IUICommand;
+   type IIterator_IUICommand_Interface;
+   type IIterator_IUICommand is access all IIterator_IUICommand_Interface'Class;
+   type IIterator_IUICommand_Ptr is access all IIterator_IUICommand;
    type IMessageDialog_Interface;
    type IMessageDialog is access all IMessageDialog_Interface'Class;
    type IMessageDialog_Ptr is access all IMessageDialog;
    type IMessageDialogFactory_Interface;
    type IMessageDialogFactory is access all IMessageDialogFactory_Interface'Class;
    type IMessageDialogFactory_Ptr is access all IMessageDialogFactory;
+   type IPopupMenu_Interface;
+   type IPopupMenu is access all IPopupMenu_Interface'Class;
+   type IPopupMenu_Ptr is access all IPopupMenu;
    type IUICommand_Interface;
    type IUICommand is access all IUICommand_Interface'Class;
    type IUICommand_Ptr is access all IUICommand;
    type IUICommandFactory_Interface;
    type IUICommandFactory is access all IUICommandFactory_Interface'Class;
    type IUICommandFactory_Ptr is access all IUICommandFactory;
-   type IPopupMenu_Interface;
-   type IPopupMenu is access all IPopupMenu_Interface'Class;
-   type IPopupMenu_Ptr is access all IPopupMenu;
-   type IIterator_IUICommand_Interface;
-   type IIterator_IUICommand is access all IIterator_IUICommand_Interface'Class;
-   type IIterator_IUICommand_Ptr is access all IIterator_IUICommand;
-   type IIterable_IUICommand_Interface;
-   type IIterable_IUICommand is access all IIterable_IUICommand_Interface'Class;
-   type IIterable_IUICommand_Ptr is access all IIterable_IUICommand;
-   type IVectorView_IUICommand_Interface;
-   type IVectorView_IUICommand is access all IVectorView_IUICommand_Interface'Class;
-   type IVectorView_IUICommand_Ptr is access all IVectorView_IUICommand;
    type IVector_IUICommand_Interface;
    type IVector_IUICommand is access all IVector_IUICommand_Interface'Class;
    type IVector_IUICommand_Ptr is access all IVector_IUICommand;
-   type IAsyncOperation_IUICommand_Interface;
-   type IAsyncOperation_IUICommand is access all IAsyncOperation_IUICommand_Interface'Class;
-   type IAsyncOperation_IUICommand_Ptr is access all IAsyncOperation_IUICommand;
+   type IVectorView_IUICommand_Interface;
+   type IVectorView_IUICommand is access all IVectorView_IUICommand_Interface'Class;
+   type IVectorView_IUICommand_Ptr is access all IVectorView_IUICommand;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUICommand : aliased constant Windows.IID := (3094807861, 27211, 21169, (181, 120, 243, 205, 197, 0, 122, 31 ));
+   
+   type IAsyncOperation_IUICommand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IUICommand_Interface
+      ; handler : Windows.UI.Popups.AsyncOperationCompletedHandler_IUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IUICommand_Interface
+      ; RetVal : access Windows.UI.Popups.AsyncOperationCompletedHandler_IUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IUICommand_Interface
+      ; RetVal : access Windows.UI.Popups.IUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IUICommand : aliased constant Windows.IID := (3862815787, 21443, 24071, (144, 211, 152, 23, 45, 84, 84, 18 ));
+   
+   type IIterable_IUICommand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IUICommand_Interface
+      ; RetVal : access Windows.UI.Popups.IIterator_IUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IUICommand : aliased constant Windows.IID := (4099781587, 29337, 22478, (167, 62, 41, 124, 240, 175, 48, 131 ));
+   
+   type IIterator_IUICommand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IUICommand_Interface
+      ; RetVal : access Windows.UI.Popups.IUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IUICommand_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IUICommand_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IUICommand_Interface
+      ; items : Windows.UI.Popups.IUICommand_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -231,6 +306,44 @@ package Windows.UI.Popups is
    
    ------------------------------------------------------------------------
    
+   IID_IPopupMenu : aliased constant Windows.IID := (1318831836, 34829, 18428, (160, 161, 114, 182, 57, 230, 37, 89 ));
+   
+   type IPopupMenu_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Commands
+   (
+      This       : access IPopupMenu_Interface
+      ; RetVal : access Windows.UI.Popups.IVector_IUICommand -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAsync
+   (
+      This       : access IPopupMenu_Interface
+      ; invocationPoint : Windows.Foundation.Point
+      ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAsyncWithRect
+   (
+      This       : access IPopupMenu_Interface
+      ; selection : Windows.Foundation.Rect
+      ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAsyncWithRectAndPlacement
+   (
+      This       : access IPopupMenu_Interface
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUICommand : aliased constant Windows.IID := (1341733493, 16709, 18431, (172, 127, 223, 241, 193, 250, 91, 15 ));
    
    type IUICommand_Interface is interface and Windows.IInspectable_Interface;
@@ -307,131 +420,6 @@ package Windows.UI.Popups is
       ; action : Windows.UI.Popups.UICommandInvokedHandler
       ; commandId : Windows.Object
       ; RetVal : access Windows.UI.Popups.IUICommand
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPopupMenu : aliased constant Windows.IID := (1318831836, 34829, 18428, (160, 161, 114, 182, 57, 230, 37, 89 ));
-   
-   type IPopupMenu_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Commands
-   (
-      This       : access IPopupMenu_Interface
-      ; RetVal : access Windows.UI.Popups.IVector_IUICommand -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAsync
-   (
-      This       : access IPopupMenu_Interface
-      ; invocationPoint : Windows.Foundation.Point
-      ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAsyncWithRect
-   (
-      This       : access IPopupMenu_Interface
-      ; selection : Windows.Foundation.Rect
-      ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ShowAsyncWithRectAndPlacement
-   (
-      This       : access IPopupMenu_Interface
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IUICommand : aliased constant Windows.IID := (4099781587, 29337, 22478, (167, 62, 41, 124, 240, 175, 48, 131 ));
-   
-   type IIterator_IUICommand_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IUICommand_Interface
-      ; RetVal : access Windows.UI.Popups.IUICommand
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IUICommand_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IUICommand_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IUICommand_Interface
-      ; items : Windows.UI.Popups.IUICommand_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IUICommand : aliased constant Windows.IID := (3862815787, 21443, 24071, (144, 211, 152, 23, 45, 84, 84, 18 ));
-   
-   type IIterable_IUICommand_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IUICommand_Interface
-      ; RetVal : access Windows.UI.Popups.IIterator_IUICommand
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IUICommand : aliased constant Windows.IID := (3977340390, 62327, 23296, (129, 114, 147, 193, 189, 4, 222, 180 ));
-   
-   type IVectorView_IUICommand_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IUICommand_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Popups.IUICommand
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IUICommand_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IUICommand_Interface
-      ; value : Windows.UI.Popups.IUICommand
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IUICommand_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Popups.IUICommand_Ptr
-      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -532,46 +520,46 @@ package Windows.UI.Popups is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IUICommand : aliased constant Windows.IID := (3094807861, 27211, 21169, (181, 120, 243, 205, 197, 0, 122, 31 ));
+   IID_IVectorView_IUICommand : aliased constant Windows.IID := (3977340390, 62327, 23296, (129, 114, 147, 193, 189, 4, 222, 180 ));
    
-   type IAsyncOperation_IUICommand_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IUICommand_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetAt
    (
-      This       : access IAsyncOperation_IUICommand_Interface
-      ; handler : Windows.UI.Popups.AsyncOperationCompletedHandler_IUICommand
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IUICommand_Interface
-      ; RetVal : access Windows.UI.Popups.AsyncOperationCompletedHandler_IUICommand
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IUICommand_Interface
+      This       : access IVectorView_IUICommand_Interface
+      ; index : Windows.UInt32
       ; RetVal : access Windows.UI.Popups.IUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IUICommand_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IUICommand_Interface
+      ; value : Windows.UI.Popups.IUICommand
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IUICommand_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Popups.IUICommand_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_UICommandInvokedHandler : aliased constant Windows.IID := (3673651791, 49786, 17048, (154, 198, 41, 34, 196, 94, 125, 166 ));
-   
-   type UICommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.Popups.IUICommand)) is new Windows.IMulticastDelegate_Interface(IID_UICommandInvokedHandler'access) with null record;
-   function Invoke
-   (
-      This       : access UICommandInvokedHandler_Interface
-      ; command : Windows.UI.Popups.IUICommand
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -583,6 +571,18 @@ package Windows.UI.Popups is
       This       : access AsyncOperationCompletedHandler_IUICommand_Interface
       ; asyncInfo : Windows.UI.Popups.IAsyncOperation_IUICommand
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_UICommandInvokedHandler : aliased constant Windows.IID := (3673651791, 49786, 17048, (154, 198, 41, 34, 196, 94, 125, 166 ));
+   
+   type UICommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.Popups.IUICommand)) is new Windows.IMulticastDelegate_Interface(IID_UICommandInvokedHandler'access) with null record;
+   function Invoke
+   (
+      This       : access UICommandInvokedHandler_Interface
+      ; command : Windows.UI.Popups.IUICommand
    )
    return Windows.HRESULT;
    
@@ -603,6 +603,9 @@ package Windows.UI.Popups is
       ; title : Windows.String
    )
    return Windows.UI.Popups.IMessageDialog;
+   
+   subtype PopupMenu is Windows.UI.Popups.IPopupMenu;
+   function Create return Windows.UI.Popups.IPopupMenu;
    
    subtype UICommand is Windows.UI.Popups.IUICommand;
    function Create return Windows.UI.Popups.IUICommand;
@@ -630,9 +633,6 @@ package Windows.UI.Popups is
    
    subtype UICommandSeparator is Windows.UI.Popups.IUICommand;
    function CreateUICommandSeparator return Windows.UI.Popups.IUICommand;
-   
-   subtype PopupMenu is Windows.UI.Popups.IPopupMenu;
-   function Create return Windows.UI.Popups.IPopupMenu;
    
    
    ------------------------------------------------------------------------

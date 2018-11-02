@@ -44,6 +44,20 @@ package Windows.Devices.Bluetooth is
    -- Enums
    ------------------------------------------------------------------------
    
+   type BluetoothAddressType is (
+      Public,
+      Random,
+      Unspecified
+   );
+   for BluetoothAddressType use (
+      Public => 0,
+      Random => 1,
+      Unspecified => 2
+   );
+   for BluetoothAddressType'Size use 32;
+   
+   type BluetoothAddressType_Ptr is access BluetoothAddressType;
+   
    type BluetoothCacheMode is (
       Cached,
       Uncached
@@ -55,6 +69,46 @@ package Windows.Devices.Bluetooth is
    for BluetoothCacheMode'Size use 32;
    
    type BluetoothCacheMode_Ptr is access BluetoothCacheMode;
+   
+   type BluetoothConnectionStatus is (
+      Disconnected,
+      Connected
+   );
+   for BluetoothConnectionStatus use (
+      Disconnected => 0,
+      Connected => 1
+   );
+   for BluetoothConnectionStatus'Size use 32;
+   
+   type BluetoothConnectionStatus_Ptr is access BluetoothConnectionStatus;
+   
+   type BluetoothError is (
+      Success,
+      RadioNotAvailable,
+      ResourceInUse,
+      DeviceNotConnected,
+      OtherError,
+      DisabledByPolicy,
+      NotSupported,
+      DisabledByUser,
+      ConsentRequired,
+      TransportNotSupported
+   );
+   for BluetoothError use (
+      Success => 0,
+      RadioNotAvailable => 1,
+      ResourceInUse => 2,
+      DeviceNotConnected => 3,
+      OtherError => 4,
+      DisabledByPolicy => 5,
+      NotSupported => 6,
+      DisabledByUser => 7,
+      ConsentRequired => 8,
+      TransportNotSupported => 9
+   );
+   for BluetoothError'Size use 32;
+   
+   type BluetoothError_Ptr is access BluetoothError;
    
    type BluetoothMajorClass is (
       Miscellaneous,
@@ -117,60 +171,6 @@ package Windows.Devices.Bluetooth is
    
    type BluetoothServiceCapabilities_Ptr is access BluetoothServiceCapabilities;
    
-   type BluetoothConnectionStatus is (
-      Disconnected,
-      Connected
-   );
-   for BluetoothConnectionStatus use (
-      Disconnected => 0,
-      Connected => 1
-   );
-   for BluetoothConnectionStatus'Size use 32;
-   
-   type BluetoothConnectionStatus_Ptr is access BluetoothConnectionStatus;
-   
-   type BluetoothError is (
-      Success,
-      RadioNotAvailable,
-      ResourceInUse,
-      DeviceNotConnected,
-      OtherError,
-      DisabledByPolicy,
-      NotSupported,
-      DisabledByUser,
-      ConsentRequired,
-      TransportNotSupported
-   );
-   for BluetoothError use (
-      Success => 0,
-      RadioNotAvailable => 1,
-      ResourceInUse => 2,
-      DeviceNotConnected => 3,
-      OtherError => 4,
-      DisabledByPolicy => 5,
-      NotSupported => 6,
-      DisabledByUser => 7,
-      ConsentRequired => 8,
-      TransportNotSupported => 9
-   );
-   for BluetoothError'Size use 32;
-   
-   type BluetoothError_Ptr is access BluetoothError;
-   
-   type BluetoothAddressType is (
-      Public,
-      Random,
-      Unspecified
-   );
-   for BluetoothAddressType use (
-      Public => 0,
-      Random => 1,
-      Unspecified => 2
-   );
-   for BluetoothAddressType'Size use 32;
-   
-   type BluetoothAddressType_Ptr is access BluetoothAddressType;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -181,56 +181,56 @@ package Windows.Devices.Bluetooth is
    type AsyncOperationCompletedHandler_IBluetoothDevice_Interface;
    type AsyncOperationCompletedHandler_IBluetoothDevice is access all AsyncOperationCompletedHandler_IBluetoothDevice_Interface'Class;
    type AsyncOperationCompletedHandler_IBluetoothDevice_Ptr is access all AsyncOperationCompletedHandler_IBluetoothDevice;
+   type AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface;
+   type AsyncOperationCompletedHandler_IBluetoothLEDevice is access all AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface'Class;
+   type AsyncOperationCompletedHandler_IBluetoothLEDevice_Ptr is access all AsyncOperationCompletedHandler_IBluetoothLEDevice;
+   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface;
+   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged is access all TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface'Class;
+   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Ptr is access all TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged;
    type TypedEventHandler_IBluetoothDevice_add_NameChanged_Interface;
    type TypedEventHandler_IBluetoothDevice_add_NameChanged is access all TypedEventHandler_IBluetoothDevice_add_NameChanged_Interface'Class;
    type TypedEventHandler_IBluetoothDevice_add_NameChanged_Ptr is access all TypedEventHandler_IBluetoothDevice_add_NameChanged;
    type TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged_Interface;
    type TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged is access all TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged_Interface'Class;
    type TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged_Ptr is access all TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged;
-   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface;
-   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged is access all TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface'Class;
-   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Ptr is access all TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged;
-   type AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface;
-   type AsyncOperationCompletedHandler_IBluetoothLEDevice is access all AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface'Class;
-   type AsyncOperationCompletedHandler_IBluetoothLEDevice_Ptr is access all AsyncOperationCompletedHandler_IBluetoothLEDevice;
-   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface;
-   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged is access all TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface'Class;
-   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Ptr is access all TypedEventHandler_IBluetoothLEDevice_add_NameChanged;
-   type TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface;
-   type TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged is access all TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface'Class;
-   type TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Ptr is access all TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged;
    type TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface;
    type TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged is access all TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface'Class;
    type TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Ptr is access all TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged;
+   type TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface;
+   type TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged is access all TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface'Class;
+   type TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Ptr is access all TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged;
+   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface;
+   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged is access all TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface'Class;
+   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Ptr is access all TypedEventHandler_IBluetoothLEDevice_add_NameChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IBluetoothAdapterStatics_Interface;
-   type IBluetoothAdapterStatics is access all IBluetoothAdapterStatics_Interface'Class;
-   type IBluetoothAdapterStatics_Ptr is access all IBluetoothAdapterStatics;
+   type IAsyncOperation_IBluetoothAdapter_Interface;
+   type IAsyncOperation_IBluetoothAdapter is access all IAsyncOperation_IBluetoothAdapter_Interface'Class;
+   type IAsyncOperation_IBluetoothAdapter_Ptr is access all IAsyncOperation_IBluetoothAdapter;
+   type IAsyncOperation_IBluetoothDevice_Interface;
+   type IAsyncOperation_IBluetoothDevice is access all IAsyncOperation_IBluetoothDevice_Interface'Class;
+   type IAsyncOperation_IBluetoothDevice_Ptr is access all IAsyncOperation_IBluetoothDevice;
+   type IAsyncOperation_IBluetoothLEDevice_Interface;
+   type IAsyncOperation_IBluetoothLEDevice is access all IAsyncOperation_IBluetoothLEDevice_Interface'Class;
+   type IAsyncOperation_IBluetoothLEDevice_Ptr is access all IAsyncOperation_IBluetoothLEDevice;
    type IBluetoothAdapter_Interface;
    type IBluetoothAdapter is access all IBluetoothAdapter_Interface'Class;
    type IBluetoothAdapter_Ptr is access all IBluetoothAdapter;
    type IBluetoothAdapter2_Interface;
    type IBluetoothAdapter2 is access all IBluetoothAdapter2_Interface'Class;
    type IBluetoothAdapter2_Ptr is access all IBluetoothAdapter2;
-   type IBluetoothDeviceIdStatics_Interface;
-   type IBluetoothDeviceIdStatics is access all IBluetoothDeviceIdStatics_Interface'Class;
-   type IBluetoothDeviceIdStatics_Ptr is access all IBluetoothDeviceIdStatics;
-   type IBluetoothDeviceId_Interface;
-   type IBluetoothDeviceId is access all IBluetoothDeviceId_Interface'Class;
-   type IBluetoothDeviceId_Ptr is access all IBluetoothDeviceId;
-   type IBluetoothUuidHelperStatics_Interface;
-   type IBluetoothUuidHelperStatics is access all IBluetoothUuidHelperStatics_Interface'Class;
-   type IBluetoothUuidHelperStatics_Ptr is access all IBluetoothUuidHelperStatics;
-   type IBluetoothDeviceStatics_Interface;
-   type IBluetoothDeviceStatics is access all IBluetoothDeviceStatics_Interface'Class;
-   type IBluetoothDeviceStatics_Ptr is access all IBluetoothDeviceStatics;
-   type IBluetoothDeviceStatics2_Interface;
-   type IBluetoothDeviceStatics2 is access all IBluetoothDeviceStatics2_Interface'Class;
-   type IBluetoothDeviceStatics2_Ptr is access all IBluetoothDeviceStatics2;
+   type IBluetoothAdapterStatics_Interface;
+   type IBluetoothAdapterStatics is access all IBluetoothAdapterStatics_Interface'Class;
+   type IBluetoothAdapterStatics_Ptr is access all IBluetoothAdapterStatics;
+   type IBluetoothClassOfDevice_Interface;
+   type IBluetoothClassOfDevice is access all IBluetoothClassOfDevice_Interface'Class;
+   type IBluetoothClassOfDevice_Ptr is access all IBluetoothClassOfDevice;
+   type IBluetoothClassOfDeviceStatics_Interface;
+   type IBluetoothClassOfDeviceStatics is access all IBluetoothClassOfDeviceStatics_Interface'Class;
+   type IBluetoothClassOfDeviceStatics_Ptr is access all IBluetoothClassOfDeviceStatics;
    type IBluetoothDevice_Interface;
    type IBluetoothDevice is access all IBluetoothDevice_Interface'Class;
    type IBluetoothDevice_Ptr is access all IBluetoothDevice;
@@ -246,24 +246,30 @@ package Windows.Devices.Bluetooth is
    type IBluetoothDevice5_Interface;
    type IBluetoothDevice5 is access all IBluetoothDevice5_Interface'Class;
    type IBluetoothDevice5_Ptr is access all IBluetoothDevice5;
-   type IBluetoothLEAppearanceCategoriesStatics_Interface;
-   type IBluetoothLEAppearanceCategoriesStatics is access all IBluetoothLEAppearanceCategoriesStatics_Interface'Class;
-   type IBluetoothLEAppearanceCategoriesStatics_Ptr is access all IBluetoothLEAppearanceCategoriesStatics;
-   type IBluetoothLEAppearanceSubcategoriesStatics_Interface;
-   type IBluetoothLEAppearanceSubcategoriesStatics is access all IBluetoothLEAppearanceSubcategoriesStatics_Interface'Class;
-   type IBluetoothLEAppearanceSubcategoriesStatics_Ptr is access all IBluetoothLEAppearanceSubcategoriesStatics;
+   type IBluetoothDeviceId_Interface;
+   type IBluetoothDeviceId is access all IBluetoothDeviceId_Interface'Class;
+   type IBluetoothDeviceId_Ptr is access all IBluetoothDeviceId;
+   type IBluetoothDeviceIdStatics_Interface;
+   type IBluetoothDeviceIdStatics is access all IBluetoothDeviceIdStatics_Interface'Class;
+   type IBluetoothDeviceIdStatics_Ptr is access all IBluetoothDeviceIdStatics;
+   type IBluetoothDeviceStatics_Interface;
+   type IBluetoothDeviceStatics is access all IBluetoothDeviceStatics_Interface'Class;
+   type IBluetoothDeviceStatics_Ptr is access all IBluetoothDeviceStatics;
+   type IBluetoothDeviceStatics2_Interface;
+   type IBluetoothDeviceStatics2 is access all IBluetoothDeviceStatics2_Interface'Class;
+   type IBluetoothDeviceStatics2_Ptr is access all IBluetoothDeviceStatics2;
    type IBluetoothLEAppearance_Interface;
    type IBluetoothLEAppearance is access all IBluetoothLEAppearance_Interface'Class;
    type IBluetoothLEAppearance_Ptr is access all IBluetoothLEAppearance;
+   type IBluetoothLEAppearanceCategoriesStatics_Interface;
+   type IBluetoothLEAppearanceCategoriesStatics is access all IBluetoothLEAppearanceCategoriesStatics_Interface'Class;
+   type IBluetoothLEAppearanceCategoriesStatics_Ptr is access all IBluetoothLEAppearanceCategoriesStatics;
    type IBluetoothLEAppearanceStatics_Interface;
    type IBluetoothLEAppearanceStatics is access all IBluetoothLEAppearanceStatics_Interface'Class;
    type IBluetoothLEAppearanceStatics_Ptr is access all IBluetoothLEAppearanceStatics;
-   type IBluetoothLEDeviceStatics_Interface;
-   type IBluetoothLEDeviceStatics is access all IBluetoothLEDeviceStatics_Interface'Class;
-   type IBluetoothLEDeviceStatics_Ptr is access all IBluetoothLEDeviceStatics;
-   type IBluetoothLEDeviceStatics2_Interface;
-   type IBluetoothLEDeviceStatics2 is access all IBluetoothLEDeviceStatics2_Interface'Class;
-   type IBluetoothLEDeviceStatics2_Ptr is access all IBluetoothLEDeviceStatics2;
+   type IBluetoothLEAppearanceSubcategoriesStatics_Interface;
+   type IBluetoothLEAppearanceSubcategoriesStatics is access all IBluetoothLEAppearanceSubcategoriesStatics_Interface'Class;
+   type IBluetoothLEAppearanceSubcategoriesStatics_Ptr is access all IBluetoothLEAppearanceSubcategoriesStatics;
    type IBluetoothLEDevice_Interface;
    type IBluetoothLEDevice is access all IBluetoothLEDevice_Interface'Class;
    type IBluetoothLEDevice_Ptr is access all IBluetoothLEDevice;
@@ -279,24 +285,18 @@ package Windows.Devices.Bluetooth is
    type IBluetoothLEDevice5_Interface;
    type IBluetoothLEDevice5 is access all IBluetoothLEDevice5_Interface'Class;
    type IBluetoothLEDevice5_Ptr is access all IBluetoothLEDevice5;
-   type IBluetoothClassOfDevice_Interface;
-   type IBluetoothClassOfDevice is access all IBluetoothClassOfDevice_Interface'Class;
-   type IBluetoothClassOfDevice_Ptr is access all IBluetoothClassOfDevice;
-   type IBluetoothClassOfDeviceStatics_Interface;
-   type IBluetoothClassOfDeviceStatics is access all IBluetoothClassOfDeviceStatics_Interface'Class;
-   type IBluetoothClassOfDeviceStatics_Ptr is access all IBluetoothClassOfDeviceStatics;
+   type IBluetoothLEDeviceStatics_Interface;
+   type IBluetoothLEDeviceStatics is access all IBluetoothLEDeviceStatics_Interface'Class;
+   type IBluetoothLEDeviceStatics_Ptr is access all IBluetoothLEDeviceStatics;
+   type IBluetoothLEDeviceStatics2_Interface;
+   type IBluetoothLEDeviceStatics2 is access all IBluetoothLEDeviceStatics2_Interface'Class;
+   type IBluetoothLEDeviceStatics2_Ptr is access all IBluetoothLEDeviceStatics2;
    type IBluetoothSignalStrengthFilter_Interface;
    type IBluetoothSignalStrengthFilter is access all IBluetoothSignalStrengthFilter_Interface'Class;
    type IBluetoothSignalStrengthFilter_Ptr is access all IBluetoothSignalStrengthFilter;
-   type IAsyncOperation_IBluetoothAdapter_Interface;
-   type IAsyncOperation_IBluetoothAdapter is access all IAsyncOperation_IBluetoothAdapter_Interface'Class;
-   type IAsyncOperation_IBluetoothAdapter_Ptr is access all IAsyncOperation_IBluetoothAdapter;
-   type IAsyncOperation_IBluetoothDevice_Interface;
-   type IAsyncOperation_IBluetoothDevice is access all IAsyncOperation_IBluetoothDevice_Interface'Class;
-   type IAsyncOperation_IBluetoothDevice_Ptr is access all IAsyncOperation_IBluetoothDevice;
-   type IAsyncOperation_IBluetoothLEDevice_Interface;
-   type IAsyncOperation_IBluetoothLEDevice is access all IAsyncOperation_IBluetoothLEDevice_Interface'Class;
-   type IAsyncOperation_IBluetoothLEDevice_Ptr is access all IAsyncOperation_IBluetoothLEDevice;
+   type IBluetoothUuidHelperStatics_Interface;
+   type IBluetoothUuidHelperStatics is access all IBluetoothUuidHelperStatics_Interface'Class;
+   type IBluetoothUuidHelperStatics_Ptr is access all IBluetoothUuidHelperStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -304,29 +304,82 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
-   IID_IBluetoothAdapterStatics : aliased constant Windows.IID := (2332228458, 44108, 18241, (134, 97, 142, 171, 125, 23, 234, 159 ));
+   IID_IAsyncOperation_IBluetoothAdapter : aliased constant Windows.IID := (1190979340, 27655, 23098, (183, 117, 38, 249, 148, 2, 85, 63 ));
    
-   type IBluetoothAdapterStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IBluetoothAdapter_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDeviceSelector
+   function put_Completed
    (
-      This       : access IBluetoothAdapterStatics_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IBluetoothAdapter_Interface
+      ; handler : Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothAdapter
    )
    return Windows.HRESULT is abstract;
    
-   function FromIdAsync
+   function get_Completed
    (
-      This       : access IBluetoothAdapterStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter -- Generic Parameter Type
+      This       : access IAsyncOperation_IBluetoothAdapter_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothAdapter
    )
    return Windows.HRESULT is abstract;
    
-   function GetDefaultAsync
+   function GetResults
    (
-      This       : access IBluetoothAdapterStatics_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter -- Generic Parameter Type
+      This       : access IAsyncOperation_IBluetoothAdapter_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothAdapter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBluetoothDevice : aliased constant Windows.IID := (3045952793, 17597, 23232, (160, 214, 27, 80, 128, 15, 49, 129 ));
+   
+   type IAsyncOperation_IBluetoothDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IBluetoothDevice_Interface
+      ; handler : Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IBluetoothDevice_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IBluetoothDevice_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBluetoothLEDevice : aliased constant Windows.IID := (929013095, 29858, 24465, (161, 29, 22, 144, 147, 113, 141, 65 ));
+   
+   type IAsyncOperation_IBluetoothLEDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IBluetoothLEDevice_Interface
+      ; handler : Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothLEDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IBluetoothLEDevice_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothLEDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IBluetoothLEDevice_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEDevice
    )
    return Windows.HRESULT is abstract;
    
@@ -414,147 +467,87 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
-   IID_IBluetoothDeviceIdStatics : aliased constant Windows.IID := (2810728039, 16123, 20273, (187, 194, 129, 14, 9, 151, 116, 4 ));
+   IID_IBluetoothAdapterStatics : aliased constant Windows.IID := (2332228458, 44108, 18241, (134, 97, 142, 171, 125, 23, 234, 159 ));
    
-   type IBluetoothDeviceIdStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromId
-   (
-      This       : access IBluetoothDeviceIdStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDeviceId
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBluetoothDeviceId : aliased constant Windows.IID := (3245951407, 22465, 17986, (188, 206, 230, 192, 107, 32, 174, 118 ));
-   
-   type IBluetoothDeviceId_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IBluetoothDeviceId_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsClassicDevice
-   (
-      This       : access IBluetoothDeviceId_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsLowEnergyDevice
-   (
-      This       : access IBluetoothDeviceId_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBluetoothUuidHelperStatics : aliased constant Windows.IID := (400493784, 53108, 19233, (175, 230, 245, 122, 17, 188, 222, 160 ));
-   
-   type IBluetoothUuidHelperStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromShortId
-   (
-      This       : access IBluetoothUuidHelperStatics_Interface
-      ; shortId : Windows.UInt32
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryGetShortId
-   (
-      This       : access IBluetoothUuidHelperStatics_Interface
-      ; uuid : Windows.Guid
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBluetoothDeviceStatics : aliased constant Windows.IID := (160554833, 22491, 18213, (187, 215, 132, 246, 67, 39, 236, 44 ));
-   
-   type IBluetoothDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromIdAsync
-   (
-      This       : access IBluetoothDeviceStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromHostNameAsync
-   (
-      This       : access IBluetoothDeviceStatics_Interface
-      ; hostName : Windows.Networking.IHostName
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromBluetoothAddressAsync
-   (
-      This       : access IBluetoothDeviceStatics_Interface
-      ; address : Windows.UInt64
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
+   type IBluetoothAdapterStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
    (
-      This       : access IBluetoothDeviceStatics_Interface
+      This       : access IBluetoothAdapterStatics_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access IBluetoothAdapterStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDefaultAsync
+   (
+      This       : access IBluetoothAdapterStatics_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBluetoothDeviceStatics2 : aliased constant Windows.IID := (3265170991, 19988, 17527, (170, 27, 184, 180, 126, 91, 126, 206 ));
+   IID_IBluetoothClassOfDevice : aliased constant Windows.IID := (3594527358, 55255, 18017, (148, 84, 101, 3, 156, 161, 122, 43 ));
    
-   type IBluetoothDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
+   type IBluetoothClassOfDevice_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDeviceSelectorFromPairingState
+   function get_RawValue
    (
-      This       : access IBluetoothDeviceStatics2_Interface
-      ; pairingState : Windows.Boolean
-      ; RetVal : access Windows.String
+      This       : access IBluetoothClassOfDevice_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelectorFromConnectionStatus
+   function get_MajorClass
    (
-      This       : access IBluetoothDeviceStatics2_Interface
-      ; connectionStatus : Windows.Devices.Bluetooth.BluetoothConnectionStatus
-      ; RetVal : access Windows.String
+      This       : access IBluetoothClassOfDevice_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.BluetoothMajorClass
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelectorFromDeviceName
+   function get_MinorClass
    (
-      This       : access IBluetoothDeviceStatics2_Interface
-      ; deviceName : Windows.String
-      ; RetVal : access Windows.String
+      This       : access IBluetoothClassOfDevice_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.BluetoothMinorClass
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelectorFromBluetoothAddress
+   function get_ServiceCapabilities
    (
-      This       : access IBluetoothDeviceStatics2_Interface
-      ; bluetoothAddress : Windows.UInt64
-      ; RetVal : access Windows.String
+      This       : access IBluetoothClassOfDevice_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.BluetoothServiceCapabilities
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelectorFromClassOfDevice
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothClassOfDeviceStatics : aliased constant Windows.IID := (3831575997, 4002, 16748, (145, 180, 193, 228, 140, 160, 97, 193 ));
+   
+   type IBluetoothClassOfDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromRawValue
    (
-      This       : access IBluetoothDeviceStatics2_Interface
-      ; classOfDevice : Windows.Devices.Bluetooth.IBluetoothClassOfDevice
-      ; RetVal : access Windows.String
+      This       : access IBluetoothClassOfDeviceStatics_Interface
+      ; rawValue : Windows.UInt32
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothClassOfDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromParts
+   (
+      This       : access IBluetoothClassOfDeviceStatics_Interface
+      ; majorClass : Windows.Devices.Bluetooth.BluetoothMajorClass
+      ; minorClass : Windows.Devices.Bluetooth.BluetoothMinorClass
+      ; serviceCapabilities : Windows.Devices.Bluetooth.BluetoothServiceCapabilities
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothClassOfDevice
    )
    return Windows.HRESULT is abstract;
    
@@ -758,6 +751,157 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
+   IID_IBluetoothDeviceId : aliased constant Windows.IID := (3245951407, 22465, 17986, (188, 206, 230, 192, 107, 32, 174, 118 ));
+   
+   type IBluetoothDeviceId_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IBluetoothDeviceId_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsClassicDevice
+   (
+      This       : access IBluetoothDeviceId_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsLowEnergyDevice
+   (
+      This       : access IBluetoothDeviceId_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothDeviceIdStatics : aliased constant Windows.IID := (2810728039, 16123, 20273, (187, 194, 129, 14, 9, 151, 116, 4 ));
+   
+   type IBluetoothDeviceIdStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromId
+   (
+      This       : access IBluetoothDeviceIdStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDeviceId
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothDeviceStatics : aliased constant Windows.IID := (160554833, 22491, 18213, (187, 215, 132, 246, 67, 39, 236, 44 ));
+   
+   type IBluetoothDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromIdAsync
+   (
+      This       : access IBluetoothDeviceStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromHostNameAsync
+   (
+      This       : access IBluetoothDeviceStatics_Interface
+      ; hostName : Windows.Networking.IHostName
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromBluetoothAddressAsync
+   (
+      This       : access IBluetoothDeviceStatics_Interface
+      ; address : Windows.UInt64
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelector
+   (
+      This       : access IBluetoothDeviceStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothDeviceStatics2 : aliased constant Windows.IID := (3265170991, 19988, 17527, (170, 27, 184, 180, 126, 91, 126, 206 ));
+   
+   type IBluetoothDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelectorFromPairingState
+   (
+      This       : access IBluetoothDeviceStatics2_Interface
+      ; pairingState : Windows.Boolean
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromConnectionStatus
+   (
+      This       : access IBluetoothDeviceStatics2_Interface
+      ; connectionStatus : Windows.Devices.Bluetooth.BluetoothConnectionStatus
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromDeviceName
+   (
+      This       : access IBluetoothDeviceStatics2_Interface
+      ; deviceName : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromBluetoothAddress
+   (
+      This       : access IBluetoothDeviceStatics2_Interface
+      ; bluetoothAddress : Windows.UInt64
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromClassOfDevice
+   (
+      This       : access IBluetoothDeviceStatics2_Interface
+      ; classOfDevice : Windows.Devices.Bluetooth.IBluetoothClassOfDevice
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothLEAppearance : aliased constant Windows.IID := (1562409458, 26280, 16984, (152, 94, 2, 180, 217, 80, 159, 24 ));
+   
+   type IBluetoothLEAppearance_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RawValue
+   (
+      This       : access IBluetoothLEAppearance_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Category
+   (
+      This       : access IBluetoothLEAppearance_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SubCategory
+   (
+      This       : access IBluetoothLEAppearance_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBluetoothLEAppearanceCategoriesStatics : aliased constant Windows.IID := (1833784574, 1130, 16773, (170, 182, 130, 76, 240, 97, 8, 97 ));
    
    type IBluetoothLEAppearanceCategoriesStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -913,6 +1057,29 @@ package Windows.Devices.Bluetooth is
    (
       This       : access IBluetoothLEAppearanceCategoriesStatics_Interface
       ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothLEAppearanceStatics : aliased constant Windows.IID := (2710814919, 17668, 20298, (155, 165, 205, 16, 84, 229, 224, 101 ));
+   
+   type IBluetoothLEAppearanceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromRawValue
+   (
+      This       : access IBluetoothLEAppearanceStatics_Interface
+      ; rawValue : Windows.UInt16
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEAppearance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromParts
+   (
+      This       : access IBluetoothLEAppearanceStatics_Interface
+      ; appearanceCategory : Windows.UInt16
+      ; appearanceSubCategory : Windows.UInt16
+      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEAppearance
    )
    return Windows.HRESULT is abstract;
    
@@ -1120,149 +1287,6 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
-   IID_IBluetoothLEAppearance : aliased constant Windows.IID := (1562409458, 26280, 16984, (152, 94, 2, 180, 217, 80, 159, 24 ));
-   
-   type IBluetoothLEAppearance_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_RawValue
-   (
-      This       : access IBluetoothLEAppearance_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Category
-   (
-      This       : access IBluetoothLEAppearance_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SubCategory
-   (
-      This       : access IBluetoothLEAppearance_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBluetoothLEAppearanceStatics : aliased constant Windows.IID := (2710814919, 17668, 20298, (155, 165, 205, 16, 84, 229, 224, 101 ));
-   
-   type IBluetoothLEAppearanceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromRawValue
-   (
-      This       : access IBluetoothLEAppearanceStatics_Interface
-      ; rawValue : Windows.UInt16
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEAppearance
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromParts
-   (
-      This       : access IBluetoothLEAppearanceStatics_Interface
-      ; appearanceCategory : Windows.UInt16
-      ; appearanceSubCategory : Windows.UInt16
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEAppearance
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBluetoothLEDeviceStatics : aliased constant Windows.IID := (3369015833, 61622, 19440, (134, 137, 65, 48, 61, 226, 217, 244 ));
-   
-   type IBluetoothLEDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromIdAsync
-   (
-      This       : access IBluetoothLEDeviceStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromBluetoothAddressAsync
-   (
-      This       : access IBluetoothLEDeviceStatics_Interface
-      ; bluetoothAddress : Windows.UInt64
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeviceSelector
-   (
-      This       : access IBluetoothLEDeviceStatics_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBluetoothLEDeviceStatics2 : aliased constant Windows.IID := (1595064427, 15276, 17384, (173, 22, 86, 50, 113, 189, 65, 194 ));
-   
-   type IBluetoothLEDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDeviceSelectorFromPairingState
-   (
-      This       : access IBluetoothLEDeviceStatics2_Interface
-      ; pairingState : Windows.Boolean
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeviceSelectorFromConnectionStatus
-   (
-      This       : access IBluetoothLEDeviceStatics2_Interface
-      ; connectionStatus : Windows.Devices.Bluetooth.BluetoothConnectionStatus
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeviceSelectorFromDeviceName
-   (
-      This       : access IBluetoothLEDeviceStatics2_Interface
-      ; deviceName : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeviceSelectorFromBluetoothAddress
-   (
-      This       : access IBluetoothLEDeviceStatics2_Interface
-      ; bluetoothAddress : Windows.UInt64
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType
-   (
-      This       : access IBluetoothLEDeviceStatics2_Interface
-      ; bluetoothAddress : Windows.UInt64
-      ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetDeviceSelectorFromAppearance
-   (
-      This       : access IBluetoothLEDeviceStatics2_Interface
-      ; appearance : Windows.Devices.Bluetooth.IBluetoothLEAppearance
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromBluetoothAddressWithBluetoothAddressTypeAsync
-   (
-      This       : access IBluetoothLEDeviceStatics2_Interface
-      ; bluetoothAddress : Windows.UInt64
-      ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
-      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IBluetoothLEDevice : aliased constant Windows.IID := (3052285819, 19160, 17986, (172, 72, 128, 160, 181, 0, 232, 135 ));
    
    type IBluetoothLEDevice_Interface is interface and Windows.IInspectable_Interface;
@@ -1462,59 +1486,94 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
-   IID_IBluetoothClassOfDevice : aliased constant Windows.IID := (3594527358, 55255, 18017, (148, 84, 101, 3, 156, 161, 122, 43 ));
+   IID_IBluetoothLEDeviceStatics : aliased constant Windows.IID := (3369015833, 61622, 19440, (134, 137, 65, 48, 61, 226, 217, 244 ));
    
-   type IBluetoothClassOfDevice_Interface is interface and Windows.IInspectable_Interface;
+   type IBluetoothLEDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_RawValue
+   function FromIdAsync
    (
-      This       : access IBluetoothClassOfDevice_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IBluetoothLEDeviceStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_MajorClass
+   function FromBluetoothAddressAsync
    (
-      This       : access IBluetoothClassOfDevice_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.BluetoothMajorClass
+      This       : access IBluetoothLEDeviceStatics_Interface
+      ; bluetoothAddress : Windows.UInt64
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_MinorClass
+   function GetDeviceSelector
    (
-      This       : access IBluetoothClassOfDevice_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.BluetoothMinorClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ServiceCapabilities
-   (
-      This       : access IBluetoothClassOfDevice_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.BluetoothServiceCapabilities
+      This       : access IBluetoothLEDeviceStatics_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IBluetoothClassOfDeviceStatics : aliased constant Windows.IID := (3831575997, 4002, 16748, (145, 180, 193, 228, 140, 160, 97, 193 ));
+   IID_IBluetoothLEDeviceStatics2 : aliased constant Windows.IID := (1595064427, 15276, 17384, (173, 22, 86, 50, 113, 189, 65, 194 ));
    
-   type IBluetoothClassOfDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IBluetoothLEDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
    
-   function FromRawValue
+   function GetDeviceSelectorFromPairingState
    (
-      This       : access IBluetoothClassOfDeviceStatics_Interface
-      ; rawValue : Windows.UInt32
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothClassOfDevice
+      This       : access IBluetoothLEDeviceStatics2_Interface
+      ; pairingState : Windows.Boolean
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function FromParts
+   function GetDeviceSelectorFromConnectionStatus
    (
-      This       : access IBluetoothClassOfDeviceStatics_Interface
-      ; majorClass : Windows.Devices.Bluetooth.BluetoothMajorClass
-      ; minorClass : Windows.Devices.Bluetooth.BluetoothMinorClass
-      ; serviceCapabilities : Windows.Devices.Bluetooth.BluetoothServiceCapabilities
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothClassOfDevice
+      This       : access IBluetoothLEDeviceStatics2_Interface
+      ; connectionStatus : Windows.Devices.Bluetooth.BluetoothConnectionStatus
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromDeviceName
+   (
+      This       : access IBluetoothLEDeviceStatics2_Interface
+      ; deviceName : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromBluetoothAddress
+   (
+      This       : access IBluetoothLEDeviceStatics2_Interface
+      ; bluetoothAddress : Windows.UInt64
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType
+   (
+      This       : access IBluetoothLEDeviceStatics2_Interface
+      ; bluetoothAddress : Windows.UInt64
+      ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorFromAppearance
+   (
+      This       : access IBluetoothLEDeviceStatics2_Interface
+      ; appearance : Windows.Devices.Bluetooth.IBluetoothLEAppearance
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromBluetoothAddressWithBluetoothAddressTypeAsync
+   (
+      This       : access IBluetoothLEDeviceStatics2_Interface
+      ; bluetoothAddress : Windows.UInt64
+      ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
+      ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1582,82 +1641,23 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IBluetoothAdapter : aliased constant Windows.IID := (1190979340, 27655, 23098, (183, 117, 38, 249, 148, 2, 85, 63 ));
+   IID_IBluetoothUuidHelperStatics : aliased constant Windows.IID := (400493784, 53108, 19233, (175, 230, 245, 122, 17, 188, 222, 160 ));
    
-   type IAsyncOperation_IBluetoothAdapter_Interface is interface and Windows.IInspectable_Interface;
+   type IBluetoothUuidHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function FromShortId
    (
-      This       : access IAsyncOperation_IBluetoothAdapter_Interface
-      ; handler : Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothAdapter
+      This       : access IBluetoothUuidHelperStatics_Interface
+      ; shortId : Windows.UInt32
+      ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function TryGetShortId
    (
-      This       : access IAsyncOperation_IBluetoothAdapter_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothAdapter
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBluetoothAdapter_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothAdapter
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IBluetoothDevice : aliased constant Windows.IID := (3045952793, 17597, 23232, (160, 214, 27, 80, 128, 15, 49, 129 ));
-   
-   type IAsyncOperation_IBluetoothDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IBluetoothDevice_Interface
-      ; handler : Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IBluetoothDevice_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBluetoothDevice_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IBluetoothLEDevice : aliased constant Windows.IID := (929013095, 29858, 24465, (161, 29, 22, 144, 147, 113, 141, 65 ));
-   
-   type IAsyncOperation_IBluetoothLEDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IBluetoothLEDevice_Interface
-      ; handler : Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothLEDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IBluetoothLEDevice_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.AsyncOperationCompletedHandler_IBluetoothLEDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IBluetoothLEDevice_Interface
-      ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEDevice
+      This       : access IBluetoothUuidHelperStatics_Interface
+      ; uuid : Windows.Guid
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1693,6 +1693,32 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IBluetoothLEDevice : aliased constant Windows.IID := (2438379423, 50506, 21111, (143, 139, 210, 204, 67, 199, 224, 4 ));
+   
+   type AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBluetoothLEDevice'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface
+      ; asyncInfo : Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (3679899164, 24223, 20792, (146, 39, 177, 166, 109, 96, 188, 27 ));
+   
+   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface
+      ; sender : Windows.Devices.Bluetooth.IBluetoothDevice
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IBluetoothDevice_add_NameChanged : aliased constant Windows.IID := (3679899164, 24223, 20792, (146, 39, 177, 166, 109, 96, 188, 27 ));
    
    type TypedEventHandler_IBluetoothDevice_add_NameChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothDevice_add_NameChanged'access) with null record;
@@ -1719,38 +1745,12 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (3679899164, 24223, 20792, (146, 39, 177, 166, 109, 96, 188, 27 ));
+   IID_TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (2835767778, 14126, 23838, (187, 187, 184, 162, 206, 14, 124, 77 ));
    
-   type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged'access) with null record;
+   type TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothLEDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface
-      ; sender : Windows.Devices.Bluetooth.IBluetoothDevice
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IBluetoothLEDevice : aliased constant Windows.IID := (2438379423, 50506, 21111, (143, 139, 210, 204, 67, 199, 224, 4 ));
-   
-   type AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBluetoothLEDevice'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface
-      ; asyncInfo : Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IBluetoothLEDevice_add_NameChanged : aliased constant Windows.IID := (2835767778, 14126, 23838, (187, 187, 184, 162, 206, 14, 124, 77 ));
-   
-   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothLEDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothLEDevice_add_NameChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface
+      This       : access TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface
       ; sender : Windows.Devices.Bluetooth.IBluetoothLEDevice
       ; args : Windows.Object
    )
@@ -1771,12 +1771,12 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (2835767778, 14126, 23838, (187, 187, 184, 162, 206, 14, 124, 77 ));
+   IID_TypedEventHandler_IBluetoothLEDevice_add_NameChanged : aliased constant Windows.IID := (2835767778, 14126, 23838, (187, 187, 184, 162, 206, 14, 124, 77 ));
    
-   type TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothLEDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged'access) with null record;
+   type TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothLEDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothLEDevice_add_NameChanged'access) with null record;
    function Invoke
    (
-      This       : access TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface
+      This       : access TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface
       ; sender : Windows.Devices.Bluetooth.IBluetoothLEDevice
       ; args : Windows.Object
    )
@@ -1787,9 +1787,9 @@ package Windows.Devices.Bluetooth is
    ------------------------------------------------------------------------
    
    subtype BluetoothAdapter is Windows.Devices.Bluetooth.IBluetoothAdapter;
-   subtype BluetoothDeviceId is Windows.Devices.Bluetooth.IBluetoothDeviceId;
-   subtype BluetoothDevice is Windows.Devices.Bluetooth.IBluetoothDevice;
    subtype BluetoothClassOfDevice is Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
+   subtype BluetoothDevice is Windows.Devices.Bluetooth.IBluetoothDevice;
+   subtype BluetoothDeviceId is Windows.Devices.Bluetooth.IBluetoothDeviceId;
    subtype BluetoothLEAppearance is Windows.Devices.Bluetooth.IBluetoothLEAppearance;
    subtype BluetoothLEDevice is Windows.Devices.Bluetooth.IBluetoothLEDevice;
    subtype BluetoothSignalStrengthFilter is Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter;
@@ -1812,23 +1812,19 @@ package Windows.Devices.Bluetooth is
    function GetDefaultAsync
    return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter;
    
-   function FromId
+   function FromRawValue
    (
-      deviceId : Windows.String
+      rawValue : Windows.UInt32
    )
-   return Windows.Devices.Bluetooth.IBluetoothDeviceId;
+   return Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
    
-   function FromShortId
+   function FromParts
    (
-      shortId : Windows.UInt32
+      majorClass : Windows.Devices.Bluetooth.BluetoothMajorClass
+      ; minorClass : Windows.Devices.Bluetooth.BluetoothMinorClass
+      ; serviceCapabilities : Windows.Devices.Bluetooth.BluetoothServiceCapabilities
    )
-   return Windows.Guid;
-   
-   function TryGetShortId
-   (
-      uuid : Windows.Guid
-   )
-   return Windows.Foundation.IReference_UInt32;
+   return Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
    
    function GetDeviceSelectorFromPairingState
    (
@@ -1881,19 +1877,24 @@ package Windows.Devices.Bluetooth is
    function GetDeviceSelector_IBluetoothDevice
    return Windows.String;
    
+   function FromId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.IBluetoothDeviceId;
+   
    function FromRawValue
    (
-      rawValue : Windows.UInt32
+      rawValue : Windows.UInt16
    )
-   return Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
+   return Windows.Devices.Bluetooth.IBluetoothLEAppearance;
    
    function FromParts
    (
-      majorClass : Windows.Devices.Bluetooth.BluetoothMajorClass
-      ; minorClass : Windows.Devices.Bluetooth.BluetoothMinorClass
-      ; serviceCapabilities : Windows.Devices.Bluetooth.BluetoothServiceCapabilities
+      appearanceCategory : Windows.UInt16
+      ; appearanceSubCategory : Windows.UInt16
    )
-   return Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
+   return Windows.Devices.Bluetooth.IBluetoothLEAppearance;
    
    function get_Uncategorized
    return Windows.UInt16;
@@ -2045,19 +2046,6 @@ package Windows.Devices.Bluetooth is
    function get_LocationNavigationPod
    return Windows.UInt16;
    
-   function FromRawValue
-   (
-      rawValue : Windows.UInt16
-   )
-   return Windows.Devices.Bluetooth.IBluetoothLEAppearance;
-   
-   function FromParts
-   (
-      appearanceCategory : Windows.UInt16
-      ; appearanceSubCategory : Windows.UInt16
-   )
-   return Windows.Devices.Bluetooth.IBluetoothLEAppearance;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -2116,5 +2104,17 @@ package Windows.Devices.Bluetooth is
       ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
    )
    return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
+   
+   function FromShortId
+   (
+      shortId : Windows.UInt32
+   )
+   return Windows.Guid;
+   
+   function TryGetShortId
+   (
+      uuid : Windows.Guid
+   )
+   return Windows.Foundation.IReference_UInt32;
    
 end;

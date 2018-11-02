@@ -40,86 +40,8 @@ package body Windows.ApplicationModel.Email is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IEmailStore_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IEmailMailbox_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailbox
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IEmailConversation_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversation
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IEmailFolder_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailFolder
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IEmailMessage_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessage
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface
-      ; sender : Windows.ApplicationModel.Email.IEmailMailbox
-      ; args : Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.IEmailMailbox(sender), Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxAutoReplySettings
+      This       : access AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxDeleteFolderStatus
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -144,47 +66,8 @@ package body Windows.ApplicationModel.Email is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxCreateFolderResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxDeleteFolderStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface
-      ; sender : Windows.ApplicationModel.Email.IEmailMailboxSyncManager
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Email.IEmailMailboxSyncManager(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IEmailItemCounts_Interface
-      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailItemCounts
+      This       : access AsyncOperationCompletedHandler_IEmailConversation_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversation
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -209,6 +92,84 @@ package body Windows.ApplicationModel.Email is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IEmailFolder_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailFolder
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IEmailItemCounts_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailItemCounts
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IEmailMailbox_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailbox
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxAutoReplySettings
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxCreateFolderResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IEmailMessage_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessage
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IEmailMessageBatch_Interface
       ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessageBatch
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -220,9 +181,219 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IEmailStore_Interface
+      ; asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface
+      ; sender : Windows.ApplicationModel.Email.IEmailMailbox
+      ; args : Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.IEmailMailbox(sender), Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface
+      ; sender : Windows.ApplicationModel.Email.IEmailMailboxSyncManager
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Email.IEmailMailboxSyncManager(sender), args);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.ApplicationModel.Email.IEmailAttachment is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailAttachment) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailAttachment'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      fileName : Windows.String
+      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.ApplicationModel.Email.IEmailAttachment is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailAttachmentFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailAttachment := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailAttachmentFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(fileName, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      fileName : Windows.String
+      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; mimeType : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailAttachment is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailAttachmentFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailAttachment := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailAttachmentFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(fileName, data, mimeType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.ApplicationModel.Email.IEmailIrmInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailIrmInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailIrmInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      expiration : Windows.Foundation.DateTime
+      ; irmTemplate : Windows.ApplicationModel.Email.IEmailIrmTemplate
+   )
+   return Windows.ApplicationModel.Email.IEmailIrmInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmInfo");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailIrmInfoFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailIrmInfo := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailIrmInfoFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(expiration, irmTemplate, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.ApplicationModel.Email.IEmailIrmTemplate is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmTemplate");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailIrmTemplate) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailIrmTemplate'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      id : Windows.String
+      ; name : Windows.String
+      ; description : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailIrmTemplate is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmTemplate");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailIrmTemplateFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailIrmTemplate := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailIrmTemplateFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(id, name, description, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailMailboxAutoReplySettings'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.ApplicationModel.Email.IEmailMeetingInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailMeetingInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailMeetingInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailMeetingInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create return Windows.ApplicationModel.Email.IEmailMessage is
       Hr            : Windows.HResult := S_OK;
@@ -355,177 +526,6 @@ package body Windows.ApplicationModel.Email is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function Create return Windows.ApplicationModel.Email.IEmailIrmTemplate is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmTemplate");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailIrmTemplate) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailIrmTemplate'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create
-   (
-      id : Windows.String
-      ; name : Windows.String
-      ; description : Windows.String
-   )
-   return Windows.ApplicationModel.Email.IEmailIrmTemplate is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmTemplate");
-      m_Factory     : Windows.ApplicationModel.Email.IEmailIrmTemplateFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Email.IEmailIrmTemplate := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailIrmTemplateFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(id, name, description, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.ApplicationModel.Email.IEmailIrmInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailIrmInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailIrmInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create
-   (
-      expiration : Windows.Foundation.DateTime
-      ; irmTemplate : Windows.ApplicationModel.Email.IEmailIrmTemplate
-   )
-   return Windows.ApplicationModel.Email.IEmailIrmInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmInfo");
-      m_Factory     : Windows.ApplicationModel.Email.IEmailIrmInfoFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Email.IEmailIrmInfo := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailIrmInfoFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(expiration, irmTemplate, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.ApplicationModel.Email.IEmailAttachment is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailAttachment) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailAttachment'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create
-   (
-      fileName : Windows.String
-      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.ApplicationModel.Email.IEmailAttachment is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
-      m_Factory     : Windows.ApplicationModel.Email.IEmailAttachmentFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Email.IEmailAttachment := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailAttachmentFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(fileName, data, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      fileName : Windows.String
-      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
-      ; mimeType : Windows.String
-   )
-   return Windows.ApplicationModel.Email.IEmailAttachment is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
-      m_Factory     : Windows.ApplicationModel.Email.IEmailAttachmentFactory2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Email.IEmailAttachment := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailAttachmentFactory2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(fileName, data, mimeType, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.ApplicationModel.Email.IEmailMeetingInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailMeetingInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailMeetingInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailMeetingInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailMailboxAutoReplySettings'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
    end;
    
    function Create return Windows.ApplicationModel.Email.IEmailRecipientResolutionResult is

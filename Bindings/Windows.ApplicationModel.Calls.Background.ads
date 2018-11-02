@@ -49,26 +49,6 @@ package Windows.ApplicationModel.Calls.Background is
    
    type PhoneCallBlockedReason_Ptr is access PhoneCallBlockedReason;
    
-   type PhoneTriggerType is (
-      NewVoicemailMessage,
-      CallHistoryChanged,
-      LineChanged,
-      AirplaneModeDisabledForEmergencyCall,
-      CallOriginDataRequest,
-      CallBlocked
-   );
-   for PhoneTriggerType use (
-      NewVoicemailMessage => 0,
-      CallHistoryChanged => 1,
-      LineChanged => 2,
-      AirplaneModeDisabledForEmergencyCall => 3,
-      CallOriginDataRequest => 4,
-      CallBlocked => 5
-   );
-   for PhoneTriggerType'Size use 32;
-   
-   type PhoneTriggerType_Ptr is access PhoneTriggerType;
-   
    type PhoneLineChangeKind is (
       Added,
       Removed,
@@ -111,6 +91,26 @@ package Windows.ApplicationModel.Calls.Background is
    
    type PhoneLineProperties_Ptr is access PhoneLineProperties;
    
+   type PhoneTriggerType is (
+      NewVoicemailMessage,
+      CallHistoryChanged,
+      LineChanged,
+      AirplaneModeDisabledForEmergencyCall,
+      CallOriginDataRequest,
+      CallBlocked
+   );
+   for PhoneTriggerType use (
+      NewVoicemailMessage => 0,
+      CallHistoryChanged => 1,
+      LineChanged => 2,
+      AirplaneModeDisabledForEmergencyCall => 3,
+      CallOriginDataRequest => 4,
+      CallBlocked => 5
+   );
+   for PhoneTriggerType'Size use 32;
+   
+   type PhoneTriggerType_Ptr is access PhoneTriggerType;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -130,12 +130,12 @@ package Windows.ApplicationModel.Calls.Background is
    type IPhoneCallOriginDataRequestTriggerDetails_Interface;
    type IPhoneCallOriginDataRequestTriggerDetails is access all IPhoneCallOriginDataRequestTriggerDetails_Interface'Class;
    type IPhoneCallOriginDataRequestTriggerDetails_Ptr is access all IPhoneCallOriginDataRequestTriggerDetails;
-   type IPhoneNewVoicemailMessageTriggerDetails_Interface;
-   type IPhoneNewVoicemailMessageTriggerDetails is access all IPhoneNewVoicemailMessageTriggerDetails_Interface'Class;
-   type IPhoneNewVoicemailMessageTriggerDetails_Ptr is access all IPhoneNewVoicemailMessageTriggerDetails;
    type IPhoneLineChangedTriggerDetails_Interface;
    type IPhoneLineChangedTriggerDetails is access all IPhoneLineChangedTriggerDetails_Interface'Class;
    type IPhoneLineChangedTriggerDetails_Ptr is access all IPhoneLineChangedTriggerDetails;
+   type IPhoneNewVoicemailMessageTriggerDetails_Interface;
+   type IPhoneNewVoicemailMessageTriggerDetails is access all IPhoneNewVoicemailMessageTriggerDetails_Interface'Class;
+   type IPhoneNewVoicemailMessageTriggerDetails_Ptr is access all IPhoneNewVoicemailMessageTriggerDetails;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -190,33 +190,6 @@ package Windows.ApplicationModel.Calls.Background is
    
    ------------------------------------------------------------------------
    
-   IID_IPhoneNewVoicemailMessageTriggerDetails : aliased constant Windows.IID := (329826331, 47153, 18643, (139, 169, 141, 34, 166, 88, 13, 207 ));
-   
-   type IPhoneNewVoicemailMessageTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_LineId
-   (
-      This       : access IPhoneNewVoicemailMessageTriggerDetails_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_VoicemailCount
-   (
-      This       : access IPhoneNewVoicemailMessageTriggerDetails_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OperatorMessage
-   (
-      This       : access IPhoneNewVoicemailMessageTriggerDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPhoneLineChangedTriggerDetails : aliased constant Windows.IID := (3335725543, 53533, 16600, (178, 183, 228, 10, 1, 214, 98, 73 ));
    
    type IPhoneLineChangedTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
@@ -244,13 +217,40 @@ package Windows.ApplicationModel.Calls.Background is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IPhoneNewVoicemailMessageTriggerDetails : aliased constant Windows.IID := (329826331, 47153, 18643, (139, 169, 141, 34, 166, 88, 13, 207 ));
+   
+   type IPhoneNewVoicemailMessageTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LineId
+   (
+      This       : access IPhoneNewVoicemailMessageTriggerDetails_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VoicemailCount
+   (
+      This       : access IPhoneNewVoicemailMessageTriggerDetails_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OperatorMessage
+   (
+      This       : access IPhoneNewVoicemailMessageTriggerDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype PhoneCallBlockedTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneCallBlockedTriggerDetails;
    subtype PhoneCallOriginDataRequestTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneCallOriginDataRequestTriggerDetails;
-   subtype PhoneNewVoicemailMessageTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneNewVoicemailMessageTriggerDetails;
    subtype PhoneLineChangedTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails;
+   subtype PhoneNewVoicemailMessageTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneNewVoicemailMessageTriggerDetails;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

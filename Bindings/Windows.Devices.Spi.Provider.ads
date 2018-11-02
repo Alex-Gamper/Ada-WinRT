@@ -68,39 +68,25 @@ package Windows.Devices.Spi.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IProviderSpiConnectionSettingsFactory_Interface;
-   type IProviderSpiConnectionSettingsFactory is access all IProviderSpiConnectionSettingsFactory_Interface'Class;
-   type IProviderSpiConnectionSettingsFactory_Ptr is access all IProviderSpiConnectionSettingsFactory;
    type IProviderSpiConnectionSettings_Interface;
    type IProviderSpiConnectionSettings is access all IProviderSpiConnectionSettings_Interface'Class;
    type IProviderSpiConnectionSettings_Ptr is access all IProviderSpiConnectionSettings;
+   type IProviderSpiConnectionSettingsFactory_Interface;
+   type IProviderSpiConnectionSettingsFactory is access all IProviderSpiConnectionSettingsFactory_Interface'Class;
+   type IProviderSpiConnectionSettingsFactory_Ptr is access all IProviderSpiConnectionSettingsFactory;
    type ISpiControllerProvider_Interface;
    type ISpiControllerProvider is access all ISpiControllerProvider_Interface'Class;
    type ISpiControllerProvider_Ptr is access all ISpiControllerProvider;
-   type ISpiProvider_Interface;
-   type ISpiProvider is access all ISpiProvider_Interface'Class;
-   type ISpiProvider_Ptr is access all ISpiProvider;
    type ISpiDeviceProvider_Interface;
    type ISpiDeviceProvider is access all ISpiDeviceProvider_Interface'Class;
    type ISpiDeviceProvider_Ptr is access all ISpiDeviceProvider;
+   type ISpiProvider_Interface;
+   type ISpiProvider is access all ISpiProvider_Interface'Class;
+   type ISpiProvider_Ptr is access all ISpiProvider;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProviderSpiConnectionSettingsFactory : aliased constant Windows.IID := (1715825498, 3193, 17379, (159, 60, 229, 151, 128, 172, 24, 250 ));
-   
-   type IProviderSpiConnectionSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IProviderSpiConnectionSettingsFactory_Interface
-      ; chipSelectLine : Windows.Int32
-      ; RetVal : access Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -180,6 +166,20 @@ package Windows.Devices.Spi.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IProviderSpiConnectionSettingsFactory : aliased constant Windows.IID := (1715825498, 3193, 17379, (159, 60, 229, 151, 128, 172, 24, 250 ));
+   
+   type IProviderSpiConnectionSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IProviderSpiConnectionSettingsFactory_Interface
+      ; chipSelectLine : Windows.Int32
+      ; RetVal : access Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISpiControllerProvider : aliased constant Windows.IID := (3244844292, 718, 16934, (163, 133, 79, 17, 251, 4, 180, 27 ));
    
    type ISpiControllerProvider_Interface is interface and Windows.IInspectable_Interface;
@@ -189,19 +189,6 @@ package Windows.Devices.Spi.Provider is
       This       : access ISpiControllerProvider_Interface
       ; settings : Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings
       ; RetVal : access Windows.Devices.Spi.Provider.ISpiDeviceProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISpiProvider : aliased constant Windows.IID := (2528403938, 30676, 18638, (170, 160, 117, 113, 90, 131, 98, 207 ));
-   
-   type ISpiProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetControllersAsync
-   (
-      This       : access ISpiProvider_Interface
-      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -252,6 +239,19 @@ package Windows.Devices.Spi.Provider is
       This       : access ISpiDeviceProvider_Interface
       ; writeBuffer : Windows.UInt8_Ptr
       ; readBuffer : Windows.UInt8_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpiProvider : aliased constant Windows.IID := (2528403938, 30676, 18638, (170, 160, 117, 113, 90, 131, 98, 207 ));
+   
+   type ISpiProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetControllersAsync
+   (
+      This       : access ISpiProvider_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

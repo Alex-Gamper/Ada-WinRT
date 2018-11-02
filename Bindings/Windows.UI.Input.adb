@@ -40,7 +40,7 @@ package body Windows.UI.Input is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IEdgeGesture_add_Starting_Interface
+      This       : access TypedEventHandler_IEdgeGesture_add_Canceled_Interface
       ; sender : Windows.UI.Input.IEdgeGesture
       ; args : Windows.UI.Input.IEdgeGestureEventArgs
    )
@@ -66,7 +66,7 @@ package body Windows.UI.Input is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IEdgeGesture_add_Canceled_Interface
+      This       : access TypedEventHandler_IEdgeGesture_add_Starting_Interface
       ; sender : Windows.UI.Input.IEdgeGesture
       ; args : Windows.UI.Input.IEdgeGestureEventArgs
    )
@@ -79,53 +79,27 @@ package body Windows.UI.Input is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface
-      ; sender : Windows.UI.Input.IKeyboardDeliveryInterceptor
-      ; args : Windows.UI.Core.IKeyEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.IKeyboardDeliveryInterceptor(sender), Windows.UI.Core.IKeyEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface
-      ; sender : Windows.UI.Input.IKeyboardDeliveryInterceptor
-      ; args : Windows.UI.Core.IKeyEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.IKeyboardDeliveryInterceptor(sender), Windows.UI.Core.IKeyEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface
+      This       : access TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface
       ; sender : Windows.UI.Input.IGestureRecognizer
-      ; args : Windows.UI.Input.ITappedEventArgs
+      ; args : Windows.UI.Input.ICrossSlidingEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.ITappedEventArgs(args));
+      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.ICrossSlidingEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface
+      This       : access TypedEventHandler_IGestureRecognizer_add_Dragging_Interface
       ; sender : Windows.UI.Input.IGestureRecognizer
-      ; args : Windows.UI.Input.IRightTappedEventArgs
+      ; args : Windows.UI.Input.IDraggingEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IRightTappedEventArgs(args));
+      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IDraggingEventArgs(args));
       return Hr;
    end;
    
@@ -144,14 +118,27 @@ package body Windows.UI.Input is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGestureRecognizer_add_Dragging_Interface
+      This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface
       ; sender : Windows.UI.Input.IGestureRecognizer
-      ; args : Windows.UI.Input.IDraggingEventArgs
+      ; args : Windows.UI.Input.IManipulationCompletedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IDraggingEventArgs(args));
+      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IManipulationCompletedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface
+      ; sender : Windows.UI.Input.IGestureRecognizer
+      ; args : Windows.UI.Input.IManipulationInertiaStartingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IManipulationInertiaStartingEventArgs(args));
       return Hr;
    end;
    
@@ -183,105 +170,53 @@ package body Windows.UI.Input is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface
+      This       : access TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface
       ; sender : Windows.UI.Input.IGestureRecognizer
-      ; args : Windows.UI.Input.IManipulationInertiaStartingEventArgs
+      ; args : Windows.UI.Input.IRightTappedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IManipulationInertiaStartingEventArgs(args));
+      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IRightTappedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface
+      This       : access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface
       ; sender : Windows.UI.Input.IGestureRecognizer
-      ; args : Windows.UI.Input.IManipulationCompletedEventArgs
+      ; args : Windows.UI.Input.ITappedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.IManipulationCompletedEventArgs(args));
+      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.ITappedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface
-      ; sender : Windows.UI.Input.IGestureRecognizer
-      ; args : Windows.UI.Input.ICrossSlidingEventArgs
+      This       : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface
+      ; sender : Windows.UI.Input.IKeyboardDeliveryInterceptor
+      ; args : Windows.UI.Core.IKeyEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.ICrossSlidingEventArgs(args));
+      This.Callback(Windows.UI.Input.IKeyboardDeliveryInterceptor(sender), Windows.UI.Core.IKeyEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface
-      ; sender : Windows.UI.Input.IRadialController
-      ; args : Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs
+      This       : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface
+      ; sender : Windows.UI.Input.IKeyboardDeliveryInterceptor
+      ; args : Windows.UI.Core.IKeyEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface
-      ; sender : Windows.UI.Input.IRadialController
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.IRadialController(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface
-      ; sender : Windows.UI.Input.IRadialController
-      ; args : Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRadialController_add_ControlLost_Interface
-      ; sender : Windows.UI.Input.IRadialController
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.IRadialController(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IRadialController_add_RotationChanged_Interface
-      ; sender : Windows.UI.Input.IRadialController
-      ; args : Windows.UI.Input.IRadialControllerRotationChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerRotationChangedEventArgs(args));
+      This.Callback(Windows.UI.Input.IKeyboardDeliveryInterceptor(sender), Windows.UI.Core.IKeyEventArgs(args));
       return Hr;
    end;
    
@@ -313,14 +248,66 @@ package body Windows.UI.Input is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IRadialController2_add_ButtonPressed_Interface
+      This       : access TypedEventHandler_IRadialController_add_ControlLost_Interface
       ; sender : Windows.UI.Input.IRadialController
-      ; args : Windows.UI.Input.IRadialControllerButtonPressedEventArgs
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerButtonPressedEventArgs(args));
+      This.Callback(Windows.UI.Input.IRadialController(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRadialController_add_RotationChanged_Interface
+      ; sender : Windows.UI.Input.IRadialController
+      ; args : Windows.UI.Input.IRadialControllerRotationChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerRotationChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface
+      ; sender : Windows.UI.Input.IRadialController
+      ; args : Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface
+      ; sender : Windows.UI.Input.IRadialController
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.IRadialController(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface
+      ; sender : Windows.UI.Input.IRadialController
+      ; args : Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs(args));
       return Hr;
    end;
    
@@ -334,6 +321,19 @@ package body Windows.UI.Input is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerButtonHoldingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRadialController2_add_ButtonPressed_Interface
+      ; sender : Windows.UI.Input.IRadialController
+      ; args : Windows.UI.Input.IRadialControllerButtonPressedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.IRadialController(sender), Windows.UI.Input.IRadialControllerButtonPressedEventArgs(args));
       return Hr;
    end;
    
@@ -559,93 +559,6 @@ package body Windows.UI.Input is
       return RetVal;
    end;
    
-   function CreateFromIcon
-   (
-      displayText : Windows.String
-      ; icon : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.UI.Input.IRadialControllerMenuItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
-      m_Factory     : IRadialControllerMenuItemStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromIcon(displayText, icon, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromKnownIcon
-   (
-      displayText : Windows.String
-      ; value : Windows.UI.Input.RadialControllerMenuKnownIcon
-   )
-   return Windows.UI.Input.IRadialControllerMenuItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
-      m_Factory     : IRadialControllerMenuItemStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromKnownIcon(displayText, value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromFontGlyph
-   (
-      displayText : Windows.String
-      ; glyph : Windows.String
-      ; fontFamily : Windows.String
-   )
-   return Windows.UI.Input.IRadialControllerMenuItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
-      m_Factory     : IRadialControllerMenuItemStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromFontGlyph(displayText, glyph, fontFamily, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromFontGlyphWithUri
-   (
-      displayText : Windows.String
-      ; glyph : Windows.String
-      ; fontFamily : Windows.String
-      ; fontUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.UI.Input.IRadialControllerMenuItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
-      m_Factory     : IRadialControllerMenuItemStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromFontGlyphWithUri(displayText, glyph, fontFamily, fontUri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetForCurrentView
    return Windows.UI.Input.IRadialControllerConfiguration is
       Hr            : Windows.HRESULT := S_OK;
@@ -727,6 +640,93 @@ package body Windows.UI.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsAppControllerEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromIcon
+   (
+      displayText : Windows.String
+      ; icon : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.UI.Input.IRadialControllerMenuItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
+      m_Factory     : IRadialControllerMenuItemStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromIcon(displayText, icon, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromKnownIcon
+   (
+      displayText : Windows.String
+      ; value : Windows.UI.Input.RadialControllerMenuKnownIcon
+   )
+   return Windows.UI.Input.IRadialControllerMenuItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
+      m_Factory     : IRadialControllerMenuItemStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromKnownIcon(displayText, value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromFontGlyph
+   (
+      displayText : Windows.String
+      ; glyph : Windows.String
+      ; fontFamily : Windows.String
+   )
+   return Windows.UI.Input.IRadialControllerMenuItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
+      m_Factory     : IRadialControllerMenuItemStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromFontGlyph(displayText, glyph, fontFamily, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromFontGlyphWithUri
+   (
+      displayText : Windows.String
+      ; glyph : Windows.String
+      ; fontFamily : Windows.String
+      ; fontUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.Input.IRadialControllerMenuItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerMenuItem");
+      m_Factory     : IRadialControllerMenuItemStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.IRadialControllerMenuItem;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromFontGlyphWithUri(displayText, glyph, fontFamily, fontUri, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -49,85 +49,7 @@ package body Windows.Graphics.Display is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface
-      ; sender : Windows.Graphics.Display.IDisplayInformation
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface
-      ; sender : Windows.Graphics.Display.IDisplayInformation
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface
-      ; sender : Windows.Graphics.Display.IDisplayInformation
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface
-      ; sender : Windows.Graphics.Display.IDisplayInformation
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface
-      ; sender : Windows.Graphics.Display.IDisplayInformation
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IDisplayInformation5_add_AdvancedColorInfoChanged_Interface
-      ; sender : Windows.Graphics.Display.IDisplayInformation
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface
+      This       : access TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface
       ; sender : Windows.Graphics.Display.IBrightnessOverride
       ; args : Windows.Object
    )
@@ -153,7 +75,7 @@ package body Windows.Graphics.Display is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface
+      This       : access TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface
       ; sender : Windows.Graphics.Display.IBrightnessOverride
       ; args : Windows.Object
    )
@@ -179,6 +101,19 @@ package body Windows.Graphics.Display is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IDisplayEnhancementOverride_add_DisplayEnhancementOverrideCapabilitiesChanged_Interface
+      ; sender : Windows.Graphics.Display.IDisplayEnhancementOverride
+      ; args : Windows.Graphics.Display.IDisplayEnhancementOverrideCapabilitiesChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Display.IDisplayEnhancementOverride(sender), Windows.Graphics.Display.IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IDisplayEnhancementOverride_add_IsOverrideActiveChanged_Interface
       ; sender : Windows.Graphics.Display.IDisplayEnhancementOverride
       ; args : Windows.Object
@@ -192,14 +127,79 @@ package body Windows.Graphics.Display is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IDisplayEnhancementOverride_add_DisplayEnhancementOverrideCapabilitiesChanged_Interface
-      ; sender : Windows.Graphics.Display.IDisplayEnhancementOverride
-      ; args : Windows.Graphics.Display.IDisplayEnhancementOverrideCapabilitiesChangedEventArgs
+      This       : access TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface
+      ; sender : Windows.Graphics.Display.IDisplayInformation
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Graphics.Display.IDisplayEnhancementOverride(sender), Windows.Graphics.Display.IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(args));
+      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface
+      ; sender : Windows.Graphics.Display.IDisplayInformation
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface
+      ; sender : Windows.Graphics.Display.IDisplayInformation
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface
+      ; sender : Windows.Graphics.Display.IDisplayInformation
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDisplayInformation5_add_AdvancedColorInfoChanged_Interface
+      ; sender : Windows.Graphics.Display.IDisplayInformation
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface
+      ; sender : Windows.Graphics.Display.IDisplayInformation
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Display.IDisplayInformation(sender), args);
       return Hr;
    end;
    
@@ -214,6 +214,157 @@ package body Windows.Graphics.Display is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDefaultForSystem
+   return Windows.Graphics.Display.IBrightnessOverride is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverride");
+      m_Factory     : IBrightnessOverrideStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverride;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultForSystem(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.Graphics.Display.IBrightnessOverride is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverride");
+      m_Factory     : IBrightnessOverrideStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverride;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SaveForSystemAsync
+   (
+      value : Windows.Graphics.Display.IBrightnessOverride
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverride");
+      m_Factory     : IBrightnessOverrideStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SaveForSystemAsync(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromLevel
+   (
+      level : Windows.Double
+   )
+   return Windows.Graphics.Display.IBrightnessOverrideSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
+      m_Factory     : IBrightnessOverrideSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromLevel(level, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromNits
+   (
+      nits : Windows.Single
+   )
+   return Windows.Graphics.Display.IBrightnessOverrideSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
+      m_Factory     : IBrightnessOverrideSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromNits(nits, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromDisplayBrightnessOverrideScenario
+   (
+      overrideScenario : Windows.Graphics.Display.DisplayBrightnessOverrideScenario
+   )
+   return Windows.Graphics.Display.IBrightnessOverrideSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
+      m_Factory     : IBrightnessOverrideSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDisplayBrightnessOverrideScenario(overrideScenario, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromDisplayColorOverrideScenario
+   (
+      overrideScenario : Windows.Graphics.Display.DisplayColorOverrideScenario
+   )
+   return Windows.Graphics.Display.IColorOverrideSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.ColorOverrideSettings");
+      m_Factory     : IColorOverrideSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IColorOverrideSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorOverrideSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDisplayColorOverrideScenario(overrideScenario, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.Graphics.Display.IDisplayEnhancementOverride is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayEnhancementOverride");
+      m_Factory     : IDisplayEnhancementOverrideStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IDisplayEnhancementOverride;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayEnhancementOverrideStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetForCurrentView
    return Windows.Graphics.Display.IDisplayInformation is
@@ -630,157 +781,6 @@ package body Windows.Graphics.Display is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetDefaultForSystem
-   return Windows.Graphics.Display.IBrightnessOverride is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverride");
-      m_Factory     : IBrightnessOverrideStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverride;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultForSystem(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
-   return Windows.Graphics.Display.IBrightnessOverride is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverride");
-      m_Factory     : IBrightnessOverrideStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverride;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SaveForSystemAsync
-   (
-      value : Windows.Graphics.Display.IBrightnessOverride
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverride");
-      m_Factory     : IBrightnessOverrideStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SaveForSystemAsync(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromLevel
-   (
-      level : Windows.Double
-   )
-   return Windows.Graphics.Display.IBrightnessOverrideSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
-      m_Factory     : IBrightnessOverrideSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromLevel(level, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromNits
-   (
-      nits : Windows.Single
-   )
-   return Windows.Graphics.Display.IBrightnessOverrideSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
-      m_Factory     : IBrightnessOverrideSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromNits(nits, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromDisplayBrightnessOverrideScenario
-   (
-      overrideScenario : Windows.Graphics.Display.DisplayBrightnessOverrideScenario
-   )
-   return Windows.Graphics.Display.IBrightnessOverrideSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
-      m_Factory     : IBrightnessOverrideSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromDisplayBrightnessOverrideScenario(overrideScenario, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromDisplayColorOverrideScenario
-   (
-      overrideScenario : Windows.Graphics.Display.DisplayColorOverrideScenario
-   )
-   return Windows.Graphics.Display.IColorOverrideSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.ColorOverrideSettings");
-      m_Factory     : IColorOverrideSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IColorOverrideSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorOverrideSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromDisplayColorOverrideScenario(overrideScenario, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
-   return Windows.Graphics.Display.IDisplayEnhancementOverride is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayEnhancementOverride");
-      m_Factory     : IDisplayEnhancementOverrideStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IDisplayEnhancementOverride;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayEnhancementOverrideStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

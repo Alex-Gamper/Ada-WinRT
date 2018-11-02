@@ -63,6 +63,48 @@ package Windows.UI.Text is
    
    type FindOptions_Ptr is access FindOptions;
    
+   type FontStretch is (
+      Undefined,
+      UltraCondensed,
+      ExtraCondensed,
+      Condensed,
+      SemiCondensed,
+      Normal,
+      SemiExpanded,
+      Expanded,
+      ExtraExpanded,
+      UltraExpanded
+   );
+   for FontStretch use (
+      Undefined => 0,
+      UltraCondensed => 1,
+      ExtraCondensed => 2,
+      Condensed => 3,
+      SemiCondensed => 4,
+      Normal => 5,
+      SemiExpanded => 6,
+      Expanded => 7,
+      ExtraExpanded => 8,
+      UltraExpanded => 9
+   );
+   for FontStretch'Size use 32;
+   
+   type FontStretch_Ptr is access FontStretch;
+   
+   type FontStyle is (
+      Normal,
+      Oblique,
+      Italic
+   );
+   for FontStyle use (
+      Normal => 0,
+      Oblique => 1,
+      Italic => 2
+   );
+   for FontStyle'Size use 32;
+   
+   type FontStyle_Ptr is access FontStyle;
+   
    type FormatEffect is (
       Off,
       On,
@@ -417,6 +459,20 @@ package Windows.UI.Text is
    
    type TabLeader_Ptr is access TabLeader;
    
+   type TextDecorations is (
+      None,
+      Underline,
+      Strikethrough
+   );
+   for TextDecorations use (
+      None => 0,
+      Underline => 1,
+      Strikethrough => 2
+   );
+   for TextDecorations'Size use 32;
+   
+   type TextDecorations_Ptr is access TextDecorations;
+   
    type TextGetOptions is (
       None,
       AdjustCrlf,
@@ -442,28 +498,6 @@ package Windows.UI.Text is
    for TextGetOptions'Size use 32;
    
    type TextGetOptions_Ptr is access TextGetOptions;
-   
-   type TextSetOptions is (
-      None,
-      UnicodeBidi,
-      Unlink,
-      Unhide,
-      CheckTextLimit,
-      FormatRtf,
-      ApplyRtfDocumentDefaults
-   );
-   for TextSetOptions use (
-      None => 0,
-      UnicodeBidi => 1,
-      Unlink => 8,
-      Unhide => 16,
-      CheckTextLimit => 32,
-      FormatRtf => 8192,
-      ApplyRtfDocumentDefaults => 16384
-   );
-   for TextSetOptions'Size use 32;
-   
-   type TextSetOptions_Ptr is access TextSetOptions;
    
    type TextRangeUnit is (
       Character,
@@ -675,6 +709,28 @@ package Windows.UI.Text is
    
    type TextScript_Ptr is access TextScript;
    
+   type TextSetOptions is (
+      None,
+      UnicodeBidi,
+      Unlink,
+      Unhide,
+      CheckTextLimit,
+      FormatRtf,
+      ApplyRtfDocumentDefaults
+   );
+   for TextSetOptions use (
+      None => 0,
+      UnicodeBidi => 1,
+      Unlink => 8,
+      Unhide => 16,
+      CheckTextLimit => 32,
+      FormatRtf => 8192,
+      ApplyRtfDocumentDefaults => 16384
+   );
+   for TextSetOptions'Size use 32;
+   
+   type TextSetOptions_Ptr is access TextSetOptions;
+   
    type UnderlineType is (
       Undefined,
       None,
@@ -737,62 +793,6 @@ package Windows.UI.Text is
    
    type VerticalCharacterAlignment_Ptr is access VerticalCharacterAlignment;
    
-   type FontStretch is (
-      Undefined,
-      UltraCondensed,
-      ExtraCondensed,
-      Condensed,
-      SemiCondensed,
-      Normal,
-      SemiExpanded,
-      Expanded,
-      ExtraExpanded,
-      UltraExpanded
-   );
-   for FontStretch use (
-      Undefined => 0,
-      UltraCondensed => 1,
-      ExtraCondensed => 2,
-      Condensed => 3,
-      SemiCondensed => 4,
-      Normal => 5,
-      SemiExpanded => 6,
-      Expanded => 7,
-      ExtraExpanded => 8,
-      UltraExpanded => 9
-   );
-   for FontStretch'Size use 32;
-   
-   type FontStretch_Ptr is access FontStretch;
-   
-   type FontStyle is (
-      Normal,
-      Oblique,
-      Italic
-   );
-   for FontStyle use (
-      Normal => 0,
-      Oblique => 1,
-      Italic => 2
-   );
-   for FontStyle'Size use 32;
-   
-   type FontStyle_Ptr is access FontStyle;
-   
-   type TextDecorations is (
-      None,
-      Underline,
-      Strikethrough
-   );
-   for TextDecorations use (
-      None => 0,
-      Underline => 1,
-      Strikethrough => 2
-   );
-   for TextDecorations'Size use 32;
-   
-   type TextDecorations_Ptr is access TextDecorations;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -808,30 +808,6 @@ package Windows.UI.Text is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ITextConstantsStatics_Interface;
-   type ITextConstantsStatics is access all ITextConstantsStatics_Interface'Class;
-   type ITextConstantsStatics_Ptr is access all ITextConstantsStatics;
-   type ITextDocument_Interface;
-   type ITextDocument is access all ITextDocument_Interface'Class;
-   type ITextDocument_Ptr is access all ITextDocument;
-   type ITextRange_Interface;
-   type ITextRange is access all ITextRange_Interface'Class;
-   type ITextRange_Ptr is access all ITextRange;
-   type ITextSelection_Interface;
-   type ITextSelection is access all ITextSelection_Interface'Class;
-   type ITextSelection_Ptr is access all ITextSelection;
-   type ITextCharacterFormat_Interface;
-   type ITextCharacterFormat is access all ITextCharacterFormat_Interface'Class;
-   type ITextCharacterFormat_Ptr is access all ITextCharacterFormat;
-   type ITextParagraphFormat_Interface;
-   type ITextParagraphFormat is access all ITextParagraphFormat_Interface'Class;
-   type ITextParagraphFormat_Ptr is access all ITextParagraphFormat;
-   type ITextDocument2_Interface;
-   type ITextDocument2 is access all ITextDocument2_Interface'Class;
-   type ITextDocument2_Ptr is access all ITextDocument2;
-   type IRichEditTextRange_Interface;
-   type IRichEditTextRange is access all IRichEditTextRange_Interface'Class;
-   type IRichEditTextRange_Ptr is access all IRichEditTextRange;
    type IContentLinkInfo_Interface;
    type IContentLinkInfo is access all IContentLinkInfo_Interface'Class;
    type IContentLinkInfo_Ptr is access all IContentLinkInfo;
@@ -844,10 +820,589 @@ package Windows.UI.Text is
    type IReference_UnderlineType_Interface;
    type IReference_UnderlineType is access all IReference_UnderlineType_Interface'Class;
    type IReference_UnderlineType_Ptr is access all IReference_UnderlineType;
+   type IRichEditTextRange_Interface;
+   type IRichEditTextRange is access all IRichEditTextRange_Interface'Class;
+   type IRichEditTextRange_Ptr is access all IRichEditTextRange;
+   type ITextCharacterFormat_Interface;
+   type ITextCharacterFormat is access all ITextCharacterFormat_Interface'Class;
+   type ITextCharacterFormat_Ptr is access all ITextCharacterFormat;
+   type ITextConstantsStatics_Interface;
+   type ITextConstantsStatics is access all ITextConstantsStatics_Interface'Class;
+   type ITextConstantsStatics_Ptr is access all ITextConstantsStatics;
+   type ITextDocument_Interface;
+   type ITextDocument is access all ITextDocument_Interface'Class;
+   type ITextDocument_Ptr is access all ITextDocument;
+   type ITextDocument2_Interface;
+   type ITextDocument2 is access all ITextDocument2_Interface'Class;
+   type ITextDocument2_Ptr is access all ITextDocument2;
+   type ITextParagraphFormat_Interface;
+   type ITextParagraphFormat is access all ITextParagraphFormat_Interface'Class;
+   type ITextParagraphFormat_Ptr is access all ITextParagraphFormat;
+   type ITextRange_Interface;
+   type ITextRange is access all ITextRange_Interface'Class;
+   type ITextRange_Ptr is access all ITextRange;
+   type ITextSelection_Interface;
+   type ITextSelection is access all ITextSelection_Interface'Class;
+   type ITextSelection_Ptr is access all ITextSelection;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentLinkInfo : aliased constant Windows.IID := (517285157, 7263, 18635, (179, 53, 120, 181, 10, 46, 230, 66 ));
+   
+   type IContentLinkInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Id
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DisplayText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SecondaryText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SecondaryText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Uri
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Uri
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LinkContentKind
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LinkContentKind
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFontWeights : aliased constant Windows.IID := (2021696580, 427, 18839, (133, 23, 223, 130, 42, 12, 69, 241 ));
+   
+   type IFontWeights_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFontWeightsStatics : aliased constant Windows.IID := (3015014869, 7081, 18667, (157, 173, 192, 149, 232, 194, 59, 163 ));
+   
+   type IFontWeightsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Black
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Bold
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtraBlack
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtraBold
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtraLight
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Light
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Medium
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Normal
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SemiBold
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SemiLight
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Thin
+   (
+      This       : access IFontWeightsStatics_Interface
+      ; RetVal : access Windows.UI.Text.FontWeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_UnderlineType : aliased constant Windows.IID := (459533335, 31531, 23038, (171, 157, 182, 14, 164, 249, 201, 184 ));
+   
+   type IReference_UnderlineType_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_UnderlineType_Interface
+      ; RetVal : access Windows.UI.Text.UnderlineType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRichEditTextRange : aliased constant Windows.IID := (927872277, 47754, 19054, (140, 89, 13, 222, 61, 12, 245, 205 ));
+   
+   type IRichEditTextRange_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentLinkInfo
+   (
+      This       : access IRichEditTextRange_Interface
+      ; RetVal : access Windows.UI.Text.IContentLinkInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ContentLinkInfo
+   (
+      This       : access IRichEditTextRange_Interface
+      ; value : Windows.UI.Text.IContentLinkInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextCharacterFormat : aliased constant Windows.IID := (1524560859, 1531, 17453, (128, 101, 100, 42, 254, 160, 44, 237 ));
+   
+   type ITextCharacterFormat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AllCaps
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllCaps
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackgroundColor
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundColor
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Bold
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Bold
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FontStretch
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FontStretch
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FontStretch
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FontStretch
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FontStyle
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FontStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FontStyle
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FontStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForegroundColor
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForegroundColor
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Hidden
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Hidden
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Italic
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Italic
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kerning
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Kerning
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LanguageTag
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LanguageTag
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LinkType
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.LinkType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Name
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Name
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Outline
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Outline
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Position
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProtectedText
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ProtectedText
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Size
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SmallCaps
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SmallCaps
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Spacing
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Spacing
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Strikethrough
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Strikethrough
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Subscript
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Subscript
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Superscript
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Superscript
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextScript
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.TextScript
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TextScript
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.TextScript
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Underline
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.UnderlineType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Underline
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.UnderlineType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Weight
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Weight
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetClone
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; value : Windows.UI.Text.ITextCharacterFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetClone
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; RetVal : access Windows.UI.Text.ITextCharacterFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsEqual
+   (
+      This       : access ITextCharacterFormat_Interface
+      ; format : Windows.UI.Text.ITextCharacterFormat
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -1107,6 +1662,390 @@ package Windows.UI.Text is
    function Undo
    (
       This       : access ITextDocument_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextDocument2 : aliased constant Windows.IID := (4063301906, 35977, 18889, (145, 24, 240, 87, 203, 184, 20, 238 ));
+   
+   type ITextDocument2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AlignmentIncludesTrailingWhitespace
+   (
+      This       : access ITextDocument2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AlignmentIncludesTrailingWhitespace
+   (
+      This       : access ITextDocument2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IgnoreTrailingCharacterSpacing
+   (
+      This       : access ITextDocument2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IgnoreTrailingCharacterSpacing
+   (
+      This       : access ITextDocument2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextParagraphFormat : aliased constant Windows.IID := (754503590, 18038, 18826, (147, 245, 187, 219, 252, 11, 216, 131 ));
+   
+   type ITextParagraphFormat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Alignment
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.ParagraphAlignment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Alignment
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.ParagraphAlignment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirstLineIndent
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeepTogether
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeepTogether
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeepWithNext
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeepWithNext
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LeftIndent
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LineSpacing
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LineSpacingRule
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.LineSpacingRule
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListAlignment
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.MarkerAlignment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListAlignment
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.MarkerAlignment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListLevelIndex
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListLevelIndex
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListStart
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListStart
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListStyle
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.MarkerStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListStyle
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.MarkerStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListTab
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListTab
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListType
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.MarkerType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListType
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.MarkerType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NoLineNumber
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_NoLineNumber
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PageBreakBefore
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PageBreakBefore
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RightIndent
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RightIndent
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RightToLeft
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RightToLeft
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Style
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.ParagraphStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Style
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.ParagraphStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SpaceAfter
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SpaceAfter
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SpaceBefore
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SpaceBefore
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WidowControl
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_WidowControl
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; value : Windows.UI.Text.FormatEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TabCount
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddTab
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; position : Windows.Single
+      ; align : Windows.UI.Text.TabAlignment
+      ; leader : Windows.UI.Text.TabLeader
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearAllTabs
+   (
+      This       : access ITextParagraphFormat_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DeleteTab
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; position : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetClone
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; RetVal : access Windows.UI.Text.ITextParagraphFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetTab
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; index : Windows.Int32
+      ; position : access Windows.Single
+      ; align : access Windows.UI.Text.TabAlignment
+      ; leader : access Windows.UI.Text.TabLeader
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsEqual
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; format : Windows.UI.Text.ITextParagraphFormat
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetClone
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; format : Windows.UI.Text.ITextParagraphFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetIndents
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; start : Windows.Single
+      ; left : Windows.Single
+      ; right : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetLineSpacing
+   (
+      This       : access ITextParagraphFormat_Interface
+      ; rule : Windows.UI.Text.LineSpacingRule
+      ; spacing : Windows.Single
    )
    return Windows.HRESULT is abstract;
    
@@ -1611,958 +2550,52 @@ package Windows.UI.Text is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_ITextCharacterFormat : aliased constant Windows.IID := (1524560859, 1531, 17453, (128, 101, 100, 42, 254, 160, 44, 237 ));
-   
-   type ITextCharacterFormat_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AllCaps
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AllCaps
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BackgroundColor
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_BackgroundColor
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Bold
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Bold
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FontStretch
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FontStretch
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FontStretch
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FontStretch
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FontStyle
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FontStyle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FontStyle
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FontStyle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ForegroundColor
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ForegroundColor
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Hidden
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Hidden
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Italic
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Italic
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Kerning
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Kerning
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LanguageTag
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_LanguageTag
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LinkType
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.LinkType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Name
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Name
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Outline
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Outline
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Position
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Position
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProtectedText
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ProtectedText
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Size
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SmallCaps
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SmallCaps
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Spacing
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Spacing
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Strikethrough
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Strikethrough
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Subscript
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Subscript
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Superscript
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Superscript
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TextScript
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.TextScript
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_TextScript
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.TextScript
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Underline
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.UnderlineType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Underline
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.UnderlineType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Weight
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Weight
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetClone
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; value : Windows.UI.Text.ITextCharacterFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetClone
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; RetVal : access Windows.UI.Text.ITextCharacterFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IsEqual
-   (
-      This       : access ITextCharacterFormat_Interface
-      ; format : Windows.UI.Text.ITextCharacterFormat
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITextParagraphFormat : aliased constant Windows.IID := (754503590, 18038, 18826, (147, 245, 187, 219, 252, 11, 216, 131 ));
-   
-   type ITextParagraphFormat_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Alignment
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.ParagraphAlignment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Alignment
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.ParagraphAlignment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FirstLineIndent
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeepTogether
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeepTogether
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeepWithNext
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeepWithNext
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LeftIndent
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LineSpacing
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LineSpacingRule
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.LineSpacingRule
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ListAlignment
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.MarkerAlignment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ListAlignment
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.MarkerAlignment
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ListLevelIndex
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ListLevelIndex
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ListStart
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ListStart
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ListStyle
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.MarkerStyle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ListStyle
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.MarkerStyle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ListTab
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ListTab
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ListType
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.MarkerType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ListType
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.MarkerType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NoLineNumber
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_NoLineNumber
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PageBreakBefore
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_PageBreakBefore
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RightIndent
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RightIndent
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RightToLeft
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RightToLeft
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Style
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.ParagraphStyle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Style
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.ParagraphStyle
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SpaceAfter
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SpaceAfter
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SpaceBefore
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SpaceBefore
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WidowControl
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_WidowControl
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; value : Windows.UI.Text.FormatEffect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TabCount
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function AddTab
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; position : Windows.Single
-      ; align : Windows.UI.Text.TabAlignment
-      ; leader : Windows.UI.Text.TabLeader
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ClearAllTabs
-   (
-      This       : access ITextParagraphFormat_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function DeleteTab
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; position : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetClone
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; RetVal : access Windows.UI.Text.ITextParagraphFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetTab
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; index : Windows.Int32
-      ; position : access Windows.Single
-      ; align : access Windows.UI.Text.TabAlignment
-      ; leader : access Windows.UI.Text.TabLeader
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IsEqual
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; format : Windows.UI.Text.ITextParagraphFormat
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetClone
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; format : Windows.UI.Text.ITextParagraphFormat
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetIndents
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; start : Windows.Single
-      ; left : Windows.Single
-      ; right : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetLineSpacing
-   (
-      This       : access ITextParagraphFormat_Interface
-      ; rule : Windows.UI.Text.LineSpacingRule
-      ; spacing : Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITextDocument2 : aliased constant Windows.IID := (4063301906, 35977, 18889, (145, 24, 240, 87, 203, 184, 20, 238 ));
-   
-   type ITextDocument2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AlignmentIncludesTrailingWhitespace
-   (
-      This       : access ITextDocument2_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AlignmentIncludesTrailingWhitespace
-   (
-      This       : access ITextDocument2_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IgnoreTrailingCharacterSpacing
-   (
-      This       : access ITextDocument2_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IgnoreTrailingCharacterSpacing
-   (
-      This       : access ITextDocument2_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRichEditTextRange : aliased constant Windows.IID := (927872277, 47754, 19054, (140, 89, 13, 222, 61, 12, 245, 205 ));
-   
-   type IRichEditTextRange_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ContentLinkInfo
-   (
-      This       : access IRichEditTextRange_Interface
-      ; RetVal : access Windows.UI.Text.IContentLinkInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ContentLinkInfo
-   (
-      This       : access IRichEditTextRange_Interface
-      ; value : Windows.UI.Text.IContentLinkInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContentLinkInfo : aliased constant Windows.IID := (517285157, 7263, 18635, (179, 53, 120, 181, 10, 46, 230, 66 ));
-   
-   type IContentLinkInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IContentLinkInfo_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Id
-   (
-      This       : access IContentLinkInfo_Interface
-      ; value : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DisplayText
-   (
-      This       : access IContentLinkInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DisplayText
-   (
-      This       : access IContentLinkInfo_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SecondaryText
-   (
-      This       : access IContentLinkInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SecondaryText
-   (
-      This       : access IContentLinkInfo_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Uri
-   (
-      This       : access IContentLinkInfo_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Uri
-   (
-      This       : access IContentLinkInfo_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_LinkContentKind
-   (
-      This       : access IContentLinkInfo_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_LinkContentKind
-   (
-      This       : access IContentLinkInfo_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFontWeights : aliased constant Windows.IID := (2021696580, 427, 18839, (133, 23, 223, 130, 42, 12, 69, 241 ));
-   
-   type IFontWeights_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IFontWeightsStatics : aliased constant Windows.IID := (3015014869, 7081, 18667, (157, 173, 192, 149, 232, 194, 59, 163 ));
-   
-   type IFontWeightsStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Black
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Bold
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtraBlack
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtraBold
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ExtraLight
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Light
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Medium
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Normal
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SemiBold
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SemiLight
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Thin
-   (
-      This       : access IFontWeightsStatics_Interface
-      ; RetVal : access Windows.UI.Text.FontWeight
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReference_UnderlineType : aliased constant Windows.IID := (459533335, 31531, 23038, (171, 157, 182, 14, 164, 249, 201, 184 ));
-   
-   type IReference_UnderlineType_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_UnderlineType_Interface
-      ; RetVal : access Windows.UI.Text.UnderlineType
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype RichEditTextDocument is Windows.UI.Text.ITextDocument;
-   subtype RichEditTextRange is Windows.UI.Text.ITextRange;
    subtype ContentLinkInfo is Windows.UI.Text.IContentLinkInfo;
    function Create return Windows.UI.Text.IContentLinkInfo;
    
    subtype FontWeights is Windows.UI.Text.IFontWeights;
+   subtype RichEditTextDocument is Windows.UI.Text.ITextDocument;
+   subtype RichEditTextRange is Windows.UI.Text.ITextRange;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Black
+   return Windows.UI.Text.FontWeight;
+   
+   function get_Bold
+   return Windows.UI.Text.FontWeight;
+   
+   function get_ExtraBlack
+   return Windows.UI.Text.FontWeight;
+   
+   function get_ExtraBold
+   return Windows.UI.Text.FontWeight;
+   
+   function get_ExtraLight
+   return Windows.UI.Text.FontWeight;
+   
+   function get_Light
+   return Windows.UI.Text.FontWeight;
+   
+   function get_Medium
+   return Windows.UI.Text.FontWeight;
+   
+   function get_Normal
+   return Windows.UI.Text.FontWeight;
+   
+   function get_SemiBold
+   return Windows.UI.Text.FontWeight;
+   
+   function get_SemiLight
+   return Windows.UI.Text.FontWeight;
+   
+   function get_Thin
+   return Windows.UI.Text.FontWeight;
    
    function get_AutoColor
    return Windows.UI.Color;
@@ -2587,38 +2620,5 @@ package Windows.UI.Text is
    
    function get_UndefinedFontStyle
    return Windows.UI.Text.FontStyle;
-   
-   function get_Black
-   return Windows.UI.Text.FontWeight;
-   
-   function get_Bold
-   return Windows.UI.Text.FontWeight;
-   
-   function get_ExtraBlack
-   return Windows.UI.Text.FontWeight;
-   
-   function get_ExtraBold
-   return Windows.UI.Text.FontWeight;
-   
-   function get_ExtraLight
-   return Windows.UI.Text.FontWeight;
-   
-   function get_Light
-   return Windows.UI.Text.FontWeight;
-   
-   function get_Medium
-   return Windows.UI.Text.FontWeight;
-   
-   function get_Normal
-   return Windows.UI.Text.FontWeight;
-   
-   function get_SemiBold
-   return Windows.UI.Text.FontWeight;
-   
-   function get_SemiLight
-   return Windows.UI.Text.FontWeight;
-   
-   function get_Thin
-   return Windows.UI.Text.FontWeight;
    
 end;

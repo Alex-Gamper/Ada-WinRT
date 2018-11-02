@@ -47,42 +47,42 @@ package Windows.Media.Ocr is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IOcrWord_Interface;
-   type IOcrWord is access all IOcrWord_Interface'Class;
-   type IOcrWord_Ptr is access all IOcrWord;
-   type IOcrLine_Interface;
-   type IOcrLine is access all IOcrLine_Interface'Class;
-   type IOcrLine_Ptr is access all IOcrLine;
-   type IOcrResult_Interface;
-   type IOcrResult is access all IOcrResult_Interface'Class;
-   type IOcrResult_Ptr is access all IOcrResult;
+   type IAsyncOperation_IOcrResult_Interface;
+   type IAsyncOperation_IOcrResult is access all IAsyncOperation_IOcrResult_Interface'Class;
+   type IAsyncOperation_IOcrResult_Ptr is access all IAsyncOperation_IOcrResult;
+   type IIterable_IOcrLine_Interface;
+   type IIterable_IOcrLine is access all IIterable_IOcrLine_Interface'Class;
+   type IIterable_IOcrLine_Ptr is access all IIterable_IOcrLine;
+   type IIterable_IOcrWord_Interface;
+   type IIterable_IOcrWord is access all IIterable_IOcrWord_Interface'Class;
+   type IIterable_IOcrWord_Ptr is access all IIterable_IOcrWord;
+   type IIterator_IOcrLine_Interface;
+   type IIterator_IOcrLine is access all IIterator_IOcrLine_Interface'Class;
+   type IIterator_IOcrLine_Ptr is access all IIterator_IOcrLine;
+   type IIterator_IOcrWord_Interface;
+   type IIterator_IOcrWord is access all IIterator_IOcrWord_Interface'Class;
+   type IIterator_IOcrWord_Ptr is access all IIterator_IOcrWord;
    type IOcrEngine_Interface;
    type IOcrEngine is access all IOcrEngine_Interface'Class;
    type IOcrEngine_Ptr is access all IOcrEngine;
    type IOcrEngineStatics_Interface;
    type IOcrEngineStatics is access all IOcrEngineStatics_Interface'Class;
    type IOcrEngineStatics_Ptr is access all IOcrEngineStatics;
-   type IIterator_IOcrWord_Interface;
-   type IIterator_IOcrWord is access all IIterator_IOcrWord_Interface'Class;
-   type IIterator_IOcrWord_Ptr is access all IIterator_IOcrWord;
-   type IIterable_IOcrWord_Interface;
-   type IIterable_IOcrWord is access all IIterable_IOcrWord_Interface'Class;
-   type IIterable_IOcrWord_Ptr is access all IIterable_IOcrWord;
-   type IVectorView_IOcrWord_Interface;
-   type IVectorView_IOcrWord is access all IVectorView_IOcrWord_Interface'Class;
-   type IVectorView_IOcrWord_Ptr is access all IVectorView_IOcrWord;
-   type IIterator_IOcrLine_Interface;
-   type IIterator_IOcrLine is access all IIterator_IOcrLine_Interface'Class;
-   type IIterator_IOcrLine_Ptr is access all IIterator_IOcrLine;
-   type IIterable_IOcrLine_Interface;
-   type IIterable_IOcrLine is access all IIterable_IOcrLine_Interface'Class;
-   type IIterable_IOcrLine_Ptr is access all IIterable_IOcrLine;
+   type IOcrLine_Interface;
+   type IOcrLine is access all IOcrLine_Interface'Class;
+   type IOcrLine_Ptr is access all IOcrLine;
+   type IOcrResult_Interface;
+   type IOcrResult is access all IOcrResult_Interface'Class;
+   type IOcrResult_Ptr is access all IOcrResult;
+   type IOcrWord_Interface;
+   type IOcrWord is access all IOcrWord_Interface'Class;
+   type IOcrWord_Ptr is access all IOcrWord;
    type IVectorView_IOcrLine_Interface;
    type IVectorView_IOcrLine is access all IVectorView_IOcrLine_Interface'Class;
    type IVectorView_IOcrLine_Ptr is access all IVectorView_IOcrLine;
-   type IAsyncOperation_IOcrResult_Interface;
-   type IAsyncOperation_IOcrResult is access all IAsyncOperation_IOcrResult_Interface'Class;
-   type IAsyncOperation_IOcrResult_Ptr is access all IAsyncOperation_IOcrResult;
+   type IVectorView_IOcrWord_Interface;
+   type IVectorView_IOcrWord is access all IVectorView_IOcrWord_Interface'Class;
+   type IVectorView_IOcrWord_Ptr is access all IVectorView_IOcrWord;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -90,68 +90,124 @@ package Windows.Media.Ocr is
    
    ------------------------------------------------------------------------
    
-   IID_IOcrWord : aliased constant Windows.IID := (1009403770, 23769, 13605, (186, 42, 35, 209, 224, 166, 138, 29 ));
+   IID_IAsyncOperation_IOcrResult : aliased constant Windows.IID := (3352760718, 44598, 22976, (172, 118, 123, 173, 238, 113, 28, 139 ));
    
-   type IOcrWord_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IOcrResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_BoundingRect
+   function put_Completed
    (
-      This       : access IOcrWord_Interface
-      ; RetVal : access Windows.Foundation.Rect
+      This       : access IAsyncOperation_IOcrResult_Interface
+      ; handler : Windows.Media.Ocr.AsyncOperationCompletedHandler_IOcrResult
    )
    return Windows.HRESULT is abstract;
    
-   function get_Text
+   function get_Completed
    (
-      This       : access IOcrWord_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IOcrResult_Interface
+      ; RetVal : access Windows.Media.Ocr.AsyncOperationCompletedHandler_IOcrResult
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IOcrLine : aliased constant Windows.IID := (4432239, 58143, 14884, (137, 156, 212, 68, 189, 8, 129, 36 ));
-   
-   type IOcrLine_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Words
+   function GetResults
    (
-      This       : access IOcrLine_Interface
-      ; RetVal : access Windows.Media.Ocr.IVectorView_IOcrWord -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Text
-   (
-      This       : access IOcrLine_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IOcrResult_Interface
+      ; RetVal : access Windows.Media.Ocr.IOcrResult
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IOcrResult : aliased constant Windows.IID := (2614244786, 5979, 15722, (146, 226, 56, 140, 32, 110, 47, 99 ));
+   IID_IIterable_IOcrLine : aliased constant Windows.IID := (1794806946, 24791, 23998, (148, 45, 129, 170, 57, 41, 200, 94 ));
    
-   type IOcrResult_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IOcrLine_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Lines
+   function First
    (
-      This       : access IOcrResult_Interface
-      ; RetVal : access Windows.Media.Ocr.IVectorView_IOcrLine -- Generic Parameter Type
+      This       : access IIterable_IOcrLine_Interface
+      ; RetVal : access Windows.Media.Ocr.IIterator_IOcrLine
    )
    return Windows.HRESULT is abstract;
    
-   function get_TextAngle
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IOcrWord : aliased constant Windows.IID := (2697881146, 18128, 21989, (146, 142, 37, 30, 182, 122, 30, 153 ));
+   
+   type IIterable_IOcrWord_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access IOcrResult_Interface
-      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
+      This       : access IIterable_IOcrWord_Interface
+      ; RetVal : access Windows.Media.Ocr.IIterator_IOcrWord
    )
    return Windows.HRESULT is abstract;
    
-   function get_Text
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IOcrLine : aliased constant Windows.IID := (1388973962, 22408, 22165, (185, 5, 70, 184, 216, 23, 29, 136 ));
+   
+   type IIterator_IOcrLine_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
    (
-      This       : access IOcrResult_Interface
-      ; RetVal : access Windows.String
+      This       : access IIterator_IOcrLine_Interface
+      ; RetVal : access Windows.Media.Ocr.IOcrLine
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IOcrLine_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IOcrLine_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IOcrLine_Interface
+      ; items : Windows.Media.Ocr.IOcrLine_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IOcrWord : aliased constant Windows.IID := (248787322, 39268, 20934, (172, 190, 2, 81, 42, 6, 144, 130 ));
+   
+   type IIterator_IOcrWord_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IOcrWord_Interface
+      ; RetVal : access Windows.Media.Ocr.IOcrWord
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IOcrWord_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IOcrWord_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IOcrWord_Interface
+      ; items : Windows.Media.Ocr.IOcrWord_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -221,136 +277,68 @@ package Windows.Media.Ocr is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IOcrWord : aliased constant Windows.IID := (248787322, 39268, 20934, (172, 190, 2, 81, 42, 6, 144, 130 ));
+   IID_IOcrLine : aliased constant Windows.IID := (4432239, 58143, 14884, (137, 156, 212, 68, 189, 8, 129, 36 ));
    
-   type IIterator_IOcrWord_Interface is interface and Windows.IInspectable_Interface;
+   type IOcrLine_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_Words
    (
-      This       : access IIterator_IOcrWord_Interface
-      ; RetVal : access Windows.Media.Ocr.IOcrWord
+      This       : access IOcrLine_Interface
+      ; RetVal : access Windows.Media.Ocr.IVectorView_IOcrWord -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_Text
    (
-      This       : access IIterator_IOcrWord_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IOcrWord_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IOcrWord_Interface
-      ; items : Windows.Media.Ocr.IOcrWord_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IOcrLine_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IOcrWord : aliased constant Windows.IID := (2697881146, 18128, 21989, (146, 142, 37, 30, 182, 122, 30, 153 ));
+   IID_IOcrResult : aliased constant Windows.IID := (2614244786, 5979, 15722, (146, 226, 56, 140, 32, 110, 47, 99 ));
    
-   type IIterable_IOcrWord_Interface is interface and Windows.IInspectable_Interface;
+   type IOcrResult_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Lines
    (
-      This       : access IIterable_IOcrWord_Interface
-      ; RetVal : access Windows.Media.Ocr.IIterator_IOcrWord
+      This       : access IOcrResult_Interface
+      ; RetVal : access Windows.Media.Ocr.IVectorView_IOcrLine -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextAngle
+   (
+      This       : access IOcrResult_Interface
+      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Text
+   (
+      This       : access IOcrResult_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_IOcrWord : aliased constant Windows.IID := (2153406663, 57167, 21116, (134, 178, 226, 158, 67, 154, 131, 210 ));
+   IID_IOcrWord : aliased constant Windows.IID := (1009403770, 23769, 13605, (186, 42, 35, 209, 224, 166, 138, 29 ));
    
-   type IVectorView_IOcrWord_Interface is interface and Windows.IInspectable_Interface;
+   type IOcrWord_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetAt
+   function get_BoundingRect
    (
-      This       : access IVectorView_IOcrWord_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Media.Ocr.IOcrWord
+      This       : access IOcrWord_Interface
+      ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function get_Text
    (
-      This       : access IVectorView_IOcrWord_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IOcrWord_Interface
-      ; value : Windows.Media.Ocr.IOcrWord
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IOcrWord_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Media.Ocr.IOcrWord_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IOcrLine : aliased constant Windows.IID := (1388973962, 22408, 22165, (185, 5, 70, 184, 216, 23, 29, 136 ));
-   
-   type IIterator_IOcrLine_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IOcrLine_Interface
-      ; RetVal : access Windows.Media.Ocr.IOcrLine
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IOcrLine_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IOcrLine_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IOcrLine_Interface
-      ; items : Windows.Media.Ocr.IOcrLine_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IOcrLine : aliased constant Windows.IID := (1794806946, 24791, 23998, (148, 45, 129, 170, 57, 41, 200, 94 ));
-   
-   type IIterable_IOcrLine_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IOcrLine_Interface
-      ; RetVal : access Windows.Media.Ocr.IIterator_IOcrLine
+      This       : access IOcrWord_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -395,28 +383,40 @@ package Windows.Media.Ocr is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IOcrResult : aliased constant Windows.IID := (3352760718, 44598, 22976, (172, 118, 123, 173, 238, 113, 28, 139 ));
+   IID_IVectorView_IOcrWord : aliased constant Windows.IID := (2153406663, 57167, 21116, (134, 178, 226, 158, 67, 154, 131, 210 ));
    
-   type IAsyncOperation_IOcrResult_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IOcrWord_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Completed
+   function GetAt
    (
-      This       : access IAsyncOperation_IOcrResult_Interface
-      ; handler : Windows.Media.Ocr.AsyncOperationCompletedHandler_IOcrResult
+      This       : access IVectorView_IOcrWord_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Ocr.IOcrWord
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function get_Size
    (
-      This       : access IAsyncOperation_IOcrResult_Interface
-      ; RetVal : access Windows.Media.Ocr.AsyncOperationCompletedHandler_IOcrResult
+      This       : access IVectorView_IOcrWord_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function GetResults
+   function IndexOf
    (
-      This       : access IAsyncOperation_IOcrResult_Interface
-      ; RetVal : access Windows.Media.Ocr.IOcrResult
+      This       : access IVectorView_IOcrWord_Interface
+      ; value : Windows.Media.Ocr.IOcrWord
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IOcrWord_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Ocr.IOcrWord_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -441,10 +441,10 @@ package Windows.Media.Ocr is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype OcrWord is Windows.Media.Ocr.IOcrWord;
+   subtype OcrEngine is Windows.Media.Ocr.IOcrEngine;
    subtype OcrLine is Windows.Media.Ocr.IOcrLine;
    subtype OcrResult is Windows.Media.Ocr.IOcrResult;
-   subtype OcrEngine is Windows.Media.Ocr.IOcrEngine;
+   subtype OcrWord is Windows.Media.Ocr.IOcrWord;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

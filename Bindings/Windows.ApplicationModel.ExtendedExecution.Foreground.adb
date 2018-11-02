@@ -36,19 +36,6 @@ package body Windows.ApplicationModel.ExtendedExecution.Foreground is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface
-      ; sender : Windows.Object
-      ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface
       ; asyncInfo : Windows.ApplicationModel.ExtendedExecution.Foreground.IAsyncOperation_ExtendedExecutionForegroundResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -57,6 +44,19 @@ package body Windows.ApplicationModel.ExtendedExecution.Foreground is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface
+      ; sender : Windows.Object
+      ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs(args));
       return Hr;
    end;
    

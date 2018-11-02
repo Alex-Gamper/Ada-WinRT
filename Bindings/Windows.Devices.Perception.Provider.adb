@@ -66,45 +66,6 @@ package body Windows.Devices.Perception.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.PerceptionFrameProviderInfo");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Perception.Provider.IID_IPerceptionFrameProviderInfo'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create
-   (
-      ids : Windows.Foundation.Collections.IIterable_String
-      ; startHandler : Windows.Devices.Perception.Provider.PerceptionStartFaceAuthenticationHandler
-      ; stopHandler : Windows.Devices.Perception.Provider.PerceptionStopFaceAuthenticationHandler
-   )
-   return Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.PerceptionFaceAuthenticationGroup");
-      m_Factory     : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroupFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPerceptionFaceAuthenticationGroupFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(ids, startHandler, stopHandler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function Create
    (
       ids : Windows.Foundation.Collections.IIterable_String
@@ -119,6 +80,28 @@ package body Windows.Devices.Perception.Provider is
       Hr := RoGetActivationFactory(m_hString, IID_IPerceptionControlGroupFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(ids, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      targetId : Windows.String
+      ; position : Windows.Foundation.Numerics.Vector3
+      ; orientation : Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.Devices.Perception.Provider.IPerceptionCorrelation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.PerceptionCorrelation");
+      m_Factory     : Windows.Devices.Perception.Provider.IPerceptionCorrelationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Perception.Provider.IPerceptionCorrelation := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPerceptionCorrelationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(targetId, position, orientation, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -147,24 +130,41 @@ package body Windows.Devices.Perception.Provider is
    
    function Create
    (
-      targetId : Windows.String
-      ; position : Windows.Foundation.Numerics.Vector3
-      ; orientation : Windows.Foundation.Numerics.Quaternion
+      ids : Windows.Foundation.Collections.IIterable_String
+      ; startHandler : Windows.Devices.Perception.Provider.PerceptionStartFaceAuthenticationHandler
+      ; stopHandler : Windows.Devices.Perception.Provider.PerceptionStopFaceAuthenticationHandler
    )
-   return Windows.Devices.Perception.Provider.IPerceptionCorrelation is
+   return Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.PerceptionCorrelation");
-      m_Factory     : Windows.Devices.Perception.Provider.IPerceptionCorrelationFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.PerceptionFaceAuthenticationGroup");
+      m_Factory     : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroupFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Perception.Provider.IPerceptionCorrelation := null;
+      RetVal        : aliased Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPerceptionCorrelationFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPerceptionFaceAuthenticationGroupFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(targetId, position, orientation, RetVal'Access);
+         Hr := m_Factory.Create(ids, startHandler, stopHandler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function Create return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.PerceptionFrameProviderInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Perception.Provider.IID_IPerceptionFrameProviderInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create
@@ -197,6 +197,57 @@ package body Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Color
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.KnownPerceptionFrameKind");
+      m_Factory     : IKnownPerceptionFrameKindStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownPerceptionFrameKindStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Color(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Depth
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.KnownPerceptionFrameKind");
+      m_Factory     : IKnownPerceptionFrameKindStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownPerceptionFrameKindStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Depth(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Infrared
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.KnownPerceptionFrameKind");
+      m_Factory     : IKnownPerceptionFrameKindStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownPerceptionFrameKindStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Infrared(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    procedure RegisterFrameProviderInfo
    (
@@ -386,57 +437,6 @@ package body Windows.Devices.Perception.Provider is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_Color
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.KnownPerceptionFrameKind");
-      m_Factory     : IKnownPerceptionFrameKindStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownPerceptionFrameKindStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Color(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Depth
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.KnownPerceptionFrameKind");
-      m_Factory     : IKnownPerceptionFrameKindStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownPerceptionFrameKindStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Depth(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Infrared
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Perception.Provider.KnownPerceptionFrameKind");
-      m_Factory     : IKnownPerceptionFrameKindStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownPerceptionFrameKindStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Infrared(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

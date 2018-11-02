@@ -66,98 +66,7 @@ package body Windows.UI.Input.Inking is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerEntered_Interface
-      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerHovered_Interface
-      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerExited_Interface
-      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerPressed_Interface
-      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerMoved_Interface
-      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerReleased_Interface
-      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerLost_Interface
-      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
-      ; args : Windows.UI.Core.IPointerEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IInkStrokeInput_add_StrokeStarted_Interface
+      This       : access TypedEventHandler_IInkStrokeInput_add_StrokeCanceled_Interface
       ; sender : Windows.UI.Input.Inking.IInkStrokeInput
       ; args : Windows.UI.Core.IPointerEventArgs
    )
@@ -196,7 +105,7 @@ package body Windows.UI.Input.Inking is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IInkStrokeInput_add_StrokeCanceled_Interface
+      This       : access TypedEventHandler_IInkStrokeInput_add_StrokeStarted_Interface
       ; sender : Windows.UI.Input.Inking.IInkStrokeInput
       ; args : Windows.UI.Core.IPointerEventArgs
    )
@@ -207,48 +116,133 @@ package body Windows.UI.Input.Inking is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerEntered_Interface
+      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerExited_Interface
+      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerHovered_Interface
+      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerLost_Interface
+      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerMoved_Interface
+      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerPressed_Interface
+      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerReleased_Interface
+      ; sender : Windows.UI.Input.Inking.IInkUnprocessedInput
+      ; args : Windows.UI.Core.IPointerEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create
-   (
-      inkPresenter : Windows.UI.Input.Inking.IInkPresenter
-   )
-   return Windows.UI.Input.Inking.IInkPresenterRuler is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkPresenterRuler");
-      m_Factory     : Windows.UI.Input.Inking.IInkPresenterRulerFactory := null;
+   function Create return Windows.UI.Input.Inking.IInkDrawingAttributes is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkDrawingAttributes");
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Inking.IInkPresenterRuler := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkDrawingAttributes) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInkPresenterRulerFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(inkPresenter, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkDrawingAttributes'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
-   function Create
-   (
-      inkPresenter : Windows.UI.Input.Inking.IInkPresenter
-   )
-   return Windows.UI.Input.Inking.IInkPresenterProtractor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkPresenterProtractor");
-      m_Factory     : Windows.UI.Input.Inking.IInkPresenterProtractorFactory := null;
+   function Create return Windows.UI.Input.Inking.IInkManager is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkManager");
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Inking.IInkPresenterProtractor := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkManager) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInkPresenterProtractorFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(inkPresenter, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkManager'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInkPointWithTiltAndTimestamp
@@ -296,17 +290,57 @@ package body Windows.UI.Input.Inking is
       return RetVal;
    end;
    
-   function Create return Windows.UI.Input.Inking.IInkDrawingAttributes is
+   function Create
+   (
+      inkPresenter : Windows.UI.Input.Inking.IInkPresenter
+   )
+   return Windows.UI.Input.Inking.IInkPresenterProtractor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkPresenterProtractor");
+      m_Factory     : Windows.UI.Input.Inking.IInkPresenterProtractorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.Inking.IInkPresenterProtractor := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInkPresenterProtractorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(inkPresenter, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      inkPresenter : Windows.UI.Input.Inking.IInkPresenter
+   )
+   return Windows.UI.Input.Inking.IInkPresenterRuler is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkPresenterRuler");
+      m_Factory     : Windows.UI.Input.Inking.IInkPresenterRulerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.Inking.IInkPresenterRuler := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInkPresenterRulerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(inkPresenter, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.UI.Input.Inking.IInkRecognizerContainer is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkDrawingAttributes");
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkRecognizerContainer");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkDrawingAttributes) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkRecognizerContainer) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkDrawingAttributes'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkRecognizerContainer'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -341,40 +375,6 @@ package body Windows.UI.Input.Inking is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkStrokeContainer'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Input.Inking.IInkRecognizerContainer is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkRecognizerContainer");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkRecognizerContainer) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkRecognizerContainer'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.UI.Input.Inking.IInkManager is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkManager");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkManager) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkManager'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

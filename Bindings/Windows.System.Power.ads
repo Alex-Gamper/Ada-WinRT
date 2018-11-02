@@ -83,135 +83,19 @@ package Windows.System.Power is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IPowerManagerStatics_Interface;
-   type IPowerManagerStatics is access all IPowerManagerStatics_Interface'Class;
-   type IPowerManagerStatics_Ptr is access all IPowerManagerStatics;
    type IBackgroundEnergyManagerStatics_Interface;
    type IBackgroundEnergyManagerStatics is access all IBackgroundEnergyManagerStatics_Interface'Class;
    type IBackgroundEnergyManagerStatics_Ptr is access all IBackgroundEnergyManagerStatics;
    type IForegroundEnergyManagerStatics_Interface;
    type IForegroundEnergyManagerStatics is access all IForegroundEnergyManagerStatics_Interface'Class;
    type IForegroundEnergyManagerStatics_Ptr is access all IForegroundEnergyManagerStatics;
+   type IPowerManagerStatics_Interface;
+   type IPowerManagerStatics is access all IPowerManagerStatics_Interface'Class;
+   type IPowerManagerStatics_Ptr is access all IPowerManagerStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPowerManagerStatics : aliased constant Windows.IID := (328499805, 25294, 17252, (152, 213, 170, 40, 199, 251, 209, 91 ));
-   
-   type IPowerManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EnergySaverStatus
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; RetVal : access Windows.System.Power.EnergySaverStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_EnergySaverStatusChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; handler : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_EnergySaverStatusChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BatteryStatus
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; RetVal : access Windows.System.Power.BatteryStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_BatteryStatusChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; handler : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_BatteryStatusChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PowerSupplyStatus
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; RetVal : access Windows.System.Power.PowerSupplyStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_PowerSupplyStatusChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; handler : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_PowerSupplyStatusChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemainingChargePercent
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_RemainingChargePercentChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; handler : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_RemainingChargePercentChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RemainingDischargeTime
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_RemainingDischargeTimeChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; handler : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_RemainingDischargeTimeChanged
-   (
-      This       : access IPowerManagerStatics_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -384,6 +268,122 @@ package Windows.System.Power is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IPowerManagerStatics : aliased constant Windows.IID := (328499805, 25294, 17252, (152, 213, 170, 40, 199, 251, 209, 91 ));
+   
+   type IPowerManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EnergySaverStatus
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; RetVal : access Windows.System.Power.EnergySaverStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_EnergySaverStatusChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_EnergySaverStatusChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BatteryStatus
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; RetVal : access Windows.System.Power.BatteryStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_BatteryStatusChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_BatteryStatusChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PowerSupplyStatus
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; RetVal : access Windows.System.Power.PowerSupplyStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_PowerSupplyStatusChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_PowerSupplyStatusChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemainingChargePercent
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_RemainingChargePercentChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_RemainingChargePercentChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RemainingDischargeTime
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_RemainingDischargeTimeChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_RemainingDischargeTimeChanged
+   (
+      This       : access IPowerManagerStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -391,81 +391,6 @@ package Windows.System.Power is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_EnergySaverStatus
-   return Windows.System.Power.EnergySaverStatus;
-   
-   function add_EnergySaverStatusChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_EnergySaverStatusChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_BatteryStatus
-   return Windows.System.Power.BatteryStatus;
-   
-   function add_BatteryStatusChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_BatteryStatusChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_PowerSupplyStatus
-   return Windows.System.Power.PowerSupplyStatus;
-   
-   function add_PowerSupplyStatusChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PowerSupplyStatusChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_RemainingChargePercent
-   return Windows.Int32;
-   
-   function add_RemainingChargePercentChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_RemainingChargePercentChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_RemainingDischargeTime
-   return Windows.Foundation.TimeSpan;
-   
-   function add_RemainingDischargeTimeChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_RemainingDischargeTimeChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function get_LowUsageLevel
    return Windows.UInt32;
@@ -552,6 +477,81 @@ package Windows.System.Power is
    return Windows.Foundation.EventRegistrationToken;
    
    procedure remove_RecentEnergyUsageReturnedToLow_ForegroundEnergyManager
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_EnergySaverStatus
+   return Windows.System.Power.EnergySaverStatus;
+   
+   function add_EnergySaverStatusChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_EnergySaverStatusChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_BatteryStatus
+   return Windows.System.Power.BatteryStatus;
+   
+   function add_BatteryStatusChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_BatteryStatusChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_PowerSupplyStatus
+   return Windows.System.Power.PowerSupplyStatus;
+   
+   function add_PowerSupplyStatusChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_PowerSupplyStatusChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_RemainingChargePercent
+   return Windows.Int32;
+   
+   function add_RemainingChargePercentChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_RemainingChargePercentChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_RemainingDischargeTime
+   return Windows.Foundation.TimeSpan;
+   
+   function add_RemainingDischargeTimeChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_RemainingDischargeTimeChanged
    (
       token : Windows.Foundation.EventRegistrationToken
    )

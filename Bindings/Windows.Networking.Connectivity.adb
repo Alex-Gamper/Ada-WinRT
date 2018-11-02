@@ -38,31 +38,6 @@ package body Windows.Networking.Connectivity is
    
    function Invoke
    (
-      This       : access NetworkStatusChangedEventHandler_Interface
-      ; sender : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IProxyConfiguration_Interface
-      ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IConnectionProfile_Interface
       ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionProfile
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -87,9 +62,51 @@ package body Windows.Networking.Connectivity is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IProxyConfiguration_Interface
+      ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access NetworkStatusChangedEventHandler_Interface
+      ; sender : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Networking.Connectivity.ICellularApnContext is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.CellularApnContext");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Connectivity.ICellularApnContext) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Networking.Connectivity.IID_ICellularApnContext'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create return Windows.Networking.Connectivity.IConnectionProfileFilter is
       Hr            : Windows.HResult := S_OK;
@@ -130,23 +147,6 @@ package body Windows.Networking.Connectivity is
       return RetVal;
    end;
    
-   function Create return Windows.Networking.Connectivity.ICellularApnContext is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.CellularApnContext");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Connectivity.ICellularApnContext) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Connectivity.IID_ICellularApnContext'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -154,6 +154,62 @@ package body Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function AcquireConnectionAsync
+   (
+      cellularApnContext : Windows.Networking.Connectivity.ICellularApnContext
+   )
+   return Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.ConnectivityManager");
+      m_Factory     : IConnectivityManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IConnectivityManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AcquireConnectionAsync(cellularApnContext, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure AddHttpRoutePolicy
+   (
+      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.ConnectivityManager");
+      m_Factory     : IConnectivityManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IConnectivityManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AddHttpRoutePolicy(routePolicy);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure RemoveHttpRoutePolicy
+   (
+      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.ConnectivityManager");
+      m_Factory     : IConnectivityManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IConnectivityManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RemoveHttpRoutePolicy(routePolicy);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
    
    function FindConnectionProfilesAsync
    (
@@ -317,62 +373,6 @@ package body Windows.Networking.Connectivity is
       Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.remove_NetworkStatusChanged(eventCookie);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function AcquireConnectionAsync
-   (
-      cellularApnContext : Windows.Networking.Connectivity.ICellularApnContext
-   )
-   return Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.ConnectivityManager");
-      m_Factory     : IConnectivityManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IConnectivityManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AcquireConnectionAsync(cellularApnContext, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure AddHttpRoutePolicy
-   (
-      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.ConnectivityManager");
-      m_Factory     : IConnectivityManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IConnectivityManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AddHttpRoutePolicy(routePolicy);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure RemoveHttpRoutePolicy
-   (
-      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.ConnectivityManager");
-      m_Factory     : IConnectivityManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IConnectivityManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RemoveHttpRoutePolicy(routePolicy);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

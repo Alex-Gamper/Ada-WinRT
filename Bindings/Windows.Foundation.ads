@@ -36,6 +36,22 @@ package Windows.Foundation is
    -- Enums
    ------------------------------------------------------------------------
    
+   type AsyncStatus is (
+      Started,
+      Completed,
+      Canceled,
+      Error
+   );
+   for AsyncStatus use (
+      Started => 0,
+      Completed => 1,
+      Canceled => 2,
+      Error => 3
+   );
+   for AsyncStatus'Size use 32;
+   
+   type AsyncStatus_Ptr is access AsyncStatus;
+   
    type PropertyType is (
       Empty,
       UInt8,
@@ -126,22 +142,6 @@ package Windows.Foundation is
    
    type PropertyType_Ptr is access PropertyType;
    
-   type AsyncStatus is (
-      Started,
-      Completed,
-      Canceled,
-      Error
-   );
-   for AsyncStatus use (
-      Started => 0,
-      Completed => 1,
-      Canceled => 2,
-      Error => 3
-   );
-   for AsyncStatus'Size use 32;
-   
-   type AsyncStatus_Ptr is access AsyncStatus;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -210,27 +210,30 @@ package Windows.Foundation is
    type AsyncActionCompletedHandler_Interface;
    type AsyncActionCompletedHandler is access all AsyncActionCompletedHandler_Interface'Class;
    type AsyncActionCompletedHandler_Ptr is access all AsyncActionCompletedHandler;
-   type DeferralCompletedHandler_Interface;
-   type DeferralCompletedHandler is access all DeferralCompletedHandler_Interface'Class;
-   type DeferralCompletedHandler_Ptr is access all DeferralCompletedHandler;
-   type AsyncOperationCompletedHandler_Object_Interface;
-   type AsyncOperationCompletedHandler_Object is access all AsyncOperationCompletedHandler_Object_Interface'Class;
-   type AsyncOperationCompletedHandler_Object_Ptr is access all AsyncOperationCompletedHandler_Object;
-   type AsyncOperationCompletedHandler_UInt8_Interface;
-   type AsyncOperationCompletedHandler_UInt8 is access all AsyncOperationCompletedHandler_UInt8_Interface'Class;
-   type AsyncOperationCompletedHandler_UInt8_Ptr is access all AsyncOperationCompletedHandler_UInt8;
-   type AsyncOperationCompletedHandler_UInt16_Interface;
-   type AsyncOperationCompletedHandler_UInt16 is access all AsyncOperationCompletedHandler_UInt16_Interface'Class;
-   type AsyncOperationCompletedHandler_UInt16_Ptr is access all AsyncOperationCompletedHandler_UInt16;
-   type AsyncOperationCompletedHandler_UInt32_Interface;
-   type AsyncOperationCompletedHandler_UInt32 is access all AsyncOperationCompletedHandler_UInt32_Interface'Class;
-   type AsyncOperationCompletedHandler_UInt32_Ptr is access all AsyncOperationCompletedHandler_UInt32;
-   type AsyncOperationCompletedHandler_UInt64_Interface;
-   type AsyncOperationCompletedHandler_UInt64 is access all AsyncOperationCompletedHandler_UInt64_Interface'Class;
-   type AsyncOperationCompletedHandler_UInt64_Ptr is access all AsyncOperationCompletedHandler_UInt64;
-   type AsyncOperationCompletedHandler_Int8_Interface;
-   type AsyncOperationCompletedHandler_Int8 is access all AsyncOperationCompletedHandler_Int8_Interface'Class;
-   type AsyncOperationCompletedHandler_Int8_Ptr is access all AsyncOperationCompletedHandler_Int8;
+   type AsyncActionProgressHandler_Double_Interface;
+   type AsyncActionProgressHandler_Double is access all AsyncActionProgressHandler_Double_Interface'Class;
+   type AsyncActionProgressHandler_Double_Ptr is access all AsyncActionProgressHandler_Double;
+   type AsyncActionProgressHandler_UInt64_Interface;
+   type AsyncActionProgressHandler_UInt64 is access all AsyncActionProgressHandler_UInt64_Interface'Class;
+   type AsyncActionProgressHandler_UInt64_Ptr is access all AsyncActionProgressHandler_UInt64;
+   type AsyncActionWithProgressCompletedHandler_Double_Interface;
+   type AsyncActionWithProgressCompletedHandler_Double is access all AsyncActionWithProgressCompletedHandler_Double_Interface'Class;
+   type AsyncActionWithProgressCompletedHandler_Double_Ptr is access all AsyncActionWithProgressCompletedHandler_Double;
+   type AsyncActionWithProgressCompletedHandler_UInt64_Interface;
+   type AsyncActionWithProgressCompletedHandler_UInt64 is access all AsyncActionWithProgressCompletedHandler_UInt64_Interface'Class;
+   type AsyncActionWithProgressCompletedHandler_UInt64_Ptr is access all AsyncActionWithProgressCompletedHandler_UInt64;
+   type AsyncOperationCompletedHandler_Boolean_Interface;
+   type AsyncOperationCompletedHandler_Boolean is access all AsyncOperationCompletedHandler_Boolean_Interface'Class;
+   type AsyncOperationCompletedHandler_Boolean_Ptr is access all AsyncOperationCompletedHandler_Boolean;
+   type AsyncOperationCompletedHandler_DateTime_Interface;
+   type AsyncOperationCompletedHandler_DateTime is access all AsyncOperationCompletedHandler_DateTime_Interface'Class;
+   type AsyncOperationCompletedHandler_DateTime_Ptr is access all AsyncOperationCompletedHandler_DateTime;
+   type AsyncOperationCompletedHandler_Double_Interface;
+   type AsyncOperationCompletedHandler_Double is access all AsyncOperationCompletedHandler_Double_Interface'Class;
+   type AsyncOperationCompletedHandler_Double_Ptr is access all AsyncOperationCompletedHandler_Double;
+   type AsyncOperationCompletedHandler_Guid_Interface;
+   type AsyncOperationCompletedHandler_Guid is access all AsyncOperationCompletedHandler_Guid_Interface'Class;
+   type AsyncOperationCompletedHandler_Guid_Ptr is access all AsyncOperationCompletedHandler_Guid;
    type AsyncOperationCompletedHandler_Int16_Interface;
    type AsyncOperationCompletedHandler_Int16 is access all AsyncOperationCompletedHandler_Int16_Interface'Class;
    type AsyncOperationCompletedHandler_Int16_Ptr is access all AsyncOperationCompletedHandler_Int16;
@@ -240,48 +243,45 @@ package Windows.Foundation is
    type AsyncOperationCompletedHandler_Int64_Interface;
    type AsyncOperationCompletedHandler_Int64 is access all AsyncOperationCompletedHandler_Int64_Interface'Class;
    type AsyncOperationCompletedHandler_Int64_Ptr is access all AsyncOperationCompletedHandler_Int64;
-   type AsyncOperationCompletedHandler_Guid_Interface;
-   type AsyncOperationCompletedHandler_Guid is access all AsyncOperationCompletedHandler_Guid_Interface'Class;
-   type AsyncOperationCompletedHandler_Guid_Ptr is access all AsyncOperationCompletedHandler_Guid;
+   type AsyncOperationCompletedHandler_Int8_Interface;
+   type AsyncOperationCompletedHandler_Int8 is access all AsyncOperationCompletedHandler_Int8_Interface'Class;
+   type AsyncOperationCompletedHandler_Int8_Ptr is access all AsyncOperationCompletedHandler_Int8;
+   type AsyncOperationCompletedHandler_IUriRuntimeClass_Interface;
+   type AsyncOperationCompletedHandler_IUriRuntimeClass is access all AsyncOperationCompletedHandler_IUriRuntimeClass_Interface'Class;
+   type AsyncOperationCompletedHandler_IUriRuntimeClass_Ptr is access all AsyncOperationCompletedHandler_IUriRuntimeClass;
+   type AsyncOperationCompletedHandler_Object_Interface;
+   type AsyncOperationCompletedHandler_Object is access all AsyncOperationCompletedHandler_Object_Interface'Class;
+   type AsyncOperationCompletedHandler_Object_Ptr is access all AsyncOperationCompletedHandler_Object;
    type AsyncOperationCompletedHandler_Single_Interface;
    type AsyncOperationCompletedHandler_Single is access all AsyncOperationCompletedHandler_Single_Interface'Class;
    type AsyncOperationCompletedHandler_Single_Ptr is access all AsyncOperationCompletedHandler_Single;
-   type AsyncOperationCompletedHandler_Double_Interface;
-   type AsyncOperationCompletedHandler_Double is access all AsyncOperationCompletedHandler_Double_Interface'Class;
-   type AsyncOperationCompletedHandler_Double_Ptr is access all AsyncOperationCompletedHandler_Double;
    type AsyncOperationCompletedHandler_String_Interface;
    type AsyncOperationCompletedHandler_String is access all AsyncOperationCompletedHandler_String_Interface'Class;
    type AsyncOperationCompletedHandler_String_Ptr is access all AsyncOperationCompletedHandler_String;
-   type AsyncOperationCompletedHandler_Boolean_Interface;
-   type AsyncOperationCompletedHandler_Boolean is access all AsyncOperationCompletedHandler_Boolean_Interface'Class;
-   type AsyncOperationCompletedHandler_Boolean_Ptr is access all AsyncOperationCompletedHandler_Boolean;
-   type AsyncOperationCompletedHandler_DateTime_Interface;
-   type AsyncOperationCompletedHandler_DateTime is access all AsyncOperationCompletedHandler_DateTime_Interface'Class;
-   type AsyncOperationCompletedHandler_DateTime_Ptr is access all AsyncOperationCompletedHandler_DateTime;
    type AsyncOperationCompletedHandler_TimeSpan_Interface;
    type AsyncOperationCompletedHandler_TimeSpan is access all AsyncOperationCompletedHandler_TimeSpan_Interface'Class;
    type AsyncOperationCompletedHandler_TimeSpan_Ptr is access all AsyncOperationCompletedHandler_TimeSpan;
+   type AsyncOperationCompletedHandler_UInt16_Interface;
+   type AsyncOperationCompletedHandler_UInt16 is access all AsyncOperationCompletedHandler_UInt16_Interface'Class;
+   type AsyncOperationCompletedHandler_UInt16_Ptr is access all AsyncOperationCompletedHandler_UInt16;
+   type AsyncOperationCompletedHandler_UInt32_Interface;
+   type AsyncOperationCompletedHandler_UInt32 is access all AsyncOperationCompletedHandler_UInt32_Interface'Class;
+   type AsyncOperationCompletedHandler_UInt32_Ptr is access all AsyncOperationCompletedHandler_UInt32;
+   type AsyncOperationCompletedHandler_UInt64_Interface;
+   type AsyncOperationCompletedHandler_UInt64 is access all AsyncOperationCompletedHandler_UInt64_Interface'Class;
+   type AsyncOperationCompletedHandler_UInt64_Ptr is access all AsyncOperationCompletedHandler_UInt64;
+   type AsyncOperationCompletedHandler_UInt8_Interface;
+   type AsyncOperationCompletedHandler_UInt8 is access all AsyncOperationCompletedHandler_UInt8_Interface'Class;
+   type AsyncOperationCompletedHandler_UInt8_Ptr is access all AsyncOperationCompletedHandler_UInt8;
+   type DeferralCompletedHandler_Interface;
+   type DeferralCompletedHandler is access all DeferralCompletedHandler_Interface'Class;
+   type DeferralCompletedHandler_Ptr is access all DeferralCompletedHandler;
    type EventHandler_Object_Interface;
    type EventHandler_Object is access all EventHandler_Object_Interface'Class;
    type EventHandler_Object_Ptr is access all EventHandler_Object;
    type TypedEventHandler_IMemoryBufferReference_add_Closed_Interface;
    type TypedEventHandler_IMemoryBufferReference_add_Closed is access all TypedEventHandler_IMemoryBufferReference_add_Closed_Interface'Class;
    type TypedEventHandler_IMemoryBufferReference_add_Closed_Ptr is access all TypedEventHandler_IMemoryBufferReference_add_Closed;
-   type AsyncOperationCompletedHandler_IUriRuntimeClass_Interface;
-   type AsyncOperationCompletedHandler_IUriRuntimeClass is access all AsyncOperationCompletedHandler_IUriRuntimeClass_Interface'Class;
-   type AsyncOperationCompletedHandler_IUriRuntimeClass_Ptr is access all AsyncOperationCompletedHandler_IUriRuntimeClass;
-   type AsyncActionProgressHandler_Double_Interface;
-   type AsyncActionProgressHandler_Double is access all AsyncActionProgressHandler_Double_Interface'Class;
-   type AsyncActionProgressHandler_Double_Ptr is access all AsyncActionProgressHandler_Double;
-   type AsyncActionWithProgressCompletedHandler_Double_Interface;
-   type AsyncActionWithProgressCompletedHandler_Double is access all AsyncActionWithProgressCompletedHandler_Double_Interface'Class;
-   type AsyncActionWithProgressCompletedHandler_Double_Ptr is access all AsyncActionWithProgressCompletedHandler_Double;
-   type AsyncActionProgressHandler_UInt64_Interface;
-   type AsyncActionProgressHandler_UInt64 is access all AsyncActionProgressHandler_UInt64_Interface'Class;
-   type AsyncActionProgressHandler_UInt64_Ptr is access all AsyncActionProgressHandler_UInt64;
-   type AsyncActionWithProgressCompletedHandler_UInt64_Interface;
-   type AsyncActionWithProgressCompletedHandler_UInt64 is access all AsyncActionWithProgressCompletedHandler_UInt64_Interface'Class;
-   type AsyncActionWithProgressCompletedHandler_UInt64_Ptr is access all AsyncActionWithProgressCompletedHandler_UInt64;
    type VectorChangedEventHandler_Object_Interface;
    type VectorChangedEventHandler_Object is access all VectorChangedEventHandler_Object_Interface'Class;
    type VectorChangedEventHandler_Object_Ptr is access all VectorChangedEventHandler_Object;
@@ -290,57 +290,207 @@ package Windows.Foundation is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncAction_Interface;
+   type IAsyncAction is access all IAsyncAction_Interface'Class;
+   type IAsyncAction_Ptr is access all IAsyncAction;
+   type IAsyncActionWithProgress_Double_Interface;
+   type IAsyncActionWithProgress_Double is access all IAsyncActionWithProgress_Double_Interface'Class;
+   type IAsyncActionWithProgress_Double_Ptr is access all IAsyncActionWithProgress_Double;
+   type IAsyncActionWithProgress_UInt64_Interface;
+   type IAsyncActionWithProgress_UInt64 is access all IAsyncActionWithProgress_UInt64_Interface'Class;
+   type IAsyncActionWithProgress_UInt64_Ptr is access all IAsyncActionWithProgress_UInt64;
+   type IAsyncInfo_Interface;
+   type IAsyncInfo is access all IAsyncInfo_Interface'Class;
+   type IAsyncInfo_Ptr is access all IAsyncInfo;
+   type IAsyncOperation_Boolean_Interface;
+   type IAsyncOperation_Boolean is access all IAsyncOperation_Boolean_Interface'Class;
+   type IAsyncOperation_Boolean_Ptr is access all IAsyncOperation_Boolean;
+   type IAsyncOperation_DateTime_Interface;
+   type IAsyncOperation_DateTime is access all IAsyncOperation_DateTime_Interface'Class;
+   type IAsyncOperation_DateTime_Ptr is access all IAsyncOperation_DateTime;
+   type IAsyncOperation_Double_Interface;
+   type IAsyncOperation_Double is access all IAsyncOperation_Double_Interface'Class;
+   type IAsyncOperation_Double_Ptr is access all IAsyncOperation_Double;
+   type IAsyncOperation_Guid_Interface;
+   type IAsyncOperation_Guid is access all IAsyncOperation_Guid_Interface'Class;
+   type IAsyncOperation_Guid_Ptr is access all IAsyncOperation_Guid;
+   type IAsyncOperation_Int16_Interface;
+   type IAsyncOperation_Int16 is access all IAsyncOperation_Int16_Interface'Class;
+   type IAsyncOperation_Int16_Ptr is access all IAsyncOperation_Int16;
+   type IAsyncOperation_Int32_Interface;
+   type IAsyncOperation_Int32 is access all IAsyncOperation_Int32_Interface'Class;
+   type IAsyncOperation_Int32_Ptr is access all IAsyncOperation_Int32;
+   type IAsyncOperation_Int64_Interface;
+   type IAsyncOperation_Int64 is access all IAsyncOperation_Int64_Interface'Class;
+   type IAsyncOperation_Int64_Ptr is access all IAsyncOperation_Int64;
+   type IAsyncOperation_Int8_Interface;
+   type IAsyncOperation_Int8 is access all IAsyncOperation_Int8_Interface'Class;
+   type IAsyncOperation_Int8_Ptr is access all IAsyncOperation_Int8;
+   type IAsyncOperation_IUriRuntimeClass_Interface;
+   type IAsyncOperation_IUriRuntimeClass is access all IAsyncOperation_IUriRuntimeClass_Interface'Class;
+   type IAsyncOperation_IUriRuntimeClass_Ptr is access all IAsyncOperation_IUriRuntimeClass;
+   type IAsyncOperation_Object_Interface;
+   type IAsyncOperation_Object is access all IAsyncOperation_Object_Interface'Class;
+   type IAsyncOperation_Object_Ptr is access all IAsyncOperation_Object;
+   type IAsyncOperation_Single_Interface;
+   type IAsyncOperation_Single is access all IAsyncOperation_Single_Interface'Class;
+   type IAsyncOperation_Single_Ptr is access all IAsyncOperation_Single;
+   type IAsyncOperation_String_Interface;
+   type IAsyncOperation_String is access all IAsyncOperation_String_Interface'Class;
+   type IAsyncOperation_String_Ptr is access all IAsyncOperation_String;
+   type IAsyncOperation_TimeSpan_Interface;
+   type IAsyncOperation_TimeSpan is access all IAsyncOperation_TimeSpan_Interface'Class;
+   type IAsyncOperation_TimeSpan_Ptr is access all IAsyncOperation_TimeSpan;
+   type IAsyncOperation_UInt16_Interface;
+   type IAsyncOperation_UInt16 is access all IAsyncOperation_UInt16_Interface'Class;
+   type IAsyncOperation_UInt16_Ptr is access all IAsyncOperation_UInt16;
+   type IAsyncOperation_UInt32_Interface;
+   type IAsyncOperation_UInt32 is access all IAsyncOperation_UInt32_Interface'Class;
+   type IAsyncOperation_UInt32_Ptr is access all IAsyncOperation_UInt32;
+   type IAsyncOperation_UInt64_Interface;
+   type IAsyncOperation_UInt64 is access all IAsyncOperation_UInt64_Interface'Class;
+   type IAsyncOperation_UInt64_Ptr is access all IAsyncOperation_UInt64;
+   type IAsyncOperation_UInt8_Interface;
+   type IAsyncOperation_UInt8 is access all IAsyncOperation_UInt8_Interface'Class;
+   type IAsyncOperation_UInt8_Ptr is access all IAsyncOperation_UInt8;
    type IClosable_Interface;
    type IClosable is access all IClosable_Interface'Class;
    type IClosable_Ptr is access all IClosable;
-   type IPropertyValue_Interface;
-   type IPropertyValue is access all IPropertyValue_Interface'Class;
-   type IPropertyValue_Ptr is access all IPropertyValue;
-   type IPropertyValueStatics_Interface;
-   type IPropertyValueStatics is access all IPropertyValueStatics_Interface'Class;
-   type IPropertyValueStatics_Ptr is access all IPropertyValueStatics;
-   type IStringable_Interface;
-   type IStringable is access all IStringable_Interface'Class;
-   type IStringable_Ptr is access all IStringable;
    type IDeferral_Interface;
    type IDeferral is access all IDeferral_Interface'Class;
    type IDeferral_Ptr is access all IDeferral;
    type IDeferralFactory_Interface;
    type IDeferralFactory is access all IDeferralFactory_Interface'Class;
    type IDeferralFactory_Ptr is access all IDeferralFactory;
-   type IAsyncInfo_Interface;
-   type IAsyncInfo is access all IAsyncInfo_Interface'Class;
-   type IAsyncInfo_Ptr is access all IAsyncInfo;
-   type IAsyncAction_Interface;
-   type IAsyncAction is access all IAsyncAction_Interface'Class;
-   type IAsyncAction_Ptr is access all IAsyncAction;
-   type IMemoryBufferReference_Interface;
-   type IMemoryBufferReference is access all IMemoryBufferReference_Interface'Class;
-   type IMemoryBufferReference_Ptr is access all IMemoryBufferReference;
+   type IGetActivationFactory_Interface;
+   type IGetActivationFactory is access all IGetActivationFactory_Interface'Class;
+   type IGetActivationFactory_Ptr is access all IGetActivationFactory;
+   type IIterable_IUriRuntimeClass_Interface;
+   type IIterable_IUriRuntimeClass is access all IIterable_IUriRuntimeClass_Interface'Class;
+   type IIterable_IUriRuntimeClass_Ptr is access all IIterable_IUriRuntimeClass;
+   type IIterable_IWwwFormUrlDecoderEntry_Interface;
+   type IIterable_IWwwFormUrlDecoderEntry is access all IIterable_IWwwFormUrlDecoderEntry_Interface'Class;
+   type IIterable_IWwwFormUrlDecoderEntry_Ptr is access all IIterable_IWwwFormUrlDecoderEntry;
+   type IIterable_Point_Interface;
+   type IIterable_Point is access all IIterable_Point_Interface'Class;
+   type IIterable_Point_Ptr is access all IIterable_Point;
+   type IIterable_Size_Interface;
+   type IIterable_Size is access all IIterable_Size_Interface'Class;
+   type IIterable_Size_Ptr is access all IIterable_Size;
+   type IIterator_IUriRuntimeClass_Interface;
+   type IIterator_IUriRuntimeClass is access all IIterator_IUriRuntimeClass_Interface'Class;
+   type IIterator_IUriRuntimeClass_Ptr is access all IIterator_IUriRuntimeClass;
+   type IIterator_Point_Interface;
+   type IIterator_Point is access all IIterator_Point_Interface'Class;
+   type IIterator_Point_Ptr is access all IIterator_Point;
+   type IIterator_Size_Interface;
+   type IIterator_Size is access all IIterator_Size_Interface'Class;
+   type IIterator_Size_Ptr is access all IIterator_Size;
    type IMemoryBuffer_Interface;
    type IMemoryBuffer is access all IMemoryBuffer_Interface'Class;
    type IMemoryBuffer_Ptr is access all IMemoryBuffer;
    type IMemoryBufferFactory_Interface;
    type IMemoryBufferFactory is access all IMemoryBufferFactory_Interface'Class;
    type IMemoryBufferFactory_Ptr is access all IMemoryBufferFactory;
-   type IUriRuntimeClass_Interface;
-   type IUriRuntimeClass is access all IUriRuntimeClass_Interface'Class;
-   type IUriRuntimeClass_Ptr is access all IUriRuntimeClass;
-   type IVectorView_IWwwFormUrlDecoderEntry_Interface;
-   type IVectorView_IWwwFormUrlDecoderEntry is access all IVectorView_IWwwFormUrlDecoderEntry_Interface'Class;
-   type IVectorView_IWwwFormUrlDecoderEntry_Ptr is access all IVectorView_IWwwFormUrlDecoderEntry;
-   type IIterable_IWwwFormUrlDecoderEntry_Interface;
-   type IIterable_IWwwFormUrlDecoderEntry is access all IIterable_IWwwFormUrlDecoderEntry_Interface'Class;
-   type IIterable_IWwwFormUrlDecoderEntry_Ptr is access all IIterable_IWwwFormUrlDecoderEntry;
-   type IUriRuntimeClassWithAbsoluteCanonicalUri_Interface;
-   type IUriRuntimeClassWithAbsoluteCanonicalUri is access all IUriRuntimeClassWithAbsoluteCanonicalUri_Interface'Class;
-   type IUriRuntimeClassWithAbsoluteCanonicalUri_Ptr is access all IUriRuntimeClassWithAbsoluteCanonicalUri;
+   type IMemoryBufferReference_Interface;
+   type IMemoryBufferReference is access all IMemoryBufferReference_Interface'Class;
+   type IMemoryBufferReference_Ptr is access all IMemoryBufferReference;
+   type IObservableVector_Object_Interface;
+   type IObservableVector_Object is access all IObservableVector_Object_Interface'Class;
+   type IObservableVector_Object_Ptr is access all IObservableVector_Object;
+   type IPropertyValue_Interface;
+   type IPropertyValue is access all IPropertyValue_Interface'Class;
+   type IPropertyValue_Ptr is access all IPropertyValue;
+   type IPropertyValueStatics_Interface;
+   type IPropertyValueStatics is access all IPropertyValueStatics_Interface'Class;
+   type IPropertyValueStatics_Ptr is access all IPropertyValueStatics;
+   type IReference_Boolean_Interface;
+   type IReference_Boolean is access all IReference_Boolean_Interface'Class;
+   type IReference_Boolean_Ptr is access all IReference_Boolean;
+   type IReference_DateTime_Interface;
+   type IReference_DateTime is access all IReference_DateTime_Interface'Class;
+   type IReference_DateTime_Ptr is access all IReference_DateTime;
+   type IReference_Double_Interface;
+   type IReference_Double is access all IReference_Double_Interface'Class;
+   type IReference_Double_Ptr is access all IReference_Double;
+   type IReference_Guid_Interface;
+   type IReference_Guid is access all IReference_Guid_Interface'Class;
+   type IReference_Guid_Ptr is access all IReference_Guid;
+   type IReference_Int16_Interface;
+   type IReference_Int16 is access all IReference_Int16_Interface'Class;
+   type IReference_Int16_Ptr is access all IReference_Int16;
+   type IReference_Int32_Interface;
+   type IReference_Int32 is access all IReference_Int32_Interface'Class;
+   type IReference_Int32_Ptr is access all IReference_Int32;
+   type IReference_Int64_Interface;
+   type IReference_Int64 is access all IReference_Int64_Interface'Class;
+   type IReference_Int64_Ptr is access all IReference_Int64;
+   type IReference_Int8_Interface;
+   type IReference_Int8 is access all IReference_Int8_Interface'Class;
+   type IReference_Int8_Ptr is access all IReference_Int8;
+   type IReference_Object_Interface;
+   type IReference_Object is access all IReference_Object_Interface'Class;
+   type IReference_Object_Ptr is access all IReference_Object;
+   type IReference_Point_Interface;
+   type IReference_Point is access all IReference_Point_Interface'Class;
+   type IReference_Point_Ptr is access all IReference_Point;
+   type IReference_Rect_Interface;
+   type IReference_Rect is access all IReference_Rect_Interface'Class;
+   type IReference_Rect_Ptr is access all IReference_Rect;
+   type IReference_Single_Interface;
+   type IReference_Single is access all IReference_Single_Interface'Class;
+   type IReference_Single_Ptr is access all IReference_Single;
+   type IReference_Size_Interface;
+   type IReference_Size is access all IReference_Size_Interface'Class;
+   type IReference_Size_Ptr is access all IReference_Size;
+   type IReference_String_Interface;
+   type IReference_String is access all IReference_String_Interface'Class;
+   type IReference_String_Ptr is access all IReference_String;
+   type IReference_TimeSpan_Interface;
+   type IReference_TimeSpan is access all IReference_TimeSpan_Interface'Class;
+   type IReference_TimeSpan_Ptr is access all IReference_TimeSpan;
+   type IReference_UInt16_Interface;
+   type IReference_UInt16 is access all IReference_UInt16_Interface'Class;
+   type IReference_UInt16_Ptr is access all IReference_UInt16;
+   type IReference_UInt32_Interface;
+   type IReference_UInt32 is access all IReference_UInt32_Interface'Class;
+   type IReference_UInt32_Ptr is access all IReference_UInt32;
+   type IReference_UInt64_Interface;
+   type IReference_UInt64 is access all IReference_UInt64_Interface'Class;
+   type IReference_UInt64_Ptr is access all IReference_UInt64;
+   type IReference_UInt8_Interface;
+   type IReference_UInt8 is access all IReference_UInt8_Interface'Class;
+   type IReference_UInt8_Ptr is access all IReference_UInt8;
+   type IStringable_Interface;
+   type IStringable is access all IStringable_Interface'Class;
+   type IStringable_Ptr is access all IStringable;
    type IUriEscapeStatics_Interface;
    type IUriEscapeStatics is access all IUriEscapeStatics_Interface'Class;
    type IUriEscapeStatics_Ptr is access all IUriEscapeStatics;
+   type IUriRuntimeClass_Interface;
+   type IUriRuntimeClass is access all IUriRuntimeClass_Interface'Class;
+   type IUriRuntimeClass_Ptr is access all IUriRuntimeClass;
    type IUriRuntimeClassFactory_Interface;
    type IUriRuntimeClassFactory is access all IUriRuntimeClassFactory_Interface'Class;
    type IUriRuntimeClassFactory_Ptr is access all IUriRuntimeClassFactory;
+   type IUriRuntimeClassWithAbsoluteCanonicalUri_Interface;
+   type IUriRuntimeClassWithAbsoluteCanonicalUri is access all IUriRuntimeClassWithAbsoluteCanonicalUri_Interface'Class;
+   type IUriRuntimeClassWithAbsoluteCanonicalUri_Ptr is access all IUriRuntimeClassWithAbsoluteCanonicalUri;
+   type IVector_IUriRuntimeClass_Interface;
+   type IVector_IUriRuntimeClass is access all IVector_IUriRuntimeClass_Interface'Class;
+   type IVector_IUriRuntimeClass_Ptr is access all IVector_IUriRuntimeClass;
+   type IVectorView_IUriRuntimeClass_Interface;
+   type IVectorView_IUriRuntimeClass is access all IVectorView_IUriRuntimeClass_Interface'Class;
+   type IVectorView_IUriRuntimeClass_Ptr is access all IVectorView_IUriRuntimeClass;
+   type IVectorView_IWwwFormUrlDecoderEntry_Interface;
+   type IVectorView_IWwwFormUrlDecoderEntry is access all IVectorView_IWwwFormUrlDecoderEntry_Interface'Class;
+   type IVectorView_IWwwFormUrlDecoderEntry_Ptr is access all IVectorView_IWwwFormUrlDecoderEntry;
+   type IVectorView_Point_Interface;
+   type IVectorView_Point is access all IVectorView_Point_Interface'Class;
+   type IVectorView_Point_Ptr is access all IVectorView_Point;
+   type IVectorView_Size_Interface;
+   type IVectorView_Size is access all IVectorView_Size_Interface'Class;
+   type IVectorView_Size_Ptr is access all IVectorView_Size;
    type IWwwFormUrlDecoderEntry_Interface;
    type IWwwFormUrlDecoderEntry is access all IWwwFormUrlDecoderEntry_Interface'Class;
    type IWwwFormUrlDecoderEntry_Ptr is access all IWwwFormUrlDecoderEntry;
@@ -350,160 +500,582 @@ package Windows.Foundation is
    type IWwwFormUrlDecoderRuntimeClassFactory_Interface;
    type IWwwFormUrlDecoderRuntimeClassFactory is access all IWwwFormUrlDecoderRuntimeClassFactory_Interface'Class;
    type IWwwFormUrlDecoderRuntimeClassFactory_Ptr is access all IWwwFormUrlDecoderRuntimeClassFactory;
-   type IGetActivationFactory_Interface;
-   type IGetActivationFactory is access all IGetActivationFactory_Interface'Class;
-   type IGetActivationFactory_Ptr is access all IGetActivationFactory;
-   type IReference_Object_Interface;
-   type IReference_Object is access all IReference_Object_Interface'Class;
-   type IReference_Object_Ptr is access all IReference_Object;
-   type IAsyncOperation_Object_Interface;
-   type IAsyncOperation_Object is access all IAsyncOperation_Object_Interface'Class;
-   type IAsyncOperation_Object_Ptr is access all IAsyncOperation_Object;
-   type IReference_UInt8_Interface;
-   type IReference_UInt8 is access all IReference_UInt8_Interface'Class;
-   type IReference_UInt8_Ptr is access all IReference_UInt8;
-   type IAsyncOperation_UInt8_Interface;
-   type IAsyncOperation_UInt8 is access all IAsyncOperation_UInt8_Interface'Class;
-   type IAsyncOperation_UInt8_Ptr is access all IAsyncOperation_UInt8;
-   type IReference_UInt16_Interface;
-   type IReference_UInt16 is access all IReference_UInt16_Interface'Class;
-   type IReference_UInt16_Ptr is access all IReference_UInt16;
-   type IAsyncOperation_UInt16_Interface;
-   type IAsyncOperation_UInt16 is access all IAsyncOperation_UInt16_Interface'Class;
-   type IAsyncOperation_UInt16_Ptr is access all IAsyncOperation_UInt16;
-   type IReference_UInt32_Interface;
-   type IReference_UInt32 is access all IReference_UInt32_Interface'Class;
-   type IReference_UInt32_Ptr is access all IReference_UInt32;
-   type IAsyncOperation_UInt32_Interface;
-   type IAsyncOperation_UInt32 is access all IAsyncOperation_UInt32_Interface'Class;
-   type IAsyncOperation_UInt32_Ptr is access all IAsyncOperation_UInt32;
-   type IReference_UInt64_Interface;
-   type IReference_UInt64 is access all IReference_UInt64_Interface'Class;
-   type IReference_UInt64_Ptr is access all IReference_UInt64;
-   type IAsyncOperation_UInt64_Interface;
-   type IAsyncOperation_UInt64 is access all IAsyncOperation_UInt64_Interface'Class;
-   type IAsyncOperation_UInt64_Ptr is access all IAsyncOperation_UInt64;
-   type IReference_Int8_Interface;
-   type IReference_Int8 is access all IReference_Int8_Interface'Class;
-   type IReference_Int8_Ptr is access all IReference_Int8;
-   type IAsyncOperation_Int8_Interface;
-   type IAsyncOperation_Int8 is access all IAsyncOperation_Int8_Interface'Class;
-   type IAsyncOperation_Int8_Ptr is access all IAsyncOperation_Int8;
-   type IReference_Int16_Interface;
-   type IReference_Int16 is access all IReference_Int16_Interface'Class;
-   type IReference_Int16_Ptr is access all IReference_Int16;
-   type IAsyncOperation_Int16_Interface;
-   type IAsyncOperation_Int16 is access all IAsyncOperation_Int16_Interface'Class;
-   type IAsyncOperation_Int16_Ptr is access all IAsyncOperation_Int16;
-   type IReference_Int32_Interface;
-   type IReference_Int32 is access all IReference_Int32_Interface'Class;
-   type IReference_Int32_Ptr is access all IReference_Int32;
-   type IAsyncOperation_Int32_Interface;
-   type IAsyncOperation_Int32 is access all IAsyncOperation_Int32_Interface'Class;
-   type IAsyncOperation_Int32_Ptr is access all IAsyncOperation_Int32;
-   type IReference_Int64_Interface;
-   type IReference_Int64 is access all IReference_Int64_Interface'Class;
-   type IReference_Int64_Ptr is access all IReference_Int64;
-   type IAsyncOperation_Int64_Interface;
-   type IAsyncOperation_Int64 is access all IAsyncOperation_Int64_Interface'Class;
-   type IAsyncOperation_Int64_Ptr is access all IAsyncOperation_Int64;
-   type IReference_Guid_Interface;
-   type IReference_Guid is access all IReference_Guid_Interface'Class;
-   type IReference_Guid_Ptr is access all IReference_Guid;
-   type IAsyncOperation_Guid_Interface;
-   type IAsyncOperation_Guid is access all IAsyncOperation_Guid_Interface'Class;
-   type IAsyncOperation_Guid_Ptr is access all IAsyncOperation_Guid;
-   type IReference_Single_Interface;
-   type IReference_Single is access all IReference_Single_Interface'Class;
-   type IReference_Single_Ptr is access all IReference_Single;
-   type IAsyncOperation_Single_Interface;
-   type IAsyncOperation_Single is access all IAsyncOperation_Single_Interface'Class;
-   type IAsyncOperation_Single_Ptr is access all IAsyncOperation_Single;
-   type IReference_Double_Interface;
-   type IReference_Double is access all IReference_Double_Interface'Class;
-   type IReference_Double_Ptr is access all IReference_Double;
-   type IAsyncOperation_Double_Interface;
-   type IAsyncOperation_Double is access all IAsyncOperation_Double_Interface'Class;
-   type IAsyncOperation_Double_Ptr is access all IAsyncOperation_Double;
-   type IReference_String_Interface;
-   type IReference_String is access all IReference_String_Interface'Class;
-   type IReference_String_Ptr is access all IReference_String;
-   type IAsyncOperation_String_Interface;
-   type IAsyncOperation_String is access all IAsyncOperation_String_Interface'Class;
-   type IAsyncOperation_String_Ptr is access all IAsyncOperation_String;
-   type IReference_Boolean_Interface;
-   type IReference_Boolean is access all IReference_Boolean_Interface'Class;
-   type IReference_Boolean_Ptr is access all IReference_Boolean;
-   type IAsyncOperation_Boolean_Interface;
-   type IAsyncOperation_Boolean is access all IAsyncOperation_Boolean_Interface'Class;
-   type IAsyncOperation_Boolean_Ptr is access all IAsyncOperation_Boolean;
-   type IReference_DateTime_Interface;
-   type IReference_DateTime is access all IReference_DateTime_Interface'Class;
-   type IReference_DateTime_Ptr is access all IReference_DateTime;
-   type IAsyncOperation_DateTime_Interface;
-   type IAsyncOperation_DateTime is access all IAsyncOperation_DateTime_Interface'Class;
-   type IAsyncOperation_DateTime_Ptr is access all IAsyncOperation_DateTime;
-   type IReference_TimeSpan_Interface;
-   type IReference_TimeSpan is access all IReference_TimeSpan_Interface'Class;
-   type IReference_TimeSpan_Ptr is access all IReference_TimeSpan;
-   type IAsyncOperation_TimeSpan_Interface;
-   type IAsyncOperation_TimeSpan is access all IAsyncOperation_TimeSpan_Interface'Class;
-   type IAsyncOperation_TimeSpan_Ptr is access all IAsyncOperation_TimeSpan;
-   type IIterator_IUriRuntimeClass_Interface;
-   type IIterator_IUriRuntimeClass is access all IIterator_IUriRuntimeClass_Interface'Class;
-   type IIterator_IUriRuntimeClass_Ptr is access all IIterator_IUriRuntimeClass;
-   type IIterable_IUriRuntimeClass_Interface;
-   type IIterable_IUriRuntimeClass is access all IIterable_IUriRuntimeClass_Interface'Class;
-   type IIterable_IUriRuntimeClass_Ptr is access all IIterable_IUriRuntimeClass;
-   type IVectorView_IUriRuntimeClass_Interface;
-   type IVectorView_IUriRuntimeClass is access all IVectorView_IUriRuntimeClass_Interface'Class;
-   type IVectorView_IUriRuntimeClass_Ptr is access all IVectorView_IUriRuntimeClass;
-   type IAsyncOperation_IUriRuntimeClass_Interface;
-   type IAsyncOperation_IUriRuntimeClass is access all IAsyncOperation_IUriRuntimeClass_Interface'Class;
-   type IAsyncOperation_IUriRuntimeClass_Ptr is access all IAsyncOperation_IUriRuntimeClass;
-   type IReference_Rect_Interface;
-   type IReference_Rect is access all IReference_Rect_Interface'Class;
-   type IReference_Rect_Ptr is access all IReference_Rect;
-   type IReference_Size_Interface;
-   type IReference_Size is access all IReference_Size_Interface'Class;
-   type IReference_Size_Ptr is access all IReference_Size;
-   type IReference_Point_Interface;
-   type IReference_Point is access all IReference_Point_Interface'Class;
-   type IReference_Point_Ptr is access all IReference_Point;
-   type IIterator_Size_Interface;
-   type IIterator_Size is access all IIterator_Size_Interface'Class;
-   type IIterator_Size_Ptr is access all IIterator_Size;
-   type IIterable_Size_Interface;
-   type IIterable_Size is access all IIterable_Size_Interface'Class;
-   type IIterable_Size_Ptr is access all IIterable_Size;
-   type IVectorView_Size_Interface;
-   type IVectorView_Size is access all IVectorView_Size_Interface'Class;
-   type IVectorView_Size_Ptr is access all IVectorView_Size;
-   type IAsyncActionWithProgress_Double_Interface;
-   type IAsyncActionWithProgress_Double is access all IAsyncActionWithProgress_Double_Interface'Class;
-   type IAsyncActionWithProgress_Double_Ptr is access all IAsyncActionWithProgress_Double;
-   type IVector_IUriRuntimeClass_Interface;
-   type IVector_IUriRuntimeClass is access all IVector_IUriRuntimeClass_Interface'Class;
-   type IVector_IUriRuntimeClass_Ptr is access all IVector_IUriRuntimeClass;
-   type IIterator_Point_Interface;
-   type IIterator_Point is access all IIterator_Point_Interface'Class;
-   type IIterator_Point_Ptr is access all IIterator_Point;
-   type IIterable_Point_Interface;
-   type IIterable_Point is access all IIterable_Point_Interface'Class;
-   type IIterable_Point_Ptr is access all IIterable_Point;
-   type IVectorView_Point_Interface;
-   type IVectorView_Point is access all IVectorView_Point_Interface'Class;
-   type IVectorView_Point_Ptr is access all IVectorView_Point;
-   type IAsyncActionWithProgress_UInt64_Interface;
-   type IAsyncActionWithProgress_UInt64 is access all IAsyncActionWithProgress_UInt64_Interface'Class;
-   type IAsyncActionWithProgress_UInt64_Ptr is access all IAsyncActionWithProgress_UInt64;
-   type IObservableVector_Object_Interface;
-   type IObservableVector_Object is access all IObservableVector_Object_Interface'Class;
-   type IObservableVector_Object_Ptr is access all IObservableVector_Object;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncAction : aliased constant Windows.IID := (1516535814, 33850, 19881, (134, 91, 157, 38, 229, 223, 173, 123 ));
+   
+   type IAsyncAction_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncAction_Interface
+      ; handler : Windows.Foundation.AsyncActionCompletedHandler
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncAction_Interface
+      ; RetVal : access Windows.Foundation.AsyncActionCompletedHandler
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncAction_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncActionWithProgress_Double : aliased constant Windows.IID := (1326723238, 43045, 22218, (176, 71, 26, 155, 173, 82, 186, 103 ));
+   
+   type IAsyncActionWithProgress_Double_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Progress
+   (
+      This       : access IAsyncActionWithProgress_Double_Interface
+      ; handler : Windows.Foundation.AsyncActionProgressHandler_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Progress
+   (
+      This       : access IAsyncActionWithProgress_Double_Interface
+      ; RetVal : access Windows.Foundation.AsyncActionProgressHandler_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Completed
+   (
+      This       : access IAsyncActionWithProgress_Double_Interface
+      ; handler : Windows.Foundation.AsyncActionWithProgressCompletedHandler_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncActionWithProgress_Double_Interface
+      ; RetVal : access Windows.Foundation.AsyncActionWithProgressCompletedHandler_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncActionWithProgress_Double_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncActionWithProgress_UInt64 : aliased constant Windows.IID := (1140265936, 50333, 24149, (174, 191, 175, 57, 87, 104, 53, 30 ));
+   
+   type IAsyncActionWithProgress_UInt64_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Progress
+   (
+      This       : access IAsyncActionWithProgress_UInt64_Interface
+      ; handler : Windows.Foundation.AsyncActionProgressHandler_UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Progress
+   (
+      This       : access IAsyncActionWithProgress_UInt64_Interface
+      ; RetVal : access Windows.Foundation.AsyncActionProgressHandler_UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Completed
+   (
+      This       : access IAsyncActionWithProgress_UInt64_Interface
+      ; handler : Windows.Foundation.AsyncActionWithProgressCompletedHandler_UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncActionWithProgress_UInt64_Interface
+      ; RetVal : access Windows.Foundation.AsyncActionWithProgressCompletedHandler_UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncActionWithProgress_UInt64_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncInfo : aliased constant Windows.IID := (54, 0, 0, (192, 0, 0, 0, 0, 0, 0, 70 ));
+   
+   type IAsyncInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IAsyncInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access IAsyncInfo_Interface
+      ; RetVal : access Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ErrorCode
+   (
+      This       : access IAsyncInfo_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Cancel
+   (
+      This       : access IAsyncInfo_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Close
+   (
+      This       : access IAsyncInfo_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Boolean_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Boolean_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Boolean_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Boolean_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_DateTime_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_DateTime_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_DateTime_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_DateTime_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Double_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Double_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Double_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Double_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Guid_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Guid_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Guid_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Guid_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Int16_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Int16_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Int16_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Int16_Interface
+      ; RetVal : access Windows.Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Int32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Int32_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Int32_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Int32_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Int64_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Int64_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Int64_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Int64_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Int8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Int8_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int8
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Int8_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int8
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Int8_Interface
+      ; RetVal : access Windows.Int8
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUriRuntimeClass : aliased constant Windows.IID := (1679604189, 41613, 23010, (184, 219, 162, 39, 237, 166, 207, 46 ));
+   
+   type IAsyncOperation_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IUriRuntimeClass_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IUriRuntimeClass_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IUriRuntimeClass_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Object_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Object_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Object_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Object_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_Single_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_Single_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_Single_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_Single_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_String_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_String_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_String_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_String_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_TimeSpan_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_TimeSpan_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_TimeSpan_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_TimeSpan_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_UInt16_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_UInt16_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UInt16_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UInt16_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_UInt32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_UInt32_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UInt32_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UInt32_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_UInt64_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_UInt64_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UInt64_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UInt64_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_UInt8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_UInt8_Interface
+      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt8
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_UInt8_Interface
+      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt8
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_UInt8_Interface
+      ; RetVal : access Windows.UInt8
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -514,6 +1086,279 @@ package Windows.Foundation is
    function Close
    (
       This       : access IClosable_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDeferral : aliased constant Windows.IID := (3592853298, 15231, 18087, (180, 11, 79, 220, 162, 162, 198, 147 ));
+   
+   type IDeferral_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Complete
+   (
+      This       : access IDeferral_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDeferralFactory : aliased constant Windows.IID := (1705110725, 16309, 18482, (140, 169, 240, 97, 178, 129, 209, 58 ));
+   
+   type IDeferralFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IDeferralFactory_Interface
+      ; handler : Windows.Foundation.DeferralCompletedHandler
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGetActivationFactory : aliased constant Windows.IID := (1323011810, 38621, 18855, (148, 247, 70, 7, 221, 171, 142, 60 ));
+   
+   type IGetActivationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetActivationFactory
+   (
+      This       : access IGetActivationFactory_Interface
+      ; activatableClassId : Windows.String
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IUriRuntimeClass : aliased constant Windows.IID := (2966829944, 30893, 24113, (182, 216, 227, 42, 14, 22, 196, 71 ));
+   
+   type IIterable_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IUriRuntimeClass_Interface
+      ; RetVal : access Windows.Foundation.IIterator_IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_IWwwFormUrlDecoderEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IWwwFormUrlDecoderEntry_Interface
+      ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_Point : aliased constant Windows.IID := (3247581197, 14857, 21539, (157, 197, 103, 184, 62, 189, 228, 29 ));
+   
+   type IIterable_Point_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_Point_Interface
+      ; RetVal : access Windows.Foundation.IIterator_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_Size : aliased constant Windows.IID := (3386856899, 19777, 24208, (186, 118, 232, 158, 213, 100, 68, 107 ));
+   
+   type IIterable_Size_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_Size_Interface
+      ; RetVal : access Windows.Foundation.IIterator_Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterator_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IUriRuntimeClass_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IUriRuntimeClass_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IUriRuntimeClass_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IUriRuntimeClass_Interface
+      ; items : Windows.Foundation.IUriRuntimeClass_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_Point : aliased constant Windows.IID := (3322066334, 2702, 24217, (180, 120, 43, 86, 69, 133, 39, 141 ));
+   
+   type IIterator_Point_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_Point_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_Point_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_Point_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_Point_Interface
+      ; items : Windows.Foundation.Point_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_Size : aliased constant Windows.IID := (2739965664, 13607, 20804, (137, 77, 66, 46, 173, 239, 67, 215 ));
+   
+   type IIterator_Size_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_Size_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_Size_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_Size_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_Size_Interface
+      ; items : Windows.Foundation.Size_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMemoryBuffer : aliased constant Windows.IID := (4223982890, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
+   
+   type IMemoryBuffer_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateReference
+   (
+      This       : access IMemoryBuffer_Interface
+      ; RetVal : access Windows.Foundation.IMemoryBufferReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMemoryBufferFactory : aliased constant Windows.IID := (4223982891, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
+   
+   type IMemoryBufferFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IMemoryBufferFactory_Interface
+      ; capacity : Windows.UInt32
+      ; RetVal : access Windows.Foundation.IMemoryBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMemoryBufferReference : aliased constant Windows.IID := (4223982889, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
+   
+   type IMemoryBufferReference_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Capacity
+   (
+      This       : access IMemoryBufferReference_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Closed
+   (
+      This       : access IMemoryBufferReference_Interface
+      ; handler : TypedEventHandler_IMemoryBufferReference_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IMemoryBufferReference_Interface
+      ; cookie : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IObservableVector_Object : aliased constant Windows.IID := (2072102250, 2437, 20877, (186, 169, 13, 169, 174, 0, 159, 101 ));
+   
+   type IObservableVector_Object_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_VectorChanged
+   (
+      This       : access IObservableVector_Object_Interface
+      ; vhnd : Windows.Foundation.VectorChangedEventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_VectorChanged
+   (
+      This       : access IObservableVector_Object_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1115,6 +1960,221 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
+   type IReference_Boolean_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Boolean_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_DateTime_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_DateTime_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Double_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Double_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Guid_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Guid_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Int16_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Int16_Interface
+      ; RetVal : access Windows.Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Int32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Int32_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Int64_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Int64_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Int8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Int8_Interface
+      ; RetVal : access Windows.Int8
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Object_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Object_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_Point : aliased constant Windows.IID := (2230406178, 40970, 21106, (141, 61, 130, 17, 46, 102, 223, 0 ));
+   
+   type IReference_Point_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Point_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_Rect : aliased constant Windows.IID := (2151825169, 1359, 24236, (175, 211, 99, 182, 206, 21, 231, 123 ));
+   
+   type IReference_Rect_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Rect_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_Single_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Single_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_Size : aliased constant Windows.IID := (1634873478, 36435, 21110, (159, 54, 42, 75, 185, 62, 43, 117 ));
+   
+   type IReference_Size_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Size_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_String_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_String_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_TimeSpan_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_TimeSpan_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_UInt16_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_UInt16_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_UInt32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_UInt32_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_UInt64_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_UInt64_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IReference_UInt8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_UInt8_Interface
+      ; RetVal : access Windows.UInt8
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStringable : aliased constant Windows.IID := (2520162132, 36534, 18672, (171, 206, 193, 178, 17, 230, 39, 195 ));
    
    type IStringable_Interface is interface and Windows.IInspectable_Interface;
@@ -1128,147 +2188,23 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_IDeferral : aliased constant Windows.IID := (3592853298, 15231, 18087, (180, 11, 79, 220, 162, 162, 198, 147 ));
+   IID_IUriEscapeStatics : aliased constant Windows.IID := (3251909306, 51236, 17490, (167, 253, 81, 43, 195, 187, 233, 161 ));
    
-   type IDeferral_Interface is interface and Windows.IInspectable_Interface;
+   type IUriEscapeStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function Complete
+   function UnescapeComponent
    (
-      This       : access IDeferral_Interface
+      This       : access IUriEscapeStatics_Interface
+      ; toUnescape : Windows.String
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IDeferralFactory : aliased constant Windows.IID := (1705110725, 16309, 18482, (140, 169, 240, 97, 178, 129, 209, 58 ));
-   
-   type IDeferralFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
+   function EscapeComponent
    (
-      This       : access IDeferralFactory_Interface
-      ; handler : Windows.Foundation.DeferralCompletedHandler
-      ; RetVal : access Windows.Foundation.IDeferral
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncInfo : aliased constant Windows.IID := (54, 0, 0, (192, 0, 0, 0, 0, 0, 0, 70 ));
-   
-   type IAsyncInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IAsyncInfo_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Status
-   (
-      This       : access IAsyncInfo_Interface
-      ; RetVal : access Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ErrorCode
-   (
-      This       : access IAsyncInfo_Interface
-      ; RetVal : access Windows.HResult
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Cancel
-   (
-      This       : access IAsyncInfo_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Close
-   (
-      This       : access IAsyncInfo_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncAction : aliased constant Windows.IID := (1516535814, 33850, 19881, (134, 91, 157, 38, 229, 223, 173, 123 ));
-   
-   type IAsyncAction_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncAction_Interface
-      ; handler : Windows.Foundation.AsyncActionCompletedHandler
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncAction_Interface
-      ; RetVal : access Windows.Foundation.AsyncActionCompletedHandler
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncAction_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMemoryBufferReference : aliased constant Windows.IID := (4223982889, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
-   
-   type IMemoryBufferReference_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Capacity
-   (
-      This       : access IMemoryBufferReference_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Closed
-   (
-      This       : access IMemoryBufferReference_Interface
-      ; handler : TypedEventHandler_IMemoryBufferReference_add_Closed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Closed
-   (
-      This       : access IMemoryBufferReference_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMemoryBuffer : aliased constant Windows.IID := (4223982890, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
-   
-   type IMemoryBuffer_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateReference
-   (
-      This       : access IMemoryBuffer_Interface
-      ; RetVal : access Windows.Foundation.IMemoryBufferReference
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMemoryBufferFactory : aliased constant Windows.IID := (4223982891, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
-   
-   type IMemoryBufferFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access IMemoryBufferFactory_Interface
-      ; capacity : Windows.UInt32
-      ; RetVal : access Windows.Foundation.IMemoryBuffer
+      This       : access IUriEscapeStatics_Interface
+      ; toEscape : Windows.String
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1401,100 +2337,6 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IVectorView_IWwwFormUrlDecoderEntry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
-      ; value : Windows.Foundation.IWwwFormUrlDecoderEntry
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Foundation.IWwwFormUrlDecoderEntry_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IWwwFormUrlDecoderEntry_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IWwwFormUrlDecoderEntry_Interface
-      ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderEntry
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUriRuntimeClassWithAbsoluteCanonicalUri : aliased constant Windows.IID := (1972213345, 8732, 18447, (163, 57, 80, 101, 102, 115, 244, 111 ));
-   
-   type IUriRuntimeClassWithAbsoluteCanonicalUri_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AbsoluteCanonicalUri
-   (
-      This       : access IUriRuntimeClassWithAbsoluteCanonicalUri_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DisplayIri
-   (
-      This       : access IUriRuntimeClassWithAbsoluteCanonicalUri_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IUriEscapeStatics : aliased constant Windows.IID := (3251909306, 51236, 17490, (167, 253, 81, 43, 195, 187, 233, 161 ));
-   
-   type IUriEscapeStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function UnescapeComponent
-   (
-      This       : access IUriEscapeStatics_Interface
-      ; toUnescape : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function EscapeComponent
-   (
-      This       : access IUriEscapeStatics_Interface
-      ; toEscape : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IUriRuntimeClassFactory : aliased constant Windows.IID := (1151957359, 29246, 20447, (162, 24, 3, 62, 117, 176, 192, 132 ));
    
    type IUriRuntimeClassFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -1518,919 +2360,21 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (308180017, 63096, 20110, (182, 112, 32, 169, 176, 108, 81, 45 ));
+   IID_IUriRuntimeClassWithAbsoluteCanonicalUri : aliased constant Windows.IID := (1972213345, 8732, 18447, (163, 57, 80, 101, 102, 115, 244, 111 ));
    
-   type IWwwFormUrlDecoderEntry_Interface is interface and Windows.IInspectable_Interface;
+   type IUriRuntimeClassWithAbsoluteCanonicalUri_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Name
+   function get_AbsoluteCanonicalUri
    (
-      This       : access IWwwFormUrlDecoderEntry_Interface
+      This       : access IUriRuntimeClassWithAbsoluteCanonicalUri_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Value
+   function get_DisplayIri
    (
-      This       : access IWwwFormUrlDecoderEntry_Interface
+      This       : access IUriRuntimeClassWithAbsoluteCanonicalUri_Interface
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWwwFormUrlDecoderRuntimeClass : aliased constant Windows.IID := (3562669137, 61989, 17730, (146, 150, 14, 29, 245, 210, 84, 223 ));
-   
-   type IWwwFormUrlDecoderRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetFirstValueByName
-   (
-      This       : access IWwwFormUrlDecoderRuntimeClass_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWwwFormUrlDecoderRuntimeClassFactory : aliased constant Windows.IID := (1535929149, 9390, 16821, (161, 191, 240, 195, 213, 68, 132, 91 ));
-   
-   type IWwwFormUrlDecoderRuntimeClassFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateWwwFormUrlDecoder
-   (
-      This       : access IWwwFormUrlDecoderRuntimeClassFactory_Interface
-      ; query : Windows.String
-      ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGetActivationFactory : aliased constant Windows.IID := (1323011810, 38621, 18855, (148, 247, 70, 7, 221, 171, 142, 60 ));
-   
-   type IGetActivationFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetActivationFactory
-   (
-      This       : access IGetActivationFactory_Interface
-      ; activatableClassId : Windows.String
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Object_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Object_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Object_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Object_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Object_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Object_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_UInt8_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_UInt8_Interface
-      ; RetVal : access Windows.UInt8
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_UInt8_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_UInt8_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt8
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UInt8_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt8
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UInt8_Interface
-      ; RetVal : access Windows.UInt8
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_UInt16_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_UInt16_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_UInt16_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_UInt16_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UInt16_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UInt16_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_UInt32_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_UInt32_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_UInt32_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_UInt32_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UInt32_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UInt32_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_UInt64_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_UInt64_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_UInt64_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_UInt64_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_UInt64_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_UInt64_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Int8_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Int8_Interface
-      ; RetVal : access Windows.Int8
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Int8_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Int8_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int8
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Int8_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int8
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Int8_Interface
-      ; RetVal : access Windows.Int8
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Int16_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Int16_Interface
-      ; RetVal : access Windows.Int16
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Int16_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Int16_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Int16_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Int16_Interface
-      ; RetVal : access Windows.Int16
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Int32_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Int32_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Int32_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Int32_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Int32_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Int32_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Int64_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Int64_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Int64_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Int64_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Int64_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Int64_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Guid_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Guid_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Guid_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Guid_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Guid_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Guid_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Single_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Single_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Single_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Single_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Single_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Single_Interface
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Double_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Double_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Double_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Double_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Double_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Double_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_String_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_String_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_String_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_String_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_String_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_String_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_Boolean_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Boolean_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_Boolean_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_Boolean_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_Boolean_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_Boolean_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_DateTime_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_DateTime_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_DateTime_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_DateTime_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_DateTime_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_DateTime_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IReference_TimeSpan_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_TimeSpan_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IAsyncOperation_TimeSpan_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_TimeSpan_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_TimeSpan_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_TimeSpan_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterator_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IUriRuntimeClass_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IUriRuntimeClass_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IUriRuntimeClass_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IUriRuntimeClass_Interface
-      ; items : Windows.Foundation.IUriRuntimeClass_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IUriRuntimeClass : aliased constant Windows.IID := (2966829944, 30893, 24113, (182, 216, 227, 42, 14, 22, 196, 71 ));
-   
-   type IIterable_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IUriRuntimeClass_Interface
-      ; RetVal : access Windows.Foundation.IIterator_IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IUriRuntimeClass : aliased constant Windows.IID := (1266910653, 41677, 24561, (191, 116, 126, 165, 128, 66, 62, 80 ));
-   
-   type IVectorView_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IUriRuntimeClass_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IUriRuntimeClass_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IUriRuntimeClass_Interface
-      ; value : Windows.Foundation.IUriRuntimeClass
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IUriRuntimeClass_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Foundation.IUriRuntimeClass_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IUriRuntimeClass : aliased constant Windows.IID := (1679604189, 41613, 23010, (184, 219, 162, 39, 237, 166, 207, 46 ));
-   
-   type IAsyncOperation_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IUriRuntimeClass_Interface
-      ; handler : Windows.Foundation.AsyncOperationCompletedHandler_IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IUriRuntimeClass_Interface
-      ; RetVal : access Windows.Foundation.AsyncOperationCompletedHandler_IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IUriRuntimeClass_Interface
-      ; RetVal : access Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReference_Rect : aliased constant Windows.IID := (2151825169, 1359, 24236, (175, 211, 99, 182, 206, 21, 231, 123 ));
-   
-   type IReference_Rect_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Rect_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReference_Size : aliased constant Windows.IID := (1634873478, 36435, 21110, (159, 54, 42, 75, 185, 62, 43, 117 ));
-   
-   type IReference_Size_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Size_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReference_Point : aliased constant Windows.IID := (2230406178, 40970, 21106, (141, 61, 130, 17, 46, 102, 223, 0 ));
-   
-   type IReference_Point_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Point_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_Size : aliased constant Windows.IID := (2739965664, 13607, 20804, (137, 77, 66, 46, 173, 239, 67, 215 ));
-   
-   type IIterator_Size_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_Size_Interface
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_Size_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_Size_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_Size_Interface
-      ; items : Windows.Foundation.Size_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_Size : aliased constant Windows.IID := (3386856899, 19777, 24208, (186, 118, 232, 158, 213, 100, 68, 107 ));
-   
-   type IIterable_Size_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_Size_Interface
-      ; RetVal : access Windows.Foundation.IIterator_Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_Size : aliased constant Windows.IID := (3411032061, 26123, 20981, (157, 40, 135, 244, 8, 120, 38, 141 ));
-   
-   type IVectorView_Size_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_Size_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Foundation.Size
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_Size_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_Size_Interface
-      ; value : Windows.Foundation.Size
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_Size_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Foundation.Size_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncActionWithProgress_Double : aliased constant Windows.IID := (1326723238, 43045, 22218, (176, 71, 26, 155, 173, 82, 186, 103 ));
-   
-   type IAsyncActionWithProgress_Double_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Progress
-   (
-      This       : access IAsyncActionWithProgress_Double_Interface
-      ; handler : Windows.Foundation.AsyncActionProgressHandler_Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Progress
-   (
-      This       : access IAsyncActionWithProgress_Double_Interface
-      ; RetVal : access Windows.Foundation.AsyncActionProgressHandler_Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Completed
-   (
-      This       : access IAsyncActionWithProgress_Double_Interface
-      ; handler : Windows.Foundation.AsyncActionWithProgressCompletedHandler_Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncActionWithProgress_Double_Interface
-      ; RetVal : access Windows.Foundation.AsyncActionWithProgressCompletedHandler_Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncActionWithProgress_Double_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -2531,49 +2475,79 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_Point : aliased constant Windows.IID := (3322066334, 2702, 24217, (180, 120, 43, 86, 69, 133, 39, 141 ));
+   IID_IVectorView_IUriRuntimeClass : aliased constant Windows.IID := (1266910653, 41677, 24561, (191, 116, 126, 165, 128, 66, 62, 80 ));
    
-   type IIterator_Point_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function GetAt
    (
-      This       : access IIterator_Point_Interface
-      ; RetVal : access Windows.Foundation.Point
+      This       : access IVectorView_IUriRuntimeClass_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_Size
    (
-      This       : access IIterator_Point_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IVectorView_IUriRuntimeClass_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
+   function IndexOf
    (
-      This       : access IIterator_Point_Interface
+      This       : access IVectorView_IUriRuntimeClass_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_Point_Interface
-      ; items : Windows.Foundation.Point_Ptr
+      This       : access IVectorView_IUriRuntimeClass_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Foundation.IUriRuntimeClass_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_Point : aliased constant Windows.IID := (3247581197, 14857, 21539, (157, 197, 103, 184, 62, 189, 228, 29 ));
+   IID_IVectorView_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type IIterable_Point_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IWwwFormUrlDecoderEntry_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function GetAt
    (
-      This       : access IIterable_Point_Interface
-      ; RetVal : access Windows.Foundation.IIterator_Point
+      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
+      ; value : Windows.Foundation.IWwwFormUrlDecoderEntry
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IWwwFormUrlDecoderEntry_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Foundation.IWwwFormUrlDecoderEntry_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -2618,62 +2592,88 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncActionWithProgress_UInt64 : aliased constant Windows.IID := (1140265936, 50333, 24149, (174, 191, 175, 57, 87, 104, 53, 30 ));
+   IID_IVectorView_Size : aliased constant Windows.IID := (3411032061, 26123, 20981, (157, 40, 135, 244, 8, 120, 38, 141 ));
    
-   type IAsyncActionWithProgress_UInt64_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_Size_Interface is interface and Windows.IInspectable_Interface;
    
-   function put_Progress
+   function GetAt
    (
-      This       : access IAsyncActionWithProgress_UInt64_Interface
-      ; handler : Windows.Foundation.AsyncActionProgressHandler_UInt64
+      This       : access IVectorView_Size_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
    
-   function get_Progress
+   function get_Size
    (
-      This       : access IAsyncActionWithProgress_UInt64_Interface
-      ; RetVal : access Windows.Foundation.AsyncActionProgressHandler_UInt64
+      This       : access IVectorView_Size_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function put_Completed
+   function IndexOf
    (
-      This       : access IAsyncActionWithProgress_UInt64_Interface
-      ; handler : Windows.Foundation.AsyncActionWithProgressCompletedHandler_UInt64
+      This       : access IVectorView_Size_Interface
+      ; value : Windows.Foundation.Size
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function GetMany
    (
-      This       : access IAsyncActionWithProgress_UInt64_Interface
-      ; RetVal : access Windows.Foundation.AsyncActionWithProgressCompletedHandler_UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncActionWithProgress_UInt64_Interface
+      This       : access IVectorView_Size_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Foundation.Size_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IObservableVector_Object : aliased constant Windows.IID := (2072102250, 2437, 20877, (186, 169, 13, 169, 174, 0, 159, 101 ));
+   IID_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (308180017, 63096, 20110, (182, 112, 32, 169, 176, 108, 81, 45 ));
    
-   type IObservableVector_Object_Interface is interface and Windows.IInspectable_Interface;
+   type IWwwFormUrlDecoderEntry_Interface is interface and Windows.IInspectable_Interface;
    
-   function add_VectorChanged
+   function get_Name
    (
-      This       : access IObservableVector_Object_Interface
-      ; vhnd : Windows.Foundation.VectorChangedEventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
+      This       : access IWwwFormUrlDecoderEntry_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function remove_VectorChanged
+   function get_Value
    (
-      This       : access IObservableVector_Object_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
+      This       : access IWwwFormUrlDecoderEntry_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWwwFormUrlDecoderRuntimeClass : aliased constant Windows.IID := (3562669137, 61989, 17730, (146, 150, 14, 29, 245, 210, 84, 223 ));
+   
+   type IWwwFormUrlDecoderRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetFirstValueByName
+   (
+      This       : access IWwwFormUrlDecoderRuntimeClass_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWwwFormUrlDecoderRuntimeClassFactory : aliased constant Windows.IID := (1535929149, 9390, 16821, (161, 191, 240, 195, 213, 68, 132, 91 ));
+   
+   type IWwwFormUrlDecoderRuntimeClassFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWwwFormUrlDecoder
+   (
+      This       : access IWwwFormUrlDecoderRuntimeClassFactory_Interface
+      ; query : Windows.String
+      ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
@@ -2696,89 +2696,104 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_DeferralCompletedHandler : aliased constant Windows.IID := (3979518834, 62408, 20394, (156, 251, 71, 1, 72, 218, 56, 136 ));
+   IID_AsyncActionProgressHandler_Double : aliased constant Windows.IID := (1149394044, 3497, 22161, (178, 180, 145, 79, 35, 30, 236, 237 ));
    
-   type DeferralCompletedHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface(IID_DeferralCompletedHandler'access) with null record;
+   type AsyncActionProgressHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; progressInfo : Windows.Double)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionProgressHandler_Double'access) with null record;
    function Invoke
    (
-      This       : access DeferralCompletedHandler_Interface
+      This       : access AsyncActionProgressHandler_Double_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
+      ; progressInfo : Windows.Double
    )
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_Object : aliased constant Windows.IID := (1057498670, 41697, 20788, (146, 151, 233, 33, 31, 72, 26, 45 ));
+   IID_AsyncActionProgressHandler_UInt64 : aliased constant Windows.IID := (1440887754, 62019, 23266, (133, 59, 249, 204, 124, 10, 224, 207 ));
    
-   type AsyncOperationCompletedHandler_Object_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Object ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Object'access) with null record;
+   type AsyncActionProgressHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; progressInfo : Windows.UInt64)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionProgressHandler_UInt64'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_Object_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Object
+      This       : access AsyncActionProgressHandler_UInt64_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
+      ; progressInfo : Windows.UInt64
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncActionWithProgressCompletedHandler_Double : aliased constant Windows.IID := (2497071814, 17553, 21487, (139, 232, 54, 72, 31, 63, 241, 232 ));
+   
+   type AsyncActionWithProgressCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionWithProgressCompletedHandler_Double'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncActionWithProgressCompletedHandler_Double_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_UInt8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_AsyncActionWithProgressCompletedHandler_UInt64 : aliased constant Windows.IID := (3875505531, 61792, 22298, (169, 52, 44, 97, 249, 140, 134, 45 ));
    
-   type AsyncOperationCompletedHandler_UInt8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt8'access) with null record;
+   type AsyncActionWithProgressCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionWithProgressCompletedHandler_UInt64'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt8_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt8
+      This       : access AsyncActionWithProgressCompletedHandler_UInt64_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_AsyncOperationCompletedHandler_Boolean : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type AsyncOperationCompletedHandler_UInt16_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt16 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt16'access) with null record;
+   type AsyncOperationCompletedHandler_Boolean_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Boolean ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Boolean'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt16_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt16
+      This       : access AsyncOperationCompletedHandler_Boolean_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Boolean
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_UInt32 : aliased constant Windows.IID := (2470688487, 58322, 24138, (171, 45, 43, 206, 73, 25, 166, 164 ));
+   IID_AsyncOperationCompletedHandler_DateTime : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type AsyncOperationCompletedHandler_UInt32_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt32 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt32'access) with null record;
+   type AsyncOperationCompletedHandler_DateTime_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_DateTime ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DateTime'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt32_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt32
+      This       : access AsyncOperationCompletedHandler_DateTime_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_DateTime
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_UInt64 : aliased constant Windows.IID := (4002081538, 64256, 20986, (143, 87, 50, 88, 62, 162, 65, 249 ));
+   IID_AsyncOperationCompletedHandler_Double : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type AsyncOperationCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt64'access) with null record;
+   type AsyncOperationCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Double'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_UInt64_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt64
+      This       : access AsyncOperationCompletedHandler_Double_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Double
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_Int8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_AsyncOperationCompletedHandler_Guid : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type AsyncOperationCompletedHandler_Int8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Int8'access) with null record;
+   type AsyncOperationCompletedHandler_Guid_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Guid ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Guid'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_Int8_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Int8
+      This       : access AsyncOperationCompletedHandler_Guid_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Guid
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -2824,13 +2839,39 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_Guid : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_AsyncOperationCompletedHandler_Int8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type AsyncOperationCompletedHandler_Guid_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Guid ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Guid'access) with null record;
+   type AsyncOperationCompletedHandler_Int8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Int8'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_Guid_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Guid
+      This       : access AsyncOperationCompletedHandler_Int8_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Int8
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type AsyncOperationCompletedHandler_IUriRuntimeClass_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUriRuntimeClass'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IUriRuntimeClass_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_Object : aliased constant Windows.IID := (1057498670, 41697, 20788, (146, 151, 233, 33, 31, 72, 26, 45 ));
+   
+   type AsyncOperationCompletedHandler_Object_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Object ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Object'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_Object_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_Object
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -2850,19 +2891,6 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_Double : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type AsyncOperationCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Double'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_Double_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Double
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_AsyncOperationCompletedHandler_String : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_String_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_String ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_String'access) with null record;
@@ -2870,32 +2898,6 @@ package Windows.Foundation is
    (
       This       : access AsyncOperationCompletedHandler_String_Interface
       ; asyncInfo : Windows.Foundation.IAsyncOperation_String
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_Boolean : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type AsyncOperationCompletedHandler_Boolean_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Boolean ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Boolean'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_Boolean_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_Boolean
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_DateTime : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type AsyncOperationCompletedHandler_DateTime_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_DateTime ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DateTime'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_DateTime_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_DateTime
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -2910,6 +2912,69 @@ package Windows.Foundation is
       This       : access AsyncOperationCompletedHandler_TimeSpan_Interface
       ; asyncInfo : Windows.Foundation.IAsyncOperation_TimeSpan
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type AsyncOperationCompletedHandler_UInt16_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt16 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt16'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt16_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt16
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_UInt32 : aliased constant Windows.IID := (2470688487, 58322, 24138, (171, 45, 43, 206, 73, 25, 166, 164 ));
+   
+   type AsyncOperationCompletedHandler_UInt32_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt32 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt32'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt32_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt32
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_UInt64 : aliased constant Windows.IID := (4002081538, 64256, 20986, (143, 87, 50, 88, 62, 162, 65, 249 ));
+   
+   type AsyncOperationCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt64'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt64_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt64
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_UInt8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type AsyncOperationCompletedHandler_UInt8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt8'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_UInt8_Interface
+      ; asyncInfo : Windows.Foundation.IAsyncOperation_UInt8
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_DeferralCompletedHandler : aliased constant Windows.IID := (3979518834, 62408, 20394, (156, 251, 71, 1, 72, 218, 56, 136 ));
+   
+   type DeferralCompletedHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface(IID_DeferralCompletedHandler'access) with null record;
+   function Invoke
+   (
+      This       : access DeferralCompletedHandler_Interface
    )
    return Windows.HRESULT;
    
@@ -2936,71 +3001,6 @@ package Windows.Foundation is
       This       : access TypedEventHandler_IMemoryBufferReference_add_Closed_Interface
       ; sender : Windows.Foundation.IMemoryBufferReference
       ; args : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type AsyncOperationCompletedHandler_IUriRuntimeClass_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUriRuntimeClass'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IUriRuntimeClass_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncActionProgressHandler_Double : aliased constant Windows.IID := (1149394044, 3497, 22161, (178, 180, 145, 79, 35, 30, 236, 237 ));
-   
-   type AsyncActionProgressHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; progressInfo : Windows.Double)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionProgressHandler_Double'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncActionProgressHandler_Double_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
-      ; progressInfo : Windows.Double
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncActionWithProgressCompletedHandler_Double : aliased constant Windows.IID := (2497071814, 17553, 21487, (139, 232, 54, 72, 31, 63, 241, 232 ));
-   
-   type AsyncActionWithProgressCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionWithProgressCompletedHandler_Double'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncActionWithProgressCompletedHandler_Double_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncActionProgressHandler_UInt64 : aliased constant Windows.IID := (1440887754, 62019, 23266, (133, 59, 249, 204, 124, 10, 224, 207 ));
-   
-   type AsyncActionProgressHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; progressInfo : Windows.UInt64)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionProgressHandler_UInt64'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncActionProgressHandler_UInt64_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
-      ; progressInfo : Windows.UInt64
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncActionWithProgressCompletedHandler_UInt64 : aliased constant Windows.IID := (3875505531, 61792, 22298, (169, 52, 44, 97, 249, 140, 134, 45 ));
-   
-   type AsyncActionWithProgressCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionWithProgressCompletedHandler_UInt64'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncActionWithProgressCompletedHandler_UInt64_Interface
-      ; asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64
-      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
@@ -3035,13 +3035,6 @@ package Windows.Foundation is
    )
    return Windows.Foundation.IMemoryBuffer;
    
-   subtype WwwFormUrlDecoder is Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
-   function CreateWwwFormUrlDecoder
-   (
-      query : Windows.String
-   )
-   return Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
-   
    subtype Uri is Windows.Foundation.IUriRuntimeClass;
    function CreateUri
    (
@@ -3055,6 +3048,13 @@ package Windows.Foundation is
       ; relativeUri : Windows.String
    )
    return Windows.Foundation.IUriRuntimeClass;
+   
+   subtype WwwFormUrlDecoder is Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
+   function CreateWwwFormUrlDecoder
+   (
+      query : Windows.String
+   )
+   return Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
    
    subtype WwwFormUrlDecoderEntry is Windows.Foundation.IWwwFormUrlDecoderEntry;
    

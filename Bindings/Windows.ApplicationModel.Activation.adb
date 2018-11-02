@@ -57,19 +57,6 @@ package body Windows.ApplicationModel.Activation is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISplashScreen_add_Dismissed_Interface
-      ; sender : Windows.ApplicationModel.Activation.ISplashScreen
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.Activation.ISplashScreen(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access EventHandler_IBackgroundActivatedEventArgs_Interface
       ; sender : Windows.Object
       ; args : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs
@@ -78,6 +65,19 @@ package body Windows.ApplicationModel.Activation is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISplashScreen_add_Dismissed_Interface
+      ; sender : Windows.ApplicationModel.Activation.ISplashScreen
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.Activation.ISplashScreen(sender), args);
       return Hr;
    end;
    

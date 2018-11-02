@@ -36,6 +36,18 @@ package Windows.Globalization.NumberFormatting is
    -- Enums
    ------------------------------------------------------------------------
    
+   type CurrencyFormatterMode is (
+      UseSymbol,
+      UseCurrencyCode
+   );
+   for CurrencyFormatterMode use (
+      UseSymbol => 0,
+      UseCurrencyCode => 1
+   );
+   for CurrencyFormatterMode'Size use 32;
+   
+   type CurrencyFormatterMode_Ptr is access CurrencyFormatterMode;
+   
    type RoundingAlgorithm is (
       None,
       RoundDown,
@@ -66,28 +78,22 @@ package Windows.Globalization.NumberFormatting is
    
    type RoundingAlgorithm_Ptr is access RoundingAlgorithm;
    
-   type CurrencyFormatterMode is (
-      UseSymbol,
-      UseCurrencyCode
-   );
-   for CurrencyFormatterMode use (
-      UseSymbol => 0,
-      UseCurrencyCode => 1
-   );
-   for CurrencyFormatterMode'Size use 32;
-   
-   type CurrencyFormatterMode_Ptr is access CurrencyFormatterMode;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type INumberRounder_Interface;
-   type INumberRounder is access all INumberRounder_Interface'Class;
-   type INumberRounder_Ptr is access all INumberRounder;
-   type ISignificantDigitsNumberRounder_Interface;
-   type ISignificantDigitsNumberRounder is access all ISignificantDigitsNumberRounder_Interface'Class;
-   type ISignificantDigitsNumberRounder_Ptr is access all ISignificantDigitsNumberRounder;
+   type ICurrencyFormatter_Interface;
+   type ICurrencyFormatter is access all ICurrencyFormatter_Interface'Class;
+   type ICurrencyFormatter_Ptr is access all ICurrencyFormatter;
+   type ICurrencyFormatter2_Interface;
+   type ICurrencyFormatter2 is access all ICurrencyFormatter2_Interface'Class;
+   type ICurrencyFormatter2_Ptr is access all ICurrencyFormatter2;
+   type ICurrencyFormatterFactory_Interface;
+   type ICurrencyFormatterFactory is access all ICurrencyFormatterFactory_Interface'Class;
+   type ICurrencyFormatterFactory_Ptr is access all ICurrencyFormatterFactory;
+   type IDecimalFormatterFactory_Interface;
+   type IDecimalFormatterFactory is access all IDecimalFormatterFactory_Interface'Class;
+   type IDecimalFormatterFactory_Ptr is access all IDecimalFormatterFactory;
    type IIncrementNumberRounder_Interface;
    type IIncrementNumberRounder is access all IIncrementNumberRounder_Interface'Class;
    type IIncrementNumberRounder_Ptr is access all IIncrementNumberRounder;
@@ -97,45 +103,39 @@ package Windows.Globalization.NumberFormatting is
    type INumberFormatter2_Interface;
    type INumberFormatter2 is access all INumberFormatter2_Interface'Class;
    type INumberFormatter2_Ptr is access all INumberFormatter2;
-   type INumberParser_Interface;
-   type INumberParser is access all INumberParser_Interface'Class;
-   type INumberParser_Ptr is access all INumberParser;
    type INumberFormatterOptions_Interface;
    type INumberFormatterOptions is access all INumberFormatterOptions_Interface'Class;
    type INumberFormatterOptions_Ptr is access all INumberFormatterOptions;
-   type ISignificantDigitsOption_Interface;
-   type ISignificantDigitsOption is access all ISignificantDigitsOption_Interface'Class;
-   type ISignificantDigitsOption_Ptr is access all ISignificantDigitsOption;
+   type INumberParser_Interface;
+   type INumberParser is access all INumberParser_Interface'Class;
+   type INumberParser_Ptr is access all INumberParser;
+   type INumberRounder_Interface;
+   type INumberRounder is access all INumberRounder_Interface'Class;
+   type INumberRounder_Ptr is access all INumberRounder;
    type INumberRounderOption_Interface;
    type INumberRounderOption is access all INumberRounderOption_Interface'Class;
    type INumberRounderOption_Ptr is access all INumberRounderOption;
-   type ISignedZeroOption_Interface;
-   type ISignedZeroOption is access all ISignedZeroOption_Interface'Class;
-   type ISignedZeroOption_Ptr is access all ISignedZeroOption;
-   type IDecimalFormatterFactory_Interface;
-   type IDecimalFormatterFactory is access all IDecimalFormatterFactory_Interface'Class;
-   type IDecimalFormatterFactory_Ptr is access all IDecimalFormatterFactory;
+   type INumeralSystemTranslator_Interface;
+   type INumeralSystemTranslator is access all INumeralSystemTranslator_Interface'Class;
+   type INumeralSystemTranslator_Ptr is access all INumeralSystemTranslator;
+   type INumeralSystemTranslatorFactory_Interface;
+   type INumeralSystemTranslatorFactory is access all INumeralSystemTranslatorFactory_Interface'Class;
+   type INumeralSystemTranslatorFactory_Ptr is access all INumeralSystemTranslatorFactory;
    type IPercentFormatterFactory_Interface;
    type IPercentFormatterFactory is access all IPercentFormatterFactory_Interface'Class;
    type IPercentFormatterFactory_Ptr is access all IPercentFormatterFactory;
    type IPermilleFormatterFactory_Interface;
    type IPermilleFormatterFactory is access all IPermilleFormatterFactory_Interface'Class;
    type IPermilleFormatterFactory_Ptr is access all IPermilleFormatterFactory;
-   type ICurrencyFormatterFactory_Interface;
-   type ICurrencyFormatterFactory is access all ICurrencyFormatterFactory_Interface'Class;
-   type ICurrencyFormatterFactory_Ptr is access all ICurrencyFormatterFactory;
-   type ICurrencyFormatter_Interface;
-   type ICurrencyFormatter is access all ICurrencyFormatter_Interface'Class;
-   type ICurrencyFormatter_Ptr is access all ICurrencyFormatter;
-   type ICurrencyFormatter2_Interface;
-   type ICurrencyFormatter2 is access all ICurrencyFormatter2_Interface'Class;
-   type ICurrencyFormatter2_Ptr is access all ICurrencyFormatter2;
-   type INumeralSystemTranslatorFactory_Interface;
-   type INumeralSystemTranslatorFactory is access all INumeralSystemTranslatorFactory_Interface'Class;
-   type INumeralSystemTranslatorFactory_Ptr is access all INumeralSystemTranslatorFactory;
-   type INumeralSystemTranslator_Interface;
-   type INumeralSystemTranslator is access all INumeralSystemTranslator_Interface'Class;
-   type INumeralSystemTranslator_Ptr is access all INumeralSystemTranslator;
+   type ISignedZeroOption_Interface;
+   type ISignedZeroOption is access all ISignedZeroOption_Interface'Class;
+   type ISignedZeroOption_Ptr is access all ISignedZeroOption;
+   type ISignificantDigitsNumberRounder_Interface;
+   type ISignificantDigitsNumberRounder is access all ISignificantDigitsNumberRounder_Interface'Class;
+   type ISignificantDigitsNumberRounder_Ptr is access all ISignificantDigitsNumberRounder;
+   type ISignificantDigitsOption_Interface;
+   type ISignificantDigitsOption is access all ISignificantDigitsOption_Interface'Class;
+   type ISignificantDigitsOption_Ptr is access all ISignificantDigitsOption;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -143,89 +143,87 @@ package Windows.Globalization.NumberFormatting is
    
    ------------------------------------------------------------------------
    
-   IID_INumberRounder : aliased constant Windows.IID := (1416872821, 14573, 17969, (184, 12, 239, 52, 252, 72, 183, 245 ));
+   IID_ICurrencyFormatter : aliased constant Windows.IID := (292752549, 19200, 16818, (179, 50, 115, 177, 42, 73, 125, 84 ));
    
-   type INumberRounder_Interface is interface and Windows.IInspectable_Interface;
+   type ICurrencyFormatter_Interface is interface and Windows.IInspectable_Interface;
    
-   function RoundInt32
+   function get_Currency
    (
-      This       : access INumberRounder_Interface
-      ; value : Windows.Int32
-      ; RetVal : access Windows.Int32
+      This       : access ICurrencyFormatter_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function RoundUInt32
+   function put_Currency
    (
-      This       : access INumberRounder_Interface
-      ; value : Windows.UInt32
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RoundInt64
-   (
-      This       : access INumberRounder_Interface
-      ; value : Windows.Int64
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RoundUInt64
-   (
-      This       : access INumberRounder_Interface
-      ; value : Windows.UInt64
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RoundSingle
-   (
-      This       : access INumberRounder_Interface
-      ; value : Windows.Single
-      ; RetVal : access Windows.Single
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RoundDouble
-   (
-      This       : access INumberRounder_Interface
-      ; value : Windows.Double
-      ; RetVal : access Windows.Double
+      This       : access ICurrencyFormatter_Interface
+      ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ISignificantDigitsNumberRounder : aliased constant Windows.IID := (4120124362, 26182, 18707, (140, 118, 27, 25, 31, 249, 77, 253 ));
+   IID_ICurrencyFormatter2 : aliased constant Windows.IID := (120336157, 59322, 16791, (146, 14, 36, 124, 146, 247, 222, 166 ));
    
-   type ISignificantDigitsNumberRounder_Interface is interface and Windows.IInspectable_Interface;
+   type ICurrencyFormatter2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_RoundingAlgorithm
+   function get_Mode
    (
-      This       : access ISignificantDigitsNumberRounder_Interface
-      ; RetVal : access Windows.Globalization.NumberFormatting.RoundingAlgorithm
+      This       : access ICurrencyFormatter2_Interface
+      ; RetVal : access Windows.Globalization.NumberFormatting.CurrencyFormatterMode
    )
    return Windows.HRESULT is abstract;
    
-   function put_RoundingAlgorithm
+   function put_Mode
    (
-      This       : access ISignificantDigitsNumberRounder_Interface
-      ; value : Windows.Globalization.NumberFormatting.RoundingAlgorithm
+      This       : access ICurrencyFormatter2_Interface
+      ; value : Windows.Globalization.NumberFormatting.CurrencyFormatterMode
    )
    return Windows.HRESULT is abstract;
    
-   function get_SignificantDigits
+   function ApplyRoundingForCurrency
    (
-      This       : access ISignificantDigitsNumberRounder_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access ICurrencyFormatter2_Interface
+      ; roundingAlgorithm : Windows.Globalization.NumberFormatting.RoundingAlgorithm
    )
    return Windows.HRESULT is abstract;
    
-   function put_SignificantDigits
+   ------------------------------------------------------------------------
+   
+   IID_ICurrencyFormatterFactory : aliased constant Windows.IID := (2261209982, 47416, 19106, (132, 176, 44, 51, 220, 91, 20, 80 ));
+   
+   type ICurrencyFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateCurrencyFormatterCode
    (
-      This       : access ISignificantDigitsNumberRounder_Interface
-      ; value : Windows.UInt32
+      This       : access ICurrencyFormatterFactory_Interface
+      ; currencyCode : Windows.String
+      ; RetVal : access Windows.Globalization.NumberFormatting.ICurrencyFormatter
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateCurrencyFormatterCodeContext
+   (
+      This       : access ICurrencyFormatterFactory_Interface
+      ; currencyCode : Windows.String
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+      ; RetVal : access Windows.Globalization.NumberFormatting.ICurrencyFormatter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDecimalFormatterFactory : aliased constant Windows.IID := (218205338, 58259, 18104, (184, 48, 122, 105, 200, 248, 159, 187 ));
+   
+   type IDecimalFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateDecimalFormatter
+   (
+      This       : access IDecimalFormatterFactory_Interface
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+      ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
    )
    return Windows.HRESULT is abstract;
    
@@ -320,36 +318,6 @@ package Windows.Globalization.NumberFormatting is
       This       : access INumberFormatter2_Interface
       ; value : Windows.Double
       ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INumberParser : aliased constant Windows.IID := (3865416722, 18963, 19027, (131, 161, 57, 47, 190, 76, 255, 159 ));
-   
-   type INumberParser_Interface is interface and Windows.IInspectable_Interface;
-   
-   function ParseInt
-   (
-      This       : access INumberParser_Interface
-      ; text : Windows.String
-      ; RetVal : access Windows.Foundation.IReference_Int64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ParseUInt
-   (
-      This       : access INumberParser_Interface
-      ; text : Windows.String
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ParseDouble
-   (
-      This       : access INumberParser_Interface
-      ; text : Windows.String
-      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -459,21 +427,85 @@ package Windows.Globalization.NumberFormatting is
    
    ------------------------------------------------------------------------
    
-   IID_ISignificantDigitsOption : aliased constant Windows.IID := (491650269, 11587, 20200, (187, 241, 193, 178, 106, 113, 26, 88 ));
+   IID_INumberParser : aliased constant Windows.IID := (3865416722, 18963, 19027, (131, 161, 57, 47, 190, 76, 255, 159 ));
    
-   type ISignificantDigitsOption_Interface is interface and Windows.IInspectable_Interface;
+   type INumberParser_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_SignificantDigits
+   function ParseInt
    (
-      This       : access ISignificantDigitsOption_Interface
+      This       : access INumberParser_Interface
+      ; text : Windows.String
+      ; RetVal : access Windows.Foundation.IReference_Int64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ParseUInt
+   (
+      This       : access INumberParser_Interface
+      ; text : Windows.String
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ParseDouble
+   (
+      This       : access INumberParser_Interface
+      ; text : Windows.String
+      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INumberRounder : aliased constant Windows.IID := (1416872821, 14573, 17969, (184, 12, 239, 52, 252, 72, 183, 245 ));
+   
+   type INumberRounder_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RoundInt32
+   (
+      This       : access INumberRounder_Interface
+      ; value : Windows.Int32
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
-   function put_SignificantDigits
+   function RoundUInt32
    (
-      This       : access ISignificantDigitsOption_Interface
-      ; value : Windows.Int32
+      This       : access INumberRounder_Interface
+      ; value : Windows.UInt32
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RoundInt64
+   (
+      This       : access INumberRounder_Interface
+      ; value : Windows.Int64
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RoundUInt64
+   (
+      This       : access INumberRounder_Interface
+      ; value : Windows.UInt64
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RoundSingle
+   (
+      This       : access INumberRounder_Interface
+      ; value : Windows.Single
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RoundDouble
+   (
+      This       : access INumberRounder_Interface
+      ; value : Windows.Double
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -494,156 +526,6 @@ package Windows.Globalization.NumberFormatting is
    (
       This       : access INumberRounderOption_Interface
       ; value : Windows.Globalization.NumberFormatting.INumberRounder
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISignedZeroOption : aliased constant Windows.IID := (4246527281, 2620, 18884, (166, 66, 150, 161, 86, 79, 79, 48 ));
-   
-   type ISignedZeroOption_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsZeroSigned
-   (
-      This       : access ISignedZeroOption_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsZeroSigned
-   (
-      This       : access ISignedZeroOption_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDecimalFormatterFactory : aliased constant Windows.IID := (218205338, 58259, 18104, (184, 48, 122, 105, 200, 248, 159, 187 ));
-   
-   type IDecimalFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateDecimalFormatter
-   (
-      This       : access IDecimalFormatterFactory_Interface
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; geographicRegion : Windows.String
-      ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPercentFormatterFactory : aliased constant Windows.IID := (3078785775, 65236, 16408, (166, 226, 224, 153, 97, 224, 55, 101 ));
-   
-   type IPercentFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreatePercentFormatter
-   (
-      This       : access IPercentFormatterFactory_Interface
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; geographicRegion : Windows.String
-      ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPermilleFormatterFactory : aliased constant Windows.IID := (725071020, 58936, 20181, (169, 152, 98, 246, 176, 106, 73, 174 ));
-   
-   type IPermilleFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreatePermilleFormatter
-   (
-      This       : access IPermilleFormatterFactory_Interface
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; geographicRegion : Windows.String
-      ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICurrencyFormatterFactory : aliased constant Windows.IID := (2261209982, 47416, 19106, (132, 176, 44, 51, 220, 91, 20, 80 ));
-   
-   type ICurrencyFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateCurrencyFormatterCode
-   (
-      This       : access ICurrencyFormatterFactory_Interface
-      ; currencyCode : Windows.String
-      ; RetVal : access Windows.Globalization.NumberFormatting.ICurrencyFormatter
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateCurrencyFormatterCodeContext
-   (
-      This       : access ICurrencyFormatterFactory_Interface
-      ; currencyCode : Windows.String
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; geographicRegion : Windows.String
-      ; RetVal : access Windows.Globalization.NumberFormatting.ICurrencyFormatter
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICurrencyFormatter : aliased constant Windows.IID := (292752549, 19200, 16818, (179, 50, 115, 177, 42, 73, 125, 84 ));
-   
-   type ICurrencyFormatter_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Currency
-   (
-      This       : access ICurrencyFormatter_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Currency
-   (
-      This       : access ICurrencyFormatter_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICurrencyFormatter2 : aliased constant Windows.IID := (120336157, 59322, 16791, (146, 14, 36, 124, 146, 247, 222, 166 ));
-   
-   type ICurrencyFormatter2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Mode
-   (
-      This       : access ICurrencyFormatter2_Interface
-      ; RetVal : access Windows.Globalization.NumberFormatting.CurrencyFormatterMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Mode
-   (
-      This       : access ICurrencyFormatter2_Interface
-      ; value : Windows.Globalization.NumberFormatting.CurrencyFormatterMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ApplyRoundingForCurrency
-   (
-      This       : access ICurrencyFormatter2_Interface
-      ; roundingAlgorithm : Windows.Globalization.NumberFormatting.RoundingAlgorithm
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INumeralSystemTranslatorFactory : aliased constant Windows.IID := (2519779546, 14063, 19848, (168, 92, 111, 13, 152, 214, 32, 166 ));
-   
-   type INumeralSystemTranslatorFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Create
-   (
-      This       : access INumeralSystemTranslatorFactory_Interface
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; RetVal : access Windows.Globalization.NumberFormatting.INumeralSystemTranslator
    )
    return Windows.HRESULT is abstract;
    
@@ -690,14 +572,141 @@ package Windows.Globalization.NumberFormatting is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_INumeralSystemTranslatorFactory : aliased constant Windows.IID := (2519779546, 14063, 19848, (168, 92, 111, 13, 152, 214, 32, 166 ));
+   
+   type INumeralSystemTranslatorFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access INumeralSystemTranslatorFactory_Interface
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Globalization.NumberFormatting.INumeralSystemTranslator
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPercentFormatterFactory : aliased constant Windows.IID := (3078785775, 65236, 16408, (166, 226, 224, 153, 97, 224, 55, 101 ));
+   
+   type IPercentFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreatePercentFormatter
+   (
+      This       : access IPercentFormatterFactory_Interface
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+      ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPermilleFormatterFactory : aliased constant Windows.IID := (725071020, 58936, 20181, (169, 152, 98, 246, 176, 106, 73, 174 ));
+   
+   type IPermilleFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreatePermilleFormatter
+   (
+      This       : access IPermilleFormatterFactory_Interface
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+      ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISignedZeroOption : aliased constant Windows.IID := (4246527281, 2620, 18884, (166, 66, 150, 161, 86, 79, 79, 48 ));
+   
+   type ISignedZeroOption_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsZeroSigned
+   (
+      This       : access ISignedZeroOption_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsZeroSigned
+   (
+      This       : access ISignedZeroOption_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISignificantDigitsNumberRounder : aliased constant Windows.IID := (4120124362, 26182, 18707, (140, 118, 27, 25, 31, 249, 77, 253 ));
+   
+   type ISignificantDigitsNumberRounder_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RoundingAlgorithm
+   (
+      This       : access ISignificantDigitsNumberRounder_Interface
+      ; RetVal : access Windows.Globalization.NumberFormatting.RoundingAlgorithm
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RoundingAlgorithm
+   (
+      This       : access ISignificantDigitsNumberRounder_Interface
+      ; value : Windows.Globalization.NumberFormatting.RoundingAlgorithm
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SignificantDigits
+   (
+      This       : access ISignificantDigitsNumberRounder_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SignificantDigits
+   (
+      This       : access ISignificantDigitsNumberRounder_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISignificantDigitsOption : aliased constant Windows.IID := (491650269, 11587, 20200, (187, 241, 193, 178, 106, 113, 26, 88 ));
+   
+   type ISignificantDigitsOption_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SignificantDigits
+   (
+      This       : access ISignificantDigitsOption_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SignificantDigits
+   (
+      This       : access ISignificantDigitsOption_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SignificantDigitsNumberRounder is Windows.Globalization.NumberFormatting.INumberRounder;
-   function Create return Windows.Globalization.NumberFormatting.INumberRounder;
+   subtype CurrencyFormatter is Windows.Globalization.NumberFormatting.ICurrencyFormatter;
+   function CreateCurrencyFormatterCode
+   (
+      currencyCode : Windows.String
+   )
+   return Windows.Globalization.NumberFormatting.ICurrencyFormatter;
    
-   subtype IncrementNumberRounder is Windows.Globalization.NumberFormatting.INumberRounder;
-   function CreateIncrementNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder;
+   function CreateCurrencyFormatterCodeContext
+   (
+      currencyCode : Windows.String
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+   )
+   return Windows.Globalization.NumberFormatting.ICurrencyFormatter;
    
    subtype DecimalFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    function Create return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
@@ -708,6 +717,18 @@ package Windows.Globalization.NumberFormatting is
       ; geographicRegion : Windows.String
    )
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   
+   subtype IncrementNumberRounder is Windows.Globalization.NumberFormatting.INumberRounder;
+   function Create return Windows.Globalization.NumberFormatting.INumberRounder;
+   
+   subtype NumeralSystemTranslator is Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
+   function Create return Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
+   
+   function Create
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
    
    subtype PercentFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    function CreatePercentFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
@@ -729,29 +750,8 @@ package Windows.Globalization.NumberFormatting is
    )
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
-   subtype CurrencyFormatter is Windows.Globalization.NumberFormatting.ICurrencyFormatter;
-   function CreateCurrencyFormatterCode
-   (
-      currencyCode : Windows.String
-   )
-   return Windows.Globalization.NumberFormatting.ICurrencyFormatter;
-   
-   function CreateCurrencyFormatterCodeContext
-   (
-      currencyCode : Windows.String
-      ; languages : Windows.Foundation.Collections.IIterable_String
-      ; geographicRegion : Windows.String
-   )
-   return Windows.Globalization.NumberFormatting.ICurrencyFormatter;
-   
-   subtype NumeralSystemTranslator is Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
-   function Create return Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
-   
-   function Create
-   (
-      languages : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
+   subtype SignificantDigitsNumberRounder is Windows.Globalization.NumberFormatting.INumberRounder;
+   function CreateSignificantDigitsNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder;
    
    
    ------------------------------------------------------------------------

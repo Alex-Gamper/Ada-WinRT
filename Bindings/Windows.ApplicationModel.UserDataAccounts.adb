@@ -55,19 +55,6 @@ package body Windows.ApplicationModel.UserDataAccounts is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface
-      ; sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore
-      ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore(sender), Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IUserDataAccountStore_Interface
       ; asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -76,6 +63,19 @@ package body Windows.ApplicationModel.UserDataAccounts is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface
+      ; sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore
+      ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore(sender), Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs(args));
       return Hr;
    end;
    

@@ -37,26 +37,14 @@ package body Windows.Media.Protection is
    
    function Invoke
    (
-      This       : access ServiceRequestedEventHandler_Interface
-      ; sender : Windows.Media.Protection.IMediaProtectionManager
-      ; e : Windows.Media.Protection.IServiceRequestedEventArgs
+      This       : access AsyncOperationCompletedHandler_HdcpSetProtectionResult_Interface
+      ; asyncInfo : Windows.Media.Protection.IAsyncOperation_HdcpSetProtectionResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Protection.IMediaProtectionManager(sender), Windows.Media.Protection.IServiceRequestedEventArgs(e));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access RebootNeededEventHandler_Interface
-      ; sender : Windows.Media.Protection.IMediaProtectionManager
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Protection.IMediaProtectionManager(sender));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -75,14 +63,26 @@ package body Windows.Media.Protection is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_HdcpSetProtectionResult_Interface
-      ; asyncInfo : Windows.Media.Protection.IAsyncOperation_HdcpSetProtectionResult
-      ; asyncStatus : Windows.Foundation.AsyncStatus
+      This       : access RebootNeededEventHandler_Interface
+      ; sender : Windows.Media.Protection.IMediaProtectionManager
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(asyncInfo, asyncStatus);
+      This.Callback(Windows.Media.Protection.IMediaProtectionManager(sender));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access ServiceRequestedEventHandler_Interface
+      ; sender : Windows.Media.Protection.IMediaProtectionManager
+      ; e : Windows.Media.Protection.IServiceRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Protection.IMediaProtectionManager(sender), Windows.Media.Protection.IServiceRequestedEventArgs(e));
       return Hr;
    end;
    
@@ -102,6 +102,23 @@ package body Windows.Media.Protection is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.Media.Protection.IHdcpSession is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.HdcpSession");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.IHdcpSession) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Protection.IID_IHdcpSession'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function Create return Windows.Media.Protection.IMediaProtectionManager is
       Hr            : Windows.HResult := S_OK;
@@ -151,23 +168,6 @@ package body Windows.Media.Protection is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Media.Protection.IID_IProtectionCapabilities'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Protection.IHdcpSession is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.HdcpSession");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Protection.IHdcpSession) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Protection.IID_IHdcpSession'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

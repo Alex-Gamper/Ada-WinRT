@@ -79,12 +79,12 @@ package Windows.UI.Xaml.Printing is
    type IPrintDocument_Interface;
    type IPrintDocument is access all IPrintDocument_Interface'Class;
    type IPrintDocument_Ptr is access all IPrintDocument;
-   type IPrintDocumentStatics_Interface;
-   type IPrintDocumentStatics is access all IPrintDocumentStatics_Interface'Class;
-   type IPrintDocumentStatics_Ptr is access all IPrintDocumentStatics;
    type IPrintDocumentFactory_Interface;
    type IPrintDocumentFactory is access all IPrintDocumentFactory_Interface'Class;
    type IPrintDocumentFactory_Ptr is access all IPrintDocumentFactory;
+   type IPrintDocumentStatics_Interface;
+   type IPrintDocumentStatics is access all IPrintDocumentStatics_Interface'Class;
+   type IPrintDocumentStatics_Ptr is access all IPrintDocumentStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -231,19 +231,6 @@ package Windows.UI.Xaml.Printing is
    
    ------------------------------------------------------------------------
    
-   IID_IPrintDocumentStatics : aliased constant Windows.IID := (4254534204, 45394, 18912, (166, 189, 106, 166, 71, 126, 67, 199 ));
-   
-   type IPrintDocumentStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DocumentSourceProperty
-   (
-      This       : access IPrintDocumentStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IPrintDocumentFactory : aliased constant Windows.IID := (4219974031, 9734, 18991, (153, 212, 167, 205, 188, 53, 215, 199 ));
    
    type IPrintDocumentFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -254,6 +241,19 @@ package Windows.UI.Xaml.Printing is
       ; outer : Windows.Object
       ; inner : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Printing.IPrintDocument
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintDocumentStatics : aliased constant Windows.IID := (4254534204, 45394, 18912, (166, 189, 106, 166, 71, 126, 67, 199 ));
+   
+   type IPrintDocumentStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DocumentSourceProperty
+   (
+      This       : access IPrintDocumentStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    

@@ -56,17 +56,20 @@ package Windows.ApplicationModel.Wallet.System is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface;
-   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged is access all TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface'Class;
-   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Ptr is access all TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged;
    type AsyncOperationCompletedHandler_IWalletItemSystemStore_Interface;
    type AsyncOperationCompletedHandler_IWalletItemSystemStore is access all AsyncOperationCompletedHandler_IWalletItemSystemStore_Interface'Class;
    type AsyncOperationCompletedHandler_IWalletItemSystemStore_Ptr is access all AsyncOperationCompletedHandler_IWalletItemSystemStore;
+   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface;
+   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged is access all TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface'Class;
+   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Ptr is access all TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IWalletItemSystemStore_Interface;
+   type IAsyncOperation_IWalletItemSystemStore is access all IAsyncOperation_IWalletItemSystemStore_Interface'Class;
+   type IAsyncOperation_IWalletItemSystemStore_Ptr is access all IAsyncOperation_IWalletItemSystemStore;
    type IWalletItemSystemStore_Interface;
    type IWalletItemSystemStore is access all IWalletItemSystemStore_Interface'Class;
    type IWalletItemSystemStore_Ptr is access all IWalletItemSystemStore;
@@ -76,13 +79,37 @@ package Windows.ApplicationModel.Wallet.System is
    type IWalletManagerSystemStatics_Interface;
    type IWalletManagerSystemStatics is access all IWalletManagerSystemStatics_Interface'Class;
    type IWalletManagerSystemStatics_Ptr is access all IWalletManagerSystemStatics;
-   type IAsyncOperation_IWalletItemSystemStore_Interface;
-   type IAsyncOperation_IWalletItemSystemStore is access all IAsyncOperation_IWalletItemSystemStore_Interface'Class;
-   type IAsyncOperation_IWalletItemSystemStore_Ptr is access all IAsyncOperation_IWalletItemSystemStore;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWalletItemSystemStore : aliased constant Windows.IID := (1484545871, 31829, 24436, (178, 106, 248, 14, 59, 198, 212, 242 ));
+   
+   type IAsyncOperation_IWalletItemSystemStore_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IWalletItemSystemStore_Interface
+      ; handler : Windows.ApplicationModel.Wallet.System.AsyncOperationCompletedHandler_IWalletItemSystemStore
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IWalletItemSystemStore_Interface
+      ; RetVal : access Windows.ApplicationModel.Wallet.System.AsyncOperationCompletedHandler_IWalletItemSystemStore
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IWalletItemSystemStore_Interface
+      ; RetVal : access Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -164,48 +191,8 @@ package Windows.ApplicationModel.Wallet.System is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IWalletItemSystemStore : aliased constant Windows.IID := (1484545871, 31829, 24436, (178, 106, 248, 14, 59, 198, 212, 242 ));
-   
-   type IAsyncOperation_IWalletItemSystemStore_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IWalletItemSystemStore_Interface
-      ; handler : Windows.ApplicationModel.Wallet.System.AsyncOperationCompletedHandler_IWalletItemSystemStore
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IWalletItemSystemStore_Interface
-      ; RetVal : access Windows.ApplicationModel.Wallet.System.AsyncOperationCompletedHandler_IWalletItemSystemStore
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IWalletItemSystemStore_Interface
-      ; RetVal : access Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged : aliased constant Windows.IID := (1013029187, 42610, 22510, (173, 50, 246, 217, 122, 111, 66, 23 ));
-   
-   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface
-      ; sender : Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -217,6 +204,19 @@ package Windows.ApplicationModel.Wallet.System is
       This       : access AsyncOperationCompletedHandler_IWalletItemSystemStore_Interface
       ; asyncInfo : Windows.ApplicationModel.Wallet.System.IAsyncOperation_IWalletItemSystemStore
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged : aliased constant Windows.IID := (1013029187, 42610, 22510, (173, 50, 246, 217, 122, 111, 66, 23 ));
+   
+   type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface
+      ; sender : Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore
+      ; args : Windows.Object
    )
    return Windows.HRESULT;
    

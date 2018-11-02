@@ -321,6 +321,40 @@ package Windows.Gaming.Input is
    
    type GamepadButtons_Ptr is access GamepadButtons;
    
+   type OptionalUINavigationButtons is (
+      None,
+      Context1,
+      Context2,
+      Context3,
+      Context4,
+      PageUp,
+      PageDown,
+      PageLeft,
+      PageRight,
+      ScrollUp,
+      ScrollDown,
+      ScrollLeft,
+      ScrollRight
+   );
+   for OptionalUINavigationButtons use (
+      None => 0,
+      Context1 => 1,
+      Context2 => 2,
+      Context3 => 4,
+      Context4 => 8,
+      PageUp => 16,
+      PageDown => 32,
+      PageLeft => 64,
+      PageRight => 128,
+      ScrollUp => 256,
+      ScrollDown => 512,
+      ScrollLeft => 1024,
+      ScrollRight => 2048
+   );
+   for OptionalUINavigationButtons'Size use 32;
+   
+   type OptionalUINavigationButtons_Ptr is access OptionalUINavigationButtons;
+   
    type RacingWheelButtons is (
       None,
       PreviousGear,
@@ -400,40 +434,6 @@ package Windows.Gaming.Input is
    for RequiredUINavigationButtons'Size use 32;
    
    type RequiredUINavigationButtons_Ptr is access RequiredUINavigationButtons;
-   
-   type OptionalUINavigationButtons is (
-      None,
-      Context1,
-      Context2,
-      Context3,
-      Context4,
-      PageUp,
-      PageDown,
-      PageLeft,
-      PageRight,
-      ScrollUp,
-      ScrollDown,
-      ScrollLeft,
-      ScrollRight
-   );
-   for OptionalUINavigationButtons use (
-      None => 0,
-      Context1 => 1,
-      Context2 => 2,
-      Context3 => 4,
-      Context4 => 8,
-      PageUp => 16,
-      PageDown => 32,
-      PageLeft => 64,
-      PageRight => 128,
-      ScrollUp => 256,
-      ScrollDown => 512,
-      ScrollLeft => 1024,
-      ScrollRight => 2048
-   );
-   for OptionalUINavigationButtons'Size use 32;
-   
-   type OptionalUINavigationButtons_Ptr is access OptionalUINavigationButtons;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -516,15 +516,6 @@ package Windows.Gaming.Input is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TypedEventHandler_IGameController_add_HeadsetConnected_Interface;
-   type TypedEventHandler_IGameController_add_HeadsetConnected is access all TypedEventHandler_IGameController_add_HeadsetConnected_Interface'Class;
-   type TypedEventHandler_IGameController_add_HeadsetConnected_Ptr is access all TypedEventHandler_IGameController_add_HeadsetConnected;
-   type TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface;
-   type TypedEventHandler_IGameController_add_HeadsetDisconnected is access all TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface'Class;
-   type TypedEventHandler_IGameController_add_HeadsetDisconnected_Ptr is access all TypedEventHandler_IGameController_add_HeadsetDisconnected;
-   type TypedEventHandler_IGameController_add_UserChanged_Interface;
-   type TypedEventHandler_IGameController_add_UserChanged is access all TypedEventHandler_IGameController_add_UserChanged_Interface'Class;
-   type TypedEventHandler_IGameController_add_UserChanged_Ptr is access all TypedEventHandler_IGameController_add_UserChanged;
    type EventHandler_IArcadeStick_Interface;
    type EventHandler_IArcadeStick is access all EventHandler_IArcadeStick_Interface'Class;
    type EventHandler_IArcadeStick_Ptr is access all EventHandler_IArcadeStick;
@@ -543,17 +534,20 @@ package Windows.Gaming.Input is
    type EventHandler_IUINavigationController_Interface;
    type EventHandler_IUINavigationController is access all EventHandler_IUINavigationController_Interface'Class;
    type EventHandler_IUINavigationController_Ptr is access all EventHandler_IUINavigationController;
+   type TypedEventHandler_IGameController_add_HeadsetConnected_Interface;
+   type TypedEventHandler_IGameController_add_HeadsetConnected is access all TypedEventHandler_IGameController_add_HeadsetConnected_Interface'Class;
+   type TypedEventHandler_IGameController_add_HeadsetConnected_Ptr is access all TypedEventHandler_IGameController_add_HeadsetConnected;
+   type TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface;
+   type TypedEventHandler_IGameController_add_HeadsetDisconnected is access all TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface'Class;
+   type TypedEventHandler_IGameController_add_HeadsetDisconnected_Ptr is access all TypedEventHandler_IGameController_add_HeadsetDisconnected;
+   type TypedEventHandler_IGameController_add_UserChanged_Interface;
+   type TypedEventHandler_IGameController_add_UserChanged is access all TypedEventHandler_IGameController_add_UserChanged_Interface'Class;
+   type TypedEventHandler_IGameController_add_UserChanged_Ptr is access all TypedEventHandler_IGameController_add_UserChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IGameController_Interface;
-   type IGameController is access all IGameController_Interface'Class;
-   type IGameController_Ptr is access all IGameController;
-   type IGameControllerBatteryInfo_Interface;
-   type IGameControllerBatteryInfo is access all IGameControllerBatteryInfo_Interface'Class;
-   type IGameControllerBatteryInfo_Ptr is access all IGameControllerBatteryInfo;
    type IArcadeStick_Interface;
    type IArcadeStick is access all IArcadeStick_Interface'Class;
    type IArcadeStick_Ptr is access all IArcadeStick;
@@ -569,6 +563,12 @@ package Windows.Gaming.Input is
    type IFlightStickStatics_Interface;
    type IFlightStickStatics is access all IFlightStickStatics_Interface'Class;
    type IFlightStickStatics_Ptr is access all IFlightStickStatics;
+   type IGameController_Interface;
+   type IGameController is access all IGameController_Interface'Class;
+   type IGameController_Ptr is access all IGameController;
+   type IGameControllerBatteryInfo_Interface;
+   type IGameControllerBatteryInfo is access all IGameControllerBatteryInfo_Interface'Class;
+   type IGameControllerBatteryInfo_Ptr is access all IGameControllerBatteryInfo;
    type IGamepad_Interface;
    type IGamepad is access all IGamepad_Interface'Class;
    type IGamepad_Ptr is access all IGamepad;
@@ -584,6 +584,42 @@ package Windows.Gaming.Input is
    type IHeadset_Interface;
    type IHeadset is access all IHeadset_Interface'Class;
    type IHeadset_Ptr is access all IHeadset;
+   type IIterable_IArcadeStick_Interface;
+   type IIterable_IArcadeStick is access all IIterable_IArcadeStick_Interface'Class;
+   type IIterable_IArcadeStick_Ptr is access all IIterable_IArcadeStick;
+   type IIterable_IFlightStick_Interface;
+   type IIterable_IFlightStick is access all IIterable_IFlightStick_Interface'Class;
+   type IIterable_IFlightStick_Ptr is access all IIterable_IFlightStick;
+   type IIterable_IGamepad_Interface;
+   type IIterable_IGamepad is access all IIterable_IGamepad_Interface'Class;
+   type IIterable_IGamepad_Ptr is access all IIterable_IGamepad;
+   type IIterable_IRacingWheel_Interface;
+   type IIterable_IRacingWheel is access all IIterable_IRacingWheel_Interface'Class;
+   type IIterable_IRacingWheel_Ptr is access all IIterable_IRacingWheel;
+   type IIterable_IRawGameController_Interface;
+   type IIterable_IRawGameController is access all IIterable_IRawGameController_Interface'Class;
+   type IIterable_IRawGameController_Ptr is access all IIterable_IRawGameController;
+   type IIterable_IUINavigationController_Interface;
+   type IIterable_IUINavigationController is access all IIterable_IUINavigationController_Interface'Class;
+   type IIterable_IUINavigationController_Ptr is access all IIterable_IUINavigationController;
+   type IIterator_IArcadeStick_Interface;
+   type IIterator_IArcadeStick is access all IIterator_IArcadeStick_Interface'Class;
+   type IIterator_IArcadeStick_Ptr is access all IIterator_IArcadeStick;
+   type IIterator_IFlightStick_Interface;
+   type IIterator_IFlightStick is access all IIterator_IFlightStick_Interface'Class;
+   type IIterator_IFlightStick_Ptr is access all IIterator_IFlightStick;
+   type IIterator_IGamepad_Interface;
+   type IIterator_IGamepad is access all IIterator_IGamepad_Interface'Class;
+   type IIterator_IGamepad_Ptr is access all IIterator_IGamepad;
+   type IIterator_IRacingWheel_Interface;
+   type IIterator_IRacingWheel is access all IIterator_IRacingWheel_Interface'Class;
+   type IIterator_IRacingWheel_Ptr is access all IIterator_IRacingWheel;
+   type IIterator_IRawGameController_Interface;
+   type IIterator_IRawGameController is access all IIterator_IRawGameController_Interface'Class;
+   type IIterator_IRawGameController_Ptr is access all IIterator_IRawGameController;
+   type IIterator_IUINavigationController_Interface;
+   type IIterator_IUINavigationController is access all IIterator_IUINavigationController_Interface'Class;
+   type IIterator_IUINavigationController_Ptr is access all IIterator_IUINavigationController;
    type IRacingWheel_Interface;
    type IRacingWheel is access all IRacingWheel_Interface'Class;
    type IRacingWheel_Ptr is access all IRacingWheel;
@@ -611,57 +647,21 @@ package Windows.Gaming.Input is
    type IUINavigationControllerStatics2_Interface;
    type IUINavigationControllerStatics2 is access all IUINavigationControllerStatics2_Interface'Class;
    type IUINavigationControllerStatics2_Ptr is access all IUINavigationControllerStatics2;
-   type IIterator_IArcadeStick_Interface;
-   type IIterator_IArcadeStick is access all IIterator_IArcadeStick_Interface'Class;
-   type IIterator_IArcadeStick_Ptr is access all IIterator_IArcadeStick;
-   type IIterable_IArcadeStick_Interface;
-   type IIterable_IArcadeStick is access all IIterable_IArcadeStick_Interface'Class;
-   type IIterable_IArcadeStick_Ptr is access all IIterable_IArcadeStick;
    type IVectorView_IArcadeStick_Interface;
    type IVectorView_IArcadeStick is access all IVectorView_IArcadeStick_Interface'Class;
    type IVectorView_IArcadeStick_Ptr is access all IVectorView_IArcadeStick;
-   type IIterator_IFlightStick_Interface;
-   type IIterator_IFlightStick is access all IIterator_IFlightStick_Interface'Class;
-   type IIterator_IFlightStick_Ptr is access all IIterator_IFlightStick;
-   type IIterable_IFlightStick_Interface;
-   type IIterable_IFlightStick is access all IIterable_IFlightStick_Interface'Class;
-   type IIterable_IFlightStick_Ptr is access all IIterable_IFlightStick;
    type IVectorView_IFlightStick_Interface;
    type IVectorView_IFlightStick is access all IVectorView_IFlightStick_Interface'Class;
    type IVectorView_IFlightStick_Ptr is access all IVectorView_IFlightStick;
-   type IIterator_IGamepad_Interface;
-   type IIterator_IGamepad is access all IIterator_IGamepad_Interface'Class;
-   type IIterator_IGamepad_Ptr is access all IIterator_IGamepad;
-   type IIterable_IGamepad_Interface;
-   type IIterable_IGamepad is access all IIterable_IGamepad_Interface'Class;
-   type IIterable_IGamepad_Ptr is access all IIterable_IGamepad;
    type IVectorView_IGamepad_Interface;
    type IVectorView_IGamepad is access all IVectorView_IGamepad_Interface'Class;
    type IVectorView_IGamepad_Ptr is access all IVectorView_IGamepad;
-   type IIterator_IRacingWheel_Interface;
-   type IIterator_IRacingWheel is access all IIterator_IRacingWheel_Interface'Class;
-   type IIterator_IRacingWheel_Ptr is access all IIterator_IRacingWheel;
-   type IIterable_IRacingWheel_Interface;
-   type IIterable_IRacingWheel is access all IIterable_IRacingWheel_Interface'Class;
-   type IIterable_IRacingWheel_Ptr is access all IIterable_IRacingWheel;
    type IVectorView_IRacingWheel_Interface;
    type IVectorView_IRacingWheel is access all IVectorView_IRacingWheel_Interface'Class;
    type IVectorView_IRacingWheel_Ptr is access all IVectorView_IRacingWheel;
-   type IIterator_IRawGameController_Interface;
-   type IIterator_IRawGameController is access all IIterator_IRawGameController_Interface'Class;
-   type IIterator_IRawGameController_Ptr is access all IIterator_IRawGameController;
-   type IIterable_IRawGameController_Interface;
-   type IIterable_IRawGameController is access all IIterable_IRawGameController_Interface'Class;
-   type IIterable_IRawGameController_Ptr is access all IIterable_IRawGameController;
    type IVectorView_IRawGameController_Interface;
    type IVectorView_IRawGameController is access all IVectorView_IRawGameController_Interface'Class;
    type IVectorView_IRawGameController_Ptr is access all IVectorView_IRawGameController;
-   type IIterator_IUINavigationController_Interface;
-   type IIterator_IUINavigationController is access all IIterator_IUINavigationController_Interface'Class;
-   type IIterator_IUINavigationController_Ptr is access all IIterator_IUINavigationController;
-   type IIterable_IUINavigationController_Interface;
-   type IIterable_IUINavigationController is access all IIterable_IUINavigationController_Interface'Class;
-   type IIterable_IUINavigationController_Ptr is access all IIterable_IUINavigationController;
    type IVectorView_IUINavigationController_Interface;
    type IVectorView_IUINavigationController is access all IVectorView_IUINavigationController_Interface'Class;
    type IVectorView_IUINavigationController_Ptr is access all IVectorView_IUINavigationController;
@@ -669,91 +669,6 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGameController : aliased constant Windows.IID := (464479522, 24420, 17093, (130, 103, 185, 254, 34, 21, 191, 189 ));
-   
-   type IGameController_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_HeadsetConnected
-   (
-      This       : access IGameController_Interface
-      ; value : TypedEventHandler_IGameController_add_HeadsetConnected
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_HeadsetConnected
-   (
-      This       : access IGameController_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_HeadsetDisconnected
-   (
-      This       : access IGameController_Interface
-      ; value : TypedEventHandler_IGameController_add_HeadsetDisconnected
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_HeadsetDisconnected
-   (
-      This       : access IGameController_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_UserChanged
-   (
-      This       : access IGameController_Interface
-      ; value : TypedEventHandler_IGameController_add_UserChanged
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_UserChanged
-   (
-      This       : access IGameController_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Headset
-   (
-      This       : access IGameController_Interface
-      ; RetVal : access Windows.Gaming.Input.IHeadset
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsWireless
-   (
-      This       : access IGameController_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_User
-   (
-      This       : access IGameController_Interface
-      ; RetVal : access Windows.System.IUser
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGameControllerBatteryInfo : aliased constant Windows.IID := (3706504833, 14691, 19878, (149, 93, 85, 63, 59, 111, 97, 97 ));
-   
-   type IGameControllerBatteryInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function TryGetBatteryReport
-   (
-      This       : access IGameControllerBatteryInfo_Interface
-      ; RetVal : access Windows.Devices.Power.IBatteryReport
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -914,6 +829,91 @@ package Windows.Gaming.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IGameController : aliased constant Windows.IID := (464479522, 24420, 17093, (130, 103, 185, 254, 34, 21, 191, 189 ));
+   
+   type IGameController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_HeadsetConnected
+   (
+      This       : access IGameController_Interface
+      ; value : TypedEventHandler_IGameController_add_HeadsetConnected
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_HeadsetConnected
+   (
+      This       : access IGameController_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_HeadsetDisconnected
+   (
+      This       : access IGameController_Interface
+      ; value : TypedEventHandler_IGameController_add_HeadsetDisconnected
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_HeadsetDisconnected
+   (
+      This       : access IGameController_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_UserChanged
+   (
+      This       : access IGameController_Interface
+      ; value : TypedEventHandler_IGameController_add_UserChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_UserChanged
+   (
+      This       : access IGameController_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Headset
+   (
+      This       : access IGameController_Interface
+      ; RetVal : access Windows.Gaming.Input.IHeadset
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsWireless
+   (
+      This       : access IGameController_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_User
+   (
+      This       : access IGameController_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGameControllerBatteryInfo : aliased constant Windows.IID := (3706504833, 14691, 19878, (149, 93, 85, 63, 59, 111, 97, 97 ));
+   
+   type IGameControllerBatteryInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryGetBatteryReport
+   (
+      This       : access IGameControllerBatteryInfo_Interface
+      ; RetVal : access Windows.Devices.Power.IBatteryReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IGamepad : aliased constant Windows.IID := (3162223676, 2665, 14595, (158, 157, 165, 15, 134, 164, 93, 229 ));
    
    type IGamepad_Interface is interface and Windows.IInspectable_Interface;
@@ -1027,6 +1027,294 @@ package Windows.Gaming.Input is
    (
       This       : access IHeadset_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IArcadeStick : aliased constant Windows.IID := (2474046551, 11685, 21578, (164, 9, 198, 54, 245, 216, 28, 53 ));
+   
+   type IIterable_IArcadeStick_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IArcadeStick_Interface
+      ; RetVal : access Windows.Gaming.Input.IIterator_IArcadeStick
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IFlightStick : aliased constant Windows.IID := (998228341, 48830, 21231, (163, 233, 221, 167, 94, 161, 172, 252 ));
+   
+   type IIterable_IFlightStick_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IFlightStick_Interface
+      ; RetVal : access Windows.Gaming.Input.IIterator_IFlightStick
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IGamepad : aliased constant Windows.IID := (1192438688, 27415, 23762, (168, 189, 181, 211, 68, 60, 203, 19 ));
+   
+   type IIterable_IGamepad_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IGamepad_Interface
+      ; RetVal : access Windows.Gaming.Input.IIterator_IGamepad
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IRacingWheel : aliased constant Windows.IID := (2591832112, 39559, 21127, (161, 226, 138, 42, 242, 156, 246, 140 ));
+   
+   type IIterable_IRacingWheel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IRacingWheel_Interface
+      ; RetVal : access Windows.Gaming.Input.IIterator_IRacingWheel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IRawGameController : aliased constant Windows.IID := (2402224332, 62708, 21817, (147, 87, 31, 7, 51, 77, 56, 31 ));
+   
+   type IIterable_IRawGameController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IRawGameController_Interface
+      ; RetVal : access Windows.Gaming.Input.IIterator_IRawGameController
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IUINavigationController : aliased constant Windows.IID := (2380957088, 516, 22493, (171, 173, 144, 227, 124, 14, 242, 64 ));
+   
+   type IIterable_IUINavigationController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IUINavigationController_Interface
+      ; RetVal : access Windows.Gaming.Input.IIterator_IUINavigationController
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IArcadeStick : aliased constant Windows.IID := (3540396463, 52381, 21217, (139, 31, 15, 250, 150, 41, 175, 238 ));
+   
+   type IIterator_IArcadeStick_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IArcadeStick_Interface
+      ; RetVal : access Windows.Gaming.Input.IArcadeStick
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IArcadeStick_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IArcadeStick_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IArcadeStick_Interface
+      ; items : Windows.Gaming.Input.IArcadeStick_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IFlightStick : aliased constant Windows.IID := (4126808345, 16152, 21856, (187, 19, 207, 112, 24, 172, 65, 213 ));
+   
+   type IIterator_IFlightStick_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IFlightStick_Interface
+      ; RetVal : access Windows.Gaming.Input.IFlightStick
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IFlightStick_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IFlightStick_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IFlightStick_Interface
+      ; items : Windows.Gaming.Input.IFlightStick_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IGamepad : aliased constant Windows.IID := (610744296, 4796, 23652, (175, 82, 6, 219, 75, 19, 250, 47 ));
+   
+   type IIterator_IGamepad_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IGamepad_Interface
+      ; RetVal : access Windows.Gaming.Input.IGamepad
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IGamepad_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IGamepad_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IGamepad_Interface
+      ; items : Windows.Gaming.Input.IGamepad_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IRacingWheel : aliased constant Windows.IID := (601306552, 19766, 21367, (162, 69, 105, 223, 151, 201, 252, 217 ));
+   
+   type IIterator_IRacingWheel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IRacingWheel_Interface
+      ; RetVal : access Windows.Gaming.Input.IRacingWheel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IRacingWheel_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IRacingWheel_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IRacingWheel_Interface
+      ; items : Windows.Gaming.Input.IRacingWheel_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IRawGameController : aliased constant Windows.IID := (1372358876, 26363, 21994, (154, 27, 170, 220, 215, 28, 192, 142 ));
+   
+   type IIterator_IRawGameController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IRawGameController_Interface
+      ; RetVal : access Windows.Gaming.Input.IRawGameController
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IRawGameController_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IRawGameController_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IRawGameController_Interface
+      ; items : Windows.Gaming.Input.IRawGameController_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IUINavigationController : aliased constant Windows.IID := (3238733462, 25763, 21090, (188, 79, 183, 65, 229, 213, 175, 171 ));
+   
+   type IIterator_IUINavigationController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IUINavigationController_Interface
+      ; RetVal : access Windows.Gaming.Input.IUINavigationController
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IUINavigationController_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IUINavigationController_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IUINavigationController_Interface
+      ; items : Windows.Gaming.Input.IUINavigationController_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1390,54 +1678,6 @@ package Windows.Gaming.Input is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IArcadeStick : aliased constant Windows.IID := (3540396463, 52381, 21217, (139, 31, 15, 250, 150, 41, 175, 238 ));
-   
-   type IIterator_IArcadeStick_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IArcadeStick_Interface
-      ; RetVal : access Windows.Gaming.Input.IArcadeStick
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IArcadeStick_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IArcadeStick_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IArcadeStick_Interface
-      ; items : Windows.Gaming.Input.IArcadeStick_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IArcadeStick : aliased constant Windows.IID := (2474046551, 11685, 21578, (164, 9, 198, 54, 245, 216, 28, 53 ));
-   
-   type IIterable_IArcadeStick_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IArcadeStick_Interface
-      ; RetVal : access Windows.Gaming.Input.IIterator_IArcadeStick
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVectorView_IArcadeStick : aliased constant Windows.IID := (3200962165, 53453, 23196, (132, 95, 114, 240, 133, 80, 60, 223 ));
    
    type IVectorView_IArcadeStick_Interface is interface and Windows.IInspectable_Interface;
@@ -1472,54 +1712,6 @@ package Windows.Gaming.Input is
       ; startIndex : Windows.UInt32
       ; items : Windows.Gaming.Input.IArcadeStick_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IFlightStick : aliased constant Windows.IID := (4126808345, 16152, 21856, (187, 19, 207, 112, 24, 172, 65, 213 ));
-   
-   type IIterator_IFlightStick_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IFlightStick_Interface
-      ; RetVal : access Windows.Gaming.Input.IFlightStick
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IFlightStick_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IFlightStick_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IFlightStick_Interface
-      ; items : Windows.Gaming.Input.IFlightStick_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IFlightStick : aliased constant Windows.IID := (998228341, 48830, 21231, (163, 233, 221, 167, 94, 161, 172, 252 ));
-   
-   type IIterable_IFlightStick_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IFlightStick_Interface
-      ; RetVal : access Windows.Gaming.Input.IIterator_IFlightStick
    )
    return Windows.HRESULT is abstract;
    
@@ -1564,54 +1756,6 @@ package Windows.Gaming.Input is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IGamepad : aliased constant Windows.IID := (610744296, 4796, 23652, (175, 82, 6, 219, 75, 19, 250, 47 ));
-   
-   type IIterator_IGamepad_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IGamepad_Interface
-      ; RetVal : access Windows.Gaming.Input.IGamepad
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IGamepad_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IGamepad_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IGamepad_Interface
-      ; items : Windows.Gaming.Input.IGamepad_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IGamepad : aliased constant Windows.IID := (1192438688, 27415, 23762, (168, 189, 181, 211, 68, 60, 203, 19 ));
-   
-   type IIterable_IGamepad_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IGamepad_Interface
-      ; RetVal : access Windows.Gaming.Input.IIterator_IGamepad
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVectorView_IGamepad : aliased constant Windows.IID := (3952589673, 2505, 23193, (134, 178, 62, 54, 8, 82, 132, 212 ));
    
    type IVectorView_IGamepad_Interface is interface and Windows.IInspectable_Interface;
@@ -1646,54 +1790,6 @@ package Windows.Gaming.Input is
       ; startIndex : Windows.UInt32
       ; items : Windows.Gaming.Input.IGamepad_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IRacingWheel : aliased constant Windows.IID := (601306552, 19766, 21367, (162, 69, 105, 223, 151, 201, 252, 217 ));
-   
-   type IIterator_IRacingWheel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IRacingWheel_Interface
-      ; RetVal : access Windows.Gaming.Input.IRacingWheel
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IRacingWheel_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IRacingWheel_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IRacingWheel_Interface
-      ; items : Windows.Gaming.Input.IRacingWheel_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IRacingWheel : aliased constant Windows.IID := (2591832112, 39559, 21127, (161, 226, 138, 42, 242, 156, 246, 140 ));
-   
-   type IIterable_IRacingWheel_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IRacingWheel_Interface
-      ; RetVal : access Windows.Gaming.Input.IIterator_IRacingWheel
    )
    return Windows.HRESULT is abstract;
    
@@ -1738,54 +1834,6 @@ package Windows.Gaming.Input is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IRawGameController : aliased constant Windows.IID := (1372358876, 26363, 21994, (154, 27, 170, 220, 215, 28, 192, 142 ));
-   
-   type IIterator_IRawGameController_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IRawGameController_Interface
-      ; RetVal : access Windows.Gaming.Input.IRawGameController
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IRawGameController_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IRawGameController_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IRawGameController_Interface
-      ; items : Windows.Gaming.Input.IRawGameController_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IRawGameController : aliased constant Windows.IID := (2402224332, 62708, 21817, (147, 87, 31, 7, 51, 77, 56, 31 ));
-   
-   type IIterable_IRawGameController_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IRawGameController_Interface
-      ; RetVal : access Windows.Gaming.Input.IIterator_IRawGameController
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVectorView_IRawGameController : aliased constant Windows.IID := (2006762274, 16576, 21953, (141, 197, 204, 110, 58, 254, 2, 207 ));
    
    type IVectorView_IRawGameController_Interface is interface and Windows.IInspectable_Interface;
@@ -1820,54 +1868,6 @@ package Windows.Gaming.Input is
       ; startIndex : Windows.UInt32
       ; items : Windows.Gaming.Input.IRawGameController_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IUINavigationController : aliased constant Windows.IID := (3238733462, 25763, 21090, (188, 79, 183, 65, 229, 213, 175, 171 ));
-   
-   type IIterator_IUINavigationController_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IUINavigationController_Interface
-      ; RetVal : access Windows.Gaming.Input.IUINavigationController
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IUINavigationController_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IUINavigationController_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IUINavigationController_Interface
-      ; items : Windows.Gaming.Input.IUINavigationController_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IUINavigationController : aliased constant Windows.IID := (2380957088, 516, 22493, (171, 173, 144, 227, 124, 14, 242, 64 ));
-   
-   type IIterable_IUINavigationController_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IUINavigationController_Interface
-      ; RetVal : access Windows.Gaming.Input.IIterator_IUINavigationController
    )
    return Windows.HRESULT is abstract;
    
@@ -1913,45 +1913,6 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IGameController_add_HeadsetConnected : aliased constant Windows.IID := (129168055, 34853, 23630, (160, 82, 252, 254, 223, 58, 238, 161 ));
-   
-   type TypedEventHandler_IGameController_add_HeadsetConnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_HeadsetConnected'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGameController_add_HeadsetConnected_Interface
-      ; sender : Windows.Gaming.Input.IGameController
-      ; args : Windows.Gaming.Input.IHeadset
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IGameController_add_HeadsetDisconnected : aliased constant Windows.IID := (129168055, 34853, 23630, (160, 82, 252, 254, 223, 58, 238, 161 ));
-   
-   type TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_HeadsetDisconnected'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface
-      ; sender : Windows.Gaming.Input.IGameController
-      ; args : Windows.Gaming.Input.IHeadset
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_TypedEventHandler_IGameController_add_UserChanged : aliased constant Windows.IID := (3413458732, 12086, 23183, (173, 173, 5, 123, 234, 231, 58, 164 ));
-   
-   type TypedEventHandler_IGameController_add_UserChanged_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_UserChanged'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGameController_add_UserChanged_Interface
-      ; sender : Windows.Gaming.Input.IGameController
-      ; args : Windows.System.IUserChangedEventArgs
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -2032,13 +1993,52 @@ package Windows.Gaming.Input is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IGameController_add_HeadsetConnected : aliased constant Windows.IID := (129168055, 34853, 23630, (160, 82, 252, 254, 223, 58, 238, 161 ));
+   
+   type TypedEventHandler_IGameController_add_HeadsetConnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_HeadsetConnected'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGameController_add_HeadsetConnected_Interface
+      ; sender : Windows.Gaming.Input.IGameController
+      ; args : Windows.Gaming.Input.IHeadset
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IGameController_add_HeadsetDisconnected : aliased constant Windows.IID := (129168055, 34853, 23630, (160, 82, 252, 254, 223, 58, 238, 161 ));
+   
+   type TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_HeadsetDisconnected'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface
+      ; sender : Windows.Gaming.Input.IGameController
+      ; args : Windows.Gaming.Input.IHeadset
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IGameController_add_UserChanged : aliased constant Windows.IID := (3413458732, 12086, 23183, (173, 173, 5, 123, 234, 231, 58, 164 ));
+   
+   type TypedEventHandler_IGameController_add_UserChanged_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_UserChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGameController_add_UserChanged_Interface
+      ; sender : Windows.Gaming.Input.IGameController
+      ; args : Windows.System.IUserChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype Headset is Windows.Gaming.Input.IHeadset;
    subtype ArcadeStick is Windows.Gaming.Input.IArcadeStick;
    subtype FlightStick is Windows.Gaming.Input.IFlightStick;
    subtype Gamepad is Windows.Gaming.Input.IGamepad;
+   subtype Headset is Windows.Gaming.Input.IHeadset;
    subtype RacingWheel is Windows.Gaming.Input.IRacingWheel;
    subtype RawGameController is Windows.Gaming.Input.IRawGameController;
    subtype UINavigationController is Windows.Gaming.Input.IUINavigationController;

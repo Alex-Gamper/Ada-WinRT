@@ -59,8 +59,8 @@ package body Windows.Media.Capture.Frames is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface
-      ; asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMultiSourceMediaFrameReader
+      This       : access AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface
+      ; asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGetPropertyResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -85,27 +85,14 @@ package body Windows.Media.Capture.Frames is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface
-      ; sender : Windows.Media.Capture.Frames.IMediaFrameSource
-      ; args : Windows.Object
+      This       : access AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface
+      ; asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMultiSourceMediaFrameReader
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Capture.Frames.IMediaFrameSource(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface
-      ; sender : Windows.Media.Capture.Frames.IMediaFrameReader
-      ; args : Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Capture.Frames.IMediaFrameReader(sender), Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs(args));
+      This.Callback(asyncInfo, asyncStatus);
       return Hr;
    end;
    
@@ -113,45 +100,6 @@ package body Windows.Media.Capture.Frames is
    (
       This       : access AsyncOperationCompletedHandler_MediaFrameReaderStartStatus_Interface
       ; asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameReaderStartStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface
-      ; sender : Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader
-      ; args : Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader(sender), Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface
-      ; asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MultiSourceMediaFrameReaderStartStatus
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface
-      ; asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGetPropertyResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -171,6 +119,58 @@ package body Windows.Media.Capture.Frames is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface
+      ; asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MultiSourceMediaFrameReaderStartStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface
+      ; sender : Windows.Media.Capture.Frames.IMediaFrameReader
+      ; args : Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Capture.Frames.IMediaFrameReader(sender), Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface
+      ; sender : Windows.Media.Capture.Frames.IMediaFrameSource
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Capture.Frames.IMediaFrameSource(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface
+      ; sender : Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader
+      ; args : Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader(sender), Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs(args));
       return Hr;
    end;
    

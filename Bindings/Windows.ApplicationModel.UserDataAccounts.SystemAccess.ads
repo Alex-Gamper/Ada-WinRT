@@ -38,20 +38,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    -- Enums
    ------------------------------------------------------------------------
    
-   type DeviceAccountServerType is (
-      Exchange,
-      Pop,
-      Imap
-   );
-   for DeviceAccountServerType use (
-      Exchange => 0,
-      Pop => 1,
-      Imap => 2
-   );
-   for DeviceAccountServerType'Size use 32;
-   
-   type DeviceAccountServerType_Ptr is access DeviceAccountServerType;
-   
    type DeviceAccountAuthenticationType is (
       Basic,
       OAuth,
@@ -66,27 +52,21 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    
    type DeviceAccountAuthenticationType_Ptr is access DeviceAccountAuthenticationType;
    
-   type DeviceAccountSyncScheduleKind is (
-      Manual,
-      Every15Minutes,
-      Every30Minutes,
-      Every60Minutes,
-      Every2Hours,
-      Daily,
-      AsItemsArrive
+   type DeviceAccountIconId is (
+      Exchange,
+      Msa,
+      Outlook,
+      Generic_x
    );
-   for DeviceAccountSyncScheduleKind use (
-      Manual => 0,
-      Every15Minutes => 1,
-      Every30Minutes => 2,
-      Every60Minutes => 3,
-      Every2Hours => 4,
-      Daily => 5,
-      AsItemsArrive => 6
+   for DeviceAccountIconId use (
+      Exchange => 0,
+      Msa => 1,
+      Outlook => 2,
+      Generic_x => 3
    );
-   for DeviceAccountSyncScheduleKind'Size use 32;
+   for DeviceAccountIconId'Size use 32;
    
-   type DeviceAccountSyncScheduleKind_Ptr is access DeviceAccountSyncScheduleKind;
+   type DeviceAccountIconId_Ptr is access DeviceAccountIconId;
    
    type DeviceAccountMailAgeFilter is (
       All_x,
@@ -110,21 +90,41 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    
    type DeviceAccountMailAgeFilter_Ptr is access DeviceAccountMailAgeFilter;
    
-   type DeviceAccountIconId is (
+   type DeviceAccountServerType is (
       Exchange,
-      Msa,
-      Outlook,
-      Generic_x
+      Pop,
+      Imap
    );
-   for DeviceAccountIconId use (
+   for DeviceAccountServerType use (
       Exchange => 0,
-      Msa => 1,
-      Outlook => 2,
-      Generic_x => 3
+      Pop => 1,
+      Imap => 2
    );
-   for DeviceAccountIconId'Size use 32;
+   for DeviceAccountServerType'Size use 32;
    
-   type DeviceAccountIconId_Ptr is access DeviceAccountIconId;
+   type DeviceAccountServerType_Ptr is access DeviceAccountServerType;
+   
+   type DeviceAccountSyncScheduleKind is (
+      Manual,
+      Every15Minutes,
+      Every30Minutes,
+      Every60Minutes,
+      Every2Hours,
+      Daily,
+      AsItemsArrive
+   );
+   for DeviceAccountSyncScheduleKind use (
+      Manual => 0,
+      Every15Minutes => 1,
+      Every30Minutes => 2,
+      Every60Minutes => 3,
+      Every2Hours => 4,
+      Daily => 5,
+      AsItemsArrive => 6
+   );
+   for DeviceAccountSyncScheduleKind'Size use 32;
+   
+   type DeviceAccountSyncScheduleKind_Ptr is access DeviceAccountSyncScheduleKind;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -138,31 +138,58 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IDeviceAccountConfiguration_Interface;
+   type IAsyncOperation_IDeviceAccountConfiguration is access all IAsyncOperation_IDeviceAccountConfiguration_Interface'Class;
+   type IAsyncOperation_IDeviceAccountConfiguration_Ptr is access all IAsyncOperation_IDeviceAccountConfiguration;
    type IDeviceAccountConfiguration_Interface;
    type IDeviceAccountConfiguration is access all IDeviceAccountConfiguration_Interface'Class;
    type IDeviceAccountConfiguration_Ptr is access all IDeviceAccountConfiguration;
    type IDeviceAccountConfiguration2_Interface;
    type IDeviceAccountConfiguration2 is access all IDeviceAccountConfiguration2_Interface'Class;
    type IDeviceAccountConfiguration2_Ptr is access all IDeviceAccountConfiguration2;
+   type IIterable_IDeviceAccountConfiguration_Interface;
+   type IIterable_IDeviceAccountConfiguration is access all IIterable_IDeviceAccountConfiguration_Interface'Class;
+   type IIterable_IDeviceAccountConfiguration_Ptr is access all IIterable_IDeviceAccountConfiguration;
+   type IIterator_IDeviceAccountConfiguration_Interface;
+   type IIterator_IDeviceAccountConfiguration is access all IIterator_IDeviceAccountConfiguration_Interface'Class;
+   type IIterator_IDeviceAccountConfiguration_Ptr is access all IIterator_IDeviceAccountConfiguration;
    type IUserDataAccountSystemAccessManagerStatics_Interface;
    type IUserDataAccountSystemAccessManagerStatics is access all IUserDataAccountSystemAccessManagerStatics_Interface'Class;
    type IUserDataAccountSystemAccessManagerStatics_Ptr is access all IUserDataAccountSystemAccessManagerStatics;
    type IUserDataAccountSystemAccessManagerStatics2_Interface;
    type IUserDataAccountSystemAccessManagerStatics2 is access all IUserDataAccountSystemAccessManagerStatics2_Interface'Class;
    type IUserDataAccountSystemAccessManagerStatics2_Ptr is access all IUserDataAccountSystemAccessManagerStatics2;
-   type IIterator_IDeviceAccountConfiguration_Interface;
-   type IIterator_IDeviceAccountConfiguration is access all IIterator_IDeviceAccountConfiguration_Interface'Class;
-   type IIterator_IDeviceAccountConfiguration_Ptr is access all IIterator_IDeviceAccountConfiguration;
-   type IIterable_IDeviceAccountConfiguration_Interface;
-   type IIterable_IDeviceAccountConfiguration is access all IIterable_IDeviceAccountConfiguration_Interface'Class;
-   type IIterable_IDeviceAccountConfiguration_Ptr is access all IIterable_IDeviceAccountConfiguration;
-   type IAsyncOperation_IDeviceAccountConfiguration_Interface;
-   type IAsyncOperation_IDeviceAccountConfiguration is access all IAsyncOperation_IDeviceAccountConfiguration_Interface'Class;
-   type IAsyncOperation_IDeviceAccountConfiguration_Ptr is access all IAsyncOperation_IDeviceAccountConfiguration;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDeviceAccountConfiguration : aliased constant Windows.IID := (1184389619, 27515, 21401, (138, 140, 254, 97, 91, 149, 174, 7 ));
+   
+   type IAsyncOperation_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IDeviceAccountConfiguration_Interface
+      ; handler : Windows.ApplicationModel.UserDataAccounts.SystemAccess.AsyncOperationCompletedHandler_IDeviceAccountConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IDeviceAccountConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.AsyncOperationCompletedHandler_IDeviceAccountConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IDeviceAccountConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -794,6 +821,54 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IDeviceAccountConfiguration : aliased constant Windows.IID := (2848189038, 40409, 21246, (157, 39, 249, 228, 222, 221, 77, 63 ));
+   
+   type IIterable_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IDeviceAccountConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterator_IDeviceAccountConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IDeviceAccountConfiguration : aliased constant Windows.IID := (1366317703, 36299, 22897, (141, 107, 202, 138, 230, 169, 85, 173 ));
+   
+   type IIterator_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IDeviceAccountConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IDeviceAccountConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IDeviceAccountConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IDeviceAccountConfiguration_Interface
+      ; items : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUserDataAccountSystemAccessManagerStatics : aliased constant Windows.IID := (2641039801, 52197, 17909, (130, 43, 194, 103, 184, 29, 189, 182 ));
    
    type IUserDataAccountSystemAccessManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -841,81 +916,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       This       : access IUserDataAccountSystemAccessManagerStatics2_Interface
       ; accountId : Windows.String
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IDeviceAccountConfiguration : aliased constant Windows.IID := (1366317703, 36299, 22897, (141, 107, 202, 138, 230, 169, 85, 173 ));
-   
-   type IIterator_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IDeviceAccountConfiguration_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IDeviceAccountConfiguration_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IDeviceAccountConfiguration_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IDeviceAccountConfiguration_Interface
-      ; items : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IDeviceAccountConfiguration : aliased constant Windows.IID := (2848189038, 40409, 21246, (157, 39, 249, 228, 222, 221, 77, 63 ));
-   
-   type IIterable_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IDeviceAccountConfiguration_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterator_IDeviceAccountConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IDeviceAccountConfiguration : aliased constant Windows.IID := (1184389619, 27515, 21401, (138, 140, 254, 97, 91, 149, 174, 7 ));
-   
-   type IAsyncOperation_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IDeviceAccountConfiguration_Interface
-      ; handler : Windows.ApplicationModel.UserDataAccounts.SystemAccess.AsyncOperationCompletedHandler_IDeviceAccountConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IDeviceAccountConfiguration_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.AsyncOperationCompletedHandler_IDeviceAccountConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IDeviceAccountConfiguration_Interface
-      ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
    )
    return Windows.HRESULT is abstract;
    

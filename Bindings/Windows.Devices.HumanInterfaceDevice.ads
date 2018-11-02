@@ -39,20 +39,6 @@ package Windows.Devices.HumanInterfaceDevice is
    -- Enums
    ------------------------------------------------------------------------
    
-   type HidReportType is (
-      Input,
-      Output,
-      Feature
-   );
-   for HidReportType use (
-      Input => 0,
-      Output => 1,
-      Feature => 2
-   );
-   for HidReportType'Size use 32;
-   
-   type HidReportType_Ptr is access HidReportType;
-   
    type HidCollectionType is (
       Physical,
       Application,
@@ -77,6 +63,20 @@ package Windows.Devices.HumanInterfaceDevice is
    
    type HidCollectionType_Ptr is access HidCollectionType;
    
+   type HidReportType is (
+      Input,
+      Output,
+      Feature
+   );
+   for HidReportType use (
+      Input => 0,
+      Output => 1,
+      Feature => 2
+   );
+   for HidReportType'Size use 32;
+   
+   type HidReportType_Ptr is access HidReportType;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -84,12 +84,12 @@ package Windows.Devices.HumanInterfaceDevice is
    type AsyncOperationCompletedHandler_IHidDevice_Interface;
    type AsyncOperationCompletedHandler_IHidDevice is access all AsyncOperationCompletedHandler_IHidDevice_Interface'Class;
    type AsyncOperationCompletedHandler_IHidDevice_Ptr is access all AsyncOperationCompletedHandler_IHidDevice;
-   type AsyncOperationCompletedHandler_IHidInputReport_Interface;
-   type AsyncOperationCompletedHandler_IHidInputReport is access all AsyncOperationCompletedHandler_IHidInputReport_Interface'Class;
-   type AsyncOperationCompletedHandler_IHidInputReport_Ptr is access all AsyncOperationCompletedHandler_IHidInputReport;
    type AsyncOperationCompletedHandler_IHidFeatureReport_Interface;
    type AsyncOperationCompletedHandler_IHidFeatureReport is access all AsyncOperationCompletedHandler_IHidFeatureReport_Interface'Class;
    type AsyncOperationCompletedHandler_IHidFeatureReport_Ptr is access all AsyncOperationCompletedHandler_IHidFeatureReport;
+   type AsyncOperationCompletedHandler_IHidInputReport_Interface;
+   type AsyncOperationCompletedHandler_IHidInputReport is access all AsyncOperationCompletedHandler_IHidInputReport_Interface'Class;
+   type AsyncOperationCompletedHandler_IHidInputReport_Ptr is access all AsyncOperationCompletedHandler_IHidInputReport;
    type TypedEventHandler_IHidDevice_add_InputReportReceived_Interface;
    type TypedEventHandler_IHidDevice_add_InputReportReceived is access all TypedEventHandler_IHidDevice_add_InputReportReceived_Interface'Class;
    type TypedEventHandler_IHidDevice_add_InputReportReceived_Ptr is access all TypedEventHandler_IHidDevice_add_InputReportReceived;
@@ -98,87 +98,87 @@ package Windows.Devices.HumanInterfaceDevice is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IHidDeviceStatics_Interface;
-   type IHidDeviceStatics is access all IHidDeviceStatics_Interface'Class;
-   type IHidDeviceStatics_Ptr is access all IHidDeviceStatics;
-   type IHidDevice_Interface;
-   type IHidDevice is access all IHidDevice_Interface'Class;
-   type IHidDevice_Ptr is access all IHidDevice;
+   type IAsyncOperation_IHidDevice_Interface;
+   type IAsyncOperation_IHidDevice is access all IAsyncOperation_IHidDevice_Interface'Class;
+   type IAsyncOperation_IHidDevice_Ptr is access all IAsyncOperation_IHidDevice;
+   type IAsyncOperation_IHidFeatureReport_Interface;
+   type IAsyncOperation_IHidFeatureReport is access all IAsyncOperation_IHidFeatureReport_Interface'Class;
+   type IAsyncOperation_IHidFeatureReport_Ptr is access all IAsyncOperation_IHidFeatureReport;
+   type IAsyncOperation_IHidInputReport_Interface;
+   type IAsyncOperation_IHidInputReport is access all IAsyncOperation_IHidInputReport_Interface'Class;
+   type IAsyncOperation_IHidInputReport_Ptr is access all IAsyncOperation_IHidInputReport;
+   type IHidBooleanControl_Interface;
+   type IHidBooleanControl is access all IHidBooleanControl_Interface'Class;
+   type IHidBooleanControl_Ptr is access all IHidBooleanControl;
    type IHidBooleanControlDescription_Interface;
    type IHidBooleanControlDescription is access all IHidBooleanControlDescription_Interface'Class;
    type IHidBooleanControlDescription_Ptr is access all IHidBooleanControlDescription;
    type IHidBooleanControlDescription2_Interface;
    type IHidBooleanControlDescription2 is access all IHidBooleanControlDescription2_Interface'Class;
    type IHidBooleanControlDescription2_Ptr is access all IHidBooleanControlDescription2;
-   type IHidNumericControlDescription_Interface;
-   type IHidNumericControlDescription is access all IHidNumericControlDescription_Interface'Class;
-   type IHidNumericControlDescription_Ptr is access all IHidNumericControlDescription;
    type IHidCollection_Interface;
    type IHidCollection is access all IHidCollection_Interface'Class;
    type IHidCollection_Ptr is access all IHidCollection;
-   type IHidInputReport_Interface;
-   type IHidInputReport is access all IHidInputReport_Interface'Class;
-   type IHidInputReport_Ptr is access all IHidInputReport;
-   type IHidOutputReport_Interface;
-   type IHidOutputReport is access all IHidOutputReport_Interface'Class;
-   type IHidOutputReport_Ptr is access all IHidOutputReport;
+   type IHidDevice_Interface;
+   type IHidDevice is access all IHidDevice_Interface'Class;
+   type IHidDevice_Ptr is access all IHidDevice;
+   type IHidDeviceStatics_Interface;
+   type IHidDeviceStatics is access all IHidDeviceStatics_Interface'Class;
+   type IHidDeviceStatics_Ptr is access all IHidDeviceStatics;
    type IHidFeatureReport_Interface;
    type IHidFeatureReport is access all IHidFeatureReport_Interface'Class;
    type IHidFeatureReport_Ptr is access all IHidFeatureReport;
+   type IHidInputReport_Interface;
+   type IHidInputReport is access all IHidInputReport_Interface'Class;
+   type IHidInputReport_Ptr is access all IHidInputReport;
    type IHidInputReportReceivedEventArgs_Interface;
    type IHidInputReportReceivedEventArgs is access all IHidInputReportReceivedEventArgs_Interface'Class;
    type IHidInputReportReceivedEventArgs_Ptr is access all IHidInputReportReceivedEventArgs;
-   type IHidBooleanControl_Interface;
-   type IHidBooleanControl is access all IHidBooleanControl_Interface'Class;
-   type IHidBooleanControl_Ptr is access all IHidBooleanControl;
    type IHidNumericControl_Interface;
    type IHidNumericControl is access all IHidNumericControl_Interface'Class;
    type IHidNumericControl_Ptr is access all IHidNumericControl;
-   type IAsyncOperation_IHidDevice_Interface;
-   type IAsyncOperation_IHidDevice is access all IAsyncOperation_IHidDevice_Interface'Class;
-   type IAsyncOperation_IHidDevice_Ptr is access all IAsyncOperation_IHidDevice;
-   type IAsyncOperation_IHidInputReport_Interface;
-   type IAsyncOperation_IHidInputReport is access all IAsyncOperation_IHidInputReport_Interface'Class;
-   type IAsyncOperation_IHidInputReport_Ptr is access all IAsyncOperation_IHidInputReport;
-   type IAsyncOperation_IHidFeatureReport_Interface;
-   type IAsyncOperation_IHidFeatureReport is access all IAsyncOperation_IHidFeatureReport_Interface'Class;
-   type IAsyncOperation_IHidFeatureReport_Ptr is access all IAsyncOperation_IHidFeatureReport;
-   type IIterator_IHidBooleanControlDescription_Interface;
-   type IIterator_IHidBooleanControlDescription is access all IIterator_IHidBooleanControlDescription_Interface'Class;
-   type IIterator_IHidBooleanControlDescription_Ptr is access all IIterator_IHidBooleanControlDescription;
-   type IIterable_IHidBooleanControlDescription_Interface;
-   type IIterable_IHidBooleanControlDescription is access all IIterable_IHidBooleanControlDescription_Interface'Class;
-   type IIterable_IHidBooleanControlDescription_Ptr is access all IIterable_IHidBooleanControlDescription;
-   type IVectorView_IHidBooleanControlDescription_Interface;
-   type IVectorView_IHidBooleanControlDescription is access all IVectorView_IHidBooleanControlDescription_Interface'Class;
-   type IVectorView_IHidBooleanControlDescription_Ptr is access all IVectorView_IHidBooleanControlDescription;
-   type IIterator_IHidNumericControlDescription_Interface;
-   type IIterator_IHidNumericControlDescription is access all IIterator_IHidNumericControlDescription_Interface'Class;
-   type IIterator_IHidNumericControlDescription_Ptr is access all IIterator_IHidNumericControlDescription;
-   type IIterable_IHidNumericControlDescription_Interface;
-   type IIterable_IHidNumericControlDescription is access all IIterable_IHidNumericControlDescription_Interface'Class;
-   type IIterable_IHidNumericControlDescription_Ptr is access all IIterable_IHidNumericControlDescription;
-   type IVectorView_IHidNumericControlDescription_Interface;
-   type IVectorView_IHidNumericControlDescription is access all IVectorView_IHidNumericControlDescription_Interface'Class;
-   type IVectorView_IHidNumericControlDescription_Ptr is access all IVectorView_IHidNumericControlDescription;
-   type IIterator_IHidCollection_Interface;
-   type IIterator_IHidCollection is access all IIterator_IHidCollection_Interface'Class;
-   type IIterator_IHidCollection_Ptr is access all IIterator_IHidCollection;
-   type IIterable_IHidCollection_Interface;
-   type IIterable_IHidCollection is access all IIterable_IHidCollection_Interface'Class;
-   type IIterable_IHidCollection_Ptr is access all IIterable_IHidCollection;
-   type IVectorView_IHidCollection_Interface;
-   type IVectorView_IHidCollection is access all IVectorView_IHidCollection_Interface'Class;
-   type IVectorView_IHidCollection_Ptr is access all IVectorView_IHidCollection;
-   type IIterator_IHidBooleanControl_Interface;
-   type IIterator_IHidBooleanControl is access all IIterator_IHidBooleanControl_Interface'Class;
-   type IIterator_IHidBooleanControl_Ptr is access all IIterator_IHidBooleanControl;
+   type IHidNumericControlDescription_Interface;
+   type IHidNumericControlDescription is access all IHidNumericControlDescription_Interface'Class;
+   type IHidNumericControlDescription_Ptr is access all IHidNumericControlDescription;
+   type IHidOutputReport_Interface;
+   type IHidOutputReport is access all IHidOutputReport_Interface'Class;
+   type IHidOutputReport_Ptr is access all IHidOutputReport;
    type IIterable_IHidBooleanControl_Interface;
    type IIterable_IHidBooleanControl is access all IIterable_IHidBooleanControl_Interface'Class;
    type IIterable_IHidBooleanControl_Ptr is access all IIterable_IHidBooleanControl;
+   type IIterable_IHidBooleanControlDescription_Interface;
+   type IIterable_IHidBooleanControlDescription is access all IIterable_IHidBooleanControlDescription_Interface'Class;
+   type IIterable_IHidBooleanControlDescription_Ptr is access all IIterable_IHidBooleanControlDescription;
+   type IIterable_IHidCollection_Interface;
+   type IIterable_IHidCollection is access all IIterable_IHidCollection_Interface'Class;
+   type IIterable_IHidCollection_Ptr is access all IIterable_IHidCollection;
+   type IIterable_IHidNumericControlDescription_Interface;
+   type IIterable_IHidNumericControlDescription is access all IIterable_IHidNumericControlDescription_Interface'Class;
+   type IIterable_IHidNumericControlDescription_Ptr is access all IIterable_IHidNumericControlDescription;
+   type IIterator_IHidBooleanControl_Interface;
+   type IIterator_IHidBooleanControl is access all IIterator_IHidBooleanControl_Interface'Class;
+   type IIterator_IHidBooleanControl_Ptr is access all IIterator_IHidBooleanControl;
+   type IIterator_IHidBooleanControlDescription_Interface;
+   type IIterator_IHidBooleanControlDescription is access all IIterator_IHidBooleanControlDescription_Interface'Class;
+   type IIterator_IHidBooleanControlDescription_Ptr is access all IIterator_IHidBooleanControlDescription;
+   type IIterator_IHidCollection_Interface;
+   type IIterator_IHidCollection is access all IIterator_IHidCollection_Interface'Class;
+   type IIterator_IHidCollection_Ptr is access all IIterator_IHidCollection;
+   type IIterator_IHidNumericControlDescription_Interface;
+   type IIterator_IHidNumericControlDescription is access all IIterator_IHidNumericControlDescription_Interface'Class;
+   type IIterator_IHidNumericControlDescription_Ptr is access all IIterator_IHidNumericControlDescription;
    type IVectorView_IHidBooleanControl_Interface;
    type IVectorView_IHidBooleanControl is access all IVectorView_IHidBooleanControl_Interface'Class;
    type IVectorView_IHidBooleanControl_Ptr is access all IVectorView_IHidBooleanControl;
+   type IVectorView_IHidBooleanControlDescription_Interface;
+   type IVectorView_IHidBooleanControlDescription is access all IVectorView_IHidBooleanControlDescription_Interface'Class;
+   type IVectorView_IHidBooleanControlDescription_Ptr is access all IVectorView_IHidBooleanControlDescription;
+   type IVectorView_IHidCollection_Interface;
+   type IVectorView_IHidCollection is access all IVectorView_IHidCollection_Interface'Class;
+   type IVectorView_IHidCollection_Ptr is access all IVectorView_IHidCollection;
+   type IVectorView_IHidNumericControlDescription_Interface;
+   type IVectorView_IHidNumericControlDescription is access all IVectorView_IHidNumericControlDescription_Interface'Class;
+   type IVectorView_IHidNumericControlDescription_Ptr is access all IVectorView_IHidNumericControlDescription;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -186,36 +186,225 @@ package Windows.Devices.HumanInterfaceDevice is
    
    ------------------------------------------------------------------------
    
-   IID_IHidDeviceStatics : aliased constant Windows.IID := (2656666084, 38998, 16780, (159, 115, 119, 222, 12, 216, 87, 84 ));
+   IID_IAsyncOperation_IHidDevice : aliased constant Windows.IID := (2808762303, 20855, 21078, (132, 168, 179, 26, 141, 207, 16, 72 ));
    
-   type IHidDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IHidDevice_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDeviceSelector
+   function put_Completed
    (
-      This       : access IHidDeviceStatics_Interface
-      ; usagePage : Windows.UInt16
-      ; usageId : Windows.UInt16
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IHidDevice_Interface
+      ; handler : Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidDevice
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelectorVidPid
+   function get_Completed
    (
-      This       : access IHidDeviceStatics_Interface
-      ; usagePage : Windows.UInt16
-      ; usageId : Windows.UInt16
-      ; vendorId : Windows.UInt16
-      ; productId : Windows.UInt16
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_IHidDevice_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidDevice
    )
    return Windows.HRESULT is abstract;
    
-   function FromIdAsync
+   function GetResults
    (
-      This       : access IHidDeviceStatics_Interface
-      ; deviceId : Windows.String
-      ; accessMode : Windows.Storage.FileAccessMode
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice -- Generic Parameter Type
+      This       : access IAsyncOperation_IHidDevice_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IHidFeatureReport : aliased constant Windows.IID := (3610228473, 17142, 24389, (191, 227, 41, 175, 36, 124, 46, 133 ));
+   
+   type IAsyncOperation_IHidFeatureReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IHidFeatureReport_Interface
+      ; handler : Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidFeatureReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IHidFeatureReport_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidFeatureReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IHidFeatureReport_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidFeatureReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IHidInputReport : aliased constant Windows.IID := (3017967895, 52552, 22451, (160, 177, 50, 20, 50, 232, 91, 214 ));
+   
+   type IAsyncOperation_IHidInputReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IHidInputReport_Interface
+      ; handler : Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidInputReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IHidInputReport_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidInputReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IHidInputReport_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidInputReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidBooleanControl : aliased constant Windows.IID := (1380840586, 13973, 16524, (187, 162, 226, 235, 90, 191, 188, 32 ));
+   
+   type IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IHidBooleanControl_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UsagePage
+   (
+      This       : access IHidBooleanControl_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UsageId
+   (
+      This       : access IHidBooleanControl_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsActive
+   (
+      This       : access IHidBooleanControl_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsActive
+   (
+      This       : access IHidBooleanControl_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ControlDescription
+   (
+      This       : access IHidBooleanControl_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidBooleanControlDescription : aliased constant Windows.IID := (1637279043, 10712, 18986, (134, 131, 132, 158, 32, 123, 190, 49 ));
+   
+   type IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IHidBooleanControlDescription_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ReportId
+   (
+      This       : access IHidBooleanControlDescription_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ReportType
+   (
+      This       : access IHidBooleanControlDescription_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.HidReportType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UsagePage
+   (
+      This       : access IHidBooleanControlDescription_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UsageId
+   (
+      This       : access IHidBooleanControlDescription_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ParentCollections
+   (
+      This       : access IHidBooleanControlDescription_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidCollection -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidBooleanControlDescription2 : aliased constant Windows.IID := (3371094762, 35447, 19510, (170, 0, 95, 240, 68, 157, 62, 115 ));
+   
+   type IHidBooleanControlDescription2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsAbsolute
+   (
+      This       : access IHidBooleanControlDescription2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidCollection : aliased constant Windows.IID := (1904866723, 13041, 18147, (190, 253, 68, 210, 102, 59, 126, 106 ));
+   
+   type IHidCollection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IHidCollection_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Type
+   (
+      This       : access IHidCollection_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.HidCollectionType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UsagePage
+   (
+      This       : access IHidCollection_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UsageId
+   (
+      This       : access IHidCollection_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -373,62 +562,247 @@ package Windows.Devices.HumanInterfaceDevice is
    
    ------------------------------------------------------------------------
    
-   IID_IHidBooleanControlDescription : aliased constant Windows.IID := (1637279043, 10712, 18986, (134, 131, 132, 158, 32, 123, 190, 49 ));
+   IID_IHidDeviceStatics : aliased constant Windows.IID := (2656666084, 38998, 16780, (159, 115, 119, 222, 12, 216, 87, 84 ));
    
-   type IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
+   type IHidDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Id
+   function GetDeviceSelector
    (
-      This       : access IHidBooleanControlDescription_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access IHidDeviceStatics_Interface
+      ; usagePage : Windows.UInt16
+      ; usageId : Windows.UInt16
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_ReportId
+   function GetDeviceSelectorVidPid
    (
-      This       : access IHidBooleanControlDescription_Interface
+      This       : access IHidDeviceStatics_Interface
+      ; usagePage : Windows.UInt16
+      ; usageId : Windows.UInt16
+      ; vendorId : Windows.UInt16
+      ; productId : Windows.UInt16
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access IHidDeviceStatics_Interface
+      ; deviceId : Windows.String
+      ; accessMode : Windows.Storage.FileAccessMode
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidFeatureReport : aliased constant Windows.IID := (2216532857, 23269, 18147, (130, 239, 31, 236, 92, 137, 66, 244 ));
+   
+   type IHidFeatureReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IHidFeatureReport_Interface
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
    
-   function get_ReportType
+   function get_Data
    (
-      This       : access IHidBooleanControlDescription_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.HidReportType
+      This       : access IHidFeatureReport_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Data
+   (
+      This       : access IHidFeatureReport_Interface
+      ; value : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetBooleanControl
+   (
+      This       : access IHidFeatureReport_Interface
+      ; usagePage : Windows.UInt16
+      ; usageId : Windows.UInt16
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetBooleanControlByDescription
+   (
+      This       : access IHidFeatureReport_Interface
+      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNumericControl
+   (
+      This       : access IHidFeatureReport_Interface
+      ; usagePage : Windows.UInt16
+      ; usageId : Windows.UInt16
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNumericControlByDescription
+   (
+      This       : access IHidFeatureReport_Interface
+      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidInputReport : aliased constant Windows.IID := (3277655632, 63463, 20109, (178, 62, 202, 187, 229, 107, 144, 233 ));
+   
+   type IHidInputReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IHidInputReport_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Data
+   (
+      This       : access IHidInputReport_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActivatedBooleanControls
+   (
+      This       : access IHidInputReport_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidBooleanControl -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransitionedBooleanControls
+   (
+      This       : access IHidInputReport_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidBooleanControl -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetBooleanControl
+   (
+      This       : access IHidInputReport_Interface
+      ; usagePage : Windows.UInt16
+      ; usageId : Windows.UInt16
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetBooleanControlByDescription
+   (
+      This       : access IHidInputReport_Interface
+      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNumericControl
+   (
+      This       : access IHidInputReport_Interface
+      ; usagePage : Windows.UInt16
+      ; usageId : Windows.UInt16
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNumericControlByDescription
+   (
+      This       : access IHidInputReport_Interface
+      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidInputReportReceivedEventArgs : aliased constant Windows.IID := (1884931531, 22962, 19906, (152, 92, 10, 220, 97, 54, 250, 45 ));
+   
+   type IHidInputReportReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Report
+   (
+      This       : access IHidInputReportReceivedEventArgs_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidInputReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHidNumericControl : aliased constant Windows.IID := (3817476773, 13735, 19317, (137, 200, 251, 31, 40, 177, 8, 35 ));
+   
+   type IHidNumericControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IHidNumericControl_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsGrouped
+   (
+      This       : access IHidNumericControl_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function get_UsagePage
    (
-      This       : access IHidBooleanControlDescription_Interface
+      This       : access IHidNumericControl_Interface
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
    
    function get_UsageId
    (
-      This       : access IHidBooleanControlDescription_Interface
+      This       : access IHidNumericControl_Interface
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
    
-   function get_ParentCollections
+   function get_Value
    (
-      This       : access IHidBooleanControlDescription_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidCollection -- Generic Parameter Type
+      This       : access IHidNumericControl_Interface
+      ; RetVal : access Windows.Int64
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IHidBooleanControlDescription2 : aliased constant Windows.IID := (3371094762, 35447, 19510, (170, 0, 95, 240, 68, 157, 62, 115 ));
-   
-   type IHidBooleanControlDescription2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsAbsolute
+   function put_Value
    (
-      This       : access IHidBooleanControlDescription2_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IHidNumericControl_Interface
+      ; value : Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaledValue
+   (
+      This       : access IHidNumericControl_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScaledValue
+   (
+      This       : access IHidNumericControl_Interface
+      ; value : Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ControlDescription
+   (
+      This       : access IHidNumericControl_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
    )
    return Windows.HRESULT is abstract;
    
@@ -552,108 +926,6 @@ package Windows.Devices.HumanInterfaceDevice is
    
    ------------------------------------------------------------------------
    
-   IID_IHidCollection : aliased constant Windows.IID := (1904866723, 13041, 18147, (190, 253, 68, 210, 102, 59, 126, 106 ));
-   
-   type IHidCollection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IHidCollection_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Type
-   (
-      This       : access IHidCollection_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.HidCollectionType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UsagePage
-   (
-      This       : access IHidCollection_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UsageId
-   (
-      This       : access IHidCollection_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHidInputReport : aliased constant Windows.IID := (3277655632, 63463, 20109, (178, 62, 202, 187, 229, 107, 144, 233 ));
-   
-   type IHidInputReport_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IHidInputReport_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Data
-   (
-      This       : access IHidInputReport_Interface
-      ; RetVal : access Windows.Storage.Streams.IBuffer
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ActivatedBooleanControls
-   (
-      This       : access IHidInputReport_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidBooleanControl -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TransitionedBooleanControls
-   (
-      This       : access IHidInputReport_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidBooleanControl -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetBooleanControl
-   (
-      This       : access IHidInputReport_Interface
-      ; usagePage : Windows.UInt16
-      ; usageId : Windows.UInt16
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetBooleanControlByDescription
-   (
-      This       : access IHidInputReport_Interface
-      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNumericControl
-   (
-      This       : access IHidInputReport_Interface
-      ; usagePage : Windows.UInt16
-      ; usageId : Windows.UInt16
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNumericControlByDescription
-   (
-      This       : access IHidInputReport_Interface
-      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IHidOutputReport : aliased constant Windows.IID := (1657480516, 51350, 17507, (147, 193, 223, 157, 176, 83, 196, 80 ));
    
    type IHidOutputReport_Interface is interface and Windows.IInspectable_Interface;
@@ -715,273 +987,88 @@ package Windows.Devices.HumanInterfaceDevice is
    
    ------------------------------------------------------------------------
    
-   IID_IHidFeatureReport : aliased constant Windows.IID := (2216532857, 23269, 18147, (130, 239, 31, 236, 92, 137, 66, 244 ));
+   IID_IIterable_IHidBooleanControl : aliased constant Windows.IID := (286385541, 23216, 23851, (138, 237, 182, 214, 24, 109, 28, 63 ));
    
-   type IHidFeatureReport_Interface is interface and Windows.IInspectable_Interface;
+   type IIterable_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Id
+   function First
    (
-      This       : access IHidFeatureReport_Interface
-      ; RetVal : access Windows.UInt16
+      This       : access IIterable_IHidBooleanControl_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidBooleanControl
    )
    return Windows.HRESULT is abstract;
    
-   function get_Data
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IHidBooleanControlDescription : aliased constant Windows.IID := (3506376685, 41302, 22719, (148, 17, 87, 119, 223, 157, 87, 191 ));
+   
+   type IIterable_IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access IHidFeatureReport_Interface
-      ; RetVal : access Windows.Storage.Streams.IBuffer
+      This       : access IIterable_IHidBooleanControlDescription_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidBooleanControlDescription
    )
    return Windows.HRESULT is abstract;
    
-   function put_Data
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IHidCollection : aliased constant Windows.IID := (3152730639, 28815, 23390, (160, 23, 92, 100, 255, 185, 107, 105 ));
+   
+   type IIterable_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access IHidFeatureReport_Interface
-      ; value : Windows.Storage.Streams.IBuffer
+      This       : access IIterable_IHidCollection_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidCollection
    )
    return Windows.HRESULT is abstract;
    
-   function GetBooleanControl
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IHidNumericControlDescription : aliased constant Windows.IID := (2257520141, 57556, 22299, (178, 247, 67, 29, 105, 132, 165, 19 ));
+   
+   type IIterable_IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access IHidFeatureReport_Interface
-      ; usagePage : Windows.UInt16
-      ; usageId : Windows.UInt16
+      This       : access IIterable_IHidNumericControlDescription_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidNumericControlDescription
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IHidBooleanControl : aliased constant Windows.IID := (1558068259, 53332, 21462, (171, 241, 65, 231, 51, 121, 180, 114 ));
+   
+   type IIterator_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IHidBooleanControl_Interface
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
    )
    return Windows.HRESULT is abstract;
    
-   function GetBooleanControlByDescription
+   function get_HasCurrent
    (
-      This       : access IHidFeatureReport_Interface
-      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNumericControl
-   (
-      This       : access IHidFeatureReport_Interface
-      ; usagePage : Windows.UInt16
-      ; usageId : Windows.UInt16
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNumericControlByDescription
-   (
-      This       : access IHidFeatureReport_Interface
-      ; controlDescription : Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHidInputReportReceivedEventArgs : aliased constant Windows.IID := (1884931531, 22962, 19906, (152, 92, 10, 220, 97, 54, 250, 45 ));
-   
-   type IHidInputReportReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Report
-   (
-      This       : access IHidInputReportReceivedEventArgs_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidInputReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHidBooleanControl : aliased constant Windows.IID := (1380840586, 13973, 16524, (187, 162, 226, 235, 90, 191, 188, 32 ));
-   
-   type IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IHidBooleanControl_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UsagePage
-   (
-      This       : access IHidBooleanControl_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UsageId
-   (
-      This       : access IHidBooleanControl_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsActive
-   (
-      This       : access IHidBooleanControl_Interface
+      This       : access IIterator_IHidBooleanControl_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_IsActive
+   function MoveNext
    (
-      This       : access IHidBooleanControl_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ControlDescription
-   (
-      This       : access IHidBooleanControl_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHidNumericControl : aliased constant Windows.IID := (3817476773, 13735, 19317, (137, 200, 251, 31, 40, 177, 8, 35 ));
-   
-   type IHidNumericControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Id
-   (
-      This       : access IHidNumericControl_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsGrouped
-   (
-      This       : access IHidNumericControl_Interface
+      This       : access IIterator_IHidBooleanControl_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_UsagePage
+   function GetMany
    (
-      This       : access IHidNumericControl_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UsageId
-   (
-      This       : access IHidNumericControl_Interface
-      ; RetVal : access Windows.UInt16
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Value
-   (
-      This       : access IHidNumericControl_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Value
-   (
-      This       : access IHidNumericControl_Interface
-      ; value : Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ScaledValue
-   (
-      This       : access IHidNumericControl_Interface
-      ; RetVal : access Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ScaledValue
-   (
-      This       : access IHidNumericControl_Interface
-      ; value : Windows.Int64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ControlDescription
-   (
-      This       : access IHidNumericControl_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IHidDevice : aliased constant Windows.IID := (2808762303, 20855, 21078, (132, 168, 179, 26, 141, 207, 16, 72 ));
-   
-   type IAsyncOperation_IHidDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IHidDevice_Interface
-      ; handler : Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IHidDevice_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IHidDevice_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IHidInputReport : aliased constant Windows.IID := (3017967895, 52552, 22451, (160, 177, 50, 20, 50, 232, 91, 214 ));
-   
-   type IAsyncOperation_IHidInputReport_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IHidInputReport_Interface
-      ; handler : Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidInputReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IHidInputReport_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidInputReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IHidInputReport_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidInputReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IHidFeatureReport : aliased constant Windows.IID := (3610228473, 17142, 24389, (191, 227, 41, 175, 36, 124, 46, 133 ));
-   
-   type IAsyncOperation_IHidFeatureReport_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IHidFeatureReport_Interface
-      ; handler : Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidFeatureReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IHidFeatureReport_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.AsyncOperationCompletedHandler_IHidFeatureReport
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IHidFeatureReport_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidFeatureReport
+      This       : access IIterator_IHidBooleanControl_Interface
+      ; items : Windows.Devices.HumanInterfaceDevice.IHidBooleanControl_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1022,14 +1109,110 @@ package Windows.Devices.HumanInterfaceDevice is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IHidBooleanControlDescription : aliased constant Windows.IID := (3506376685, 41302, 22719, (148, 17, 87, 119, 223, 157, 87, 191 ));
+   IID_IIterator_IHidCollection : aliased constant Windows.IID := (3472682608, 51199, 22465, (166, 117, 160, 223, 137, 118, 169, 136 ));
    
-   type IIterable_IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Current
    (
-      This       : access IIterable_IHidBooleanControlDescription_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidBooleanControlDescription
+      This       : access IIterator_IHidCollection_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidCollection
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IHidCollection_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IHidCollection_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IHidCollection_Interface
+      ; items : Windows.Devices.HumanInterfaceDevice.IHidCollection_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IHidNumericControlDescription : aliased constant Windows.IID := (1387905902, 32149, 23836, (172, 171, 35, 193, 158, 167, 111, 1 ));
+   
+   type IIterator_IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IHidNumericControlDescription_Interface
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IHidNumericControlDescription_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IHidNumericControlDescription_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IHidNumericControlDescription_Interface
+      ; items : Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHidBooleanControl : aliased constant Windows.IID := (239173036, 22810, 24032, (175, 214, 11, 44, 4, 195, 4, 231 ));
+   
+   type IVectorView_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IHidBooleanControl_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IHidBooleanControl_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IHidBooleanControl_Interface
+      ; value : Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IHidBooleanControl_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.HumanInterfaceDevice.IHidBooleanControl_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1074,49 +1257,40 @@ package Windows.Devices.HumanInterfaceDevice is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IHidNumericControlDescription : aliased constant Windows.IID := (1387905902, 32149, 23836, (172, 171, 35, 193, 158, 167, 111, 1 ));
+   IID_IVectorView_IHidCollection : aliased constant Windows.IID := (2532440748, 13455, 23439, (167, 29, 45, 101, 14, 11, 17, 242 ));
    
-   type IIterator_IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
+   type IVectorView_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function GetAt
    (
-      This       : access IIterator_IHidNumericControlDescription_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
+      This       : access IVectorView_IHidCollection_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidCollection
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   function get_Size
    (
-      This       : access IIterator_IHidNumericControlDescription_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IVectorView_IHidCollection_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
+   function IndexOf
    (
-      This       : access IIterator_IHidNumericControlDescription_Interface
+      This       : access IVectorView_IHidCollection_Interface
+      ; value : Windows.Devices.HumanInterfaceDevice.IHidCollection
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IIterator_IHidNumericControlDescription_Interface
-      ; items : Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription_Ptr
+      This       : access IVectorView_IHidCollection_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.HumanInterfaceDevice.IHidCollection_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IHidNumericControlDescription : aliased constant Windows.IID := (2257520141, 57556, 22299, (178, 247, 67, 29, 105, 132, 165, 19 ));
-   
-   type IIterable_IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IHidNumericControlDescription_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidNumericControlDescription
    )
    return Windows.HRESULT is abstract;
    
@@ -1160,180 +1334,6 @@ package Windows.Devices.HumanInterfaceDevice is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IIterator_IHidCollection : aliased constant Windows.IID := (3472682608, 51199, 22465, (166, 117, 160, 223, 137, 118, 169, 136 ));
-   
-   type IIterator_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IHidCollection_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidCollection
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IHidCollection_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IHidCollection_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IHidCollection_Interface
-      ; items : Windows.Devices.HumanInterfaceDevice.IHidCollection_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IHidCollection : aliased constant Windows.IID := (3152730639, 28815, 23390, (160, 23, 92, 100, 255, 185, 107, 105 ));
-   
-   type IIterable_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IHidCollection_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidCollection
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IHidCollection : aliased constant Windows.IID := (2532440748, 13455, 23439, (167, 29, 45, 101, 14, 11, 17, 242 ));
-   
-   type IVectorView_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IHidCollection_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidCollection
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IHidCollection_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IHidCollection_Interface
-      ; value : Windows.Devices.HumanInterfaceDevice.IHidCollection
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IHidCollection_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.HumanInterfaceDevice.IHidCollection_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IHidBooleanControl : aliased constant Windows.IID := (1558068259, 53332, 21462, (171, 241, 65, 231, 51, 121, 180, 114 ));
-   
-   type IIterator_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IHidBooleanControl_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IHidBooleanControl_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IHidBooleanControl_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IHidBooleanControl_Interface
-      ; items : Windows.Devices.HumanInterfaceDevice.IHidBooleanControl_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IHidBooleanControl : aliased constant Windows.IID := (286385541, 23216, 23851, (138, 237, 182, 214, 24, 109, 28, 63 ));
-   
-   type IIterable_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IHidBooleanControl_Interface
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidBooleanControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IHidBooleanControl : aliased constant Windows.IID := (239173036, 22810, 24032, (175, 214, 11, 44, 4, 195, 4, 231 ));
-   
-   type IVectorView_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IHidBooleanControl_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IHidBooleanControl_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IHidBooleanControl_Interface
-      ; value : Windows.Devices.HumanInterfaceDevice.IHidBooleanControl
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IHidBooleanControl_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Devices.HumanInterfaceDevice.IHidBooleanControl_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1352,19 +1352,6 @@ package Windows.Devices.HumanInterfaceDevice is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_IHidInputReport : aliased constant Windows.IID := (29898608, 939, 21878, (152, 180, 141, 117, 206, 26, 152, 133 ));
-   
-   type AsyncOperationCompletedHandler_IHidInputReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHidInputReport'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IHidInputReport_Interface
-      ; asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_AsyncOperationCompletedHandler_IHidFeatureReport : aliased constant Windows.IID := (3680777557, 15638, 22526, (183, 239, 43, 219, 215, 25, 253, 191 ));
    
    type AsyncOperationCompletedHandler_IHidFeatureReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidFeatureReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHidFeatureReport'access) with null record;
@@ -1372,6 +1359,19 @@ package Windows.Devices.HumanInterfaceDevice is
    (
       This       : access AsyncOperationCompletedHandler_IHidFeatureReport_Interface
       ; asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidFeatureReport
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IHidInputReport : aliased constant Windows.IID := (29898608, 939, 21878, (152, 180, 141, 117, 206, 26, 152, 133 ));
+   
+   type AsyncOperationCompletedHandler_IHidInputReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHidInputReport'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IHidInputReport_Interface
+      ; asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -1393,16 +1393,16 @@ package Windows.Devices.HumanInterfaceDevice is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype HidDevice is Windows.Devices.HumanInterfaceDevice.IHidDevice;
-   subtype HidInputReport is Windows.Devices.HumanInterfaceDevice.IHidInputReport;
-   subtype HidFeatureReport is Windows.Devices.HumanInterfaceDevice.IHidFeatureReport;
-   subtype HidOutputReport is Windows.Devices.HumanInterfaceDevice.IHidOutputReport;
-   subtype HidBooleanControlDescription is Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription;
-   subtype HidNumericControlDescription is Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription;
-   subtype HidInputReportReceivedEventArgs is Windows.Devices.HumanInterfaceDevice.IHidInputReportReceivedEventArgs;
-   subtype HidCollection is Windows.Devices.HumanInterfaceDevice.IHidCollection;
    subtype HidBooleanControl is Windows.Devices.HumanInterfaceDevice.IHidBooleanControl;
+   subtype HidBooleanControlDescription is Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription;
+   subtype HidCollection is Windows.Devices.HumanInterfaceDevice.IHidCollection;
+   subtype HidDevice is Windows.Devices.HumanInterfaceDevice.IHidDevice;
+   subtype HidFeatureReport is Windows.Devices.HumanInterfaceDevice.IHidFeatureReport;
+   subtype HidInputReport is Windows.Devices.HumanInterfaceDevice.IHidInputReport;
+   subtype HidInputReportReceivedEventArgs is Windows.Devices.HumanInterfaceDevice.IHidInputReportReceivedEventArgs;
    subtype HidNumericControl is Windows.Devices.HumanInterfaceDevice.IHidNumericControl;
+   subtype HidNumericControlDescription is Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription;
+   subtype HidOutputReport is Windows.Devices.HumanInterfaceDevice.IHidOutputReport;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

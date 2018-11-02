@@ -39,12 +39,12 @@ package Windows.Security.Authentication.Identity is
    type IEnterpriseKeyCredentialRegistrationInfo_Interface;
    type IEnterpriseKeyCredentialRegistrationInfo is access all IEnterpriseKeyCredentialRegistrationInfo_Interface'Class;
    type IEnterpriseKeyCredentialRegistrationInfo_Ptr is access all IEnterpriseKeyCredentialRegistrationInfo;
-   type IEnterpriseKeyCredentialRegistrationManagerStatics_Interface;
-   type IEnterpriseKeyCredentialRegistrationManagerStatics is access all IEnterpriseKeyCredentialRegistrationManagerStatics_Interface'Class;
-   type IEnterpriseKeyCredentialRegistrationManagerStatics_Ptr is access all IEnterpriseKeyCredentialRegistrationManagerStatics;
    type IEnterpriseKeyCredentialRegistrationManager_Interface;
    type IEnterpriseKeyCredentialRegistrationManager is access all IEnterpriseKeyCredentialRegistrationManager_Interface'Class;
    type IEnterpriseKeyCredentialRegistrationManager_Ptr is access all IEnterpriseKeyCredentialRegistrationManager;
+   type IEnterpriseKeyCredentialRegistrationManagerStatics_Interface;
+   type IEnterpriseKeyCredentialRegistrationManagerStatics is access all IEnterpriseKeyCredentialRegistrationManagerStatics_Interface'Class;
+   type IEnterpriseKeyCredentialRegistrationManagerStatics_Ptr is access all IEnterpriseKeyCredentialRegistrationManagerStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -93,19 +93,6 @@ package Windows.Security.Authentication.Identity is
    
    ------------------------------------------------------------------------
    
-   IID_IEnterpriseKeyCredentialRegistrationManagerStatics : aliased constant Windows.IID := (2008571550, 44276, 19392, (186, 194, 64, 187, 70, 239, 187, 63 ));
-   
-   type IEnterpriseKeyCredentialRegistrationManagerStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IEnterpriseKeyCredentialRegistrationManagerStatics_Interface
-      ; RetVal : access Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IEnterpriseKeyCredentialRegistrationManager : aliased constant Windows.IID := (2213789247, 41567, 19642, (187, 142, 189, 195, 45, 3, 194, 151 ));
    
    type IEnterpriseKeyCredentialRegistrationManager_Interface is interface and Windows.IInspectable_Interface;
@@ -114,6 +101,19 @@ package Windows.Security.Authentication.Identity is
    (
       This       : access IEnterpriseKeyCredentialRegistrationManager_Interface
       ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEnterpriseKeyCredentialRegistrationManagerStatics : aliased constant Windows.IID := (2008571550, 44276, 19392, (186, 194, 64, 187, 70, 239, 187, 63 ));
+   
+   type IEnterpriseKeyCredentialRegistrationManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IEnterpriseKeyCredentialRegistrationManagerStatics_Interface
+      ; RetVal : access Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager
    )
    return Windows.HRESULT is abstract;
    

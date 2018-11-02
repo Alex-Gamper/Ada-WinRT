@@ -91,188 +91,6 @@ package Windows.UI.Xaml.Automation is
    
    type AnnotationType_Ptr is access AnnotationType;
    
-   type AutomationTextEditChangeType is (
-      None,
-      AutoCorrect,
-      Composition,
-      CompositionFinalized
-   );
-   for AutomationTextEditChangeType use (
-      None => 0,
-      AutoCorrect => 1,
-      Composition => 2,
-      CompositionFinalized => 3
-   );
-   for AutomationTextEditChangeType'Size use 32;
-   
-   type AutomationTextEditChangeType_Ptr is access AutomationTextEditChangeType;
-   
-   type DockPosition is (
-      Top,
-      Left,
-      Bottom,
-      Right,
-      Fill,
-      None
-   );
-   for DockPosition use (
-      Top => 0,
-      Left => 1,
-      Bottom => 2,
-      Right => 3,
-      Fill => 4,
-      None => 5
-   );
-   for DockPosition'Size use 32;
-   
-   type DockPosition_Ptr is access DockPosition;
-   
-   type ExpandCollapseState is (
-      Collapsed,
-      Expanded,
-      PartiallyExpanded,
-      LeafNode
-   );
-   for ExpandCollapseState use (
-      Collapsed => 0,
-      Expanded => 1,
-      PartiallyExpanded => 2,
-      LeafNode => 3
-   );
-   for ExpandCollapseState'Size use 32;
-   
-   type ExpandCollapseState_Ptr is access ExpandCollapseState;
-   
-   type RowOrColumnMajor is (
-      RowMajor,
-      ColumnMajor,
-      Indeterminate
-   );
-   for RowOrColumnMajor use (
-      RowMajor => 0,
-      ColumnMajor => 1,
-      Indeterminate => 2
-   );
-   for RowOrColumnMajor'Size use 32;
-   
-   type RowOrColumnMajor_Ptr is access RowOrColumnMajor;
-   
-   type ScrollAmount is (
-      LargeDecrement,
-      SmallDecrement,
-      NoAmount,
-      LargeIncrement,
-      SmallIncrement
-   );
-   for ScrollAmount use (
-      LargeDecrement => 0,
-      SmallDecrement => 1,
-      NoAmount => 2,
-      LargeIncrement => 3,
-      SmallIncrement => 4
-   );
-   for ScrollAmount'Size use 32;
-   
-   type ScrollAmount_Ptr is access ScrollAmount;
-   
-   type SupportedTextSelection is (
-      None,
-      Single,
-      Multiple
-   );
-   for SupportedTextSelection use (
-      None => 0,
-      Single => 1,
-      Multiple => 2
-   );
-   for SupportedTextSelection'Size use 32;
-   
-   type SupportedTextSelection_Ptr is access SupportedTextSelection;
-   
-   type SynchronizedInputType is (
-      KeyUp,
-      KeyDown,
-      LeftMouseUp,
-      LeftMouseDown,
-      RightMouseUp,
-      RightMouseDown
-   );
-   for SynchronizedInputType use (
-      KeyUp => 1,
-      KeyDown => 2,
-      LeftMouseUp => 4,
-      LeftMouseDown => 8,
-      RightMouseUp => 16,
-      RightMouseDown => 32
-   );
-   for SynchronizedInputType'Size use 32;
-   
-   type SynchronizedInputType_Ptr is access SynchronizedInputType;
-   
-   type ToggleState is (
-      Off,
-      On,
-      Indeterminate
-   );
-   for ToggleState use (
-      Off => 0,
-      On => 1,
-      Indeterminate => 2
-   );
-   for ToggleState'Size use 32;
-   
-   type ToggleState_Ptr is access ToggleState;
-   
-   type WindowInteractionState is (
-      Running,
-      Closing,
-      ReadyForUserInteraction,
-      BlockedByModalWindow,
-      NotResponding
-   );
-   for WindowInteractionState use (
-      Running => 0,
-      Closing => 1,
-      ReadyForUserInteraction => 2,
-      BlockedByModalWindow => 3,
-      NotResponding => 4
-   );
-   for WindowInteractionState'Size use 32;
-   
-   type WindowInteractionState_Ptr is access WindowInteractionState;
-   
-   type WindowVisualState is (
-      Normal,
-      Maximized,
-      Minimized
-   );
-   for WindowVisualState use (
-      Normal => 0,
-      Maximized => 1,
-      Minimized => 2
-   );
-   for WindowVisualState'Size use 32;
-   
-   type WindowVisualState_Ptr is access WindowVisualState;
-   
-   type ZoomUnit is (
-      NoAmount,
-      LargeDecrement,
-      SmallDecrement,
-      LargeIncrement,
-      SmallIncrement
-   );
-   for ZoomUnit use (
-      NoAmount => 0,
-      LargeDecrement => 1,
-      SmallDecrement => 2,
-      LargeIncrement => 3,
-      SmallIncrement => 4
-   );
-   for ZoomUnit'Size use 32;
-   
-   type ZoomUnit_Ptr is access ZoomUnit;
-   
    type AutomationActiveEnd is (
       None,
       Start,
@@ -477,6 +295,188 @@ package Windows.UI.Xaml.Automation is
    
    type AutomationTextDecorationLineStyle_Ptr is access AutomationTextDecorationLineStyle;
    
+   type AutomationTextEditChangeType is (
+      None,
+      AutoCorrect,
+      Composition,
+      CompositionFinalized
+   );
+   for AutomationTextEditChangeType use (
+      None => 0,
+      AutoCorrect => 1,
+      Composition => 2,
+      CompositionFinalized => 3
+   );
+   for AutomationTextEditChangeType'Size use 32;
+   
+   type AutomationTextEditChangeType_Ptr is access AutomationTextEditChangeType;
+   
+   type DockPosition is (
+      Top,
+      Left,
+      Bottom,
+      Right,
+      Fill,
+      None
+   );
+   for DockPosition use (
+      Top => 0,
+      Left => 1,
+      Bottom => 2,
+      Right => 3,
+      Fill => 4,
+      None => 5
+   );
+   for DockPosition'Size use 32;
+   
+   type DockPosition_Ptr is access DockPosition;
+   
+   type ExpandCollapseState is (
+      Collapsed,
+      Expanded,
+      PartiallyExpanded,
+      LeafNode
+   );
+   for ExpandCollapseState use (
+      Collapsed => 0,
+      Expanded => 1,
+      PartiallyExpanded => 2,
+      LeafNode => 3
+   );
+   for ExpandCollapseState'Size use 32;
+   
+   type ExpandCollapseState_Ptr is access ExpandCollapseState;
+   
+   type RowOrColumnMajor is (
+      RowMajor,
+      ColumnMajor,
+      Indeterminate
+   );
+   for RowOrColumnMajor use (
+      RowMajor => 0,
+      ColumnMajor => 1,
+      Indeterminate => 2
+   );
+   for RowOrColumnMajor'Size use 32;
+   
+   type RowOrColumnMajor_Ptr is access RowOrColumnMajor;
+   
+   type ScrollAmount is (
+      LargeDecrement,
+      SmallDecrement,
+      NoAmount,
+      LargeIncrement,
+      SmallIncrement
+   );
+   for ScrollAmount use (
+      LargeDecrement => 0,
+      SmallDecrement => 1,
+      NoAmount => 2,
+      LargeIncrement => 3,
+      SmallIncrement => 4
+   );
+   for ScrollAmount'Size use 32;
+   
+   type ScrollAmount_Ptr is access ScrollAmount;
+   
+   type SupportedTextSelection is (
+      None,
+      Single,
+      Multiple
+   );
+   for SupportedTextSelection use (
+      None => 0,
+      Single => 1,
+      Multiple => 2
+   );
+   for SupportedTextSelection'Size use 32;
+   
+   type SupportedTextSelection_Ptr is access SupportedTextSelection;
+   
+   type SynchronizedInputType is (
+      KeyUp,
+      KeyDown,
+      LeftMouseUp,
+      LeftMouseDown,
+      RightMouseUp,
+      RightMouseDown
+   );
+   for SynchronizedInputType use (
+      KeyUp => 1,
+      KeyDown => 2,
+      LeftMouseUp => 4,
+      LeftMouseDown => 8,
+      RightMouseUp => 16,
+      RightMouseDown => 32
+   );
+   for SynchronizedInputType'Size use 32;
+   
+   type SynchronizedInputType_Ptr is access SynchronizedInputType;
+   
+   type ToggleState is (
+      Off,
+      On,
+      Indeterminate
+   );
+   for ToggleState use (
+      Off => 0,
+      On => 1,
+      Indeterminate => 2
+   );
+   for ToggleState'Size use 32;
+   
+   type ToggleState_Ptr is access ToggleState;
+   
+   type WindowInteractionState is (
+      Running,
+      Closing,
+      ReadyForUserInteraction,
+      BlockedByModalWindow,
+      NotResponding
+   );
+   for WindowInteractionState use (
+      Running => 0,
+      Closing => 1,
+      ReadyForUserInteraction => 2,
+      BlockedByModalWindow => 3,
+      NotResponding => 4
+   );
+   for WindowInteractionState'Size use 32;
+   
+   type WindowInteractionState_Ptr is access WindowInteractionState;
+   
+   type WindowVisualState is (
+      Normal,
+      Maximized,
+      Minimized
+   );
+   for WindowVisualState use (
+      Normal => 0,
+      Maximized => 1,
+      Minimized => 2
+   );
+   for WindowVisualState'Size use 32;
+   
+   type WindowVisualState_Ptr is access WindowVisualState;
+   
+   type ZoomUnit is (
+      NoAmount,
+      LargeDecrement,
+      SmallDecrement,
+      LargeIncrement,
+      SmallIncrement
+   );
+   for ZoomUnit use (
+      NoAmount => 0,
+      LargeDecrement => 1,
+      SmallDecrement => 2,
+      LargeIncrement => 3,
+      SmallIncrement => 4
+   );
+   for ZoomUnit'Size use 32;
+   
+   type ZoomUnit_Ptr is access ZoomUnit;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
@@ -487,6 +487,15 @@ package Windows.UI.Xaml.Automation is
    type IAnnotationPatternIdentifiersStatics_Interface;
    type IAnnotationPatternIdentifiersStatics is access all IAnnotationPatternIdentifiersStatics_Interface'Class;
    type IAnnotationPatternIdentifiersStatics_Ptr is access all IAnnotationPatternIdentifiersStatics;
+   type IAutomationAnnotation_Interface;
+   type IAutomationAnnotation is access all IAutomationAnnotation_Interface'Class;
+   type IAutomationAnnotation_Ptr is access all IAutomationAnnotation;
+   type IAutomationAnnotationFactory_Interface;
+   type IAutomationAnnotationFactory is access all IAutomationAnnotationFactory_Interface'Class;
+   type IAutomationAnnotationFactory_Ptr is access all IAutomationAnnotationFactory;
+   type IAutomationAnnotationStatics_Interface;
+   type IAutomationAnnotationStatics is access all IAutomationAnnotationStatics_Interface'Class;
+   type IAutomationAnnotationStatics_Ptr is access all IAutomationAnnotationStatics;
    type IAutomationElementIdentifiers_Interface;
    type IAutomationElementIdentifiers is access all IAutomationElementIdentifiers_Interface'Class;
    type IAutomationElementIdentifiers_Ptr is access all IAutomationElementIdentifiers;
@@ -574,6 +583,12 @@ package Windows.UI.Xaml.Automation is
    type IGridPatternIdentifiersStatics_Interface;
    type IGridPatternIdentifiersStatics is access all IGridPatternIdentifiersStatics_Interface'Class;
    type IGridPatternIdentifiersStatics_Ptr is access all IGridPatternIdentifiersStatics;
+   type IIterable_IAutomationAnnotation_Interface;
+   type IIterable_IAutomationAnnotation is access all IIterable_IAutomationAnnotation_Interface'Class;
+   type IIterable_IAutomationAnnotation_Ptr is access all IIterable_IAutomationAnnotation;
+   type IIterator_IAutomationAnnotation_Interface;
+   type IIterator_IAutomationAnnotation is access all IIterator_IAutomationAnnotation_Interface'Class;
+   type IIterator_IAutomationAnnotation_Ptr is access all IIterator_IAutomationAnnotation;
    type IMultipleViewPatternIdentifiers_Interface;
    type IMultipleViewPatternIdentifiers is access all IMultipleViewPatternIdentifiers_Interface'Class;
    type IMultipleViewPatternIdentifiers_Ptr is access all IMultipleViewPatternIdentifiers;
@@ -652,33 +667,18 @@ package Windows.UI.Xaml.Automation is
    type IValuePatternIdentifiersStatics_Interface;
    type IValuePatternIdentifiersStatics is access all IValuePatternIdentifiersStatics_Interface'Class;
    type IValuePatternIdentifiersStatics_Ptr is access all IValuePatternIdentifiersStatics;
+   type IVector_IAutomationAnnotation_Interface;
+   type IVector_IAutomationAnnotation is access all IVector_IAutomationAnnotation_Interface'Class;
+   type IVector_IAutomationAnnotation_Ptr is access all IVector_IAutomationAnnotation;
+   type IVectorView_IAutomationAnnotation_Interface;
+   type IVectorView_IAutomationAnnotation is access all IVectorView_IAutomationAnnotation_Interface'Class;
+   type IVectorView_IAutomationAnnotation_Ptr is access all IVectorView_IAutomationAnnotation;
    type IWindowPatternIdentifiers_Interface;
    type IWindowPatternIdentifiers is access all IWindowPatternIdentifiers_Interface'Class;
    type IWindowPatternIdentifiers_Ptr is access all IWindowPatternIdentifiers;
    type IWindowPatternIdentifiersStatics_Interface;
    type IWindowPatternIdentifiersStatics is access all IWindowPatternIdentifiersStatics_Interface'Class;
    type IWindowPatternIdentifiersStatics_Ptr is access all IWindowPatternIdentifiersStatics;
-   type IAutomationAnnotation_Interface;
-   type IAutomationAnnotation is access all IAutomationAnnotation_Interface'Class;
-   type IAutomationAnnotation_Ptr is access all IAutomationAnnotation;
-   type IAutomationAnnotationStatics_Interface;
-   type IAutomationAnnotationStatics is access all IAutomationAnnotationStatics_Interface'Class;
-   type IAutomationAnnotationStatics_Ptr is access all IAutomationAnnotationStatics;
-   type IAutomationAnnotationFactory_Interface;
-   type IAutomationAnnotationFactory is access all IAutomationAnnotationFactory_Interface'Class;
-   type IAutomationAnnotationFactory_Ptr is access all IAutomationAnnotationFactory;
-   type IIterator_IAutomationAnnotation_Interface;
-   type IIterator_IAutomationAnnotation is access all IIterator_IAutomationAnnotation_Interface'Class;
-   type IIterator_IAutomationAnnotation_Ptr is access all IIterator_IAutomationAnnotation;
-   type IIterable_IAutomationAnnotation_Interface;
-   type IIterable_IAutomationAnnotation is access all IIterable_IAutomationAnnotation_Interface'Class;
-   type IIterable_IAutomationAnnotation_Ptr is access all IIterable_IAutomationAnnotation;
-   type IVectorView_IAutomationAnnotation_Interface;
-   type IVectorView_IAutomationAnnotation is access all IVectorView_IAutomationAnnotation_Interface'Class;
-   type IVectorView_IAutomationAnnotation_Ptr is access all IVectorView_IAutomationAnnotation;
-   type IVector_IAutomationAnnotation_Interface;
-   type IVector_IAutomationAnnotation is access all IVector_IAutomationAnnotation_Interface'Class;
-   type IVector_IAutomationAnnotation_Ptr is access all IVector_IAutomationAnnotation;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -728,6 +728,83 @@ package Windows.UI.Xaml.Automation is
    (
       This       : access IAnnotationPatternIdentifiersStatics_Interface
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationAnnotation : aliased constant Windows.IID := (4215025866, 984, 17944, (145, 191, 228, 216, 79, 74, 243, 24 ));
+   
+   type IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Type
+   (
+      This       : access IAutomationAnnotation_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.AnnotationType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Type
+   (
+      This       : access IAutomationAnnotation_Interface
+      ; value : Windows.UI.Xaml.Automation.AnnotationType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Element
+   (
+      This       : access IAutomationAnnotation_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Element
+   (
+      This       : access IAutomationAnnotation_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationAnnotationFactory : aliased constant Windows.IID := (1225194066, 56768, 20073, (183, 107, 1, 157, 146, 141, 130, 47 ));
+   
+   type IAutomationAnnotationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IAutomationAnnotationFactory_Interface
+      ; type_x : Windows.UI.Xaml.Automation.AnnotationType
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithElementParameter
+   (
+      This       : access IAutomationAnnotationFactory_Interface
+      ; type_x : Windows.UI.Xaml.Automation.AnnotationType
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationAnnotationStatics : aliased constant Windows.IID := (3842239159, 20197, 18635, (181, 184, 187, 205, 70, 201, 209, 218 ));
+   
+   type IAutomationAnnotationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TypeProperty
+   (
+      This       : access IAutomationAnnotationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ElementProperty
+   (
+      This       : access IAutomationAnnotationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -1859,6 +1936,54 @@ package Windows.UI.Xaml.Automation is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IAutomationAnnotation : aliased constant Windows.IID := (3336704203, 7291, 24170, (147, 107, 97, 212, 229, 54, 162, 145 ));
+   
+   type IIterable_IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAutomationAnnotation_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IIterator_IAutomationAnnotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IAutomationAnnotation : aliased constant Windows.IID := (2127768483, 56076, 23124, (171, 67, 48, 98, 138, 251, 194, 216 ));
+   
+   type IIterator_IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IAutomationAnnotation_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IAutomationAnnotation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IAutomationAnnotation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IAutomationAnnotation_Interface
+      ; items : Windows.UI.Xaml.Automation.IAutomationAnnotation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMultipleViewPatternIdentifiers : aliased constant Windows.IID := (1566364600, 7698, 18571, (176, 234, 94, 108, 184, 152, 22, 225 ));
    
    type IMultipleViewPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
@@ -2316,224 +2441,6 @@ package Windows.UI.Xaml.Automation is
    
    ------------------------------------------------------------------------
    
-   IID_IWindowPatternIdentifiers : aliased constant Windows.IID := (972524468, 28722, 16866, (183, 158, 39, 183, 74, 134, 40, 222 ));
-   
-   type IWindowPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWindowPatternIdentifiersStatics : aliased constant Windows.IID := (131116294, 25346, 19753, (135, 139, 25, 218, 3, 252, 34, 141 ));
-   
-   type IWindowPatternIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_CanMaximizeProperty
-   (
-      This       : access IWindowPatternIdentifiersStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanMinimizeProperty
-   (
-      This       : access IWindowPatternIdentifiersStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsModalProperty
-   (
-      This       : access IWindowPatternIdentifiersStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsTopmostProperty
-   (
-      This       : access IWindowPatternIdentifiersStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WindowInteractionStateProperty
-   (
-      This       : access IWindowPatternIdentifiersStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_WindowVisualStateProperty
-   (
-      This       : access IWindowPatternIdentifiersStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAutomationAnnotation : aliased constant Windows.IID := (4215025866, 984, 17944, (145, 191, 228, 216, 79, 74, 243, 24 ));
-   
-   type IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Type
-   (
-      This       : access IAutomationAnnotation_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.AnnotationType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Type
-   (
-      This       : access IAutomationAnnotation_Interface
-      ; value : Windows.UI.Xaml.Automation.AnnotationType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Element
-   (
-      This       : access IAutomationAnnotation_Interface
-      ; RetVal : access Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Element
-   (
-      This       : access IAutomationAnnotation_Interface
-      ; value : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAutomationAnnotationStatics : aliased constant Windows.IID := (3842239159, 20197, 18635, (181, 184, 187, 205, 70, 201, 209, 218 ));
-   
-   type IAutomationAnnotationStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TypeProperty
-   (
-      This       : access IAutomationAnnotationStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ElementProperty
-   (
-      This       : access IAutomationAnnotationStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAutomationAnnotationFactory : aliased constant Windows.IID := (1225194066, 56768, 20073, (183, 107, 1, 157, 146, 141, 130, 47 ));
-   
-   type IAutomationAnnotationFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IAutomationAnnotationFactory_Interface
-      ; type_x : Windows.UI.Xaml.Automation.AnnotationType
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWithElementParameter
-   (
-      This       : access IAutomationAnnotationFactory_Interface
-      ; type_x : Windows.UI.Xaml.Automation.AnnotationType
-      ; element : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IAutomationAnnotation : aliased constant Windows.IID := (2127768483, 56076, 23124, (171, 67, 48, 98, 138, 251, 194, 216 ));
-   
-   type IIterator_IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IAutomationAnnotation_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IAutomationAnnotation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IAutomationAnnotation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IAutomationAnnotation_Interface
-      ; items : Windows.UI.Xaml.Automation.IAutomationAnnotation_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IAutomationAnnotation : aliased constant Windows.IID := (3336704203, 7291, 24170, (147, 107, 97, 212, 229, 54, 162, 145 ));
-   
-   type IIterable_IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IAutomationAnnotation_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.IIterator_IAutomationAnnotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IAutomationAnnotation : aliased constant Windows.IID := (2763563628, 36873, 21396, (152, 200, 152, 16, 126, 128, 219, 97 ));
-   
-   type IVectorView_IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IAutomationAnnotation_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IAutomationAnnotation_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IAutomationAnnotation_Interface
-      ; value : Windows.UI.Xaml.Automation.IAutomationAnnotation
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IAutomationAnnotation_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Automation.IAutomationAnnotation_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IVector_IAutomationAnnotation : aliased constant Windows.IID := (1935240322, 63205, 23383, (141, 197, 85, 108, 183, 168, 251, 230 ));
    
    type IVector_IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
@@ -2628,13 +2535,122 @@ package Windows.UI.Xaml.Automation is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAutomationAnnotation : aliased constant Windows.IID := (2763563628, 36873, 21396, (152, 200, 152, 16, 126, 128, 219, 97 ));
+   
+   type IVectorView_IAutomationAnnotation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IAutomationAnnotation_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IAutomationAnnotation_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IAutomationAnnotation_Interface
+      ; value : Windows.UI.Xaml.Automation.IAutomationAnnotation
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IAutomationAnnotation_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Automation.IAutomationAnnotation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWindowPatternIdentifiers : aliased constant Windows.IID := (972524468, 28722, 16866, (183, 158, 39, 183, 74, 134, 40, 222 ));
+   
+   type IWindowPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWindowPatternIdentifiersStatics : aliased constant Windows.IID := (131116294, 25346, 19753, (135, 139, 25, 218, 3, 252, 34, 141 ));
+   
+   type IWindowPatternIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanMaximizeProperty
+   (
+      This       : access IWindowPatternIdentifiersStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanMinimizeProperty
+   (
+      This       : access IWindowPatternIdentifiersStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsModalProperty
+   (
+      This       : access IWindowPatternIdentifiersStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsTopmostProperty
+   (
+      This       : access IWindowPatternIdentifiersStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WindowInteractionStateProperty
+   (
+      This       : access IWindowPatternIdentifiersStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WindowVisualStateProperty
+   (
+      This       : access IWindowPatternIdentifiersStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype AutomationProperty is Windows.UI.Xaml.Automation.IAutomationProperty;
    subtype AnnotationPatternIdentifiers is Windows.UI.Xaml.Automation.IAnnotationPatternIdentifiers;
+   subtype AutomationAnnotation is Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   function Create return Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   
+   function CreateInstance
+   (
+      type_x : Windows.UI.Xaml.Automation.AnnotationType
+   )
+   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   
+   function CreateWithElementParameter
+   (
+      type_x : Windows.UI.Xaml.Automation.AnnotationType
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   
    subtype AutomationElementIdentifiers is Windows.UI.Xaml.Automation.IAutomationElementIdentifiers;
    subtype AutomationProperties is Windows.UI.Xaml.Automation.IAutomationProperties;
+   subtype AutomationProperty is Windows.UI.Xaml.Automation.IAutomationProperty;
    subtype DockPatternIdentifiers is Windows.UI.Xaml.Automation.IDockPatternIdentifiers;
    subtype DragPatternIdentifiers is Windows.UI.Xaml.Automation.IDragPatternIdentifiers;
    subtype DropTargetPatternIdentifiers is Windows.UI.Xaml.Automation.IDropTargetPatternIdentifiers;
@@ -2655,22 +2671,6 @@ package Windows.UI.Xaml.Automation is
    subtype TransformPatternIdentifiers is Windows.UI.Xaml.Automation.ITransformPatternIdentifiers;
    subtype ValuePatternIdentifiers is Windows.UI.Xaml.Automation.IValuePatternIdentifiers;
    subtype WindowPatternIdentifiers is Windows.UI.Xaml.Automation.IWindowPatternIdentifiers;
-   subtype AutomationAnnotation is Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   function Create return Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   
-   function CreateInstance
-   (
-      type_x : Windows.UI.Xaml.Automation.AnnotationType
-   )
-   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   
-   function CreateWithElementParameter
-   (
-      type_x : Windows.UI.Xaml.Automation.AnnotationType
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -2690,6 +2690,12 @@ package Windows.UI.Xaml.Automation is
    
    function get_TargetProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_TypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LandmarkTypeProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
@@ -3393,11 +3399,5 @@ package Windows.UI.Xaml.Automation is
    
    function get_WindowVisualStateProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_TypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ElementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
    
 end;

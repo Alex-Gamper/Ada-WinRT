@@ -37,6 +37,24 @@ package Windows.Data.Json is
    -- Enums
    ------------------------------------------------------------------------
    
+   type JsonErrorStatus is (
+      Unknown,
+      InvalidJsonString,
+      InvalidJsonNumber,
+      JsonValueNotFound,
+      ImplementationLimit
+   );
+   for JsonErrorStatus use (
+      Unknown => 0,
+      InvalidJsonString => 1,
+      InvalidJsonNumber => 2,
+      JsonValueNotFound => 3,
+      ImplementationLimit => 4
+   );
+   for JsonErrorStatus'Size use 32;
+   
+   type JsonErrorStatus_Ptr is access JsonErrorStatus;
+   
    type JsonValueType is (
       Null_x,
       Boolean,
@@ -57,55 +75,13 @@ package Windows.Data.Json is
    
    type JsonValueType_Ptr is access JsonValueType;
    
-   type JsonErrorStatus is (
-      Unknown,
-      InvalidJsonString,
-      InvalidJsonNumber,
-      JsonValueNotFound,
-      ImplementationLimit
-   );
-   for JsonErrorStatus use (
-      Unknown => 0,
-      InvalidJsonString => 1,
-      InvalidJsonNumber => 2,
-      JsonValueNotFound => 3,
-      ImplementationLimit => 4
-   );
-   for JsonErrorStatus'Size use 32;
-   
-   type JsonErrorStatus_Ptr is access JsonErrorStatus;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IJsonValue_Interface;
-   type IJsonValue is access all IJsonValue_Interface'Class;
-   type IJsonValue_Ptr is access all IJsonValue;
-   type IVector_IJsonValue_Interface;
-   type IVector_IJsonValue is access all IVector_IJsonValue_Interface'Class;
-   type IVector_IJsonValue_Ptr is access all IVector_IJsonValue;
    type IIterable_IJsonValue_Interface;
    type IIterable_IJsonValue is access all IIterable_IJsonValue_Interface'Class;
    type IIterable_IJsonValue_Ptr is access all IIterable_IJsonValue;
-   type IMap_String_IJsonValue_Interface;
-   type IMap_String_IJsonValue is access all IMap_String_IJsonValue_Interface'Class;
-   type IMap_String_IJsonValue_Ptr is access all IMap_String_IJsonValue;
-   type IJsonValueStatics_Interface;
-   type IJsonValueStatics is access all IJsonValueStatics_Interface'Class;
-   type IJsonValueStatics_Ptr is access all IJsonValueStatics;
-   type IJsonValueStatics2_Interface;
-   type IJsonValueStatics2 is access all IJsonValueStatics2_Interface'Class;
-   type IJsonValueStatics2_Ptr is access all IJsonValueStatics2;
-   type IJsonObject_Interface;
-   type IJsonObject is access all IJsonObject_Interface'Class;
-   type IJsonObject_Ptr is access all IJsonObject;
-   type IJsonObjectWithDefaultValues_Interface;
-   type IJsonObjectWithDefaultValues is access all IJsonObjectWithDefaultValues_Interface'Class;
-   type IJsonObjectWithDefaultValues_Ptr is access all IJsonObjectWithDefaultValues;
-   type IJsonObjectStatics_Interface;
-   type IJsonObjectStatics is access all IJsonObjectStatics_Interface'Class;
-   type IJsonObjectStatics_Ptr is access all IJsonObjectStatics;
    type IJsonArray_Interface;
    type IJsonArray is access all IJsonArray_Interface'Class;
    type IJsonArray_Ptr is access all IJsonArray;
@@ -115,10 +91,275 @@ package Windows.Data.Json is
    type IJsonErrorStatics2_Interface;
    type IJsonErrorStatics2 is access all IJsonErrorStatics2_Interface'Class;
    type IJsonErrorStatics2_Ptr is access all IJsonErrorStatics2;
+   type IJsonObject_Interface;
+   type IJsonObject is access all IJsonObject_Interface'Class;
+   type IJsonObject_Ptr is access all IJsonObject;
+   type IJsonObjectStatics_Interface;
+   type IJsonObjectStatics is access all IJsonObjectStatics_Interface'Class;
+   type IJsonObjectStatics_Ptr is access all IJsonObjectStatics;
+   type IJsonObjectWithDefaultValues_Interface;
+   type IJsonObjectWithDefaultValues is access all IJsonObjectWithDefaultValues_Interface'Class;
+   type IJsonObjectWithDefaultValues_Ptr is access all IJsonObjectWithDefaultValues;
+   type IJsonValue_Interface;
+   type IJsonValue is access all IJsonValue_Interface'Class;
+   type IJsonValue_Ptr is access all IJsonValue;
+   type IJsonValueStatics_Interface;
+   type IJsonValueStatics is access all IJsonValueStatics_Interface'Class;
+   type IJsonValueStatics_Ptr is access all IJsonValueStatics;
+   type IJsonValueStatics2_Interface;
+   type IJsonValueStatics2 is access all IJsonValueStatics2_Interface'Class;
+   type IJsonValueStatics2_Ptr is access all IJsonValueStatics2;
+   type IMap_String_IJsonValue_Interface;
+   type IMap_String_IJsonValue is access all IMap_String_IJsonValue_Interface'Class;
+   type IMap_String_IJsonValue_Ptr is access all IMap_String_IJsonValue;
+   type IVector_IJsonValue_Interface;
+   type IVector_IJsonValue is access all IVector_IJsonValue_Interface'Class;
+   type IVector_IJsonValue_Ptr is access all IVector_IJsonValue;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IJsonValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_IJsonValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IJsonValue_Interface
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonArray : aliased constant Windows.IID := (146922934, 3261, 19098, (181, 211, 47, 133, 45, 195, 126, 129 ));
+   
+   type IJsonArray_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetObjectAt
+   (
+      This       : access IJsonArray_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Data.Json.IJsonObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetArrayAt
+   (
+      This       : access IJsonArray_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Data.Json.IJsonArray
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetStringAt
+   (
+      This       : access IJsonArray_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNumberAt
+   (
+      This       : access IJsonArray_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetBooleanAt
+   (
+      This       : access IJsonArray_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonArrayStatics : aliased constant Windows.IID := (3675534505, 57700, 18847, (147, 226, 138, 143, 73, 187, 144, 186 ));
+   
+   type IJsonArrayStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Parse
+   (
+      This       : access IJsonArrayStatics_Interface
+      ; input : Windows.String
+      ; RetVal : access Windows.Data.Json.IJsonArray
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryParse
+   (
+      This       : access IJsonArrayStatics_Interface
+      ; input : Windows.String
+      ; result : access Windows.Data.Json.IJsonArray
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonErrorStatics2 : aliased constant Windows.IID := (1077948634, 34768, 17260, (131, 171, 252, 123, 18, 192, 204, 38 ));
+   
+   type IJsonErrorStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetJsonStatus
+   (
+      This       : access IJsonErrorStatics2_Interface
+      ; hresult : Windows.Int32
+      ; RetVal : access Windows.Data.Json.JsonErrorStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonObject : aliased constant Windows.IID := (105784541, 10690, 20355, (154, 193, 158, 225, 21, 120, 190, 179 ));
+   
+   type IJsonObject_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetNamedValue
+   (
+      This       : access IJsonObject_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetNamedValue
+   (
+      This       : access IJsonObject_Interface
+      ; name : Windows.String
+      ; value : Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedObject
+   (
+      This       : access IJsonObject_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Data.Json.IJsonObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedArray
+   (
+      This       : access IJsonObject_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Data.Json.IJsonArray
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedString
+   (
+      This       : access IJsonObject_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedNumber
+   (
+      This       : access IJsonObject_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedBoolean
+   (
+      This       : access IJsonObject_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonObjectStatics : aliased constant Windows.IID := (579465561, 21726, 17880, (171, 204, 34, 96, 63, 160, 102, 160 ));
+   
+   type IJsonObjectStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Parse
+   (
+      This       : access IJsonObjectStatics_Interface
+      ; input : Windows.String
+      ; RetVal : access Windows.Data.Json.IJsonObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryParse
+   (
+      This       : access IJsonObjectStatics_Interface
+      ; input : Windows.String
+      ; result : access Windows.Data.Json.IJsonObject
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonObjectWithDefaultValues : aliased constant Windows.IID := (3647001250, 47088, 20224, (142, 68, 216, 44, 244, 21, 234, 19 ));
+   
+   type IJsonObjectWithDefaultValues_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetNamedValueOrDefault
+   (
+      This       : access IJsonObjectWithDefaultValues_Interface
+      ; name : Windows.String
+      ; defaultValue : Windows.Data.Json.IJsonValue
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedObjectOrDefault
+   (
+      This       : access IJsonObjectWithDefaultValues_Interface
+      ; name : Windows.String
+      ; defaultValue : Windows.Data.Json.IJsonObject
+      ; RetVal : access Windows.Data.Json.IJsonObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedStringOrDefault
+   (
+      This       : access IJsonObjectWithDefaultValues_Interface
+      ; name : Windows.String
+      ; defaultValue : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedArrayOrDefault
+   (
+      This       : access IJsonObjectWithDefaultValues_Interface
+      ; name : Windows.String
+      ; defaultValue : Windows.Data.Json.IJsonArray
+      ; RetVal : access Windows.Data.Json.IJsonArray
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedNumberOrDefault
+   (
+      This       : access IJsonObjectWithDefaultValues_Interface
+      ; name : Windows.String
+      ; defaultValue : Windows.Double
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNamedBooleanOrDefault
+   (
+      This       : access IJsonObjectWithDefaultValues_Interface
+      ; name : Windows.String
+      ; defaultValue : Windows.Boolean
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -172,6 +413,124 @@ package Windows.Data.Json is
    (
       This       : access IJsonValue_Interface
       ; RetVal : access Windows.Data.Json.IJsonObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonValueStatics : aliased constant Windows.IID := (1600869450, 12115, 18657, (145, 163, 247, 139, 80, 166, 52, 92 ));
+   
+   type IJsonValueStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Parse
+   (
+      This       : access IJsonValueStatics_Interface
+      ; input : Windows.String
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryParse
+   (
+      This       : access IJsonValueStatics_Interface
+      ; input : Windows.String
+      ; result : access Windows.Data.Json.IJsonValue
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateBooleanValue
+   (
+      This       : access IJsonValueStatics_Interface
+      ; input : Windows.Boolean
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateNumberValue
+   (
+      This       : access IJsonValueStatics_Interface
+      ; input : Windows.Double
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateStringValue
+   (
+      This       : access IJsonValueStatics_Interface
+      ; input : Windows.String
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJsonValueStatics2 : aliased constant Windows.IID := (496946148, 16360, 17205, (131, 146, 147, 216, 227, 104, 101, 240 ));
+   
+   type IJsonValueStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateNullValue
+   (
+      This       : access IJsonValueStatics2_Interface
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMap_String_IJsonValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IMap_String_IJsonValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMap_String_IJsonValue_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMap_String_IJsonValue_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMap_String_IJsonValue_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IMap_String_IJsonValue_Interface
+      ; RetVal : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Insert
+   (
+      This       : access IMap_String_IJsonValue_Interface
+      ; key : Windows.String
+      ; value : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Remove
+   (
+      This       : access IMap_String_IJsonValue_Interface
+      ; key : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IMap_String_IJsonValue_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -271,365 +630,6 @@ package Windows.Data.Json is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IIterable_IJsonValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IIterable_IJsonValue_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IJsonValue_Interface
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IMap_String_IJsonValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
-   type IMap_String_IJsonValue_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Lookup
-   (
-      This       : access IMap_String_IJsonValue_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IMap_String_IJsonValue_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function HasKey
-   (
-      This       : access IMap_String_IJsonValue_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IMap_String_IJsonValue_Interface
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Insert
-   (
-      This       : access IMap_String_IJsonValue_Interface
-      ; key : Windows.String
-      ; value : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Remove
-   (
-      This       : access IMap_String_IJsonValue_Interface
-      ; key : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IMap_String_IJsonValue_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonValueStatics : aliased constant Windows.IID := (1600869450, 12115, 18657, (145, 163, 247, 139, 80, 166, 52, 92 ));
-   
-   type IJsonValueStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Parse
-   (
-      This       : access IJsonValueStatics_Interface
-      ; input : Windows.String
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryParse
-   (
-      This       : access IJsonValueStatics_Interface
-      ; input : Windows.String
-      ; result : access Windows.Data.Json.IJsonValue
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateBooleanValue
-   (
-      This       : access IJsonValueStatics_Interface
-      ; input : Windows.Boolean
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateNumberValue
-   (
-      This       : access IJsonValueStatics_Interface
-      ; input : Windows.Double
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateStringValue
-   (
-      This       : access IJsonValueStatics_Interface
-      ; input : Windows.String
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonValueStatics2 : aliased constant Windows.IID := (496946148, 16360, 17205, (131, 146, 147, 216, 227, 104, 101, 240 ));
-   
-   type IJsonValueStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateNullValue
-   (
-      This       : access IJsonValueStatics2_Interface
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonObject : aliased constant Windows.IID := (105784541, 10690, 20355, (154, 193, 158, 225, 21, 120, 190, 179 ));
-   
-   type IJsonObject_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetNamedValue
-   (
-      This       : access IJsonObject_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetNamedValue
-   (
-      This       : access IJsonObject_Interface
-      ; name : Windows.String
-      ; value : Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedObject
-   (
-      This       : access IJsonObject_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Data.Json.IJsonObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedArray
-   (
-      This       : access IJsonObject_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Data.Json.IJsonArray
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedString
-   (
-      This       : access IJsonObject_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedNumber
-   (
-      This       : access IJsonObject_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedBoolean
-   (
-      This       : access IJsonObject_Interface
-      ; name : Windows.String
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonObjectWithDefaultValues : aliased constant Windows.IID := (3647001250, 47088, 20224, (142, 68, 216, 44, 244, 21, 234, 19 ));
-   
-   type IJsonObjectWithDefaultValues_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetNamedValueOrDefault
-   (
-      This       : access IJsonObjectWithDefaultValues_Interface
-      ; name : Windows.String
-      ; defaultValue : Windows.Data.Json.IJsonValue
-      ; RetVal : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedObjectOrDefault
-   (
-      This       : access IJsonObjectWithDefaultValues_Interface
-      ; name : Windows.String
-      ; defaultValue : Windows.Data.Json.IJsonObject
-      ; RetVal : access Windows.Data.Json.IJsonObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedStringOrDefault
-   (
-      This       : access IJsonObjectWithDefaultValues_Interface
-      ; name : Windows.String
-      ; defaultValue : Windows.String
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedArrayOrDefault
-   (
-      This       : access IJsonObjectWithDefaultValues_Interface
-      ; name : Windows.String
-      ; defaultValue : Windows.Data.Json.IJsonArray
-      ; RetVal : access Windows.Data.Json.IJsonArray
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedNumberOrDefault
-   (
-      This       : access IJsonObjectWithDefaultValues_Interface
-      ; name : Windows.String
-      ; defaultValue : Windows.Double
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNamedBooleanOrDefault
-   (
-      This       : access IJsonObjectWithDefaultValues_Interface
-      ; name : Windows.String
-      ; defaultValue : Windows.Boolean
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonObjectStatics : aliased constant Windows.IID := (579465561, 21726, 17880, (171, 204, 34, 96, 63, 160, 102, 160 ));
-   
-   type IJsonObjectStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Parse
-   (
-      This       : access IJsonObjectStatics_Interface
-      ; input : Windows.String
-      ; RetVal : access Windows.Data.Json.IJsonObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryParse
-   (
-      This       : access IJsonObjectStatics_Interface
-      ; input : Windows.String
-      ; result : access Windows.Data.Json.IJsonObject
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonArray : aliased constant Windows.IID := (146922934, 3261, 19098, (181, 211, 47, 133, 45, 195, 126, 129 ));
-   
-   type IJsonArray_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetObjectAt
-   (
-      This       : access IJsonArray_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Data.Json.IJsonObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetArrayAt
-   (
-      This       : access IJsonArray_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Data.Json.IJsonArray
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetStringAt
-   (
-      This       : access IJsonArray_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetNumberAt
-   (
-      This       : access IJsonArray_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetBooleanAt
-   (
-      This       : access IJsonArray_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonArrayStatics : aliased constant Windows.IID := (3675534505, 57700, 18847, (147, 226, 138, 143, 73, 187, 144, 186 ));
-   
-   type IJsonArrayStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Parse
-   (
-      This       : access IJsonArrayStatics_Interface
-      ; input : Windows.String
-      ; RetVal : access Windows.Data.Json.IJsonArray
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryParse
-   (
-      This       : access IJsonArrayStatics_Interface
-      ; input : Windows.String
-      ; result : access Windows.Data.Json.IJsonArray
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IJsonErrorStatics2 : aliased constant Windows.IID := (1077948634, 34768, 17260, (131, 171, 252, 123, 18, 192, 204, 38 ));
-   
-   type IJsonErrorStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetJsonStatus
-   (
-      This       : access IJsonErrorStatics2_Interface
-      ; hresult : Windows.Int32
-      ; RetVal : access Windows.Data.Json.JsonErrorStatus
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -657,6 +657,12 @@ package Windows.Data.Json is
       ; result : access Windows.Data.Json.IJsonArray
    )
    return Windows.Boolean;
+   
+   function GetJsonStatus
+   (
+      hresult : Windows.Int32
+   )
+   return Windows.Data.Json.JsonErrorStatus;
    
    function Parse
    (
@@ -704,11 +710,5 @@ package Windows.Data.Json is
    
    function CreateNullValue
    return Windows.Data.Json.IJsonValue;
-   
-   function GetJsonStatus
-   (
-      hresult : Windows.Int32
-   )
-   return Windows.Data.Json.JsonErrorStatus;
    
 end;

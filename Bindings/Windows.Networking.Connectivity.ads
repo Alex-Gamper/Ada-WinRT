@@ -39,65 +39,51 @@ package Windows.Networking.Connectivity is
    -- Enums
    ------------------------------------------------------------------------
    
-   type NetworkCostType is (
-      Unknown,
-      Unrestricted,
-      Fixed,
-      Variable
-   );
-   for NetworkCostType use (
-      Unknown => 0,
-      Unrestricted => 1,
-      Fixed => 2,
-      Variable => 3
-   );
-   for NetworkCostType'Size use 32;
-   
-   type NetworkCostType_Ptr is access NetworkCostType;
-   
-   type NetworkConnectivityLevel is (
+   type CellularApnAuthenticationType is (
       None,
-      LocalAccess,
-      ConstrainedInternetAccess,
-      InternetAccess
+      Pap,
+      Chap,
+      Mschapv2
    );
-   for NetworkConnectivityLevel use (
+   for CellularApnAuthenticationType use (
       None => 0,
-      LocalAccess => 1,
-      ConstrainedInternetAccess => 2,
-      InternetAccess => 3
+      Pap => 1,
+      Chap => 2,
+      Mschapv2 => 3
    );
-   for NetworkConnectivityLevel'Size use 32;
+   for CellularApnAuthenticationType'Size use 32;
    
-   type NetworkConnectivityLevel_Ptr is access NetworkConnectivityLevel;
+   type CellularApnAuthenticationType_Ptr is access CellularApnAuthenticationType;
    
-   type NetworkTypes is (
+   type DataUsageGranularity is (
+      PerMinute,
+      PerHour,
+      PerDay,
+      Total
+   );
+   for DataUsageGranularity use (
+      PerMinute => 0,
+      PerHour => 1,
+      PerDay => 2,
+      Total => 3
+   );
+   for DataUsageGranularity'Size use 32;
+   
+   type DataUsageGranularity_Ptr is access DataUsageGranularity;
+   
+   type DomainConnectivityLevel is (
       None,
-      Internet,
-      PrivateNetwork
+      Unauthenticated,
+      Authenticated
    );
-   for NetworkTypes use (
+   for DomainConnectivityLevel use (
       None => 0,
-      Internet => 1,
-      PrivateNetwork => 2
+      Unauthenticated => 1,
+      Authenticated => 2
    );
-   for NetworkTypes'Size use 32;
+   for DomainConnectivityLevel'Size use 32;
    
-   type NetworkTypes_Ptr is access NetworkTypes;
-   
-   type RoamingStates is (
-      None,
-      NotRoaming,
-      Roaming
-   );
-   for RoamingStates use (
-      None => 0,
-      NotRoaming => 1,
-      Roaming => 2
-   );
-   for RoamingStates'Size use 32;
-   
-   type RoamingStates_Ptr is access RoamingStates;
+   type DomainConnectivityLevel_Ptr is access DomainConnectivityLevel;
    
    type NetworkAuthenticationType is (
       None,
@@ -127,6 +113,38 @@ package Windows.Networking.Connectivity is
    
    type NetworkAuthenticationType_Ptr is access NetworkAuthenticationType;
    
+   type NetworkConnectivityLevel is (
+      None,
+      LocalAccess,
+      ConstrainedInternetAccess,
+      InternetAccess
+   );
+   for NetworkConnectivityLevel use (
+      None => 0,
+      LocalAccess => 1,
+      ConstrainedInternetAccess => 2,
+      InternetAccess => 3
+   );
+   for NetworkConnectivityLevel'Size use 32;
+   
+   type NetworkConnectivityLevel_Ptr is access NetworkConnectivityLevel;
+   
+   type NetworkCostType is (
+      Unknown,
+      Unrestricted,
+      Fixed,
+      Variable
+   );
+   for NetworkCostType use (
+      Unknown => 0,
+      Unrestricted => 1,
+      Fixed => 2,
+      Variable => 3
+   );
+   for NetworkCostType'Size use 32;
+   
+   type NetworkCostType_Ptr is access NetworkCostType;
+   
    type NetworkEncryptionType is (
       None,
       Unknown,
@@ -155,51 +173,33 @@ package Windows.Networking.Connectivity is
    
    type NetworkEncryptionType_Ptr is access NetworkEncryptionType;
    
-   type DomainConnectivityLevel is (
+   type NetworkTypes is (
       None,
-      Unauthenticated,
-      Authenticated
+      Internet,
+      PrivateNetwork
    );
-   for DomainConnectivityLevel use (
+   for NetworkTypes use (
       None => 0,
-      Unauthenticated => 1,
-      Authenticated => 2
+      Internet => 1,
+      PrivateNetwork => 2
    );
-   for DomainConnectivityLevel'Size use 32;
+   for NetworkTypes'Size use 32;
    
-   type DomainConnectivityLevel_Ptr is access DomainConnectivityLevel;
+   type NetworkTypes_Ptr is access NetworkTypes;
    
-   type DataUsageGranularity is (
-      PerMinute,
-      PerHour,
-      PerDay,
-      Total
-   );
-   for DataUsageGranularity use (
-      PerMinute => 0,
-      PerHour => 1,
-      PerDay => 2,
-      Total => 3
-   );
-   for DataUsageGranularity'Size use 32;
-   
-   type DataUsageGranularity_Ptr is access DataUsageGranularity;
-   
-   type CellularApnAuthenticationType is (
+   type RoamingStates is (
       None,
-      Pap,
-      Chap,
-      Mschapv2
+      NotRoaming,
+      Roaming
    );
-   for CellularApnAuthenticationType use (
+   for RoamingStates use (
       None => 0,
-      Pap => 1,
-      Chap => 2,
-      Mschapv2 => 3
+      NotRoaming => 1,
+      Roaming => 2
    );
-   for CellularApnAuthenticationType'Size use 32;
+   for RoamingStates'Size use 32;
    
-   type CellularApnAuthenticationType_Ptr is access CellularApnAuthenticationType;
+   type RoamingStates_Ptr is access RoamingStates;
    
    type TriStates is (
       DoNotCare,
@@ -214,46 +214,6 @@ package Windows.Networking.Connectivity is
    for TriStates'Size use 32;
    
    type TriStates_Ptr is access TriStates;
-   
-   type WwanNetworkRegistrationState is (
-      None,
-      Deregistered,
-      Searching,
-      Home,
-      Roaming,
-      Partner,
-      Denied
-   );
-   for WwanNetworkRegistrationState use (
-      None => 0,
-      Deregistered => 1,
-      Searching => 2,
-      Home => 3,
-      Roaming => 4,
-      Partner => 5,
-      Denied => 6
-   );
-   for WwanNetworkRegistrationState'Size use 32;
-   
-   type WwanNetworkRegistrationState_Ptr is access WwanNetworkRegistrationState;
-   
-   type WwanNetworkIPKind is (
-      None,
-      Ipv4,
-      Ipv6,
-      Ipv4v6,
-      Ipv4v6v4Xlat
-   );
-   for WwanNetworkIPKind use (
-      None => 0,
-      Ipv4 => 1,
-      Ipv6 => 2,
-      Ipv4v6 => 3,
-      Ipv4v6v4Xlat => 4
-   );
-   for WwanNetworkIPKind'Size use 32;
-   
-   type WwanNetworkIPKind_Ptr is access WwanNetworkIPKind;
    
    type WwanDataClass is (
       None,
@@ -293,6 +253,46 @@ package Windows.Networking.Connectivity is
    
    type WwanDataClass_Ptr is access WwanDataClass;
    
+   type WwanNetworkIPKind is (
+      None,
+      Ipv4,
+      Ipv6,
+      Ipv4v6,
+      Ipv4v6v4Xlat
+   );
+   for WwanNetworkIPKind use (
+      None => 0,
+      Ipv4 => 1,
+      Ipv6 => 2,
+      Ipv4v6 => 3,
+      Ipv4v6v4Xlat => 4
+   );
+   for WwanNetworkIPKind'Size use 32;
+   
+   type WwanNetworkIPKind_Ptr is access WwanNetworkIPKind;
+   
+   type WwanNetworkRegistrationState is (
+      None,
+      Deregistered,
+      Searching,
+      Home,
+      Roaming,
+      Partner,
+      Denied
+   );
+   for WwanNetworkRegistrationState use (
+      None => 0,
+      Deregistered => 1,
+      Searching => 2,
+      Home => 3,
+      Roaming => 4,
+      Partner => 5,
+      Denied => 6
+   );
+   for WwanNetworkRegistrationState'Size use 32;
+   
+   type WwanNetworkRegistrationState_Ptr is access WwanNetworkRegistrationState;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -314,59 +314,50 @@ package Windows.Networking.Connectivity is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type NetworkStatusChangedEventHandler_Interface;
-   type NetworkStatusChangedEventHandler is access all NetworkStatusChangedEventHandler_Interface'Class;
-   type NetworkStatusChangedEventHandler_Ptr is access all NetworkStatusChangedEventHandler;
-   type AsyncOperationCompletedHandler_IProxyConfiguration_Interface;
-   type AsyncOperationCompletedHandler_IProxyConfiguration is access all AsyncOperationCompletedHandler_IProxyConfiguration_Interface'Class;
-   type AsyncOperationCompletedHandler_IProxyConfiguration_Ptr is access all AsyncOperationCompletedHandler_IProxyConfiguration;
    type AsyncOperationCompletedHandler_IConnectionProfile_Interface;
    type AsyncOperationCompletedHandler_IConnectionProfile is access all AsyncOperationCompletedHandler_IConnectionProfile_Interface'Class;
    type AsyncOperationCompletedHandler_IConnectionProfile_Ptr is access all AsyncOperationCompletedHandler_IConnectionProfile;
    type AsyncOperationCompletedHandler_IConnectionSession_Interface;
    type AsyncOperationCompletedHandler_IConnectionSession is access all AsyncOperationCompletedHandler_IConnectionSession_Interface'Class;
    type AsyncOperationCompletedHandler_IConnectionSession_Ptr is access all AsyncOperationCompletedHandler_IConnectionSession;
+   type AsyncOperationCompletedHandler_IProxyConfiguration_Interface;
+   type AsyncOperationCompletedHandler_IProxyConfiguration is access all AsyncOperationCompletedHandler_IProxyConfiguration_Interface'Class;
+   type AsyncOperationCompletedHandler_IProxyConfiguration_Ptr is access all AsyncOperationCompletedHandler_IProxyConfiguration;
+   type NetworkStatusChangedEventHandler_Interface;
+   type NetworkStatusChangedEventHandler is access all NetworkStatusChangedEventHandler_Interface'Class;
+   type NetworkStatusChangedEventHandler_Ptr is access all NetworkStatusChangedEventHandler;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IDataUsage_Interface;
-   type IDataUsage is access all IDataUsage_Interface'Class;
-   type IDataUsage_Ptr is access all IDataUsage;
-   type IDataPlanUsage_Interface;
-   type IDataPlanUsage is access all IDataPlanUsage_Interface'Class;
-   type IDataPlanUsage_Ptr is access all IDataPlanUsage;
-   type IDataPlanStatus_Interface;
-   type IDataPlanStatus is access all IDataPlanStatus_Interface'Class;
-   type IDataPlanStatus_Ptr is access all IDataPlanStatus;
+   type IAsyncOperation_IConnectionProfile_Interface;
+   type IAsyncOperation_IConnectionProfile is access all IAsyncOperation_IConnectionProfile_Interface'Class;
+   type IAsyncOperation_IConnectionProfile_Ptr is access all IAsyncOperation_IConnectionProfile;
+   type IAsyncOperation_IConnectionSession_Interface;
+   type IAsyncOperation_IConnectionSession is access all IAsyncOperation_IConnectionSession_Interface'Class;
+   type IAsyncOperation_IConnectionSession_Ptr is access all IAsyncOperation_IConnectionSession;
+   type IAsyncOperation_IProxyConfiguration_Interface;
+   type IAsyncOperation_IProxyConfiguration is access all IAsyncOperation_IProxyConfiguration_Interface'Class;
+   type IAsyncOperation_IProxyConfiguration_Ptr is access all IAsyncOperation_IProxyConfiguration;
+   type IAttributedNetworkUsage_Interface;
+   type IAttributedNetworkUsage is access all IAttributedNetworkUsage_Interface'Class;
+   type IAttributedNetworkUsage_Ptr is access all IAttributedNetworkUsage;
+   type ICellularApnContext_Interface;
+   type ICellularApnContext is access all ICellularApnContext_Interface'Class;
+   type ICellularApnContext_Ptr is access all ICellularApnContext;
+   type ICellularApnContext2_Interface;
+   type ICellularApnContext2 is access all ICellularApnContext2_Interface'Class;
+   type ICellularApnContext2_Ptr is access all ICellularApnContext2;
    type IConnectionCost_Interface;
    type IConnectionCost is access all IConnectionCost_Interface'Class;
    type IConnectionCost_Ptr is access all IConnectionCost;
    type IConnectionCost2_Interface;
    type IConnectionCost2 is access all IConnectionCost2_Interface'Class;
    type IConnectionCost2_Ptr is access all IConnectionCost2;
-   type INetworkSecuritySettings_Interface;
-   type INetworkSecuritySettings is access all INetworkSecuritySettings_Interface'Class;
-   type INetworkSecuritySettings_Ptr is access all INetworkSecuritySettings;
    type IConnectionProfile_Interface;
    type IConnectionProfile is access all IConnectionProfile_Interface'Class;
    type IConnectionProfile_Ptr is access all IConnectionProfile;
-   type IWlanConnectionProfileDetails_Interface;
-   type IWlanConnectionProfileDetails is access all IWlanConnectionProfileDetails_Interface'Class;
-   type IWlanConnectionProfileDetails_Ptr is access all IWlanConnectionProfileDetails;
-   type IConnectivityInterval_Interface;
-   type IConnectivityInterval is access all IConnectivityInterval_Interface'Class;
-   type IConnectivityInterval_Ptr is access all IConnectivityInterval;
-   type INetworkUsage_Interface;
-   type INetworkUsage is access all INetworkUsage_Interface'Class;
-   type INetworkUsage_Ptr is access all INetworkUsage;
-   type IAttributedNetworkUsage_Interface;
-   type IAttributedNetworkUsage is access all IAttributedNetworkUsage_Interface'Class;
-   type IAttributedNetworkUsage_Ptr is access all IAttributedNetworkUsage;
-   type IProviderNetworkUsage_Interface;
-   type IProviderNetworkUsage is access all IProviderNetworkUsage_Interface'Class;
-   type IProviderNetworkUsage_Ptr is access all IProviderNetworkUsage;
    type IConnectionProfile2_Interface;
    type IConnectionProfile2 is access all IConnectionProfile2_Interface'Class;
    type IConnectionProfile2_Ptr is access all IConnectionProfile2;
@@ -376,15 +367,6 @@ package Windows.Networking.Connectivity is
    type IConnectionProfile4_Interface;
    type IConnectionProfile4 is access all IConnectionProfile4_Interface'Class;
    type IConnectionProfile4_Ptr is access all IConnectionProfile4;
-   type ILanIdentifierData_Interface;
-   type ILanIdentifierData is access all ILanIdentifierData_Interface'Class;
-   type ILanIdentifierData_Ptr is access all ILanIdentifierData;
-   type ILanIdentifier_Interface;
-   type ILanIdentifier is access all ILanIdentifier_Interface'Class;
-   type ILanIdentifier_Ptr is access all ILanIdentifier;
-   type INetworkInformationStatics_Interface;
-   type INetworkInformationStatics is access all INetworkInformationStatics_Interface'Class;
-   type INetworkInformationStatics_Ptr is access all INetworkInformationStatics;
    type IConnectionProfileFilter_Interface;
    type IConnectionProfileFilter is access all IConnectionProfileFilter_Interface'Class;
    type IConnectionProfileFilter_Ptr is access all IConnectionProfileFilter;
@@ -394,78 +376,96 @@ package Windows.Networking.Connectivity is
    type IConnectionProfileFilter3_Interface;
    type IConnectionProfileFilter3 is access all IConnectionProfileFilter3_Interface'Class;
    type IConnectionProfileFilter3_Ptr is access all IConnectionProfileFilter3;
+   type IConnectionSession_Interface;
+   type IConnectionSession is access all IConnectionSession_Interface'Class;
+   type IConnectionSession_Ptr is access all IConnectionSession;
+   type IConnectivityInterval_Interface;
+   type IConnectivityInterval is access all IConnectivityInterval_Interface'Class;
+   type IConnectivityInterval_Ptr is access all IConnectivityInterval;
+   type IConnectivityManagerStatics_Interface;
+   type IConnectivityManagerStatics is access all IConnectivityManagerStatics_Interface'Class;
+   type IConnectivityManagerStatics_Ptr is access all IConnectivityManagerStatics;
+   type IDataPlanStatus_Interface;
+   type IDataPlanStatus is access all IDataPlanStatus_Interface'Class;
+   type IDataPlanStatus_Ptr is access all IDataPlanStatus;
+   type IDataPlanUsage_Interface;
+   type IDataPlanUsage is access all IDataPlanUsage_Interface'Class;
+   type IDataPlanUsage_Ptr is access all IDataPlanUsage;
+   type IDataUsage_Interface;
+   type IDataUsage is access all IDataUsage_Interface'Class;
+   type IDataUsage_Ptr is access all IDataUsage;
+   type IIPInformation_Interface;
+   type IIPInformation is access all IIPInformation_Interface'Class;
+   type IIPInformation_Ptr is access all IIPInformation;
+   type IIterable_IConnectionProfile_Interface;
+   type IIterable_IConnectionProfile is access all IIterable_IConnectionProfile_Interface'Class;
+   type IIterable_IConnectionProfile_Ptr is access all IIterable_IConnectionProfile;
+   type IIterable_ILanIdentifier_Interface;
+   type IIterable_ILanIdentifier is access all IIterable_ILanIdentifier_Interface'Class;
+   type IIterable_ILanIdentifier_Ptr is access all IIterable_ILanIdentifier;
+   type IIterator_IConnectionProfile_Interface;
+   type IIterator_IConnectionProfile is access all IIterator_IConnectionProfile_Interface'Class;
+   type IIterator_IConnectionProfile_Ptr is access all IIterator_IConnectionProfile;
+   type IIterator_ILanIdentifier_Interface;
+   type IIterator_ILanIdentifier is access all IIterator_ILanIdentifier_Interface'Class;
+   type IIterator_ILanIdentifier_Ptr is access all IIterator_ILanIdentifier;
+   type ILanIdentifier_Interface;
+   type ILanIdentifier is access all ILanIdentifier_Interface'Class;
+   type ILanIdentifier_Ptr is access all ILanIdentifier;
+   type ILanIdentifierData_Interface;
+   type ILanIdentifierData is access all ILanIdentifierData_Interface'Class;
+   type ILanIdentifierData_Ptr is access all ILanIdentifierData;
+   type INetworkAdapter_Interface;
+   type INetworkAdapter is access all INetworkAdapter_Interface'Class;
+   type INetworkAdapter_Ptr is access all INetworkAdapter;
+   type INetworkInformationStatics_Interface;
+   type INetworkInformationStatics is access all INetworkInformationStatics_Interface'Class;
+   type INetworkInformationStatics_Ptr is access all INetworkInformationStatics;
    type INetworkInformationStatics2_Interface;
    type INetworkInformationStatics2 is access all INetworkInformationStatics2_Interface'Class;
    type INetworkInformationStatics2_Ptr is access all INetworkInformationStatics2;
    type INetworkItem_Interface;
    type INetworkItem is access all INetworkItem_Interface'Class;
    type INetworkItem_Ptr is access all INetworkItem;
-   type INetworkAdapter_Interface;
-   type INetworkAdapter is access all INetworkAdapter_Interface'Class;
-   type INetworkAdapter_Ptr is access all INetworkAdapter;
-   type IIPInformation_Interface;
-   type IIPInformation is access all IIPInformation_Interface'Class;
-   type IIPInformation_Ptr is access all IIPInformation;
-   type IProxyConfiguration_Interface;
-   type IProxyConfiguration is access all IProxyConfiguration_Interface'Class;
-   type IProxyConfiguration_Ptr is access all IProxyConfiguration;
-   type IConnectionSession_Interface;
-   type IConnectionSession is access all IConnectionSession_Interface'Class;
-   type IConnectionSession_Ptr is access all IConnectionSession;
-   type IRoutePolicy_Interface;
-   type IRoutePolicy is access all IRoutePolicy_Interface'Class;
-   type IRoutePolicy_Ptr is access all IRoutePolicy;
-   type IRoutePolicyFactory_Interface;
-   type IRoutePolicyFactory is access all IRoutePolicyFactory_Interface'Class;
-   type IRoutePolicyFactory_Ptr is access all IRoutePolicyFactory;
-   type ICellularApnContext_Interface;
-   type ICellularApnContext is access all ICellularApnContext_Interface'Class;
-   type ICellularApnContext_Ptr is access all ICellularApnContext;
-   type ICellularApnContext2_Interface;
-   type ICellularApnContext2 is access all ICellularApnContext2_Interface'Class;
-   type ICellularApnContext2_Ptr is access all ICellularApnContext2;
-   type IConnectivityManagerStatics_Interface;
-   type IConnectivityManagerStatics is access all IConnectivityManagerStatics_Interface'Class;
-   type IConnectivityManagerStatics_Ptr is access all IConnectivityManagerStatics;
+   type INetworkSecuritySettings_Interface;
+   type INetworkSecuritySettings is access all INetworkSecuritySettings_Interface'Class;
+   type INetworkSecuritySettings_Ptr is access all INetworkSecuritySettings;
    type INetworkStateChangeEventDetails_Interface;
    type INetworkStateChangeEventDetails is access all INetworkStateChangeEventDetails_Interface'Class;
    type INetworkStateChangeEventDetails_Ptr is access all INetworkStateChangeEventDetails;
    type INetworkStateChangeEventDetails2_Interface;
    type INetworkStateChangeEventDetails2 is access all INetworkStateChangeEventDetails2_Interface'Class;
    type INetworkStateChangeEventDetails2_Ptr is access all INetworkStateChangeEventDetails2;
+   type INetworkUsage_Interface;
+   type INetworkUsage is access all INetworkUsage_Interface'Class;
+   type INetworkUsage_Ptr is access all INetworkUsage;
+   type IProviderNetworkUsage_Interface;
+   type IProviderNetworkUsage is access all IProviderNetworkUsage_Interface'Class;
+   type IProviderNetworkUsage_Ptr is access all IProviderNetworkUsage;
+   type IProxyConfiguration_Interface;
+   type IProxyConfiguration is access all IProxyConfiguration_Interface'Class;
+   type IProxyConfiguration_Ptr is access all IProxyConfiguration;
+   type IRoutePolicy_Interface;
+   type IRoutePolicy is access all IRoutePolicy_Interface'Class;
+   type IRoutePolicy_Ptr is access all IRoutePolicy;
+   type IRoutePolicyFactory_Interface;
+   type IRoutePolicyFactory is access all IRoutePolicyFactory_Interface'Class;
+   type IRoutePolicyFactory_Ptr is access all IRoutePolicyFactory;
+   type IVectorView_IConnectionProfile_Interface;
+   type IVectorView_IConnectionProfile is access all IVectorView_IConnectionProfile_Interface'Class;
+   type IVectorView_IConnectionProfile_Ptr is access all IVectorView_IConnectionProfile;
+   type IVectorView_ILanIdentifier_Interface;
+   type IVectorView_ILanIdentifier is access all IVectorView_ILanIdentifier_Interface'Class;
+   type IVectorView_ILanIdentifier_Ptr is access all IVectorView_ILanIdentifier;
+   type IWlanConnectionProfileDetails_Interface;
+   type IWlanConnectionProfileDetails is access all IWlanConnectionProfileDetails_Interface'Class;
+   type IWlanConnectionProfileDetails_Ptr is access all IWlanConnectionProfileDetails;
    type IWwanConnectionProfileDetails_Interface;
    type IWwanConnectionProfileDetails is access all IWwanConnectionProfileDetails_Interface'Class;
    type IWwanConnectionProfileDetails_Ptr is access all IWwanConnectionProfileDetails;
    type IWwanConnectionProfileDetails2_Interface;
    type IWwanConnectionProfileDetails2 is access all IWwanConnectionProfileDetails2_Interface'Class;
    type IWwanConnectionProfileDetails2_Ptr is access all IWwanConnectionProfileDetails2;
-   type IIterator_IConnectionProfile_Interface;
-   type IIterator_IConnectionProfile is access all IIterator_IConnectionProfile_Interface'Class;
-   type IIterator_IConnectionProfile_Ptr is access all IIterator_IConnectionProfile;
-   type IIterable_IConnectionProfile_Interface;
-   type IIterable_IConnectionProfile is access all IIterable_IConnectionProfile_Interface'Class;
-   type IIterable_IConnectionProfile_Ptr is access all IIterable_IConnectionProfile;
-   type IVectorView_IConnectionProfile_Interface;
-   type IVectorView_IConnectionProfile is access all IVectorView_IConnectionProfile_Interface'Class;
-   type IVectorView_IConnectionProfile_Ptr is access all IVectorView_IConnectionProfile;
-   type IIterator_ILanIdentifier_Interface;
-   type IIterator_ILanIdentifier is access all IIterator_ILanIdentifier_Interface'Class;
-   type IIterator_ILanIdentifier_Ptr is access all IIterator_ILanIdentifier;
-   type IIterable_ILanIdentifier_Interface;
-   type IIterable_ILanIdentifier is access all IIterable_ILanIdentifier_Interface'Class;
-   type IIterable_ILanIdentifier_Ptr is access all IIterable_ILanIdentifier;
-   type IVectorView_ILanIdentifier_Interface;
-   type IVectorView_ILanIdentifier is access all IVectorView_ILanIdentifier_Interface'Class;
-   type IVectorView_ILanIdentifier_Ptr is access all IVectorView_ILanIdentifier;
-   type IAsyncOperation_IProxyConfiguration_Interface;
-   type IAsyncOperation_IProxyConfiguration is access all IAsyncOperation_IProxyConfiguration_Interface'Class;
-   type IAsyncOperation_IProxyConfiguration_Ptr is access all IAsyncOperation_IProxyConfiguration;
-   type IAsyncOperation_IConnectionProfile_Interface;
-   type IAsyncOperation_IConnectionProfile is access all IAsyncOperation_IConnectionProfile_Interface'Class;
-   type IAsyncOperation_IConnectionProfile_Ptr is access all IAsyncOperation_IConnectionProfile;
-   type IAsyncOperation_IConnectionSession_Interface;
-   type IAsyncOperation_IConnectionSession is access all IAsyncOperation_IConnectionSession_Interface'Class;
-   type IAsyncOperation_IConnectionSession_Ptr is access all IAsyncOperation_IConnectionSession;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -473,89 +473,233 @@ package Windows.Networking.Connectivity is
    
    ------------------------------------------------------------------------
    
-   IID_IDataUsage : aliased constant Windows.IID := (3242401235, 45382, 19769, (185, 89, 12, 105, 176, 150, 197, 18 ));
+   IID_IAsyncOperation_IConnectionProfile : aliased constant Windows.IID := (1542789578, 35547, 23221, (171, 184, 255, 27, 190, 93, 45, 232 ));
    
-   type IDataUsage_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IConnectionProfile_Interface
+      ; handler : Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IConnectionProfile_Interface
+      ; RetVal : access Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IConnectionProfile_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IConnectionSession : aliased constant Windows.IID := (2499568145, 18178, 23844, (129, 191, 23, 12, 167, 129, 137, 149 ));
+   
+   type IAsyncOperation_IConnectionSession_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IConnectionSession_Interface
+      ; handler : Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IConnectionSession_Interface
+      ; RetVal : access Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IConnectionSession_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IConnectionSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IProxyConfiguration : aliased constant Windows.IID := (511070710, 25954, 22983, (154, 243, 135, 86, 99, 110, 238, 226 ));
+   
+   type IAsyncOperation_IProxyConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IProxyConfiguration_Interface
+      ; handler : Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IProxyConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IProxyConfiguration_Interface
+      ; RetVal : access Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IProxyConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IProxyConfiguration_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IProxyConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAttributedNetworkUsage : aliased constant Windows.IID := (4150898745, 60578, 17899, (173, 225, 176, 54, 139, 117, 108, 73 ));
+   
+   type IAttributedNetworkUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BytesSent
    (
-      This       : access IDataUsage_Interface
+      This       : access IAttributedNetworkUsage_Interface
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
    
    function get_BytesReceived
    (
-      This       : access IDataUsage_Interface
+      This       : access IAttributedNetworkUsage_Interface
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
    
+   function get_AttributionId
+   (
+      This       : access IAttributedNetworkUsage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AttributionName
+   (
+      This       : access IAttributedNetworkUsage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AttributionThumbnail
+   (
+      This       : access IAttributedNetworkUsage_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
-   IID_IDataPlanUsage : aliased constant Windows.IID := (3105966381, 15172, 18431, (179, 97, 190, 89, 230, 158, 209, 176 ));
+   IID_ICellularApnContext : aliased constant Windows.IID := (1873095156, 61437, 17730, (154, 178, 112, 91, 191, 148, 148, 58 ));
    
-   type IDataPlanUsage_Interface is interface and Windows.IInspectable_Interface;
+   type ICellularApnContext_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_MegabytesUsed
+   function get_ProviderId
    (
-      This       : access IDataPlanUsage_Interface
-      ; RetVal : access Windows.UInt32
+      This       : access ICellularApnContext_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_LastSyncTime
+   function put_ProviderId
    (
-      This       : access IDataPlanUsage_Interface
-      ; RetVal : access Windows.Foundation.DateTime
+      This       : access ICellularApnContext_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AccessPointName
+   (
+      This       : access ICellularApnContext_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AccessPointName
+   (
+      This       : access ICellularApnContext_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UserName
+   (
+      This       : access ICellularApnContext_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_UserName
+   (
+      This       : access ICellularApnContext_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Password
+   (
+      This       : access ICellularApnContext_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Password
+   (
+      This       : access ICellularApnContext_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCompressionEnabled
+   (
+      This       : access ICellularApnContext_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsCompressionEnabled
+   (
+      This       : access ICellularApnContext_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AuthenticationType
+   (
+      This       : access ICellularApnContext_Interface
+      ; RetVal : access Windows.Networking.Connectivity.CellularApnAuthenticationType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AuthenticationType
+   (
+      This       : access ICellularApnContext_Interface
+      ; value : Windows.Networking.Connectivity.CellularApnAuthenticationType
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IDataPlanStatus : aliased constant Windows.IID := (2541390732, 14469, 16627, (136, 81, 66, 205, 43, 213, 104, 187 ));
+   IID_ICellularApnContext2 : aliased constant Windows.IID := (1991306010, 44105, 17232, (177, 229, 220, 71, 99, 188, 105, 199 ));
    
-   type IDataPlanStatus_Interface is interface and Windows.IInspectable_Interface;
+   type ICellularApnContext2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_DataPlanUsage
+   function get_ProfileName
    (
-      This       : access IDataPlanStatus_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IDataPlanUsage
+      This       : access ICellularApnContext2_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_DataLimitInMegabytes
+   function put_ProfileName
    (
-      This       : access IDataPlanStatus_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_InboundBitsPerSecond
-   (
-      This       : access IDataPlanStatus_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OutboundBitsPerSecond
-   (
-      This       : access IDataPlanStatus_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NextBillingCycle
-   (
-      This       : access IDataPlanStatus_Interface
-      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_MaxTransferSizeInMegabytes
-   (
-      This       : access IDataPlanStatus_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
+      This       : access ICellularApnContext2_Interface
+      ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -603,26 +747,6 @@ package Windows.Networking.Connectivity is
    (
       This       : access IConnectionCost2_Interface
       ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INetworkSecuritySettings : aliased constant Windows.IID := (2090892941, 37243, 19295, (184, 77, 40, 247, 165, 172, 84, 2 ));
-   
-   type INetworkSecuritySettings_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_NetworkAuthenticationType
-   (
-      This       : access INetworkSecuritySettings_Interface
-      ; RetVal : access Windows.Networking.Connectivity.NetworkAuthenticationType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NetworkEncryptionType
-   (
-      This       : access INetworkSecuritySettings_Interface
-      ; RetVal : access Windows.Networking.Connectivity.NetworkEncryptionType
    )
    return Windows.HRESULT is abstract;
    
@@ -697,134 +821,6 @@ package Windows.Networking.Connectivity is
    (
       This       : access IConnectionProfile_Interface
       ; RetVal : access Windows.Networking.Connectivity.INetworkSecuritySettings
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IWlanConnectionProfileDetails : aliased constant Windows.IID := (1444976843, 45914, 19441, (168, 132, 183, 85, 126, 136, 255, 134 ));
-   
-   type IWlanConnectionProfileDetails_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetConnectedSsid
-   (
-      This       : access IWlanConnectionProfileDetails_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IConnectivityInterval : aliased constant Windows.IID := (1336557567, 26438, 18468, (169, 100, 238, 216, 232, 127, 135, 9 ));
-   
-   type IConnectivityInterval_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_StartTime
-   (
-      This       : access IConnectivityInterval_Interface
-      ; RetVal : access Windows.Foundation.DateTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ConnectionDuration
-   (
-      This       : access IConnectivityInterval_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INetworkUsage : aliased constant Windows.IID := (1239060430, 39301, 18727, (191, 91, 7, 43, 92, 101, 248, 217 ));
-   
-   type INetworkUsage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_BytesSent
-   (
-      This       : access INetworkUsage_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BytesReceived
-   (
-      This       : access INetworkUsage_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ConnectionDuration
-   (
-      This       : access INetworkUsage_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAttributedNetworkUsage : aliased constant Windows.IID := (4150898745, 60578, 17899, (173, 225, 176, 54, 139, 117, 108, 73 ));
-   
-   type IAttributedNetworkUsage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_BytesSent
-   (
-      This       : access IAttributedNetworkUsage_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BytesReceived
-   (
-      This       : access IAttributedNetworkUsage_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AttributionId
-   (
-      This       : access IAttributedNetworkUsage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AttributionName
-   (
-      This       : access IAttributedNetworkUsage_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AttributionThumbnail
-   (
-      This       : access IAttributedNetworkUsage_Interface
-      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProviderNetworkUsage : aliased constant Windows.IID := (1590074884, 31025, 18632, (184, 243, 70, 48, 15, 164, 39, 40 ));
-   
-   type IProviderNetworkUsage_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_BytesSent
-   (
-      This       : access IProviderNetworkUsage_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BytesReceived
-   (
-      This       : access IProviderNetworkUsage_Interface
-      ; RetVal : access Windows.UInt64
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ProviderId
-   (
-      This       : access IProviderNetworkUsage_Interface
-      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -933,119 +929,6 @@ package Windows.Networking.Connectivity is
       ; endTime : Windows.Foundation.DateTime
       ; states : Windows.Networking.Connectivity.NetworkUsageStates
       ; RetVal : access Windows.Address -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILanIdentifierData : aliased constant Windows.IID := (2806940611, 54841, 17854, (163, 106, 196, 228, 174, 175, 109, 155 ));
-   
-   type ILanIdentifierData_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Type
-   (
-      This       : access ILanIdentifierData_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Value
-   (
-      This       : access ILanIdentifierData_Interface
-      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt8 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILanIdentifier : aliased constant Windows.IID := (1219122090, 4360, 17734, (166, 203, 154, 116, 218, 75, 123, 160 ));
-   
-   type ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_InfrastructureId
-   (
-      This       : access ILanIdentifier_Interface
-      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifierData
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_PortId
-   (
-      This       : access ILanIdentifier_Interface
-      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifierData
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_NetworkAdapterId
-   (
-      This       : access ILanIdentifier_Interface
-      ; RetVal : access Windows.Guid
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INetworkInformationStatics : aliased constant Windows.IID := (1349843025, 38157, 16741, (156, 21, 54, 86, 25, 72, 30, 234 ));
-   
-   type INetworkInformationStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetConnectionProfiles
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IVectorView_IConnectionProfile -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetInternetConnectionProfile
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetLanIdentifiers
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IVectorView_ILanIdentifier -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetHostNames
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; RetVal : access Windows.Networking.IVectorView_IHostName -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetProxyConfigurationAsync
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; RetVal : access Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetSortedEndpointPairs
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; destinationList : Windows.Networking.IIterable_IEndpointPair
-      ; sortOptions : Windows.Networking.HostNameSortOptions
-      ; RetVal : access Windows.Networking.IVectorView_IEndpointPair -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_NetworkStatusChanged
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; networkStatusHandler : Windows.Networking.Connectivity.NetworkStatusChangedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_NetworkStatusChanged
-   (
-      This       : access INetworkInformationStatics_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1202,35 +1085,313 @@ package Windows.Networking.Connectivity is
    
    ------------------------------------------------------------------------
    
-   IID_INetworkInformationStatics2 : aliased constant Windows.IID := (1167912212, 10290, 18870, (186, 110, 226, 101, 240, 71, 134, 168 ));
+   IID_IConnectionSession : aliased constant Windows.IID := (4287651148, 63547, 16816, (138, 12, 20, 98, 217, 197, 107, 115 ));
    
-   type INetworkInformationStatics2_Interface is interface and Windows.IInspectable_Interface;
+   type IConnectionSession_Interface is interface and Windows.IInspectable_Interface;
    
-   function FindConnectionProfilesAsync
+   function get_ConnectionProfile
    (
-      This       : access INetworkInformationStatics2_Interface
-      ; pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
-      ; RetVal : access Windows.Address -- Generic Parameter Type
+      This       : access IConnectionSession_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_INetworkItem : aliased constant Windows.IID := (29117753, 62944, 17767, (162, 140, 66, 8, 12, 131, 27, 43 ));
+   IID_IConnectivityInterval : aliased constant Windows.IID := (1336557567, 26438, 18468, (169, 100, 238, 216, 232, 127, 135, 9 ));
    
-   type INetworkItem_Interface is interface and Windows.IInspectable_Interface;
+   type IConnectivityInterval_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_NetworkId
+   function get_StartTime
    (
-      This       : access INetworkItem_Interface
+      This       : access IConnectivityInterval_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ConnectionDuration
+   (
+      This       : access IConnectivityInterval_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectivityManagerStatics : aliased constant Windows.IID := (1361106097, 20401, 18608, (175, 201, 66, 224, 9, 42, 129, 100 ));
+   
+   type IConnectivityManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AcquireConnectionAsync
+   (
+      This       : access IConnectivityManagerStatics_Interface
+      ; cellularApnContext : Windows.Networking.Connectivity.ICellularApnContext
+      ; RetVal : access Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddHttpRoutePolicy
+   (
+      This       : access IConnectivityManagerStatics_Interface
+      ; routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveHttpRoutePolicy
+   (
+      This       : access IConnectivityManagerStatics_Interface
+      ; routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPlanStatus : aliased constant Windows.IID := (2541390732, 14469, 16627, (136, 81, 66, 205, 43, 213, 104, 187 ));
+   
+   type IDataPlanStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DataPlanUsage
+   (
+      This       : access IDataPlanStatus_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IDataPlanUsage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DataLimitInMegabytes
+   (
+      This       : access IDataPlanStatus_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InboundBitsPerSecond
+   (
+      This       : access IDataPlanStatus_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutboundBitsPerSecond
+   (
+      This       : access IDataPlanStatus_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NextBillingCycle
+   (
+      This       : access IDataPlanStatus_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxTransferSizeInMegabytes
+   (
+      This       : access IDataPlanStatus_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPlanUsage : aliased constant Windows.IID := (3105966381, 15172, 18431, (179, 97, 190, 89, 230, 158, 209, 176 ));
+   
+   type IDataPlanUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MegabytesUsed
+   (
+      This       : access IDataPlanUsage_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastSyncTime
+   (
+      This       : access IDataPlanUsage_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataUsage : aliased constant Windows.IID := (3242401235, 45382, 19769, (185, 89, 12, 105, 176, 150, 197, 18 ));
+   
+   type IDataUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BytesSent
+   (
+      This       : access IDataUsage_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BytesReceived
+   (
+      This       : access IDataUsage_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIPInformation : aliased constant Windows.IID := (3629204960, 5007, 18391, (155, 58, 54, 187, 72, 140, 239, 51 ));
+   
+   type IIPInformation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NetworkAdapter
+   (
+      This       : access IIPInformation_Interface
+      ; RetVal : access Windows.Networking.Connectivity.INetworkAdapter
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PrefixLength
+   (
+      This       : access IIPInformation_Interface
+      ; RetVal : access Windows.Foundation.IReference_UInt8 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IConnectionProfile : aliased constant Windows.IID := (886750969, 34768, 23324, (167, 172, 157, 41, 10, 222, 176, 200 ));
+   
+   type IIterable_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IConnectionProfile_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IIterator_IConnectionProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ILanIdentifier : aliased constant Windows.IID := (2899243981, 23954, 23553, (138, 196, 121, 254, 116, 205, 115, 62 ));
+   
+   type IIterable_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ILanIdentifier_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IIterator_ILanIdentifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IConnectionProfile : aliased constant Windows.IID := (2307995442, 41099, 23730, (175, 22, 187, 187, 34, 35, 131, 158 ));
+   
+   type IIterator_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IConnectionProfile_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IConnectionProfile_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IConnectionProfile_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IConnectionProfile_Interface
+      ; items : Windows.Networking.Connectivity.IConnectionProfile_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ILanIdentifier : aliased constant Windows.IID := (744304510, 52892, 21075, (160, 244, 1, 229, 189, 193, 25, 136 ));
+   
+   type IIterator_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ILanIdentifier_Interface
+      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_ILanIdentifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_ILanIdentifier_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ILanIdentifier_Interface
+      ; items : Windows.Networking.Connectivity.ILanIdentifier_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILanIdentifier : aliased constant Windows.IID := (1219122090, 4360, 17734, (166, 203, 154, 116, 218, 75, 123, 160 ));
+   
+   type ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InfrastructureId
+   (
+      This       : access ILanIdentifier_Interface
+      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifierData
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PortId
+   (
+      This       : access ILanIdentifier_Interface
+      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifierData
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NetworkAdapterId
+   (
+      This       : access ILanIdentifier_Interface
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
-   function GetNetworkTypes
+   ------------------------------------------------------------------------
+   
+   IID_ILanIdentifierData : aliased constant Windows.IID := (2806940611, 54841, 17854, (163, 106, 196, 228, 174, 175, 109, 155 ));
+   
+   type ILanIdentifierData_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Type
    (
-      This       : access INetworkItem_Interface
-      ; RetVal : access Windows.Networking.Connectivity.NetworkTypes
+      This       : access ILanIdentifierData_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Value
+   (
+      This       : access ILanIdentifierData_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt8 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1284,235 +1445,121 @@ package Windows.Networking.Connectivity is
    
    ------------------------------------------------------------------------
    
-   IID_IIPInformation : aliased constant Windows.IID := (3629204960, 5007, 18391, (155, 58, 54, 187, 72, 140, 239, 51 ));
+   IID_INetworkInformationStatics : aliased constant Windows.IID := (1349843025, 38157, 16741, (156, 21, 54, 86, 25, 72, 30, 234 ));
    
-   type IIPInformation_Interface is interface and Windows.IInspectable_Interface;
+   type INetworkInformationStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_NetworkAdapter
+   function GetConnectionProfiles
    (
-      This       : access IIPInformation_Interface
-      ; RetVal : access Windows.Networking.Connectivity.INetworkAdapter
+      This       : access INetworkInformationStatics_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IVectorView_IConnectionProfile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_PrefixLength
+   function GetInternetConnectionProfile
    (
-      This       : access IIPInformation_Interface
-      ; RetVal : access Windows.Foundation.IReference_UInt8 -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IProxyConfiguration : aliased constant Windows.IID := (4013580468, 36868, 19926, (183, 216, 179, 229, 2, 244, 170, 208 ));
-   
-   type IProxyConfiguration_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ProxyUris
-   (
-      This       : access IProxyConfiguration_Interface
-      ; RetVal : access Windows.Foundation.IVectorView_IUriRuntimeClass -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanConnectDirectly
-   (
-      This       : access IProxyConfiguration_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IConnectionSession : aliased constant Windows.IID := (4287651148, 63547, 16816, (138, 12, 20, 98, 217, 197, 107, 115 ));
-   
-   type IConnectionSession_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ConnectionProfile
-   (
-      This       : access IConnectionSession_Interface
+      This       : access INetworkInformationStatics_Interface
       ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IRoutePolicy : aliased constant Windows.IID := (296469676, 4039, 17124, (135, 66, 86, 153, 35, 177, 202, 17 ));
-   
-   type IRoutePolicy_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ConnectionProfile
+   function GetLanIdentifiers
    (
-      This       : access IRoutePolicy_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
+      This       : access INetworkInformationStatics_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IVectorView_ILanIdentifier -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_HostName
+   function GetHostNames
    (
-      This       : access IRoutePolicy_Interface
-      ; RetVal : access Windows.Networking.IHostName
+      This       : access INetworkInformationStatics_Interface
+      ; RetVal : access Windows.Networking.IVectorView_IHostName -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   function get_HostNameType
+   function GetProxyConfigurationAsync
    (
-      This       : access IRoutePolicy_Interface
-      ; RetVal : access Windows.Networking.DomainNameType
+      This       : access INetworkInformationStatics_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IRoutePolicyFactory : aliased constant Windows.IID := (906131763, 41358, 19893, (166, 151, 245, 143, 167, 54, 78, 68 ));
-   
-   type IRoutePolicyFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateRoutePolicy
+   function GetSortedEndpointPairs
    (
-      This       : access IRoutePolicyFactory_Interface
-      ; connectionProfile : Windows.Networking.Connectivity.IConnectionProfile
-      ; hostName : Windows.Networking.IHostName
-      ; type_x : Windows.Networking.DomainNameType
-      ; RetVal : access Windows.Networking.Connectivity.IRoutePolicy
+      This       : access INetworkInformationStatics_Interface
+      ; destinationList : Windows.Networking.IIterable_IEndpointPair
+      ; sortOptions : Windows.Networking.HostNameSortOptions
+      ; RetVal : access Windows.Networking.IVectorView_IEndpointPair -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_ICellularApnContext : aliased constant Windows.IID := (1873095156, 61437, 17730, (154, 178, 112, 91, 191, 148, 148, 58 ));
-   
-   type ICellularApnContext_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ProviderId
+   function add_NetworkStatusChanged
    (
-      This       : access ICellularApnContext_Interface
-      ; RetVal : access Windows.String
+      This       : access INetworkInformationStatics_Interface
+      ; networkStatusHandler : Windows.Networking.Connectivity.NetworkStatusChangedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
-   function put_ProviderId
+   function remove_NetworkStatusChanged
    (
-      This       : access ICellularApnContext_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AccessPointName
-   (
-      This       : access ICellularApnContext_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AccessPointName
-   (
-      This       : access ICellularApnContext_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_UserName
-   (
-      This       : access ICellularApnContext_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_UserName
-   (
-      This       : access ICellularApnContext_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Password
-   (
-      This       : access ICellularApnContext_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Password
-   (
-      This       : access ICellularApnContext_Interface
-      ; value : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsCompressionEnabled
-   (
-      This       : access ICellularApnContext_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsCompressionEnabled
-   (
-      This       : access ICellularApnContext_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AuthenticationType
-   (
-      This       : access ICellularApnContext_Interface
-      ; RetVal : access Windows.Networking.Connectivity.CellularApnAuthenticationType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AuthenticationType
-   (
-      This       : access ICellularApnContext_Interface
-      ; value : Windows.Networking.Connectivity.CellularApnAuthenticationType
+      This       : access INetworkInformationStatics_Interface
+      ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ICellularApnContext2 : aliased constant Windows.IID := (1991306010, 44105, 17232, (177, 229, 220, 71, 99, 188, 105, 199 ));
+   IID_INetworkInformationStatics2 : aliased constant Windows.IID := (1167912212, 10290, 18870, (186, 110, 226, 101, 240, 71, 134, 168 ));
    
-   type ICellularApnContext2_Interface is interface and Windows.IInspectable_Interface;
+   type INetworkInformationStatics2_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ProfileName
+   function FindConnectionProfilesAsync
    (
-      This       : access ICellularApnContext2_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ProfileName
-   (
-      This       : access ICellularApnContext2_Interface
-      ; value : Windows.String
+      This       : access INetworkInformationStatics2_Interface
+      ; pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IConnectivityManagerStatics : aliased constant Windows.IID := (1361106097, 20401, 18608, (175, 201, 66, 224, 9, 42, 129, 100 ));
+   IID_INetworkItem : aliased constant Windows.IID := (29117753, 62944, 17767, (162, 140, 66, 8, 12, 131, 27, 43 ));
    
-   type IConnectivityManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   type INetworkItem_Interface is interface and Windows.IInspectable_Interface;
    
-   function AcquireConnectionAsync
+   function get_NetworkId
    (
-      This       : access IConnectivityManagerStatics_Interface
-      ; cellularApnContext : Windows.Networking.Connectivity.ICellularApnContext
-      ; RetVal : access Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession -- Generic Parameter Type
+      This       : access INetworkItem_Interface
+      ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
-   function AddHttpRoutePolicy
+   function GetNetworkTypes
    (
-      This       : access IConnectivityManagerStatics_Interface
-      ; routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+      This       : access INetworkItem_Interface
+      ; RetVal : access Windows.Networking.Connectivity.NetworkTypes
    )
    return Windows.HRESULT is abstract;
    
-   function RemoveHttpRoutePolicy
+   ------------------------------------------------------------------------
+   
+   IID_INetworkSecuritySettings : aliased constant Windows.IID := (2090892941, 37243, 19295, (184, 77, 40, 247, 165, 172, 84, 2 ));
+   
+   type INetworkSecuritySettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NetworkAuthenticationType
    (
-      This       : access IConnectivityManagerStatics_Interface
-      ; routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+      This       : access INetworkSecuritySettings_Interface
+      ; RetVal : access Windows.Networking.Connectivity.NetworkAuthenticationType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NetworkEncryptionType
+   (
+      This       : access INetworkSecuritySettings_Interface
+      ; RetVal : access Windows.Networking.Connectivity.NetworkEncryptionType
    )
    return Windows.HRESULT is abstract;
    
@@ -1586,6 +1633,214 @@ package Windows.Networking.Connectivity is
    
    ------------------------------------------------------------------------
    
+   IID_INetworkUsage : aliased constant Windows.IID := (1239060430, 39301, 18727, (191, 91, 7, 43, 92, 101, 248, 217 ));
+   
+   type INetworkUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BytesSent
+   (
+      This       : access INetworkUsage_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BytesReceived
+   (
+      This       : access INetworkUsage_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ConnectionDuration
+   (
+      This       : access INetworkUsage_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProviderNetworkUsage : aliased constant Windows.IID := (1590074884, 31025, 18632, (184, 243, 70, 48, 15, 164, 39, 40 ));
+   
+   type IProviderNetworkUsage_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BytesSent
+   (
+      This       : access IProviderNetworkUsage_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BytesReceived
+   (
+      This       : access IProviderNetworkUsage_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderId
+   (
+      This       : access IProviderNetworkUsage_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IProxyConfiguration : aliased constant Windows.IID := (4013580468, 36868, 19926, (183, 216, 179, 229, 2, 244, 170, 208 ));
+   
+   type IProxyConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProxyUris
+   (
+      This       : access IProxyConfiguration_Interface
+      ; RetVal : access Windows.Foundation.IVectorView_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanConnectDirectly
+   (
+      This       : access IProxyConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRoutePolicy : aliased constant Windows.IID := (296469676, 4039, 17124, (135, 66, 86, 153, 35, 177, 202, 17 ));
+   
+   type IRoutePolicy_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ConnectionProfile
+   (
+      This       : access IRoutePolicy_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HostName
+   (
+      This       : access IRoutePolicy_Interface
+      ; RetVal : access Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HostNameType
+   (
+      This       : access IRoutePolicy_Interface
+      ; RetVal : access Windows.Networking.DomainNameType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRoutePolicyFactory : aliased constant Windows.IID := (906131763, 41358, 19893, (166, 151, 245, 143, 167, 54, 78, 68 ));
+   
+   type IRoutePolicyFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateRoutePolicy
+   (
+      This       : access IRoutePolicyFactory_Interface
+      ; connectionProfile : Windows.Networking.Connectivity.IConnectionProfile
+      ; hostName : Windows.Networking.IHostName
+      ; type_x : Windows.Networking.DomainNameType
+      ; RetVal : access Windows.Networking.Connectivity.IRoutePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IConnectionProfile : aliased constant Windows.IID := (1840362642, 14418, 24056, (162, 157, 105, 68, 0, 47, 88, 212 ));
+   
+   type IVectorView_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IConnectionProfile_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IConnectionProfile_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IConnectionProfile_Interface
+      ; value : Windows.Networking.Connectivity.IConnectionProfile
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IConnectionProfile_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Networking.Connectivity.IConnectionProfile_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_ILanIdentifier : aliased constant Windows.IID := (1093165401, 47389, 22326, (173, 139, 225, 111, 207, 138, 206, 208 ));
+   
+   type IVectorView_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_ILanIdentifier_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifier
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ILanIdentifier_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ILanIdentifier_Interface
+      ; value : Windows.Networking.Connectivity.ILanIdentifier
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_ILanIdentifier_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Networking.Connectivity.ILanIdentifier_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWlanConnectionProfileDetails : aliased constant Windows.IID := (1444976843, 45914, 19441, (168, 132, 183, 85, 126, 136, 255, 134 ));
+   
+   type IWlanConnectionProfileDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetConnectedSsid
+   (
+      This       : access IWlanConnectionProfileDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWwanConnectionProfileDetails : aliased constant Windows.IID := (239970558, 33631, 19955, (130, 253, 223, 85, 110, 188, 9, 239 ));
    
    type IWwanConnectionProfileDetails_Interface is interface and Windows.IInspectable_Interface;
@@ -1639,288 +1894,8 @@ package Windows.Networking.Connectivity is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IIterator_IConnectionProfile : aliased constant Windows.IID := (2307995442, 41099, 23730, (175, 22, 187, 187, 34, 35, 131, 158 ));
-   
-   type IIterator_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IConnectionProfile_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IConnectionProfile_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IConnectionProfile_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IConnectionProfile_Interface
-      ; items : Windows.Networking.Connectivity.IConnectionProfile_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IConnectionProfile : aliased constant Windows.IID := (886750969, 34768, 23324, (167, 172, 157, 41, 10, 222, 176, 200 ));
-   
-   type IIterable_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IConnectionProfile_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IIterator_IConnectionProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IConnectionProfile : aliased constant Windows.IID := (1840362642, 14418, 24056, (162, 157, 105, 68, 0, 47, 88, 212 ));
-   
-   type IVectorView_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IConnectionProfile_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IConnectionProfile_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IConnectionProfile_Interface
-      ; value : Windows.Networking.Connectivity.IConnectionProfile
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IConnectionProfile_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Networking.Connectivity.IConnectionProfile_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_ILanIdentifier : aliased constant Windows.IID := (744304510, 52892, 21075, (160, 244, 1, 229, 189, 193, 25, 136 ));
-   
-   type IIterator_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_ILanIdentifier_Interface
-      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_ILanIdentifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_ILanIdentifier_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_ILanIdentifier_Interface
-      ; items : Windows.Networking.Connectivity.ILanIdentifier_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ILanIdentifier : aliased constant Windows.IID := (2899243981, 23954, 23553, (138, 196, 121, 254, 116, 205, 115, 62 ));
-   
-   type IIterable_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ILanIdentifier_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IIterator_ILanIdentifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_ILanIdentifier : aliased constant Windows.IID := (1093165401, 47389, 22326, (173, 139, 225, 111, 207, 138, 206, 208 ));
-   
-   type IVectorView_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_ILanIdentifier_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Networking.Connectivity.ILanIdentifier
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_ILanIdentifier_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_ILanIdentifier_Interface
-      ; value : Windows.Networking.Connectivity.ILanIdentifier
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_ILanIdentifier_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Networking.Connectivity.ILanIdentifier_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IProxyConfiguration : aliased constant Windows.IID := (511070710, 25954, 22983, (154, 243, 135, 86, 99, 110, 238, 226 ));
-   
-   type IAsyncOperation_IProxyConfiguration_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IProxyConfiguration_Interface
-      ; handler : Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IProxyConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IProxyConfiguration_Interface
-      ; RetVal : access Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IProxyConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IProxyConfiguration_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IProxyConfiguration
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IConnectionProfile : aliased constant Windows.IID := (1542789578, 35547, 23221, (171, 184, 255, 27, 190, 93, 45, 232 ));
-   
-   type IAsyncOperation_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IConnectionProfile_Interface
-      ; handler : Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IConnectionProfile_Interface
-      ; RetVal : access Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IConnectionProfile_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IConnectionSession : aliased constant Windows.IID := (2499568145, 18178, 23844, (129, 191, 23, 12, 167, 129, 137, 149 ));
-   
-   type IAsyncOperation_IConnectionSession_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IConnectionSession_Interface
-      ; handler : Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IConnectionSession_Interface
-      ; RetVal : access Windows.Networking.Connectivity.AsyncOperationCompletedHandler_IConnectionSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IConnectionSession_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IConnectionSession
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_NetworkStatusChangedEventHandler : aliased constant Windows.IID := (1908020287, 22926, 18896, (132, 235, 143, 235, 174, 220, 193, 149 ));
-   
-   type NetworkStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_NetworkStatusChangedEventHandler'access) with null record;
-   function Invoke
-   (
-      This       : access NetworkStatusChangedEventHandler_Interface
-      ; sender : Windows.Object
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
-   IID_AsyncOperationCompletedHandler_IProxyConfiguration : aliased constant Windows.IID := (56304999, 61369, 23491, (182, 9, 249, 168, 194, 11, 112, 1 ));
-   
-   type AsyncOperationCompletedHandler_IProxyConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IProxyConfiguration'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IProxyConfiguration_Interface
-      ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -1949,29 +1924,58 @@ package Windows.Networking.Connectivity is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IProxyConfiguration : aliased constant Windows.IID := (56304999, 61369, 23491, (182, 9, 249, 168, 194, 11, 112, 1 ));
+   
+   type AsyncOperationCompletedHandler_IProxyConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IProxyConfiguration'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IProxyConfiguration_Interface
+      ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_NetworkStatusChangedEventHandler : aliased constant Windows.IID := (1908020287, 22926, 18896, (132, 235, 143, 235, 174, 220, 193, 149 ));
+   
+   type NetworkStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_NetworkStatusChangedEventHandler'access) with null record;
+   function Invoke
+   (
+      This       : access NetworkStatusChangedEventHandler_Interface
+      ; sender : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype IPInformation is Windows.Networking.Connectivity.IIPInformation;
-   subtype DataPlanUsage is Windows.Networking.Connectivity.IDataPlanUsage;
-   subtype ConnectionCost is Windows.Networking.Connectivity.IConnectionCost;
-   subtype DataPlanStatus is Windows.Networking.Connectivity.IDataPlanStatus;
-   subtype NetworkAdapter is Windows.Networking.Connectivity.INetworkAdapter;
-   subtype DataUsage is Windows.Networking.Connectivity.IDataUsage;
-   subtype NetworkSecuritySettings is Windows.Networking.Connectivity.INetworkSecuritySettings;
-   subtype WlanConnectionProfileDetails is Windows.Networking.Connectivity.IWlanConnectionProfileDetails;
-   subtype NetworkUsage is Windows.Networking.Connectivity.INetworkUsage;
-   subtype ConnectivityInterval is Windows.Networking.Connectivity.IConnectivityInterval;
    subtype AttributedNetworkUsage is Windows.Networking.Connectivity.IAttributedNetworkUsage;
-   subtype ProviderNetworkUsage is Windows.Networking.Connectivity.IProviderNetworkUsage;
-   subtype LanIdentifierData is Windows.Networking.Connectivity.ILanIdentifierData;
+   subtype CellularApnContext is Windows.Networking.Connectivity.ICellularApnContext;
+   function Create return Windows.Networking.Connectivity.ICellularApnContext;
+   
+   subtype ConnectionCost is Windows.Networking.Connectivity.IConnectionCost;
    subtype ConnectionProfile is Windows.Networking.Connectivity.IConnectionProfile;
-   subtype LanIdentifier is Windows.Networking.Connectivity.ILanIdentifier;
-   subtype ProxyConfiguration is Windows.Networking.Connectivity.IProxyConfiguration;
    subtype ConnectionProfileFilter is Windows.Networking.Connectivity.IConnectionProfileFilter;
    function Create return Windows.Networking.Connectivity.IConnectionProfileFilter;
    
+   subtype ConnectionSession is Windows.Networking.Connectivity.IConnectionSession;
+   subtype ConnectivityInterval is Windows.Networking.Connectivity.IConnectivityInterval;
+   subtype DataPlanStatus is Windows.Networking.Connectivity.IDataPlanStatus;
+   subtype DataPlanUsage is Windows.Networking.Connectivity.IDataPlanUsage;
+   subtype DataUsage is Windows.Networking.Connectivity.IDataUsage;
+   subtype IPInformation is Windows.Networking.Connectivity.IIPInformation;
+   subtype LanIdentifier is Windows.Networking.Connectivity.ILanIdentifier;
+   subtype LanIdentifierData is Windows.Networking.Connectivity.ILanIdentifierData;
+   subtype NetworkAdapter is Windows.Networking.Connectivity.INetworkAdapter;
    subtype NetworkItem is Windows.Networking.Connectivity.INetworkItem;
+   subtype NetworkSecuritySettings is Windows.Networking.Connectivity.INetworkSecuritySettings;
+   subtype NetworkStateChangeEventDetails is Windows.Networking.Connectivity.INetworkStateChangeEventDetails;
+   subtype NetworkUsage is Windows.Networking.Connectivity.INetworkUsage;
+   subtype ProviderNetworkUsage is Windows.Networking.Connectivity.IProviderNetworkUsage;
+   subtype ProxyConfiguration is Windows.Networking.Connectivity.IProxyConfiguration;
    subtype RoutePolicy is Windows.Networking.Connectivity.IRoutePolicy;
    function CreateRoutePolicy
    (
@@ -1981,16 +1985,30 @@ package Windows.Networking.Connectivity is
    )
    return Windows.Networking.Connectivity.IRoutePolicy;
    
-   subtype CellularApnContext is Windows.Networking.Connectivity.ICellularApnContext;
-   function Create return Windows.Networking.Connectivity.ICellularApnContext;
-   
-   subtype ConnectionSession is Windows.Networking.Connectivity.IConnectionSession;
-   subtype NetworkStateChangeEventDetails is Windows.Networking.Connectivity.INetworkStateChangeEventDetails;
+   subtype WlanConnectionProfileDetails is Windows.Networking.Connectivity.IWlanConnectionProfileDetails;
    subtype WwanConnectionProfileDetails is Windows.Networking.Connectivity.IWwanConnectionProfileDetails;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function AcquireConnectionAsync
+   (
+      cellularApnContext : Windows.Networking.Connectivity.ICellularApnContext
+   )
+   return Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession;
+   
+   procedure AddHttpRoutePolicy
+   (
+      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+   )
+   ;
+   
+   procedure RemoveHttpRoutePolicy
+   (
+      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
+   )
+   ;
    
    function FindConnectionProfilesAsync
    (
@@ -2032,24 +2050,6 @@ package Windows.Networking.Connectivity is
    procedure remove_NetworkStatusChanged
    (
       eventCookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function AcquireConnectionAsync
-   (
-      cellularApnContext : Windows.Networking.Connectivity.ICellularApnContext
-   )
-   return Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession;
-   
-   procedure AddHttpRoutePolicy
-   (
-      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
-   )
-   ;
-   
-   procedure RemoveHttpRoutePolicy
-   (
-      routePolicy : Windows.Networking.Connectivity.IRoutePolicy
    )
    ;
    

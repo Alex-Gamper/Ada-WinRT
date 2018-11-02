@@ -118,6 +118,26 @@ package body Windows.Data.Json is
       return RetVal;
    end;
    
+   function GetJsonStatus
+   (
+      hresult : Windows.Int32
+   )
+   return Windows.Data.Json.JsonErrorStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Json.JsonError");
+      m_Factory     : IJsonErrorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Json.JsonErrorStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IJsonErrorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetJsonStatus(hresult, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Parse
    (
       input : Windows.String
@@ -271,26 +291,6 @@ package body Windows.Data.Json is
       Hr := RoGetActivationFactory(m_hString, IID_IJsonValueStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateNullValue(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetJsonStatus
-   (
-      hresult : Windows.Int32
-   )
-   return Windows.Data.Json.JsonErrorStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Json.JsonError");
-      m_Factory     : IJsonErrorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Json.JsonErrorStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IJsonErrorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetJsonStatus(hresult, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

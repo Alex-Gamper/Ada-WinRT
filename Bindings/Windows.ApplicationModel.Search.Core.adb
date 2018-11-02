@@ -38,14 +38,14 @@ package body Windows.ApplicationModel.Search.Core is
    
    function Invoke
    (
-      This       : access VectorChangedEventHandler_ISearchSuggestion_Interface
-      ; sender : Windows.ApplicationModel.Search.Core.IObservableVector_ISearchSuggestion
-      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
+      This       : access TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput_Interface
+      ; sender : Windows.ApplicationModel.Search.Core.ISearchSuggestionManager
+      ; args : Windows.ApplicationModel.Search.Core.IRequestingFocusOnKeyboardInputEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(sender, event);
+      This.Callback(Windows.ApplicationModel.Search.Core.ISearchSuggestionManager(sender), Windows.ApplicationModel.Search.Core.IRequestingFocusOnKeyboardInputEventArgs(args));
       return Hr;
    end;
    
@@ -64,14 +64,14 @@ package body Windows.ApplicationModel.Search.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput_Interface
-      ; sender : Windows.ApplicationModel.Search.Core.ISearchSuggestionManager
-      ; args : Windows.ApplicationModel.Search.Core.IRequestingFocusOnKeyboardInputEventArgs
+      This       : access VectorChangedEventHandler_ISearchSuggestion_Interface
+      ; sender : Windows.ApplicationModel.Search.Core.IObservableVector_ISearchSuggestion
+      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.ApplicationModel.Search.Core.ISearchSuggestionManager(sender), Windows.ApplicationModel.Search.Core.IRequestingFocusOnKeyboardInputEventArgs(args));
+      This.Callback(sender, event);
       return Hr;
    end;
    

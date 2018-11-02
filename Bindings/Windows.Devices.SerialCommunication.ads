@@ -37,54 +37,6 @@ package Windows.Devices.SerialCommunication is
    -- Enums
    ------------------------------------------------------------------------
    
-   type SerialParity is (
-      None,
-      Odd,
-      Even,
-      Mark,
-      Space
-   );
-   for SerialParity use (
-      None => 0,
-      Odd => 1,
-      Even => 2,
-      Mark => 3,
-      Space => 4
-   );
-   for SerialParity'Size use 32;
-   
-   type SerialParity_Ptr is access SerialParity;
-   
-   type SerialHandshake is (
-      None,
-      RequestToSend,
-      XOnXOff,
-      RequestToSendXOnXOff
-   );
-   for SerialHandshake use (
-      None => 0,
-      RequestToSend => 1,
-      XOnXOff => 2,
-      RequestToSendXOnXOff => 3
-   );
-   for SerialHandshake'Size use 32;
-   
-   type SerialHandshake_Ptr is access SerialHandshake;
-   
-   type SerialStopBitCount is (
-      One,
-      OnePointFive,
-      Two
-   );
-   for SerialStopBitCount use (
-      One => 0,
-      OnePointFive => 1,
-      Two => 2
-   );
-   for SerialStopBitCount'Size use 32;
-   
-   type SerialStopBitCount_Ptr is access SerialStopBitCount;
-   
    type SerialError is (
       Frame,
       BufferOverrun,
@@ -102,6 +54,40 @@ package Windows.Devices.SerialCommunication is
    for SerialError'Size use 32;
    
    type SerialError_Ptr is access SerialError;
+   
+   type SerialHandshake is (
+      None,
+      RequestToSend,
+      XOnXOff,
+      RequestToSendXOnXOff
+   );
+   for SerialHandshake use (
+      None => 0,
+      RequestToSend => 1,
+      XOnXOff => 2,
+      RequestToSendXOnXOff => 3
+   );
+   for SerialHandshake'Size use 32;
+   
+   type SerialHandshake_Ptr is access SerialHandshake;
+   
+   type SerialParity is (
+      None,
+      Odd,
+      Even,
+      Mark,
+      Space
+   );
+   for SerialParity use (
+      None => 0,
+      Odd => 1,
+      Even => 2,
+      Mark => 3,
+      Space => 4
+   );
+   for SerialParity'Size use 32;
+   
+   type SerialParity_Ptr is access SerialParity;
    
    type SerialPinChange is (
       BreakSignal,
@@ -121,6 +107,20 @@ package Windows.Devices.SerialCommunication is
    
    type SerialPinChange_Ptr is access SerialPinChange;
    
+   type SerialStopBitCount is (
+      One,
+      OnePointFive,
+      Two
+   );
+   for SerialStopBitCount use (
+      One => 0,
+      OnePointFive => 1,
+      Two => 2
+   );
+   for SerialStopBitCount'Size use 32;
+   
+   type SerialStopBitCount_Ptr is access SerialStopBitCount;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -139,21 +139,21 @@ package Windows.Devices.SerialCommunication is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISerialDeviceStatics_Interface;
-   type ISerialDeviceStatics is access all ISerialDeviceStatics_Interface'Class;
-   type ISerialDeviceStatics_Ptr is access all ISerialDeviceStatics;
-   type ISerialDevice_Interface;
-   type ISerialDevice is access all ISerialDevice_Interface'Class;
-   type ISerialDevice_Ptr is access all ISerialDevice;
+   type IAsyncOperation_ISerialDevice_Interface;
+   type IAsyncOperation_ISerialDevice is access all IAsyncOperation_ISerialDevice_Interface'Class;
+   type IAsyncOperation_ISerialDevice_Ptr is access all IAsyncOperation_ISerialDevice;
    type IErrorReceivedEventArgs_Interface;
    type IErrorReceivedEventArgs is access all IErrorReceivedEventArgs_Interface'Class;
    type IErrorReceivedEventArgs_Ptr is access all IErrorReceivedEventArgs;
    type IPinChangedEventArgs_Interface;
    type IPinChangedEventArgs is access all IPinChangedEventArgs_Interface'Class;
    type IPinChangedEventArgs_Ptr is access all IPinChangedEventArgs;
-   type IAsyncOperation_ISerialDevice_Interface;
-   type IAsyncOperation_ISerialDevice is access all IAsyncOperation_ISerialDevice_Interface'Class;
-   type IAsyncOperation_ISerialDevice_Ptr is access all IAsyncOperation_ISerialDevice;
+   type ISerialDevice_Interface;
+   type ISerialDevice is access all ISerialDevice_Interface'Class;
+   type ISerialDevice_Ptr is access all ISerialDevice;
+   type ISerialDeviceStatics_Interface;
+   type ISerialDeviceStatics is access all ISerialDeviceStatics_Interface'Class;
+   type ISerialDeviceStatics_Ptr is access all ISerialDeviceStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -161,39 +161,54 @@ package Windows.Devices.SerialCommunication is
    
    ------------------------------------------------------------------------
    
-   IID_ISerialDeviceStatics : aliased constant Windows.IID := (93080176, 2102, 18835, (174, 26, 182, 26, 227, 190, 5, 107 ));
+   IID_IAsyncOperation_ISerialDevice : aliased constant Windows.IID := (1156523757, 49663, 21610, (164, 107, 106, 55, 222, 145, 135, 251 ));
    
-   type ISerialDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_ISerialDevice_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetDeviceSelector
+   function put_Completed
    (
-      This       : access ISerialDeviceStatics_Interface
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_ISerialDevice_Interface
+      ; handler : Windows.Devices.SerialCommunication.AsyncOperationCompletedHandler_ISerialDevice
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelectorFromPortName
+   function get_Completed
    (
-      This       : access ISerialDeviceStatics_Interface
-      ; portName : Windows.String
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_ISerialDevice_Interface
+      ; RetVal : access Windows.Devices.SerialCommunication.AsyncOperationCompletedHandler_ISerialDevice
    )
    return Windows.HRESULT is abstract;
    
-   function GetDeviceSelectorFromUsbVidPid
+   function GetResults
    (
-      This       : access ISerialDeviceStatics_Interface
-      ; vendorId : Windows.UInt16
-      ; productId : Windows.UInt16
-      ; RetVal : access Windows.String
+      This       : access IAsyncOperation_ISerialDevice_Interface
+      ; RetVal : access Windows.Devices.SerialCommunication.ISerialDevice
    )
    return Windows.HRESULT is abstract;
    
-   function FromIdAsync
+   ------------------------------------------------------------------------
+   
+   IID_IErrorReceivedEventArgs : aliased constant Windows.IID := (4240883545, 4739, 19850, (191, 223, 86, 107, 51, 221, 178, 143 ));
+   
+   type IErrorReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Error
    (
-      This       : access ISerialDeviceStatics_Interface
-      ; deviceId : Windows.String
-      ; RetVal : access Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice -- Generic Parameter Type
+      This       : access IErrorReceivedEventArgs_Interface
+      ; RetVal : access Windows.Devices.SerialCommunication.SerialError
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPinChangedEventArgs : aliased constant Windows.IID := (2730433968, 64668, 17927, (147, 208, 250, 94, 131, 67, 238, 34 ));
+   
+   type IPinChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PinChange
+   (
+      This       : access IPinChangedEventArgs_Interface
+      ; RetVal : access Windows.Devices.SerialCommunication.SerialPinChange
    )
    return Windows.HRESULT is abstract;
    
@@ -438,54 +453,39 @@ package Windows.Devices.SerialCommunication is
    
    ------------------------------------------------------------------------
    
-   IID_IErrorReceivedEventArgs : aliased constant Windows.IID := (4240883545, 4739, 19850, (191, 223, 86, 107, 51, 221, 178, 143 ));
+   IID_ISerialDeviceStatics : aliased constant Windows.IID := (93080176, 2102, 18835, (174, 26, 182, 26, 227, 190, 5, 107 ));
    
-   type IErrorReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   type ISerialDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Error
+   function GetDeviceSelector
    (
-      This       : access IErrorReceivedEventArgs_Interface
-      ; RetVal : access Windows.Devices.SerialCommunication.SerialError
+      This       : access ISerialDeviceStatics_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IPinChangedEventArgs : aliased constant Windows.IID := (2730433968, 64668, 17927, (147, 208, 250, 94, 131, 67, 238, 34 ));
-   
-   type IPinChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PinChange
+   function GetDeviceSelectorFromPortName
    (
-      This       : access IPinChangedEventArgs_Interface
-      ; RetVal : access Windows.Devices.SerialCommunication.SerialPinChange
+      This       : access ISerialDeviceStatics_Interface
+      ; portName : Windows.String
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_ISerialDevice : aliased constant Windows.IID := (1156523757, 49663, 21610, (164, 107, 106, 55, 222, 145, 135, 251 ));
-   
-   type IAsyncOperation_ISerialDevice_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
+   function GetDeviceSelectorFromUsbVidPid
    (
-      This       : access IAsyncOperation_ISerialDevice_Interface
-      ; handler : Windows.Devices.SerialCommunication.AsyncOperationCompletedHandler_ISerialDevice
+      This       : access ISerialDeviceStatics_Interface
+      ; vendorId : Windows.UInt16
+      ; productId : Windows.UInt16
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
-   function get_Completed
+   function FromIdAsync
    (
-      This       : access IAsyncOperation_ISerialDevice_Interface
-      ; RetVal : access Windows.Devices.SerialCommunication.AsyncOperationCompletedHandler_ISerialDevice
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_ISerialDevice_Interface
-      ; RetVal : access Windows.Devices.SerialCommunication.ISerialDevice
+      This       : access ISerialDeviceStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -536,9 +536,9 @@ package Windows.Devices.SerialCommunication is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SerialDevice is Windows.Devices.SerialCommunication.ISerialDevice;
    subtype ErrorReceivedEventArgs is Windows.Devices.SerialCommunication.IErrorReceivedEventArgs;
    subtype PinChangedEventArgs is Windows.Devices.SerialCommunication.IPinChangedEventArgs;
+   subtype SerialDevice is Windows.Devices.SerialCommunication.ISerialDevice;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

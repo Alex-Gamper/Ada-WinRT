@@ -38,47 +38,8 @@ package body Windows.Storage.Streams is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface
-      ; asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IBuffer_Interface
       ; asyncInfo : Windows.Storage.Streams.IAsyncOperation_IBuffer
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface
-      ; asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IRandomAccessStream_Interface
-      ; asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -114,9 +75,68 @@ package body Windows.Storage.Streams is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IRandomAccessStream_Interface
+      ; asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface
+      ; asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface
+      ; asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create
+   (
+      capacity : Windows.UInt32
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.Buffer");
+      m_Factory     : Windows.Storage.Streams.IBufferFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBufferFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(capacity, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreateDataReader
    (
@@ -175,26 +195,6 @@ package body Windows.Storage.Streams is
       return RetVal;
    end;
    
-   function Create
-   (
-      capacity : Windows.UInt32
-   )
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.Buffer");
-      m_Factory     : Windows.Storage.Streams.IBufferFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBufferFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(capacity, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function Create return Windows.Storage.Streams.IRandomAccessStream is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Streams.InMemoryRandomAccessStream");
@@ -219,26 +219,6 @@ package body Windows.Storage.Streams is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromBuffer
-   (
-      buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IDataReader is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.DataReader");
-      m_Factory     : IDataReaderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IDataReader;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDataReaderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromBuffer(buffer, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function CreateCopyFromMemoryBuffer
    (
@@ -280,124 +260,20 @@ package body Windows.Storage.Streams is
       return RetVal;
    end;
    
-   function CopyAsync
+   function FromBuffer
    (
-      source : Windows.Storage.Streams.IInputStream
-      ; destination : Windows.Storage.Streams.IOutputStream
+      buffer : Windows.Storage.Streams.IBuffer
    )
-   return Windows.Address is
+   return Windows.Storage.Streams.IDataReader is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStream");
-      m_Factory     : IRandomAccessStreamStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.DataReader");
+      m_Factory     : IDataReaderStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
+      RetVal        : aliased Windows.Storage.Streams.IDataReader;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IDataReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CopyAsync(source, destination, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CopySizeAsync
-   (
-      source : Windows.Storage.Streams.IInputStream
-      ; destination : Windows.Storage.Streams.IOutputStream
-      ; bytesToCopy : Windows.UInt64
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStream");
-      m_Factory     : IRandomAccessStreamStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CopySizeAsync(source, destination, bytesToCopy, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CopyAndCloseAsync
-   (
-      source : Windows.Storage.Streams.IInputStream
-      ; destination : Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStream");
-      m_Factory     : IRandomAccessStreamStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CopyAndCloseAsync(source, destination, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromFile
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   return Windows.Storage.Streams.IRandomAccessStreamReference is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStreamReference");
-      m_Factory     : IRandomAccessStreamReferenceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStreamReference;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamReferenceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromFile(file, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Storage.Streams.IRandomAccessStreamReference is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStreamReference");
-      m_Factory     : IRandomAccessStreamReferenceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStreamReference;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamReferenceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromUri(uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromStream
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Storage.Streams.IRandomAccessStreamReference is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStreamReference");
-      m_Factory     : IRandomAccessStreamReferenceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStreamReference;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamReferenceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromStream(stream, RetVal'Access);
+         Hr := m_Factory.FromBuffer(buffer, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -574,6 +450,130 @@ package body Windows.Storage.Streams is
       Hr := RoGetActivationFactory(m_hString, IID_IFileRandomAccessStreamStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.OpenTransactedWriteForUserWithOptionsAsync(user, filePath, openOptions, openDisposition, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CopyAsync
+   (
+      source : Windows.Storage.Streams.IInputStream
+      ; destination : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStream");
+      m_Factory     : IRandomAccessStreamStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CopyAsync(source, destination, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CopySizeAsync
+   (
+      source : Windows.Storage.Streams.IInputStream
+      ; destination : Windows.Storage.Streams.IOutputStream
+      ; bytesToCopy : Windows.UInt64
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStream");
+      m_Factory     : IRandomAccessStreamStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CopySizeAsync(source, destination, bytesToCopy, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CopyAndCloseAsync
+   (
+      source : Windows.Storage.Streams.IInputStream
+      ; destination : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStream");
+      m_Factory     : IRandomAccessStreamStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CopyAndCloseAsync(source, destination, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromFile
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.Storage.Streams.IRandomAccessStreamReference is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStreamReference");
+      m_Factory     : IRandomAccessStreamReferenceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStreamReference;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamReferenceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromFile(file, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromUri
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Storage.Streams.IRandomAccessStreamReference is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStreamReference");
+      m_Factory     : IRandomAccessStreamReferenceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStreamReference;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamReferenceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromUri(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromStream
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Storage.Streams.IRandomAccessStreamReference is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.RandomAccessStreamReference");
+      m_Factory     : IRandomAccessStreamReferenceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IRandomAccessStreamReference;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRandomAccessStreamReferenceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromStream(stream, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

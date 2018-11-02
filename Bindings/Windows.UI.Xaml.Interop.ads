@@ -97,18 +97,18 @@ package Windows.UI.Xaml.Interop is
    type IBindableIterable_Interface;
    type IBindableIterable is access all IBindableIterable_Interface'Class;
    type IBindableIterable_Ptr is access all IBindableIterable;
-   type IBindableVector_Interface;
-   type IBindableVector is access all IBindableVector_Interface'Class;
-   type IBindableVector_Ptr is access all IBindableVector;
-   type IBindableObservableVector_Interface;
-   type IBindableObservableVector is access all IBindableObservableVector_Interface'Class;
-   type IBindableObservableVector_Ptr is access all IBindableObservableVector;
-   type IBindableVectorView_Interface;
-   type IBindableVectorView is access all IBindableVectorView_Interface'Class;
-   type IBindableVectorView_Ptr is access all IBindableVectorView;
    type IBindableIterator_Interface;
    type IBindableIterator is access all IBindableIterator_Interface'Class;
    type IBindableIterator_Ptr is access all IBindableIterator;
+   type IBindableObservableVector_Interface;
+   type IBindableObservableVector is access all IBindableObservableVector_Interface'Class;
+   type IBindableObservableVector_Ptr is access all IBindableObservableVector;
+   type IBindableVector_Interface;
+   type IBindableVector is access all IBindableVector_Interface'Class;
+   type IBindableVector_Ptr is access all IBindableVector;
+   type IBindableVectorView_Interface;
+   type IBindableVectorView is access all IBindableVectorView_Interface'Class;
+   type IBindableVectorView_Ptr is access all IBindableVectorView;
    type INotifyCollectionChanged_Interface;
    type INotifyCollectionChanged is access all INotifyCollectionChanged_Interface'Class;
    type INotifyCollectionChanged_Ptr is access all INotifyCollectionChanged;
@@ -133,6 +133,54 @@ package Windows.UI.Xaml.Interop is
    (
       This       : access IBindableIterable_Interface
       ; RetVal : access Windows.UI.Xaml.Interop.IBindableIterator
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBindableIterator : aliased constant Windows.IID := (1780313095, 1901, 18930, (131, 20, 245, 44, 156, 154, 131, 49 ));
+   
+   type IBindableIterator_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IBindableIterator_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IBindableIterator_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IBindableIterator_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBindableObservableVector : aliased constant Windows.IID := (4263425334, 32383, 20368, (172, 154, 71, 73, 132, 170, 229, 18 ));
+   
+   type IBindableObservableVector_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_VectorChanged
+   (
+      This       : access IBindableObservableVector_Interface
+      ; value : Windows.UI.Xaml.Interop.BindableVectorChangedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_VectorChanged
+   (
+      This       : access IBindableObservableVector_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -217,27 +265,6 @@ package Windows.UI.Xaml.Interop is
    
    ------------------------------------------------------------------------
    
-   IID_IBindableObservableVector : aliased constant Windows.IID := (4263425334, 32383, 20368, (172, 154, 71, 73, 132, 170, 229, 18 ));
-   
-   type IBindableObservableVector_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_VectorChanged
-   (
-      This       : access IBindableObservableVector_Interface
-      ; value : Windows.UI.Xaml.Interop.BindableVectorChangedEventHandler
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_VectorChanged
-   (
-      This       : access IBindableObservableVector_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IBindableVectorView : aliased constant Windows.IID := (879613671, 38766, 19395, (129, 93, 236, 226, 67, 188, 15, 51 ));
    
    type IBindableVectorView_Interface is interface and Windows.IInspectable_Interface;
@@ -262,33 +289,6 @@ package Windows.UI.Xaml.Interop is
       This       : access IBindableVectorView_Interface
       ; value : Windows.Object
       ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IBindableIterator : aliased constant Windows.IID := (1780313095, 1901, 18930, (131, 20, 245, 44, 156, 154, 131, 49 ));
-   
-   type IBindableIterator_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IBindableIterator_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IBindableIterator_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IBindableIterator_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;

@@ -92,7 +92,7 @@ package body Windows.ApplicationModel.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface
+      This       : access TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface
       ; sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar
       ; args : Windows.Object
    )
@@ -105,7 +105,7 @@ package body Windows.ApplicationModel.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface
+      This       : access TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface
       ; sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar
       ; args : Windows.Object
    )

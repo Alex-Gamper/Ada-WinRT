@@ -39,92 +39,14 @@ package body Windows.UI.Text.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface
+      This       : access TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface
       ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.Object
+      ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface
-      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs(args));
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs(args));
       return Hr;
    end;
    
@@ -143,20 +65,98 @@ package body Windows.UI.Text.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface
+      This       : access TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface
       ; sender : Windows.UI.Text.Core.ICoreTextEditContext
-      ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs(args));
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), args);
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface
+      This       : access TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface
+      ; sender : Windows.UI.Text.Core.ICoreTextEditContext
+      ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Text.Core.ICoreTextEditContext(sender), Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface
       ; sender : Windows.UI.Text.Core.ICoreTextEditContext
       ; args : Windows.Object
    )
@@ -192,23 +192,6 @@ package body Windows.UI.Text.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForCurrentView
-   return Windows.UI.Text.Core.ICoreTextServicesManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Text.Core.CoreTextServicesManager");
-      m_Factory     : ICoreTextServicesManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Text.Core.ICoreTextServicesManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreTextServicesManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_HiddenCharacter
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
@@ -220,6 +203,23 @@ package body Windows.UI.Text.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICoreTextServicesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_HiddenCharacter(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.UI.Text.Core.ICoreTextServicesManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Text.Core.CoreTextServicesManager");
+      m_Factory     : ICoreTextServicesManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Text.Core.ICoreTextServicesManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreTextServicesManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -53,97 +53,6 @@ package body Windows.Media.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IMediaStreamSource_add_Closed_Interface
-      ; sender : Windows.Media.Core.IMediaStreamSource
-      ; args : Windows.Media.Core.IMediaStreamSourceClosedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceClosedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaStreamSource_add_Starting_Interface
-      ; sender : Windows.Media.Core.IMediaStreamSource
-      ; args : Windows.Media.Core.IMediaStreamSourceStartingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceStartingEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaStreamSource_add_Paused_Interface
-      ; sender : Windows.Media.Core.IMediaStreamSource
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaStreamSource_add_SampleRequested_Interface
-      ; sender : Windows.Media.Core.IMediaStreamSource
-      ; args : Windows.Media.Core.IMediaStreamSourceSampleRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceSampleRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested_Interface
-      ; sender : Windows.Media.Core.IMediaStreamSource
-      ; args : Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaStreamSource2_add_SampleRendered_Interface
-      ; sender : Windows.Media.Core.IMediaStreamSource
-      ; args : Windows.Media.Core.IMediaStreamSourceSampleRenderedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceSampleRenderedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaStreamSample_add_Processed_Interface
-      ; sender : Windows.Media.Core.IMediaStreamSample
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaStreamSample(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access AsyncOperationCompletedHandler_IMediaStreamSample_Interface
       ; asyncInfo : Windows.Media.Core.IAsyncOperation_IMediaStreamSample
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -157,157 +66,14 @@ package body Windows.Media.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IMseStreamSource_add_Opened_Interface
-      ; sender : Windows.Media.Core.IMseStreamSource
-      ; args : Windows.Object
+      This       : access TypedEventHandler_IAudioTrack_add_OpenFailed_Interface
+      ; sender : Windows.Media.Core.IMediaTrack
+      ; args : Windows.Media.Core.IAudioTrackOpenFailedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Core.IMseStreamSource(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseStreamSource_add_Ended_Interface
-      ; sender : Windows.Media.Core.IMseStreamSource
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseStreamSource(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseStreamSource_add_Closed_Interface
-      ; sender : Windows.Media.Core.IMseStreamSource
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseStreamSource(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseSourceBuffer_add_UpdateStarting_Interface
-      ; sender : Windows.Media.Core.IMseSourceBuffer
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseSourceBuffer_add_Updated_Interface
-      ; sender : Windows.Media.Core.IMseSourceBuffer
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseSourceBuffer_add_UpdateEnded_Interface
-      ; sender : Windows.Media.Core.IMseSourceBuffer
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred_Interface
-      ; sender : Windows.Media.Core.IMseSourceBuffer
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseSourceBuffer_add_Aborted_Interface
-      ; sender : Windows.Media.Core.IMseSourceBuffer
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded_Interface
-      ; sender : Windows.Media.Core.IMseSourceBufferList
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseSourceBufferList(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved_Interface
-      ; sender : Windows.Media.Core.IMseSourceBufferList
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMseSourceBufferList(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested_Interface
-      ; sender : Windows.Media.Core.IMediaSourceAppServiceConnection
-      ; args : Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IMediaSourceAppServiceConnection(sender), Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed_Interface
-      ; sender : Windows.Media.Core.ISceneAnalysisEffect
-      ; args : Windows.Media.Core.ISceneAnalyzedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.ISceneAnalysisEffect(sender), Windows.Media.Core.ISceneAnalyzedEventArgs(args));
+      This.Callback(Windows.Media.Core.IMediaTrack(sender), Windows.Media.Core.IAudioTrackOpenFailedEventArgs(args));
       return Hr;
    end;
    
@@ -321,19 +87,6 @@ package body Windows.Media.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Core.IFaceDetectionEffect(sender), Windows.Media.Core.IFaceDetectedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged_Interface
-      ; sender : Windows.Media.Core.IVideoStabilizationEffect
-      ; args : Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Media.Core.IVideoStabilizationEffect(sender), Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs(args));
       return Hr;
    end;
    
@@ -378,32 +131,6 @@ package body Windows.Media.Core is
    
    function Invoke
    (
-      This       : access VectorChangedEventHandler_ITimedTextSource_Interface
-      ; sender : Windows.Media.Core.IObservableVector_ITimedTextSource
-      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, event);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access VectorChangedEventHandler_ITimedMetadataTrack_Interface
-      ; sender : Windows.Media.Core.IObservableVector_ITimedMetadataTrack
-      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, event);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IMediaSource3_add_StateChanged_Interface
       ; sender : Windows.Media.Core.IMediaSource2
       ; args : Windows.Media.Core.IMediaSourceStateChangedEventArgs
@@ -412,6 +139,253 @@ package body Windows.Media.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Core.IMediaSource2(sender), Windows.Media.Core.IMediaSourceStateChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested_Interface
+      ; sender : Windows.Media.Core.IMediaSourceAppServiceConnection
+      ; args : Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaSourceAppServiceConnection(sender), Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaStreamSample_add_Processed_Interface
+      ; sender : Windows.Media.Core.IMediaStreamSample
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaStreamSample(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaStreamSource_add_Closed_Interface
+      ; sender : Windows.Media.Core.IMediaStreamSource
+      ; args : Windows.Media.Core.IMediaStreamSourceClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceClosedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaStreamSource_add_Paused_Interface
+      ; sender : Windows.Media.Core.IMediaStreamSource
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaStreamSource_add_SampleRequested_Interface
+      ; sender : Windows.Media.Core.IMediaStreamSource
+      ; args : Windows.Media.Core.IMediaStreamSourceSampleRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceSampleRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaStreamSource_add_Starting_Interface
+      ; sender : Windows.Media.Core.IMediaStreamSource
+      ; args : Windows.Media.Core.IMediaStreamSourceStartingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceStartingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested_Interface
+      ; sender : Windows.Media.Core.IMediaStreamSource
+      ; args : Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaStreamSource2_add_SampleRendered_Interface
+      ; sender : Windows.Media.Core.IMediaStreamSource
+      ; args : Windows.Media.Core.IMediaStreamSourceSampleRenderedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMediaStreamSource(sender), Windows.Media.Core.IMediaStreamSourceSampleRenderedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseSourceBuffer_add_Aborted_Interface
+      ; sender : Windows.Media.Core.IMseSourceBuffer
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred_Interface
+      ; sender : Windows.Media.Core.IMseSourceBuffer
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseSourceBuffer_add_Updated_Interface
+      ; sender : Windows.Media.Core.IMseSourceBuffer
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseSourceBuffer_add_UpdateEnded_Interface
+      ; sender : Windows.Media.Core.IMseSourceBuffer
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseSourceBuffer_add_UpdateStarting_Interface
+      ; sender : Windows.Media.Core.IMseSourceBuffer
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseSourceBuffer(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded_Interface
+      ; sender : Windows.Media.Core.IMseSourceBufferList
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseSourceBufferList(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved_Interface
+      ; sender : Windows.Media.Core.IMseSourceBufferList
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseSourceBufferList(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseStreamSource_add_Closed_Interface
+      ; sender : Windows.Media.Core.IMseStreamSource
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseStreamSource(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseStreamSource_add_Ended_Interface
+      ; sender : Windows.Media.Core.IMseStreamSource
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseStreamSource(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMseStreamSource_add_Opened_Interface
+      ; sender : Windows.Media.Core.IMseStreamSource
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IMseStreamSource(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed_Interface
+      ; sender : Windows.Media.Core.ISceneAnalysisEffect
+      ; args : Windows.Media.Core.ISceneAnalyzedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.ISceneAnalysisEffect(sender), Windows.Media.Core.ISceneAnalyzedEventArgs(args));
       return Hr;
    end;
    
@@ -482,6 +456,19 @@ package body Windows.Media.Core is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged_Interface
+      ; sender : Windows.Media.Core.IVideoStabilizationEffect
+      ; args : Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Core.IVideoStabilizationEffect(sender), Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IVideoTrack_add_OpenFailed_Interface
       ; sender : Windows.Media.Core.IMediaTrack
       ; args : Windows.Media.Core.IVideoTrackOpenFailedEventArgs
@@ -495,14 +482,27 @@ package body Windows.Media.Core is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IAudioTrack_add_OpenFailed_Interface
-      ; sender : Windows.Media.Core.IMediaTrack
-      ; args : Windows.Media.Core.IAudioTrackOpenFailedEventArgs
+      This       : access VectorChangedEventHandler_ITimedMetadataTrack_Interface
+      ; sender : Windows.Media.Core.IObservableVector_ITimedMetadataTrack
+      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Media.Core.IMediaTrack(sender), Windows.Media.Core.IAudioTrackOpenFailedEventArgs(args));
+      This.Callback(sender, event);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access VectorChangedEventHandler_ITimedTextSource_Interface
+      ; sender : Windows.Media.Core.IObservableVector_ITimedTextSource
+      ; event : Windows.Foundation.Collections.IVectorChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, event);
       return Hr;
    end;
    
@@ -510,106 +510,24 @@ package body Windows.Media.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create return Windows.Media.Core.ITimedTextRegion is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextRegion");
-      Instance      : aliased IInspectable := null;
+   function Create
+   (
+      encodingProperties : Windows.Media.MediaProperties.IAudioEncodingProperties
+   )
+   return Windows.Media.Core.IAudioStreamDescriptor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.AudioStreamDescriptor");
+      m_Factory     : Windows.Media.Core.IAudioStreamDescriptorFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextRegion) with inline;
+      RetVal        : aliased Windows.Media.Core.IAudioStreamDescriptor := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStreamDescriptorFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextRegion'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.Create(encodingProperties, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Core.ITimedTextStyle is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextStyle");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextStyle) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextStyle'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Core.ITimedTextLine is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextLine");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextLine) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextLine'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Core.ITimedTextSubformat is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSubformat");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextSubformat) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextSubformat'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Core.ITimedTextCue is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextCue");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextCue) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextCue'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Core.IDataCue is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.DataCue");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.IDataCue) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_IDataCue'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function Create return Windows.Media.Core.IChapterCue is
@@ -623,40 +541,6 @@ package body Windows.Media.Core is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Media.Core.IID_IChapterCue'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Core.IImageCue is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.ImageCue");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.IImageCue) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_IImageCue'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
-   function Create return Windows.Media.Core.ISpeechCue is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.SpeechCue");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ISpeechCue) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ISpeechCue'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -680,60 +564,88 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function Create
-   (
-      encodingProperties : Windows.Media.MediaProperties.IAudioEncodingProperties
-   )
-   return Windows.Media.Core.IAudioStreamDescriptor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.AudioStreamDescriptor");
-      m_Factory     : Windows.Media.Core.IAudioStreamDescriptorFactory := null;
+   function Create return Windows.Media.Core.IDataCue is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.DataCue");
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IAudioStreamDescriptor := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.IDataCue) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioStreamDescriptorFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(encodingProperties, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_IDataCue'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Effects.IVideoEffectDefinition is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.FaceDetectionEffectDefinition");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Effects.IVideoEffectDefinition) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Effects.IID_IVideoEffectDefinition'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Core.IImageCue is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.ImageCue");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.IImageCue) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_IImageCue'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Core.IMediaBinder is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaBinder");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.IMediaBinder) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_IMediaBinder'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create
    (
-      encodingProperties : Windows.Media.MediaProperties.IVideoEncodingProperties
+      appServiceConnection : Windows.ApplicationModel.AppService.IAppServiceConnection
    )
-   return Windows.Media.Core.IVideoStreamDescriptor is
+   return Windows.Media.Core.IMediaSourceAppServiceConnection is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.VideoStreamDescriptor");
-      m_Factory     : Windows.Media.Core.IVideoStreamDescriptorFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaSourceAppServiceConnection");
+      m_Factory     : Windows.Media.Core.IMediaSourceAppServiceConnectionFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IVideoStreamDescriptor := null;
+      RetVal        : aliased Windows.Media.Core.IMediaSourceAppServiceConnection := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVideoStreamDescriptorFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceAppServiceConnectionFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(encodingProperties, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      encodingProperties : Windows.Media.MediaProperties.IMediaEncodingProperties
-   )
-   return Windows.Media.Core.IMediaStreamDescriptor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedMetadataStreamDescriptor");
-      m_Factory     : Windows.Media.Core.ITimedMetadataStreamDescriptorFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IMediaStreamDescriptor := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedMetadataStreamDescriptorFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(encodingProperties, RetVal'Access);
+         Hr := m_Factory.Create(appServiceConnection, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -798,27 +710,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function Create
-   (
-      appServiceConnection : Windows.ApplicationModel.AppService.IAppServiceConnection
-   )
-   return Windows.Media.Core.IMediaSourceAppServiceConnection is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaSourceAppServiceConnection");
-      m_Factory     : Windows.Media.Core.IMediaSourceAppServiceConnectionFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IMediaSourceAppServiceConnection := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceAppServiceConnectionFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(appServiceConnection, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create return Windows.Media.Effects.IVideoEffectDefinition is
+   function CreateSceneAnalysisEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.SceneAnalysisEffectDefinition");
       Instance      : aliased IInspectable := null;
@@ -835,17 +727,144 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function CreateFaceDetectionEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
+   function Create return Windows.Media.Core.ISpeechCue is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.FaceDetectionEffectDefinition");
+      m_hString     : Windows.String := To_String("Windows.Media.Core.SpeechCue");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Effects.IVideoEffectDefinition) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ISpeechCue) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Effects.IID_IVideoEffectDefinition'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ISpeechCue'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      encodingProperties : Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.Media.Core.IMediaStreamDescriptor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedMetadataStreamDescriptor");
+      m_Factory     : Windows.Media.Core.ITimedMetadataStreamDescriptorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IMediaStreamDescriptor := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedMetadataStreamDescriptorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(encodingProperties, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      id : Windows.String
+      ; language : Windows.String
+      ; kind : Windows.Media.Core.TimedMetadataKind
+   )
+   return Windows.Media.Core.ITimedMetadataTrack is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedMetadataTrack");
+      m_Factory     : Windows.Media.Core.ITimedMetadataTrackFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.ITimedMetadataTrack := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedMetadataTrackFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(id, language, kind, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.Media.Core.ITimedTextCue is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextCue");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextCue) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextCue'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Core.ITimedTextLine is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextLine");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextLine) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextLine'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Core.ITimedTextRegion is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextRegion");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextRegion) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextRegion'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Core.ITimedTextStyle is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextStyle");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextStyle) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextStyle'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create return Windows.Media.Core.ITimedTextSubformat is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSubformat");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.ITimedTextSubformat) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Core.IID_ITimedTextSubformat'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -869,39 +888,20 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.Media.Core.IMediaBinder is
-      Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaBinder");
-      Instance      : aliased IInspectable := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Core.IMediaBinder) with inline;
-   begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
-      if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Core.IID_IMediaBinder'Access, RetVal'access);
-         RefCount := Instance.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
-   end;
-   
    function Create
    (
-      id : Windows.String
-      ; language : Windows.String
-      ; kind : Windows.Media.Core.TimedMetadataKind
+      encodingProperties : Windows.Media.MediaProperties.IVideoEncodingProperties
    )
-   return Windows.Media.Core.ITimedMetadataTrack is
+   return Windows.Media.Core.IVideoStreamDescriptor is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedMetadataTrack");
-      m_Factory     : Windows.Media.Core.ITimedMetadataTrackFactory := null;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.VideoStreamDescriptor");
+      m_Factory     : Windows.Media.Core.IVideoStreamDescriptorFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.ITimedMetadataTrack := null;
+      RetVal        : aliased Windows.Media.Core.IVideoStreamDescriptor := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedMetadataTrackFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoStreamDescriptorFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(id, language, kind, RetVal'Access);
+         Hr := m_Factory.Create(encodingProperties, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1837,69 +1837,6 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-   function CreateFromBuffer
-   (
-      buffer : Windows.Storage.Streams.IBuffer
-      ; timestamp : Windows.Foundation.TimeSpan
-   )
-   return Windows.Media.Core.IMediaStreamSample is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaStreamSample");
-      m_Factory     : IMediaStreamSampleStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IMediaStreamSample;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaStreamSampleStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromBuffer(buffer, timestamp, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromStreamAsync
-   (
-      stream : Windows.Storage.Streams.IInputStream
-      ; count : Windows.UInt32
-      ; timestamp : Windows.Foundation.TimeSpan
-   )
-   return Windows.Media.Core.IAsyncOperation_IMediaStreamSample is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaStreamSample");
-      m_Factory     : IMediaStreamSampleStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IAsyncOperation_IMediaStreamSample;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaStreamSampleStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromStreamAsync(stream, count, timestamp, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsContentTypeSupported
-   (
-      contentType : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.MseStreamSource");
-      m_Factory     : IMseStreamSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMseStreamSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsContentTypeSupported(contentType, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateFromAdaptiveMediaSource
    (
       mediaSource : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
@@ -2116,6 +2053,69 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromMediaFrameSource(frameSource, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromBuffer
+   (
+      buffer : Windows.Storage.Streams.IBuffer
+      ; timestamp : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Core.IMediaStreamSample is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaStreamSample");
+      m_Factory     : IMediaStreamSampleStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IMediaStreamSample;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaStreamSampleStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(buffer, timestamp, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromStreamAsync
+   (
+      stream : Windows.Storage.Streams.IInputStream
+      ; count : Windows.UInt32
+      ; timestamp : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Core.IAsyncOperation_IMediaStreamSample is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaStreamSample");
+      m_Factory     : IMediaStreamSampleStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IAsyncOperation_IMediaStreamSample;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaStreamSampleStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromStreamAsync(stream, count, timestamp, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsContentTypeSupported
+   (
+      contentType : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MseStreamSource");
+      m_Factory     : IMseStreamSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMseStreamSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsContentTypeSupported(contentType, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

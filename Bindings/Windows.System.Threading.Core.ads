@@ -43,22 +43,86 @@ package Windows.System.Threading.Core is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ISignalNotifierStatics_Interface;
-   type ISignalNotifierStatics is access all ISignalNotifierStatics_Interface'Class;
-   type ISignalNotifierStatics_Ptr is access all ISignalNotifierStatics;
-   type IPreallocatedWorkItemFactory_Interface;
-   type IPreallocatedWorkItemFactory is access all IPreallocatedWorkItemFactory_Interface'Class;
-   type IPreallocatedWorkItemFactory_Ptr is access all IPreallocatedWorkItemFactory;
    type IPreallocatedWorkItem_Interface;
    type IPreallocatedWorkItem is access all IPreallocatedWorkItem_Interface'Class;
    type IPreallocatedWorkItem_Ptr is access all IPreallocatedWorkItem;
+   type IPreallocatedWorkItemFactory_Interface;
+   type IPreallocatedWorkItemFactory is access all IPreallocatedWorkItemFactory_Interface'Class;
+   type IPreallocatedWorkItemFactory_Ptr is access all IPreallocatedWorkItemFactory;
    type ISignalNotifier_Interface;
    type ISignalNotifier is access all ISignalNotifier_Interface'Class;
    type ISignalNotifier_Ptr is access all ISignalNotifier;
+   type ISignalNotifierStatics_Interface;
+   type ISignalNotifierStatics is access all ISignalNotifierStatics_Interface'Class;
+   type ISignalNotifierStatics_Ptr is access all ISignalNotifierStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPreallocatedWorkItem : aliased constant Windows.IID := (3067783676, 48219, 16410, (168, 178, 110, 117, 77, 20, 218, 166 ));
+   
+   type IPreallocatedWorkItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RunAsync
+   (
+      This       : access IPreallocatedWorkItem_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPreallocatedWorkItemFactory : aliased constant Windows.IID := (3822267205, 57322, 18075, (130, 197, 246, 227, 206, 253, 234, 251 ));
+   
+   type IPreallocatedWorkItemFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWorkItem
+   (
+      This       : access IPreallocatedWorkItemFactory_Interface
+      ; handler : Windows.System.Threading.WorkItemHandler
+      ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWorkItemWithPriority
+   (
+      This       : access IPreallocatedWorkItemFactory_Interface
+      ; handler : Windows.System.Threading.WorkItemHandler
+      ; priority : Windows.System.Threading.WorkItemPriority
+      ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWorkItemWithPriorityAndOptions
+   (
+      This       : access IPreallocatedWorkItemFactory_Interface
+      ; handler : Windows.System.Threading.WorkItemHandler
+      ; priority : Windows.System.Threading.WorkItemPriority
+      ; options : Windows.System.Threading.WorkItemOptions
+      ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISignalNotifier : aliased constant Windows.IID := (338189830, 25511, 18195, (182, 217, 98, 246, 75, 86, 251, 139 ));
+   
+   type ISignalNotifier_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Enable
+   (
+      This       : access ISignalNotifier_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Terminate_x
+   (
+      This       : access ISignalNotifier_Interface
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -105,70 +169,6 @@ package Windows.System.Threading.Core is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IPreallocatedWorkItemFactory : aliased constant Windows.IID := (3822267205, 57322, 18075, (130, 197, 246, 227, 206, 253, 234, 251 ));
-   
-   type IPreallocatedWorkItemFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateWorkItem
-   (
-      This       : access IPreallocatedWorkItemFactory_Interface
-      ; handler : Windows.System.Threading.WorkItemHandler
-      ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWorkItemWithPriority
-   (
-      This       : access IPreallocatedWorkItemFactory_Interface
-      ; handler : Windows.System.Threading.WorkItemHandler
-      ; priority : Windows.System.Threading.WorkItemPriority
-      ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   function CreateWorkItemWithPriorityAndOptions
-   (
-      This       : access IPreallocatedWorkItemFactory_Interface
-      ; handler : Windows.System.Threading.WorkItemHandler
-      ; priority : Windows.System.Threading.WorkItemPriority
-      ; options : Windows.System.Threading.WorkItemOptions
-      ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPreallocatedWorkItem : aliased constant Windows.IID := (3067783676, 48219, 16410, (168, 178, 110, 117, 77, 20, 218, 166 ));
-   
-   type IPreallocatedWorkItem_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RunAsync
-   (
-      This       : access IPreallocatedWorkItem_Interface
-      ; RetVal : access Windows.Foundation.IAsyncAction
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISignalNotifier : aliased constant Windows.IID := (338189830, 25511, 18195, (182, 217, 98, 246, 75, 86, 251, 139 ));
-   
-   type ISignalNotifier_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Enable
-   (
-      This       : access ISignalNotifier_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Terminate_x
-   (
-      This       : access ISignalNotifier_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -189,7 +189,6 @@ package Windows.System.Threading.Core is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype SignalNotifier is Windows.System.Threading.Core.ISignalNotifier;
    subtype PreallocatedWorkItem is Windows.System.Threading.Core.IPreallocatedWorkItem;
    function CreateWorkItem
    (
@@ -212,6 +211,7 @@ package Windows.System.Threading.Core is
    )
    return Windows.System.Threading.Core.IPreallocatedWorkItem;
    
+   subtype SignalNotifier is Windows.System.Threading.Core.ISignalNotifier;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

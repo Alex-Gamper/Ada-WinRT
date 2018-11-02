@@ -40,47 +40,8 @@ package body Windows.Devices.WiFiDirect.Services is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface
-      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser
-      ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser(sender), Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected_Interface
-      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser
-      ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser(sender), Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged_Interface
-      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser
-      ; args : Windows.Object
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser(sender), args);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_IWiFiDirectServiceSession_Interface
-      ; asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceSession
+      This       : access AsyncOperationCompletedHandler_IWiFiDirectService_Interface
+      ; asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -92,8 +53,21 @@ package body Windows.Devices.WiFiDirect.Services is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IWiFiDirectService_Interface
-      ; asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService
+      This       : access AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo_Interface
+      ; asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceProvisioningInfo
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IWiFiDirectServiceSession_Interface
+      ; asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceSession
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -118,27 +92,40 @@ package body Windows.Devices.WiFiDirect.Services is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo_Interface
-      ; asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceProvisioningInfo
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged_Interface
-      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession
+      This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged_Interface
+      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser
       ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession(sender), args);
+      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected_Interface
+      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser
+      ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser(sender), Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface
+      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser
+      ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser(sender), Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs(args));
       return Hr;
    end;
    
@@ -152,6 +139,19 @@ package body Windows.Devices.WiFiDirect.Services is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession(sender), Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceRemotePortAddedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged_Interface
+      ; sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession(sender), args);
       return Hr;
    end;
    

@@ -54,6 +54,22 @@ package Windows.UI.Xaml.Media.Animation is
    
    type ClockState_Ptr is access ClockState;
    
+   type ConnectedAnimationComponent is (
+      OffsetX,
+      OffsetY,
+      CrossFade,
+      Scale
+   );
+   for ConnectedAnimationComponent use (
+      OffsetX => 0,
+      OffsetY => 1,
+      CrossFade => 2,
+      Scale => 3
+   );
+   for ConnectedAnimationComponent'Size use 32;
+   
+   type ConnectedAnimationComponent_Ptr is access ConnectedAnimationComponent;
+   
    type EasingMode is (
       EaseOut,
       EaseIn,
@@ -94,22 +110,6 @@ package Windows.UI.Xaml.Media.Animation is
    
    type RepeatBehaviorType_Ptr is access RepeatBehaviorType;
    
-   type ConnectedAnimationComponent is (
-      OffsetX,
-      OffsetY,
-      CrossFade,
-      Scale
-   );
-   for ConnectedAnimationComponent use (
-      OffsetX => 0,
-      OffsetY => 1,
-      CrossFade => 2,
-      Scale => 3
-   );
-   for ConnectedAnimationComponent'Size use 32;
-   
-   type ConnectedAnimationComponent_Ptr is access ConnectedAnimationComponent;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -142,96 +142,6 @@ package Windows.UI.Xaml.Media.Animation is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IKeyTimeHelper_Interface;
-   type IKeyTimeHelper is access all IKeyTimeHelper_Interface'Class;
-   type IKeyTimeHelper_Ptr is access all IKeyTimeHelper;
-   type IKeyTimeHelperStatics_Interface;
-   type IKeyTimeHelperStatics is access all IKeyTimeHelperStatics_Interface'Class;
-   type IKeyTimeHelperStatics_Ptr is access all IKeyTimeHelperStatics;
-   type IRepeatBehaviorHelper_Interface;
-   type IRepeatBehaviorHelper is access all IRepeatBehaviorHelper_Interface'Class;
-   type IRepeatBehaviorHelper_Ptr is access all IRepeatBehaviorHelper;
-   type IRepeatBehaviorHelperStatics_Interface;
-   type IRepeatBehaviorHelperStatics is access all IRepeatBehaviorHelperStatics_Interface'Class;
-   type IRepeatBehaviorHelperStatics_Ptr is access all IRepeatBehaviorHelperStatics;
-   type IVector_Transition_Interface;
-   type IVector_Transition is access all IVector_Transition_Interface'Class;
-   type IVector_Transition_Ptr is access all IVector_Transition;
-   type IIterable_Transition_Interface;
-   type IIterable_Transition is access all IIterable_Transition_Interface'Class;
-   type IIterable_Transition_Ptr is access all IIterable_Transition;
-   type IVector_DoubleKeyFrame_Interface;
-   type IVector_DoubleKeyFrame is access all IVector_DoubleKeyFrame_Interface'Class;
-   type IVector_DoubleKeyFrame_Ptr is access all IVector_DoubleKeyFrame;
-   type IIterable_DoubleKeyFrame_Interface;
-   type IIterable_DoubleKeyFrame is access all IIterable_DoubleKeyFrame_Interface'Class;
-   type IIterable_DoubleKeyFrame_Ptr is access all IIterable_DoubleKeyFrame;
-   type IVector_ObjectKeyFrame_Interface;
-   type IVector_ObjectKeyFrame is access all IVector_ObjectKeyFrame_Interface'Class;
-   type IVector_ObjectKeyFrame_Ptr is access all IVector_ObjectKeyFrame;
-   type IIterable_ObjectKeyFrame_Interface;
-   type IIterable_ObjectKeyFrame is access all IIterable_ObjectKeyFrame_Interface'Class;
-   type IIterable_ObjectKeyFrame_Ptr is access all IIterable_ObjectKeyFrame;
-   type IVector_Timeline_Interface;
-   type IVector_Timeline is access all IVector_Timeline_Interface'Class;
-   type IVector_Timeline_Ptr is access all IVector_Timeline;
-   type IIterable_Timeline_Interface;
-   type IIterable_Timeline is access all IIterable_Timeline_Interface'Class;
-   type IIterable_Timeline_Ptr is access all IIterable_Timeline;
-   type IDoubleKeyFrame_Interface;
-   type IDoubleKeyFrame is access all IDoubleKeyFrame_Interface'Class;
-   type IDoubleKeyFrame_Ptr is access all IDoubleKeyFrame;
-   type IDoubleKeyFrameStatics_Interface;
-   type IDoubleKeyFrameStatics is access all IDoubleKeyFrameStatics_Interface'Class;
-   type IDoubleKeyFrameStatics_Ptr is access all IDoubleKeyFrameStatics;
-   type IDoubleKeyFrameFactory_Interface;
-   type IDoubleKeyFrameFactory is access all IDoubleKeyFrameFactory_Interface'Class;
-   type IDoubleKeyFrameFactory_Ptr is access all IDoubleKeyFrameFactory;
-   type IEasingFunctionBase_Interface;
-   type IEasingFunctionBase is access all IEasingFunctionBase_Interface'Class;
-   type IEasingFunctionBase_Ptr is access all IEasingFunctionBase;
-   type IEasingFunctionBaseStatics_Interface;
-   type IEasingFunctionBaseStatics is access all IEasingFunctionBaseStatics_Interface'Class;
-   type IEasingFunctionBaseStatics_Ptr is access all IEasingFunctionBaseStatics;
-   type IEasingFunctionBaseFactory_Interface;
-   type IEasingFunctionBaseFactory is access all IEasingFunctionBaseFactory_Interface'Class;
-   type IEasingFunctionBaseFactory_Ptr is access all IEasingFunctionBaseFactory;
-   type IKeySpline_Interface;
-   type IKeySpline is access all IKeySpline_Interface'Class;
-   type IKeySpline_Ptr is access all IKeySpline;
-   type INavigationTransitionInfo_Interface;
-   type INavigationTransitionInfo is access all INavigationTransitionInfo_Interface'Class;
-   type INavigationTransitionInfo_Ptr is access all INavigationTransitionInfo;
-   type INavigationTransitionInfoOverrides_Interface;
-   type INavigationTransitionInfoOverrides is access all INavigationTransitionInfoOverrides_Interface'Class;
-   type INavigationTransitionInfoOverrides_Ptr is access all INavigationTransitionInfoOverrides;
-   type INavigationTransitionInfoFactory_Interface;
-   type INavigationTransitionInfoFactory is access all INavigationTransitionInfoFactory_Interface'Class;
-   type INavigationTransitionInfoFactory_Ptr is access all INavigationTransitionInfoFactory;
-   type IObjectKeyFrame_Interface;
-   type IObjectKeyFrame is access all IObjectKeyFrame_Interface'Class;
-   type IObjectKeyFrame_Ptr is access all IObjectKeyFrame;
-   type IObjectKeyFrameStatics_Interface;
-   type IObjectKeyFrameStatics is access all IObjectKeyFrameStatics_Interface'Class;
-   type IObjectKeyFrameStatics_Ptr is access all IObjectKeyFrameStatics;
-   type IObjectKeyFrameFactory_Interface;
-   type IObjectKeyFrameFactory is access all IObjectKeyFrameFactory_Interface'Class;
-   type IObjectKeyFrameFactory_Ptr is access all IObjectKeyFrameFactory;
-   type ITimeline_Interface;
-   type ITimeline is access all ITimeline_Interface'Class;
-   type ITimeline_Ptr is access all ITimeline;
-   type ITimelineStatics_Interface;
-   type ITimelineStatics is access all ITimelineStatics_Interface'Class;
-   type ITimelineStatics_Ptr is access all ITimelineStatics;
-   type ITimelineFactory_Interface;
-   type ITimelineFactory is access all ITimelineFactory_Interface'Class;
-   type ITimelineFactory_Ptr is access all ITimelineFactory;
-   type ITransition_Interface;
-   type ITransition is access all ITransition_Interface'Class;
-   type ITransition_Ptr is access all ITransition;
-   type ITransitionFactory_Interface;
-   type ITransitionFactory is access all ITransitionFactory_Interface'Class;
-   type ITransitionFactory_Ptr is access all ITransitionFactory;
    type IAddDeleteThemeTransition_Interface;
    type IAddDeleteThemeTransition is access all IAddDeleteThemeTransition_Interface'Class;
    type IAddDeleteThemeTransition_Ptr is access all IAddDeleteThemeTransition;
@@ -262,138 +172,27 @@ package Windows.UI.Xaml.Media.Animation is
    type IColorAnimationStatics_Interface;
    type IColorAnimationStatics is access all IColorAnimationStatics_Interface'Class;
    type IColorAnimationStatics_Ptr is access all IColorAnimationStatics;
-   type IContentThemeTransition_Interface;
-   type IContentThemeTransition is access all IContentThemeTransition_Interface'Class;
-   type IContentThemeTransition_Ptr is access all IContentThemeTransition;
-   type IContentThemeTransitionStatics_Interface;
-   type IContentThemeTransitionStatics is access all IContentThemeTransitionStatics_Interface'Class;
-   type IContentThemeTransitionStatics_Ptr is access all IContentThemeTransitionStatics;
-   type ICubicEase_Interface;
-   type ICubicEase is access all ICubicEase_Interface'Class;
-   type ICubicEase_Ptr is access all ICubicEase;
-   type IDiscreteDoubleKeyFrame_Interface;
-   type IDiscreteDoubleKeyFrame is access all IDiscreteDoubleKeyFrame_Interface'Class;
-   type IDiscreteDoubleKeyFrame_Ptr is access all IDiscreteDoubleKeyFrame;
-   type IDiscreteObjectKeyFrame_Interface;
-   type IDiscreteObjectKeyFrame is access all IDiscreteObjectKeyFrame_Interface'Class;
-   type IDiscreteObjectKeyFrame_Ptr is access all IDiscreteObjectKeyFrame;
-   type IDoubleAnimation_Interface;
-   type IDoubleAnimation is access all IDoubleAnimation_Interface'Class;
-   type IDoubleAnimation_Ptr is access all IDoubleAnimation;
-   type IDoubleAnimationStatics_Interface;
-   type IDoubleAnimationStatics is access all IDoubleAnimationStatics_Interface'Class;
-   type IDoubleAnimationStatics_Ptr is access all IDoubleAnimationStatics;
-   type IDoubleAnimationUsingKeyFrames_Interface;
-   type IDoubleAnimationUsingKeyFrames is access all IDoubleAnimationUsingKeyFrames_Interface'Class;
-   type IDoubleAnimationUsingKeyFrames_Ptr is access all IDoubleAnimationUsingKeyFrames;
-   type IDoubleAnimationUsingKeyFramesStatics_Interface;
-   type IDoubleAnimationUsingKeyFramesStatics is access all IDoubleAnimationUsingKeyFramesStatics_Interface'Class;
-   type IDoubleAnimationUsingKeyFramesStatics_Ptr is access all IDoubleAnimationUsingKeyFramesStatics;
-   type IEasingDoubleKeyFrame_Interface;
-   type IEasingDoubleKeyFrame is access all IEasingDoubleKeyFrame_Interface'Class;
-   type IEasingDoubleKeyFrame_Ptr is access all IEasingDoubleKeyFrame;
-   type IEasingDoubleKeyFrameStatics_Interface;
-   type IEasingDoubleKeyFrameStatics is access all IEasingDoubleKeyFrameStatics_Interface'Class;
-   type IEasingDoubleKeyFrameStatics_Ptr is access all IEasingDoubleKeyFrameStatics;
-   type IEdgeUIThemeTransition_Interface;
-   type IEdgeUIThemeTransition is access all IEdgeUIThemeTransition_Interface'Class;
-   type IEdgeUIThemeTransition_Ptr is access all IEdgeUIThemeTransition;
-   type IEdgeUIThemeTransitionStatics_Interface;
-   type IEdgeUIThemeTransitionStatics is access all IEdgeUIThemeTransitionStatics_Interface'Class;
-   type IEdgeUIThemeTransitionStatics_Ptr is access all IEdgeUIThemeTransitionStatics;
-   type IElasticEase_Interface;
-   type IElasticEase is access all IElasticEase_Interface'Class;
-   type IElasticEase_Ptr is access all IElasticEase;
-   type IElasticEaseStatics_Interface;
-   type IElasticEaseStatics is access all IElasticEaseStatics_Interface'Class;
-   type IElasticEaseStatics_Ptr is access all IElasticEaseStatics;
-   type IEntranceThemeTransition_Interface;
-   type IEntranceThemeTransition is access all IEntranceThemeTransition_Interface'Class;
-   type IEntranceThemeTransition_Ptr is access all IEntranceThemeTransition;
-   type IEntranceThemeTransitionStatics_Interface;
-   type IEntranceThemeTransitionStatics is access all IEntranceThemeTransitionStatics_Interface'Class;
-   type IEntranceThemeTransitionStatics_Ptr is access all IEntranceThemeTransitionStatics;
-   type IExponentialEase_Interface;
-   type IExponentialEase is access all IExponentialEase_Interface'Class;
-   type IExponentialEase_Ptr is access all IExponentialEase;
-   type IExponentialEaseStatics_Interface;
-   type IExponentialEaseStatics is access all IExponentialEaseStatics_Interface'Class;
-   type IExponentialEaseStatics_Ptr is access all IExponentialEaseStatics;
-   type ILinearDoubleKeyFrame_Interface;
-   type ILinearDoubleKeyFrame is access all ILinearDoubleKeyFrame_Interface'Class;
-   type ILinearDoubleKeyFrame_Ptr is access all ILinearDoubleKeyFrame;
-   type IObjectAnimationUsingKeyFrames_Interface;
-   type IObjectAnimationUsingKeyFrames is access all IObjectAnimationUsingKeyFrames_Interface'Class;
-   type IObjectAnimationUsingKeyFrames_Ptr is access all IObjectAnimationUsingKeyFrames;
-   type IObjectAnimationUsingKeyFramesStatics_Interface;
-   type IObjectAnimationUsingKeyFramesStatics is access all IObjectAnimationUsingKeyFramesStatics_Interface'Class;
-   type IObjectAnimationUsingKeyFramesStatics_Ptr is access all IObjectAnimationUsingKeyFramesStatics;
-   type IPaneThemeTransition_Interface;
-   type IPaneThemeTransition is access all IPaneThemeTransition_Interface'Class;
-   type IPaneThemeTransition_Ptr is access all IPaneThemeTransition;
-   type IPaneThemeTransitionStatics_Interface;
-   type IPaneThemeTransitionStatics is access all IPaneThemeTransitionStatics_Interface'Class;
-   type IPaneThemeTransitionStatics_Ptr is access all IPaneThemeTransitionStatics;
-   type IPointAnimation_Interface;
-   type IPointAnimation is access all IPointAnimation_Interface'Class;
-   type IPointAnimation_Ptr is access all IPointAnimation;
-   type IPointAnimationStatics_Interface;
-   type IPointAnimationStatics is access all IPointAnimationStatics_Interface'Class;
-   type IPointAnimationStatics_Ptr is access all IPointAnimationStatics;
-   type IPopupThemeTransition_Interface;
-   type IPopupThemeTransition is access all IPopupThemeTransition_Interface'Class;
-   type IPopupThemeTransition_Ptr is access all IPopupThemeTransition;
-   type IPopupThemeTransitionStatics_Interface;
-   type IPopupThemeTransitionStatics is access all IPopupThemeTransitionStatics_Interface'Class;
-   type IPopupThemeTransitionStatics_Ptr is access all IPopupThemeTransitionStatics;
-   type IPowerEase_Interface;
-   type IPowerEase is access all IPowerEase_Interface'Class;
-   type IPowerEase_Ptr is access all IPowerEase;
-   type IPowerEaseStatics_Interface;
-   type IPowerEaseStatics is access all IPowerEaseStatics_Interface'Class;
-   type IPowerEaseStatics_Ptr is access all IPowerEaseStatics;
-   type IQuadraticEase_Interface;
-   type IQuadraticEase is access all IQuadraticEase_Interface'Class;
-   type IQuadraticEase_Ptr is access all IQuadraticEase;
-   type IQuarticEase_Interface;
-   type IQuarticEase is access all IQuarticEase_Interface'Class;
-   type IQuarticEase_Ptr is access all IQuarticEase;
-   type IQuinticEase_Interface;
-   type IQuinticEase is access all IQuinticEase_Interface'Class;
-   type IQuinticEase_Ptr is access all IQuinticEase;
-   type IReorderThemeTransition_Interface;
-   type IReorderThemeTransition is access all IReorderThemeTransition_Interface'Class;
-   type IReorderThemeTransition_Ptr is access all IReorderThemeTransition;
-   type IRepositionThemeTransition_Interface;
-   type IRepositionThemeTransition is access all IRepositionThemeTransition_Interface'Class;
-   type IRepositionThemeTransition_Ptr is access all IRepositionThemeTransition;
-   type IRepositionThemeTransition2_Interface;
-   type IRepositionThemeTransition2 is access all IRepositionThemeTransition2_Interface'Class;
-   type IRepositionThemeTransition2_Ptr is access all IRepositionThemeTransition2;
-   type IRepositionThemeTransitionStatics2_Interface;
-   type IRepositionThemeTransitionStatics2 is access all IRepositionThemeTransitionStatics2_Interface'Class;
-   type IRepositionThemeTransitionStatics2_Ptr is access all IRepositionThemeTransitionStatics2;
-   type ISineEase_Interface;
-   type ISineEase is access all ISineEase_Interface'Class;
-   type ISineEase_Ptr is access all ISineEase;
-   type ISplineDoubleKeyFrame_Interface;
-   type ISplineDoubleKeyFrame is access all ISplineDoubleKeyFrame_Interface'Class;
-   type ISplineDoubleKeyFrame_Ptr is access all ISplineDoubleKeyFrame;
-   type ISplineDoubleKeyFrameStatics_Interface;
-   type ISplineDoubleKeyFrameStatics is access all ISplineDoubleKeyFrameStatics_Interface'Class;
-   type ISplineDoubleKeyFrameStatics_Ptr is access all ISplineDoubleKeyFrameStatics;
-   type IStoryboard_Interface;
-   type IStoryboard is access all IStoryboard_Interface'Class;
-   type IStoryboard_Ptr is access all IStoryboard;
-   type IStoryboardStatics_Interface;
-   type IStoryboardStatics is access all IStoryboardStatics_Interface'Class;
-   type IStoryboardStatics_Ptr is access all IStoryboardStatics;
-   type IVector_ColorKeyFrame_Interface;
-   type IVector_ColorKeyFrame is access all IVector_ColorKeyFrame_Interface'Class;
-   type IVector_ColorKeyFrame_Ptr is access all IVector_ColorKeyFrame;
-   type IIterable_ColorKeyFrame_Interface;
-   type IIterable_ColorKeyFrame is access all IIterable_ColorKeyFrame_Interface'Class;
-   type IIterable_ColorKeyFrame_Ptr is access all IIterable_ColorKeyFrame;
+   type IColorAnimationUsingKeyFrames_Interface;
+   type IColorAnimationUsingKeyFrames is access all IColorAnimationUsingKeyFrames_Interface'Class;
+   type IColorAnimationUsingKeyFrames_Ptr is access all IColorAnimationUsingKeyFrames;
+   type IColorAnimationUsingKeyFramesStatics_Interface;
+   type IColorAnimationUsingKeyFramesStatics is access all IColorAnimationUsingKeyFramesStatics_Interface'Class;
+   type IColorAnimationUsingKeyFramesStatics_Ptr is access all IColorAnimationUsingKeyFramesStatics;
+   type IColorKeyFrame_Interface;
+   type IColorKeyFrame is access all IColorKeyFrame_Interface'Class;
+   type IColorKeyFrame_Ptr is access all IColorKeyFrame;
+   type IColorKeyFrameFactory_Interface;
+   type IColorKeyFrameFactory is access all IColorKeyFrameFactory_Interface'Class;
+   type IColorKeyFrameFactory_Ptr is access all IColorKeyFrameFactory;
+   type IColorKeyFrameStatics_Interface;
+   type IColorKeyFrameStatics is access all IColorKeyFrameStatics_Interface'Class;
+   type IColorKeyFrameStatics_Ptr is access all IColorKeyFrameStatics;
+   type ICommonNavigationTransitionInfo_Interface;
+   type ICommonNavigationTransitionInfo is access all ICommonNavigationTransitionInfo_Interface'Class;
+   type ICommonNavigationTransitionInfo_Ptr is access all ICommonNavigationTransitionInfo;
+   type ICommonNavigationTransitionInfoStatics_Interface;
+   type ICommonNavigationTransitionInfoStatics is access all ICommonNavigationTransitionInfoStatics_Interface'Class;
+   type ICommonNavigationTransitionInfoStatics_Ptr is access all ICommonNavigationTransitionInfoStatics;
    type IConnectedAnimation_Interface;
    type IConnectedAnimation is access all IConnectedAnimation_Interface'Class;
    type IConnectedAnimation_Ptr is access all IConnectedAnimation;
@@ -406,42 +205,54 @@ package Windows.UI.Xaml.Media.Animation is
    type IConnectedAnimationServiceStatics_Interface;
    type IConnectedAnimationServiceStatics is access all IConnectedAnimationServiceStatics_Interface'Class;
    type IConnectedAnimationServiceStatics_Ptr is access all IConnectedAnimationServiceStatics;
-   type IVector_PointKeyFrame_Interface;
-   type IVector_PointKeyFrame is access all IVector_PointKeyFrame_Interface'Class;
-   type IVector_PointKeyFrame_Ptr is access all IVector_PointKeyFrame;
-   type IIterable_PointKeyFrame_Interface;
-   type IIterable_PointKeyFrame is access all IIterable_PointKeyFrame_Interface'Class;
-   type IIterable_PointKeyFrame_Ptr is access all IIterable_PointKeyFrame;
-   type IColorKeyFrame_Interface;
-   type IColorKeyFrame is access all IColorKeyFrame_Interface'Class;
-   type IColorKeyFrame_Ptr is access all IColorKeyFrame;
-   type IColorKeyFrameStatics_Interface;
-   type IColorKeyFrameStatics is access all IColorKeyFrameStatics_Interface'Class;
-   type IColorKeyFrameStatics_Ptr is access all IColorKeyFrameStatics;
-   type IColorKeyFrameFactory_Interface;
-   type IColorKeyFrameFactory is access all IColorKeyFrameFactory_Interface'Class;
-   type IColorKeyFrameFactory_Ptr is access all IColorKeyFrameFactory;
-   type IPointKeyFrame_Interface;
-   type IPointKeyFrame is access all IPointKeyFrame_Interface'Class;
-   type IPointKeyFrame_Ptr is access all IPointKeyFrame;
-   type IPointKeyFrameStatics_Interface;
-   type IPointKeyFrameStatics is access all IPointKeyFrameStatics_Interface'Class;
-   type IPointKeyFrameStatics_Ptr is access all IPointKeyFrameStatics;
-   type IPointKeyFrameFactory_Interface;
-   type IPointKeyFrameFactory is access all IPointKeyFrameFactory_Interface'Class;
-   type IPointKeyFrameFactory_Ptr is access all IPointKeyFrameFactory;
-   type IColorAnimationUsingKeyFrames_Interface;
-   type IColorAnimationUsingKeyFrames is access all IColorAnimationUsingKeyFrames_Interface'Class;
-   type IColorAnimationUsingKeyFrames_Ptr is access all IColorAnimationUsingKeyFrames;
-   type IColorAnimationUsingKeyFramesStatics_Interface;
-   type IColorAnimationUsingKeyFramesStatics is access all IColorAnimationUsingKeyFramesStatics_Interface'Class;
-   type IColorAnimationUsingKeyFramesStatics_Ptr is access all IColorAnimationUsingKeyFramesStatics;
+   type IContentThemeTransition_Interface;
+   type IContentThemeTransition is access all IContentThemeTransition_Interface'Class;
+   type IContentThemeTransition_Ptr is access all IContentThemeTransition;
+   type IContentThemeTransitionStatics_Interface;
+   type IContentThemeTransitionStatics is access all IContentThemeTransitionStatics_Interface'Class;
+   type IContentThemeTransitionStatics_Ptr is access all IContentThemeTransitionStatics;
+   type IContinuumNavigationTransitionInfo_Interface;
+   type IContinuumNavigationTransitionInfo is access all IContinuumNavigationTransitionInfo_Interface'Class;
+   type IContinuumNavigationTransitionInfo_Ptr is access all IContinuumNavigationTransitionInfo;
+   type IContinuumNavigationTransitionInfoStatics_Interface;
+   type IContinuumNavigationTransitionInfoStatics is access all IContinuumNavigationTransitionInfoStatics_Interface'Class;
+   type IContinuumNavigationTransitionInfoStatics_Ptr is access all IContinuumNavigationTransitionInfoStatics;
+   type ICubicEase_Interface;
+   type ICubicEase is access all ICubicEase_Interface'Class;
+   type ICubicEase_Ptr is access all ICubicEase;
    type IDiscreteColorKeyFrame_Interface;
    type IDiscreteColorKeyFrame is access all IDiscreteColorKeyFrame_Interface'Class;
    type IDiscreteColorKeyFrame_Ptr is access all IDiscreteColorKeyFrame;
+   type IDiscreteDoubleKeyFrame_Interface;
+   type IDiscreteDoubleKeyFrame is access all IDiscreteDoubleKeyFrame_Interface'Class;
+   type IDiscreteDoubleKeyFrame_Ptr is access all IDiscreteDoubleKeyFrame;
+   type IDiscreteObjectKeyFrame_Interface;
+   type IDiscreteObjectKeyFrame is access all IDiscreteObjectKeyFrame_Interface'Class;
+   type IDiscreteObjectKeyFrame_Ptr is access all IDiscreteObjectKeyFrame;
    type IDiscretePointKeyFrame_Interface;
    type IDiscretePointKeyFrame is access all IDiscretePointKeyFrame_Interface'Class;
    type IDiscretePointKeyFrame_Ptr is access all IDiscretePointKeyFrame;
+   type IDoubleAnimation_Interface;
+   type IDoubleAnimation is access all IDoubleAnimation_Interface'Class;
+   type IDoubleAnimation_Ptr is access all IDoubleAnimation;
+   type IDoubleAnimationStatics_Interface;
+   type IDoubleAnimationStatics is access all IDoubleAnimationStatics_Interface'Class;
+   type IDoubleAnimationStatics_Ptr is access all IDoubleAnimationStatics;
+   type IDoubleAnimationUsingKeyFrames_Interface;
+   type IDoubleAnimationUsingKeyFrames is access all IDoubleAnimationUsingKeyFrames_Interface'Class;
+   type IDoubleAnimationUsingKeyFrames_Ptr is access all IDoubleAnimationUsingKeyFrames;
+   type IDoubleAnimationUsingKeyFramesStatics_Interface;
+   type IDoubleAnimationUsingKeyFramesStatics is access all IDoubleAnimationUsingKeyFramesStatics_Interface'Class;
+   type IDoubleAnimationUsingKeyFramesStatics_Ptr is access all IDoubleAnimationUsingKeyFramesStatics;
+   type IDoubleKeyFrame_Interface;
+   type IDoubleKeyFrame is access all IDoubleKeyFrame_Interface'Class;
+   type IDoubleKeyFrame_Ptr is access all IDoubleKeyFrame;
+   type IDoubleKeyFrameFactory_Interface;
+   type IDoubleKeyFrameFactory is access all IDoubleKeyFrameFactory_Interface'Class;
+   type IDoubleKeyFrameFactory_Ptr is access all IDoubleKeyFrameFactory;
+   type IDoubleKeyFrameStatics_Interface;
+   type IDoubleKeyFrameStatics is access all IDoubleKeyFrameStatics_Interface'Class;
+   type IDoubleKeyFrameStatics_Ptr is access all IDoubleKeyFrameStatics;
    type IDragItemThemeAnimation_Interface;
    type IDragItemThemeAnimation is access all IDragItemThemeAnimation_Interface'Class;
    type IDragItemThemeAnimation_Ptr is access all IDragItemThemeAnimation;
@@ -454,6 +265,9 @@ package Windows.UI.Xaml.Media.Animation is
    type IDragOverThemeAnimationStatics_Interface;
    type IDragOverThemeAnimationStatics is access all IDragOverThemeAnimationStatics_Interface'Class;
    type IDragOverThemeAnimationStatics_Ptr is access all IDragOverThemeAnimationStatics;
+   type IDrillInNavigationTransitionInfo_Interface;
+   type IDrillInNavigationTransitionInfo is access all IDrillInNavigationTransitionInfo_Interface'Class;
+   type IDrillInNavigationTransitionInfo_Ptr is access all IDrillInNavigationTransitionInfo;
    type IDrillInThemeAnimation_Interface;
    type IDrillInThemeAnimation is access all IDrillInThemeAnimation_Interface'Class;
    type IDrillInThemeAnimation_Ptr is access all IDrillInThemeAnimation;
@@ -478,12 +292,57 @@ package Windows.UI.Xaml.Media.Animation is
    type IEasingColorKeyFrameStatics_Interface;
    type IEasingColorKeyFrameStatics is access all IEasingColorKeyFrameStatics_Interface'Class;
    type IEasingColorKeyFrameStatics_Ptr is access all IEasingColorKeyFrameStatics;
+   type IEasingDoubleKeyFrame_Interface;
+   type IEasingDoubleKeyFrame is access all IEasingDoubleKeyFrame_Interface'Class;
+   type IEasingDoubleKeyFrame_Ptr is access all IEasingDoubleKeyFrame;
+   type IEasingDoubleKeyFrameStatics_Interface;
+   type IEasingDoubleKeyFrameStatics is access all IEasingDoubleKeyFrameStatics_Interface'Class;
+   type IEasingDoubleKeyFrameStatics_Ptr is access all IEasingDoubleKeyFrameStatics;
+   type IEasingFunctionBase_Interface;
+   type IEasingFunctionBase is access all IEasingFunctionBase_Interface'Class;
+   type IEasingFunctionBase_Ptr is access all IEasingFunctionBase;
+   type IEasingFunctionBaseFactory_Interface;
+   type IEasingFunctionBaseFactory is access all IEasingFunctionBaseFactory_Interface'Class;
+   type IEasingFunctionBaseFactory_Ptr is access all IEasingFunctionBaseFactory;
+   type IEasingFunctionBaseStatics_Interface;
+   type IEasingFunctionBaseStatics is access all IEasingFunctionBaseStatics_Interface'Class;
+   type IEasingFunctionBaseStatics_Ptr is access all IEasingFunctionBaseStatics;
    type IEasingPointKeyFrame_Interface;
    type IEasingPointKeyFrame is access all IEasingPointKeyFrame_Interface'Class;
    type IEasingPointKeyFrame_Ptr is access all IEasingPointKeyFrame;
    type IEasingPointKeyFrameStatics_Interface;
    type IEasingPointKeyFrameStatics is access all IEasingPointKeyFrameStatics_Interface'Class;
    type IEasingPointKeyFrameStatics_Ptr is access all IEasingPointKeyFrameStatics;
+   type IEdgeUIThemeTransition_Interface;
+   type IEdgeUIThemeTransition is access all IEdgeUIThemeTransition_Interface'Class;
+   type IEdgeUIThemeTransition_Ptr is access all IEdgeUIThemeTransition;
+   type IEdgeUIThemeTransitionStatics_Interface;
+   type IEdgeUIThemeTransitionStatics is access all IEdgeUIThemeTransitionStatics_Interface'Class;
+   type IEdgeUIThemeTransitionStatics_Ptr is access all IEdgeUIThemeTransitionStatics;
+   type IElasticEase_Interface;
+   type IElasticEase is access all IElasticEase_Interface'Class;
+   type IElasticEase_Ptr is access all IElasticEase;
+   type IElasticEaseStatics_Interface;
+   type IElasticEaseStatics is access all IElasticEaseStatics_Interface'Class;
+   type IElasticEaseStatics_Ptr is access all IElasticEaseStatics;
+   type IEntranceNavigationTransitionInfo_Interface;
+   type IEntranceNavigationTransitionInfo is access all IEntranceNavigationTransitionInfo_Interface'Class;
+   type IEntranceNavigationTransitionInfo_Ptr is access all IEntranceNavigationTransitionInfo;
+   type IEntranceNavigationTransitionInfoStatics_Interface;
+   type IEntranceNavigationTransitionInfoStatics is access all IEntranceNavigationTransitionInfoStatics_Interface'Class;
+   type IEntranceNavigationTransitionInfoStatics_Ptr is access all IEntranceNavigationTransitionInfoStatics;
+   type IEntranceThemeTransition_Interface;
+   type IEntranceThemeTransition is access all IEntranceThemeTransition_Interface'Class;
+   type IEntranceThemeTransition_Ptr is access all IEntranceThemeTransition;
+   type IEntranceThemeTransitionStatics_Interface;
+   type IEntranceThemeTransitionStatics is access all IEntranceThemeTransitionStatics_Interface'Class;
+   type IEntranceThemeTransitionStatics_Ptr is access all IEntranceThemeTransitionStatics;
+   type IExponentialEase_Interface;
+   type IExponentialEase is access all IExponentialEase_Interface'Class;
+   type IExponentialEase_Ptr is access all IExponentialEase;
+   type IExponentialEaseStatics_Interface;
+   type IExponentialEaseStatics is access all IExponentialEaseStatics_Interface'Class;
+   type IExponentialEaseStatics_Ptr is access all IExponentialEaseStatics;
    type IFadeInThemeAnimation_Interface;
    type IFadeInThemeAnimation is access all IFadeInThemeAnimation_Interface'Class;
    type IFadeInThemeAnimation_Ptr is access all IFadeInThemeAnimation;
@@ -496,12 +355,84 @@ package Windows.UI.Xaml.Media.Animation is
    type IFadeOutThemeAnimationStatics_Interface;
    type IFadeOutThemeAnimationStatics is access all IFadeOutThemeAnimationStatics_Interface'Class;
    type IFadeOutThemeAnimationStatics_Ptr is access all IFadeOutThemeAnimationStatics;
+   type IIterable_ColorKeyFrame_Interface;
+   type IIterable_ColorKeyFrame is access all IIterable_ColorKeyFrame_Interface'Class;
+   type IIterable_ColorKeyFrame_Ptr is access all IIterable_ColorKeyFrame;
+   type IIterable_DoubleKeyFrame_Interface;
+   type IIterable_DoubleKeyFrame is access all IIterable_DoubleKeyFrame_Interface'Class;
+   type IIterable_DoubleKeyFrame_Ptr is access all IIterable_DoubleKeyFrame;
+   type IIterable_ObjectKeyFrame_Interface;
+   type IIterable_ObjectKeyFrame is access all IIterable_ObjectKeyFrame_Interface'Class;
+   type IIterable_ObjectKeyFrame_Ptr is access all IIterable_ObjectKeyFrame;
+   type IIterable_PointKeyFrame_Interface;
+   type IIterable_PointKeyFrame is access all IIterable_PointKeyFrame_Interface'Class;
+   type IIterable_PointKeyFrame_Ptr is access all IIterable_PointKeyFrame;
+   type IIterable_Timeline_Interface;
+   type IIterable_Timeline is access all IIterable_Timeline_Interface'Class;
+   type IIterable_Timeline_Ptr is access all IIterable_Timeline;
+   type IIterable_Transition_Interface;
+   type IIterable_Transition is access all IIterable_Transition_Interface'Class;
+   type IIterable_Transition_Ptr is access all IIterable_Transition;
+   type IKeySpline_Interface;
+   type IKeySpline is access all IKeySpline_Interface'Class;
+   type IKeySpline_Ptr is access all IKeySpline;
+   type IKeyTimeHelper_Interface;
+   type IKeyTimeHelper is access all IKeyTimeHelper_Interface'Class;
+   type IKeyTimeHelper_Ptr is access all IKeyTimeHelper;
+   type IKeyTimeHelperStatics_Interface;
+   type IKeyTimeHelperStatics is access all IKeyTimeHelperStatics_Interface'Class;
+   type IKeyTimeHelperStatics_Ptr is access all IKeyTimeHelperStatics;
    type ILinearColorKeyFrame_Interface;
    type ILinearColorKeyFrame is access all ILinearColorKeyFrame_Interface'Class;
    type ILinearColorKeyFrame_Ptr is access all ILinearColorKeyFrame;
+   type ILinearDoubleKeyFrame_Interface;
+   type ILinearDoubleKeyFrame is access all ILinearDoubleKeyFrame_Interface'Class;
+   type ILinearDoubleKeyFrame_Ptr is access all ILinearDoubleKeyFrame;
    type ILinearPointKeyFrame_Interface;
    type ILinearPointKeyFrame is access all ILinearPointKeyFrame_Interface'Class;
    type ILinearPointKeyFrame_Ptr is access all ILinearPointKeyFrame;
+   type INavigationThemeTransition_Interface;
+   type INavigationThemeTransition is access all INavigationThemeTransition_Interface'Class;
+   type INavigationThemeTransition_Ptr is access all INavigationThemeTransition;
+   type INavigationThemeTransitionStatics_Interface;
+   type INavigationThemeTransitionStatics is access all INavigationThemeTransitionStatics_Interface'Class;
+   type INavigationThemeTransitionStatics_Ptr is access all INavigationThemeTransitionStatics;
+   type INavigationTransitionInfo_Interface;
+   type INavigationTransitionInfo is access all INavigationTransitionInfo_Interface'Class;
+   type INavigationTransitionInfo_Ptr is access all INavigationTransitionInfo;
+   type INavigationTransitionInfoFactory_Interface;
+   type INavigationTransitionInfoFactory is access all INavigationTransitionInfoFactory_Interface'Class;
+   type INavigationTransitionInfoFactory_Ptr is access all INavigationTransitionInfoFactory;
+   type INavigationTransitionInfoOverrides_Interface;
+   type INavigationTransitionInfoOverrides is access all INavigationTransitionInfoOverrides_Interface'Class;
+   type INavigationTransitionInfoOverrides_Ptr is access all INavigationTransitionInfoOverrides;
+   type IObjectAnimationUsingKeyFrames_Interface;
+   type IObjectAnimationUsingKeyFrames is access all IObjectAnimationUsingKeyFrames_Interface'Class;
+   type IObjectAnimationUsingKeyFrames_Ptr is access all IObjectAnimationUsingKeyFrames;
+   type IObjectAnimationUsingKeyFramesStatics_Interface;
+   type IObjectAnimationUsingKeyFramesStatics is access all IObjectAnimationUsingKeyFramesStatics_Interface'Class;
+   type IObjectAnimationUsingKeyFramesStatics_Ptr is access all IObjectAnimationUsingKeyFramesStatics;
+   type IObjectKeyFrame_Interface;
+   type IObjectKeyFrame is access all IObjectKeyFrame_Interface'Class;
+   type IObjectKeyFrame_Ptr is access all IObjectKeyFrame;
+   type IObjectKeyFrameFactory_Interface;
+   type IObjectKeyFrameFactory is access all IObjectKeyFrameFactory_Interface'Class;
+   type IObjectKeyFrameFactory_Ptr is access all IObjectKeyFrameFactory;
+   type IObjectKeyFrameStatics_Interface;
+   type IObjectKeyFrameStatics is access all IObjectKeyFrameStatics_Interface'Class;
+   type IObjectKeyFrameStatics_Ptr is access all IObjectKeyFrameStatics;
+   type IPaneThemeTransition_Interface;
+   type IPaneThemeTransition is access all IPaneThemeTransition_Interface'Class;
+   type IPaneThemeTransition_Ptr is access all IPaneThemeTransition;
+   type IPaneThemeTransitionStatics_Interface;
+   type IPaneThemeTransitionStatics is access all IPaneThemeTransitionStatics_Interface'Class;
+   type IPaneThemeTransitionStatics_Ptr is access all IPaneThemeTransitionStatics;
+   type IPointAnimation_Interface;
+   type IPointAnimation is access all IPointAnimation_Interface'Class;
+   type IPointAnimation_Ptr is access all IPointAnimation;
+   type IPointAnimationStatics_Interface;
+   type IPointAnimationStatics is access all IPointAnimationStatics_Interface'Class;
+   type IPointAnimationStatics_Ptr is access all IPointAnimationStatics;
    type IPointAnimationUsingKeyFrames_Interface;
    type IPointAnimationUsingKeyFrames is access all IPointAnimationUsingKeyFrames_Interface'Class;
    type IPointAnimationUsingKeyFrames_Ptr is access all IPointAnimationUsingKeyFrames;
@@ -520,6 +451,15 @@ package Windows.UI.Xaml.Media.Animation is
    type IPointerUpThemeAnimationStatics_Interface;
    type IPointerUpThemeAnimationStatics is access all IPointerUpThemeAnimationStatics_Interface'Class;
    type IPointerUpThemeAnimationStatics_Ptr is access all IPointerUpThemeAnimationStatics;
+   type IPointKeyFrame_Interface;
+   type IPointKeyFrame is access all IPointKeyFrame_Interface'Class;
+   type IPointKeyFrame_Ptr is access all IPointKeyFrame;
+   type IPointKeyFrameFactory_Interface;
+   type IPointKeyFrameFactory is access all IPointKeyFrameFactory_Interface'Class;
+   type IPointKeyFrameFactory_Ptr is access all IPointKeyFrameFactory;
+   type IPointKeyFrameStatics_Interface;
+   type IPointKeyFrameStatics is access all IPointKeyFrameStatics_Interface'Class;
+   type IPointKeyFrameStatics_Ptr is access all IPointKeyFrameStatics;
    type IPopInThemeAnimation_Interface;
    type IPopInThemeAnimation is access all IPopInThemeAnimation_Interface'Class;
    type IPopInThemeAnimation_Ptr is access all IPopInThemeAnimation;
@@ -532,18 +472,69 @@ package Windows.UI.Xaml.Media.Animation is
    type IPopOutThemeAnimationStatics_Interface;
    type IPopOutThemeAnimationStatics is access all IPopOutThemeAnimationStatics_Interface'Class;
    type IPopOutThemeAnimationStatics_Ptr is access all IPopOutThemeAnimationStatics;
+   type IPopupThemeTransition_Interface;
+   type IPopupThemeTransition is access all IPopupThemeTransition_Interface'Class;
+   type IPopupThemeTransition_Ptr is access all IPopupThemeTransition;
+   type IPopupThemeTransitionStatics_Interface;
+   type IPopupThemeTransitionStatics is access all IPopupThemeTransitionStatics_Interface'Class;
+   type IPopupThemeTransitionStatics_Ptr is access all IPopupThemeTransitionStatics;
+   type IPowerEase_Interface;
+   type IPowerEase is access all IPowerEase_Interface'Class;
+   type IPowerEase_Ptr is access all IPowerEase;
+   type IPowerEaseStatics_Interface;
+   type IPowerEaseStatics is access all IPowerEaseStatics_Interface'Class;
+   type IPowerEaseStatics_Ptr is access all IPowerEaseStatics;
+   type IQuadraticEase_Interface;
+   type IQuadraticEase is access all IQuadraticEase_Interface'Class;
+   type IQuadraticEase_Ptr is access all IQuadraticEase;
+   type IQuarticEase_Interface;
+   type IQuarticEase is access all IQuarticEase_Interface'Class;
+   type IQuarticEase_Ptr is access all IQuarticEase;
+   type IQuinticEase_Interface;
+   type IQuinticEase is access all IQuinticEase_Interface'Class;
+   type IQuinticEase_Ptr is access all IQuinticEase;
+   type IReorderThemeTransition_Interface;
+   type IReorderThemeTransition is access all IReorderThemeTransition_Interface'Class;
+   type IReorderThemeTransition_Ptr is access all IReorderThemeTransition;
+   type IRepeatBehaviorHelper_Interface;
+   type IRepeatBehaviorHelper is access all IRepeatBehaviorHelper_Interface'Class;
+   type IRepeatBehaviorHelper_Ptr is access all IRepeatBehaviorHelper;
+   type IRepeatBehaviorHelperStatics_Interface;
+   type IRepeatBehaviorHelperStatics is access all IRepeatBehaviorHelperStatics_Interface'Class;
+   type IRepeatBehaviorHelperStatics_Ptr is access all IRepeatBehaviorHelperStatics;
    type IRepositionThemeAnimation_Interface;
    type IRepositionThemeAnimation is access all IRepositionThemeAnimation_Interface'Class;
    type IRepositionThemeAnimation_Ptr is access all IRepositionThemeAnimation;
    type IRepositionThemeAnimationStatics_Interface;
    type IRepositionThemeAnimationStatics is access all IRepositionThemeAnimationStatics_Interface'Class;
    type IRepositionThemeAnimationStatics_Ptr is access all IRepositionThemeAnimationStatics;
+   type IRepositionThemeTransition_Interface;
+   type IRepositionThemeTransition is access all IRepositionThemeTransition_Interface'Class;
+   type IRepositionThemeTransition_Ptr is access all IRepositionThemeTransition;
+   type IRepositionThemeTransition2_Interface;
+   type IRepositionThemeTransition2 is access all IRepositionThemeTransition2_Interface'Class;
+   type IRepositionThemeTransition2_Ptr is access all IRepositionThemeTransition2;
+   type IRepositionThemeTransitionStatics2_Interface;
+   type IRepositionThemeTransitionStatics2 is access all IRepositionThemeTransitionStatics2_Interface'Class;
+   type IRepositionThemeTransitionStatics2_Ptr is access all IRepositionThemeTransitionStatics2;
+   type ISineEase_Interface;
+   type ISineEase is access all ISineEase_Interface'Class;
+   type ISineEase_Ptr is access all ISineEase;
+   type ISlideNavigationTransitionInfo_Interface;
+   type ISlideNavigationTransitionInfo is access all ISlideNavigationTransitionInfo_Interface'Class;
+   type ISlideNavigationTransitionInfo_Ptr is access all ISlideNavigationTransitionInfo;
    type ISplineColorKeyFrame_Interface;
    type ISplineColorKeyFrame is access all ISplineColorKeyFrame_Interface'Class;
    type ISplineColorKeyFrame_Ptr is access all ISplineColorKeyFrame;
    type ISplineColorKeyFrameStatics_Interface;
    type ISplineColorKeyFrameStatics is access all ISplineColorKeyFrameStatics_Interface'Class;
    type ISplineColorKeyFrameStatics_Ptr is access all ISplineColorKeyFrameStatics;
+   type ISplineDoubleKeyFrame_Interface;
+   type ISplineDoubleKeyFrame is access all ISplineDoubleKeyFrame_Interface'Class;
+   type ISplineDoubleKeyFrame_Ptr is access all ISplineDoubleKeyFrame;
+   type ISplineDoubleKeyFrameStatics_Interface;
+   type ISplineDoubleKeyFrameStatics is access all ISplineDoubleKeyFrameStatics_Interface'Class;
+   type ISplineDoubleKeyFrameStatics_Ptr is access all ISplineDoubleKeyFrameStatics;
    type ISplinePointKeyFrame_Interface;
    type ISplinePointKeyFrame is access all ISplinePointKeyFrame_Interface'Class;
    type ISplinePointKeyFrame_Ptr is access all ISplinePointKeyFrame;
@@ -562,6 +553,15 @@ package Windows.UI.Xaml.Media.Animation is
    type ISplitOpenThemeAnimationStatics_Interface;
    type ISplitOpenThemeAnimationStatics is access all ISplitOpenThemeAnimationStatics_Interface'Class;
    type ISplitOpenThemeAnimationStatics_Ptr is access all ISplitOpenThemeAnimationStatics;
+   type IStoryboard_Interface;
+   type IStoryboard is access all IStoryboard_Interface'Class;
+   type IStoryboard_Ptr is access all IStoryboard;
+   type IStoryboardStatics_Interface;
+   type IStoryboardStatics is access all IStoryboardStatics_Interface'Class;
+   type IStoryboardStatics_Ptr is access all IStoryboardStatics;
+   type ISuppressNavigationTransitionInfo_Interface;
+   type ISuppressNavigationTransitionInfo is access all ISuppressNavigationTransitionInfo_Interface'Class;
+   type ISuppressNavigationTransitionInfo_Ptr is access all ISuppressNavigationTransitionInfo;
    type ISwipeBackThemeAnimation_Interface;
    type ISwipeBackThemeAnimation is access all ISwipeBackThemeAnimation_Interface'Class;
    type ISwipeBackThemeAnimation_Ptr is access all ISwipeBackThemeAnimation;
@@ -574,1009 +574,43 @@ package Windows.UI.Xaml.Media.Animation is
    type ISwipeHintThemeAnimationStatics_Interface;
    type ISwipeHintThemeAnimationStatics is access all ISwipeHintThemeAnimationStatics_Interface'Class;
    type ISwipeHintThemeAnimationStatics_Ptr is access all ISwipeHintThemeAnimationStatics;
-   type ICommonNavigationTransitionInfo_Interface;
-   type ICommonNavigationTransitionInfo is access all ICommonNavigationTransitionInfo_Interface'Class;
-   type ICommonNavigationTransitionInfo_Ptr is access all ICommonNavigationTransitionInfo;
-   type ICommonNavigationTransitionInfoStatics_Interface;
-   type ICommonNavigationTransitionInfoStatics is access all ICommonNavigationTransitionInfoStatics_Interface'Class;
-   type ICommonNavigationTransitionInfoStatics_Ptr is access all ICommonNavigationTransitionInfoStatics;
-   type IContinuumNavigationTransitionInfo_Interface;
-   type IContinuumNavigationTransitionInfo is access all IContinuumNavigationTransitionInfo_Interface'Class;
-   type IContinuumNavigationTransitionInfo_Ptr is access all IContinuumNavigationTransitionInfo;
-   type IContinuumNavigationTransitionInfoStatics_Interface;
-   type IContinuumNavigationTransitionInfoStatics is access all IContinuumNavigationTransitionInfoStatics_Interface'Class;
-   type IContinuumNavigationTransitionInfoStatics_Ptr is access all IContinuumNavigationTransitionInfoStatics;
-   type IDrillInNavigationTransitionInfo_Interface;
-   type IDrillInNavigationTransitionInfo is access all IDrillInNavigationTransitionInfo_Interface'Class;
-   type IDrillInNavigationTransitionInfo_Ptr is access all IDrillInNavigationTransitionInfo;
-   type IEntranceNavigationTransitionInfo_Interface;
-   type IEntranceNavigationTransitionInfo is access all IEntranceNavigationTransitionInfo_Interface'Class;
-   type IEntranceNavigationTransitionInfo_Ptr is access all IEntranceNavigationTransitionInfo;
-   type IEntranceNavigationTransitionInfoStatics_Interface;
-   type IEntranceNavigationTransitionInfoStatics is access all IEntranceNavigationTransitionInfoStatics_Interface'Class;
-   type IEntranceNavigationTransitionInfoStatics_Ptr is access all IEntranceNavigationTransitionInfoStatics;
-   type INavigationThemeTransition_Interface;
-   type INavigationThemeTransition is access all INavigationThemeTransition_Interface'Class;
-   type INavigationThemeTransition_Ptr is access all INavigationThemeTransition;
-   type INavigationThemeTransitionStatics_Interface;
-   type INavigationThemeTransitionStatics is access all INavigationThemeTransitionStatics_Interface'Class;
-   type INavigationThemeTransitionStatics_Ptr is access all INavigationThemeTransitionStatics;
-   type ISlideNavigationTransitionInfo_Interface;
-   type ISlideNavigationTransitionInfo is access all ISlideNavigationTransitionInfo_Interface'Class;
-   type ISlideNavigationTransitionInfo_Ptr is access all ISlideNavigationTransitionInfo;
-   type ISuppressNavigationTransitionInfo_Interface;
-   type ISuppressNavigationTransitionInfo is access all ISuppressNavigationTransitionInfo_Interface'Class;
-   type ISuppressNavigationTransitionInfo_Ptr is access all ISuppressNavigationTransitionInfo;
+   type ITimeline_Interface;
+   type ITimeline is access all ITimeline_Interface'Class;
+   type ITimeline_Ptr is access all ITimeline;
+   type ITimelineFactory_Interface;
+   type ITimelineFactory is access all ITimelineFactory_Interface'Class;
+   type ITimelineFactory_Ptr is access all ITimelineFactory;
+   type ITimelineStatics_Interface;
+   type ITimelineStatics is access all ITimelineStatics_Interface'Class;
+   type ITimelineStatics_Ptr is access all ITimelineStatics;
+   type ITransition_Interface;
+   type ITransition is access all ITransition_Interface'Class;
+   type ITransition_Ptr is access all ITransition;
+   type ITransitionFactory_Interface;
+   type ITransitionFactory is access all ITransitionFactory_Interface'Class;
+   type ITransitionFactory_Ptr is access all ITransitionFactory;
+   type IVector_ColorKeyFrame_Interface;
+   type IVector_ColorKeyFrame is access all IVector_ColorKeyFrame_Interface'Class;
+   type IVector_ColorKeyFrame_Ptr is access all IVector_ColorKeyFrame;
+   type IVector_DoubleKeyFrame_Interface;
+   type IVector_DoubleKeyFrame is access all IVector_DoubleKeyFrame_Interface'Class;
+   type IVector_DoubleKeyFrame_Ptr is access all IVector_DoubleKeyFrame;
+   type IVector_ObjectKeyFrame_Interface;
+   type IVector_ObjectKeyFrame is access all IVector_ObjectKeyFrame_Interface'Class;
+   type IVector_ObjectKeyFrame_Ptr is access all IVector_ObjectKeyFrame;
+   type IVector_PointKeyFrame_Interface;
+   type IVector_PointKeyFrame is access all IVector_PointKeyFrame_Interface'Class;
+   type IVector_PointKeyFrame_Ptr is access all IVector_PointKeyFrame;
+   type IVector_Timeline_Interface;
+   type IVector_Timeline is access all IVector_Timeline_Interface'Class;
+   type IVector_Timeline_Ptr is access all IVector_Timeline;
+   type IVector_Transition_Interface;
+   type IVector_Transition is access all IVector_Transition_Interface'Class;
+   type IVector_Transition_Ptr is access all IVector_Transition;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IKeyTimeHelper : aliased constant Windows.IID := (910419072, 18467, 18026, (171, 229, 94, 121, 200, 237, 119, 237 ));
-   
-   type IKeyTimeHelper_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IKeyTimeHelperStatics : aliased constant Windows.IID := (2141348140, 8873, 17897, (154, 247, 199, 65, 110, 255, 247, 165 ));
-   
-   type IKeyTimeHelperStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function FromTimeSpan
-   (
-      This       : access IKeyTimeHelperStatics_Interface
-      ; timeSpan : Windows.Foundation.TimeSpan
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRepeatBehaviorHelper : aliased constant Windows.IID := (1751362418, 18839, 18425, (135, 173, 55, 239, 183, 89, 147, 234 ));
-   
-   type IRepeatBehaviorHelper_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRepeatBehaviorHelperStatics : aliased constant Windows.IID := (2054770739, 31219, 19929, (178, 103, 156, 245, 15, 181, 31, 132 ));
-   
-   type IRepeatBehaviorHelperStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Forever
-   (
-      This       : access IRepeatBehaviorHelperStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromCount
-   (
-      This       : access IRepeatBehaviorHelperStatics_Interface
-      ; count : Windows.Double
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function FromDuration
-   (
-      This       : access IRepeatBehaviorHelperStatics_Interface
-      ; duration : Windows.Foundation.TimeSpan
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetHasCount
-   (
-      This       : access IRepeatBehaviorHelperStatics_Interface
-      ; target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetHasDuration
-   (
-      This       : access IRepeatBehaviorHelperStatics_Interface
-      ; target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Equals
-   (
-      This       : access IRepeatBehaviorHelperStatics_Interface
-      ; target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_Transition : aliased constant Windows.IID := (3885520671, 32318, 24090, (170, 85, 203, 201, 59, 131, 248, 33 ));
-   
-   type IVector_Transition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_Transition_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITransition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_Transition_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_Transition_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITransition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_Transition_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.ITransition
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_Transition_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.ITransition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_Transition_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.ITransition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_Transition_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_Transition_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.ITransition
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_Transition_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_Transition_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_Transition_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.Animation.ITransition_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_Transition_Interface
-      ; items : Windows.UI.Xaml.Media.Animation.ITransition_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_Transition : aliased constant Windows.IID := (4273279896, 20443, 20754, (138, 155, 106, 135, 134, 202, 1, 206 ));
-   
-   type IIterable_Transition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_Transition_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITransition
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_DoubleKeyFrame : aliased constant Windows.IID := (3620462114, 34495, 22319, (132, 115, 7, 157, 21, 7, 108, 62 ));
-   
-   type IVector_DoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_DoubleKeyFrame_Interface
-      ; items : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_DoubleKeyFrame : aliased constant Windows.IID := (1595307738, 41989, 23418, (186, 241, 150, 141, 228, 57, 31, 183 ));
-   
-   type IIterable_DoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_DoubleKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_ObjectKeyFrame : aliased constant Windows.IID := (1601387839, 29350, 21251, (151, 39, 43, 3, 234, 231, 221, 76 ));
-   
-   type IVector_ObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_ObjectKeyFrame_Interface
-      ; items : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ObjectKeyFrame : aliased constant Windows.IID := (2424613089, 36685, 24035, (177, 198, 229, 240, 87, 36, 202, 237 ));
-   
-   type IIterable_ObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ObjectKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_Timeline : aliased constant Windows.IID := (537249785, 51159, 21019, (168, 28, 44, 157, 173, 119, 169, 232 ));
-   
-   type IVector_Timeline_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_Timeline_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_Timeline_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_Timeline_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_Timeline_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_Timeline_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_Timeline_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_Timeline_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_Timeline_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_Timeline_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_Timeline_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_Timeline_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.Animation.ITimeline_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_Timeline_Interface
-      ; items : Windows.UI.Xaml.Media.Animation.ITimeline_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_Timeline : aliased constant Windows.IID := (2703401798, 59093, 23636, (133, 125, 3, 142, 96, 245, 217, 193 ));
-   
-   type IIterable_Timeline_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_Timeline_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDoubleKeyFrame : aliased constant Windows.IID := (1732531965, 59422, 20302, (180, 173, 10, 207, 237, 158, 205, 104 ));
-   
-   type IDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IDoubleKeyFrame_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Value
-   (
-      This       : access IDoubleKeyFrame_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyTime
-   (
-      This       : access IDoubleKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeyTime
-   (
-      This       : access IDoubleKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDoubleKeyFrameStatics : aliased constant Windows.IID := (843465136, 32055, 17018, (173, 235, 67, 243, 139, 182, 26, 77 ));
-   
-   type IDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ValueProperty
-   (
-      This       : access IDoubleKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyTimeProperty
-   (
-      This       : access IDoubleKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDoubleKeyFrameFactory : aliased constant Windows.IID := (2895634115, 30008, 16569, (177, 82, 105, 111, 127, 191, 71, 34 ));
-   
-   type IDoubleKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IDoubleKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEasingFunctionBase : aliased constant Windows.IID := (3238541375, 11266, 16721, (142, 205, 104, 221, 170, 63, 13, 155 ));
-   
-   type IEasingFunctionBase_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EasingMode
-   (
-      This       : access IEasingFunctionBase_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.EasingMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EasingMode
-   (
-      This       : access IEasingFunctionBase_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.EasingMode
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Ease
-   (
-      This       : access IEasingFunctionBase_Interface
-      ; normalizedTime : Windows.Double
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEasingFunctionBaseStatics : aliased constant Windows.IID := (709898666, 11344, 18973, (187, 4, 215, 94, 7, 183, 21, 72 ));
-   
-   type IEasingFunctionBaseStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EasingModeProperty
-   (
-      This       : access IEasingFunctionBaseStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEasingFunctionBaseFactory : aliased constant Windows.IID := (405864042, 61467, 17376, (182, 31, 180, 82, 161, 198, 111, 210 ));
-   
-   type IEasingFunctionBaseFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IKeySpline : aliased constant Windows.IID := (2007065531, 54730, 18994, (186, 11, 125, 255, 152, 142, 88, 160 ));
-   
-   type IKeySpline_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ControlPoint1
-   (
-      This       : access IKeySpline_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ControlPoint1
-   (
-      This       : access IKeySpline_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ControlPoint2
-   (
-      This       : access IKeySpline_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ControlPoint2
-   (
-      This       : access IKeySpline_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INavigationTransitionInfo : aliased constant Windows.IID := (2846904465, 44618, 17266, (134, 37, 33, 183, 168, 185, 140, 164 ));
-   
-   type INavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INavigationTransitionInfoOverrides : aliased constant Windows.IID := (3645996650, 43472, 19447, (157, 176, 70, 51, 166, 157, 175, 242 ));
-   
-   type INavigationTransitionInfoOverrides_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetNavigationStateCore
-   (
-      This       : access INavigationTransitionInfoOverrides_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetNavigationStateCore
-   (
-      This       : access INavigationTransitionInfoOverrides_Interface
-      ; navigationState : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_INavigationTransitionInfoFactory : aliased constant Windows.IID := (3992254677, 44899, 20395, (157, 74, 135, 146, 127, 130, 221, 107 ));
-   
-   type INavigationTransitionInfoFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access INavigationTransitionInfoFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IObjectKeyFrame : aliased constant Windows.IID := (2555553873, 34195, 18670, (166, 164, 213, 212, 114, 15, 2, 154 ));
-   
-   type IObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IObjectKeyFrame_Interface
-      ; RetVal : access Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Value
-   (
-      This       : access IObjectKeyFrame_Interface
-      ; value : Windows.Object
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyTime
-   (
-      This       : access IObjectKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeyTime
-   (
-      This       : access IObjectKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IObjectKeyFrameStatics : aliased constant Windows.IID := (752265984, 21273, 17030, (142, 237, 78, 117, 94, 160, 207, 156 ));
-   
-   type IObjectKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ValueProperty
-   (
-      This       : access IObjectKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyTimeProperty
-   (
-      This       : access IObjectKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IObjectKeyFrameFactory : aliased constant Windows.IID := (371594302, 15981, 17624, (155, 154, 4, 174, 167, 15, 132, 146 ));
-   
-   type IObjectKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IObjectKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITimeline : aliased constant Windows.IID := (197420508, 48717, 19725, (149, 73, 34, 8, 183, 21, 244, 13 ));
-   
-   type ITimeline_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AutoReverse
-   (
-      This       : access ITimeline_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AutoReverse
-   (
-      This       : access ITimeline_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BeginTime
-   (
-      This       : access ITimeline_Interface
-      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_BeginTime
-   (
-      This       : access ITimeline_Interface
-      ; value : Windows.Foundation.IReference_TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Duration
-   (
-      This       : access ITimeline_Interface
-      ; RetVal : access Windows.UI.Xaml.Duration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Duration
-   (
-      This       : access ITimeline_Interface
-      ; value : Windows.UI.Xaml.Duration
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SpeedRatio
-   (
-      This       : access ITimeline_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_SpeedRatio
-   (
-      This       : access ITimeline_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FillBehavior
-   (
-      This       : access ITimeline_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.FillBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FillBehavior
-   (
-      This       : access ITimeline_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.FillBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RepeatBehavior
-   (
-      This       : access ITimeline_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_RepeatBehavior
-   (
-      This       : access ITimeline_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.HRESULT is abstract;
-   
-   function add_Completed
-   (
-      This       : access ITimeline_Interface
-      ; value : Windows.Foundation.EventHandler_Object
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Completed
-   (
-      This       : access ITimeline_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITimelineStatics : aliased constant Windows.IID := (2835541326, 61200, 19823, (154, 64, 147, 203, 136, 149, 244, 229 ));
-   
-   type ITimelineStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_AllowDependentAnimations
-   (
-      This       : access ITimelineStatics_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_AllowDependentAnimations
-   (
-      This       : access ITimelineStatics_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_AutoReverseProperty
-   (
-      This       : access ITimelineStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_BeginTimeProperty
-   (
-      This       : access ITimelineStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DurationProperty
-   (
-      This       : access ITimelineStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SpeedRatioProperty
-   (
-      This       : access ITimelineStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FillBehaviorProperty
-   (
-      This       : access ITimelineStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RepeatBehaviorProperty
-   (
-      This       : access ITimelineStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITimelineFactory : aliased constant Windows.IID := (492223239, 48548, 18315, (138, 218, 235, 4, 213, 128, 205, 94 ));
-   
-   type ITimelineFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access ITimelineFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITransition : aliased constant Windows.IID := (1013415036, 464, 19918, (179, 51, 151, 111, 147, 49, 43, 8 ));
-   
-   type ITransition_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ITransitionFactory : aliased constant Windows.IID := (3701125839, 15305, 17578, (179, 252, 136, 58, 131, 35, 58, 44 ));
-   
-   type ITransitionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -1829,6 +863,307 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IColorAnimationUsingKeyFrames : aliased constant Windows.IID := (4123534912, 5059, 17066, (154, 226, 126, 107, 81, 201, 47, 149 ));
+   
+   type IColorAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyFrames
+   (
+      This       : access IColorAnimationUsingKeyFrames_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EnableDependentAnimation
+   (
+      This       : access IColorAnimationUsingKeyFrames_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EnableDependentAnimation
+   (
+      This       : access IColorAnimationUsingKeyFrames_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IColorAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3027385564, 38633, 18681, (141, 146, 155, 100, 139, 47, 28, 198 ));
+   
+   type IColorAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EnableDependentAnimationProperty
+   (
+      This       : access IColorAnimationUsingKeyFramesStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IColorKeyFrame : aliased constant Windows.IID := (3038610137, 2320, 17801, (162, 132, 176, 201, 32, 88, 88, 233 ));
+   
+   type IColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IColorKeyFrame_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Value
+   (
+      This       : access IColorKeyFrame_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyTime
+   (
+      This       : access IColorKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeyTime
+   (
+      This       : access IColorKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IColorKeyFrameFactory : aliased constant Windows.IID := (1989925002, 40187, 19069, (150, 196, 161, 231, 222, 111, 219, 75 ));
+   
+   type IColorKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IColorKeyFrameFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IColorKeyFrameStatics : aliased constant Windows.IID := (3225661081, 8460, 17167, (157, 165, 223, 16, 130, 105, 32, 85 ));
+   
+   type IColorKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ValueProperty
+   (
+      This       : access IColorKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyTimeProperty
+   (
+      This       : access IColorKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommonNavigationTransitionInfo : aliased constant Windows.IID := (1345607314, 42325, 17956, (163, 97, 10, 145, 193, 112, 100, 115 ));
+   
+   type ICommonNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsStaggeringEnabled
+   (
+      This       : access ICommonNavigationTransitionInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsStaggeringEnabled
+   (
+      This       : access ICommonNavigationTransitionInfo_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommonNavigationTransitionInfoStatics : aliased constant Windows.IID := (507444787, 20670, 17475, (136, 60, 229, 98, 114, 1, 194, 229 ));
+   
+   type ICommonNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsStaggeringEnabledProperty
+   (
+      This       : access ICommonNavigationTransitionInfoStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStaggerElementProperty
+   (
+      This       : access ICommonNavigationTransitionInfoStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIsStaggerElement
+   (
+      This       : access ICommonNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetIsStaggerElement
+   (
+      This       : access ICommonNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimation : aliased constant Windows.IID := (890790540, 62343, 19493, (172, 152, 68, 232, 108, 60, 173, 240 ));
+   
+   type IConnectedAnimation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Completed
+   (
+      This       : access IConnectedAnimation_Interface
+      ; value : TypedEventHandler_IConnectedAnimation_add_Completed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Completed
+   (
+      This       : access IConnectedAnimation_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryStart
+   (
+      This       : access IConnectedAnimation_Interface
+      ; destination : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Cancel
+   (
+      This       : access IConnectedAnimation_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimation2 : aliased constant Windows.IID := (1563397724, 22603, 19933, (182, 104, 151, 56, 145, 67, 20, 89 ));
+   
+   type IConnectedAnimation2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsScaleAnimationEnabled
+   (
+      This       : access IConnectedAnimation2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsScaleAnimationEnabled
+   (
+      This       : access IConnectedAnimation2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryStartWithCoordinatedElements
+   (
+      This       : access IConnectedAnimation2_Interface
+      ; destination : Windows.UI.Xaml.IUIElement
+      ; coordinatedElements : Windows.UI.Xaml.IIterable_IUIElement
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAnimationComponent
+   (
+      This       : access IConnectedAnimation2_Interface
+      ; component : Windows.UI.Xaml.Media.Animation.ConnectedAnimationComponent
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimationService : aliased constant Windows.IID := (476607945, 6587, 19783, (185, 170, 102, 200, 2, 220, 185, 255 ));
+   
+   type IConnectedAnimationService_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DefaultDuration
+   (
+      This       : access IConnectedAnimationService_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DefaultDuration
+   (
+      This       : access IConnectedAnimationService_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DefaultEasingFunction
+   (
+      This       : access IConnectedAnimationService_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionEasingFunction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DefaultEasingFunction
+   (
+      This       : access IConnectedAnimationService_Interface
+      ; value : Windows.UI.Composition.ICompositionEasingFunction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PrepareToAnimate
+   (
+      This       : access IConnectedAnimationService_Interface
+      ; key : Windows.String
+      ; source : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAnimation
+   (
+      This       : access IConnectedAnimationService_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimationServiceStatics : aliased constant Windows.IID := (3339161253, 54920, 16616, (143, 144, 150, 166, 39, 146, 115, 210 ));
+   
+   type IConnectedAnimationServiceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForCurrentView
+   (
+      This       : access IConnectedAnimationServiceStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimationService
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IContentThemeTransition : aliased constant Windows.IID := (4134520259, 22805, 17277, (142, 59, 173, 248, 231, 240, 171, 87 ));
    
    type IContentThemeTransition_Interface is interface and Windows.IInspectable_Interface;
@@ -1883,9 +1218,117 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IContinuumNavigationTransitionInfo : aliased constant Windows.IID := (1273093037, 35750, 16388, (132, 56, 138, 144, 23, 151, 133, 67 ));
+   
+   type IContinuumNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExitElement
+   (
+      This       : access IContinuumNavigationTransitionInfo_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExitElement
+   (
+      This       : access IContinuumNavigationTransitionInfo_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContinuumNavigationTransitionInfoStatics : aliased constant Windows.IID := (1042668883, 45455, 19441, (179, 188, 146, 245, 22, 242, 153, 3 ));
+   
+   type IContinuumNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExitElementProperty
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsEntranceElementProperty
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIsEntranceElement
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetIsEntranceElement
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsExitElementProperty
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIsExitElement
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetIsExitElement
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExitElementContainerProperty
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetExitElementContainer
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.Controls.IListViewBase
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetExitElementContainer
+   (
+      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.Controls.IListViewBase
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICubicEase : aliased constant Windows.IID := (462748790, 56023, 17236, (177, 162, 121, 105, 251, 246, 167, 13 ));
    
    type ICubicEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDiscreteColorKeyFrame : aliased constant Windows.IID := (587991284, 57442, 19633, (142, 42, 20, 9, 61, 115, 237, 140 ));
+   
+   type IDiscreteColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -1898,6 +1341,12 @@ package Windows.UI.Xaml.Media.Animation is
    IID_IDiscreteObjectKeyFrame : aliased constant Windows.IID := (3353140873, 61741, 19100, (129, 153, 231, 169, 236, 227, 164, 115 ));
    
    type IDiscreteObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDiscretePointKeyFrame : aliased constant Windows.IID := (3769173773, 19522, 19088, (152, 58, 117, 245, 168, 58, 47, 190 ));
+   
+   type IDiscretePointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -2058,1289 +1507,72 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
-   IID_IEasingDoubleKeyFrame : aliased constant Windows.IID := (2522536845, 39508, 16648, (180, 255, 181, 165, 33, 44, 179, 56 ));
+   IID_IDoubleKeyFrame : aliased constant Windows.IID := (1732531965, 59422, 20302, (180, 173, 10, 207, 237, 158, 205, 104 ));
    
-   type IEasingDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EasingFunction
-   (
-      This       : access IEasingDoubleKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EasingFunction
-   (
-      This       : access IEasingDoubleKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEasingDoubleKeyFrameStatics : aliased constant Windows.IID := (3369326661, 56238, 20059, (139, 132, 217, 83, 115, 152, 229, 177 ));
-   
-   type IEasingDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EasingFunctionProperty
-   (
-      This       : access IEasingDoubleKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEdgeUIThemeTransition : aliased constant Windows.IID := (1552335259, 18903, 6636, (207, 25, 131, 167, 60, 109, 231, 94 ));
-   
-   type IEdgeUIThemeTransition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Edge
-   (
-      This       : access IEdgeUIThemeTransition_Interface
-      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Edge
-   (
-      This       : access IEdgeUIThemeTransition_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEdgeUIThemeTransitionStatics : aliased constant Windows.IID := (379760955, 18181, 12331, (39, 198, 42, 172, 146, 246, 69, 172 ));
-   
-   type IEdgeUIThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EdgeProperty
-   (
-      This       : access IEdgeUIThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IElasticEase : aliased constant Windows.IID := (4015760780, 45238, 19052, (156, 168, 251, 66, 51, 241, 36, 89 ));
-   
-   type IElasticEase_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Oscillations
-   (
-      This       : access IElasticEase_Interface
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Oscillations
-   (
-      This       : access IElasticEase_Interface
-      ; value : Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Springiness
-   (
-      This       : access IElasticEase_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Springiness
-   (
-      This       : access IElasticEase_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IElasticEaseStatics : aliased constant Windows.IID := (2851432172, 65180, 19243, (142, 82, 187, 120, 93, 86, 33, 133 ));
-   
-   type IElasticEaseStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_OscillationsProperty
-   (
-      This       : access IElasticEaseStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_SpringinessProperty
-   (
-      This       : access IElasticEaseStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEntranceThemeTransition : aliased constant Windows.IID := (124357641, 43235, 16794, (160, 29, 116, 16, 160, 174, 142, 200 ));
-   
-   type IEntranceThemeTransition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FromHorizontalOffset
-   (
-      This       : access IEntranceThemeTransition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FromHorizontalOffset
-   (
-      This       : access IEntranceThemeTransition_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FromVerticalOffset
-   (
-      This       : access IEntranceThemeTransition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FromVerticalOffset
-   (
-      This       : access IEntranceThemeTransition_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsStaggeringEnabled
-   (
-      This       : access IEntranceThemeTransition_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsStaggeringEnabled
-   (
-      This       : access IEntranceThemeTransition_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEntranceThemeTransitionStatics : aliased constant Windows.IID := (936117623, 65432, 19181, (184, 110, 94, 194, 55, 2, 248, 119 ));
-   
-   type IEntranceThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FromHorizontalOffsetProperty
-   (
-      This       : access IEntranceThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FromVerticalOffsetProperty
-   (
-      This       : access IEntranceThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_IsStaggeringEnabledProperty
-   (
-      This       : access IEntranceThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IExponentialEase : aliased constant Windows.IID := (2092557341, 61627, 19402, (157, 165, 155, 163, 161, 23, 52, 196 ));
-   
-   type IExponentialEase_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Exponent
-   (
-      This       : access IExponentialEase_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Exponent
-   (
-      This       : access IExponentialEase_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IExponentialEaseStatics : aliased constant Windows.IID := (4085180387, 42849, 17234, (154, 214, 112, 121, 69, 103, 88, 26 ));
-   
-   type IExponentialEaseStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExponentProperty
-   (
-      This       : access IExponentialEaseStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ILinearDoubleKeyFrame : aliased constant Windows.IID := (2399007333, 39547, 17181, (143, 12, 20, 197, 107, 94, 164, 217 ));
-   
-   type ILinearDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IObjectAnimationUsingKeyFrames : aliased constant Windows.IID := (860499346, 46922, 19556, (185, 166, 88, 188, 250, 49, 79, 34 ));
-   
-   type IObjectAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_KeyFrames
-   (
-      This       : access IObjectAnimationUsingKeyFrames_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EnableDependentAnimation
-   (
-      This       : access IObjectAnimationUsingKeyFrames_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EnableDependentAnimation
-   (
-      This       : access IObjectAnimationUsingKeyFrames_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IObjectAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3950207362, 27377, 18851, (151, 182, 120, 62, 217, 116, 0, 254 ));
-   
-   type IObjectAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EnableDependentAnimationProperty
-   (
-      This       : access IObjectAnimationUsingKeyFramesStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPaneThemeTransition : aliased constant Windows.IID := (1191766926, 19452, 60998, (212, 249, 112, 141, 239, 63, 187, 43 ));
-   
-   type IPaneThemeTransition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Edge
-   (
-      This       : access IPaneThemeTransition_Interface
-      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Edge
-   (
-      This       : access IPaneThemeTransition_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPaneThemeTransitionStatics : aliased constant Windows.IID := (829110319, 19428, 6039, (180, 92, 205, 144, 11, 190, 12, 170 ));
-   
-   type IPaneThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EdgeProperty
-   (
-      This       : access IPaneThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPointAnimation : aliased constant Windows.IID := (821052178, 30502, 20360, (184, 226, 47, 165, 69, 24, 150, 59 ));
-   
-   type IPointAnimation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_From
-   (
-      This       : access IPointAnimation_Interface
-      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_From
-   (
-      This       : access IPointAnimation_Interface
-      ; value : Windows.Foundation.IReference_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_To
-   (
-      This       : access IPointAnimation_Interface
-      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_To
-   (
-      This       : access IPointAnimation_Interface
-      ; value : Windows.Foundation.IReference_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_By
-   (
-      This       : access IPointAnimation_Interface
-      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_By
-   (
-      This       : access IPointAnimation_Interface
-      ; value : Windows.Foundation.IReference_Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EasingFunction
-   (
-      This       : access IPointAnimation_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EasingFunction
-   (
-      This       : access IPointAnimation_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EnableDependentAnimation
-   (
-      This       : access IPointAnimation_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EnableDependentAnimation
-   (
-      This       : access IPointAnimation_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPointAnimationStatics : aliased constant Windows.IID := (798602070, 59191, 16523, (160, 253, 50, 120, 38, 211, 34, 85 ));
-   
-   type IPointAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FromProperty
-   (
-      This       : access IPointAnimationStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ToProperty
-   (
-      This       : access IPointAnimationStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_ByProperty
-   (
-      This       : access IPointAnimationStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EasingFunctionProperty
-   (
-      This       : access IPointAnimationStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EnableDependentAnimationProperty
-   (
-      This       : access IPointAnimationStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPopupThemeTransition : aliased constant Windows.IID := (1199846738, 17027, 21598, (199, 145, 38, 141, 202, 34, 206, 75 ));
-   
-   type IPopupThemeTransition_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FromHorizontalOffset
-   (
-      This       : access IPopupThemeTransition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FromHorizontalOffset
-   (
-      This       : access IPopupThemeTransition_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FromVerticalOffset
-   (
-      This       : access IPopupThemeTransition_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_FromVerticalOffset
-   (
-      This       : access IPopupThemeTransition_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPopupThemeTransitionStatics : aliased constant Windows.IID := (3852559374, 18701, 5381, (159, 107, 143, 175, 192, 68, 222, 197 ));
-   
-   type IPopupThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_FromHorizontalOffsetProperty
-   (
-      This       : access IPopupThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_FromVerticalOffsetProperty
-   (
-      This       : access IPopupThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPowerEase : aliased constant Windows.IID := (1774716281, 61151, 16475, (134, 128, 217, 96, 104, 128, 201, 55 ));
-   
-   type IPowerEase_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Power
-   (
-      This       : access IPowerEase_Interface
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Power
-   (
-      This       : access IPowerEase_Interface
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPowerEaseStatics : aliased constant Windows.IID := (2778026243, 37282, 17932, (156, 65, 210, 143, 106, 147, 155, 218 ));
-   
-   type IPowerEaseStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_PowerProperty
-   (
-      This       : access IPowerEaseStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IQuadraticEase : aliased constant Windows.IID := (3780185745, 61293, 17648, (128, 61, 104, 209, 109, 224, 221, 252 ));
-   
-   type IQuadraticEase_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IQuarticEase : aliased constant Windows.IID := (3899230228, 65090, 18949, (181, 184, 8, 31, 65, 21, 120, 21 ));
-   
-   type IQuarticEase_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IQuinticEase : aliased constant Windows.IID := (2465102139, 15433, 16648, (170, 17, 171, 120, 102, 3, 218, 33 ));
-   
-   type IQuinticEase_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReorderThemeTransition : aliased constant Windows.IID := (4060503148, 53330, 19153, (131, 98, 183, 27, 54, 223, 116, 151 ));
-   
-   type IReorderThemeTransition_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRepositionThemeTransition : aliased constant Windows.IID := (2285017986, 39155, 17754, (172, 83, 46, 112, 131, 182, 226, 44 ));
-   
-   type IRepositionThemeTransition_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRepositionThemeTransition2 : aliased constant Windows.IID := (3468683364, 56298, 17412, (142, 110, 222, 85, 173, 167, 82, 57 ));
-   
-   type IRepositionThemeTransition2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsStaggeringEnabled
-   (
-      This       : access IRepositionThemeTransition2_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsStaggeringEnabled
-   (
-      This       : access IRepositionThemeTransition2_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IRepositionThemeTransitionStatics2 : aliased constant Windows.IID := (2453727536, 2585, 18059, (140, 42, 104, 250, 180, 80, 0, 39 ));
-   
-   type IRepositionThemeTransitionStatics2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsStaggeringEnabledProperty
-   (
-      This       : access IRepositionThemeTransitionStatics2_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISineEase : aliased constant Windows.IID := (2839030114, 8971, 18906, (158, 13, 102, 73, 135, 137, 35, 67 ));
-   
-   type ISineEase_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISplineDoubleKeyFrame : aliased constant Windows.IID := (14101816, 27435, 18499, (131, 142, 200, 177, 21, 238, 200, 1 ));
-   
-   type ISplineDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_KeySpline
-   (
-      This       : access ISplineDoubleKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IKeySpline
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeySpline
-   (
-      This       : access ISplineDoubleKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IKeySpline
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_ISplineDoubleKeyFrameStatics : aliased constant Windows.IID := (101355516, 38751, 20046, (158, 199, 19, 197, 174, 224, 32, 98 ));
-   
-   type ISplineDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_KeySplineProperty
-   (
-      This       : access ISplineDoubleKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStoryboard : aliased constant Windows.IID := (3562806894, 13716, 17934, (152, 26, 50, 39, 27, 211, 170, 6 ));
-   
-   type IStoryboard_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Children
-   (
-      This       : access IStoryboard_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_Timeline
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Seek
-   (
-      This       : access IStoryboard_Interface
-      ; offset : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Stop
-   (
-      This       : access IStoryboard_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Begin_x
-   (
-      This       : access IStoryboard_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Pause
-   (
-      This       : access IStoryboard_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Resume
-   (
-      This       : access IStoryboard_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetCurrentState
-   (
-      This       : access IStoryboard_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.ClockState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetCurrentTime
-   (
-      This       : access IStoryboard_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SeekAlignedToLastTick
-   (
-      This       : access IStoryboard_Interface
-      ; offset : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SkipToFill
-   (
-      This       : access IStoryboard_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IStoryboardStatics : aliased constant Windows.IID := (3626960856, 29653, 17273, (189, 72, 126, 5, 24, 74, 139, 173 ));
-   
-   type IStoryboardStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_TargetPropertyProperty
-   (
-      This       : access IStoryboardStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetTargetProperty
-   (
-      This       : access IStoryboardStatics_Interface
-      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetTargetProperty
-   (
-      This       : access IStoryboardStatics_Interface
-      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; path : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_TargetNameProperty
-   (
-      This       : access IStoryboardStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetTargetName
-   (
-      This       : access IStoryboardStatics_Interface
-      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetTargetName
-   (
-      This       : access IStoryboardStatics_Interface
-      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; name : Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetTarget
-   (
-      This       : access IStoryboardStatics_Interface
-      ; timeline : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; target : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_ColorKeyFrame : aliased constant Windows.IID := (2463256504, 44884, 20864, (152, 136, 87, 86, 86, 106, 19, 255 ));
-   
-   type IVector_ColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.Animation.IColorKeyFrame_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_ColorKeyFrame_Interface
-      ; items : Windows.UI.Xaml.Media.Animation.IColorKeyFrame_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ColorKeyFrame : aliased constant Windows.IID := (408542472, 22573, 20956, (130, 161, 70, 97, 17, 202, 249, 68 ));
-   
-   type IIterable_ColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ColorKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IConnectedAnimation : aliased constant Windows.IID := (890790540, 62343, 19493, (172, 152, 68, 232, 108, 60, 173, 240 ));
-   
-   type IConnectedAnimation_Interface is interface and Windows.IInspectable_Interface;
-   
-   function add_Completed
-   (
-      This       : access IConnectedAnimation_Interface
-      ; value : TypedEventHandler_IConnectedAnimation_add_Completed
-      ; RetVal : access Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function remove_Completed
-   (
-      This       : access IConnectedAnimation_Interface
-      ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryStart
-   (
-      This       : access IConnectedAnimation_Interface
-      ; destination : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Cancel
-   (
-      This       : access IConnectedAnimation_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IConnectedAnimation2 : aliased constant Windows.IID := (1563397724, 22603, 19933, (182, 104, 151, 56, 145, 67, 20, 89 ));
-   
-   type IConnectedAnimation2_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsScaleAnimationEnabled
-   (
-      This       : access IConnectedAnimation2_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_IsScaleAnimationEnabled
-   (
-      This       : access IConnectedAnimation2_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function TryStartWithCoordinatedElements
-   (
-      This       : access IConnectedAnimation2_Interface
-      ; destination : Windows.UI.Xaml.IUIElement
-      ; coordinatedElements : Windows.UI.Xaml.IIterable_IUIElement
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAnimationComponent
-   (
-      This       : access IConnectedAnimation2_Interface
-      ; component : Windows.UI.Xaml.Media.Animation.ConnectedAnimationComponent
-      ; animation : Windows.UI.Composition.ICompositionAnimationBase
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IConnectedAnimationService : aliased constant Windows.IID := (476607945, 6587, 19783, (185, 170, 102, 200, 2, 220, 185, 255 ));
-   
-   type IConnectedAnimationService_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_DefaultDuration
-   (
-      This       : access IConnectedAnimationService_Interface
-      ; RetVal : access Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DefaultDuration
-   (
-      This       : access IConnectedAnimationService_Interface
-      ; value : Windows.Foundation.TimeSpan
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DefaultEasingFunction
-   (
-      This       : access IConnectedAnimationService_Interface
-      ; RetVal : access Windows.UI.Composition.ICompositionEasingFunction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_DefaultEasingFunction
-   (
-      This       : access IConnectedAnimationService_Interface
-      ; value : Windows.UI.Composition.ICompositionEasingFunction
-   )
-   return Windows.HRESULT is abstract;
-   
-   function PrepareToAnimate
-   (
-      This       : access IConnectedAnimationService_Interface
-      ; key : Windows.String
-      ; source : Windows.UI.Xaml.IUIElement
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetAnimation
-   (
-      This       : access IConnectedAnimationService_Interface
-      ; key : Windows.String
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimation
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IConnectedAnimationServiceStatics : aliased constant Windows.IID := (3339161253, 54920, 16616, (143, 144, 150, 166, 39, 146, 115, 210 ));
-   
-   type IConnectedAnimationServiceStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetForCurrentView
-   (
-      This       : access IConnectedAnimationServiceStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimationService
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVector_PointKeyFrame : aliased constant Windows.IID := (2977834718, 40151, 21590, (190, 224, 73, 136, 42, 135, 249, 69 ));
-   
-   type IVector_PointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetView
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function SetAt
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function InsertAt
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; index : Windows.UInt32
-      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAt
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; index : Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Append
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function RemoveAtEnd
-   (
-      This       : access IVector_PointKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Clear
-   (
-      This       : access IVector_PointKeyFrame_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.UI.Xaml.Media.Animation.IPointKeyFrame_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function ReplaceAll
-   (
-      This       : access IVector_PointKeyFrame_Interface
-      ; items : Windows.UI.Xaml.Media.Animation.IPointKeyFrame_Ptr
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_PointKeyFrame : aliased constant Windows.IID := (3101576649, 35945, 22003, (175, 88, 4, 15, 19, 25, 100, 156 ));
-   
-   type IIterable_PointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_PointKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IColorKeyFrame : aliased constant Windows.IID := (3038610137, 2320, 17801, (162, 132, 176, 201, 32, 88, 88, 233 ));
-   
-   type IColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   type IDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
    (
-      This       : access IColorKeyFrame_Interface
-      ; RetVal : access Windows.UI.Color
+      This       : access IDoubleKeyFrame_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
    function put_Value
    (
-      This       : access IColorKeyFrame_Interface
-      ; value : Windows.UI.Color
+      This       : access IDoubleKeyFrame_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
    function get_KeyTime
    (
-      This       : access IColorKeyFrame_Interface
+      This       : access IDoubleKeyFrame_Interface
       ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT is abstract;
    
    function put_KeyTime
    (
-      This       : access IColorKeyFrame_Interface
+      This       : access IDoubleKeyFrame_Interface
       ; value : Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IColorKeyFrameStatics : aliased constant Windows.IID := (3225661081, 8460, 17167, (157, 165, 223, 16, 130, 105, 32, 85 ));
+   IID_IDoubleKeyFrameFactory : aliased constant Windows.IID := (2895634115, 30008, 16569, (177, 82, 105, 111, 127, 191, 71, 34 ));
    
-   type IColorKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IDoubleKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IDoubleKeyFrameFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDoubleKeyFrameStatics : aliased constant Windows.IID := (843465136, 32055, 17018, (173, 235, 67, 243, 139, 182, 26, 77 ));
+   
+   type IDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ValueProperty
    (
-      This       : access IColorKeyFrameStatics_Interface
+      This       : access IDoubleKeyFrameStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
    function get_KeyTimeProperty
    (
-      This       : access IColorKeyFrameStatics_Interface
+      This       : access IDoubleKeyFrameStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IColorKeyFrameFactory : aliased constant Windows.IID := (1989925002, 40187, 19069, (150, 196, 161, 231, 222, 111, 219, 75 ));
-   
-   type IColorKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IColorKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPointKeyFrame : aliased constant Windows.IID := (4241001729, 32642, 19886, (128, 38, 123, 126, 8, 104, 120, 179 ));
-   
-   type IPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IPointKeyFrame_Interface
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_Value
-   (
-      This       : access IPointKeyFrame_Interface
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyTime
-   (
-      This       : access IPointKeyFrame_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_KeyTime
-   (
-      This       : access IPointKeyFrame_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPointKeyFrameStatics : aliased constant Windows.IID := (2513378087, 31077, 19436, (185, 251, 251, 233, 75, 101, 81, 142 ));
-   
-   type IPointKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ValueProperty
-   (
-      This       : access IPointKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_KeyTimeProperty
-   (
-      This       : access IPointKeyFrameStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IPointKeyFrameFactory : aliased constant Windows.IID := (3407956959, 17002, 17298, (131, 85, 194, 174, 82, 133, 38, 35 ));
-   
-   type IPointKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateInstance
-   (
-      This       : access IPointKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IColorAnimationUsingKeyFrames : aliased constant Windows.IID := (4123534912, 5059, 17066, (154, 226, 126, 107, 81, 201, 47, 149 ));
-   
-   type IColorAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_KeyFrames
-   (
-      This       : access IColorAnimationUsingKeyFrames_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_EnableDependentAnimation
-   (
-      This       : access IColorAnimationUsingKeyFrames_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_EnableDependentAnimation
-   (
-      This       : access IColorAnimationUsingKeyFrames_Interface
-      ; value : Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IColorAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3027385564, 38633, 18681, (141, 146, 155, 100, 139, 47, 28, 198 ));
-   
-   type IColorAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_EnableDependentAnimationProperty
-   (
-      This       : access IColorAnimationUsingKeyFramesStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDiscreteColorKeyFrame : aliased constant Windows.IID := (587991284, 57442, 19633, (142, 42, 20, 9, 61, 115, 237, 140 ));
-   
-   type IDiscreteColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IDiscretePointKeyFrame : aliased constant Windows.IID := (3769173773, 19522, 19088, (152, 58, 117, 245, 168, 58, 47, 190 ));
-   
-   type IDiscretePointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -3449,6 +1681,12 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDrillInNavigationTransitionInfo : aliased constant Windows.IID := (998645786, 17875, 17979, (147, 158, 200, 89, 95, 67, 155, 204 ));
+   
+   type IDrillInNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -3710,6 +1948,86 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IEasingDoubleKeyFrame : aliased constant Windows.IID := (2522536845, 39508, 16648, (180, 255, 181, 165, 33, 44, 179, 56 ));
+   
+   type IEasingDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EasingFunction
+   (
+      This       : access IEasingDoubleKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EasingFunction
+   (
+      This       : access IEasingDoubleKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEasingDoubleKeyFrameStatics : aliased constant Windows.IID := (3369326661, 56238, 20059, (139, 132, 217, 83, 115, 152, 229, 177 ));
+   
+   type IEasingDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EasingFunctionProperty
+   (
+      This       : access IEasingDoubleKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEasingFunctionBase : aliased constant Windows.IID := (3238541375, 11266, 16721, (142, 205, 104, 221, 170, 63, 13, 155 ));
+   
+   type IEasingFunctionBase_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EasingMode
+   (
+      This       : access IEasingFunctionBase_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.EasingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EasingMode
+   (
+      This       : access IEasingFunctionBase_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.EasingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Ease
+   (
+      This       : access IEasingFunctionBase_Interface
+      ; normalizedTime : Windows.Double
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEasingFunctionBaseFactory : aliased constant Windows.IID := (405864042, 61467, 17376, (182, 31, 180, 82, 161, 198, 111, 210 ));
+   
+   type IEasingFunctionBaseFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEasingFunctionBaseStatics : aliased constant Windows.IID := (709898666, 11344, 18973, (187, 4, 215, 94, 7, 183, 21, 72 ));
+   
+   type IEasingFunctionBaseStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EasingModeProperty
+   (
+      This       : access IEasingFunctionBaseStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IEasingPointKeyFrame : aliased constant Windows.IID := (3016299392, 26728, 16933, (167, 11, 57, 129, 204, 11, 41, 71 ));
    
    type IEasingPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
@@ -3737,6 +2055,236 @@ package Windows.UI.Xaml.Media.Animation is
    function get_EasingFunctionProperty
    (
       This       : access IEasingPointKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEdgeUIThemeTransition : aliased constant Windows.IID := (1552335259, 18903, 6636, (207, 25, 131, 167, 60, 109, 231, 94 ));
+   
+   type IEdgeUIThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Edge
+   (
+      This       : access IEdgeUIThemeTransition_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Edge
+   (
+      This       : access IEdgeUIThemeTransition_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEdgeUIThemeTransitionStatics : aliased constant Windows.IID := (379760955, 18181, 12331, (39, 198, 42, 172, 146, 246, 69, 172 ));
+   
+   type IEdgeUIThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EdgeProperty
+   (
+      This       : access IEdgeUIThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElasticEase : aliased constant Windows.IID := (4015760780, 45238, 19052, (156, 168, 251, 66, 51, 241, 36, 89 ));
+   
+   type IElasticEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Oscillations
+   (
+      This       : access IElasticEase_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Oscillations
+   (
+      This       : access IElasticEase_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Springiness
+   (
+      This       : access IElasticEase_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Springiness
+   (
+      This       : access IElasticEase_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElasticEaseStatics : aliased constant Windows.IID := (2851432172, 65180, 19243, (142, 82, 187, 120, 93, 86, 33, 133 ));
+   
+   type IElasticEaseStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OscillationsProperty
+   (
+      This       : access IElasticEaseStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SpringinessProperty
+   (
+      This       : access IElasticEaseStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEntranceNavigationTransitionInfo : aliased constant Windows.IID := (1913267563, 7306, 16878, (130, 236, 138, 135, 192, 207, 71, 218 ));
+   
+   type IEntranceNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEntranceNavigationTransitionInfoStatics : aliased constant Windows.IID := (4182295162, 16585, 18079, (143, 51, 191, 69, 200, 129, 31, 33 ));
+   
+   type IEntranceNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsTargetElementProperty
+   (
+      This       : access IEntranceNavigationTransitionInfoStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIsTargetElement
+   (
+      This       : access IEntranceNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetIsTargetElement
+   (
+      This       : access IEntranceNavigationTransitionInfoStatics_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEntranceThemeTransition : aliased constant Windows.IID := (124357641, 43235, 16794, (160, 29, 116, 16, 160, 174, 142, 200 ));
+   
+   type IEntranceThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FromHorizontalOffset
+   (
+      This       : access IEntranceThemeTransition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FromHorizontalOffset
+   (
+      This       : access IEntranceThemeTransition_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FromVerticalOffset
+   (
+      This       : access IEntranceThemeTransition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FromVerticalOffset
+   (
+      This       : access IEntranceThemeTransition_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStaggeringEnabled
+   (
+      This       : access IEntranceThemeTransition_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsStaggeringEnabled
+   (
+      This       : access IEntranceThemeTransition_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IEntranceThemeTransitionStatics : aliased constant Windows.IID := (936117623, 65432, 19181, (184, 110, 94, 194, 55, 2, 248, 119 ));
+   
+   type IEntranceThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FromHorizontalOffsetProperty
+   (
+      This       : access IEntranceThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FromVerticalOffsetProperty
+   (
+      This       : access IEntranceThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStaggeringEnabledProperty
+   (
+      This       : access IEntranceThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IExponentialEase : aliased constant Windows.IID := (2092557341, 61627, 19402, (157, 165, 155, 163, 161, 23, 52, 196 ));
+   
+   type IExponentialEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Exponent
+   (
+      This       : access IExponentialEase_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Exponent
+   (
+      This       : access IExponentialEase_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IExponentialEaseStatics : aliased constant Windows.IID := (4085180387, 42849, 17234, (154, 214, 112, 121, 69, 103, 88, 26 ));
+   
+   type IExponentialEaseStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExponentProperty
+   (
+      This       : access IExponentialEaseStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -3809,15 +2357,486 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_ColorKeyFrame : aliased constant Windows.IID := (408542472, 22573, 20956, (130, 161, 70, 97, 17, 202, 249, 68 ));
+   
+   type IIterable_ColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ColorKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_DoubleKeyFrame : aliased constant Windows.IID := (1595307738, 41989, 23418, (186, 241, 150, 141, 228, 57, 31, 183 ));
+   
+   type IIterable_DoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_DoubleKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ObjectKeyFrame : aliased constant Windows.IID := (2424613089, 36685, 24035, (177, 198, 229, 240, 87, 36, 202, 237 ));
+   
+   type IIterable_ObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ObjectKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_PointKeyFrame : aliased constant Windows.IID := (3101576649, 35945, 22003, (175, 88, 4, 15, 19, 25, 100, 156 ));
+   
+   type IIterable_PointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_PointKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_Timeline : aliased constant Windows.IID := (2703401798, 59093, 23636, (133, 125, 3, 142, 96, 245, 217, 193 ));
+   
+   type IIterable_Timeline_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_Timeline_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_Transition : aliased constant Windows.IID := (4273279896, 20443, 20754, (138, 155, 106, 135, 134, 202, 1, 206 ));
+   
+   type IIterable_Transition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_Transition_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IKeySpline : aliased constant Windows.IID := (2007065531, 54730, 18994, (186, 11, 125, 255, 152, 142, 88, 160 ));
+   
+   type IKeySpline_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ControlPoint1
+   (
+      This       : access IKeySpline_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ControlPoint1
+   (
+      This       : access IKeySpline_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ControlPoint2
+   (
+      This       : access IKeySpline_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ControlPoint2
+   (
+      This       : access IKeySpline_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IKeyTimeHelper : aliased constant Windows.IID := (910419072, 18467, 18026, (171, 229, 94, 121, 200, 237, 119, 237 ));
+   
+   type IKeyTimeHelper_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IKeyTimeHelperStatics : aliased constant Windows.IID := (2141348140, 8873, 17897, (154, 247, 199, 65, 110, 255, 247, 165 ));
+   
+   type IKeyTimeHelperStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromTimeSpan
+   (
+      This       : access IKeyTimeHelperStatics_Interface
+      ; timeSpan : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILinearColorKeyFrame : aliased constant Windows.IID := (1727903471, 44161, 17937, (177, 210, 97, 245, 69, 152, 63, 3 ));
    
    type ILinearColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
+   IID_ILinearDoubleKeyFrame : aliased constant Windows.IID := (2399007333, 39547, 17181, (143, 12, 20, 197, 107, 94, 164, 217 ));
+   
+   type ILinearDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILinearPointKeyFrame : aliased constant Windows.IID := (3888756975, 44836, 18926, (132, 241, 168, 102, 0, 164, 227, 25 ));
    
    type ILinearPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationThemeTransition : aliased constant Windows.IID := (2285077644, 20151, 16882, (135, 153, 158, 239, 10, 33, 59, 115 ));
+   
+   type INavigationThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DefaultNavigationTransitionInfo
+   (
+      This       : access INavigationThemeTransition_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DefaultNavigationTransitionInfo
+   (
+      This       : access INavigationThemeTransition_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationThemeTransitionStatics : aliased constant Windows.IID := (3928950496, 24160, 20366, (188, 175, 67, 20, 135, 162, 148, 171 ));
+   
+   type INavigationThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DefaultNavigationTransitionInfoProperty
+   (
+      This       : access INavigationThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationTransitionInfo : aliased constant Windows.IID := (2846904465, 44618, 17266, (134, 37, 33, 183, 168, 185, 140, 164 ));
+   
+   type INavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationTransitionInfoFactory : aliased constant Windows.IID := (3992254677, 44899, 20395, (157, 74, 135, 146, 127, 130, 221, 107 ));
+   
+   type INavigationTransitionInfoFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access INavigationTransitionInfoFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationTransitionInfoOverrides : aliased constant Windows.IID := (3645996650, 43472, 19447, (157, 176, 70, 51, 166, 157, 175, 242 ));
+   
+   type INavigationTransitionInfoOverrides_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetNavigationStateCore
+   (
+      This       : access INavigationTransitionInfoOverrides_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetNavigationStateCore
+   (
+      This       : access INavigationTransitionInfoOverrides_Interface
+      ; navigationState : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IObjectAnimationUsingKeyFrames : aliased constant Windows.IID := (860499346, 46922, 19556, (185, 166, 88, 188, 250, 49, 79, 34 ));
+   
+   type IObjectAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyFrames
+   (
+      This       : access IObjectAnimationUsingKeyFrames_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EnableDependentAnimation
+   (
+      This       : access IObjectAnimationUsingKeyFrames_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EnableDependentAnimation
+   (
+      This       : access IObjectAnimationUsingKeyFrames_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IObjectAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3950207362, 27377, 18851, (151, 182, 120, 62, 217, 116, 0, 254 ));
+   
+   type IObjectAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EnableDependentAnimationProperty
+   (
+      This       : access IObjectAnimationUsingKeyFramesStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IObjectKeyFrame : aliased constant Windows.IID := (2555553873, 34195, 18670, (166, 164, 213, 212, 114, 15, 2, 154 ));
+   
+   type IObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IObjectKeyFrame_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Value
+   (
+      This       : access IObjectKeyFrame_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyTime
+   (
+      This       : access IObjectKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeyTime
+   (
+      This       : access IObjectKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IObjectKeyFrameFactory : aliased constant Windows.IID := (371594302, 15981, 17624, (155, 154, 4, 174, 167, 15, 132, 146 ));
+   
+   type IObjectKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IObjectKeyFrameFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IObjectKeyFrameStatics : aliased constant Windows.IID := (752265984, 21273, 17030, (142, 237, 78, 117, 94, 160, 207, 156 ));
+   
+   type IObjectKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ValueProperty
+   (
+      This       : access IObjectKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyTimeProperty
+   (
+      This       : access IObjectKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPaneThemeTransition : aliased constant Windows.IID := (1191766926, 19452, 60998, (212, 249, 112, 141, 239, 63, 187, 43 ));
+   
+   type IPaneThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Edge
+   (
+      This       : access IPaneThemeTransition_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Edge
+   (
+      This       : access IPaneThemeTransition_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPaneThemeTransitionStatics : aliased constant Windows.IID := (829110319, 19428, 6039, (180, 92, 205, 144, 11, 190, 12, 170 ));
+   
+   type IPaneThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EdgeProperty
+   (
+      This       : access IPaneThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPointAnimation : aliased constant Windows.IID := (821052178, 30502, 20360, (184, 226, 47, 165, 69, 24, 150, 59 ));
+   
+   type IPointAnimation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_From
+   (
+      This       : access IPointAnimation_Interface
+      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_From
+   (
+      This       : access IPointAnimation_Interface
+      ; value : Windows.Foundation.IReference_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_To
+   (
+      This       : access IPointAnimation_Interface
+      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_To
+   (
+      This       : access IPointAnimation_Interface
+      ; value : Windows.Foundation.IReference_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_By
+   (
+      This       : access IPointAnimation_Interface
+      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_By
+   (
+      This       : access IPointAnimation_Interface
+      ; value : Windows.Foundation.IReference_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EasingFunction
+   (
+      This       : access IPointAnimation_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EasingFunction
+   (
+      This       : access IPointAnimation_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EnableDependentAnimation
+   (
+      This       : access IPointAnimation_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EnableDependentAnimation
+   (
+      This       : access IPointAnimation_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPointAnimationStatics : aliased constant Windows.IID := (798602070, 59191, 16523, (160, 253, 50, 120, 38, 211, 34, 85 ));
+   
+   type IPointAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FromProperty
+   (
+      This       : access IPointAnimationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ToProperty
+   (
+      This       : access IPointAnimationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ByProperty
+   (
+      This       : access IPointAnimationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EasingFunctionProperty
+   (
+      This       : access IPointAnimationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EnableDependentAnimationProperty
+   (
+      This       : access IPointAnimationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -3921,6 +2940,75 @@ package Windows.UI.Xaml.Media.Animation is
    function get_TargetNameProperty
    (
       This       : access IPointerUpThemeAnimationStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPointKeyFrame : aliased constant Windows.IID := (4241001729, 32642, 19886, (128, 38, 123, 126, 8, 104, 120, 179 ));
+   
+   type IPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IPointKeyFrame_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Value
+   (
+      This       : access IPointKeyFrame_Interface
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyTime
+   (
+      This       : access IPointKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeyTime
+   (
+      This       : access IPointKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPointKeyFrameFactory : aliased constant Windows.IID := (3407956959, 17002, 17298, (131, 85, 194, 174, 82, 133, 38, 35 ));
+   
+   type IPointKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IPointKeyFrameFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPointKeyFrameStatics : aliased constant Windows.IID := (2513378087, 31077, 19436, (185, 251, 251, 233, 75, 101, 81, 142 ));
+   
+   type IPointKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ValueProperty
+   (
+      This       : access IPointKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyTimeProperty
+   (
+      This       : access IPointKeyFrameStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -4035,6 +3123,177 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IPopupThemeTransition : aliased constant Windows.IID := (1199846738, 17027, 21598, (199, 145, 38, 141, 202, 34, 206, 75 ));
+   
+   type IPopupThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FromHorizontalOffset
+   (
+      This       : access IPopupThemeTransition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FromHorizontalOffset
+   (
+      This       : access IPopupThemeTransition_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FromVerticalOffset
+   (
+      This       : access IPopupThemeTransition_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FromVerticalOffset
+   (
+      This       : access IPopupThemeTransition_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPopupThemeTransitionStatics : aliased constant Windows.IID := (3852559374, 18701, 5381, (159, 107, 143, 175, 192, 68, 222, 197 ));
+   
+   type IPopupThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FromHorizontalOffsetProperty
+   (
+      This       : access IPopupThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FromVerticalOffsetProperty
+   (
+      This       : access IPopupThemeTransitionStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPowerEase : aliased constant Windows.IID := (1774716281, 61151, 16475, (134, 128, 217, 96, 104, 128, 201, 55 ));
+   
+   type IPowerEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Power
+   (
+      This       : access IPowerEase_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Power
+   (
+      This       : access IPowerEase_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPowerEaseStatics : aliased constant Windows.IID := (2778026243, 37282, 17932, (156, 65, 210, 143, 106, 147, 155, 218 ));
+   
+   type IPowerEaseStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PowerProperty
+   (
+      This       : access IPowerEaseStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IQuadraticEase : aliased constant Windows.IID := (3780185745, 61293, 17648, (128, 61, 104, 209, 109, 224, 221, 252 ));
+   
+   type IQuadraticEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IQuarticEase : aliased constant Windows.IID := (3899230228, 65090, 18949, (181, 184, 8, 31, 65, 21, 120, 21 ));
+   
+   type IQuarticEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IQuinticEase : aliased constant Windows.IID := (2465102139, 15433, 16648, (170, 17, 171, 120, 102, 3, 218, 33 ));
+   
+   type IQuinticEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReorderThemeTransition : aliased constant Windows.IID := (4060503148, 53330, 19153, (131, 98, 183, 27, 54, 223, 116, 151 ));
+   
+   type IReorderThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRepeatBehaviorHelper : aliased constant Windows.IID := (1751362418, 18839, 18425, (135, 173, 55, 239, 183, 89, 147, 234 ));
+   
+   type IRepeatBehaviorHelper_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRepeatBehaviorHelperStatics : aliased constant Windows.IID := (2054770739, 31219, 19929, (178, 103, 156, 245, 15, 181, 31, 132 ));
+   
+   type IRepeatBehaviorHelperStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Forever
+   (
+      This       : access IRepeatBehaviorHelperStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromCount
+   (
+      This       : access IRepeatBehaviorHelperStatics_Interface
+      ; count : Windows.Double
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromDuration
+   (
+      This       : access IRepeatBehaviorHelperStatics_Interface
+      ; duration : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetHasCount
+   (
+      This       : access IRepeatBehaviorHelperStatics_Interface
+      ; target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetHasDuration
+   (
+      This       : access IRepeatBehaviorHelperStatics_Interface
+      ; target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Equals
+   (
+      This       : access IRepeatBehaviorHelperStatics_Interface
+      ; target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRepositionThemeAnimation : aliased constant Windows.IID := (3973719272, 35141, 18761, (161, 191, 98, 16, 153, 101, 167, 233 ));
    
    type IRepositionThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
@@ -4110,6 +3369,57 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IRepositionThemeTransition : aliased constant Windows.IID := (2285017986, 39155, 17754, (172, 83, 46, 112, 131, 182, 226, 44 ));
+   
+   type IRepositionThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRepositionThemeTransition2 : aliased constant Windows.IID := (3468683364, 56298, 17412, (142, 110, 222, 85, 173, 167, 82, 57 ));
+   
+   type IRepositionThemeTransition2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsStaggeringEnabled
+   (
+      This       : access IRepositionThemeTransition2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsStaggeringEnabled
+   (
+      This       : access IRepositionThemeTransition2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRepositionThemeTransitionStatics2 : aliased constant Windows.IID := (2453727536, 2585, 18059, (140, 42, 104, 250, 180, 80, 0, 39 ));
+   
+   type IRepositionThemeTransitionStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsStaggeringEnabledProperty
+   (
+      This       : access IRepositionThemeTransitionStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISineEase : aliased constant Windows.IID := (2839030114, 8971, 18906, (158, 13, 102, 73, 135, 137, 35, 67 ));
+   
+   type ISineEase_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISlideNavigationTransitionInfo : aliased constant Windows.IID := (3601636727, 11779, 16479, (128, 237, 230, 43, 238, 243, 102, 143 ));
+   
+   type ISlideNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISplineColorKeyFrame : aliased constant Windows.IID := (441080129, 8160, 18234, (142, 254, 67, 22, 216, 200, 98, 41 ));
    
    type ISplineColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
@@ -4137,6 +3447,39 @@ package Windows.UI.Xaml.Media.Animation is
    function get_KeySplineProperty
    (
       This       : access ISplineColorKeyFrameStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplineDoubleKeyFrame : aliased constant Windows.IID := (14101816, 27435, 18499, (131, 142, 200, 177, 21, 238, 200, 1 ));
+   
+   type ISplineDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeySpline
+   (
+      This       : access ISplineDoubleKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IKeySpline
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeySpline
+   (
+      This       : access ISplineDoubleKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IKeySpline
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplineDoubleKeyFrameStatics : aliased constant Windows.IID := (101355516, 38751, 20046, (158, 199, 19, 197, 174, 224, 32, 98 ));
+   
+   type ISplineDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeySplineProperty
+   (
+      This       : access ISplineDoubleKeyFrameStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -4662,6 +4005,143 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IStoryboard : aliased constant Windows.IID := (3562806894, 13716, 17934, (152, 26, 50, 39, 27, 211, 170, 6 ));
+   
+   type IStoryboard_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Children
+   (
+      This       : access IStoryboard_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_Timeline
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Seek
+   (
+      This       : access IStoryboard_Interface
+      ; offset : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IStoryboard_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Begin_x
+   (
+      This       : access IStoryboard_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Pause
+   (
+      This       : access IStoryboard_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Resume
+   (
+      This       : access IStoryboard_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCurrentState
+   (
+      This       : access IStoryboard_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ClockState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCurrentTime
+   (
+      This       : access IStoryboard_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SeekAlignedToLastTick
+   (
+      This       : access IStoryboard_Interface
+      ; offset : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SkipToFill
+   (
+      This       : access IStoryboard_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoryboardStatics : aliased constant Windows.IID := (3626960856, 29653, 17273, (189, 72, 126, 5, 24, 74, 139, 173 ));
+   
+   type IStoryboardStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TargetPropertyProperty
+   (
+      This       : access IStoryboardStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetTargetProperty
+   (
+      This       : access IStoryboardStatics_Interface
+      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetTargetProperty
+   (
+      This       : access IStoryboardStatics_Interface
+      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; path : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TargetNameProperty
+   (
+      This       : access IStoryboardStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetTargetName
+   (
+      This       : access IStoryboardStatics_Interface
+      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetTargetName
+   (
+      This       : access IStoryboardStatics_Interface
+      ; element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; name : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetTarget
+   (
+      This       : access IStoryboardStatics_Interface
+      ; timeline : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; target : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISuppressNavigationTransitionInfo : aliased constant Windows.IID := (609057548, 45495, 18545, (157, 62, 213, 98, 3, 163, 165, 180 ));
+   
+   type ISuppressNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISwipeBackThemeAnimation : aliased constant Windows.IID := (2743747092, 3018, 19757, (149, 247, 206, 186, 87, 251, 175, 96 ));
    
    type ISwipeBackThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
@@ -4812,247 +4292,767 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
-   IID_ICommonNavigationTransitionInfo : aliased constant Windows.IID := (1345607314, 42325, 17956, (163, 97, 10, 145, 193, 112, 100, 115 ));
+   IID_ITimeline : aliased constant Windows.IID := (197420508, 48717, 19725, (149, 73, 34, 8, 183, 21, 244, 13 ));
    
-   type ICommonNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   type ITimeline_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_IsStaggeringEnabled
+   function get_AutoReverse
    (
-      This       : access ICommonNavigationTransitionInfo_Interface
+      This       : access ITimeline_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function put_IsStaggeringEnabled
+   function put_AutoReverse
    (
-      This       : access ICommonNavigationTransitionInfo_Interface
+      This       : access ITimeline_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BeginTime
+   (
+      This       : access ITimeline_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BeginTime
+   (
+      This       : access ITimeline_Interface
+      ; value : Windows.Foundation.IReference_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Duration
+   (
+      This       : access ITimeline_Interface
+      ; RetVal : access Windows.UI.Xaml.Duration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Duration
+   (
+      This       : access ITimeline_Interface
+      ; value : Windows.UI.Xaml.Duration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SpeedRatio
+   (
+      This       : access ITimeline_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SpeedRatio
+   (
+      This       : access ITimeline_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FillBehavior
+   (
+      This       : access ITimeline_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.FillBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FillBehavior
+   (
+      This       : access ITimeline_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.FillBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RepeatBehavior
+   (
+      This       : access ITimeline_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RepeatBehavior
+   (
+      This       : access ITimeline_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Completed
+   (
+      This       : access ITimeline_Interface
+      ; value : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Completed
+   (
+      This       : access ITimeline_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_ICommonNavigationTransitionInfoStatics : aliased constant Windows.IID := (507444787, 20670, 17475, (136, 60, 229, 98, 114, 1, 194, 229 ));
+   IID_ITimelineFactory : aliased constant Windows.IID := (492223239, 48548, 18315, (138, 218, 235, 4, 213, 128, 205, 94 ));
    
-   type ICommonNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
+   type ITimelineFactory_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_IsStaggeringEnabledProperty
+   function CreateInstance
    (
-      This       : access ICommonNavigationTransitionInfoStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access ITimelineFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
    )
    return Windows.HRESULT is abstract;
    
-   function get_IsStaggerElementProperty
-   (
-      This       : access ICommonNavigationTransitionInfoStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
-   )
-   return Windows.HRESULT is abstract;
+   ------------------------------------------------------------------------
    
-   function GetIsStaggerElement
+   IID_ITimelineStatics : aliased constant Windows.IID := (2835541326, 61200, 19823, (154, 64, 147, 203, 136, 149, 244, 229 ));
+   
+   type ITimelineStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AllowDependentAnimations
    (
-      This       : access ICommonNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
+      This       : access ITimelineStatics_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetIsStaggerElement
+   function put_AllowDependentAnimations
    (
-      This       : access ICommonNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
+      This       : access ITimelineStatics_Interface
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IContinuumNavigationTransitionInfo : aliased constant Windows.IID := (1273093037, 35750, 16388, (132, 56, 138, 144, 23, 151, 133, 67 ));
-   
-   type IContinuumNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExitElement
+   function get_AutoReverseProperty
    (
-      This       : access IContinuumNavigationTransitionInfo_Interface
-      ; RetVal : access Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   function put_ExitElement
-   (
-      This       : access IContinuumNavigationTransitionInfo_Interface
-      ; value : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IContinuumNavigationTransitionInfoStatics : aliased constant Windows.IID := (1042668883, 45455, 19441, (179, 188, 146, 245, 22, 242, 153, 3 ));
-   
-   type IContinuumNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExitElementProperty
-   (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      This       : access ITimelineStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
-   function get_IsEntranceElementProperty
+   function get_BeginTimeProperty
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
+      This       : access ITimelineStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
-   function GetIsEntranceElement
+   function get_DurationProperty
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
+      This       : access ITimelineStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SpeedRatioProperty
+   (
+      This       : access ITimelineStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FillBehaviorProperty
+   (
+      This       : access ITimelineStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RepeatBehaviorProperty
+   (
+      This       : access ITimelineStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITransition : aliased constant Windows.IID := (1013415036, 464, 19918, (179, 51, 151, 111, 147, 49, 43, 8 ));
+   
+   type ITransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITransitionFactory : aliased constant Windows.IID := (3701125839, 15305, 17578, (179, 252, 136, 58, 131, 35, 58, 44 ));
+   
+   type ITransitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_ColorKeyFrame : aliased constant Windows.IID := (2463256504, 44884, 20864, (152, 136, 87, 86, 86, 106, 19, 255 ));
+   
+   type IVector_ColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetIsEntranceElement
+   function SetAt
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
+      This       : access IVector_ColorKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
    )
    return Windows.HRESULT is abstract;
    
-   function get_IsExitElementProperty
+   function InsertAt
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access IVector_ColorKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
    )
    return Windows.HRESULT is abstract;
    
-   function GetIsExitElement
+   function RemoveAt
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
+      This       : access IVector_ColorKeyFrame_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IColorKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.Animation.IColorKeyFrame_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_ColorKeyFrame_Interface
+      ; items : Windows.UI.Xaml.Media.Animation.IColorKeyFrame_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_DoubleKeyFrame : aliased constant Windows.IID := (3620462114, 34495, 22319, (132, 115, 7, 157, 21, 7, 108, 62 ));
+   
+   type IVector_DoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetIsExitElement
+   function SetAt
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
    )
    return Windows.HRESULT is abstract;
    
-   function get_ExitElementContainerProperty
+   function InsertAt
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
    )
    return Windows.HRESULT is abstract;
    
-   function GetExitElementContainer
+   function RemoveAt
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.Controls.IListViewBase
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_DoubleKeyFrame_Interface
+      ; items : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_ObjectKeyFrame : aliased constant Windows.IID := (1601387839, 29350, 21251, (151, 39, 43, 3, 234, 231, 221, 76 ));
+   
+   type IVector_ObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetExitElementContainer
+   function SetAt
    (
-      This       : access IContinuumNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.Controls.IListViewBase
-      ; value : Windows.Boolean
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_ObjectKeyFrame_Interface
+      ; items : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame_Ptr
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_IDrillInNavigationTransitionInfo : aliased constant Windows.IID := (998645786, 17875, 17979, (147, 158, 200, 89, 95, 67, 155, 204 ));
+   IID_IVector_PointKeyFrame : aliased constant Windows.IID := (2977834718, 40151, 21590, (190, 224, 73, 136, 42, 135, 249, 69 ));
    
-   type IDrillInNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_PointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
-   ------------------------------------------------------------------------
-   
-   IID_IEntranceNavigationTransitionInfo : aliased constant Windows.IID := (1913267563, 7306, 16878, (130, 236, 138, 135, 192, 207, 71, 218 ));
-   
-   type IEntranceNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IEntranceNavigationTransitionInfoStatics : aliased constant Windows.IID := (4182295162, 16585, 18079, (143, 51, 191, 69, 200, 129, 31, 33 ));
-   
-   type IEntranceNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IsTargetElementProperty
+   function GetAt
    (
-      This       : access IEntranceNavigationTransitionInfoStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access IVector_PointKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
    )
    return Windows.HRESULT is abstract;
    
-   function GetIsTargetElement
+   function get_Size
    (
-      This       : access IEntranceNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
+      This       : access IVector_PointKeyFrame_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_PointKeyFrame_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_PointKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
+      ; index : access Windows.UInt32
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function SetIsTargetElement
+   function SetAt
    (
-      This       : access IEntranceNavigationTransitionInfoStatics_Interface
-      ; element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
+      This       : access IVector_PointKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_PointKeyFrame_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_PointKeyFrame_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_PointKeyFrame_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IPointKeyFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_PointKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_PointKeyFrame_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_PointKeyFrame_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.Animation.IPointKeyFrame_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_PointKeyFrame_Interface
+      ; items : Windows.UI.Xaml.Media.Animation.IPointKeyFrame_Ptr
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_INavigationThemeTransition : aliased constant Windows.IID := (2285077644, 20151, 16882, (135, 153, 158, 239, 10, 33, 59, 115 ));
+   IID_IVector_Timeline : aliased constant Windows.IID := (537249785, 51159, 21019, (168, 28, 44, 157, 173, 119, 169, 232 ));
    
-   type INavigationThemeTransition_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_Timeline_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_DefaultNavigationTransitionInfo
+   function GetAt
    (
-      This       : access INavigationThemeTransition_Interface
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+      This       : access IVector_Timeline_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
    )
    return Windows.HRESULT is abstract;
    
-   function put_DefaultNavigationTransitionInfo
+   function get_Size
    (
-      This       : access INavigationThemeTransition_Interface
-      ; value : Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+      This       : access IVector_Timeline_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_Timeline_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_Timeline_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_Timeline_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_Timeline_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_Timeline_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_Timeline_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_Timeline_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_Timeline_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_Timeline_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.Animation.ITimeline_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_Timeline_Interface
+      ; items : Windows.UI.Xaml.Media.Animation.ITimeline_Ptr
    )
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
-   IID_INavigationThemeTransitionStatics : aliased constant Windows.IID := (3928950496, 24160, 20366, (188, 175, 67, 20, 135, 162, 148, 171 ));
+   IID_IVector_Transition : aliased constant Windows.IID := (3885520671, 32318, 24090, (170, 85, 203, 201, 59, 131, 248, 33 ));
    
-   type INavigationThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
+   type IVector_Transition_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_DefaultNavigationTransitionInfoProperty
+   function GetAt
    (
-      This       : access INavigationThemeTransitionStatics_Interface
-      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+      This       : access IVector_Transition_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITransition
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
+   function get_Size
+   (
+      This       : access IVector_Transition_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
    
-   IID_ISlideNavigationTransitionInfo : aliased constant Windows.IID := (3601636727, 11779, 16479, (128, 237, 230, 43, 238, 243, 102, 143 ));
+   function GetView
+   (
+      This       : access IVector_Transition_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.ITransition
+   )
+   return Windows.HRESULT is abstract;
    
-   type ISlideNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   function IndexOf
+   (
+      This       : access IVector_Transition_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.ITransition
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
+   function SetAt
+   (
+      This       : access IVector_Transition_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.ITransition
+   )
+   return Windows.HRESULT is abstract;
    
-   IID_ISuppressNavigationTransitionInfo : aliased constant Windows.IID := (609057548, 45495, 18545, (157, 62, 213, 98, 3, 163, 165, 180 ));
+   function InsertAt
+   (
+      This       : access IVector_Transition_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Media.Animation.ITransition
+   )
+   return Windows.HRESULT is abstract;
    
-   type ISuppressNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   function RemoveAt
+   (
+      This       : access IVector_Transition_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_Transition_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.ITransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_Transition_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_Transition_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_Transition_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Media.Animation.ITransition_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_Transition_Interface
+      ; items : Windows.UI.Xaml.Media.Animation.ITransition_Ptr
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
@@ -5075,19 +5075,142 @@ package Windows.UI.Xaml.Media.Animation is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype KeyTimeHelper is Windows.UI.Xaml.Media.Animation.IKeyTimeHelper;
-   subtype RepeatBehaviorHelper is Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelper;
-   subtype TransitionCollection is Windows.UI.Xaml.Media.Animation.IVector_Transition;
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_Transition;
+   subtype AddDeleteThemeTransition is Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition;
    
-   subtype DoubleKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame;
+   subtype BackEase is Windows.UI.Xaml.Media.Animation.IBackEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IBackEase;
    
-   subtype ObjectKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame;
+   subtype BeginStoryboard is Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
+   function Create return Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
    
-   subtype TimelineCollection is Windows.UI.Xaml.Media.Animation.IVector_Timeline;
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_Timeline;
+   subtype BounceEase is Windows.UI.Xaml.Media.Animation.IBounceEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IBounceEase;
+   
+   subtype CircleEase is Windows.UI.Xaml.Media.Animation.ICircleEase;
+   function Create return Windows.UI.Xaml.Media.Animation.ICircleEase;
+   
+   subtype ColorAnimation is Windows.UI.Xaml.Media.Animation.IColorAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimation;
+   
+   subtype ColorAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames;
+   
+   subtype ColorKeyFrame is Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
+   
+   type IColorKeyFrame_Interface_Impl is new IColorKeyFrame_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IColorKeyFrame := null;
+      m_IColorKeyFrame : IColorKeyFrame := null;
+   end record;
+   type IColorKeyFrame_Impl is access all IColorKeyFrame_Interface_Impl'Class;
+   type IColorKeyFrame_Impl_Ptr is access all IColorKeyFrame_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IColorKeyFrame_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Value
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT;
+   
+   function put_Value
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT;
+   
+   function get_KeyTime
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT;
+   
+   function put_KeyTime
+   (
+      This       : access IColorKeyFrame_Interface_Impl
+      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT;
+   
+   subtype ColorKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame;
+   
+   subtype CommonNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
+   
+   subtype ConnectedAnimation is Windows.UI.Xaml.Media.Animation.IConnectedAnimation;
+   subtype ConnectedAnimationService is Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
+   subtype ContentThemeTransition is Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
+   
+   subtype ContinuumNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo;
+   
+   subtype CubicEase is Windows.UI.Xaml.Media.Animation.ICubicEase;
+   function Create return Windows.UI.Xaml.Media.Animation.ICubicEase;
+   
+   subtype DiscreteColorKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
+   
+   subtype DiscreteDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame;
+   
+   subtype DiscreteObjectKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame;
+   
+   subtype DiscretePointKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame;
+   
+   subtype DoubleAnimation is Windows.UI.Xaml.Media.Animation.IDoubleAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimation;
+   
+   subtype DoubleAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames;
    
    subtype DoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
    
@@ -5170,9 +5293,73 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.HRESULT;
    
+   subtype DoubleKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_DoubleKeyFrame;
+   
+   subtype DragItemThemeAnimation is Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation;
+   
+   subtype DragOverThemeAnimation is Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation;
+   
+   subtype DrillInNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo;
+   
+   subtype DrillInThemeAnimation is Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation;
+   
+   subtype DrillOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation;
+   
+   subtype DropTargetItemThemeAnimation is Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation;
+   
+   subtype EasingColorKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame;
+   
+   subtype EasingDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame;
+   
    subtype EasingFunctionBase is Windows.UI.Xaml.Media.Animation.IEasingFunctionBase;
+   subtype EasingPointKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame;
+   
+   subtype EdgeUIThemeTransition is Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition;
+   
+   subtype ElasticEase is Windows.UI.Xaml.Media.Animation.IElasticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IElasticEase;
+   
+   subtype EntranceNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo;
+   
+   subtype EntranceThemeTransition is Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition;
+   
+   subtype ExponentialEase is Windows.UI.Xaml.Media.Animation.IExponentialEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IExponentialEase;
+   
+   subtype FadeInThemeAnimation is Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation;
+   
+   subtype FadeOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
+   
    subtype KeySpline is Windows.UI.Xaml.Media.Animation.IKeySpline;
    function Create return Windows.UI.Xaml.Media.Animation.IKeySpline;
+   
+   subtype KeyTimeHelper is Windows.UI.Xaml.Media.Animation.IKeyTimeHelper;
+   subtype LinearColorKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame;
+   
+   subtype LinearDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame;
+   
+   subtype LinearPointKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame;
+   
+   subtype NavigationThemeTransition is Windows.UI.Xaml.Media.Animation.INavigationThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition;
    
    subtype NavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
    
@@ -5293,6 +5480,9 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.HRESULT;
    
+   subtype ObjectAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames;
+   
    subtype ObjectKeyFrame is Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
    
    type IObjectKeyFrame_Interface_Impl is new IObjectKeyFrame_Interface with record
@@ -5373,6 +5563,172 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT;
+   
+   subtype ObjectKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_ObjectKeyFrame;
+   
+   subtype PaneThemeTransition is Windows.UI.Xaml.Media.Animation.IPaneThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IPaneThemeTransition;
+   
+   subtype PointAnimation is Windows.UI.Xaml.Media.Animation.IPointAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimation;
+   
+   subtype PointAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames;
+   
+   subtype PointerDownThemeAnimation is Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation;
+   
+   subtype PointerUpThemeAnimation is Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation;
+   
+   subtype PointKeyFrame is Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
+   
+   type IPointKeyFrame_Interface_Impl is new IPointKeyFrame_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IPointKeyFrame := null;
+      m_IPointKeyFrame : IPointKeyFrame := null;
+   end record;
+   type IPointKeyFrame_Impl is access all IPointKeyFrame_Interface_Impl'Class;
+   type IPointKeyFrame_Impl_Ptr is access all IPointKeyFrame_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IPointKeyFrame_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IPointKeyFrame_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IPointKeyFrame_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IPointKeyFrame_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Value
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT;
+   
+   function put_Value
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; value : Windows.Foundation.Point
+   )
+   return Windows.HRESULT;
+   
+   function get_KeyTime
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT;
+   
+   function put_KeyTime
+   (
+      This       : access IPointKeyFrame_Interface_Impl
+      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
+   )
+   return Windows.HRESULT;
+   
+   subtype PointKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame;
+   
+   subtype PopInThemeAnimation is Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation;
+   
+   subtype PopOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation;
+   
+   subtype PopupThemeTransition is Windows.UI.Xaml.Media.Animation.IPopupThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IPopupThemeTransition;
+   
+   subtype PowerEase is Windows.UI.Xaml.Media.Animation.IPowerEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IPowerEase;
+   
+   subtype QuadraticEase is Windows.UI.Xaml.Media.Animation.IQuadraticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IQuadraticEase;
+   
+   subtype QuarticEase is Windows.UI.Xaml.Media.Animation.IQuarticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IQuarticEase;
+   
+   subtype QuinticEase is Windows.UI.Xaml.Media.Animation.IQuinticEase;
+   function Create return Windows.UI.Xaml.Media.Animation.IQuinticEase;
+   
+   subtype ReorderThemeTransition is Windows.UI.Xaml.Media.Animation.IReorderThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IReorderThemeTransition;
+   
+   subtype RepeatBehaviorHelper is Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelper;
+   subtype RepositionThemeAnimation is Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation;
+   
+   subtype RepositionThemeTransition is Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition;
+   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition;
+   
+   subtype SineEase is Windows.UI.Xaml.Media.Animation.ISineEase;
+   function Create return Windows.UI.Xaml.Media.Animation.ISineEase;
+   
+   subtype SlideNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo;
+   
+   subtype SplineColorKeyFrame is Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame;
+   
+   subtype SplineDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame;
+   
+   subtype SplinePointKeyFrame is Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame;
+   
+   subtype SplitCloseThemeAnimation is Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation;
+   
+   subtype SplitOpenThemeAnimation is Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation;
+   
+   subtype Storyboard is Windows.UI.Xaml.Media.Animation.IStoryboard;
+   function Create return Windows.UI.Xaml.Media.Animation.IStoryboard;
+   
+   subtype SuppressNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo;
+   function Create return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo;
+   
+   subtype SwipeBackThemeAnimation is Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation;
+   
+   subtype SwipeHintThemeAnimation is Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation;
+   function Create return Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation;
    
    subtype Timeline is Windows.UI.Xaml.Media.Animation.ITimeline;
    
@@ -5526,483 +5882,17 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.HRESULT;
    
+   subtype TimelineCollection is Windows.UI.Xaml.Media.Animation.IVector_Timeline;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Timeline;
+   
    subtype Transition is Windows.UI.Xaml.Media.Animation.ITransition;
-   subtype AddDeleteThemeTransition is Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition;
-   
-   subtype BackEase is Windows.UI.Xaml.Media.Animation.IBackEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IBackEase;
-   
-   subtype BeginStoryboard is Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
-   function Create return Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
-   
-   subtype BounceEase is Windows.UI.Xaml.Media.Animation.IBounceEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IBounceEase;
-   
-   subtype CircleEase is Windows.UI.Xaml.Media.Animation.ICircleEase;
-   function Create return Windows.UI.Xaml.Media.Animation.ICircleEase;
-   
-   subtype ColorAnimation is Windows.UI.Xaml.Media.Animation.IColorAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimation;
-   
-   subtype ContentThemeTransition is Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
-   
-   subtype CubicEase is Windows.UI.Xaml.Media.Animation.ICubicEase;
-   function Create return Windows.UI.Xaml.Media.Animation.ICubicEase;
-   
-   subtype DiscreteDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame;
-   
-   subtype DiscreteObjectKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame;
-   
-   subtype DoubleAnimation is Windows.UI.Xaml.Media.Animation.IDoubleAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimation;
-   
-   subtype DoubleAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames;
-   function Create return Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames;
-   
-   subtype EasingDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame;
-   
-   subtype EdgeUIThemeTransition is Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition;
-   
-   subtype ElasticEase is Windows.UI.Xaml.Media.Animation.IElasticEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IElasticEase;
-   
-   subtype EntranceThemeTransition is Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition;
-   
-   subtype ExponentialEase is Windows.UI.Xaml.Media.Animation.IExponentialEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IExponentialEase;
-   
-   subtype LinearDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame;
-   
-   subtype ObjectAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames;
-   function Create return Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames;
-   
-   subtype PaneThemeTransition is Windows.UI.Xaml.Media.Animation.IPaneThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IPaneThemeTransition;
-   
-   subtype PointAnimation is Windows.UI.Xaml.Media.Animation.IPointAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimation;
-   
-   subtype PopupThemeTransition is Windows.UI.Xaml.Media.Animation.IPopupThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IPopupThemeTransition;
-   
-   subtype PowerEase is Windows.UI.Xaml.Media.Animation.IPowerEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IPowerEase;
-   
-   subtype QuadraticEase is Windows.UI.Xaml.Media.Animation.IQuadraticEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IQuadraticEase;
-   
-   subtype QuarticEase is Windows.UI.Xaml.Media.Animation.IQuarticEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IQuarticEase;
-   
-   subtype QuinticEase is Windows.UI.Xaml.Media.Animation.IQuinticEase;
-   function Create return Windows.UI.Xaml.Media.Animation.IQuinticEase;
-   
-   subtype ReorderThemeTransition is Windows.UI.Xaml.Media.Animation.IReorderThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IReorderThemeTransition;
-   
-   subtype RepositionThemeTransition is Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition;
-   
-   subtype SineEase is Windows.UI.Xaml.Media.Animation.ISineEase;
-   function Create return Windows.UI.Xaml.Media.Animation.ISineEase;
-   
-   subtype SplineDoubleKeyFrame is Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame;
-   
-   subtype Storyboard is Windows.UI.Xaml.Media.Animation.IStoryboard;
-   function Create return Windows.UI.Xaml.Media.Animation.IStoryboard;
-   
-   subtype ColorKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_ColorKeyFrame;
-   
-   subtype ConnectedAnimation is Windows.UI.Xaml.Media.Animation.IConnectedAnimation;
-   subtype ConnectedAnimationService is Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
-   subtype PointKeyFrameCollection is Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IVector_PointKeyFrame;
-   
-   subtype ColorKeyFrame is Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
-   
-   type IColorKeyFrame_Interface_Impl is new IColorKeyFrame_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IColorKeyFrame := null;
-      m_IColorKeyFrame : IColorKeyFrame := null;
-   end record;
-   type IColorKeyFrame_Impl is access all IColorKeyFrame_Interface_Impl'Class;
-   type IColorKeyFrame_Impl_Ptr is access all IColorKeyFrame_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IColorKeyFrame_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   function get_Value
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; RetVal : access Windows.UI.Color
-   )
-   return Windows.HRESULT;
-   
-   function put_Value
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; value : Windows.UI.Color
-   )
-   return Windows.HRESULT;
-   
-   function get_KeyTime
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT;
-   
-   function put_KeyTime
-   (
-      This       : access IColorKeyFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT;
-   
-   subtype PointKeyFrame is Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
-   
-   type IPointKeyFrame_Interface_Impl is new IPointKeyFrame_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IPointKeyFrame := null;
-      m_IPointKeyFrame : IPointKeyFrame := null;
-   end record;
-   type IPointKeyFrame_Impl is access all IPointKeyFrame_Interface_Impl'Class;
-   type IPointKeyFrame_Impl_Ptr is access all IPointKeyFrame_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IPointKeyFrame_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   function get_Value
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; RetVal : access Windows.Foundation.Point
-   )
-   return Windows.HRESULT;
-   
-   function put_Value
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; value : Windows.Foundation.Point
-   )
-   return Windows.HRESULT;
-   
-   function get_KeyTime
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT;
-   
-   function put_KeyTime
-   (
-      This       : access IPointKeyFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.Animation.KeyTime
-   )
-   return Windows.HRESULT;
-   
-   subtype ColorAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames;
-   function Create return Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames;
-   
-   subtype DiscreteColorKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
-   
-   subtype DiscretePointKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame;
-   
-   subtype DragItemThemeAnimation is Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation;
-   
-   subtype DragOverThemeAnimation is Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation;
-   
-   subtype DrillInThemeAnimation is Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation;
-   
-   subtype DrillOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation;
-   
-   subtype DropTargetItemThemeAnimation is Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation;
-   
-   subtype EasingColorKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame;
-   
-   subtype EasingPointKeyFrame is Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame;
-   
-   subtype FadeInThemeAnimation is Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation;
-   
-   subtype FadeOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
-   
-   subtype LinearColorKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame;
-   
-   subtype LinearPointKeyFrame is Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame;
-   
-   subtype PointAnimationUsingKeyFrames is Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames;
-   function Create return Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames;
-   
-   subtype PointerDownThemeAnimation is Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation;
-   
-   subtype PointerUpThemeAnimation is Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation;
-   
-   subtype PopInThemeAnimation is Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation;
-   
-   subtype PopOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation;
-   
-   subtype RepositionThemeAnimation is Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation;
-   
-   subtype SplineColorKeyFrame is Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame;
-   
-   subtype SplinePointKeyFrame is Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame;
-   function Create return Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame;
-   
-   subtype SplitCloseThemeAnimation is Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation;
-   
-   subtype SplitOpenThemeAnimation is Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation;
-   
-   subtype SwipeBackThemeAnimation is Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation;
-   
-   subtype SwipeHintThemeAnimation is Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation;
-   function Create return Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation;
-   
-   subtype CommonNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
-   function Create return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
-   
-   subtype ContinuumNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo;
-   function Create return Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo;
-   
-   subtype DrillInNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo;
-   function Create return Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo;
-   
-   subtype EntranceNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo;
-   function Create return Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo;
-   
-   subtype NavigationThemeTransition is Windows.UI.Xaml.Media.Animation.INavigationThemeTransition;
-   function Create return Windows.UI.Xaml.Media.Animation.INavigationThemeTransition;
-   
-   subtype SlideNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo;
-   function Create return Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo;
-   
-   subtype SuppressNavigationTransitionInfo is Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo;
-   function Create return Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo;
+   subtype TransitionCollection is Windows.UI.Xaml.Media.Animation.IVector_Transition;
+   function Create return Windows.UI.Xaml.Media.Animation.IVector_Transition;
    
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromTimeSpan
-   (
-      timeSpan : Windows.Foundation.TimeSpan
-   )
-   return Windows.UI.Xaml.Media.Animation.KeyTime;
-   
-   function get_Forever
-   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
-   
-   function FromCount
-   (
-      count : Windows.Double
-   )
-   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
-   
-   function FromDuration
-   (
-      duration : Windows.Foundation.TimeSpan
-   )
-   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
-   
-   function GetHasCount
-   (
-      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.Boolean;
-   
-   function GetHasDuration
-   (
-      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.Boolean;
-   
-   function Equals
-   (
-      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.Boolean;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
-   
-   function get_ValueProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EasingModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
-   
-   function get_ValueProperty_IObjectKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty_IObjectKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowDependentAnimations
-   return Windows.Boolean;
-   
-   procedure put_AllowDependentAnimations
-   (
-      value : Windows.Boolean
-   )
-   ;
-   
-   function get_AutoReverseProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BeginTimeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DurationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SpeedRatioProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FillBehaviorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RepeatBehaviorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.ITimeline;
    
    function get_AmplitudeProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -6031,11 +5921,100 @@ package Windows.UI.Xaml.Media.Animation is
    function get_EnableDependentAnimationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_EnableDependentAnimationProperty_IColorAnimationUsingKeyFrames
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ValueProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTimeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
+   
+   function get_IsStaggeringEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsStaggerElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsStaggerElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsStaggerElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   function GetForCurrentView
+   return Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
+   
    function get_HorizontalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_VerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ExitElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsEntranceElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsEntranceElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsEntranceElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   function get_IsExitElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsExitElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsExitElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   function get_ExitElementContainerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetExitElementContainer
+   (
+      element : Windows.UI.Xaml.Controls.IListViewBase
+   )
+   return Windows.Boolean;
+   
+   procedure SetExitElementContainer
+   (
+      element : Windows.UI.Xaml.Controls.IListViewBase
+      ; value : Windows.Boolean
+   )
+   ;
    
    function get_FromProperty_IDoubleAnimation
    return Windows.UI.Xaml.IDependencyProperty;
@@ -6055,138 +6034,20 @@ package Windows.UI.Xaml.Media.Animation is
    function get_EnableDependentAnimationProperty_IDoubleAnimationUsingKeyFrames
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_EasingFunctionProperty_IEasingDoubleKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EdgeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OscillationsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SpringinessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FromHorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FromVerticalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsStaggeringEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ExponentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EnableDependentAnimationProperty_IObjectAnimationUsingKeyFrames
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EdgeProperty_IPaneThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FromProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ToProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ByProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EasingFunctionProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_EnableDependentAnimationProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FromHorizontalOffsetProperty_IPopupThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FromVerticalOffsetProperty_IPopupThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PowerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsStaggeringEnabledProperty_IRepositionThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeySplineProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TargetPropertyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetTargetProperty
+   function CreateInstance
    (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      outer : Windows.Object
+      ; inner : access Windows.Object
    )
-   return Windows.String;
+   return Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
    
-   procedure SetTargetProperty
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; path : Windows.String
-   )
-   ;
+   function get_ValueProperty_IDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTimeProperty_IDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetTargetName
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.String;
-   
-   procedure SetTargetName
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; name : Windows.String
-   )
-   ;
-   
-   procedure SetTarget
-   (
-      timeline : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; target : Windows.UI.Xaml.IDependencyObject
-   )
-   ;
-   
-   function GetForCurrentView
-   return Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
-   
-   function get_ValueProperty_IColorKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty_IColorKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
-   
-   function get_ValueProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
-   
-   function get_EnableDependentAnimationProperty_IColorAnimationUsingKeyFrames
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TargetNameProperty_IDragItemThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty_IDragOverThemeAnimation
@@ -6228,13 +6089,106 @@ package Windows.UI.Xaml.Media.Animation is
    function get_EasingFunctionProperty_IEasingColorKeyFrame
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_EasingFunctionProperty_IEasingDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EasingModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_EasingFunctionProperty_IEasingPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EdgeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OscillationsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SpringinessProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTargetElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsTargetElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsTargetElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   function get_FromHorizontalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FromVerticalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsStaggeringEnabledProperty_IEntranceThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ExponentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty_IFadeInThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty_IFadeOutThemeAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function FromTimeSpan
+   (
+      timeSpan : Windows.Foundation.TimeSpan
+   )
+   return Windows.UI.Xaml.Media.Animation.KeyTime;
+   
+   function get_DefaultNavigationTransitionInfoProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
+   
+   function get_EnableDependentAnimationProperty_IObjectAnimationUsingKeyFrames
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
+   
+   function get_ValueProperty_IObjectKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTimeProperty_IObjectKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EdgeProperty_IPaneThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FromProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ToProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ByProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EasingFunctionProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EnableDependentAnimationProperty_IPointAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_EnableDependentAnimationProperty_IPointAnimationUsingKeyFrames
@@ -6245,6 +6199,19 @@ package Windows.UI.Xaml.Media.Animation is
    
    function get_TargetNameProperty_IPointerUpThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ValueProperty_IPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTimeProperty_IPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
    
    function get_TargetNameProperty_IPopInThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
@@ -6258,6 +6225,49 @@ package Windows.UI.Xaml.Media.Animation is
    function get_TargetNameProperty_IPopOutThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_FromHorizontalOffsetProperty_IPopupThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FromVerticalOffsetProperty_IPopupThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PowerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Forever
+   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   
+   function FromCount
+   (
+      count : Windows.Double
+   )
+   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   
+   function FromDuration
+   (
+      duration : Windows.Foundation.TimeSpan
+   )
+   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   
+   function GetHasCount
+   (
+      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.Boolean;
+   
+   function GetHasDuration
+   (
+      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.Boolean;
+   
+   function Equals
+   (
+      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.Boolean;
+   
    function get_TargetNameProperty_IRepositionThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -6267,7 +6277,13 @@ package Windows.UI.Xaml.Media.Animation is
    function get_FromVerticalOffsetProperty_IRepositionThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_KeySplineProperty_ISplineColorKeyFrame
+   function get_IsStaggeringEnabledProperty_IRepositionThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeySplineProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeySplineProperty_ISplineDoubleKeyFrame
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_KeySplineProperty_ISplinePointKeyFrame
@@ -6339,6 +6355,45 @@ package Windows.UI.Xaml.Media.Animation is
    function get_ContentTranslationOffsetProperty_ISplitOpenThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_TargetPropertyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetTargetProperty
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.String;
+   
+   procedure SetTargetProperty
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; path : Windows.String
+   )
+   ;
+   
+   function get_TargetNameProperty_IStoryboard
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetTargetName
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+   )
+   return Windows.String;
+   
+   procedure SetTargetName
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; name : Windows.String
+   )
+   ;
+   
+   procedure SetTarget
+   (
+      timeline : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; target : Windows.UI.Xaml.IDependencyObject
+   )
+   ;
+   
    function get_TargetNameProperty_ISwipeBackThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -6357,93 +6412,38 @@ package Windows.UI.Xaml.Media.Animation is
    function get_ToVerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsStaggeringEnabledProperty_ICommonNavigationTransitionInfo
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsStaggerElementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsStaggerElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
+   function get_AllowDependentAnimations
    return Windows.Boolean;
    
-   procedure SetIsStaggerElement
+   procedure put_AllowDependentAnimations
    (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
+      value : Windows.Boolean
    )
    ;
    
-   function get_ExitElementProperty
+   function get_AutoReverseProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsEntranceElementProperty
+   function get_BeginTimeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetIsEntranceElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsEntranceElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_IsExitElementProperty
+   function get_DurationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetIsExitElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsExitElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_ExitElementContainerProperty
+   function get_SpeedRatioProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetExitElementContainer
-   (
-      element : Windows.UI.Xaml.Controls.IListViewBase
-   )
-   return Windows.Boolean;
-   
-   procedure SetExitElementContainer
-   (
-      element : Windows.UI.Xaml.Controls.IListViewBase
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_IsTargetElementProperty
+   function get_FillBehaviorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetIsTargetElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsTargetElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_DefaultNavigationTransitionInfoProperty
+   function get_RepeatBehaviorProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.ITimeline;
    
 end;

@@ -54,14 +54,14 @@ package body Windows.Web.UI is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
+      ; args : Windows.Object
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(sender, Windows.Web.UI.IWebViewControlNavigationStartingEventArgs(args));
+      This.Callback(sender, args);
       return Hr;
    end;
    
@@ -88,32 +88,6 @@ package body Windows.Web.UI is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, Windows.Web.UI.IWebViewControlDOMContentLoadedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.Web.UI.IWebViewControlNavigationStartingEventArgs(args));
       return Hr;
    end;
    
@@ -158,14 +132,14 @@ package body Windows.Web.UI is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_FrameNavigationStarting_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlScriptNotifyEventArgs
+      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(sender, Windows.Web.UI.IWebViewControlScriptNotifyEventArgs(args));
+      This.Callback(sender, Windows.Web.UI.IWebViewControlNavigationStartingEventArgs(args));
       return Hr;
    end;
    
@@ -184,53 +158,27 @@ package body Windows.Web.UI is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_NavigationCompleted_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Object
+      ; args : Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(sender, args);
+      This.Callback(sender, Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs(args));
       return Hr;
    end;
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_NavigationStarting_Interface
       ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs
+      ; args : Windows.Web.UI.IWebViewControlNavigationStartingEventArgs
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
    begin
-      This.Callback(sender, Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface
-      ; sender : Windows.Web.UI.IWebViewControl
-      ; args : Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs(args));
+      This.Callback(sender, Windows.Web.UI.IWebViewControlNavigationStartingEventArgs(args));
       return Hr;
    end;
    
@@ -249,7 +197,33 @@ package body Windows.Web.UI is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IWebViewControl_add_ContainsFullScreenElementChanged_Interface
+      This       : access TypedEventHandler_IWebViewControl_add_PermissionRequested_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_ScriptNotify_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlScriptNotifyEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.Web.UI.IWebViewControlScriptNotifyEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_UnsafeContentWarningDisplaying_Interface
       ; sender : Windows.Web.UI.IWebViewControl
       ; args : Windows.Object
    )
@@ -257,6 +231,32 @@ package body Windows.Web.UI is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_UnsupportedUriSchemeIdentified_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControl_add_UnviewableContentIdentified_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs(args));
       return Hr;
    end;
    

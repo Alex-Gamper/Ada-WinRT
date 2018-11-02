@@ -67,6 +67,26 @@ package body Windows.ApplicationModel.UserActivities is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateWithActivityId
+   (
+      activityId : Windows.String
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivity is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
+      m_Factory     : Windows.ApplicationModel.UserActivities.IUserActivityFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivity := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithActivityId(activityId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create return Windows.ApplicationModel.UserActivities.IUserActivityAttribution is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityAttribution");
@@ -104,26 +124,6 @@ package body Windows.ApplicationModel.UserActivities is
       return RetVal;
    end;
    
-   function CreateWithActivityId
-   (
-      activityId : Windows.String
-   )
-   return Windows.ApplicationModel.UserActivities.IUserActivity is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
-      m_Factory     : Windows.ApplicationModel.UserActivities.IUserActivityFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivity := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithActivityId(activityId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -131,26 +131,6 @@ package body Windows.ApplicationModel.UserActivities is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function FromJson
-   (
-      value : Windows.String
-   )
-   return Windows.ApplicationModel.UserActivities.IUserActivityContentInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityContentInfo");
-      m_Factory     : IUserActivityContentInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivityContentInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityContentInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromJson(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function TryParseFromJson
    (
@@ -258,6 +238,26 @@ package body Windows.ApplicationModel.UserActivities is
       Hr := RoGetActivationFactory(m_hString, IID_IUserActivityChannelStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromJson
+   (
+      value : Windows.String
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivityContentInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityContentInfo");
+      m_Factory     : IUserActivityContentInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivityContentInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityContentInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromJson(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

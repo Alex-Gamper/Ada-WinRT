@@ -73,41 +73,41 @@ package Windows.UI.ViewManagement.Core is
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface;
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged is access all TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface'Class;
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Ptr is access all TypedEventHandler_ICoreInputView_add_OcclusionsChanged;
-   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface;
-   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface'Class;
-   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Ptr is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView;
    type TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView_Interface;
    type TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView_Interface'Class;
    type TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView_Ptr is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView;
+   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface;
+   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface'Class;
+   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Ptr is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type ICoreInputViewOcclusion_Interface;
-   type ICoreInputViewOcclusion is access all ICoreInputViewOcclusion_Interface'Class;
-   type ICoreInputViewOcclusion_Ptr is access all ICoreInputViewOcclusion;
    type ICoreInputView_Interface;
    type ICoreInputView is access all ICoreInputView_Interface'Class;
    type ICoreInputView_Ptr is access all ICoreInputView;
    type ICoreInputView2_Interface;
    type ICoreInputView2 is access all ICoreInputView2_Interface'Class;
    type ICoreInputView2_Ptr is access all ICoreInputView2;
-   type ICoreInputViewStatics_Interface;
-   type ICoreInputViewStatics is access all ICoreInputViewStatics_Interface'Class;
-   type ICoreInputViewStatics_Ptr is access all ICoreInputViewStatics;
+   type ICoreInputViewOcclusion_Interface;
+   type ICoreInputViewOcclusion is access all ICoreInputViewOcclusion_Interface'Class;
+   type ICoreInputViewOcclusion_Ptr is access all ICoreInputViewOcclusion;
    type ICoreInputViewOcclusionsChangedEventArgs_Interface;
    type ICoreInputViewOcclusionsChangedEventArgs is access all ICoreInputViewOcclusionsChangedEventArgs_Interface'Class;
    type ICoreInputViewOcclusionsChangedEventArgs_Ptr is access all ICoreInputViewOcclusionsChangedEventArgs;
+   type ICoreInputViewStatics_Interface;
+   type ICoreInputViewStatics is access all ICoreInputViewStatics_Interface'Class;
+   type ICoreInputViewStatics_Ptr is access all ICoreInputViewStatics;
    type ICoreInputViewTransferringXYFocusEventArgs_Interface;
    type ICoreInputViewTransferringXYFocusEventArgs is access all ICoreInputViewTransferringXYFocusEventArgs_Interface'Class;
    type ICoreInputViewTransferringXYFocusEventArgs_Ptr is access all ICoreInputViewTransferringXYFocusEventArgs;
-   type IIterator_ICoreInputViewOcclusion_Interface;
-   type IIterator_ICoreInputViewOcclusion is access all IIterator_ICoreInputViewOcclusion_Interface'Class;
-   type IIterator_ICoreInputViewOcclusion_Ptr is access all IIterator_ICoreInputViewOcclusion;
    type IIterable_ICoreInputViewOcclusion_Interface;
    type IIterable_ICoreInputViewOcclusion is access all IIterable_ICoreInputViewOcclusion_Interface'Class;
    type IIterable_ICoreInputViewOcclusion_Ptr is access all IIterable_ICoreInputViewOcclusion;
+   type IIterator_ICoreInputViewOcclusion_Interface;
+   type IIterator_ICoreInputViewOcclusion is access all IIterator_ICoreInputViewOcclusion_Interface'Class;
+   type IIterator_ICoreInputViewOcclusion_Ptr is access all IIterator_ICoreInputViewOcclusion;
    type IVectorView_ICoreInputViewOcclusion_Interface;
    type IVectorView_ICoreInputViewOcclusion is access all IVectorView_ICoreInputViewOcclusion_Interface'Class;
    type IVectorView_ICoreInputViewOcclusion_Ptr is access all IVectorView_ICoreInputViewOcclusion;
@@ -115,26 +115,6 @@ package Windows.UI.ViewManagement.Core is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_ICoreInputViewOcclusion : aliased constant Windows.IID := (3426143750, 14437, 16759, (181, 245, 139, 101, 224, 185, 206, 132 ));
-   
-   type ICoreInputViewOcclusion_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_OccludingRect
-   (
-      This       : access ICoreInputViewOcclusion_Interface
-      ; RetVal : access Windows.Foundation.Rect
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_OcclusionKind
-   (
-      This       : access ICoreInputViewOcclusion_Interface
-      ; RetVal : access Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -225,14 +205,21 @@ package Windows.UI.ViewManagement.Core is
    
    ------------------------------------------------------------------------
    
-   IID_ICoreInputViewStatics : aliased constant Windows.IID := (2107348941, 60862, 18895, (165, 79, 51, 125, 224, 82, 144, 127 ));
+   IID_ICoreInputViewOcclusion : aliased constant Windows.IID := (3426143750, 14437, 16759, (181, 245, 139, 101, 224, 185, 206, 132 ));
    
-   type ICoreInputViewStatics_Interface is interface and Windows.IInspectable_Interface;
+   type ICoreInputViewOcclusion_Interface is interface and Windows.IInspectable_Interface;
    
-   function GetForCurrentView
+   function get_OccludingRect
    (
-      This       : access ICoreInputViewStatics_Interface
-      ; RetVal : access Windows.UI.ViewManagement.Core.ICoreInputView
+      This       : access ICoreInputViewOcclusion_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OcclusionKind
+   (
+      This       : access ICoreInputViewOcclusion_Interface
+      ; RetVal : access Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind
    )
    return Windows.HRESULT is abstract;
    
@@ -260,6 +247,19 @@ package Windows.UI.ViewManagement.Core is
    (
       This       : access ICoreInputViewOcclusionsChangedEventArgs_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreInputViewStatics : aliased constant Windows.IID := (2107348941, 60862, 18895, (165, 79, 51, 125, 224, 82, 144, 127 ));
+   
+   type ICoreInputViewStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForCurrentView
+   (
+      This       : access ICoreInputViewStatics_Interface
+      ; RetVal : access Windows.UI.ViewManagement.Core.ICoreInputView
    )
    return Windows.HRESULT is abstract;
    
@@ -313,6 +313,19 @@ package Windows.UI.ViewManagement.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_ICoreInputViewOcclusion : aliased constant Windows.IID := (168924555, 25562, 21862, (145, 58, 24, 5, 80, 218, 210, 106 ));
+   
+   type IIterable_ICoreInputViewOcclusion_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ICoreInputViewOcclusion_Interface
+      ; RetVal : access Windows.UI.ViewManagement.Core.IIterator_ICoreInputViewOcclusion
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_ICoreInputViewOcclusion : aliased constant Windows.IID := (1538618196, 20288, 24307, (165, 209, 106, 96, 73, 249, 5, 161 ));
    
    type IIterator_ICoreInputViewOcclusion_Interface is interface and Windows.IInspectable_Interface;
@@ -343,19 +356,6 @@ package Windows.UI.ViewManagement.Core is
       This       : access IIterator_ICoreInputViewOcclusion_Interface
       ; items : Windows.UI.ViewManagement.Core.ICoreInputViewOcclusion_Ptr
       ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_ICoreInputViewOcclusion : aliased constant Windows.IID := (168924555, 25562, 21862, (145, 58, 24, 5, 80, 218, 210, 106 ));
-   
-   type IIterable_ICoreInputViewOcclusion_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_ICoreInputViewOcclusion_Interface
-      ; RetVal : access Windows.UI.ViewManagement.Core.IIterator_ICoreInputViewOcclusion
    )
    return Windows.HRESULT is abstract;
    
@@ -417,19 +417,6 @@ package Windows.UI.ViewManagement.Core is
    
    ------------------------------------------------------------------------
    
-   IID_TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView : aliased constant Windows.IID := (2283700632, 32758, 23769, (138, 100, 109, 212, 41, 34, 103, 173 ));
-   
-   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView'access) with null record;
-   function Invoke
-   (
-      This       : access TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface
-      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
-      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView : aliased constant Windows.IID := (734062582, 51058, 22240, (148, 57, 101, 6, 102, 199, 141, 12 ));
    
    type TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputView2_add_XYFocusTransferredToPrimaryView'access) with null record;
@@ -442,12 +429,25 @@ package Windows.UI.ViewManagement.Core is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView : aliased constant Windows.IID := (2283700632, 32758, 23769, (138, 100, 109, 212, 41, 34, 103, 173 ));
+   
+   type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface
+      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
+      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype CoreInputView is Windows.UI.ViewManagement.Core.ICoreInputView;
-   subtype CoreInputViewOcclusionsChangedEventArgs is Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs;
    subtype CoreInputViewOcclusion is Windows.UI.ViewManagement.Core.ICoreInputViewOcclusion;
+   subtype CoreInputViewOcclusionsChangedEventArgs is Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs;
    subtype CoreInputViewTransferringXYFocusEventArgs is Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs;
    
    ------------------------------------------------------------------------

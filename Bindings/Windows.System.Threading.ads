@@ -35,6 +35,18 @@ package Windows.System.Threading is
    -- Enums
    ------------------------------------------------------------------------
    
+   type WorkItemOptions is (
+      None,
+      TimeSliced
+   );
+   for WorkItemOptions use (
+      None => 0,
+      TimeSliced => 1
+   );
+   for WorkItemOptions'Size use 32;
+   
+   type WorkItemOptions_Ptr is access WorkItemOptions;
+   
    type WorkItemPriority is (
       Low,
       Normal,
@@ -49,28 +61,16 @@ package Windows.System.Threading is
    
    type WorkItemPriority_Ptr is access WorkItemPriority;
    
-   type WorkItemOptions is (
-      None,
-      TimeSliced
-   );
-   for WorkItemOptions use (
-      None => 0,
-      TimeSliced => 1
-   );
-   for WorkItemOptions'Size use 32;
-   
-   type WorkItemOptions_Ptr is access WorkItemOptions;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type TimerElapsedHandler_Interface;
-   type TimerElapsedHandler is access all TimerElapsedHandler_Interface'Class;
-   type TimerElapsedHandler_Ptr is access all TimerElapsedHandler;
    type TimerDestroyedHandler_Interface;
    type TimerDestroyedHandler is access all TimerDestroyedHandler_Interface'Class;
    type TimerDestroyedHandler_Ptr is access all TimerDestroyedHandler;
+   type TimerElapsedHandler_Interface;
+   type TimerElapsedHandler is access all TimerElapsedHandler_Interface'Class;
+   type TimerElapsedHandler_Ptr is access all TimerElapsedHandler;
    type WorkItemHandler_Interface;
    type WorkItemHandler is access all WorkItemHandler_Interface'Class;
    type WorkItemHandler_Ptr is access all WorkItemHandler;
@@ -202,24 +202,24 @@ package Windows.System.Threading is
    
    ------------------------------------------------------------------------
    
-   IID_TimerElapsedHandler : aliased constant Windows.IID := (4205749863, 64491, 18891, (173, 178, 113, 24, 76, 85, 110, 67 ));
-   
-   type TimerElapsedHandler_Interface(Callback : access procedure (timer : Windows.System.Threading.IThreadPoolTimer)) is new Windows.IMulticastDelegate_Interface(IID_TimerElapsedHandler'access) with null record;
-   function Invoke
-   (
-      This       : access TimerElapsedHandler_Interface
-      ; timer : Windows.System.Threading.IThreadPoolTimer
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TimerDestroyedHandler : aliased constant Windows.IID := (887953914, 33668, 20153, (130, 9, 251, 80, 148, 238, 236, 53 ));
    
    type TimerDestroyedHandler_Interface(Callback : access procedure (timer : Windows.System.Threading.IThreadPoolTimer)) is new Windows.IMulticastDelegate_Interface(IID_TimerDestroyedHandler'access) with null record;
    function Invoke
    (
       This       : access TimerDestroyedHandler_Interface
+      ; timer : Windows.System.Threading.IThreadPoolTimer
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TimerElapsedHandler : aliased constant Windows.IID := (4205749863, 64491, 18891, (173, 178, 113, 24, 76, 85, 110, 67 ));
+   
+   type TimerElapsedHandler_Interface(Callback : access procedure (timer : Windows.System.Threading.IThreadPoolTimer)) is new Windows.IMulticastDelegate_Interface(IID_TimerElapsedHandler'access) with null record;
+   function Invoke
+   (
+      This       : access TimerElapsedHandler_Interface
       ; timer : Windows.System.Threading.IThreadPoolTimer
    )
    return Windows.HRESULT;
@@ -245,6 +245,27 @@ package Windows.System.Threading is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function RunAsync
+   (
+      handler : Windows.System.Threading.WorkItemHandler
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function RunWithPriorityAsync
+   (
+      handler : Windows.System.Threading.WorkItemHandler
+      ; priority : Windows.System.Threading.WorkItemPriority
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function RunWithPriorityAndOptionsAsync
+   (
+      handler : Windows.System.Threading.WorkItemHandler
+      ; priority : Windows.System.Threading.WorkItemPriority
+      ; options : Windows.System.Threading.WorkItemOptions
+   )
+   return Windows.Foundation.IAsyncAction;
    
    function CreatePeriodicTimer
    (
@@ -275,26 +296,5 @@ package Windows.System.Threading is
       ; destroyed : Windows.System.Threading.TimerDestroyedHandler
    )
    return Windows.System.Threading.IThreadPoolTimer;
-   
-   function RunAsync
-   (
-      handler : Windows.System.Threading.WorkItemHandler
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function RunWithPriorityAsync
-   (
-      handler : Windows.System.Threading.WorkItemHandler
-      ; priority : Windows.System.Threading.WorkItemPriority
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function RunWithPriorityAndOptionsAsync
-   (
-      handler : Windows.System.Threading.WorkItemHandler
-      ; priority : Windows.System.Threading.WorkItemPriority
-      ; options : Windows.System.Threading.WorkItemOptions
-   )
-   return Windows.Foundation.IAsyncAction;
    
 end;

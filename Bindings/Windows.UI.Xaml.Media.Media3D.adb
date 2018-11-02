@@ -169,160 +169,6 @@ package body Windows.UI.Xaml.Media.Media3D is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Identity
-   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
-      m_Factory     : IMatrix3DHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Identity(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Multiply
-   (
-      matrix1 : Windows.UI.Xaml.Media.Media3D.Matrix3D
-      ; matrix2 : Windows.UI.Xaml.Media.Media3D.Matrix3D
-   )
-   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
-      m_Factory     : IMatrix3DHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Multiply(matrix1, matrix2, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromElements
-   (
-      m11 : Windows.Double
-      ; m12 : Windows.Double
-      ; m13 : Windows.Double
-      ; m14 : Windows.Double
-      ; m21 : Windows.Double
-      ; m22 : Windows.Double
-      ; m23 : Windows.Double
-      ; m24 : Windows.Double
-      ; m31 : Windows.Double
-      ; m32 : Windows.Double
-      ; m33 : Windows.Double
-      ; m34 : Windows.Double
-      ; offsetX : Windows.Double
-      ; offsetY : Windows.Double
-      ; offsetZ : Windows.Double
-      ; m44 : Windows.Double
-   )
-   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
-      m_Factory     : IMatrix3DHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromElements(m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, offsetX, offsetY, offsetZ, m44, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetHasInverse
-   (
-      target : Windows.UI.Xaml.Media.Media3D.Matrix3D
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
-      m_Factory     : IMatrix3DHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetHasInverse(target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetIsIdentity
-   (
-      target : Windows.UI.Xaml.Media.Media3D.Matrix3D
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
-      m_Factory     : IMatrix3DHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetIsIdentity(target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Invert
-   (
-      target : Windows.UI.Xaml.Media.Media3D.Matrix3D
-   )
-   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
-      m_Factory     : IMatrix3DHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Invert(target, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Media3D.ITransform3D is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Transform3D");
-      m_Factory     : ITransform3DFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.ITransform3D;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITransform3DFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_CenterXProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -527,6 +373,139 @@ package body Windows.UI.Xaml.Media.Media3D is
       return RetVal;
    end;
    
+   function get_Identity
+   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
+      m_Factory     : IMatrix3DHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Identity(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Multiply
+   (
+      matrix1 : Windows.UI.Xaml.Media.Media3D.Matrix3D
+      ; matrix2 : Windows.UI.Xaml.Media.Media3D.Matrix3D
+   )
+   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
+      m_Factory     : IMatrix3DHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Multiply(matrix1, matrix2, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromElements
+   (
+      m11 : Windows.Double
+      ; m12 : Windows.Double
+      ; m13 : Windows.Double
+      ; m14 : Windows.Double
+      ; m21 : Windows.Double
+      ; m22 : Windows.Double
+      ; m23 : Windows.Double
+      ; m24 : Windows.Double
+      ; m31 : Windows.Double
+      ; m32 : Windows.Double
+      ; m33 : Windows.Double
+      ; m34 : Windows.Double
+      ; offsetX : Windows.Double
+      ; offsetY : Windows.Double
+      ; offsetZ : Windows.Double
+      ; m44 : Windows.Double
+   )
+   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
+      m_Factory     : IMatrix3DHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromElements(m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, offsetX, offsetY, offsetZ, m44, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetHasInverse
+   (
+      target : Windows.UI.Xaml.Media.Media3D.Matrix3D
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
+      m_Factory     : IMatrix3DHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetHasInverse(target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIsIdentity
+   (
+      target : Windows.UI.Xaml.Media.Media3D.Matrix3D
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
+      m_Factory     : IMatrix3DHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIsIdentity(target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Invert
+   (
+      target : Windows.UI.Xaml.Media.Media3D.Matrix3D
+   )
+   return Windows.UI.Xaml.Media.Media3D.Matrix3D is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Matrix3DHelper");
+      m_Factory     : IMatrix3DHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.Matrix3D;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Invert(target, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_DepthProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -572,6 +551,27 @@ package body Windows.UI.Xaml.Media.Media3D is
       Hr := RoGetActivationFactory(m_hString, IID_IPerspectiveTransform3DStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_OffsetYProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Media3D.ITransform3D is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.Transform3D");
+      m_Factory     : ITransform3DFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Media3D.ITransform3D;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITransform3DFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

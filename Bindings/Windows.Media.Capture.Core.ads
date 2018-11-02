@@ -49,6 +49,9 @@ package Windows.Media.Capture.Core is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IVariablePhotoSequenceCapture_Interface;
+   type IAsyncOperation_IVariablePhotoSequenceCapture is access all IAsyncOperation_IVariablePhotoSequenceCapture_Interface'Class;
+   type IAsyncOperation_IVariablePhotoSequenceCapture_Ptr is access all IAsyncOperation_IVariablePhotoSequenceCapture;
    type IVariablePhotoCapturedEventArgs_Interface;
    type IVariablePhotoCapturedEventArgs is access all IVariablePhotoCapturedEventArgs_Interface'Class;
    type IVariablePhotoCapturedEventArgs_Ptr is access all IVariablePhotoCapturedEventArgs;
@@ -58,13 +61,37 @@ package Windows.Media.Capture.Core is
    type IVariablePhotoSequenceCapture2_Interface;
    type IVariablePhotoSequenceCapture2 is access all IVariablePhotoSequenceCapture2_Interface'Class;
    type IVariablePhotoSequenceCapture2_Ptr is access all IVariablePhotoSequenceCapture2;
-   type IAsyncOperation_IVariablePhotoSequenceCapture_Interface;
-   type IAsyncOperation_IVariablePhotoSequenceCapture is access all IAsyncOperation_IVariablePhotoSequenceCapture_Interface'Class;
-   type IAsyncOperation_IVariablePhotoSequenceCapture_Ptr is access all IAsyncOperation_IVariablePhotoSequenceCapture;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (52938940, 12616, 21491, (138, 61, 205, 177, 46, 73, 225, 50 ));
+   
+   type IAsyncOperation_IVariablePhotoSequenceCapture_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IVariablePhotoSequenceCapture_Interface
+      ; handler : Windows.Media.Capture.Core.AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IVariablePhotoSequenceCapture_Interface
+      ; RetVal : access Windows.Media.Capture.Core.AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IVariablePhotoSequenceCapture_Interface
+      ; RetVal : access Windows.Media.Capture.Core.IVariablePhotoSequenceCapture
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -171,33 +198,6 @@ package Windows.Media.Capture.Core is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (52938940, 12616, 21491, (138, 61, 205, 177, 46, 73, 225, 50 ));
-   
-   type IAsyncOperation_IVariablePhotoSequenceCapture_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IVariablePhotoSequenceCapture_Interface
-      ; handler : Windows.Media.Capture.Core.AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IVariablePhotoSequenceCapture_Interface
-      ; RetVal : access Windows.Media.Capture.Core.AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IVariablePhotoSequenceCapture_Interface
-      ; RetVal : access Windows.Media.Capture.Core.IVariablePhotoSequenceCapture
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -244,8 +244,8 @@ package Windows.Media.Capture.Core is
    -- Classes
    ------------------------------------------------------------------------
    
-   subtype VariablePhotoSequenceCapture is Windows.Media.Capture.Core.IVariablePhotoSequenceCapture;
    subtype VariablePhotoCapturedEventArgs is Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs;
+   subtype VariablePhotoSequenceCapture is Windows.Media.Capture.Core.IVariablePhotoSequenceCapture;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

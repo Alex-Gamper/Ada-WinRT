@@ -64,44 +64,6 @@ package body Windows.ApplicationModel.Store.Preview is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function RequestProductPurchaseByProductIdAndSkuIdAsync
-   (
-      productId : Windows.String
-      ; skuId : Windows.String
-   )
-   return Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StorePreview");
-      m_Factory     : IStorePreview := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorePreview'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestProductPurchaseByProductIdAndSkuIdAsync(productId, skuId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadAddOnProductInfosAsync
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StorePreview");
-      m_Factory     : IStorePreview := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorePreview'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadAddOnProductInfosAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetStoreWebAccountId
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -535,6 +497,44 @@ package body Windows.ApplicationModel.Store.Preview is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function RequestProductPurchaseByProductIdAndSkuIdAsync
+   (
+      productId : Windows.String
+      ; skuId : Windows.String
+   )
+   return Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StorePreview");
+      m_Factory     : IStorePreview := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorePreview'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestProductPurchaseByProductIdAndSkuIdAsync(productId, skuId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadAddOnProductInfosAsync
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StorePreview");
+      m_Factory     : IStorePreview := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorePreview'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadAddOnProductInfosAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function RequestTokenWithUIElementHostingAsync

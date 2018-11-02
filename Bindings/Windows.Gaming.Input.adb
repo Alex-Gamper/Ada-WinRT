@@ -40,45 +40,6 @@ package body Windows.Gaming.Input is
    
    function Invoke
    (
-      This       : access TypedEventHandler_IGameController_add_HeadsetConnected_Interface
-      ; sender : Windows.Gaming.Input.IGameController
-      ; args : Windows.Gaming.Input.IHeadset
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.Gaming.Input.IHeadset(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface
-      ; sender : Windows.Gaming.Input.IGameController
-      ; args : Windows.Gaming.Input.IHeadset
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.Gaming.Input.IHeadset(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
-      This       : access TypedEventHandler_IGameController_add_UserChanged_Interface
-      ; sender : Windows.Gaming.Input.IGameController
-      ; args : Windows.System.IUserChangedEventArgs
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(sender, Windows.System.IUserChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access EventHandler_IArcadeStick_Interface
       ; sender : Windows.Object
       ; args : Windows.Gaming.Input.IArcadeStick
@@ -152,6 +113,45 @@ package body Windows.Gaming.Input is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGameController_add_HeadsetConnected_Interface
+      ; sender : Windows.Gaming.Input.IGameController
+      ; args : Windows.Gaming.Input.IHeadset
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.Gaming.Input.IHeadset(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface
+      ; sender : Windows.Gaming.Input.IGameController
+      ; args : Windows.Gaming.Input.IHeadset
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.Gaming.Input.IHeadset(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IGameController_add_UserChanged_Interface
+      ; sender : Windows.Gaming.Input.IGameController
+      ; args : Windows.System.IUserChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, Windows.System.IUserChangedEventArgs(args));
       return Hr;
    end;
    

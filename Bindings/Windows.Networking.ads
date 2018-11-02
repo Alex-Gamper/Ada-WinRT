@@ -37,6 +37,18 @@ package Windows.Networking is
    -- Enums
    ------------------------------------------------------------------------
    
+   type DomainNameType is (
+      Suffix,
+      FullyQualified
+   );
+   for DomainNameType use (
+      Suffix => 0,
+      FullyQualified => 1
+   );
+   for DomainNameType'Size use 32;
+   
+   type DomainNameType_Ptr is access DomainNameType;
+   
    type HostNameSortOptions is (
       None,
       OptimizeForLongConnections
@@ -65,140 +77,50 @@ package Windows.Networking is
    
    type HostNameType_Ptr is access HostNameType;
    
-   type DomainNameType is (
-      Suffix,
-      FullyQualified
-   );
-   for DomainNameType use (
-      Suffix => 0,
-      FullyQualified => 1
-   );
-   for DomainNameType'Size use 32;
-   
-   type DomainNameType_Ptr is access DomainNameType;
-   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
-   type IHostNameStatics_Interface;
-   type IHostNameStatics is access all IHostNameStatics_Interface'Class;
-   type IHostNameStatics_Ptr is access all IHostNameStatics;
-   type IHostName_Interface;
-   type IHostName is access all IHostName_Interface'Class;
-   type IHostName_Ptr is access all IHostName;
-   type IHostNameFactory_Interface;
-   type IHostNameFactory is access all IHostNameFactory_Interface'Class;
-   type IHostNameFactory_Ptr is access all IHostNameFactory;
    type IEndpointPair_Interface;
    type IEndpointPair is access all IEndpointPair_Interface'Class;
    type IEndpointPair_Ptr is access all IEndpointPair;
    type IEndpointPairFactory_Interface;
    type IEndpointPairFactory is access all IEndpointPairFactory_Interface'Class;
    type IEndpointPairFactory_Ptr is access all IEndpointPairFactory;
-   type IIterator_IHostName_Interface;
-   type IIterator_IHostName is access all IIterator_IHostName_Interface'Class;
-   type IIterator_IHostName_Ptr is access all IIterator_IHostName;
-   type IIterable_IHostName_Interface;
-   type IIterable_IHostName is access all IIterable_IHostName_Interface'Class;
-   type IIterable_IHostName_Ptr is access all IIterable_IHostName;
-   type IVectorView_IHostName_Interface;
-   type IVectorView_IHostName is access all IVectorView_IHostName_Interface'Class;
-   type IVectorView_IHostName_Ptr is access all IVectorView_IHostName;
-   type IIterator_IEndpointPair_Interface;
-   type IIterator_IEndpointPair is access all IIterator_IEndpointPair_Interface'Class;
-   type IIterator_IEndpointPair_Ptr is access all IIterator_IEndpointPair;
+   type IHostName_Interface;
+   type IHostName is access all IHostName_Interface'Class;
+   type IHostName_Ptr is access all IHostName;
+   type IHostNameFactory_Interface;
+   type IHostNameFactory is access all IHostNameFactory_Interface'Class;
+   type IHostNameFactory_Ptr is access all IHostNameFactory;
+   type IHostNameStatics_Interface;
+   type IHostNameStatics is access all IHostNameStatics_Interface'Class;
+   type IHostNameStatics_Ptr is access all IHostNameStatics;
    type IIterable_IEndpointPair_Interface;
    type IIterable_IEndpointPair is access all IIterable_IEndpointPair_Interface'Class;
    type IIterable_IEndpointPair_Ptr is access all IIterable_IEndpointPair;
-   type IVectorView_IEndpointPair_Interface;
-   type IVectorView_IEndpointPair is access all IVectorView_IEndpointPair_Interface'Class;
-   type IVectorView_IEndpointPair_Ptr is access all IVectorView_IEndpointPair;
+   type IIterable_IHostName_Interface;
+   type IIterable_IHostName is access all IIterable_IHostName_Interface'Class;
+   type IIterable_IHostName_Ptr is access all IIterable_IHostName;
+   type IIterator_IEndpointPair_Interface;
+   type IIterator_IEndpointPair is access all IIterator_IEndpointPair_Interface'Class;
+   type IIterator_IEndpointPair_Ptr is access all IIterator_IEndpointPair;
+   type IIterator_IHostName_Interface;
+   type IIterator_IHostName is access all IIterator_IHostName_Interface'Class;
+   type IIterator_IHostName_Ptr is access all IIterator_IHostName;
    type IVector_IHostName_Interface;
    type IVector_IHostName is access all IVector_IHostName_Interface'Class;
    type IVector_IHostName_Ptr is access all IVector_IHostName;
+   type IVectorView_IEndpointPair_Interface;
+   type IVectorView_IEndpointPair is access all IVectorView_IEndpointPair_Interface'Class;
+   type IVectorView_IEndpointPair_Ptr is access all IVectorView_IEndpointPair;
+   type IVectorView_IHostName_Interface;
+   type IVectorView_IHostName is access all IVectorView_IHostName_Interface'Class;
+   type IVectorView_IHostName_Ptr is access all IVectorView_IHostName;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHostNameStatics : aliased constant Windows.IID := (4136424639, 41864, 20107, (145, 234, 84, 221, 109, 217, 1, 192 ));
-   
-   type IHostNameStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Compare
-   (
-      This       : access IHostNameStatics_Interface
-      ; value1 : Windows.String
-      ; value2 : Windows.String
-      ; RetVal : access Windows.Int32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHostName : aliased constant Windows.IID := (3213806253, 60822, 18855, (144, 132, 212, 22, 202, 232, 141, 203 ));
-   
-   type IHostName_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_IPInformation
-   (
-      This       : access IHostName_Interface
-      ; RetVal : access Windows.Networking.Connectivity.IIPInformation
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_RawName
-   (
-      This       : access IHostName_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_DisplayName
-   (
-      This       : access IHostName_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_CanonicalName
-   (
-      This       : access IHostName_Interface
-      ; RetVal : access Windows.String
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Type
-   (
-      This       : access IHostName_Interface
-      ; RetVal : access Windows.Networking.HostNameType
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IsEqual
-   (
-      This       : access IHostName_Interface
-      ; hostName : Windows.Networking.IHostName
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IHostNameFactory : aliased constant Windows.IID := (1166812141, 28975, 17782, (173, 241, 194, 11, 44, 100, 53, 88 ));
-   
-   type IHostNameFactory_Interface is interface and Windows.IInspectable_Interface;
-   
-   function CreateHostName
-   (
-      This       : access IHostNameFactory_Interface
-      ; hostName : Windows.String
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -281,36 +203,92 @@ package Windows.Networking is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_IHostName : aliased constant Windows.IID := (1434187836, 42024, 23997, (160, 254, 5, 246, 238, 84, 61, 69 ));
+   IID_IHostName : aliased constant Windows.IID := (3213806253, 60822, 18855, (144, 132, 212, 22, 202, 232, 141, 203 ));
    
-   type IIterator_IHostName_Interface is interface and Windows.IInspectable_Interface;
+   type IHostName_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_Current
+   function get_IPInformation
    (
-      This       : access IIterator_IHostName_Interface
+      This       : access IHostName_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IIPInformation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RawName
+   (
+      This       : access IHostName_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayName
+   (
+      This       : access IHostName_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanonicalName
+   (
+      This       : access IHostName_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Type
+   (
+      This       : access IHostName_Interface
+      ; RetVal : access Windows.Networking.HostNameType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsEqual
+   (
+      This       : access IHostName_Interface
+      ; hostName : Windows.Networking.IHostName
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHostNameFactory : aliased constant Windows.IID := (1166812141, 28975, 17782, (173, 241, 194, 11, 44, 100, 53, 88 ));
+   
+   type IHostNameFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateHostName
+   (
+      This       : access IHostNameFactory_Interface
+      ; hostName : Windows.String
       ; RetVal : access Windows.Networking.IHostName
    )
    return Windows.HRESULT is abstract;
    
-   function get_HasCurrent
+   ------------------------------------------------------------------------
+   
+   IID_IHostNameStatics : aliased constant Windows.IID := (4136424639, 41864, 20107, (145, 234, 84, 221, 109, 217, 1, 192 ));
+   
+   type IHostNameStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Compare
    (
-      This       : access IIterator_IHostName_Interface
-      ; RetVal : access Windows.Boolean
+      This       : access IHostNameStatics_Interface
+      ; value1 : Windows.String
+      ; value2 : Windows.String
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
-   function MoveNext
-   (
-      This       : access IIterator_IHostName_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
+   ------------------------------------------------------------------------
    
-   function GetMany
+   IID_IIterable_IEndpointPair : aliased constant Windows.IID := (3622601668, 41339, 20927, (137, 151, 170, 51, 185, 16, 45, 201 ));
+   
+   type IIterable_IEndpointPair_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
    (
-      This       : access IIterator_IHostName_Interface
-      ; items : Windows.Networking.IHostName_Ptr
-      ; RetVal : access Windows.UInt32
+      This       : access IIterable_IEndpointPair_Interface
+      ; RetVal : access Windows.Networking.IIterator_IEndpointPair
    )
    return Windows.HRESULT is abstract;
    
@@ -324,45 +302,6 @@ package Windows.Networking is
    (
       This       : access IIterable_IHostName_Interface
       ; RetVal : access Windows.Networking.IIterator_IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IHostName : aliased constant Windows.IID := (4101008049, 21923, 21104, (175, 178, 115, 41, 136, 254, 130, 39 ));
-   
-   type IVectorView_IHostName_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IHostName_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Networking.IHostName
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IHostName_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IHostName_Interface
-      ; value : Windows.Networking.IHostName
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IHostName_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Networking.IHostName_Ptr
-      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -403,52 +342,35 @@ package Windows.Networking is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IEndpointPair : aliased constant Windows.IID := (3622601668, 41339, 20927, (137, 151, 170, 51, 185, 16, 45, 201 ));
+   IID_IIterator_IHostName : aliased constant Windows.IID := (1434187836, 42024, 23997, (160, 254, 5, 246, 238, 84, 61, 69 ));
    
-   type IIterable_IEndpointPair_Interface is interface and Windows.IInspectable_Interface;
+   type IIterator_IHostName_Interface is interface and Windows.IInspectable_Interface;
    
-   function First
+   function get_Current
    (
-      This       : access IIterable_IEndpointPair_Interface
-      ; RetVal : access Windows.Networking.IIterator_IEndpointPair
+      This       : access IIterator_IHostName_Interface
+      ; RetVal : access Windows.Networking.IHostName
    )
    return Windows.HRESULT is abstract;
    
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IEndpointPair : aliased constant Windows.IID := (2273355857, 27976, 20486, (146, 136, 129, 243, 215, 4, 90, 150 ));
-   
-   type IVectorView_IEndpointPair_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
+   function get_HasCurrent
    (
-      This       : access IVectorView_IEndpointPair_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Networking.IEndpointPair
+      This       : access IIterator_IHostName_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
-   function get_Size
+   function MoveNext
    (
-      This       : access IVectorView_IEndpointPair_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IEndpointPair_Interface
-      ; value : Windows.Networking.IEndpointPair
-      ; index : access Windows.UInt32
+      This       : access IIterator_IHostName_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
    function GetMany
    (
-      This       : access IVectorView_IEndpointPair_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Networking.IEndpointPair_Ptr
+      This       : access IIterator_IHostName_Interface
+      ; items : Windows.Networking.IHostName_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -549,15 +471,86 @@ package Windows.Networking is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
-   -- Classes
+   
+   IID_IVectorView_IEndpointPair : aliased constant Windows.IID := (2273355857, 27976, 20486, (146, 136, 129, 243, 215, 4, 90, 150 ));
+   
+   type IVectorView_IEndpointPair_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IEndpointPair_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Networking.IEndpointPair
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IEndpointPair_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IEndpointPair_Interface
+      ; value : Windows.Networking.IEndpointPair
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IEndpointPair_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Networking.IEndpointPair_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
-   subtype HostName is Windows.Networking.IHostName;
-   function CreateHostName
+   IID_IVectorView_IHostName : aliased constant Windows.IID := (4101008049, 21923, 21104, (175, 178, 115, 41, 136, 254, 130, 39 ));
+   
+   type IVectorView_IHostName_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
    (
-      hostName : Windows.String
+      This       : access IVectorView_IHostName_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Networking.IHostName
    )
-   return Windows.Networking.IHostName;
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IHostName_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IHostName_Interface
+      ; value : Windows.Networking.IHostName
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IHostName_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Networking.IHostName_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   -- Classes
+   ------------------------------------------------------------------------
    
    subtype EndpointPair is Windows.Networking.IEndpointPair;
    function CreateEndpointPair
@@ -568,6 +561,13 @@ package Windows.Networking is
       ; remoteServiceName : Windows.String
    )
    return Windows.Networking.IEndpointPair;
+   
+   subtype HostName is Windows.Networking.IHostName;
+   function CreateHostName
+   (
+      hostName : Windows.String
+   )
+   return Windows.Networking.IHostName;
    
    
    ------------------------------------------------------------------------
