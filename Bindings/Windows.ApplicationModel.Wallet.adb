@@ -80,6 +80,26 @@ package body Windows.ApplicationModel.Wallet is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateCustomWalletBarcode
+   (
+      streamToBarcodeImage : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.ApplicationModel.Wallet.IWalletBarcode is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletBarcode");
+      m_Factory     : Windows.ApplicationModel.Wallet.IWalletBarcodeFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Wallet.IWalletBarcode := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWalletBarcodeFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateCustomWalletBarcode(streamToBarcodeImage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateWalletBarcode
    (
       symbology : Windows.ApplicationModel.Wallet.WalletBarcodeSymbology
@@ -95,26 +115,6 @@ package body Windows.ApplicationModel.Wallet is
       Hr := RoGetActivationFactory(m_hString, IID_IWalletBarcodeFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWalletBarcode(symbology, value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateCustomWalletBarcode
-   (
-      streamToBarcodeImage : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.ApplicationModel.Wallet.IWalletBarcode is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Wallet.WalletBarcode");
-      m_Factory     : Windows.ApplicationModel.Wallet.IWalletBarcodeFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Wallet.IWalletBarcode := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWalletBarcodeFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateCustomWalletBarcode(streamToBarcodeImage, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

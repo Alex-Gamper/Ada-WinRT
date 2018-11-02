@@ -248,23 +248,6 @@ package body Windows.UI.ViewManagement is
       return RetVal;
    end;
    
-   function GetForCurrentView
-   return Windows.UI.ViewManagement.IApplicationView is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
-      m_Factory     : IApplicationViewStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ViewManagement.IApplicationView;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_TerminateAppOnFinalViewClose
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -276,6 +259,23 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TerminateAppOnFinalViewClose(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.UI.ViewManagement.IApplicationView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
+      m_Factory     : IApplicationViewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ViewManagement.IApplicationView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -300,41 +300,6 @@ package body Windows.UI.ViewManagement is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_PreferredLaunchWindowingMode
-   return Windows.UI.ViewManagement.ApplicationViewWindowingMode is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
-      m_Factory     : IApplicationViewStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ViewManagement.ApplicationViewWindowingMode;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PreferredLaunchWindowingMode(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_PreferredLaunchWindowingMode
-   (
-      value : Windows.UI.ViewManagement.ApplicationViewWindowingMode
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
-      m_Factory     : IApplicationViewStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_PreferredLaunchWindowingMode(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_PreferredLaunchViewSize
    return Windows.Foundation.Size is
       Hr            : Windows.HRESULT := S_OK;
@@ -346,6 +311,23 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PreferredLaunchViewSize(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PreferredLaunchWindowingMode
+   return Windows.UI.ViewManagement.ApplicationViewWindowingMode is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
+      m_Factory     : IApplicationViewStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ViewManagement.ApplicationViewWindowingMode;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PreferredLaunchWindowingMode(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -365,6 +347,24 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.put_PreferredLaunchViewSize(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure put_PreferredLaunchWindowingMode
+   (
+      value : Windows.UI.ViewManagement.ApplicationViewWindowingMode
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
+      m_Factory     : IApplicationViewStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_PreferredLaunchWindowingMode(value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -476,9 +476,11 @@ package body Windows.UI.ViewManagement is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function TryShowAsStandaloneAsync
+   function PrepareForCustomAnimatedSwitchAsync
    (
-      viewId : Windows.Int32
+      toViewId : Windows.Int32
+      ; fromViewId : Windows.Int32
+      ; options : Windows.UI.ViewManagement.ApplicationViewSwitchingOptions
    )
    return Windows.Foundation.IAsyncOperation_Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -489,51 +491,7 @@ package body Windows.UI.ViewManagement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.TryShowAsStandaloneAsync(viewId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryShowAsStandaloneWithSizePreferenceAsync
-   (
-      viewId : Windows.Int32
-      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
-      m_Factory     : IApplicationViewSwitcherStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryShowAsStandaloneWithSizePreferenceAsync(viewId, sizePreference, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync
-   (
-      viewId : Windows.Int32
-      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
-      ; anchorViewId : Windows.Int32
-      ; anchorSizePreference : Windows.UI.ViewManagement.ViewSizePreference
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
-      m_Factory     : IApplicationViewSwitcherStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewId, sizePreference, anchorViewId, anchorSizePreference, RetVal'Access);
+         Hr := m_Factory.PrepareForCustomAnimatedSwitchAsync(toViewId, fromViewId, options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -603,11 +561,9 @@ package body Windows.UI.ViewManagement is
       return RetVal;
    end;
    
-   function PrepareForCustomAnimatedSwitchAsync
+   function TryShowAsStandaloneAsync
    (
-      toViewId : Windows.Int32
-      ; fromViewId : Windows.Int32
-      ; options : Windows.UI.ViewManagement.ApplicationViewSwitchingOptions
+      viewId : Windows.Int32
    )
    return Windows.Foundation.IAsyncOperation_Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -618,7 +574,51 @@ package body Windows.UI.ViewManagement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.PrepareForCustomAnimatedSwitchAsync(toViewId, fromViewId, options, RetVal'Access);
+         Hr := m_Factory.TryShowAsStandaloneAsync(viewId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync
+   (
+      viewId : Windows.Int32
+      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
+      ; anchorViewId : Windows.Int32
+      ; anchorSizePreference : Windows.UI.ViewManagement.ViewSizePreference
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
+      m_Factory     : IApplicationViewSwitcherStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewId, sizePreference, anchorViewId, anchorSizePreference, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryShowAsStandaloneWithSizePreferenceAsync
+   (
+      viewId : Windows.Int32
+      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
+      m_Factory     : IApplicationViewSwitcherStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryShowAsStandaloneWithSizePreferenceAsync(viewId, sizePreference, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -717,22 +717,17 @@ package body Windows.UI.ViewManagement is
       return RetVal;
    end;
    
-   function StartProjectingWithDeviceInfoAsync
-   (
-      projectionViewId : Windows.Int32
-      ; anchorViewId : Windows.Int32
-      ; displayDeviceInfo : Windows.Devices.Enumeration.IDeviceInformation
-   )
-   return Windows.Foundation.IAsyncAction is
+   function GetDeviceSelector
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
       m_Factory     : IProjectionManagerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
+      RetVal        : aliased Windows.String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.StartProjectingWithDeviceInfoAsync(projectionViewId, anchorViewId, displayDeviceInfo, RetVal'Access);
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -784,21 +779,81 @@ package body Windows.UI.ViewManagement is
       return RetVal;
    end;
    
-   function GetDeviceSelector
-   return Windows.String is
+   function StartProjectingWithDeviceInfoAsync
+   (
+      projectionViewId : Windows.Int32
+      ; anchorViewId : Windows.Int32
+      ; displayDeviceInfo : Windows.Devices.Enumeration.IDeviceInformation
+   )
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
       m_Factory     : IProjectionManagerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         Hr := m_Factory.StartProjectingWithDeviceInfoAsync(projectionViewId, anchorViewId, displayDeviceInfo, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function add_ProjectionDisplayAvailableChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
+      m_Factory     : IProjectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_ProjectionDisplayAvailableChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ProjectionDisplayAvailable
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
+      m_Factory     : IProjectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ProjectionDisplayAvailable(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_ProjectionDisplayAvailableChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
+      m_Factory     : IProjectionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_ProjectionDisplayAvailableChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function StartProjectingAsync
@@ -816,27 +871,6 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.StartProjectingAsync(projectionViewId, anchorViewId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SwapDisplaysForViewsAsync
-   (
-      projectionViewId : Windows.Int32
-      ; anchorViewId : Windows.Int32
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
-      m_Factory     : IProjectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SwapDisplaysForViewsAsync(projectionViewId, anchorViewId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -864,59 +898,25 @@ package body Windows.UI.ViewManagement is
       return RetVal;
    end;
    
-   function get_ProjectionDisplayAvailable
-   return Windows.Boolean is
+   function SwapDisplaysForViewsAsync
+   (
+      projectionViewId : Windows.Int32
+      ; anchorViewId : Windows.Int32
+   )
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
       m_Factory     : IProjectionManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ProjectionDisplayAvailable(RetVal'Access);
+         Hr := m_Factory.SwapDisplaysForViewsAsync(projectionViewId, anchorViewId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function add_ProjectionDisplayAvailableChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
-      m_Factory     : IProjectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_ProjectionDisplayAvailableChanged(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_ProjectionDisplayAvailableChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ProjectionManager");
-      m_Factory     : IProjectionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IProjectionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_ProjectionDisplayAvailableChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function GetForCurrentView

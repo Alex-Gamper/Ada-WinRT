@@ -177,23 +177,6 @@ package body Windows.Networking.XboxLive is
       return RetVal;
    end;
    
-   function GetLocal
-   return Windows.Networking.XboxLive.IXboxLiveDeviceAddress is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveDeviceAddress");
-      m_Factory     : IXboxLiveDeviceAddressStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.XboxLive.IXboxLiveDeviceAddress;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveDeviceAddressStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetLocal(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_MaxSnapshotBytesSize
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -211,21 +194,17 @@ package body Windows.Networking.XboxLive is
       return RetVal;
    end;
    
-   function FindEndpointPairBySocketAddressBytes
-   (
-      localSocketAddress : Windows.UInt8_Ptr
-      ; remoteSocketAddress : Windows.UInt8_Ptr
-   )
-   return Windows.Networking.XboxLive.IXboxLiveEndpointPair is
+   function GetLocal
+   return Windows.Networking.XboxLive.IXboxLiveDeviceAddress is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveEndpointPair");
-      m_Factory     : IXboxLiveEndpointPairStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveDeviceAddress");
+      m_Factory     : IXboxLiveDeviceAddressStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.XboxLive.IXboxLiveEndpointPair;
+      RetVal        : aliased Windows.Networking.XboxLive.IXboxLiveDeviceAddress;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveEndpointPairStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveDeviceAddressStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FindEndpointPairBySocketAddressBytes(localSocketAddress, remoteSocketAddress, RetVal'Access);
+         Hr := m_Factory.GetLocal(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -255,6 +234,44 @@ package body Windows.Networking.XboxLive is
       return RetVal;
    end;
    
+   function FindEndpointPairBySocketAddressBytes
+   (
+      localSocketAddress : Windows.UInt8_Ptr
+      ; remoteSocketAddress : Windows.UInt8_Ptr
+   )
+   return Windows.Networking.XboxLive.IXboxLiveEndpointPair is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveEndpointPair");
+      m_Factory     : IXboxLiveEndpointPairStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.XboxLive.IXboxLiveEndpointPair;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveEndpointPairStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindEndpointPairBySocketAddressBytes(localSocketAddress, remoteSocketAddress, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Templates
+   return Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPairTemplate is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate");
+      m_Factory     : IXboxLiveEndpointPairTemplateStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPairTemplate;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveEndpointPairTemplateStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Templates(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetTemplateByName
    (
       name : Windows.String
@@ -275,17 +292,100 @@ package body Windows.Networking.XboxLive is
       return RetVal;
    end;
    
-   function get_Templates
-   return Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPairTemplate is
+   procedure ClearPrivatePayload
+   is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate");
-      m_Factory     : IXboxLiveEndpointPairTemplateStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
+      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPairTemplate;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveEndpointPairTemplateStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Templates(RetVal'Access);
+         Hr := m_Factory.ClearPrivatePayload;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_IsSystemInboundBandwidthConstrained
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
+      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSystemInboundBandwidthConstrained(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsSystemOutboundBandwidthConstrained
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
+      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsSystemOutboundBandwidthConstrained(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxPrivatePayloadSize
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
+      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxPrivatePayloadSize(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxSimultaneousProbeConnections
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
+      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxSimultaneousProbeConnections(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PublishedPrivatePayload
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
+      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PublishedPrivatePayload(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -310,41 +410,9 @@ package body Windows.Networking.XboxLive is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure ClearPrivatePayload
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
-      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ClearPrivatePayload;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_MaxSimultaneousProbeConnections
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
-      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxSimultaneousProbeConnections(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_MaxSimultaneousProbeConnections
+   procedure put_IsSystemInboundBandwidthConstrained
    (
-      value : Windows.UInt32
+      value : Windows.Boolean
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -354,27 +422,10 @@ package body Windows.Networking.XboxLive is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.put_MaxSimultaneousProbeConnections(value);
+         Hr := m_Factory.put_IsSystemInboundBandwidthConstrained(value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_IsSystemOutboundBandwidthConstrained
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
-      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSystemOutboundBandwidthConstrained(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure put_IsSystemOutboundBandwidthConstrained
@@ -395,26 +446,9 @@ package body Windows.Networking.XboxLive is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_IsSystemInboundBandwidthConstrained
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
-      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsSystemInboundBandwidthConstrained(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_IsSystemInboundBandwidthConstrained
+   procedure put_MaxSimultaneousProbeConnections
    (
-      value : Windows.Boolean
+      value : Windows.UInt32
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -424,27 +458,10 @@ package body Windows.Networking.XboxLive is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.put_IsSystemInboundBandwidthConstrained(value);
+         Hr := m_Factory.put_MaxSimultaneousProbeConnections(value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_PublishedPrivatePayload
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
-      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PublishedPrivatePayload(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure put_PublishedPrivatePayload
@@ -463,23 +480,6 @@ package body Windows.Networking.XboxLive is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_MaxPrivatePayloadSize
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
-      m_Factory     : IXboxLiveQualityOfServiceMeasurementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXboxLiveQualityOfServiceMeasurementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxPrivatePayloadSize(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

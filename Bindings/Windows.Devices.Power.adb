@@ -73,23 +73,6 @@ package body Windows.Devices.Power is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_AggregateBattery
-   return Windows.Devices.Power.IBattery is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Power.Battery");
-      m_Factory     : IBatteryStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Power.IBattery;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBatteryStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AggregateBattery(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -104,6 +87,23 @@ package body Windows.Devices.Power is
       Hr := RoGetActivationFactory(m_hString, IID_IBatteryStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AggregateBattery
+   return Windows.Devices.Power.IBattery is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Power.Battery");
+      m_Factory     : IBatteryStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Power.IBattery;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBatteryStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AggregateBattery(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

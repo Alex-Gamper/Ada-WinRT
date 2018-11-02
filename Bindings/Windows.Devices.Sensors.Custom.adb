@@ -72,26 +72,6 @@ package body Windows.Devices.Sensors.Custom is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   (
-      interfaceId : Windows.Guid
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Custom.CustomSensor");
-      m_Factory     : ICustomSensorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICustomSensorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(interfaceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       sensorId : Windows.String
@@ -106,6 +86,26 @@ package body Windows.Devices.Sensors.Custom is
       Hr := RoGetActivationFactory(m_hString, IID_ICustomSensorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(sensorId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   (
+      interfaceId : Windows.Guid
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.Custom.CustomSensor");
+      m_Factory     : ICustomSensorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICustomSensorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(interfaceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

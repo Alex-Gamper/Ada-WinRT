@@ -59,40 +59,6 @@ package body Windows.Management is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_SessionIds
-   return Windows.Foundation.Collections.IVectorView_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Management.MdmSessionManager");
-      m_Factory     : IMdmSessionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMdmSessionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SessionIds(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryCreateSession
-   return Windows.Management.IMdmSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Management.MdmSessionManager");
-      m_Factory     : IMdmSessionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Management.IMdmSession;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMdmSessionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryCreateSession(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure DeleteSessionById
    (
       sessionId : Windows.String
@@ -111,6 +77,23 @@ package body Windows.Management is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function get_SessionIds
+   return Windows.Foundation.Collections.IVectorView_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Management.MdmSessionManager");
+      m_Factory     : IMdmSessionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMdmSessionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SessionIds(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetSessionById
    (
       sessionId : Windows.String
@@ -125,6 +108,23 @@ package body Windows.Management is
       Hr := RoGetActivationFactory(m_hString, IID_IMdmSessionManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetSessionById(sessionId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateSession
+   return Windows.Management.IMdmSession is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Management.MdmSessionManager");
+      m_Factory     : IMdmSessionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Management.IMdmSession;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMdmSessionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateSession(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

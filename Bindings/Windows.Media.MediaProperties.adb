@@ -335,23 +335,6 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function get_ConstrainedBaseline
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.H264ProfileIds");
-      m_Factory     : IH264ProfileIdsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IH264ProfileIdsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ConstrainedBaseline(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Baseline
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -369,6 +352,23 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
+   function get_ConstrainedBaseline
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.H264ProfileIds");
+      m_Factory     : IH264ProfileIdsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IH264ProfileIdsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ConstrainedBaseline(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Extended
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -380,23 +380,6 @@ package body Windows.Media.MediaProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IH264ProfileIdsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Extended(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Main
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.H264ProfileIds");
-      m_Factory     : IH264ProfileIdsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IH264ProfileIdsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Main(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -471,7 +454,7 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function get_StereoHigh
+   function get_Main
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.H264ProfileIds");
@@ -481,7 +464,7 @@ package body Windows.Media.MediaProperties is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IH264ProfileIdsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_StereoHigh(RetVal'Access);
+         Hr := m_Factory.get_Main(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -499,6 +482,40 @@ package body Windows.Media.MediaProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IH264ProfileIdsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MultiviewHigh(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StereoHigh
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.H264ProfileIds");
+      m_Factory     : IH264ProfileIdsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IH264ProfileIdsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StereoHigh(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateBmp
+   return Windows.Media.MediaProperties.IImageEncodingProperties is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ImageEncodingProperties");
+      m_Factory     : IImageEncodingPropertiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IImageEncodingProperties;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IImageEncodingPropertiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateBmp(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -525,23 +542,6 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function CreateBmp
-   return Windows.Media.MediaProperties.IImageEncodingProperties is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ImageEncodingProperties");
-      m_Factory     : IImageEncodingPropertiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IImageEncodingProperties;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IImageEncodingPropertiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateBmp(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateJpeg
    return Windows.Media.MediaProperties.IImageEncodingProperties is
       Hr            : Windows.HRESULT := S_OK;
@@ -559,23 +559,6 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function CreatePng
-   return Windows.Media.MediaProperties.IImageEncodingProperties is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ImageEncodingProperties");
-      m_Factory     : IImageEncodingPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IImageEncodingProperties;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IImageEncodingPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreatePng(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateJpegXR
    return Windows.Media.MediaProperties.IImageEncodingProperties is
       Hr            : Windows.HRESULT := S_OK;
@@ -587,6 +570,23 @@ package body Windows.Media.MediaProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IImageEncodingPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateJpegXR(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreatePng
+   return Windows.Media.MediaProperties.IImageEncodingProperties is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ImageEncodingProperties");
+      m_Factory     : IImageEncodingPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IImageEncodingProperties;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IImageEncodingPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreatePng(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -653,106 +653,6 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function CreateM4a
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
-      m_Factory     : IMediaEncodingProfileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateM4a(quality, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateMp3
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
-      m_Factory     : IMediaEncodingProfileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMp3(quality, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWma
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
-      m_Factory     : IMediaEncodingProfileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWma(quality, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateMp4
-   (
-      quality : Windows.Media.MediaProperties.VideoEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
-      m_Factory     : IMediaEncodingProfileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMp4(quality, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWmv
-   (
-      quality : Windows.Media.MediaProperties.VideoEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
-      m_Factory     : IMediaEncodingProfileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWmv(quality, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateFromFileAsync
    (
       file : Windows.Storage.IStorageFile
@@ -793,20 +693,100 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function CreateWav
+   function CreateM4a
    (
       quality : Windows.Media.MediaProperties.AudioEncodingQuality
    )
    return Windows.Media.MediaProperties.IMediaEncodingProfile is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
-      m_Factory     : IMediaEncodingProfileStatics2 := null;
+      m_Factory     : IMediaEncodingProfileStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWav(quality, RetVal'Access);
+         Hr := m_Factory.CreateM4a(quality, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateMp3
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
+      m_Factory     : IMediaEncodingProfileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMp3(quality, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateMp4
+   (
+      quality : Windows.Media.MediaProperties.VideoEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
+      m_Factory     : IMediaEncodingProfileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMp4(quality, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWma
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
+      m_Factory     : IMediaEncodingProfileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWma(quality, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWmv
+   (
+      quality : Windows.Media.MediaProperties.VideoEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
+      m_Factory     : IMediaEncodingProfileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWmv(quality, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -827,6 +807,26 @@ package body Windows.Media.MediaProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateAvi(quality, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWav
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
+      m_Factory     : IMediaEncodingProfileStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingProfileStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWav(quality, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -884,7 +884,7 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function get_Vp9
+   function get_D16
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingSubtypes");
@@ -894,24 +894,7 @@ package body Windows.Media.MediaProperties is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Vp9(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_L8
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingSubtypes");
-      m_Factory     : IMediaEncodingSubtypesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_L8(RetVal'Access);
+         Hr := m_Factory.get_D16(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -935,7 +918,7 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function get_D16
+   function get_L8
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingSubtypes");
@@ -945,7 +928,24 @@ package body Windows.Media.MediaProperties is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_D16(RetVal'Access);
+         Hr := m_Factory.get_L8(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Vp9
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingSubtypes");
+      m_Factory     : IMediaEncodingSubtypesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Vp9(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1326,6 +1326,23 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
+   function get_Mp3
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingSubtypes");
+      m_Factory     : IMediaEncodingSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Mp3(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Mpeg
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -1371,23 +1388,6 @@ package body Windows.Media.MediaProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Mpeg2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Mp3
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingSubtypes");
-      m_Factory     : IMediaEncodingSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Mp3(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1632,7 +1632,7 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-   function get_Simple
+   function get_High_Mpeg2ProfileIds
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.Mpeg2ProfileIds");
@@ -1642,7 +1642,7 @@ package body Windows.Media.MediaProperties is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMpeg2ProfileIdsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Simple(RetVal'Access);
+         Hr := m_Factory.get_High(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1683,6 +1683,23 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
+   function get_Simple
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.Mpeg2ProfileIds");
+      m_Factory     : IMpeg2ProfileIdsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMpeg2ProfileIdsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Simple(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_SpatiallyScalable
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -1694,23 +1711,6 @@ package body Windows.Media.MediaProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IMpeg2ProfileIdsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SpatiallyScalable(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_High_Mpeg2ProfileIds
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.Mpeg2ProfileIds");
-      m_Factory     : IMpeg2ProfileIdsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMpeg2ProfileIdsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_High(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

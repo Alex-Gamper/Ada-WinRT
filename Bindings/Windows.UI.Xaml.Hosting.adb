@@ -96,6 +96,26 @@ package body Windows.UI.Xaml.Hosting is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetElementChildVisual
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Composition.IVisual is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
+      m_Factory     : IElementCompositionPreviewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Composition.IVisual;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetElementChildVisual(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetElementVisual
    (
       element : Windows.UI.Xaml.IUIElement
@@ -116,20 +136,20 @@ package body Windows.UI.Xaml.Hosting is
       return RetVal;
    end;
    
-   function GetElementChildVisual
+   function GetScrollViewerManipulationPropertySet
    (
-      element : Windows.UI.Xaml.IUIElement
+      scrollViewer : Windows.UI.Xaml.Controls.IScrollViewer
    )
-   return Windows.UI.Composition.IVisual is
+   return Windows.UI.Composition.ICompositionPropertySet is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
       m_Factory     : IElementCompositionPreviewStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Composition.IVisual;
+      RetVal        : aliased Windows.UI.Composition.ICompositionPropertySet;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetElementChildVisual(element, RetVal'Access);
+         Hr := m_Factory.GetScrollViewerManipulationPropertySet(scrollViewer, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -155,43 +175,24 @@ package body Windows.UI.Xaml.Hosting is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function GetScrollViewerManipulationPropertySet
+   function GetPointerPositionPropertySet
    (
-      scrollViewer : Windows.UI.Xaml.Controls.IScrollViewer
+      targetElement : Windows.UI.Xaml.IUIElement
    )
    return Windows.UI.Composition.ICompositionPropertySet is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
-      m_Factory     : IElementCompositionPreviewStatics := null;
+      m_Factory     : IElementCompositionPreviewStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Composition.ICompositionPropertySet;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetScrollViewerManipulationPropertySet(scrollViewer, RetVal'Access);
+         Hr := m_Factory.GetPointerPositionPropertySet(targetElement, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   procedure SetImplicitShowAnimation
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; animation : Windows.UI.Composition.ICompositionAnimationBase
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
-      m_Factory     : IElementCompositionPreviewStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetImplicitShowAnimation(element, animation);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    procedure SetImplicitHideAnimation
@@ -208,6 +209,25 @@ package body Windows.UI.Xaml.Hosting is
       Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetImplicitHideAnimation(element, animation);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetImplicitShowAnimation
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
+      m_Factory     : IElementCompositionPreviewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetImplicitShowAnimation(element, animation);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -232,26 +252,6 @@ package body Windows.UI.Xaml.Hosting is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function GetPointerPositionPropertySet
-   (
-      targetElement : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Composition.ICompositionPropertySet is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
-      m_Factory     : IElementCompositionPreviewStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Composition.ICompositionPropertySet;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetPointerPositionPropertySet(targetElement, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_CompleteTimelinesAutomatically
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -267,6 +267,21 @@ package body Windows.UI.Xaml.Hosting is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure NotifyWindowSizeChanged
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.XamlUIPresenter");
+      m_Factory     : IXamlUIPresenterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlUIPresenterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.NotifyWindowSizeChanged;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    procedure put_CompleteTimelinesAutomatically
@@ -305,44 +320,6 @@ package body Windows.UI.Xaml.Hosting is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure NotifyWindowSizeChanged
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.XamlUIPresenter");
-      m_Factory     : IXamlUIPresenterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlUIPresenterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.NotifyWindowSizeChanged;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetFlyoutPlacementTargetInfo
-   (
-      placementTarget : Windows.UI.Xaml.IFrameworkElement
-      ; preferredPlacement : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
-      ; targetPreferredPlacement : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
-      ; allowFallbacks : access Windows.Boolean
-   )
-   return Windows.Foundation.Rect is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.XamlUIPresenter");
-      m_Factory     : IXamlUIPresenterStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Rect;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlUIPresenterStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetFlyoutPlacementTargetInfo(placementTarget, preferredPlacement, targetPreferredPlacement, allowFallbacks, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetFlyoutPlacement
    (
       placementTargetBounds : Windows.Foundation.Rect
@@ -363,6 +340,29 @@ package body Windows.UI.Xaml.Hosting is
       Hr := RoGetActivationFactory(m_hString, IID_IXamlUIPresenterStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetFlyoutPlacement(placementTargetBounds, controlSize, minControlSize, containerRect, targetPreferredPlacement, allowFallbacks, chosenPlacement, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFlyoutPlacementTargetInfo
+   (
+      placementTarget : Windows.UI.Xaml.IFrameworkElement
+      ; preferredPlacement : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+      ; targetPreferredPlacement : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+      ; allowFallbacks : access Windows.Boolean
+   )
+   return Windows.Foundation.Rect is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.XamlUIPresenter");
+      m_Factory     : IXamlUIPresenterStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Rect;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlUIPresenterStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFlyoutPlacementTargetInfo(placementTarget, preferredPlacement, targetPreferredPlacement, allowFallbacks, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

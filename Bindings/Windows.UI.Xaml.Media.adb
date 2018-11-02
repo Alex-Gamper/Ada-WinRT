@@ -2803,6 +2803,23 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function get_AlwaysUseFallbackProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.AcrylicBrush");
+      m_Factory     : IAcrylicBrushStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAcrylicBrushStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AlwaysUseFallbackProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_BackgroundSourceProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2871,17 +2888,17 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_AlwaysUseFallbackProperty
+   function get_IsLargeArcProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.AcrylicBrush");
-      m_Factory     : IAcrylicBrushStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.ArcSegment");
+      m_Factory     : IArcSegmentStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAcrylicBrushStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IArcSegmentStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_AlwaysUseFallbackProperty(RetVal'Access);
+         Hr := m_Factory.get_IsLargeArcProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2905,23 +2922,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_SizeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.ArcSegment");
-      m_Factory     : IArcSegmentStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IArcSegmentStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SizeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_RotationAngleProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2939,7 +2939,7 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_IsLargeArcProperty
+   function get_SizeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.ArcSegment");
@@ -2949,7 +2949,7 @@ package body Windows.UI.Xaml.Media is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IArcSegmentStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsLargeArcProperty(RetVal'Access);
+         Hr := m_Factory.get_SizeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3041,23 +3041,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_TransformProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Brush");
-      m_Factory     : IBrushStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrushStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TransformProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_RelativeTransformProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3069,6 +3052,23 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_RelativeTransformProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TransformProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Brush");
+      m_Factory     : IBrushStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrushStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TransformProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3151,6 +3151,23 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function get_RotationProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositeTransform");
+      m_Factory     : ICompositeTransformStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositeTransformStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RotationProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ScaleXProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3219,23 +3236,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_RotationProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositeTransform");
-      m_Factory     : ICompositeTransformStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICompositeTransformStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RotationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_TranslateXProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3290,24 +3290,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   procedure remove_Rendering
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositionTarget");
-      m_Factory     : ICompositionTargetStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICompositionTargetStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_Rendering(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_SurfaceContentsLost
    (
       value : Windows.Foundation.EventHandler_Object
@@ -3326,6 +3308,24 @@ package body Windows.UI.Xaml.Media is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure remove_Rendering
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositionTarget");
+      m_Factory     : ICompositionTargetStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositionTargetStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_Rendering(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    procedure remove_SurfaceContentsLost
@@ -3546,23 +3546,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_FillRuleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GeometryGroup");
-      m_Factory     : IGeometryGroupStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGeometryGroupStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FillRuleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_ChildrenProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3580,34 +3563,17 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_SpreadMethodProperty
+   function get_FillRuleProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientBrush");
-      m_Factory     : IGradientBrushStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GeometryGroup");
+      m_Factory     : IGeometryGroupStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGeometryGroupStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SpreadMethodProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MappingModeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientBrush");
-      m_Factory     : IGradientBrushStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MappingModeProperty(RetVal'Access);
+         Hr := m_Factory.get_FillRuleProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3642,6 +3608,40 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_GradientStopsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MappingModeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientBrush");
+      m_Factory     : IGradientBrushStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MappingModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SpreadMethodProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.GradientBrush");
+      m_Factory     : IGradientBrushStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGradientBrushStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SpreadMethodProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3720,23 +3720,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_StartPointProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LinearGradientBrush");
-      m_Factory     : ILinearGradientBrushStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILinearGradientBrushStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StartPointProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_EndPointProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3754,15 +3737,15 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_StartPointProperty_ILineGeometry
+   function get_StartPointProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LineGeometry");
-      m_Factory     : ILineGeometryStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LinearGradientBrush");
+      m_Factory     : ILinearGradientBrushStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILineGeometryStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ILinearGradientBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_StartPointProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -3788,6 +3771,23 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function get_StartPointProperty_ILineGeometry
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LineGeometry");
+      m_Factory     : ILineGeometryStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILineGeometryStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StartPointProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_PointProperty_ILineSegment
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3805,10 +3805,9 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function StartLoadFromUriWithSize
+   function StartLoadFromStream
    (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; desiredMaxSize : Windows.Foundation.Size
+      stream : Windows.Storage.Streams.IRandomAccessStream
    )
    return Windows.UI.Xaml.Media.ILoadedImageSurface is
       Hr            : Windows.HRESULT := S_OK;
@@ -3819,27 +3818,7 @@ package body Windows.UI.Xaml.Media is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ILoadedImageSurfaceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.StartLoadFromUriWithSize(uri, desiredMaxSize, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function StartLoadFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.UI.Xaml.Media.ILoadedImageSurface is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LoadedImageSurface");
-      m_Factory     : ILoadedImageSurfaceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.ILoadedImageSurface;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILoadedImageSurfaceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.StartLoadFromUri(uri, RetVal'Access);
+         Hr := m_Factory.StartLoadFromStream(stream, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3867,9 +3846,9 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function StartLoadFromStream
+   function StartLoadFromUri
    (
-      stream : Windows.Storage.Streams.IRandomAccessStream
+      uri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.UI.Xaml.Media.ILoadedImageSurface is
       Hr            : Windows.HRESULT := S_OK;
@@ -3880,7 +3859,28 @@ package body Windows.UI.Xaml.Media is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ILoadedImageSurfaceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.StartLoadFromStream(stream, RetVal'Access);
+         Hr := m_Factory.StartLoadFromUri(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function StartLoadFromUriWithSize
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; desiredMaxSize : Windows.Foundation.Size
+   )
+   return Windows.UI.Xaml.Media.ILoadedImageSurface is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LoadedImageSurface");
+      m_Factory     : ILoadedImageSurfaceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.ILoadedImageSurface;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILoadedImageSurfaceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.StartLoadFromUriWithSize(uri, desiredMaxSize, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3898,23 +3898,6 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IMatrix3DProjectionStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ProjectionMatrixProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Identity
-   return Windows.UI.Xaml.Media.Matrix is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.MatrixHelper");
-      m_Factory     : IMatrixHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Matrix;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMatrixHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Identity(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3940,6 +3923,23 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IMatrixHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromElements(m11, m12, m21, m22, offsetX, offsetY, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Identity
+   return Windows.UI.Xaml.Media.Matrix is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.MatrixHelper");
+      m_Factory     : IMatrixHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Matrix;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMatrixHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Identity(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4004,40 +4004,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_SegmentsProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathFigure");
-      m_Factory     : IPathFigureStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPathFigureStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SegmentsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StartPointProperty_IPathFigure
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathFigure");
-      m_Factory     : IPathFigureStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPathFigureStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StartPointProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IsClosedProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4072,17 +4038,34 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_FillRuleProperty_IPathGeometry
+   function get_SegmentsProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathGeometry");
-      m_Factory     : IPathGeometryStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathFigure");
+      m_Factory     : IPathFigureStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPathGeometryStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPathFigureStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FillRuleProperty(RetVal'Access);
+         Hr := m_Factory.get_SegmentsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StartPointProperty_IPathFigure
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathFigure");
+      m_Factory     : IPathFigureStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPathFigureStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StartPointProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4106,102 +4089,17 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_LocalOffsetXProperty
+   function get_FillRuleProperty_IPathGeometry
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
-      m_Factory     : IPlaneProjectionStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PathGeometry");
+      m_Factory     : IPathGeometryStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPathGeometryStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_LocalOffsetXProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LocalOffsetYProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
-      m_Factory     : IPlaneProjectionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LocalOffsetYProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LocalOffsetZProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
-      m_Factory     : IPlaneProjectionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LocalOffsetZProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RotationXProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
-      m_Factory     : IPlaneProjectionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RotationXProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RotationYProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
-      m_Factory     : IPlaneProjectionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RotationYProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RotationZProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
-      m_Factory     : IPlaneProjectionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RotationZProperty(RetVal'Access);
+         Hr := m_Factory.get_FillRuleProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4310,6 +4208,57 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function get_LocalOffsetXProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
+      m_Factory     : IPlaneProjectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocalOffsetXProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LocalOffsetYProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
+      m_Factory     : IPlaneProjectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocalOffsetYProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LocalOffsetZProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
+      m_Factory     : IPlaneProjectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocalOffsetZProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ProjectionMatrixProperty_IPlaneProjection
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4321,6 +4270,57 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ProjectionMatrixProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RotationXProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
+      m_Factory     : IPlaneProjectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RotationXProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RotationYProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
+      m_Factory     : IPlaneProjectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RotationYProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RotationZProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.PlaneProjection");
+      m_Factory     : IPlaneProjectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaneProjectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RotationZProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4492,6 +4492,23 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function get_AlwaysUseFallbackProperty_IRevealBrush
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RevealBrush");
+      m_Factory     : IRevealBrushStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AlwaysUseFallbackProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ColorProperty_IRevealBrush
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4503,6 +4520,23 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ColorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StateProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RevealBrush");
+      m_Factory     : IRevealBrushStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StateProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4526,34 +4560,20 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_AlwaysUseFallbackProperty_IRevealBrush
-   return Windows.UI.Xaml.IDependencyProperty is
+   function GetState
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Media.RevealBrushState is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RevealBrush");
       m_Factory     : IRevealBrushStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.UI.Xaml.Media.RevealBrushState;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_AlwaysUseFallbackProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StateProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RevealBrush");
-      m_Factory     : IRevealBrushStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StateProperty(RetVal'Access);
+         Hr := m_Factory.GetState(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4579,26 +4599,6 @@ package body Windows.UI.Xaml.Media is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function GetState
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Media.RevealBrushState is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RevealBrush");
-      m_Factory     : IRevealBrushStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.RevealBrushState;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetState(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -4614,6 +4614,23 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IRevealBrushFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AngleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RotateTransform");
+      m_Factory     : IRotateTransformStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRotateTransformStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AngleProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4648,23 +4665,6 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IRotateTransformStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_CenterYProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AngleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.RotateTransform");
-      m_Factory     : IRotateTransformStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRotateTransformStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AngleProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4739,40 +4739,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function get_CenterXProperty_ISkewTransform
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SkewTransform");
-      m_Factory     : ISkewTransformStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISkewTransformStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CenterXProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CenterYProperty_ISkewTransform
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SkewTransform");
-      m_Factory     : ISkewTransformStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISkewTransformStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CenterYProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AngleXProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4801,6 +4767,40 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_ISkewTransformStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AngleYProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CenterXProperty_ISkewTransform
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SkewTransform");
+      m_Factory     : ISkewTransformStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISkewTransformStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CenterXProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CenterYProperty_ISkewTransform
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SkewTransform");
+      m_Factory     : ISkewTransformStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISkewTransformStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CenterYProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4896,6 +4896,23 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function get_TextProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TimelineMarker");
+      m_Factory     : ITimelineMarkerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimelineMarkerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_TimeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4924,23 +4941,6 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_ITimelineMarkerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TypeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TextProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TimelineMarker");
-      m_Factory     : ITimelineMarkerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimelineMarkerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TextProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5018,46 +5018,22 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function FindElementsInHostCoordinatesPoint
+   procedure DisconnectChildrenRecursive
    (
-      intersectingPoint : Windows.Foundation.Point
-      ; subtree : Windows.UI.Xaml.IUIElement
+      element : Windows.UI.Xaml.IUIElement
    )
-   return Windows.UI.Xaml.IIterable_IUIElement is
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
       m_Factory     : IVisualTreeHelperStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IIterable_IUIElement;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FindElementsInHostCoordinatesPoint(intersectingPoint, subtree, RetVal'Access);
+         Hr := m_Factory.DisconnectChildrenRecursive(element);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FindElementsInHostCoordinatesRect
-   (
-      intersectingRect : Windows.Foundation.Rect
-      ; subtree : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.IIterable_IUIElement is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
-      m_Factory     : IVisualTreeHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IIterable_IUIElement;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindElementsInHostCoordinatesRect(intersectingRect, subtree, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function FindAllElementsInHostCoordinatesPoint
@@ -5098,6 +5074,48 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindAllElementsInHostCoordinatesRect(intersectingRect, subtree, includeAllElements, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindElementsInHostCoordinatesPoint
+   (
+      intersectingPoint : Windows.Foundation.Point
+      ; subtree : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.IIterable_IUIElement is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
+      m_Factory     : IVisualTreeHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IIterable_IUIElement;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindElementsInHostCoordinatesPoint(intersectingPoint, subtree, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindElementsInHostCoordinatesRect
+   (
+      intersectingRect : Windows.Foundation.Rect
+      ; subtree : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.IIterable_IUIElement is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
+      m_Factory     : IVisualTreeHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IIterable_IUIElement;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindElementsInHostCoordinatesRect(intersectingRect, subtree, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5165,24 +5183,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   procedure DisconnectChildrenRecursive
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
-      m_Factory     : IVisualTreeHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DisconnectChildrenRecursive(element);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_FallbackColorProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -5242,44 +5242,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   procedure AddTargetElement
-   (
-      lightId : Windows.String
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlLight");
-      m_Factory     : IXamlLightStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlLightStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AddTargetElement(lightId, element);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure RemoveTargetElement
-   (
-      lightId : Windows.String
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlLight");
-      m_Factory     : IXamlLightStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlLightStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RemoveTargetElement(lightId, element);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    procedure AddTargetBrush
    (
       lightId : Windows.String
@@ -5299,6 +5261,25 @@ package body Windows.UI.Xaml.Media is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   procedure AddTargetElement
+   (
+      lightId : Windows.String
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlLight");
+      m_Factory     : IXamlLightStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlLightStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AddTargetElement(lightId, element);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    procedure RemoveTargetBrush
    (
       lightId : Windows.String
@@ -5313,6 +5294,25 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IXamlLightStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RemoveTargetBrush(lightId, brush);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure RemoveTargetElement
+   (
+      lightId : Windows.String
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlLight");
+      m_Factory     : IXamlLightStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlLightStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RemoveTargetElement(lightId, element);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

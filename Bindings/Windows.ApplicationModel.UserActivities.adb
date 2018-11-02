@@ -132,6 +132,26 @@ package body Windows.ApplicationModel.UserActivities is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function ToJsonArray
+   (
+      activities : Windows.ApplicationModel.UserActivities.IIterable_IUserActivity
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
+      m_Factory     : IUserActivityStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ToJsonArray(activities, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function TryParseFromJson
    (
       json : Windows.String
@@ -166,26 +186,6 @@ package body Windows.ApplicationModel.UserActivities is
       Hr := RoGetActivationFactory(m_hString, IID_IUserActivityStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryParseFromJsonArray(json, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ToJsonArray
-   (
-      activities : Windows.ApplicationModel.UserActivities.IIterable_IUserActivity
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
-      m_Factory     : IUserActivityStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ToJsonArray(activities, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -73,23 +73,6 @@ package body Windows.Devices.Lights is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Lights.Lamp");
-      m_Factory     : ILampStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILampStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -121,6 +104,23 @@ package body Windows.Devices.Lights is
       Hr := RoGetActivationFactory(m_hString, IID_ILampStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefaultAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Lights.Lamp");
+      m_Factory     : ILampStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILampStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

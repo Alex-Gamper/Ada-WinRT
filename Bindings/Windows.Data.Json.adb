@@ -179,47 +179,6 @@ package body Windows.Data.Json is
       return RetVal;
    end;
    
-   function Parse
-   (
-      input : Windows.String
-   )
-   return Windows.Data.Json.IJsonValue is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Json.JsonValue");
-      m_Factory     : IJsonValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Json.IJsonValue;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IJsonValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Parse(input, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryParse
-   (
-      input : Windows.String
-      ; result : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Json.JsonValue");
-      m_Factory     : IJsonValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IJsonValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryParse(input, result, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateBooleanValue
    (
       input : Windows.Boolean
@@ -274,6 +233,47 @@ package body Windows.Data.Json is
       Hr := RoGetActivationFactory(m_hString, IID_IJsonValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateStringValue(input, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Parse
+   (
+      input : Windows.String
+   )
+   return Windows.Data.Json.IJsonValue is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Json.JsonValue");
+      m_Factory     : IJsonValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Json.IJsonValue;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IJsonValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Parse(input, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryParse
+   (
+      input : Windows.String
+      ; result : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Json.JsonValue");
+      m_Factory     : IJsonValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IJsonValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryParse(input, result, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

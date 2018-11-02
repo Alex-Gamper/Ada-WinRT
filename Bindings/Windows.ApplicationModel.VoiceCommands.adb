@@ -136,6 +136,23 @@ package body Windows.ApplicationModel.VoiceCommands is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_InstalledCommandDefinitions
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager");
+      m_Factory     : IVoiceCommandDefinitionManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandDefinitionManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InstalledCommandDefinitions(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function InstallCommandDefinitionsFromStorageFileAsync
    (
       file : Windows.Storage.IStorageFile
@@ -156,40 +173,6 @@ package body Windows.ApplicationModel.VoiceCommands is
       return RetVal;
    end;
    
-   function get_InstalledCommandDefinitions
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager");
-      m_Factory     : IVoiceCommandDefinitionManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandDefinitionManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InstalledCommandDefinitions(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MaxSupportedVoiceCommandContentTiles
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse");
-      m_Factory     : IVoiceCommandResponseStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandResponseStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxSupportedVoiceCommandContentTiles(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateResponse
    (
       userMessage : Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage
@@ -204,27 +187,6 @@ package body Windows.ApplicationModel.VoiceCommands is
       Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandResponseStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateResponse(userMessage, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateResponseWithTiles
-   (
-      message : Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage
-      ; contentTiles : Windows.ApplicationModel.VoiceCommands.IIterable_IVoiceCommandContentTile
-   )
-   return Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse");
-      m_Factory     : IVoiceCommandResponseStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandResponseStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateResponseWithTiles(message, contentTiles, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -268,6 +230,44 @@ package body Windows.ApplicationModel.VoiceCommands is
       Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandResponseStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateResponseForPromptWithTiles(message, repeatMessage, contentTiles, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateResponseWithTiles
+   (
+      message : Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage
+      ; contentTiles : Windows.ApplicationModel.VoiceCommands.IIterable_IVoiceCommandContentTile
+   )
+   return Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse");
+      m_Factory     : IVoiceCommandResponseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandResponseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateResponseWithTiles(message, contentTiles, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxSupportedVoiceCommandContentTiles
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse");
+      m_Factory     : IVoiceCommandResponseStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandResponseStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxSupportedVoiceCommandContentTiles(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

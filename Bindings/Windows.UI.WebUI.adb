@@ -166,27 +166,9 @@ package body Windows.UI.WebUI is
       return RetVal;
    end;
    
-   procedure remove_Activated
+   function add_Navigated
    (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_Activated(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_Suspending
-   (
-      handler : Windows.UI.WebUI.SuspendingEventHandler
+      handler : Windows.UI.WebUI.NavigatedEventHandler
    )
    return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
@@ -197,29 +179,11 @@ package body Windows.UI.WebUI is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_Suspending(handler, RetVal'Access);
+         Hr := m_Factory.add_Navigated(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   procedure remove_Suspending
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_Suspending(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function add_Resuming
@@ -242,7 +206,27 @@ package body Windows.UI.WebUI is
       return RetVal;
    end;
    
-   procedure remove_Resuming
+   function add_Suspending
+   (
+      handler : Windows.UI.WebUI.SuspendingEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_Suspending(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_Activated
    (
       token : Windows.Foundation.EventRegistrationToken
    )
@@ -254,30 +238,10 @@ package body Windows.UI.WebUI is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_Resuming(token);
+         Hr := m_Factory.remove_Activated(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_Navigated
-   (
-      handler : Windows.UI.WebUI.NavigatedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_Navigated(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure remove_Navigated
@@ -298,39 +262,37 @@ package body Windows.UI.WebUI is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function add_LeavingBackground
-   (
-      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_LeavingBackground(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_LeavingBackground
+   procedure remove_Resuming
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics2 := null;
+      m_Factory     : IWebUIActivationStatics := null;
       RefCount      : Windows.UInt32 := 0;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_LeavingBackground(token);
+         Hr := m_Factory.remove_Resuming(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_Suspending
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_Suspending(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -356,6 +318,44 @@ package body Windows.UI.WebUI is
       return RetVal;
    end;
    
+   function add_LeavingBackground
+   (
+      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_LeavingBackground(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure EnablePrelaunch
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.EnablePrelaunch(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    procedure remove_EnteredBackground
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -374,9 +374,9 @@ package body Windows.UI.WebUI is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure EnablePrelaunch
+   procedure remove_LeavingBackground
    (
-      value : Windows.Boolean
+      token : Windows.Foundation.EventRegistrationToken
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -386,7 +386,7 @@ package body Windows.UI.WebUI is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.EnablePrelaunch(value);
+         Hr := m_Factory.remove_LeavingBackground(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

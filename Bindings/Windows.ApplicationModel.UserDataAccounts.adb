@@ -111,20 +111,20 @@ package body Windows.ApplicationModel.UserDataAccounts is
       return RetVal;
    end;
    
-   function ShowAddAccountAsync
+   function ShowAccountErrorResolverAsync
    (
-      contentKinds : Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds
+      id : Windows.String
    )
-   return Windows.Foundation.IAsyncOperation_String is
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataAccounts.UserDataAccountManager");
       m_Factory     : IUserDataAccountManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.ShowAddAccountAsync(contentKinds, RetVal'Access);
+         Hr := m_Factory.ShowAccountErrorResolverAsync(id, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -151,20 +151,20 @@ package body Windows.ApplicationModel.UserDataAccounts is
       return RetVal;
    end;
    
-   function ShowAccountErrorResolverAsync
+   function ShowAddAccountAsync
    (
-      id : Windows.String
+      contentKinds : Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds
    )
-   return Windows.Foundation.IAsyncAction is
+   return Windows.Foundation.IAsyncOperation_String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataAccounts.UserDataAccountManager");
       m_Factory     : IUserDataAccountManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.ShowAccountErrorResolverAsync(id, RetVal'Access);
+         Hr := m_Factory.ShowAddAccountAsync(contentKinds, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

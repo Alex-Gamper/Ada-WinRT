@@ -103,9 +103,11 @@ package body Windows.Security.Credentials.UI is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function PickWithOptionsAsync
+   function PickWithCaptionAsync
    (
-      options : Windows.Security.Credentials.UI.ICredentialPickerOptions
+      targetName : Windows.String
+      ; message : Windows.String
+      ; caption : Windows.String
    )
    return Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults is
       Hr            : Windows.HRESULT := S_OK;
@@ -116,7 +118,7 @@ package body Windows.Security.Credentials.UI is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICredentialPickerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.PickWithOptionsAsync(options, RetVal'Access);
+         Hr := m_Factory.PickWithCaptionAsync(targetName, message, caption, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -144,11 +146,9 @@ package body Windows.Security.Credentials.UI is
       return RetVal;
    end;
    
-   function PickWithCaptionAsync
+   function PickWithOptionsAsync
    (
-      targetName : Windows.String
-      ; message : Windows.String
-      ; caption : Windows.String
+      options : Windows.Security.Credentials.UI.ICredentialPickerOptions
    )
    return Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults is
       Hr            : Windows.HRESULT := S_OK;
@@ -159,7 +159,7 @@ package body Windows.Security.Credentials.UI is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICredentialPickerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.PickWithCaptionAsync(targetName, message, caption, RetVal'Access);
+         Hr := m_Factory.PickWithOptionsAsync(options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

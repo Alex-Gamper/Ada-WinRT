@@ -118,23 +118,21 @@ package body Windows.ApplicationModel.Resources.Core is
       return RetVal;
    end;
    
-   procedure SetGlobalQualifierValue
-   (
-      key : Windows.String
-      ; value : Windows.String
-   )
-   is
+   function GetForViewIndependentUse
+   return Windows.ApplicationModel.Resources.Core.IResourceContext is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
       m_Factory     : IResourceContextStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Resources.Core.IResourceContext;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetGlobalQualifierValue(key, value);
+         Hr := m_Factory.GetForViewIndependentUse(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    procedure ResetGlobalQualifierValues
@@ -170,21 +168,23 @@ package body Windows.ApplicationModel.Resources.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function GetForViewIndependentUse
-   return Windows.ApplicationModel.Resources.Core.IResourceContext is
+   procedure SetGlobalQualifierValue
+   (
+      key : Windows.String
+      ; value : Windows.String
+   )
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
       m_Factory     : IResourceContextStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Resources.Core.IResourceContext;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetForViewIndependentUse(RetVal'Access);
+         Hr := m_Factory.SetGlobalQualifierValue(key, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function get_Current

@@ -52,26 +52,6 @@ package body Windows.Globalization is
       return Convert(RetVal);
    end;
    
-   function CreateCalendarDefaultCalendarAndClock
-   (
-      languages : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Globalization.ICalendar is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.Calendar");
-      m_Factory     : Windows.Globalization.ICalendarFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.ICalendar := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICalendarFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateCalendarDefaultCalendarAndClock(languages, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateCalendar
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -88,6 +68,26 @@ package body Windows.Globalization is
       Hr := RoGetActivationFactory(m_hString, IID_ICalendarFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateCalendar(languages, calendar, clock, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateCalendarDefaultCalendarAndClock
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Globalization.ICalendar is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.Calendar");
+      m_Factory     : Windows.Globalization.ICalendarFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.ICalendar := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICalendarFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateCalendarDefaultCalendarAndClock(languages, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -182,6 +182,40 @@ package body Windows.Globalization is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_Languages
+   return Windows.Foundation.Collections.IVectorView_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
+      m_Factory     : IApplicationLanguagesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Languages(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ManifestLanguages
+   return Windows.Foundation.Collections.IVectorView_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
+      m_Factory     : IApplicationLanguagesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ManifestLanguages(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_PrimaryLanguageOverride
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -215,40 +249,6 @@ package body Windows.Globalization is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_Languages
-   return Windows.Foundation.Collections.IVectorView_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
-      m_Factory     : IApplicationLanguagesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Languages(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ManifestLanguages
-   return Windows.Foundation.Collections.IVectorView_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.ApplicationLanguages");
-      m_Factory     : IApplicationLanguagesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationLanguagesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ManifestLanguages(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function GetLanguagesForUser
@@ -3327,6 +3327,23 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
+   function get_CurrentInputMethodLanguageTag
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.Language");
+      m_Factory     : ILanguageStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILanguageStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CurrentInputMethodLanguageTag(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function IsWellFormed
    (
       languageTag : Windows.String
@@ -3347,23 +3364,6 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-   function get_CurrentInputMethodLanguageTag
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.Language");
-      m_Factory     : ILanguageStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILanguageStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CurrentInputMethodLanguageTag(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Brah
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -3375,23 +3375,6 @@ package body Windows.Globalization is
       Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Brah(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Osma
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
-      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Osma(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3432,7 +3415,7 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-   function get_MathSans
+   function get_MathMono
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
@@ -3442,7 +3425,7 @@ package body Windows.Globalization is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_MathSans(RetVal'Access);
+         Hr := m_Factory.get_MathMono(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3466,7 +3449,7 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-   function get_MathMono
+   function get_MathSans
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
@@ -3476,7 +3459,24 @@ package body Windows.Globalization is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_MathMono(RetVal'Access);
+         Hr := m_Factory.get_MathSans(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Osma
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
+      m_Factory     : INumeralSystemIdentifiersStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Osma(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3517,7 +3517,7 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-   function get_ZmthSans
+   function get_ZmthMono
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
@@ -3527,7 +3527,7 @@ package body Windows.Globalization is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ZmthSans(RetVal'Access);
+         Hr := m_Factory.get_ZmthMono(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3551,7 +3551,7 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-   function get_ZmthMono
+   function get_ZmthSans
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumeralSystemIdentifiers");
@@ -3561,7 +3561,7 @@ package body Windows.Globalization is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_INumeralSystemIdentifiersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ZmthMono(RetVal'Access);
+         Hr := m_Factory.get_ZmthSans(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -64,23 +64,6 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   function get_VersionInfo
-   return Windows.System.Profile.IAnalyticsVersionInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.AnalyticsInfo");
-      m_Factory     : IAnalyticsInfoStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Profile.IAnalyticsVersionInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAnalyticsInfoStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VersionInfo(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_DeviceForm
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -92,6 +75,23 @@ package body Windows.System.Profile is
       Hr := RoGetActivationFactory(m_hString, IID_IAnalyticsInfoStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_DeviceForm(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VersionInfo
+   return Windows.System.Profile.IAnalyticsVersionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.AnalyticsInfo");
+      m_Factory     : IAnalyticsInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Profile.IAnalyticsVersionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAnalyticsInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VersionInfo(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -135,7 +135,7 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   function get_RetailAccessCode
+   function get_BatteryLifeDescription
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
@@ -145,143 +145,7 @@ package body Windows.System.Profile is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_RetailAccessCode(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ManufacturerName
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ManufacturerName(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ModelName
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ModelName(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DisplayModelName
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DisplayModelName(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Price
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Price(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsFeatured
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsFeatured(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FormFactor
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FormFactor(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ScreenSize
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ScreenSize(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Weight
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Weight(RetVal'Access);
+         Hr := m_Factory.get_BatteryLifeDescription(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -305,7 +169,7 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   function get_BatteryLifeDescription
+   function get_DisplayModelName
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
@@ -315,14 +179,14 @@ package body Windows.System.Profile is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_BatteryLifeDescription(RetVal'Access);
+         Hr := m_Factory.get_DisplayModelName(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ProcessorDescription
+   function get_FormFactor
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
@@ -332,58 +196,7 @@ package body Windows.System.Profile is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ProcessorDescription(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Memory
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Memory(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StorageDescription
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StorageDescription(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_GraphicsDescription
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
-      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_GraphicsDescription(RetVal'Access);
+         Hr := m_Factory.get_FormFactor(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -407,7 +220,7 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   function get_RearCameraDescription
+   function get_GraphicsDescription
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
@@ -417,7 +230,7 @@ package body Windows.System.Profile is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_RearCameraDescription(RetVal'Access);
+         Hr := m_Factory.get_GraphicsDescription(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -441,6 +254,23 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
+   function get_HasOpticalDrive
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HasOpticalDrive(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HasSdSlot
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -458,7 +288,7 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   function get_HasOpticalDrive
+   function get_IsFeatured
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
@@ -468,7 +298,7 @@ package body Windows.System.Profile is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_HasOpticalDrive(RetVal'Access);
+         Hr := m_Factory.get_IsFeatured(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -492,6 +322,176 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
+   function get_ManufacturerName
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ManufacturerName(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Memory
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Memory(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ModelName
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ModelName(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Price
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Price(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ProcessorDescription
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ProcessorDescription(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RearCameraDescription
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RearCameraDescription(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RetailAccessCode
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RetailAccessCode(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ScreenSize
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ScreenSize(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StorageDescription
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StorageDescription(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Weight
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.KnownRetailInfoProperties");
+      m_Factory     : IKnownRetailInfoPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Weight(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_WindowsEdition
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -503,23 +503,6 @@ package body Windows.System.Profile is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownRetailInfoPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_WindowsEdition(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CollectionLevel
-   return Windows.System.Profile.PlatformDataCollectionLevel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
-      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Profile.PlatformDataCollectionLevel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CollectionLevel(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -546,24 +529,6 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
-   procedure remove_CollectionLevelChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
-      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_CollectionLevelChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function CanCollectDiagnostics
    (
       level : Windows.System.Profile.PlatformDataCollectionLevel
@@ -582,6 +547,41 @@ package body Windows.System.Profile is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function get_CollectionLevel
+   return Windows.System.Profile.PlatformDataCollectionLevel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
+      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Profile.PlatformDataCollectionLevel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CollectionLevel(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_CollectionLevelChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings");
+      m_Factory     : IPlatformDiagnosticsAndUsageDataSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlatformDiagnosticsAndUsageDataSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_CollectionLevelChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_IsDemoModeEnabled

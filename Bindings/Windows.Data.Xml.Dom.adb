@@ -95,47 +95,6 @@ package body Windows.Data.Xml.Dom is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function LoadFromUriAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Xml.Dom.XmlDocument");
-      m_Factory     : IXmlDocumentStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXmlDocumentStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadFromUriAsync(uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LoadFromUriWithSettingsAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; loadSettings : Windows.Data.Xml.Dom.IXmlLoadSettings
-   )
-   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Xml.Dom.XmlDocument");
-      m_Factory     : IXmlDocumentStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXmlDocumentStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LoadFromUriWithSettingsAsync(uri, loadSettings, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function LoadFromFileAsync
    (
       file : Windows.Storage.IStorageFile
@@ -171,6 +130,47 @@ package body Windows.Data.Xml.Dom is
       Hr := RoGetActivationFactory(m_hString, IID_IXmlDocumentStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.LoadFromFileWithSettingsAsync(file, loadSettings, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadFromUriAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Xml.Dom.XmlDocument");
+      m_Factory     : IXmlDocumentStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXmlDocumentStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadFromUriAsync(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LoadFromUriWithSettingsAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; loadSettings : Windows.Data.Xml.Dom.IXmlLoadSettings
+   )
+   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Xml.Dom.XmlDocument");
+      m_Factory     : IXmlDocumentStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXmlDocumentStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LoadFromUriWithSettingsAsync(uri, loadSettings, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

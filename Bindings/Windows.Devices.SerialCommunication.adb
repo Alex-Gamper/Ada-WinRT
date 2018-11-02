@@ -86,6 +86,26 @@ package body Windows.Devices.SerialCommunication is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SerialCommunication.SerialDevice");
+      m_Factory     : ISerialDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISerialDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDeviceSelector
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -138,26 +158,6 @@ package body Windows.Devices.SerialCommunication is
       Hr := RoGetActivationFactory(m_hString, IID_ISerialDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorFromUsbVidPid(vendorId, productId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.SerialCommunication.SerialDevice");
-      m_Factory     : ISerialDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISerialDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

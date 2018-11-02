@@ -484,223 +484,6 @@ package body Windows.Foundation is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function CreateEmpty
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateEmpty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt8
-   (
-      value : Windows.UInt8
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt8(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInt16
-   (
-      value : Windows.Int16
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInt16(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt16
-   (
-      value : Windows.UInt16
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt16(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInt32
-   (
-      value : Windows.Int32
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInt32(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt32
-   (
-      value : Windows.UInt32
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt32(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInt64
-   (
-      value : Windows.Int64
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInt64(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt64
-   (
-      value : Windows.UInt64
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt64(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateSingle
-   (
-      value : Windows.Single
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateSingle(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateDouble
-   (
-      value : Windows.Double
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateDouble(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateChar16
-   (
-      value : Windows.UInt8
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateChar16(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateBoolean
    (
       value : Windows.Boolean
@@ -715,366 +498,6 @@ package body Windows.Foundation is
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateBoolean(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateString
-   (
-      value : Windows.String
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateString(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInspectable
-   (
-      value : Windows.Object
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInspectable(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateGuid
-   (
-      value : Windows.Guid
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateGuid(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateDateTime
-   (
-      value : Windows.Foundation.DateTime
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateDateTime(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateTimeSpan
-   (
-      value : Windows.Foundation.TimeSpan
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateTimeSpan(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreatePoint
-   (
-      value : Windows.Foundation.Point
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreatePoint(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateSize
-   (
-      value : Windows.Foundation.Size
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateSize(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateRect
-   (
-      value : Windows.Foundation.Rect
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateRect(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt8Array
-   (
-      value : Windows.UInt8_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt8Array(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInt16Array
-   (
-      value : Windows.Int16_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInt16Array(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt16Array
-   (
-      value : Windows.UInt16_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt16Array(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInt32Array
-   (
-      value : Windows.Int32_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInt32Array(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt32Array
-   (
-      value : Windows.UInt32_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt32Array(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInt64Array
-   (
-      value : Windows.Int64_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInt64Array(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateUInt64Array
-   (
-      value : Windows.UInt64_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateUInt64Array(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateSingleArray
-   (
-      value : Windows.Single_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateSingleArray(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateDoubleArray
-   (
-      value : Windows.Double_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateDoubleArray(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateChar16Array
-   (
-      value : Windows.UInt8_Ptr
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
-      m_Factory     : IPropertyValueStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateChar16Array(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1101,9 +524,9 @@ package body Windows.Foundation is
       return RetVal;
    end;
    
-   function CreateStringArray
+   function CreateChar16
    (
-      value : Windows.String_Ptr
+      value : Windows.UInt8
    )
    return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
@@ -1114,16 +537,16 @@ package body Windows.Foundation is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateStringArray(value, RetVal'Access);
+         Hr := m_Factory.CreateChar16(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function CreateInspectableArray
+   function CreateChar16Array
    (
-      value : Windows.Object_Ptr
+      value : Windows.UInt8_Ptr
    )
    return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
@@ -1134,16 +557,16 @@ package body Windows.Foundation is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInspectableArray(value, RetVal'Access);
+         Hr := m_Factory.CreateChar16Array(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function CreateGuidArray
+   function CreateDateTime
    (
-      value : Windows.Guid_Ptr
+      value : Windows.Foundation.DateTime
    )
    return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
@@ -1154,7 +577,7 @@ package body Windows.Foundation is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateGuidArray(value, RetVal'Access);
+         Hr := m_Factory.CreateDateTime(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1181,9 +604,9 @@ package body Windows.Foundation is
       return RetVal;
    end;
    
-   function CreateTimeSpanArray
+   function CreateDouble
    (
-      value : Windows.Foundation.TimeSpan_Ptr
+      value : Windows.Double
    )
    return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
@@ -1194,7 +617,264 @@ package body Windows.Foundation is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateTimeSpanArray(value, RetVal'Access);
+         Hr := m_Factory.CreateDouble(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateDoubleArray
+   (
+      value : Windows.Double_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateDoubleArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateEmpty
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateEmpty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateGuid
+   (
+      value : Windows.Guid
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateGuid(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateGuidArray
+   (
+      value : Windows.Guid_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateGuidArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInspectable
+   (
+      value : Windows.Object
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInspectable(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInspectableArray
+   (
+      value : Windows.Object_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInspectableArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInt16
+   (
+      value : Windows.Int16
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInt16(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInt16Array
+   (
+      value : Windows.Int16_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInt16Array(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInt32
+   (
+      value : Windows.Int32
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInt32(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInt32Array
+   (
+      value : Windows.Int32_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInt32Array(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInt64
+   (
+      value : Windows.Int64
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInt64(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInt64Array
+   (
+      value : Windows.Int64_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInt64Array(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreatePoint
+   (
+      value : Windows.Foundation.Point
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreatePoint(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1221,9 +901,9 @@ package body Windows.Foundation is
       return RetVal;
    end;
    
-   function CreateSizeArray
+   function CreateRect
    (
-      value : Windows.Foundation.Size_Ptr
+      value : Windows.Foundation.Rect
    )
    return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
@@ -1234,7 +914,7 @@ package body Windows.Foundation is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateSizeArray(value, RetVal'Access);
+         Hr := m_Factory.CreateRect(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1261,20 +941,320 @@ package body Windows.Foundation is
       return RetVal;
    end;
    
-   function UnescapeComponent
+   function CreateSingle
    (
-      toUnescape : Windows.String
+      value : Windows.Single
    )
-   return Windows.String is
+   return Windows.Object is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Uri");
-      m_Factory     : IUriEscapeStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
+      RetVal        : aliased Windows.Object;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUriEscapeStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.UnescapeComponent(toUnescape, RetVal'Access);
+         Hr := m_Factory.CreateSingle(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateSingleArray
+   (
+      value : Windows.Single_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSingleArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateSize
+   (
+      value : Windows.Foundation.Size
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSize(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateSizeArray
+   (
+      value : Windows.Foundation.Size_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSizeArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateString
+   (
+      value : Windows.String
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateString(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateStringArray
+   (
+      value : Windows.String_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateStringArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTimeSpan
+   (
+      value : Windows.Foundation.TimeSpan
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTimeSpan(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTimeSpanArray
+   (
+      value : Windows.Foundation.TimeSpan_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTimeSpanArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt16
+   (
+      value : Windows.UInt16
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt16(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt16Array
+   (
+      value : Windows.UInt16_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt16Array(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt32
+   (
+      value : Windows.UInt32
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt32(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt32Array
+   (
+      value : Windows.UInt32_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt32Array(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt64
+   (
+      value : Windows.UInt64
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt64(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt64Array
+   (
+      value : Windows.UInt64_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt64Array(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt8
+   (
+      value : Windows.UInt8
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt8(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateUInt8Array
+   (
+      value : Windows.UInt8_Ptr
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.PropertyValue");
+      m_Factory     : IPropertyValueStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPropertyValueStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateUInt8Array(value, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1295,6 +1275,26 @@ package body Windows.Foundation is
       Hr := RoGetActivationFactory(m_hString, IID_IUriEscapeStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.EscapeComponent(toEscape, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function UnescapeComponent
+   (
+      toUnescape : Windows.String
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Uri");
+      m_Factory     : IUriEscapeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUriEscapeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.UnescapeComponent(toUnescape, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

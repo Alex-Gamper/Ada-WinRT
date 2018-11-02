@@ -321,17 +321,17 @@ package body Windows.Media.SpeechRecognition is
       return RetVal;
    end;
    
-   function get_SystemSpeechLanguage
-   return Windows.Globalization.ILanguage is
+   function get_SupportedGrammarLanguages
+   return Windows.Globalization.IVectorView_ILanguage is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognizer");
       m_Factory     : ISpeechRecognizerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.ILanguage;
+      RetVal        : aliased Windows.Globalization.IVectorView_ILanguage;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognizerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SystemSpeechLanguage(RetVal'Access);
+         Hr := m_Factory.get_SupportedGrammarLanguages(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -355,17 +355,34 @@ package body Windows.Media.SpeechRecognition is
       return RetVal;
    end;
    
-   function get_SupportedGrammarLanguages
-   return Windows.Globalization.IVectorView_ILanguage is
+   function get_SystemSpeechLanguage
+   return Windows.Globalization.ILanguage is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognizer");
       m_Factory     : ISpeechRecognizerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.IVectorView_ILanguage;
+      RetVal        : aliased Windows.Globalization.ILanguage;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognizerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SupportedGrammarLanguages(RetVal'Access);
+         Hr := m_Factory.get_SystemSpeechLanguage(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InstalledCommandSets
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.VoiceCommandManager");
+      m_Factory     : IVoiceCommandManager := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandManager'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InstalledCommandSets(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -386,23 +403,6 @@ package body Windows.Media.SpeechRecognition is
       Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandManager'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.InstallCommandSetsFromStorageFileAsync(file, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InstalledCommandSets
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.VoiceCommandManager");
-      m_Factory     : IVoiceCommandManager := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVoiceCommandManager'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InstalledCommandSets(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

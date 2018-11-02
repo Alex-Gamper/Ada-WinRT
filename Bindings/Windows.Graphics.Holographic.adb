@@ -185,17 +185,20 @@ package body Windows.Graphics.Holographic is
       return RetVal;
    end;
    
-   function get_IsSupported
-   return Windows.Boolean is
+   function add_IsAvailableChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Holographic.HolographicSpace");
       m_Factory     : IHolographicSpaceStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IHolographicSpaceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsSupported(RetVal'Access);
+         Hr := m_Factory.add_IsAvailableChanged(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -219,20 +222,17 @@ package body Windows.Graphics.Holographic is
       return RetVal;
    end;
    
-   function add_IsAvailableChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken is
+   function get_IsSupported
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Holographic.HolographicSpace");
       m_Factory     : IHolographicSpaceStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IHolographicSpaceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_IsAvailableChanged(handler, RetVal'Access);
+         Hr := m_Factory.get_IsSupported(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -137,46 +137,6 @@ package body Windows.Security.Authentication.Web is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure AuthenticateWithCallbackUriAndContinue
-   (
-      requestUri : Windows.Foundation.IUriRuntimeClass
-      ; callbackUri : Windows.Foundation.IUriRuntimeClass
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.WebAuthenticationBroker");
-      m_Factory     : IWebAuthenticationBrokerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationBrokerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AuthenticateWithCallbackUriAndContinue(requestUri, callbackUri);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue
-   (
-      requestUri : Windows.Foundation.IUriRuntimeClass
-      ; callbackUri : Windows.Foundation.IUriRuntimeClass
-      ; continuationData : Windows.Foundation.Collections.IPropertySet
-      ; options : Windows.Security.Authentication.Web.WebAuthenticationOptions
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.WebAuthenticationBroker");
-      m_Factory     : IWebAuthenticationBrokerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationBrokerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue(requestUri, callbackUri, continuationData, options);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function AuthenticateSilentlyAsync
    (
       requestUri : Windows.Foundation.IUriRuntimeClass
@@ -216,6 +176,46 @@ package body Windows.Security.Authentication.Web is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure AuthenticateWithCallbackUriAndContinue
+   (
+      requestUri : Windows.Foundation.IUriRuntimeClass
+      ; callbackUri : Windows.Foundation.IUriRuntimeClass
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.WebAuthenticationBroker");
+      m_Factory     : IWebAuthenticationBrokerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationBrokerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AuthenticateWithCallbackUriAndContinue(requestUri, callbackUri);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue
+   (
+      requestUri : Windows.Foundation.IUriRuntimeClass
+      ; callbackUri : Windows.Foundation.IUriRuntimeClass
+      ; continuationData : Windows.Foundation.Collections.IPropertySet
+      ; options : Windows.Security.Authentication.Web.WebAuthenticationOptions
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.WebAuthenticationBroker");
+      m_Factory     : IWebAuthenticationBrokerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationBrokerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue(requestUri, callbackUri, continuationData, options);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
 end;

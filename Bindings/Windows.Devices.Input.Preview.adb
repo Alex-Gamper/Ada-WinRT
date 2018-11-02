@@ -138,23 +138,6 @@ package body Windows.Devices.Input.Preview is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForCurrentView
-   return Windows.Devices.Input.Preview.IGazeInputSourcePreview is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Input.Preview.GazeInputSourcePreview");
-      m_Factory     : IGazeInputSourcePreviewStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Input.Preview.IGazeInputSourcePreview;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGazeInputSourcePreviewStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateWatcher
    return Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview is
       Hr            : Windows.HRESULT := S_OK;
@@ -166,6 +149,23 @@ package body Windows.Devices.Input.Preview is
       Hr := RoGetActivationFactory(m_hString, IID_IGazeInputSourcePreviewStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWatcher(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.Devices.Input.Preview.IGazeInputSourcePreview is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Input.Preview.GazeInputSourcePreview");
+      m_Factory     : IGazeInputSourcePreviewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Input.Preview.IGazeInputSourcePreview;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGazeInputSourcePreviewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

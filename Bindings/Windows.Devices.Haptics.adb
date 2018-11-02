@@ -72,23 +72,6 @@ package body Windows.Devices.Haptics is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Click
-   return Windows.UInt16 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms");
-      m_Factory     : IKnownSimpleHapticsControllerWaveformsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt16;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownSimpleHapticsControllerWaveformsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Click(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_BuzzContinuous
    return Windows.UInt16 is
       Hr            : Windows.HRESULT := S_OK;
@@ -106,7 +89,7 @@ package body Windows.Devices.Haptics is
       return RetVal;
    end;
    
-   function get_RumbleContinuous
+   function get_Click
    return Windows.UInt16 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms");
@@ -116,7 +99,7 @@ package body Windows.Devices.Haptics is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownSimpleHapticsControllerWaveformsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_RumbleContinuous(RetVal'Access);
+         Hr := m_Factory.get_Click(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -157,34 +140,34 @@ package body Windows.Devices.Haptics is
       return RetVal;
    end;
    
-   function RequestAccessAsync
-   return Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus is
+   function get_RumbleContinuous
+   return Windows.UInt16 is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Haptics.VibrationDevice");
-      m_Factory     : IVibrationDeviceStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms");
+      m_Factory     : IKnownSimpleHapticsControllerWaveformsStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus;
+      RetVal        : aliased Windows.UInt16;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVibrationDeviceStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownSimpleHapticsControllerWaveformsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.RequestAccessAsync(RetVal'Access);
+         Hr := m_Factory.get_RumbleContinuous(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetDeviceSelector
-   return Windows.String is
+   function FindAllAsync
+   return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Haptics.VibrationDevice");
       m_Factory     : IVibrationDeviceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
+      RetVal        : aliased Windows.Address;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IVibrationDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         Hr := m_Factory.FindAllAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -228,17 +211,34 @@ package body Windows.Devices.Haptics is
       return RetVal;
    end;
    
-   function FindAllAsync
-   return Windows.Address is
+   function GetDeviceSelector
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Haptics.VibrationDevice");
       m_Factory     : IVibrationDeviceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
+      RetVal        : aliased Windows.String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IVibrationDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FindAllAsync(RetVal'Access);
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessAsync
+   return Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Haptics.VibrationDevice");
+      m_Factory     : IVibrationDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVibrationDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

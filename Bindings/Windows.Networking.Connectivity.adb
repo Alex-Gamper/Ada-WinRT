@@ -231,6 +231,26 @@ package body Windows.Networking.Connectivity is
       return RetVal;
    end;
    
+   function add_NetworkStatusChanged
+   (
+      networkStatusHandler : Windows.Networking.Connectivity.NetworkStatusChangedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.NetworkInformation");
+      m_Factory     : INetworkInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_NetworkStatusChanged(networkStatusHandler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetConnectionProfiles
    return Windows.Networking.Connectivity.IVectorView_IConnectionProfile is
       Hr            : Windows.HRESULT := S_OK;
@@ -242,6 +262,23 @@ package body Windows.Networking.Connectivity is
       Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetConnectionProfiles(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetHostNames
+   return Windows.Networking.IVectorView_IHostName is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.NetworkInformation");
+      m_Factory     : INetworkInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.IVectorView_IHostName;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetHostNames(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -276,23 +313,6 @@ package body Windows.Networking.Connectivity is
       Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetLanIdentifiers(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetHostNames
-   return Windows.Networking.IVectorView_IHostName is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.NetworkInformation");
-      m_Factory     : INetworkInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.IVectorView_IHostName;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetHostNames(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -334,26 +354,6 @@ package body Windows.Networking.Connectivity is
       Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetSortedEndpointPairs(destinationList, sortOptions, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function add_NetworkStatusChanged
-   (
-      networkStatusHandler : Windows.Networking.Connectivity.NetworkStatusChangedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.NetworkInformation");
-      m_Factory     : INetworkInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_NetworkStatusChanged(networkStatusHandler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -61,23 +61,6 @@ package body Windows.Media.Ocr is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_MaxImageDimension
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Ocr.OcrEngine");
-      m_Factory     : IOcrEngineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IOcrEngineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxImageDimension(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AvailableRecognizerLanguages
    return Windows.Globalization.IVectorView_ILanguage is
       Hr            : Windows.HRESULT := S_OK;
@@ -89,6 +72,23 @@ package body Windows.Media.Ocr is
       Hr := RoGetActivationFactory(m_hString, IID_IOcrEngineStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AvailableRecognizerLanguages(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxImageDimension
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Ocr.OcrEngine");
+      m_Factory     : IOcrEngineStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IOcrEngineStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxImageDimension(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

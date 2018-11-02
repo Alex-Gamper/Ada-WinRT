@@ -240,27 +240,6 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
-   function TryCreateWithPositionRelativeTo
-   (
-      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
-      ; position : Windows.Foundation.Numerics.Vector3
-   )
-   return Windows.Perception.Spatial.ISpatialAnchor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchor");
-      m_Factory     : ISpatialAnchorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Perception.Spatial.ISpatialAnchor;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryCreateWithPositionRelativeTo(coordinateSystem, position, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function TryCreateWithPositionAndOrientationRelativeTo
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
@@ -277,6 +256,27 @@ package body Windows.Perception.Spatial is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryCreateWithPositionAndOrientationRelativeTo(coordinateSystem, position, orientation, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateWithPositionRelativeTo
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; position : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.Perception.Spatial.ISpatialAnchor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchor");
+      m_Factory     : ISpatialAnchorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.ISpatialAnchor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateWithPositionRelativeTo(coordinateSystem, position, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -300,20 +300,17 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
-   function TryImportAnchorsAsync
-   (
-      stream : Windows.Storage.Streams.IInputStream
-   )
-   return Windows.Address is
+   function RequestAccessAsync
+   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorTransferManager");
       m_Factory     : ISpatialAnchorTransferManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
+      RetVal        : aliased Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorTransferManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.TryImportAnchorsAsync(stream, RetVal'Access);
+         Hr := m_Factory.RequestAccessAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -341,17 +338,20 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
-   function RequestAccessAsync
-   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus is
+   function TryImportAnchorsAsync
+   (
+      stream : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorTransferManager");
       m_Factory     : ISpatialAnchorTransferManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
+      RetVal        : aliased Windows.Address;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorTransferManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.RequestAccessAsync(RetVal'Access);
+         Hr := m_Factory.TryImportAnchorsAsync(stream, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -373,6 +373,27 @@ package body Windows.Perception.Spatial is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialBoundingVolumeStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromBox(coordinateSystem, box, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromFrustum
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; frustum : Windows.Perception.Spatial.SpatialBoundingFrustum
+   )
+   return Windows.Perception.Spatial.ISpatialBoundingVolume is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialBoundingVolume");
+      m_Factory     : ISpatialBoundingVolumeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.ISpatialBoundingVolume;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialBoundingVolumeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromFrustum(coordinateSystem, frustum, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -415,27 +436,6 @@ package body Windows.Perception.Spatial is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialBoundingVolumeStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromSphere(coordinateSystem, sphere, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromFrustum
-   (
-      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
-      ; frustum : Windows.Perception.Spatial.SpatialBoundingFrustum
-   )
-   return Windows.Perception.Spatial.ISpatialBoundingVolume is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialBoundingVolume");
-      m_Factory     : ISpatialBoundingVolumeStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Perception.Spatial.ISpatialBoundingVolume;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialBoundingVolumeStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromFrustum(coordinateSystem, frustum, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -496,23 +496,6 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
-   function get_Current
-   return Windows.Perception.Spatial.ISpatialStageFrameOfReference is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialStageFrameOfReference");
-      m_Factory     : ISpatialStageFrameOfReferenceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Perception.Spatial.ISpatialStageFrameOfReference;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialStageFrameOfReferenceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Current(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function add_CurrentChanged
    (
       handler : Windows.Foundation.EventHandler_Object
@@ -527,6 +510,23 @@ package body Windows.Perception.Spatial is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialStageFrameOfReferenceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.add_CurrentChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Current
+   return Windows.Perception.Spatial.ISpatialStageFrameOfReference is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialStageFrameOfReference");
+      m_Factory     : ISpatialStageFrameOfReferenceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.ISpatialStageFrameOfReference;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialStageFrameOfReferenceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Current(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -77,21 +77,6 @@ package body Windows.ApplicationModel.Calls.Provider is
       return RetVal;
    end;
    
-   procedure ShowPhoneCallOriginSettingsUI
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.Provider.PhoneCallOriginManager");
-      m_Factory     : IPhoneCallOriginManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallOriginManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowPhoneCallOriginSettingsUI;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    procedure SetCallOrigin
    (
       requestId : Windows.Guid
@@ -106,6 +91,21 @@ package body Windows.ApplicationModel.Calls.Provider is
       Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallOriginManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetCallOrigin(requestId, callOrigin);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure ShowPhoneCallOriginSettingsUI
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.Provider.PhoneCallOriginManager");
+      m_Factory     : IPhoneCallOriginManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallOriginManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowPhoneCallOriginSettingsUI;
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -536,23 +536,6 @@ package body Windows.Devices.PointOfService is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
-      m_Factory     : IBarcodeScannerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -567,6 +550,23 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScanner");
+      m_Factory     : IBarcodeScannerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -610,7 +610,7 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_Unknown
+   function get_AusPost
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
@@ -620,14 +620,14 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Unknown(RetVal'Access);
+         Hr := m_Factory.get_AusPost(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_Ean8
+   function get_Aztec
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
@@ -637,14 +637,14 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Ean8(RetVal'Access);
+         Hr := m_Factory.get_Aztec(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_Ean8Add2
+   function get_CanPost
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
@@ -654,14 +654,14 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Ean8Add2(RetVal'Access);
+         Hr := m_Factory.get_CanPost(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_Ean8Add5
+   function get_Ccab
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
@@ -671,14 +671,14 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Ean8Add5(RetVal'Access);
+         Hr := m_Factory.get_Ccab(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_Eanv
+   function get_Ccc
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
@@ -688,14 +688,14 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Eanv(RetVal'Access);
+         Hr := m_Factory.get_Ccc(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_EanvAdd2
+   function get_ChinaPost
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
@@ -705,14 +705,14 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_EanvAdd2(RetVal'Access);
+         Hr := m_Factory.get_ChinaPost(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_EanvAdd5
+   function get_Codabar
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
@@ -722,7 +722,262 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_EanvAdd5(RetVal'Access);
+         Hr := m_Factory.get_Codabar(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Codablock128
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Codablock128(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CodablockA
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CodablockA(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CodablockF
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CodablockF(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code11
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code11(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code128
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code128(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code16k
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code16k(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code32
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code32(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code39
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code39(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code39Ex
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code39Ex(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code49
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code49(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code93
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code93(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Code93Ex
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Code93Ex(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DataCode
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DataCode(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DataMatrix
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DataMatrix(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DutchKix
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DutchKix(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -780,6 +1035,295 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
+   function get_Ean8
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ean8(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ean8Add2
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ean8Add2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ean8Add5
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ean8Add5(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ean99
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ean99(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ean99Add2
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ean99Add2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ean99Add5
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ean99Add5(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Eanv
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Eanv(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EanvAdd2
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EanvAdd2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EanvAdd5
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EanvAdd5(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ExtendedBase
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Gs1128
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gs1128(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Gs1128Coupon
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gs1128Coupon(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Gs1DatabarType1
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gs1DatabarType1(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Gs1DatabarType2
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gs1DatabarType2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Gs1DatabarType3
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gs1DatabarType3(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HanXin
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HanXin(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InfoMail
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InfoMail(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Isbn
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -808,6 +1352,23 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsbnAdd5(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Isbt
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Isbt(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -916,1026 +1477,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_Ean99
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ean99(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ean99Add2
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ean99Add2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ean99Add5
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ean99Add5(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Upca
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Upca(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UpcaAdd2
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UpcaAdd2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UpcaAdd5
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UpcaAdd5(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Upce
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Upce(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UpceAdd2
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UpceAdd2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UpceAdd5
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UpceAdd5(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UpcCoupon
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UpcCoupon(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TfStd
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TfStd(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TfDis
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TfDis(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TfInt
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TfInt(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TfInd
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TfInd(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TfMat
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TfMat(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TfIata
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TfIata(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Gs1DatabarType1
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gs1DatabarType1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Gs1DatabarType2
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gs1DatabarType2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Gs1DatabarType3
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gs1DatabarType3(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code39
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code39(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code39Ex
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code39Ex(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Trioptic39
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Trioptic39(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code32
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code32(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Pzn
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Pzn(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code93
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code93(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code93Ex
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code93Ex(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code128
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code128(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Gs1128
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gs1128(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Gs1128Coupon
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gs1128Coupon(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UccEan128
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UccEan128(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Sisac
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Sisac(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Isbt
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Isbt(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Codabar
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Codabar(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code11
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code11(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Msi
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Msi(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Plessey
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Plessey(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Telepen
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Telepen(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code16k
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code16k(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CodablockA
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CodablockA(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CodablockF
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CodablockF(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Codablock128
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Codablock128(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Code49
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Code49(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Aztec
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Aztec(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DataCode
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DataCode(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DataMatrix
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DataMatrix(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HanXin
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HanXin(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Maxicode
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Maxicode(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MicroPdf417
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MicroPdf417(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MicroQr
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MicroQr(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Pdf417
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Pdf417(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Qr
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Qr(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MsTag
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MsTag(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ccab
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ccab(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ccc
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ccc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Tlc39
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Tlc39(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AusPost
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AusPost(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CanPost
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CanPost(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ChinaPost
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ChinaPost(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DutchKix
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DutchKix(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InfoMail
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InfoMail(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_ItalianPost25
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -2004,6 +1545,227 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
+   function get_Maxicode
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Maxicode(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Micr
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Micr(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MicroPdf417
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MicroPdf417(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MicroQr
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MicroQr(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Msi
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Msi(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MsTag
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MsTag(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OcrA
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OcrA(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OcrB
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OcrB(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Pdf417
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Pdf417(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Plessey
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Plessey(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Pzn
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Pzn(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Qr
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Qr(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Sisac
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Sisac(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_SwedenPost
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -2021,6 +1783,176 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
+   function get_Telepen
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Telepen(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TfDis
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TfDis(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TfIata
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TfIata(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TfInd
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TfInd(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TfInt
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TfInt(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TfMat
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TfMat(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TfStd
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TfStd(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Tlc39
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Tlc39(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Trioptic39
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Trioptic39(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UccEan128
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UccEan128(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_UkPost
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -2032,6 +1964,159 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_UkPost(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Unknown
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Unknown(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Upca
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Upca(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UpcaAdd2
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UpcaAdd2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UpcaAdd5
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UpcaAdd5(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UpcCoupon
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UpcCoupon(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Upce
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Upce(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UpceAdd2
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UpceAdd2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UpceAdd5
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UpceAdd5(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Us4StateFics
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Us4StateFics(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2106,91 +2191,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_Us4StateFics
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Us4StateFics(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OcrA
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OcrA(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OcrB
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OcrB(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Micr
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Micr(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ExtendedBase
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetName
    (
       scanDataType : Windows.UInt32
@@ -2248,23 +2248,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.CashDrawer");
-      m_Factory     : ICashDrawerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICashDrawerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -2279,6 +2262,23 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_ICashDrawerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.CashDrawer");
+      m_Factory     : ICashDrawerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICashDrawerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2470,23 +2470,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
-      m_Factory     : IMagneticStripeReaderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -2501,6 +2484,23 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
+      m_Factory     : IMagneticStripeReaderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2524,7 +2524,7 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_Unknown_MagneticStripeReaderCardTypes
+   function get_Aamva
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
@@ -2534,7 +2534,7 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Unknown(RetVal'Access);
+         Hr := m_Factory.get_Aamva(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2558,23 +2558,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_Aamva
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
-      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Aamva(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_ExtendedBase_MagneticStripeReaderCardTypes
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -2584,6 +2567,40 @@ package body Windows.Devices.PointOfService is
       RetVal        : aliased Windows.UInt32;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Unknown_MagneticStripeReaderCardTypes
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderCardTypes");
+      m_Factory     : IMagneticStripeReaderCardTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderCardTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Unknown(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ExtendedBase_MagneticStripeReaderEncryptionAlgorithms
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
+      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ExtendedBase(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -2626,17 +2643,20 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_ExtendedBase_MagneticStripeReaderEncryptionAlgorithms
-   return Windows.UInt32 is
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms");
-      m_Factory     : IMagneticStripeReaderEncryptionAlgorithmsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
+      m_Factory     : IPosPrinterStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
+      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderEncryptionAlgorithmsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ExtendedBase(RetVal'Access);
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2654,26 +2674,6 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinter");
-      m_Factory     : IPosPrinterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2717,7 +2717,7 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_Utf16LE
+   function get_Ansi
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
@@ -2727,7 +2727,7 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Utf16LE(RetVal'Access);
+         Hr := m_Factory.get_Ansi(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2751,7 +2751,7 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_Ansi
+   function get_Utf16LE
    return Windows.UInt32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.PosPrinterCharacterSetIds");
@@ -2761,7 +2761,7 @@ package body Windows.Devices.PointOfService is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPosPrinterCharacterSetIdsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Ansi(RetVal'Access);
+         Hr := m_Factory.get_Utf16LE(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

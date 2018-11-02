@@ -109,23 +109,6 @@ package body Windows.Perception.Spatial.Surfaces is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_SupportedVertexPositionFormats
-   return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions");
-      m_Factory     : ISpatialSurfaceMeshOptionsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpatialSurfaceMeshOptionsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SupportedVertexPositionFormats(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_SupportedTriangleIndexFormats
    return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat is
       Hr            : Windows.HRESULT := S_OK;
@@ -154,6 +137,23 @@ package body Windows.Perception.Spatial.Surfaces is
       Hr := RoGetActivationFactory(m_hString, IID_ISpatialSurfaceMeshOptionsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SupportedVertexNormalFormats(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SupportedVertexPositionFormats
+   return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions");
+      m_Factory     : ISpatialSurfaceMeshOptionsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialSurfaceMeshOptionsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SupportedVertexPositionFormats(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

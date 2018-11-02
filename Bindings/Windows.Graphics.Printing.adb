@@ -234,6 +234,125 @@ package body Windows.Graphics.Printing is
       return RetVal;
    end;
    
+   function get_Binding
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Binding(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Collation
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Collation(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ColorMode
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ColorMode(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Copies
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Copies(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Duplex
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Duplex(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HolePunch
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HolePunch(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InputBin
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InputBin(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_MediaSize
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -262,6 +381,23 @@ package body Windows.Graphics.Printing is
       Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MediaType(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_NUp
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NUp(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -302,57 +438,6 @@ package body Windows.Graphics.Printing is
       return RetVal;
    end;
    
-   function get_ColorMode
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ColorMode(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Duplex
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Duplex(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Collation
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Collation(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Staple
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -364,91 +449,6 @@ package body Windows.Graphics.Printing is
       Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Staple(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HolePunch
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HolePunch(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Binding
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Binding(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Copies
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Copies(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_NUp
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_NUp(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InputBin
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InputBin(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

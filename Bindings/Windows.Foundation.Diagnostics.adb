@@ -353,115 +353,6 @@ package body Windows.Foundation.Diagnostics is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   procedure TraceOperationCreation
-   (
-      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
-      ; source : Windows.Foundation.Diagnostics.CausalitySource
-      ; platformId : Windows.Guid
-      ; operationId : Windows.UInt64
-      ; operationName : Windows.String
-      ; relatedContext : Windows.UInt64
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
-      m_Factory     : IAsyncCausalityTracerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TraceOperationCreation(traceLevel, source, platformId, operationId, operationName, relatedContext);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure TraceOperationCompletion
-   (
-      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
-      ; source : Windows.Foundation.Diagnostics.CausalitySource
-      ; platformId : Windows.Guid
-      ; operationId : Windows.UInt64
-      ; status : Windows.Foundation.AsyncStatus
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
-      m_Factory     : IAsyncCausalityTracerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TraceOperationCompletion(traceLevel, source, platformId, operationId, status);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure TraceOperationRelation
-   (
-      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
-      ; source : Windows.Foundation.Diagnostics.CausalitySource
-      ; platformId : Windows.Guid
-      ; operationId : Windows.UInt64
-      ; relation : Windows.Foundation.Diagnostics.CausalityRelation
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
-      m_Factory     : IAsyncCausalityTracerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TraceOperationRelation(traceLevel, source, platformId, operationId, relation);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure TraceSynchronousWorkStart
-   (
-      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
-      ; source : Windows.Foundation.Diagnostics.CausalitySource
-      ; platformId : Windows.Guid
-      ; operationId : Windows.UInt64
-      ; work : Windows.Foundation.Diagnostics.CausalitySynchronousWork
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
-      m_Factory     : IAsyncCausalityTracerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TraceSynchronousWorkStart(traceLevel, source, platformId, operationId, work);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure TraceSynchronousWorkCompletion
-   (
-      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
-      ; source : Windows.Foundation.Diagnostics.CausalitySource
-      ; work : Windows.Foundation.Diagnostics.CausalitySynchronousWork
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
-      m_Factory     : IAsyncCausalityTracerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TraceSynchronousWorkCompletion(traceLevel, source, work);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_TracingStatusChanged
    (
       handler : Windows.Foundation.Diagnostics.EventHandler_ITracingStatusChangedEventArgs
@@ -495,6 +386,115 @@ package body Windows.Foundation.Diagnostics is
       Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.remove_TracingStatusChanged(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure TraceOperationCompletion
+   (
+      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
+      ; source : Windows.Foundation.Diagnostics.CausalitySource
+      ; platformId : Windows.Guid
+      ; operationId : Windows.UInt64
+      ; status : Windows.Foundation.AsyncStatus
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
+      m_Factory     : IAsyncCausalityTracerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TraceOperationCompletion(traceLevel, source, platformId, operationId, status);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure TraceOperationCreation
+   (
+      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
+      ; source : Windows.Foundation.Diagnostics.CausalitySource
+      ; platformId : Windows.Guid
+      ; operationId : Windows.UInt64
+      ; operationName : Windows.String
+      ; relatedContext : Windows.UInt64
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
+      m_Factory     : IAsyncCausalityTracerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TraceOperationCreation(traceLevel, source, platformId, operationId, operationName, relatedContext);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure TraceOperationRelation
+   (
+      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
+      ; source : Windows.Foundation.Diagnostics.CausalitySource
+      ; platformId : Windows.Guid
+      ; operationId : Windows.UInt64
+      ; relation : Windows.Foundation.Diagnostics.CausalityRelation
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
+      m_Factory     : IAsyncCausalityTracerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TraceOperationRelation(traceLevel, source, platformId, operationId, relation);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure TraceSynchronousWorkCompletion
+   (
+      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
+      ; source : Windows.Foundation.Diagnostics.CausalitySource
+      ; work : Windows.Foundation.Diagnostics.CausalitySynchronousWork
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
+      m_Factory     : IAsyncCausalityTracerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TraceSynchronousWorkCompletion(traceLevel, source, work);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure TraceSynchronousWorkStart
+   (
+      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
+      ; source : Windows.Foundation.Diagnostics.CausalitySource
+      ; platformId : Windows.Guid
+      ; operationId : Windows.UInt64
+      ; work : Windows.Foundation.Diagnostics.CausalitySynchronousWork
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.AsyncCausalityTracer");
+      m_Factory     : IAsyncCausalityTracerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsyncCausalityTracerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TraceSynchronousWorkStart(traceLevel, source, platformId, operationId, work);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

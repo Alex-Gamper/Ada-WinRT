@@ -269,6 +269,26 @@ package body Windows.Graphics.Display is
       return RetVal;
    end;
    
+   function CreateFromDisplayBrightnessOverrideScenario
+   (
+      overrideScenario : Windows.Graphics.Display.DisplayBrightnessOverrideScenario
+   )
+   return Windows.Graphics.Display.IBrightnessOverrideSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
+      m_Factory     : IBrightnessOverrideSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDisplayBrightnessOverrideScenario(overrideScenario, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateFromLevel
    (
       level : Windows.Double
@@ -303,26 +323,6 @@ package body Windows.Graphics.Display is
       Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromNits(nits, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromDisplayBrightnessOverrideScenario
-   (
-      overrideScenario : Windows.Graphics.Display.DisplayBrightnessOverrideScenario
-   )
-   return Windows.Graphics.Display.IBrightnessOverrideSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.BrightnessOverrideSettings");
-      m_Factory     : IBrightnessOverrideSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IBrightnessOverrideSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBrightnessOverrideSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromDisplayBrightnessOverrideScenario(overrideScenario, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -366,17 +366,20 @@ package body Windows.Graphics.Display is
       return RetVal;
    end;
    
-   function GetForCurrentView
-   return Windows.Graphics.Display.IDisplayInformation is
+   function add_DisplayContentsInvalidated
+   (
+      handler : TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated
+   )
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayInformation");
       m_Factory     : IDisplayInformationStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.IDisplayInformation;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         Hr := m_Factory.add_DisplayContentsInvalidated(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -394,6 +397,23 @@ package body Windows.Graphics.Display is
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AutoRotationPreferences(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.Graphics.Display.IDisplayInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayInformation");
+      m_Factory     : IDisplayInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.IDisplayInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -418,26 +438,6 @@ package body Windows.Graphics.Display is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function add_DisplayContentsInvalidated
-   (
-      handler : TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayInformation");
-      m_Factory     : IDisplayInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_DisplayContentsInvalidated(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure remove_DisplayContentsInvalidated
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -456,76 +456,7 @@ package body Windows.Graphics.Display is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_CurrentOrientation
-   return Windows.Graphics.Display.DisplayOrientations is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.DisplayOrientations;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CurrentOrientation(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_NativeOrientation
-   return Windows.Graphics.Display.DisplayOrientations is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.DisplayOrientations;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_NativeOrientation(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AutoRotationPreferences_DisplayProperties
-   return Windows.Graphics.Display.DisplayOrientations is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.DisplayOrientations;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AutoRotationPreferences(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_AutoRotationPreferences_DisplayProperties
-   (
-      value : Windows.Graphics.Display.DisplayOrientations
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_AutoRotationPreferences(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_OrientationChanged
+   function add_ColorProfileChanged
    (
       handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
    )
@@ -538,59 +469,27 @@ package body Windows.Graphics.Display is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_OrientationChanged(handler, RetVal'Access);
+         Hr := m_Factory.add_ColorProfileChanged(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure remove_OrientationChanged
+   function add_DisplayContentsInvalidated
    (
-      token : Windows.Foundation.EventRegistrationToken
+      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
    )
-   is
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
       m_Factory     : IDisplayPropertiesStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_OrientationChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_ResolutionScale
-   return Windows.Graphics.Display.ResolutionScale is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Display.ResolutionScale;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ResolutionScale(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LogicalDpi
-   return Windows.Single is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Single;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LogicalDpi(RetVal'Access);
+         Hr := m_Factory.add_DisplayContentsInvalidated(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -617,35 +516,20 @@ package body Windows.Graphics.Display is
       return RetVal;
    end;
    
-   procedure remove_LogicalDpiChanged
+   function add_OrientationChanged
    (
-      token : Windows.Foundation.EventRegistrationToken
+      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
    )
-   is
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
       m_Factory     : IDisplayPropertiesStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_LogicalDpiChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StereoEnabled
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StereoEnabled(RetVal'Access);
+         Hr := m_Factory.add_OrientationChanged(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -672,22 +556,106 @@ package body Windows.Graphics.Display is
       return RetVal;
    end;
    
-   procedure remove_StereoEnabledChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
+   function get_AutoRotationPreferences_DisplayProperties
+   return Windows.Graphics.Display.DisplayOrientations is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
       m_Factory     : IDisplayPropertiesStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.DisplayOrientations;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_StereoEnabledChanged(token);
+         Hr := m_Factory.get_AutoRotationPreferences(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CurrentOrientation
+   return Windows.Graphics.Display.DisplayOrientations is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.DisplayOrientations;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CurrentOrientation(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LogicalDpi
+   return Windows.Single is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Single;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LogicalDpi(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_NativeOrientation
+   return Windows.Graphics.Display.DisplayOrientations is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.DisplayOrientations;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NativeOrientation(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ResolutionScale
+   return Windows.Graphics.Display.ResolutionScale is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Display.ResolutionScale;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ResolutionScale(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StereoEnabled
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StereoEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function GetColorProfileAsync
@@ -707,24 +675,22 @@ package body Windows.Graphics.Display is
       return RetVal;
    end;
    
-   function add_ColorProfileChanged
+   procedure put_AutoRotationPreferences_DisplayProperties
    (
-      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
+      value : Windows.Graphics.Display.DisplayOrientations
    )
-   return Windows.Foundation.EventRegistrationToken is
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
       m_Factory     : IDisplayPropertiesStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_ColorProfileChanged(handler, RetVal'Access);
+         Hr := m_Factory.put_AutoRotationPreferences(value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure remove_ColorProfileChanged
@@ -745,26 +711,6 @@ package body Windows.Graphics.Display is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function add_DisplayContentsInvalidated
-   (
-      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
-      m_Factory     : IDisplayPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_DisplayContentsInvalidated(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure remove_DisplayContentsInvalidated_DisplayProperties
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -778,6 +724,60 @@ package body Windows.Graphics.Display is
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.remove_DisplayContentsInvalidated(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_LogicalDpiChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_LogicalDpiChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_OrientationChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_OrientationChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_StereoEnabledChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Display.DisplayProperties");
+      m_Factory     : IDisplayPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_StereoEnabledChanged(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

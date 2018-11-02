@@ -80,25 +80,6 @@ package body Windows.Globalization.PhoneNumberFormatting is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   procedure TryCreate
-   (
-      regionCode : Windows.String
-      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter");
-      m_Factory     : IPhoneNumberFormatterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneNumberFormatterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryCreate(regionCode, phoneNumber);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function GetCountryCodeForRegion
    (
       regionCode : Windows.String
@@ -138,6 +119,25 @@ package body Windows.Globalization.PhoneNumberFormatting is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure TryCreate
+   (
+      regionCode : Windows.String
+      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter");
+      m_Factory     : IPhoneNumberFormatterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneNumberFormatterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreate(regionCode, phoneNumber);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function WrapWithLeftToRightMarkers

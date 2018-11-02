@@ -130,6 +130,27 @@ package body Windows.Devices.I2c is
       return RetVal;
    end;
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+      ; settings : Windows.Devices.I2c.II2cConnectionSettings
+   )
+   return Windows.Devices.I2c.IAsyncOperation_II2cDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.I2c.I2cDevice");
+      m_Factory     : II2cDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.I2c.IAsyncOperation_II2cDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_II2cDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, settings, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDeviceSelector
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -161,27 +182,6 @@ package body Windows.Devices.I2c is
       Hr := RoGetActivationFactory(m_hString, IID_II2cDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorFromFriendlyName(friendlyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-      ; settings : Windows.Devices.I2c.II2cConnectionSettings
-   )
-   return Windows.Devices.I2c.IAsyncOperation_II2cDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.I2c.I2cDevice");
-      m_Factory     : II2cDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.I2c.IAsyncOperation_II2cDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_II2cDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, settings, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

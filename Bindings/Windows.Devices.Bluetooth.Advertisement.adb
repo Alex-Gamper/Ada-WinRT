@@ -310,7 +310,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Flags
+   function get_AdvertisingInterval
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -320,14 +320,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Flags(RetVal'Access);
+         Hr := m_Factory.get_AdvertisingInterval(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_IncompleteService16BitUuids
+   function get_Appearance
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -337,109 +337,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IncompleteService16BitUuids(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CompleteService16BitUuids
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
-      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CompleteService16BitUuids(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IncompleteService32BitUuids
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
-      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IncompleteService32BitUuids(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CompleteService32BitUuids
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
-      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CompleteService32BitUuids(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IncompleteService128BitUuids
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
-      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IncompleteService128BitUuids(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CompleteService128BitUuids
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
-      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CompleteService128BitUuids(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ShortenedLocalName
-   return Windows.UInt8 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
-      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt8;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ShortenedLocalName(RetVal'Access);
+         Hr := m_Factory.get_Appearance(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -463,7 +361,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return RetVal;
    end;
    
-   function get_TxPowerLevel
+   function get_CompleteService128BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -473,14 +371,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TxPowerLevel(RetVal'Access);
+         Hr := m_Factory.get_CompleteService128BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_SlaveConnectionIntervalRange
+   function get_CompleteService16BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -490,14 +388,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SlaveConnectionIntervalRange(RetVal'Access);
+         Hr := m_Factory.get_CompleteService16BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ServiceSolicitation16BitUuids
+   function get_CompleteService32BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -507,14 +405,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ServiceSolicitation16BitUuids(RetVal'Access);
+         Hr := m_Factory.get_CompleteService32BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ServiceSolicitation32BitUuids
+   function get_Flags
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -524,14 +422,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ServiceSolicitation32BitUuids(RetVal'Access);
+         Hr := m_Factory.get_Flags(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ServiceSolicitation128BitUuids
+   function get_IncompleteService128BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -541,14 +439,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ServiceSolicitation128BitUuids(RetVal'Access);
+         Hr := m_Factory.get_IncompleteService128BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ServiceData16BitUuids
+   function get_IncompleteService16BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -558,14 +456,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ServiceData16BitUuids(RetVal'Access);
+         Hr := m_Factory.get_IncompleteService16BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ServiceData32BitUuids
+   function get_IncompleteService32BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -575,14 +473,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ServiceData32BitUuids(RetVal'Access);
+         Hr := m_Factory.get_IncompleteService32BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ServiceData128BitUuids
+   function get_ManufacturerSpecificData
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -592,7 +490,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ServiceData128BitUuids(RetVal'Access);
+         Hr := m_Factory.get_ManufacturerSpecificData(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -633,7 +531,7 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return RetVal;
    end;
    
-   function get_Appearance
+   function get_ServiceData128BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -643,14 +541,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Appearance(RetVal'Access);
+         Hr := m_Factory.get_ServiceData128BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_AdvertisingInterval
+   function get_ServiceData16BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -660,14 +558,14 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_AdvertisingInterval(RetVal'Access);
+         Hr := m_Factory.get_ServiceData16BitUuids(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_ManufacturerSpecificData
+   function get_ServiceData32BitUuids
    return Windows.UInt8 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
@@ -677,7 +575,109 @@ package body Windows.Devices.Bluetooth.Advertisement is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ManufacturerSpecificData(RetVal'Access);
+         Hr := m_Factory.get_ServiceData32BitUuids(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ServiceSolicitation128BitUuids
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
+      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ServiceSolicitation128BitUuids(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ServiceSolicitation16BitUuids
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
+      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ServiceSolicitation16BitUuids(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ServiceSolicitation32BitUuids
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
+      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ServiceSolicitation32BitUuids(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ShortenedLocalName
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
+      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ShortenedLocalName(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SlaveConnectionIntervalRange
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
+      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SlaveConnectionIntervalRange(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TxPowerLevel
+   return Windows.UInt8 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes");
+      m_Factory     : IBluetoothLEAdvertisementDataTypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt8;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementDataTypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TxPowerLevel(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

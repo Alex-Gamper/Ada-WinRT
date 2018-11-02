@@ -446,26 +446,6 @@ package body Windows.UI.Input is
       return RetVal;
    end;
    
-   function GetIntermediatePoints
-   (
-      pointerId : Windows.UInt32
-   )
-   return Windows.UI.Input.IVector_IPointerPoint is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.PointerPoint");
-      m_Factory     : IPointerPointStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.IVector_IPointerPoint;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPointerPointStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetIntermediatePoints(pointerId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetCurrentPointTransformed
    (
       pointerId : Windows.UInt32
@@ -481,6 +461,26 @@ package body Windows.UI.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IPointerPointStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetCurrentPointTransformed(pointerId, transform, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIntermediatePoints
+   (
+      pointerId : Windows.UInt32
+   )
+   return Windows.UI.Input.IVector_IPointerPoint is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.PointerPoint");
+      m_Factory     : IPointerPointStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.IVector_IPointerPoint;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPointerPointStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIntermediatePoints(pointerId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -525,23 +525,6 @@ package body Windows.UI.Input is
       return RetVal;
    end;
    
-   function IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialController");
-      m_Factory     : IRadialControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateForCurrentView
    return Windows.UI.Input.IRadialController is
       Hr            : Windows.HRESULT := S_OK;
@@ -559,6 +542,23 @@ package body Windows.UI.Input is
       return RetVal;
    end;
    
+   function IsSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialController");
+      m_Factory     : IRadialControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetForCurrentView
    return Windows.UI.Input.IRadialControllerConfiguration is
       Hr            : Windows.HRESULT := S_OK;
@@ -570,6 +570,40 @@ package body Windows.UI.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AppController
+   return Windows.UI.Input.IRadialController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerConfiguration");
+      m_Factory     : IRadialControllerConfigurationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.IRadialController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AppController(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsAppControllerEnabled
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerConfiguration");
+      m_Factory     : IRadialControllerConfigurationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsAppControllerEnabled(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -594,23 +628,6 @@ package body Windows.UI.Input is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_AppController
-   return Windows.UI.Input.IRadialController is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerConfiguration");
-      m_Factory     : IRadialControllerConfigurationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.IRadialController;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AppController(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure put_IsAppControllerEnabled
    (
       value : Windows.Boolean
@@ -627,23 +644,6 @@ package body Windows.UI.Input is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_IsAppControllerEnabled
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerConfiguration");
-      m_Factory     : IRadialControllerConfigurationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsAppControllerEnabled(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function CreateFromIcon

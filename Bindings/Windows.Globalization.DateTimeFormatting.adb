@@ -54,27 +54,6 @@ package body Windows.Globalization.DateTimeFormatting is
       return RetVal;
    end;
    
-   function CreateDateTimeFormatterLanguages
-   (
-      formatTemplate : Windows.String
-      ; languages : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Globalization.DateTimeFormatting.DateTimeFormatter");
-      m_Factory     : Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.DateTimeFormatting.IDateTimeFormatter := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDateTimeFormatterFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateDateTimeFormatterLanguages(formatTemplate, languages, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateDateTimeFormatterContext
    (
       formatTemplate : Windows.String
@@ -122,11 +101,19 @@ package body Windows.Globalization.DateTimeFormatting is
       return RetVal;
    end;
    
-   function CreateDateTimeFormatterTime
+   function CreateDateTimeFormatterDateTimeContext
    (
-      hourFormat : Windows.Globalization.DateTimeFormatting.HourFormat
+      yearFormat : Windows.Globalization.DateTimeFormatting.YearFormat
+      ; monthFormat : Windows.Globalization.DateTimeFormatting.MonthFormat
+      ; dayFormat : Windows.Globalization.DateTimeFormatting.DayFormat
+      ; dayOfWeekFormat : Windows.Globalization.DateTimeFormatting.DayOfWeekFormat
+      ; hourFormat : Windows.Globalization.DateTimeFormatting.HourFormat
       ; minuteFormat : Windows.Globalization.DateTimeFormatting.MinuteFormat
       ; secondFormat : Windows.Globalization.DateTimeFormatting.SecondFormat
+      ; languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+      ; calendar : Windows.String
+      ; clock : Windows.String
    )
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter is
       Hr            : Windows.HRESULT := S_OK;
@@ -137,7 +124,7 @@ package body Windows.Globalization.DateTimeFormatting is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDateTimeFormatterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateDateTimeFormatterTime(hourFormat, minuteFormat, secondFormat, RetVal'Access);
+         Hr := m_Factory.CreateDateTimeFormatterDateTimeContext(yearFormat, monthFormat, dayFormat, dayOfWeekFormat, hourFormat, minuteFormat, secondFormat, languages, geographicRegion, calendar, clock, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -171,19 +158,10 @@ package body Windows.Globalization.DateTimeFormatting is
       return RetVal;
    end;
    
-   function CreateDateTimeFormatterDateTimeContext
+   function CreateDateTimeFormatterLanguages
    (
-      yearFormat : Windows.Globalization.DateTimeFormatting.YearFormat
-      ; monthFormat : Windows.Globalization.DateTimeFormatting.MonthFormat
-      ; dayFormat : Windows.Globalization.DateTimeFormatting.DayFormat
-      ; dayOfWeekFormat : Windows.Globalization.DateTimeFormatting.DayOfWeekFormat
-      ; hourFormat : Windows.Globalization.DateTimeFormatting.HourFormat
-      ; minuteFormat : Windows.Globalization.DateTimeFormatting.MinuteFormat
-      ; secondFormat : Windows.Globalization.DateTimeFormatting.SecondFormat
+      formatTemplate : Windows.String
       ; languages : Windows.Foundation.Collections.IIterable_String
-      ; geographicRegion : Windows.String
-      ; calendar : Windows.String
-      ; clock : Windows.String
    )
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter is
       Hr            : Windows.HRESULT := S_OK;
@@ -194,7 +172,29 @@ package body Windows.Globalization.DateTimeFormatting is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDateTimeFormatterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateDateTimeFormatterDateTimeContext(yearFormat, monthFormat, dayFormat, dayOfWeekFormat, hourFormat, minuteFormat, secondFormat, languages, geographicRegion, calendar, clock, RetVal'Access);
+         Hr := m_Factory.CreateDateTimeFormatterLanguages(formatTemplate, languages, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateDateTimeFormatterTime
+   (
+      hourFormat : Windows.Globalization.DateTimeFormatting.HourFormat
+      ; minuteFormat : Windows.Globalization.DateTimeFormatting.MinuteFormat
+      ; secondFormat : Windows.Globalization.DateTimeFormatting.SecondFormat
+   )
+   return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.DateTimeFormatting.DateTimeFormatter");
+      m_Factory     : Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.DateTimeFormatting.IDateTimeFormatter := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDateTimeFormatterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateDateTimeFormatterTime(hourFormat, minuteFormat, secondFormat, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -130,23 +130,6 @@ package body Windows.Devices.WiFi is
       return RetVal;
    end;
    
-   function GetDeviceSelector
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.WiFi.WiFiAdapter");
-      m_Factory     : IWiFiAdapterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWiFiAdapterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -161,6 +144,23 @@ package body Windows.Devices.WiFi is
       Hr := RoGetActivationFactory(m_hString, IID_IWiFiAdapterStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.WiFi.WiFiAdapter");
+      m_Factory     : IWiFiAdapterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWiFiAdapterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

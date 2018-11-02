@@ -643,26 +643,6 @@ package body Windows.Devices.AllJoyn is
       return RetVal;
    end;
    
-   function GetFromServiceInfoAsync
-   (
-      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
-   )
-   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSession");
-      m_Factory     : IAllJoynSessionStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetFromServiceInfoAsync(serviceInfo, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetFromServiceInfoAndBusAttachmentAsync
    (
       serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
@@ -684,85 +664,20 @@ package body Windows.Devices.AllJoyn is
       return RetVal;
    end;
    
-   function get_Ok
-   return Windows.Int32 is
+   function GetFromServiceInfoAsync
+   (
+      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
+   )
+   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
-      m_Factory     : IAllJoynStatusStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynSession");
+      m_Factory     : IAllJoynSessionStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynSessionStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Ok(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Fail
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
-      m_Factory     : IAllJoynStatusStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Fail(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OperationTimedOut
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
-      m_Factory     : IAllJoynStatusStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OperationTimedOut(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OtherEndClosed
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
-      m_Factory     : IAllJoynStatusStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OtherEndClosed(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ConnectionRefused
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
-      m_Factory     : IAllJoynStatusStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ConnectionRefused(RetVal'Access);
+         Hr := m_Factory.GetFromServiceInfoAsync(serviceInfo, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -803,7 +718,7 @@ package body Windows.Devices.AllJoyn is
       return RetVal;
    end;
    
-   function get_SslConnectFailed
+   function get_ConnectionRefused
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
@@ -813,14 +728,14 @@ package body Windows.Devices.AllJoyn is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SslConnectFailed(RetVal'Access);
+         Hr := m_Factory.get_ConnectionRefused(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_SslIdentityVerificationFailed
+   function get_Fail
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
@@ -830,7 +745,7 @@ package body Windows.Devices.AllJoyn is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SslIdentityVerificationFailed(RetVal'Access);
+         Hr := m_Factory.get_Fail(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -984,6 +899,91 @@ package body Windows.Devices.AllJoyn is
       Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_InvalidArgument8(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ok
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
+      m_Factory     : IAllJoynStatusStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ok(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OperationTimedOut
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
+      m_Factory     : IAllJoynStatusStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OperationTimedOut(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OtherEndClosed
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
+      m_Factory     : IAllJoynStatusStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OtherEndClosed(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SslConnectFailed
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
+      m_Factory     : IAllJoynStatusStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SslConnectFailed(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SslIdentityVerificationFailed
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynStatus");
+      m_Factory     : IAllJoynStatusStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynStatusStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SslIdentityVerificationFailed(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

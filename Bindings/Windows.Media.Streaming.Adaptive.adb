@@ -140,20 +140,45 @@ package body Windows.Media.Streaming.Adaptive is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function IsContentTypeSupported
+   function CreateFromStreamAsync
    (
-      contentType : Windows.String
+      stream : Windows.Storage.Streams.IInputStream
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; contentType : Windows.String
    )
-   return Windows.Boolean is
+   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Streaming.Adaptive.AdaptiveMediaSource");
       m_Factory     : IAdaptiveMediaSourceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAdaptiveMediaSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.IsContentTypeSupported(contentType, RetVal'Access);
+         Hr := m_Factory.CreateFromStreamAsync(stream, uri, contentType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromStreamWithDownloaderAsync
+   (
+      stream : Windows.Storage.Streams.IInputStream
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; contentType : Windows.String
+      ; httpClient : Windows.Web.Http.IHttpClient
+   )
+   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Streaming.Adaptive.AdaptiveMediaSource");
+      m_Factory     : IAdaptiveMediaSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAdaptiveMediaSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromStreamWithDownloaderAsync(stream, uri, contentType, httpClient, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -201,45 +226,20 @@ package body Windows.Media.Streaming.Adaptive is
       return RetVal;
    end;
    
-   function CreateFromStreamAsync
+   function IsContentTypeSupported
    (
-      stream : Windows.Storage.Streams.IInputStream
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; contentType : Windows.String
+      contentType : Windows.String
    )
-   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult is
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Streaming.Adaptive.AdaptiveMediaSource");
       m_Factory     : IAdaptiveMediaSourceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAdaptiveMediaSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateFromStreamAsync(stream, uri, contentType, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromStreamWithDownloaderAsync
-   (
-      stream : Windows.Storage.Streams.IInputStream
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; contentType : Windows.String
-      ; httpClient : Windows.Web.Http.IHttpClient
-   )
-   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Streaming.Adaptive.AdaptiveMediaSource");
-      m_Factory     : IAdaptiveMediaSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAdaptiveMediaSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromStreamWithDownloaderAsync(stream, uri, contentType, httpClient, RetVal'Access);
+         Hr := m_Factory.IsContentTypeSupported(contentType, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

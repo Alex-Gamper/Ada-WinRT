@@ -993,40 +993,6 @@ package body Windows.UI.Xaml.Data is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_SourceProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Data.CollectionViewSource");
-      m_Factory     : ICollectionViewSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICollectionViewSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SourceProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ViewProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Data.CollectionViewSource");
-      m_Factory     : ICollectionViewSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICollectionViewSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ViewProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IsSourceGroupedProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1055,6 +1021,40 @@ package body Windows.UI.Xaml.Data is
       Hr := RoGetActivationFactory(m_hString, IID_ICollectionViewSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ItemsPathProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SourceProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Data.CollectionViewSource");
+      m_Factory     : ICollectionViewSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICollectionViewSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SourceProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ViewProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Data.CollectionViewSource");
+      m_Factory     : ICollectionViewSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICollectionViewSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ViewProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

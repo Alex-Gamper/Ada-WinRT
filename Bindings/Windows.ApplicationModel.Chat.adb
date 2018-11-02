@@ -441,23 +441,6 @@ package body Windows.ApplicationModel.Chat is
       return RetVal;
    end;
    
-   function RegisterTransportAsync
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessageManager");
-      m_Factory     : IChatMessageManager2Statics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IChatMessageManager2Statics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RegisterTransportAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetTransportAsync
    (
       transportId : Windows.String
@@ -472,6 +455,23 @@ package body Windows.ApplicationModel.Chat is
       Hr := RoGetActivationFactory(m_hString, IID_IChatMessageManager2Statics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetTransportAsync(transportId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RegisterTransportAsync
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessageManager");
+      m_Factory     : IChatMessageManager2Statics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IChatMessageManager2Statics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RegisterTransportAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -495,23 +495,6 @@ package body Windows.ApplicationModel.Chat is
       return RetVal;
    end;
    
-   function GetTransportsAsync_RcsManager
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.RcsManager");
-      m_Factory     : IRcsManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRcsManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetTransportsAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetTransportAsync
    (
       transportId : Windows.String
@@ -526,6 +509,23 @@ package body Windows.ApplicationModel.Chat is
       Hr := RoGetActivationFactory(m_hString, IID_IRcsManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetTransportAsync(transportId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTransportsAsync_RcsManager
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.RcsManager");
+      m_Factory     : IRcsManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRcsManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTransportsAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

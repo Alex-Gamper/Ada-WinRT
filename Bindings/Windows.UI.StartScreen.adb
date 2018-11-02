@@ -189,6 +189,23 @@ package body Windows.UI.StartScreen is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function IsSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.JumpList");
+      m_Factory     : IJumpListStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IJumpListStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function LoadCurrentAsync
    return Windows.UI.StartScreen.IAsyncOperation_IJumpList is
       Hr            : Windows.HRESULT := S_OK;
@@ -206,17 +223,17 @@ package body Windows.UI.StartScreen is
       return RetVal;
    end;
    
-   function IsSupported
-   return Windows.Boolean is
+   function CreateSeparator
+   return Windows.UI.StartScreen.IJumpListItem is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.JumpList");
-      m_Factory     : IJumpListStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.JumpListItem");
+      m_Factory     : IJumpListItemStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.UI.StartScreen.IJumpListItem;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IJumpListStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IJumpListItemStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.IsSupported(RetVal'Access);
+         Hr := m_Factory.CreateSeparator(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -238,23 +255,6 @@ package body Windows.UI.StartScreen is
       Hr := RoGetActivationFactory(m_hString, IID_IJumpListItemStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithArguments(arguments, displayName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateSeparator
-   return Windows.UI.StartScreen.IJumpListItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.JumpListItem");
-      m_Factory     : IJumpListItemStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.StartScreen.IJumpListItem;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IJumpListItemStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateSeparator(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

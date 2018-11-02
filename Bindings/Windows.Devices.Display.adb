@@ -60,23 +60,6 @@ package body Windows.Devices.Display is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Display.DisplayMonitor");
-      m_Factory     : IDisplayMonitorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDisplayMonitorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -111,6 +94,23 @@ package body Windows.Devices.Display is
       Hr := RoGetActivationFactory(m_hString, IID_IDisplayMonitorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromInterfaceIdAsync(deviceInterfaceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Display.DisplayMonitor");
+      m_Factory     : IDisplayMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDisplayMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

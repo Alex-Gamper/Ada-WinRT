@@ -809,6 +809,23 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
+   function get_AutoPlayProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
+      m_Factory     : IBitmapImageStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapImageStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AutoPlayProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_IsAnimatedBitmapProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -843,23 +860,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_AutoPlayProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
-      m_Factory     : IBitmapImageStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapImageStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AutoPlayProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_CreateOptionsProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -877,7 +877,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_UriSourceProperty
+   function get_DecodePixelHeightProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
@@ -887,7 +887,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBitmapImageStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_UriSourceProperty(RetVal'Access);
+         Hr := m_Factory.get_DecodePixelHeightProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -911,7 +911,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_DecodePixelHeightProperty
+   function get_UriSourceProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
@@ -921,7 +921,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBitmapImageStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_DecodePixelHeightProperty(RetVal'Access);
+         Hr := m_Factory.get_UriSourceProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -949,23 +949,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_PixelWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
-      m_Factory     : IBitmapSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PixelWidthProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_PixelHeightProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -983,15 +966,15 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_PixelWidthProperty_IRenderTargetBitmap
+   function get_PixelWidthProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
-      m_Factory     : IRenderTargetBitmapStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
+      m_Factory     : IBitmapSourceStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRenderTargetBitmapStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PixelWidthProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -1011,6 +994,23 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr := RoGetActivationFactory(m_hString, IID_IRenderTargetBitmapStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PixelHeightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PixelWidthProperty_IRenderTargetBitmap
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
+      m_Factory     : IRenderTargetBitmapStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRenderTargetBitmapStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PixelWidthProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1107,7 +1107,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_UriSourceProperty_ISvgImageSource
+   function get_RasterizePixelHeightProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SvgImageSource");
@@ -1117,7 +1117,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_UriSourceProperty(RetVal'Access);
+         Hr := m_Factory.get_RasterizePixelHeightProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1141,7 +1141,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_RasterizePixelHeightProperty
+   function get_UriSourceProperty_ISvgImageSource
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SvgImageSource");
@@ -1151,7 +1151,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_RasterizePixelHeightProperty(RetVal'Access);
+         Hr := m_Factory.get_UriSourceProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

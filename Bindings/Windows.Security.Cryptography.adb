@@ -64,6 +64,167 @@ package body Windows.Security.Cryptography is
       return RetVal;
    end;
    
+   function ConvertBinaryToString
+   (
+      encoding : Windows.Security.Cryptography.BinaryStringEncoding
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ConvertBinaryToString(encoding, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ConvertStringToBinary
+   (
+      value : Windows.String
+      ; encoding : Windows.Security.Cryptography.BinaryStringEncoding
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ConvertStringToBinary(value, encoding, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure CopyToByteArray
+   (
+      buffer : Windows.Storage.Streams.IBuffer
+      ; value : access Windows.UInt8_Ptr
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CopyToByteArray(buffer, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function CreateFromByteArray
+   (
+      value : Windows.UInt8_Ptr
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromByteArray(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function DecodeFromBase64String
+   (
+      value : Windows.String
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DecodeFromBase64String(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function DecodeFromHexString
+   (
+      value : Windows.String
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DecodeFromHexString(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function EncodeToBase64String
+   (
+      buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.EncodeToBase64String(buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function EncodeToHexString
+   (
+      buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
+      m_Factory     : ICryptographicBufferStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.EncodeToHexString(buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GenerateRandom
    (
       length : Windows.UInt32
@@ -95,167 +256,6 @@ package body Windows.Security.Cryptography is
       Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GenerateRandomNumber(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromByteArray
-   (
-      value : Windows.UInt8_Ptr
-   )
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromByteArray(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure CopyToByteArray
-   (
-      buffer : Windows.Storage.Streams.IBuffer
-      ; value : access Windows.UInt8_Ptr
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CopyToByteArray(buffer, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function DecodeFromHexString
-   (
-      value : Windows.String
-   )
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DecodeFromHexString(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function EncodeToHexString
-   (
-      buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.EncodeToHexString(buffer, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function DecodeFromBase64String
-   (
-      value : Windows.String
-   )
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DecodeFromBase64String(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function EncodeToBase64String
-   (
-      buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.EncodeToBase64String(buffer, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ConvertStringToBinary
-   (
-      value : Windows.String
-      ; encoding : Windows.Security.Cryptography.BinaryStringEncoding
-   )
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ConvertStringToBinary(value, encoding, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ConvertBinaryToString
-   (
-      encoding : Windows.Security.Cryptography.BinaryStringEncoding
-      ; buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.CryptographicBuffer");
-      m_Factory     : ICryptographicBufferStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicBufferStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ConvertBinaryToString(encoding, buffer, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

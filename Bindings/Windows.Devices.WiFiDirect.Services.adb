@@ -187,6 +187,26 @@ package body Windows.Devices.WiFiDirect.Services is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.Services.WiFiDirectService");
+      m_Factory     : IWiFiDirectServiceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWiFiDirectServiceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetSelector
    (
       serviceName : Windows.String
@@ -222,26 +242,6 @@ package body Windows.Devices.WiFiDirect.Services is
       Hr := RoGetActivationFactory(m_hString, IID_IWiFiDirectServiceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetSelectorWithFilter(serviceName, serviceInfoFilter, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.WiFiDirect.Services.WiFiDirectService");
-      m_Factory     : IWiFiDirectServiceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWiFiDirectServiceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

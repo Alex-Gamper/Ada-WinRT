@@ -100,6 +100,27 @@ package body Windows.Devices.HumanInterfaceDevice is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+      ; accessMode : Windows.Storage.FileAccessMode
+   )
+   return Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.HumanInterfaceDevice.HidDevice");
+      m_Factory     : IHidDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHidDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, accessMode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDeviceSelector
    (
       usagePage : Windows.UInt16
@@ -138,27 +159,6 @@ package body Windows.Devices.HumanInterfaceDevice is
       Hr := RoGetActivationFactory(m_hString, IID_IHidDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorVidPid(usagePage, usageId, vendorId, productId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-      ; accessMode : Windows.Storage.FileAccessMode
-   )
-   return Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.HumanInterfaceDevice.HidDevice");
-      m_Factory     : IHidDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHidDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, accessMode, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

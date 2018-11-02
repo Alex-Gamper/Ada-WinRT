@@ -128,17 +128,20 @@ package body Windows.ApplicationModel.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Id
-   return Windows.String is
+   function add_Resuming
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
       m_Factory     : ICoreApplication := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Id(RetVal'Access);
+         Hr := m_Factory.add_Resuming(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -165,60 +168,21 @@ package body Windows.ApplicationModel.Core is
       return RetVal;
    end;
    
-   procedure remove_Suspending
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
+   function get_Id
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
       m_Factory     : ICoreApplication := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_Suspending(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_Resuming
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplication := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_Resuming(handler, RetVal'Access);
+         Hr := m_Factory.get_Id(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   procedure remove_Resuming
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplication := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_Resuming(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_Properties
@@ -253,6 +217,42 @@ package body Windows.ApplicationModel.Core is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure remove_Resuming
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplication := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_Resuming(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_Suspending
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplication := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_Suspending(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    procedure Run
@@ -291,21 +291,6 @@ package body Windows.ApplicationModel.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure IncrementApplicationUseCount
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplicationUseCount := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUseCount'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IncrementApplicationUseCount;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    procedure DecrementApplicationUseCount
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -316,6 +301,21 @@ package body Windows.ApplicationModel.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUseCount'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.DecrementApplicationUseCount;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure IncrementApplicationUseCount
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplicationUseCount := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationUseCount'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IncrementApplicationUseCount;
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -341,22 +341,24 @@ package body Windows.ApplicationModel.Core is
       return RetVal;
    end;
    
-   procedure remove_BackgroundActivated
+   function add_EnteredBackground
    (
-      token : Windows.Foundation.EventRegistrationToken
+      handler : Windows.ApplicationModel.EventHandler_IEnteredBackgroundEventArgs
    )
-   is
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
       m_Factory     : ICoreApplication2 := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_BackgroundActivated(token);
+         Hr := m_Factory.add_EnteredBackground(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function add_LeavingBackground
@@ -379,7 +381,25 @@ package body Windows.ApplicationModel.Core is
       return RetVal;
    end;
    
-   procedure remove_LeavingBackground
+   procedure EnablePrelaunch
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplication2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.EnablePrelaunch(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_BackgroundActivated
    (
       token : Windows.Foundation.EventRegistrationToken
    )
@@ -391,30 +411,10 @@ package body Windows.ApplicationModel.Core is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_LeavingBackground(token);
+         Hr := m_Factory.remove_BackgroundActivated(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_EnteredBackground
-   (
-      handler : Windows.ApplicationModel.EventHandler_IEnteredBackgroundEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplication2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_EnteredBackground(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure remove_EnteredBackground
@@ -435,9 +435,9 @@ package body Windows.ApplicationModel.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure EnablePrelaunch
+   procedure remove_LeavingBackground
    (
-      value : Windows.Boolean
+      token : Windows.Foundation.EventRegistrationToken
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -447,7 +447,7 @@ package body Windows.ApplicationModel.Core is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICoreApplication2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.EnablePrelaunch(value);
+         Hr := m_Factory.remove_LeavingBackground(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -473,21 +473,6 @@ package body Windows.ApplicationModel.Core is
       return RetVal;
    end;
    
-   procedure Exit_x
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreApplicationExit := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationExit'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Exit_x;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_Exiting
    (
       handler : Windows.Foundation.EventHandler_Object
@@ -506,6 +491,21 @@ package body Windows.ApplicationModel.Core is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure Exit_x
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreApplicationExit := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreApplicationExit'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Exit_x;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    procedure remove_Exiting
@@ -581,23 +581,6 @@ package body Windows.ApplicationModel.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_Views
-   return Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
-      m_Factory     : ICoreImmersiveApplication := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICoreImmersiveApplication'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Views(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateNewView
    (
       runtimeType : Windows.String
@@ -630,6 +613,23 @@ package body Windows.ApplicationModel.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICoreImmersiveApplication'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MainView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Views
+   return Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Core.CoreApplication");
+      m_Factory     : ICoreImmersiveApplication := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreImmersiveApplication'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Views(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

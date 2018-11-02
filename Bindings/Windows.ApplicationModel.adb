@@ -246,6 +246,26 @@ package body Windows.ApplicationModel is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FindOrRegisterInstanceForKey
+   (
+      key : Windows.String
+   )
+   return Windows.ApplicationModel.IAppInstance is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
+      m_Factory     : IAppInstanceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.IAppInstance;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindOrRegisterInstanceForKey(key, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_RecommendedInstance
    return Windows.ApplicationModel.IAppInstance is
       Hr            : Windows.HRESULT := S_OK;
@@ -280,20 +300,17 @@ package body Windows.ApplicationModel is
       return RetVal;
    end;
    
-   function FindOrRegisterInstanceForKey
-   (
-      key : Windows.String
-   )
-   return Windows.ApplicationModel.IAppInstance is
+   function GetInstances
+   return Windows.ApplicationModel.IVector_IAppInstance is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
       m_Factory     : IAppInstanceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.IAppInstance;
+      RetVal        : aliased Windows.ApplicationModel.IVector_IAppInstance;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FindOrRegisterInstanceForKey(key, RetVal'Access);
+         Hr := m_Factory.GetInstances(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -313,23 +330,6 @@ package body Windows.ApplicationModel is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function GetInstances
-   return Windows.ApplicationModel.IVector_IAppInstance is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
-      m_Factory     : IAppInstanceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.IVector_IAppInstance;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetInstances(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure ShowInstalledApplicationsUI
@@ -381,43 +381,6 @@ package body Windows.ApplicationModel is
       return RetVal;
    end;
    
-   function LaunchFullTrustProcessForCurrentAppAsync
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.FullTrustProcessLauncher");
-      m_Factory     : IFullTrustProcessLauncherStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFullTrustProcessLauncherStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchFullTrustProcessForCurrentAppAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LaunchFullTrustProcessForCurrentAppWithParametersAsync
-   (
-      parameterGroupId : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.FullTrustProcessLauncher");
-      m_Factory     : IFullTrustProcessLauncherStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFullTrustProcessLauncherStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchFullTrustProcessForCurrentAppWithParametersAsync(parameterGroupId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function LaunchFullTrustProcessForAppAsync
    (
       fullTrustPackageRelativeAppId : Windows.String
@@ -453,6 +416,43 @@ package body Windows.ApplicationModel is
       Hr := RoGetActivationFactory(m_hString, IID_IFullTrustProcessLauncherStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.LaunchFullTrustProcessForAppWithParametersAsync(fullTrustPackageRelativeAppId, parameterGroupId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LaunchFullTrustProcessForCurrentAppAsync
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.FullTrustProcessLauncher");
+      m_Factory     : IFullTrustProcessLauncherStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFullTrustProcessLauncherStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchFullTrustProcessForCurrentAppAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LaunchFullTrustProcessForCurrentAppWithParametersAsync
+   (
+      parameterGroupId : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.FullTrustProcessLauncher");
+      m_Factory     : IFullTrustProcessLauncherStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFullTrustProcessLauncherStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchFullTrustProcessForCurrentAppWithParametersAsync(parameterGroupId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -527,23 +527,6 @@ package body Windows.ApplicationModel is
       return RetVal;
    end;
    
-   function GetForCurrentPackageAsync
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.StartupTask");
-      m_Factory     : IStartupTaskStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStartupTaskStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentPackageAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetAsync
    (
       taskId : Windows.String
@@ -558,6 +541,23 @@ package body Windows.ApplicationModel is
       Hr := RoGetActivationFactory(m_hString, IID_IStartupTaskStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetAsync(taskId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentPackageAsync
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.StartupTask");
+      m_Factory     : IStartupTaskStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStartupTaskStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentPackageAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

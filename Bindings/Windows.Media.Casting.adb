@@ -157,6 +157,46 @@ package body Windows.Media.Casting is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function DeviceInfoSupportsCastingAsync
+   (
+      device : Windows.Devices.Enumeration.IDeviceInformation
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Casting.CastingDevice");
+      m_Factory     : ICastingDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICastingDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DeviceInfoSupportsCastingAsync(device, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      value : Windows.String
+   )
+   return Windows.Media.Casting.IAsyncOperation_ICastingDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Casting.CastingDevice");
+      m_Factory     : ICastingDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Casting.IAsyncOperation_ICastingDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICastingDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDeviceSelector
    (
       type_x : Windows.Media.Casting.CastingPlaybackTypes
@@ -191,46 +231,6 @@ package body Windows.Media.Casting is
       Hr := RoGetActivationFactory(m_hString, IID_ICastingDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorFromCastingSourceAsync(castingSource, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      value : Windows.String
-   )
-   return Windows.Media.Casting.IAsyncOperation_ICastingDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Casting.CastingDevice");
-      m_Factory     : ICastingDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Casting.IAsyncOperation_ICastingDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICastingDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function DeviceInfoSupportsCastingAsync
-   (
-      device : Windows.Devices.Enumeration.IDeviceInformation
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Casting.CastingDevice");
-      m_Factory     : ICastingDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICastingDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DeviceInfoSupportsCastingAsync(device, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

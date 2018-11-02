@@ -916,499 +916,6 @@ package body Windows.Media.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_VideoFormatDV25
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatDV25(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatDV50
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatDV50(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatDvc
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatDvc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatDvh1
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatDvh1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatDvhD
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatDvhD(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatDvsd
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatDvsd(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatDvsl
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatDvsl(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatH263
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatH263(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatH264
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatH264(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatH265
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatH265(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatH264ES
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatH264ES(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatHevc
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatHevc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatHevcES
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatHevcES(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatM4S2
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatM4S2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMjpg
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMjpg(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMP43
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMP43(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMP4S
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMP4S(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMP4V
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMP4V(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMpeg2
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMpeg2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatVP80
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatVP80(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatVP90
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatVP90(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMpg1
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMpg1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMss1
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMss1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatMss2
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatMss2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatWmv1
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatWmv1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatWmv2
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatWmv2(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatWmv3
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatWmv3(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormatWvc1
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormatWvc1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VideoFormat420O
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
-      m_Factory     : ICodecSubtypesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VideoFormat420O(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AudioFormatAac
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -1783,34 +1290,493 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-   function get_SupportedBitmapPixelFormats
-   return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat is
+   function get_VideoFormat420O
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.LowLightFusion");
-      m_Factory     : ILowLightFusionStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILowLightFusionStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SupportedBitmapPixelFormats(RetVal'Access);
+         Hr := m_Factory.get_VideoFormat420O(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_MaxSupportedFrameCount
-   return Windows.Int32 is
+   function get_VideoFormatDV25
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.LowLightFusion");
-      m_Factory     : ILowLightFusionStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
+      RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILowLightFusionStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_MaxSupportedFrameCount(RetVal'Access);
+         Hr := m_Factory.get_VideoFormatDV25(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatDV50
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatDV50(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatDvc
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatDvc(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatDvh1
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatDvh1(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatDvhD
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatDvhD(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatDvsd
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatDvsd(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatDvsl
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatDvsl(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatH263
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatH263(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatH264
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatH264(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatH264ES
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatH264ES(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatH265
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatH265(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatHevc
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatHevc(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatHevcES
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatHevcES(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatM4S2
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatM4S2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMjpg
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMjpg(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMP43
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMP43(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMP4S
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMP4S(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMP4V
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMP4V(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMpeg2
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMpeg2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMpg1
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMpg1(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMss1
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMss1(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatMss2
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatMss2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatVP80
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatVP80(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatVP90
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatVP90(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatWmv1
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatWmv1(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatWmv2
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatWmv2(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatWmv3
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatWmv3(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VideoFormatWvc1
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.CodecSubtypes");
+      m_Factory     : ICodecSubtypesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICodecSubtypesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VideoFormatWvc1(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1837,6 +1803,40 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
+   function get_MaxSupportedFrameCount
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.LowLightFusion");
+      m_Factory     : ILowLightFusionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILowLightFusionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxSupportedFrameCount(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SupportedBitmapPixelFormats
+   return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.LowLightFusion");
+      m_Factory     : ILowLightFusionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILowLightFusionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SupportedBitmapPixelFormats(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateFromAdaptiveMediaSource
    (
       mediaSource : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
@@ -1851,6 +1851,26 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromAdaptiveMediaSource(mediaSource, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromIMediaSource
+   (
+      mediaSource : Windows.Media.Core.IMediaSource
+   )
+   return Windows.Media.Core.IMediaSource2 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaSource");
+      m_Factory     : IMediaSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IMediaSource2;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromIMediaSource(mediaSource, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1891,26 +1911,6 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromMseStreamSource(mediaSource, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromIMediaSource
-   (
-      mediaSource : Windows.Media.Core.IMediaSource
-   )
-   return Windows.Media.Core.IMediaSource2 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaSource");
-      m_Factory     : IMediaSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.IMediaSource2;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromIMediaSource(mediaSource, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2143,27 +2143,6 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-   function CreateFromUriWithIndex
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; indexUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Media.Core.ITimedTextSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
-      m_Factory     : ITimedTextSourceStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromUriWithIndex(uri, indexUri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateFromStreamWithIndexAndLanguage
    (
       stream : Windows.Storage.Streams.IRandomAccessStream
@@ -2180,6 +2159,27 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromStreamWithIndexAndLanguage(stream, indexStream, defaultLanguage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromUriWithIndex
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; indexUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Media.Core.ITimedTextSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
+      m_Factory     : ITimedTextSourceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromUriWithIndex(uri, indexUri, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2228,26 +2228,6 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-   function CreateFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Media.Core.ITimedTextSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
-      m_Factory     : ITimedTextSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromUri(uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateFromStreamWithLanguage
    (
       stream : Windows.Storage.Streams.IRandomAccessStream
@@ -2263,6 +2243,26 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromStreamWithLanguage(stream, defaultLanguage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromUri
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Media.Core.ITimedTextSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextSource");
+      m_Factory     : ITimedTextSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.ITimedTextSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedTextSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromUri(uri, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -181,6 +181,23 @@ package body Windows.Storage.Search is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetIndexer
+   return Windows.Storage.Search.IContentIndexer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Search.ContentIndexer");
+      m_Factory     : IContentIndexerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Search.IContentIndexer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentIndexerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIndexer(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetIndexerWithName
    (
       indexName : Windows.String
@@ -195,23 +212,6 @@ package body Windows.Storage.Search is
       Hr := RoGetActivationFactory(m_hString, IID_IContentIndexerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetIndexerWithName(indexName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetIndexer
-   return Windows.Storage.Search.IContentIndexer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Search.ContentIndexer");
-      m_Factory     : IContentIndexerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Search.IContentIndexer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentIndexerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetIndexer(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

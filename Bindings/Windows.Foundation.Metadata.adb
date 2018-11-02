@@ -42,9 +42,10 @@ package body Windows.Foundation.Metadata is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function IsTypePresent
+   function IsApiContractPresentByMajor
    (
-      typeName : Windows.String
+      contractName : Windows.String
+      ; majorVersion : Windows.UInt16
    )
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -55,7 +56,71 @@ package body Windows.Foundation.Metadata is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.IsTypePresent(typeName, RetVal'Access);
+         Hr := m_Factory.IsApiContractPresentByMajor(contractName, majorVersion, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsApiContractPresentByMajorAndMinor
+   (
+      contractName : Windows.String
+      ; majorVersion : Windows.UInt16
+      ; minorVersion : Windows.UInt16
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
+      m_Factory     : IApiInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsApiContractPresentByMajorAndMinor(contractName, majorVersion, minorVersion, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsEnumNamedValuePresent
+   (
+      enumTypeName : Windows.String
+      ; valueName : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
+      m_Factory     : IApiInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsEnumNamedValuePresent(enumTypeName, valueName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsEventPresent
+   (
+      typeName : Windows.String
+      ; eventName : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
+      m_Factory     : IApiInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsEventPresent(typeName, eventName, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -105,27 +170,6 @@ package body Windows.Foundation.Metadata is
       return RetVal;
    end;
    
-   function IsEventPresent
-   (
-      typeName : Windows.String
-      ; eventName : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
-      m_Factory     : IApiInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsEventPresent(typeName, eventName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function IsPropertyPresent
    (
       typeName : Windows.String
@@ -168,6 +212,26 @@ package body Windows.Foundation.Metadata is
       return RetVal;
    end;
    
+   function IsTypePresent
+   (
+      typeName : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
+      m_Factory     : IApiInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsTypePresent(typeName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function IsWriteablePropertyPresent
    (
       typeName : Windows.String
@@ -183,70 +247,6 @@ package body Windows.Foundation.Metadata is
       Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsWriteablePropertyPresent(typeName, propertyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsEnumNamedValuePresent
-   (
-      enumTypeName : Windows.String
-      ; valueName : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
-      m_Factory     : IApiInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsEnumNamedValuePresent(enumTypeName, valueName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsApiContractPresentByMajor
-   (
-      contractName : Windows.String
-      ; majorVersion : Windows.UInt16
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
-      m_Factory     : IApiInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsApiContractPresentByMajor(contractName, majorVersion, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsApiContractPresentByMajorAndMinor
-   (
-      contractName : Windows.String
-      ; majorVersion : Windows.UInt16
-      ; minorVersion : Windows.UInt16
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Foundation.Metadata.ApiInformation");
-      m_Factory     : IApiInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApiInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsApiContractPresentByMajorAndMinor(contractName, majorVersion, minorVersion, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

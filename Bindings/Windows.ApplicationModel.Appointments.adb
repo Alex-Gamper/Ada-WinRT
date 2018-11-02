@@ -275,6 +275,72 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
+   function ShowRemoveAppointmentAsync
+   (
+      appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowRemoveAppointmentAsync(appointmentId, selection, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShowRemoveAppointmentWithPlacementAndDateAsync
+   (
+      appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; instanceStartDate : Windows.Foundation.DateTime
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowRemoveAppointmentWithPlacementAndDateAsync(appointmentId, selection, preferredPlacement, instanceStartDate, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShowRemoveAppointmentWithPlacementAsync
+   (
+      appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowRemoveAppointmentWithPlacementAsync(appointmentId, selection, preferredPlacement, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function ShowReplaceAppointmentAsync
    (
       appointmentId : Windows.String
@@ -291,29 +357,6 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ShowReplaceAppointmentAsync(appointmentId, appointment, selection, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShowReplaceAppointmentWithPlacementAsync
-   (
-      appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-   )
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowReplaceAppointmentWithPlacementAsync(appointmentId, appointment, selection, preferredPlacement, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -344,66 +387,23 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-   function ShowRemoveAppointmentAsync
+   function ShowReplaceAppointmentWithPlacementAsync
    (
       appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowRemoveAppointmentAsync(appointmentId, selection, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShowRemoveAppointmentWithPlacementAsync
-   (
-      appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
       ; selection : Windows.Foundation.Rect
       ; preferredPlacement : Windows.UI.Popups.Placement
    )
-   return Windows.Foundation.IAsyncOperation_Boolean is
+   return Windows.Foundation.IAsyncOperation_String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
       m_Factory     : IAppointmentManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.ShowRemoveAppointmentWithPlacementAsync(appointmentId, selection, preferredPlacement, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShowRemoveAppointmentWithPlacementAndDateAsync
-   (
-      appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; instanceStartDate : Windows.Foundation.DateTime
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowRemoveAppointmentWithPlacementAndDateAsync(appointmentId, selection, preferredPlacement, instanceStartDate, RetVal'Access);
+         Hr := m_Factory.ShowReplaceAppointmentWithPlacementAsync(appointmentId, appointment, selection, preferredPlacement, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -425,6 +425,26 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ShowTimeFrameAsync(timeToShow, duration, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestStoreAsync
+   (
+      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
+   )
+   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestStoreAsync(options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -492,27 +512,7 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-   function RequestStoreAsync
-   (
-      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
-   )
-   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestStoreAsync(options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Subject
+   function get_AllDay
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
@@ -522,143 +522,7 @@ package body Windows.ApplicationModel.Appointments is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Subject(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Location
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Location(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_StartTime
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StartTime(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Duration
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Duration(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Reminder
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Reminder(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_BusyStatus
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BusyStatus(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Sensitivity
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Sensitivity(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_OriginalStartTime
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_OriginalStartTime(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsResponseRequested
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsResponseRequested(RetVal'Access);
+         Hr := m_Factory.get_AllDay(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -682,7 +546,7 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-   function get_AllDay
+   function get_BusyStatus
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
@@ -692,7 +556,24 @@ package body Windows.ApplicationModel.Appointments is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_AllDay(RetVal'Access);
+         Hr := m_Factory.get_BusyStatus(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DefaultProperties
+   return Windows.Foundation.Collections.IVector_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVector_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DefaultProperties(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -716,7 +597,7 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-   function get_OnlineMeetingLink
+   function get_Duration
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
@@ -726,58 +607,7 @@ package body Windows.ApplicationModel.Appointments is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_OnlineMeetingLink(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ReplyTime
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ReplyTime(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Organizer
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Organizer(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_UserResponse
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UserResponse(RetVal'Access);
+         Hr := m_Factory.get_Duration(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -795,6 +625,23 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_HasInvitees(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Invitees
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Invitees(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -835,6 +682,91 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
+   function get_IsResponseRequested
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsResponseRequested(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Location
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Location(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OnlineMeetingLink
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OnlineMeetingLink(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Organizer
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Organizer(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_OriginalStartTime
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_OriginalStartTime(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Recurrence
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -846,6 +778,91 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Recurrence(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Reminder
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Reminder(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ReplyTime
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ReplyTime(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Sensitivity
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Sensitivity(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StartTime
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StartTime(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Subject
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Subject(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -869,7 +886,7 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-   function get_Invitees
+   function get_UserResponse
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
@@ -879,24 +896,7 @@ package body Windows.ApplicationModel.Appointments is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Invitees(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DefaultProperties
-   return Windows.Foundation.Collections.IVector_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVector_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DefaultProperties(RetVal'Access);
+         Hr := m_Factory.get_UserResponse(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -920,23 +920,6 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-   function get_RemoteChangeNumber
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
-      m_Factory     : IAppointmentPropertiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RemoteChangeNumber(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_DetailsKind
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -948,6 +931,23 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_DetailsKind(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RemoteChangeNumber
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentProperties");
+      m_Factory     : IAppointmentPropertiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentPropertiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RemoteChangeNumber(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

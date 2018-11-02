@@ -87,23 +87,6 @@ package body Windows.Media.Import is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function IsSupportedAsync
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportManager");
-      m_Factory     : IPhotoImportManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsSupportedAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FindAllSourcesAsync
    return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
@@ -138,20 +121,17 @@ package body Windows.Media.Import is
       return RetVal;
    end;
    
-   function FromIdAsync
-   (
-      sourceId : Windows.String
-   )
-   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource is
+   function IsSupportedAsync
+   return Windows.Foundation.IAsyncOperation_Boolean is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportSource");
-      m_Factory     : IPhotoImportSourceStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportManager");
+      m_Factory     : IPhotoImportManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportSourceStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(sourceId, RetVal'Access);
+         Hr := m_Factory.IsSupportedAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -172,6 +152,26 @@ package body Windows.Media.Import is
       Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromFolderAsync(sourceRootFolder, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      sourceId : Windows.String
+   )
+   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Import.PhotoImportSource");
+      m_Factory     : IPhotoImportSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhotoImportSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(sourceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

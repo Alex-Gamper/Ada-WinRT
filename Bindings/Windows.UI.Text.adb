@@ -265,23 +265,6 @@ package body Windows.UI.Text is
       return RetVal;
    end;
    
-   function get_MinUnitCount
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Text.TextConstants");
-      m_Factory     : ITextConstantsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextConstantsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MinUnitCount(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_MaxUnitCount
    return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
@@ -293,6 +276,23 @@ package body Windows.UI.Text is
       Hr := RoGetActivationFactory(m_hString, IID_ITextConstantsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MaxUnitCount(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MinUnitCount
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Text.TextConstants");
+      m_Factory     : ITextConstantsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextConstantsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MinUnitCount(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -333,23 +333,6 @@ package body Windows.UI.Text is
       return RetVal;
    end;
    
-   function get_UndefinedInt32Value
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Text.TextConstants");
-      m_Factory     : ITextConstantsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextConstantsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UndefinedInt32Value(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_UndefinedFontStretch
    return Windows.UI.Text.FontStretch is
       Hr            : Windows.HRESULT := S_OK;
@@ -378,6 +361,23 @@ package body Windows.UI.Text is
       Hr := RoGetActivationFactory(m_hString, IID_ITextConstantsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_UndefinedFontStyle(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UndefinedInt32Value
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Text.TextConstants");
+      m_Factory     : ITextConstantsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextConstantsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UndefinedInt32Value(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

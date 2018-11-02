@@ -290,6 +290,27 @@ package body Windows.UI.Xaml.Markup is
       return RetVal;
    end;
    
+   function ConvertValue
+   (
+      type_x : Windows.UI.Xaml.Interop.TypeName
+      ; value : Windows.Object
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
+      m_Factory     : IXamlBindingHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ConvertValue(type_x, value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_DataTemplateComponentProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -327,43 +348,6 @@ package body Windows.UI.Xaml.Markup is
       return RetVal;
    end;
    
-   procedure SetDataTemplateComponent
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.Markup.IDataTemplateComponent
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
-      m_Factory     : IXamlBindingHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetDataTemplateComponent(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure SuspendRendering
-   (
-      target : Windows.UI.Xaml.IUIElement
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
-      m_Factory     : IXamlBindingHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SuspendRendering(target);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    procedure ResumeRendering
    (
       target : Windows.UI.Xaml.IUIElement
@@ -382,32 +366,10 @@ package body Windows.UI.Xaml.Markup is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function ConvertValue
+   procedure SetDataTemplateComponent
    (
-      type_x : Windows.UI.Xaml.Interop.TypeName
-      ; value : Windows.Object
-   )
-   return Windows.Object is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
-      m_Factory     : IXamlBindingHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Object;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ConvertValue(type_x, value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetPropertyFromString
-   (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.String
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Markup.IDataTemplateComponent
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -417,7 +379,7 @@ package body Windows.UI.Xaml.Markup is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetPropertyFromString(dependencyObject, propertyToSet, value);
+         Hr := m_Factory.SetDataTemplateComponent(element, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -438,6 +400,26 @@ package body Windows.UI.Xaml.Markup is
       Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetPropertyFromBoolean(dependencyObject, propertyToSet, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetPropertyFromByte
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.UInt8
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
+      m_Factory     : IXamlBindingHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetPropertyFromByte(dependencyObject, propertyToSet, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -523,26 +505,6 @@ package body Windows.UI.Xaml.Markup is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure SetPropertyFromUInt32
-   (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.UInt32
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
-      m_Factory     : IXamlBindingHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetPropertyFromUInt32(dependencyObject, propertyToSet, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    procedure SetPropertyFromInt64
    (
       dependencyObject : Windows.Object
@@ -563,11 +525,11 @@ package body Windows.UI.Xaml.Markup is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure SetPropertyFromUInt64
+   procedure SetPropertyFromObject
    (
       dependencyObject : Windows.Object
       ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.UInt64
+      ; value : Windows.Object
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -577,27 +539,7 @@ package body Windows.UI.Xaml.Markup is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetPropertyFromUInt64(dependencyObject, propertyToSet, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure SetPropertyFromSingle
-   (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.Single
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
-      m_Factory     : IXamlBindingHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetPropertyFromSingle(dependencyObject, propertyToSet, value);
+         Hr := m_Factory.SetPropertyFromObject(dependencyObject, propertyToSet, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -643,6 +585,26 @@ package body Windows.UI.Xaml.Markup is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   procedure SetPropertyFromSingle
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.Single
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
+      m_Factory     : IXamlBindingHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetPropertyFromSingle(dependencyObject, propertyToSet, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    procedure SetPropertyFromSize
    (
       dependencyObject : Windows.Object
@@ -658,6 +620,26 @@ package body Windows.UI.Xaml.Markup is
       Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetPropertyFromSize(dependencyObject, propertyToSet, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetPropertyFromString
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
+      m_Factory     : IXamlBindingHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetPropertyFromString(dependencyObject, propertyToSet, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -683,11 +665,11 @@ package body Windows.UI.Xaml.Markup is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure SetPropertyFromByte
+   procedure SetPropertyFromUInt32
    (
       dependencyObject : Windows.Object
       ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.UInt8
+      ; value : Windows.UInt32
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -697,7 +679,27 @@ package body Windows.UI.Xaml.Markup is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetPropertyFromByte(dependencyObject, propertyToSet, value);
+         Hr := m_Factory.SetPropertyFromUInt32(dependencyObject, propertyToSet, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetPropertyFromUInt64
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.UInt64
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Markup.XamlBindingHelper");
+      m_Factory     : IXamlBindingHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetPropertyFromUInt64(dependencyObject, propertyToSet, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -723,11 +725,9 @@ package body Windows.UI.Xaml.Markup is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   procedure SetPropertyFromObject
+   procedure SuspendRendering
    (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.Object
+      target : Windows.UI.Xaml.IUIElement
    )
    is
       Hr            : Windows.HRESULT := S_OK;
@@ -737,7 +737,7 @@ package body Windows.UI.Xaml.Markup is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXamlBindingHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetPropertyFromObject(dependencyObject, propertyToSet, value);
+         Hr := m_Factory.SuspendRendering(target);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

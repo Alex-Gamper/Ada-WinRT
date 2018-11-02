@@ -307,27 +307,6 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function InstallCertificateAsync
-   (
-      certificate : Windows.String
-      ; installOption : Windows.Security.Cryptography.Certificates.InstallOptions
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager");
-      m_Factory     : ICertificateEnrollmentManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICertificateEnrollmentManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.InstallCertificateAsync(certificate, installOption, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function ImportPfxDataAsync
    (
       pfxData : Windows.String
@@ -347,6 +326,27 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoGetActivationFactory(m_hString, IID_ICertificateEnrollmentManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ImportPfxDataAsync(pfxData, password, exportable, keyProtectionLevel, installOption, friendlyName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function InstallCertificateAsync
+   (
+      certificate : Windows.String
+      ; installOption : Windows.Security.Cryptography.Certificates.InstallOptions
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager");
+      m_Factory     : ICertificateEnrollmentManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICertificateEnrollmentManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.InstallCertificateAsync(certificate, installOption, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -475,23 +475,6 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function get_TrustedRootCertificationAuthorities
-   return Windows.Security.Cryptography.Certificates.ICertificateStore is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateStores");
-      m_Factory     : ICertificateStoresStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.ICertificateStore;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICertificateStoresStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TrustedRootCertificationAuthorities(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IntermediateCertificationAuthorities
    return Windows.Security.Cryptography.Certificates.ICertificateStore is
       Hr            : Windows.HRESULT := S_OK;
@@ -503,6 +486,23 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoGetActivationFactory(m_hString, IID_ICertificateStoresStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IntermediateCertificationAuthorities(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TrustedRootCertificationAuthorities
+   return Windows.Security.Cryptography.Certificates.ICertificateStore is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateStores");
+      m_Factory     : ICertificateStoresStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Cryptography.Certificates.ICertificateStore;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICertificateStoresStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TrustedRootCertificationAuthorities(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -573,23 +573,6 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function get_Ecdsa
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAlgorithmNames");
-      m_Factory     : IKeyAlgorithmNamesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ecdsa(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Ecdh
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -607,17 +590,17 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function get_Rsa
+   function get_Ecdsa
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAlgorithmNames");
-      m_Factory     : IKeyAlgorithmNamesStatics := null;
+      m_Factory     : IKeyAlgorithmNamesStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Rsa(RetVal'Access);
+         Hr := m_Factory.get_Ecdsa(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -743,6 +726,23 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
+   function get_Rsa
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyAlgorithmNames");
+      m_Factory     : IKeyAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Rsa(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function DecryptTpmAttestationCredentialWithContainerNameAsync
    (
       credential : Windows.String
@@ -804,7 +804,7 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function get_SoftwareKeyStorageProvider
+   function get_PlatformKeyStorageProvider
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyStorageProviderNames");
@@ -814,7 +814,7 @@ package body Windows.Security.Cryptography.Certificates is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKeyStorageProviderNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SoftwareKeyStorageProvider(RetVal'Access);
+         Hr := m_Factory.get_PlatformKeyStorageProvider(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -838,7 +838,7 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-   function get_PlatformKeyStorageProvider
+   function get_SoftwareKeyStorageProvider
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.KeyStorageProviderNames");
@@ -848,7 +848,7 @@ package body Windows.Security.Cryptography.Certificates is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKeyStorageProviderNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_PlatformKeyStorageProvider(RetVal'Access);
+         Hr := m_Factory.get_SoftwareKeyStorageProvider(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -866,6 +866,23 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoGetActivationFactory(m_hString, IID_IKeyStorageProviderNamesStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PassportKeyStorageProvider(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IntermediateCertificationAuthorities
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
+      m_Factory     : IStandardCertificateStoreNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IntermediateCertificationAuthorities(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -900,23 +917,6 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TrustedRootCertificationAuthorities(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IntermediateCertificationAuthorities
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames");
-      m_Factory     : IStandardCertificateStoreNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardCertificateStoreNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IntermediateCertificationAuthorities(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

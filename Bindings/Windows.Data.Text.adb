@@ -234,6 +234,46 @@ package body Windows.Data.Text is
       return RetVal;
    end;
    
+   function GetGeneralCategory
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Data.Text.UnicodeGeneralCategory is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Text.UnicodeGeneralCategory;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetGeneralCategory(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetNumericType
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Data.Text.UnicodeNumericType is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Data.Text.UnicodeNumericType;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetNumericType(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    procedure GetSurrogatePairFromCodepoint
    (
       codepoint : Windows.UInt32
@@ -252,106 +292,6 @@ package body Windows.Data.Text is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function IsHighSurrogate
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsHighSurrogate(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsLowSurrogate
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsLowSurrogate(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsSupplementary
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsSupplementary(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsNoncharacter
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsNoncharacter(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsWhitespace
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsWhitespace(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function IsAlphabetic
@@ -388,86 +328,6 @@ package body Windows.Data.Text is
       Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsCased(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsUppercase
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsUppercase(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsLowercase
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsLowercase(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsIdStart
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsIdStart(codepoint, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsIdContinue
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
-      m_Factory     : IUnicodeCharactersStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsIdContinue(codepoint, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -514,40 +374,180 @@ package body Windows.Data.Text is
       return RetVal;
    end;
    
-   function GetNumericType
+   function IsHighSurrogate
    (
       codepoint : Windows.UInt32
    )
-   return Windows.Data.Text.UnicodeNumericType is
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
       m_Factory     : IUnicodeCharactersStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Text.UnicodeNumericType;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetNumericType(codepoint, RetVal'Access);
+         Hr := m_Factory.IsHighSurrogate(codepoint, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetGeneralCategory
+   function IsIdContinue
    (
       codepoint : Windows.UInt32
    )
-   return Windows.Data.Text.UnicodeGeneralCategory is
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
       m_Factory     : IUnicodeCharactersStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Text.UnicodeGeneralCategory;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetGeneralCategory(codepoint, RetVal'Access);
+         Hr := m_Factory.IsIdContinue(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsIdStart
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsIdStart(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsLowercase
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsLowercase(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsLowSurrogate
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsLowSurrogate(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsNoncharacter
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsNoncharacter(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsSupplementary
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsSupplementary(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsUppercase
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsUppercase(codepoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsWhitespace
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Data.Text.UnicodeCharacters");
+      m_Factory     : IUnicodeCharactersStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnicodeCharactersStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsWhitespace(codepoint, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

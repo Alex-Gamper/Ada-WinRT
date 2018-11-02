@@ -604,26 +604,6 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function RequestInfoForPackageAsync
-   (
-      packageFamilyName : Windows.String
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.AppDiagnosticInfo");
-      m_Factory     : IAppDiagnosticInfoStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppDiagnosticInfoStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestInfoForPackageAsync(packageFamilyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function RequestInfoForAppAsync
    return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
@@ -655,6 +635,26 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_IAppDiagnosticInfoStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestInfoForAppUserModelId(appUserModelId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestInfoForPackageAsync
+   (
+      packageFamilyName : Windows.String
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.AppDiagnosticInfo");
+      m_Factory     : IAppDiagnosticInfoStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppDiagnosticInfoStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestInfoForPackageAsync(packageFamilyName, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -713,6 +713,23 @@ package body Windows.System is
       return RetVal;
    end;
    
+   function get_AccountName
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.KnownUserProperties");
+      m_Factory     : IKnownUserPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AccountName(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_DisplayName
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -724,6 +741,23 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_DisplayName(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DomainName
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.KnownUserProperties");
+      m_Factory     : IKnownUserPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DomainName(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -747,57 +781,6 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function get_LastName
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.KnownUserProperties");
-      m_Factory     : IKnownUserPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LastName(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ProviderName
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.KnownUserProperties");
-      m_Factory     : IKnownUserPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ProviderName(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AccountName
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.KnownUserProperties");
-      m_Factory     : IKnownUserPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AccountName(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_GuestHost
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -809,6 +792,23 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_GuestHost(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LastName
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.KnownUserProperties");
+      m_Factory     : IKnownUserPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LastName(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -832,7 +832,7 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function get_DomainName
+   function get_ProviderName
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.KnownUserProperties");
@@ -842,7 +842,7 @@ package body Windows.System is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownUserPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_DomainName(RetVal'Access);
+         Hr := m_Factory.get_ProviderName(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -948,6 +948,67 @@ package body Windows.System is
       return RetVal;
    end;
    
+   function FindFileHandlersAsync
+   (
+      extension : Windows.String
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindFileHandlersAsync(extension, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindUriSchemeHandlersAsync
+   (
+      scheme : Windows.String
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindUriSchemeHandlersAsync(scheme, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindUriSchemeHandlersWithLaunchUriTypeAsync
+   (
+      scheme : Windows.String
+      ; launchQuerySupportType : Windows.System.LaunchQuerySupportType
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme, launchQuerySupportType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function LaunchUriForResultsAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -1013,6 +1074,47 @@ package body Windows.System is
       return RetVal;
    end;
    
+   function QueryFileSupportAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.QueryFileSupportAsync(file, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function QueryFileSupportWithPackageFamilyNameAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; packageFamilyName : Windows.String
+   )
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.QueryFileSupportWithPackageFamilyNameAsync(file, packageFamilyName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function QueryUriSupportAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -1056,149 +1158,6 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function QueryFileSupportAsync
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.QueryFileSupportAsync(file, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function QueryFileSupportWithPackageFamilyNameAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; packageFamilyName : Windows.String
-   )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.QueryFileSupportWithPackageFamilyNameAsync(file, packageFamilyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FindUriSchemeHandlersAsync
-   (
-      scheme : Windows.String
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindUriSchemeHandlersAsync(scheme, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FindUriSchemeHandlersWithLaunchUriTypeAsync
-   (
-      scheme : Windows.String
-      ; launchQuerySupportType : Windows.System.LaunchQuerySupportType
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme, launchQuerySupportType, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FindFileHandlersAsync
-   (
-      extension : Windows.String
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindFileHandlersAsync(extension, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function QueryAppUriSupportAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.QueryAppUriSupportAsync(uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function QueryAppUriSupportWithPackageFamilyNameAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; packageFamilyName : Windows.String
-   )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.QueryAppUriSupportWithPackageFamilyNameAsync(uri, packageFamilyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FindAppUriHandlersAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -1213,72 +1172,6 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindAppUriHandlersAsync(uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LaunchUriForUserAsync
-   (
-      user : Windows.System.IUser
-      ; uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.IAsyncOperation_LaunchUriStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_LaunchUriStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchUriForUserAsync(user, uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LaunchUriWithOptionsForUserAsync
-   (
-      user : Windows.System.IUser
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.System.ILauncherOptions
-   )
-   return Windows.System.IAsyncOperation_LaunchUriStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_LaunchUriStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchUriWithOptionsForUserAsync(user, uri, options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function LaunchUriWithDataForUserAsync
-   (
-      user : Windows.System.IUser
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.System.ILauncherOptions
-      ; inputData : Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.System.IAsyncOperation_LaunchUriStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.Launcher");
-      m_Factory     : ILauncherStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_LaunchUriStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchUriWithDataForUserAsync(user, uri, options, inputData, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1324,6 +1217,113 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.LaunchUriForResultsWithDataForUserAsync(user, uri, options, inputData, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LaunchUriForUserAsync
+   (
+      user : Windows.System.IUser
+      ; uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.System.IAsyncOperation_LaunchUriStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_LaunchUriStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchUriForUserAsync(user, uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LaunchUriWithDataForUserAsync
+   (
+      user : Windows.System.IUser
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.System.ILauncherOptions
+      ; inputData : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.System.IAsyncOperation_LaunchUriStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_LaunchUriStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchUriWithDataForUserAsync(user, uri, options, inputData, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LaunchUriWithOptionsForUserAsync
+   (
+      user : Windows.System.IUser
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.System.ILauncherOptions
+   )
+   return Windows.System.IAsyncOperation_LaunchUriStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_LaunchUriStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchUriWithOptionsForUserAsync(user, uri, options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function QueryAppUriSupportAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.QueryAppUriSupportAsync(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function QueryAppUriSupportWithPackageFamilyNameAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; packageFamilyName : Windows.String
+   )
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Launcher");
+      m_Factory     : ILauncherStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILauncherStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.QueryAppUriSupportWithPackageFamilyNameAsync(uri, packageFamilyName, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1388,51 +1388,20 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function get_AppMemoryUsage
-   return Windows.UInt64 is
+   function add_AppMemoryUsageDecreased
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
       m_Factory     : IMemoryManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt64;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_AppMemoryUsage(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AppMemoryUsageLimit
-   return Windows.UInt64 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
-      m_Factory     : IMemoryManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt64;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AppMemoryUsageLimit(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AppMemoryUsageLevel
-   return Windows.System.AppMemoryUsageLevel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
-      m_Factory     : IMemoryManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.AppMemoryUsageLevel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AppMemoryUsageLevel(RetVal'Access);
+         Hr := m_Factory.add_AppMemoryUsageDecreased(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1459,27 +1428,9 @@ package body Windows.System is
       return RetVal;
    end;
    
-   procedure remove_AppMemoryUsageIncreased
+   function add_AppMemoryUsageLimitChanging
    (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
-      m_Factory     : IMemoryManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_AppMemoryUsageIncreased(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_AppMemoryUsageDecreased
-   (
-      handler : Windows.Foundation.EventHandler_Object
+      handler : Windows.System.EventHandler_IAppMemoryUsageLimitChangingEventArgs
    )
    return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
@@ -1490,7 +1441,58 @@ package body Windows.System is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_AppMemoryUsageDecreased(handler, RetVal'Access);
+         Hr := m_Factory.add_AppMemoryUsageLimitChanging(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AppMemoryUsage
+   return Windows.UInt64 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
+      m_Factory     : IMemoryManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt64;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AppMemoryUsage(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AppMemoryUsageLevel
+   return Windows.System.AppMemoryUsageLevel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
+      m_Factory     : IMemoryManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.AppMemoryUsageLevel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AppMemoryUsageLevel(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AppMemoryUsageLimit
+   return Windows.UInt64 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
+      m_Factory     : IMemoryManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt64;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AppMemoryUsageLimit(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1515,24 +1517,22 @@ package body Windows.System is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function add_AppMemoryUsageLimitChanging
+   procedure remove_AppMemoryUsageIncreased
    (
-      handler : Windows.System.EventHandler_IAppMemoryUsageLimitChangingEventArgs
+      token : Windows.Foundation.EventRegistrationToken
    )
-   return Windows.Foundation.EventRegistrationToken is
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.MemoryManager");
       m_Factory     : IMemoryManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMemoryManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_AppMemoryUsageLimitChanging(handler, RetVal'Access);
+         Hr := m_Factory.remove_AppMemoryUsageIncreased(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure remove_AppMemoryUsageLimitChanging
@@ -1671,28 +1671,6 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function LaunchUriWithOptionsAsync
-   (
-      remoteSystemConnectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.System.IRemoteLauncherOptions
-   )
-   return Windows.System.IAsyncOperation_RemoteLaunchUriStatus is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteLauncher");
-      m_Factory     : IRemoteLauncherStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IAsyncOperation_RemoteLaunchUriStatus;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRemoteLauncherStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.LaunchUriWithOptionsAsync(remoteSystemConnectionRequest, uri, options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function LaunchUriWithDataAsync
    (
       remoteSystemConnectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
@@ -1710,6 +1688,28 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_IRemoteLauncherStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.LaunchUriWithDataAsync(remoteSystemConnectionRequest, uri, options, inputData, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function LaunchUriWithOptionsAsync
+   (
+      remoteSystemConnectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.System.IRemoteLauncherOptions
+   )
+   return Windows.System.IAsyncOperation_RemoteLaunchUriStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteLauncher");
+      m_Factory     : IRemoteLauncherStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IAsyncOperation_RemoteLaunchUriStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteLauncherStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.LaunchUriWithOptionsAsync(remoteSystemConnectionRequest, uri, options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1750,26 +1750,6 @@ package body Windows.System is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function IsPowerStateSupported
-   (
-      powerState : Windows.System.PowerState
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.ShutdownManager");
-      m_Factory     : IShutdownManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IShutdownManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsPowerStateSupported(powerState, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure EnterPowerState
    (
       powerState : Windows.System.PowerState
@@ -1807,6 +1787,61 @@ package body Windows.System is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function IsPowerStateSupported
+   (
+      powerState : Windows.System.PowerState
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.ShutdownManager");
+      m_Factory     : IShutdownManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IShutdownManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsPowerStateSupported(powerState, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure ChangeTimeZoneByDisplayName
+   (
+      timeZoneDisplayName : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.TimeZoneSettings");
+      m_Factory     : ITimeZoneSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimeZoneSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ChangeTimeZoneByDisplayName(timeZoneDisplayName);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_CanChangeTimeZone
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.TimeZoneSettings");
+      m_Factory     : ITimeZoneSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimeZoneSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CanChangeTimeZone(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_CurrentTimeZoneDisplayName
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -1839,41 +1874,6 @@ package body Windows.System is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function get_CanChangeTimeZone
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.TimeZoneSettings");
-      m_Factory     : ITimeZoneSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimeZoneSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CanChangeTimeZone(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure ChangeTimeZoneByDisplayName
-   (
-      timeZoneDisplayName : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.TimeZoneSettings");
-      m_Factory     : ITimeZoneSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITimeZoneSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ChangeTimeZoneByDisplayName(timeZoneDisplayName);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function AutoUpdateTimeZoneAsync
@@ -1991,26 +1991,6 @@ package body Windows.System is
       return RetVal;
    end;
    
-   function FindUserFromDeviceId
-   (
-      deviceId : Windows.String
-   )
-   return Windows.System.IUser is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserDeviceAssociation");
-      m_Factory     : IUserDeviceAssociationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.IUser;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserDeviceAssociationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindUserFromDeviceId(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function add_UserDeviceAssociationChanged
    (
       handler : Windows.System.EventHandler_IUserDeviceAssociationChangedEventArgs
@@ -2025,6 +2005,26 @@ package body Windows.System is
       Hr := RoGetActivationFactory(m_hString, IID_IUserDeviceAssociationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.add_UserDeviceAssociationChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindUserFromDeviceId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.System.IUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserDeviceAssociation");
+      m_Factory     : IUserDeviceAssociationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.IUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserDeviceAssociationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindUserFromDeviceId(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

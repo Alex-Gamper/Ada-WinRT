@@ -282,30 +282,6 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function CreateInstanceFromWindowsMediaDrmHeader
-   (
-      headerBytes : Windows.UInt8_Ptr
-      ; licenseAcquisitionUrl : Windows.Foundation.IUriRuntimeClass
-      ; licenseAcquisitionUserInterfaceUrl : Windows.Foundation.IUriRuntimeClass
-      ; customAttributes : Windows.String
-      ; domainServiceId : Windows.Guid
-   )
-   return Windows.Media.Protection.PlayReady.IPlayReadyContentHeader is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyContentHeader");
-      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Protection.PlayReady.IPlayReadyContentHeader := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyContentHeaderFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstanceFromWindowsMediaDrmHeader(headerBytes, licenseAcquisitionUrl, licenseAcquisitionUserInterfaceUrl, customAttributes, domainServiceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstanceFromComponents
    (
       contentKeyId : Windows.Guid
@@ -346,6 +322,30 @@ package body Windows.Media.Protection.PlayReady is
       Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyContentHeaderFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstanceFromPlayReadyHeader(headerBytes, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceFromWindowsMediaDrmHeader
+   (
+      headerBytes : Windows.UInt8_Ptr
+      ; licenseAcquisitionUrl : Windows.Foundation.IUriRuntimeClass
+      ; licenseAcquisitionUserInterfaceUrl : Windows.Foundation.IUriRuntimeClass
+      ; customAttributes : Windows.String
+      ; domainServiceId : Windows.Guid
+   )
+   return Windows.Media.Protection.PlayReady.IPlayReadyContentHeader is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyContentHeader");
+      m_Factory     : Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Protection.PlayReady.IPlayReadyContentHeader := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyContentHeaderFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceFromWindowsMediaDrmHeader(headerBytes, licenseAcquisitionUrl, licenseAcquisitionUserInterfaceUrl, customAttributes, domainServiceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -753,40 +753,6 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function get_MeteringReportServiceRequestType
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
-      m_Factory     : IPlayReadyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MeteringReportServiceRequestType(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RevocationServiceRequestType
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
-      m_Factory     : IPlayReadyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RevocationServiceRequestType(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_MediaProtectionSystemId
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
@@ -798,6 +764,23 @@ package body Windows.Media.Protection.PlayReady is
       Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MediaProtectionSystemId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MeteringReportServiceRequestType
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
+      m_Factory     : IPlayReadyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MeteringReportServiceRequestType(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -821,17 +804,17 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function get_SecureStopServiceRequestType
+   function get_RevocationServiceRequestType
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
-      m_Factory     : IPlayReadyStatics3 := null;
+      m_Factory     : IPlayReadyStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SecureStopServiceRequestType(RetVal'Access);
+         Hr := m_Factory.get_RevocationServiceRequestType(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -852,6 +835,23 @@ package body Windows.Media.Protection.PlayReady is
       Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CheckSupportedHardware(hwdrmFeature, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SecureStopServiceRequestType
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
+      m_Factory     : IPlayReadyStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SecureStopServiceRequestType(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

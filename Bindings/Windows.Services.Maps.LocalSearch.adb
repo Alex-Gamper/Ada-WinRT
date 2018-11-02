@@ -62,6 +62,23 @@ package body Windows.Services.Maps.LocalSearch is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_All
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.LocalSearch.LocalCategories");
+      m_Factory     : ILocalCategoriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILocalCategoriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_All(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_BankAndCreditUnions
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -124,23 +141,6 @@ package body Windows.Services.Maps.LocalSearch is
       Hr := RoGetActivationFactory(m_hString, IID_ILocalCategoriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_HotelsAndMotels(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_All
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.LocalSearch.LocalCategories");
-      m_Factory     : ILocalCategoriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILocalCategoriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_All(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

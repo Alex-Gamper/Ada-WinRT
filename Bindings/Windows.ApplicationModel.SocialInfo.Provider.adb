@@ -73,6 +73,26 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateDashboardItemUpdaterAsync
+   (
+      ownerRemoteId : Windows.String
+   )
+   return Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.Provider.SocialInfoProviderManager");
+      m_Factory     : ISocialInfoProviderManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISocialInfoProviderManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateDashboardItemUpdaterAsync(ownerRemoteId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateSocialFeedUpdaterAsync
    (
       kind : Windows.ApplicationModel.SocialInfo.SocialFeedKind
@@ -95,43 +115,38 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
       return RetVal;
    end;
    
-   function CreateDashboardItemUpdaterAsync
-   (
-      ownerRemoteId : Windows.String
-   )
-   return Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater is
+   function DeprovisionAsync
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.Provider.SocialInfoProviderManager");
       m_Factory     : ISocialInfoProviderManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISocialInfoProviderManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateDashboardItemUpdaterAsync(ownerRemoteId, RetVal'Access);
+         Hr := m_Factory.DeprovisionAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure UpdateBadgeCountValue
-   (
-      itemRemoteId : Windows.String
-      ; newCount : Windows.Int32
-   )
-   is
+   function ProvisionAsync
+   return Windows.Foundation.IAsyncOperation_Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.Provider.SocialInfoProviderManager");
       m_Factory     : ISocialInfoProviderManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISocialInfoProviderManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.UpdateBadgeCountValue(itemRemoteId, newCount);
+         Hr := m_Factory.ProvisionAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    procedure ReportNewContentAvailable
@@ -153,38 +168,23 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function ProvisionAsync
-   return Windows.Foundation.IAsyncOperation_Boolean is
+   procedure UpdateBadgeCountValue
+   (
+      itemRemoteId : Windows.String
+      ; newCount : Windows.Int32
+   )
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.Provider.SocialInfoProviderManager");
       m_Factory     : ISocialInfoProviderManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISocialInfoProviderManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.ProvisionAsync(RetVal'Access);
+         Hr := m_Factory.UpdateBadgeCountValue(itemRemoteId, newCount);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function DeprovisionAsync
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.Provider.SocialInfoProviderManager");
-      m_Factory     : ISocialInfoProviderManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISocialInfoProviderManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DeprovisionAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

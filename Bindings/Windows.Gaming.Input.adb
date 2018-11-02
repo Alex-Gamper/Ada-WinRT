@@ -207,24 +207,6 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
-   procedure remove_ArcadeStickAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
-      m_Factory     : IArcadeStickStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_ArcadeStickAdded(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_ArcadeStickRemoved
    (
       value : Windows.Gaming.Input.EventHandler_IArcadeStick
@@ -245,6 +227,41 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
+   function get_ArcadeSticks
+   return Windows.Gaming.Input.IVectorView_IArcadeStick is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
+      m_Factory     : IArcadeStickStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IVectorView_IArcadeStick;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ArcadeSticks(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_ArcadeStickAdded
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
+      m_Factory     : IArcadeStickStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_ArcadeStickAdded(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    procedure remove_ArcadeStickRemoved
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -261,23 +278,6 @@ package body Windows.Gaming.Input is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_ArcadeSticks
-   return Windows.Gaming.Input.IVectorView_IArcadeStick is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
-      m_Factory     : IArcadeStickStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IVectorView_IArcadeStick;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ArcadeSticks(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function add_FlightStickAdded
@@ -300,24 +300,6 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
-   procedure remove_FlightStickAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.FlightStick");
-      m_Factory     : IFlightStickStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFlightStickStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_FlightStickAdded(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_FlightStickRemoved
    (
       value : Windows.Gaming.Input.EventHandler_IFlightStick
@@ -332,41 +314,6 @@ package body Windows.Gaming.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IFlightStickStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.add_FlightStickRemoved(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_FlightStickRemoved
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.FlightStick");
-      m_Factory     : IFlightStickStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFlightStickStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_FlightStickRemoved(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_FlightSticks
-   return Windows.Gaming.Input.IVectorView_IFlightStick is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.FlightStick");
-      m_Factory     : IFlightStickStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IVectorView_IFlightStick;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFlightStickStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FlightSticks(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -393,6 +340,59 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
+   function get_FlightSticks
+   return Windows.Gaming.Input.IVectorView_IFlightStick is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.FlightStick");
+      m_Factory     : IFlightStickStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IVectorView_IFlightStick;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlightStickStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FlightSticks(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_FlightStickAdded
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.FlightStick");
+      m_Factory     : IFlightStickStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlightStickStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_FlightStickAdded(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_FlightStickRemoved
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.FlightStick");
+      m_Factory     : IFlightStickStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlightStickStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_FlightStickRemoved(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function add_GamepadAdded
    (
       value : Windows.Gaming.Input.EventHandler_IGamepad
@@ -407,6 +407,43 @@ package body Windows.Gaming.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IGamepadStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.add_GamepadAdded(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_GamepadRemoved
+   (
+      value : Windows.Gaming.Input.EventHandler_IGamepad
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.Gamepad");
+      m_Factory     : IGamepadStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGamepadStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_GamepadRemoved(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Gamepads
+   return Windows.Gaming.Input.IVectorView_IGamepad is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.Gamepad");
+      m_Factory     : IGamepadStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IVectorView_IGamepad;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGamepadStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gamepads(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -431,26 +468,6 @@ package body Windows.Gaming.Input is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function add_GamepadRemoved
-   (
-      value : Windows.Gaming.Input.EventHandler_IGamepad
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.Gamepad");
-      m_Factory     : IGamepadStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGamepadStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_GamepadRemoved(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure remove_GamepadRemoved
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -467,23 +484,6 @@ package body Windows.Gaming.Input is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_Gamepads
-   return Windows.Gaming.Input.IVectorView_IGamepad is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.Gamepad");
-      m_Factory     : IGamepadStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IVectorView_IGamepad;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGamepadStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gamepads(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function FromGameController
@@ -526,24 +526,6 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
-   procedure remove_RacingWheelAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RacingWheel");
-      m_Factory     : IRacingWheelStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRacingWheelStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_RacingWheelAdded(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_RacingWheelRemoved
    (
       value : Windows.Gaming.Input.EventHandler_IRacingWheel
@@ -564,6 +546,41 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
+   function get_RacingWheels
+   return Windows.Gaming.Input.IVectorView_IRacingWheel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RacingWheel");
+      m_Factory     : IRacingWheelStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IVectorView_IRacingWheel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRacingWheelStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RacingWheels(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_RacingWheelAdded
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RacingWheel");
+      m_Factory     : IRacingWheelStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRacingWheelStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_RacingWheelAdded(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    procedure remove_RacingWheelRemoved
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -580,23 +597,6 @@ package body Windows.Gaming.Input is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_RacingWheels
-   return Windows.Gaming.Input.IVectorView_IRacingWheel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RacingWheel");
-      m_Factory     : IRacingWheelStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IVectorView_IRacingWheel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRacingWheelStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RacingWheels(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function FromGameController
@@ -639,24 +639,6 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
-   procedure remove_RawGameControllerAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RawGameController");
-      m_Factory     : IRawGameControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRawGameControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_RawGameControllerAdded(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function add_RawGameControllerRemoved
    (
       value : Windows.Gaming.Input.EventHandler_IRawGameController
@@ -671,41 +653,6 @@ package body Windows.Gaming.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IRawGameControllerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.add_RawGameControllerRemoved(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_RawGameControllerRemoved
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RawGameController");
-      m_Factory     : IRawGameControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRawGameControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_RawGameControllerRemoved(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_RawGameControllers
-   return Windows.Gaming.Input.IVectorView_IRawGameController is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RawGameController");
-      m_Factory     : IRawGameControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IVectorView_IRawGameController;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRawGameControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RawGameControllers(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -732,6 +679,59 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
+   function get_RawGameControllers
+   return Windows.Gaming.Input.IVectorView_IRawGameController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RawGameController");
+      m_Factory     : IRawGameControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IVectorView_IRawGameController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRawGameControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RawGameControllers(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_RawGameControllerAdded
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RawGameController");
+      m_Factory     : IRawGameControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRawGameControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_RawGameControllerAdded(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_RawGameControllerRemoved
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RawGameController");
+      m_Factory     : IRawGameControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRawGameControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_RawGameControllerRemoved(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function add_UINavigationControllerAdded
    (
       value : Windows.Gaming.Input.EventHandler_IUINavigationController
@@ -746,6 +746,43 @@ package body Windows.Gaming.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.add_UINavigationControllerAdded(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_UINavigationControllerRemoved
+   (
+      value : Windows.Gaming.Input.EventHandler_IUINavigationController
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.UINavigationController");
+      m_Factory     : IUINavigationControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_UINavigationControllerRemoved(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_UINavigationControllers
+   return Windows.Gaming.Input.IVectorView_IUINavigationController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.UINavigationController");
+      m_Factory     : IUINavigationControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IVectorView_IUINavigationController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_UINavigationControllers(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -770,26 +807,6 @@ package body Windows.Gaming.Input is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function add_UINavigationControllerRemoved
-   (
-      value : Windows.Gaming.Input.EventHandler_IUINavigationController
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.UINavigationController");
-      m_Factory     : IUINavigationControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_UINavigationControllerRemoved(value, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure remove_UINavigationControllerRemoved
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -806,23 +823,6 @@ package body Windows.Gaming.Input is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_UINavigationControllers
-   return Windows.Gaming.Input.IVectorView_IUINavigationController is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.UINavigationController");
-      m_Factory     : IUINavigationControllerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IVectorView_IUINavigationController;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_UINavigationControllers(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function FromGameController

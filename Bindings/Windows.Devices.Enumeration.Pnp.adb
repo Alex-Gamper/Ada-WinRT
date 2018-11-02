@@ -160,49 +160,6 @@ package body Windows.Devices.Enumeration.Pnp is
       return RetVal;
    end;
    
-   function FindAllAsync
-   (
-      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
-      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.Pnp.PnpObject");
-      m_Factory     : IPnpObjectStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPnpObjectStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindAllAsync(type_x, requestedProperties, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FindAllAsyncAqsFilter
-   (
-      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
-      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
-      ; aqsFilter : Windows.String
-   )
-   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.Pnp.PnpObject");
-      m_Factory     : IPnpObjectStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPnpObjectStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindAllAsyncAqsFilter(type_x, requestedProperties, aqsFilter, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateWatcher
    (
       type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
@@ -240,6 +197,49 @@ package body Windows.Devices.Enumeration.Pnp is
       Hr := RoGetActivationFactory(m_hString, IID_IPnpObjectStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWatcherAqsFilter(type_x, requestedProperties, aqsFilter, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAllAsync
+   (
+      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
+      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.Pnp.PnpObject");
+      m_Factory     : IPnpObjectStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPnpObjectStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAllAsync(type_x, requestedProperties, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAllAsyncAqsFilter
+   (
+      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
+      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
+      ; aqsFilter : Windows.String
+   )
+   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.Pnp.PnpObject");
+      m_Factory     : IPnpObjectStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPnpObjectStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAllAsyncAqsFilter(type_x, requestedProperties, aqsFilter, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

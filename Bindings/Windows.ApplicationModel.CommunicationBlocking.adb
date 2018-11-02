@@ -79,6 +79,36 @@ package body Windows.ApplicationModel.CommunicationBlocking is
       return RetVal;
    end;
    
+   procedure ShowBlockedCallsUI
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager");
+      m_Factory     : ICommunicationBlockingAccessManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommunicationBlockingAccessManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowBlockedCallsUI;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure ShowBlockedMessagesUI
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager");
+      m_Factory     : ICommunicationBlockingAccessManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommunicationBlockingAccessManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowBlockedMessagesUI;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function ShowBlockNumbersUI
    (
       phoneNumbers : Windows.Foundation.Collections.IIterable_String
@@ -117,36 +147,6 @@ package body Windows.ApplicationModel.CommunicationBlocking is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   procedure ShowBlockedCallsUI
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager");
-      m_Factory     : ICommunicationBlockingAccessManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommunicationBlockingAccessManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowBlockedCallsUI;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure ShowBlockedMessagesUI
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager");
-      m_Factory     : ICommunicationBlockingAccessManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommunicationBlockingAccessManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowBlockedMessagesUI;
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_IsCurrentAppActiveBlockingApp

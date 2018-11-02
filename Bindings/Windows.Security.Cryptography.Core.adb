@@ -61,7 +61,7 @@ package body Windows.Security.Cryptography.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_RsaPkcs1
+   function get_DsaSha1
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
@@ -71,7 +71,75 @@ package body Windows.Security.Cryptography.Core is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_RsaPkcs1(RetVal'Access);
+         Hr := m_Factory.get_DsaSha1(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DsaSha256
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
+      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DsaSha256(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EcdsaP256Sha256
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
+      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EcdsaP256Sha256(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EcdsaP384Sha384
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
+      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EcdsaP384Sha384(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EcdsaP521Sha512
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
+      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EcdsaP521Sha512(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -146,7 +214,7 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function get_EcdsaP256Sha256
+   function get_RsaPkcs1
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
@@ -156,75 +224,7 @@ package body Windows.Security.Cryptography.Core is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_EcdsaP256Sha256(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EcdsaP384Sha384
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
-      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EcdsaP384Sha384(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_EcdsaP521Sha512
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
-      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_EcdsaP521Sha512(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DsaSha1
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
-      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DsaSha1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DsaSha256
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames");
-      m_Factory     : IAsymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAsymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DsaSha256(RetVal'Access);
+         Hr := m_Factory.get_RsaPkcs1(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -438,49 +438,6 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function SignHashedData
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SignHashedData(key, data, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function VerifySignatureWithHashInput
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; signature : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.VerifySignatureWithHashInput(key, data, signature, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function DecryptAsync
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
@@ -524,6 +481,27 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
+   function SignHashedData
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SignHashedData(key, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function SignHashedDataAsync
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
@@ -545,22 +523,22 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function Encrypt
+   function VerifySignatureWithHashInput
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
       ; data : Windows.Storage.Streams.IBuffer
-      ; iv : Windows.Storage.Streams.IBuffer
+      ; signature : Windows.Storage.Streams.IBuffer
    )
-   return Windows.Storage.Streams.IBuffer is
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics := null;
+      m_Factory     : ICryptographicEngineStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+      RetVal        : aliased Windows.Boolean;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Encrypt(key, data, iv, RetVal'Access);
+         Hr := m_Factory.VerifySignatureWithHashInput(key, data, signature, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -589,29 +567,6 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function EncryptAndAuthenticate
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; nonce : Windows.Storage.Streams.IBuffer
-      ; authenticatedData : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.EncryptAndAuthenticate(key, data, nonce, authenticatedData, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function DecryptAndAuthenticate
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
@@ -630,6 +585,73 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.DecryptAndAuthenticate(key, data, nonce, authenticationTag, authenticatedData, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function DeriveKeyMaterial
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; parameters : Windows.Security.Cryptography.Core.IKeyDerivationParameters
+      ; desiredKeySize : Windows.UInt32
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DeriveKeyMaterial(key, parameters, desiredKeySize, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Encrypt
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; iv : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Encrypt(key, data, iv, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function EncryptAndAuthenticate
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; nonce : Windows.Storage.Streams.IBuffer
+      ; authenticatedData : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
+      m_Factory     : ICryptographicEngineStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.EncryptAndAuthenticate(key, data, nonce, authenticatedData, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -679,22 +701,17 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function DeriveKeyMaterial
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; parameters : Windows.Security.Cryptography.Core.IKeyDerivationParameters
-      ; desiredKeySize : Windows.UInt32
-   )
-   return Windows.Storage.Streams.IBuffer is
+   function get_AllEccCurveNames
+   return Windows.Foundation.Collections.IVectorView_String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.CryptographicEngine");
-      m_Factory     : ICryptographicEngineStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.EccCurveNames");
+      m_Factory     : IEccCurveNamesStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICryptographicEngineStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IEccCurveNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.DeriveKeyMaterial(key, parameters, desiredKeySize, RetVal'Access);
+         Hr := m_Factory.get_AllEccCurveNames(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1296,6 +1313,23 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
+   function get_Wtls12
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.EccCurveNames");
+      m_Factory     : IEccCurveNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEccCurveNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Wtls12(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Wtls7
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -1324,23 +1358,6 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IEccCurveNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Wtls9(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Wtls12
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.EccCurveNames");
-      m_Factory     : IEccCurveNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEccCurveNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Wtls12(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1460,23 +1477,6 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IEccCurveNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_X962P256v1(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AllEccCurveNames
-   return Windows.Foundation.Collections.IVectorView_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.EccCurveNames");
-      m_Factory     : IEccCurveNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEccCurveNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AllEccCurveNames(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2034,6 +2034,23 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
+   function get_AesCmac
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.MacAlgorithmNames");
+      m_Factory     : IMacAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMacAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AesCmac(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_HmacMd5
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -2119,23 +2136,6 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function get_AesCmac
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.MacAlgorithmNames");
-      m_Factory     : IMacAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMacAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AesCmac(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function OpenAlgorithm
    (
       algorithm : Windows.String
@@ -2200,108 +2200,6 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function get_DesCbc
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DesCbc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DesEcb
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DesEcb(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TripleDesCbc
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TripleDesCbc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TripleDesEcb
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TripleDesEcb(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Rc2Cbc
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Rc2Cbc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Rc2Ecb
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Rc2Ecb(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AesCbc
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -2313,57 +2211,6 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AesCbc(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AesEcb
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AesEcb(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AesGcm
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AesGcm(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AesCcm
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AesCcm(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2387,6 +2234,40 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
+   function get_AesCcm
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AesCcm(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AesEcb
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AesEcb(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AesEcbPkcs7
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -2398,6 +2279,40 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AesEcbPkcs7(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AesGcm
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AesGcm(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DesCbc
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DesCbc(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2421,6 +2336,23 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
+   function get_DesEcb
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DesEcb(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_DesEcbPkcs7
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -2438,7 +2370,7 @@ package body Windows.Security.Cryptography.Core is
       return RetVal;
    end;
    
-   function get_TripleDesCbcPkcs7
+   function get_Rc2Cbc
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
@@ -2448,24 +2380,7 @@ package body Windows.Security.Cryptography.Core is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TripleDesCbcPkcs7(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TripleDesEcbPkcs7
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
-      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TripleDesEcbPkcs7(RetVal'Access);
+         Hr := m_Factory.get_Rc2Cbc(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2483,6 +2398,23 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Rc2CbcPkcs7(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Rc2Ecb
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Rc2Ecb(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2517,6 +2449,74 @@ package body Windows.Security.Cryptography.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Rc4(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TripleDesCbc
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TripleDesCbc(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TripleDesCbcPkcs7
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TripleDesCbcPkcs7(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TripleDesEcb
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TripleDesEcb(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TripleDesEcbPkcs7
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Core.SymmetricAlgorithmNames");
+      m_Factory     : ISymmetricAlgorithmNamesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymmetricAlgorithmNamesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TripleDesEcbPkcs7(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -241,6 +241,26 @@ package body Windows.Media.Devices is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FromId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Media.Devices.ICallControl is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.CallControl");
+      m_Factory     : ICallControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Devices.ICallControl;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICallControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromId(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefault
    return Windows.Media.Devices.ICallControl is
       Hr            : Windows.HRESULT := S_OK;
@@ -258,20 +278,40 @@ package body Windows.Media.Devices is
       return RetVal;
    end;
    
-   function FromId
+   function add_DefaultAudioCaptureDeviceChanged
    (
-      deviceId : Windows.String
+      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged
    )
-   return Windows.Media.Devices.ICallControl is
+   return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Devices.CallControl");
-      m_Factory     : ICallControlStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.MediaDevice");
+      m_Factory     : IMediaDeviceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Devices.ICallControl;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICallControlStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FromId(deviceId, RetVal'Access);
+         Hr := m_Factory.add_DefaultAudioCaptureDeviceChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_DefaultAudioRenderDeviceChanged
+   (
+      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.MediaDevice");
+      m_Factory     : IMediaDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_DefaultAudioRenderDeviceChanged(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -306,23 +346,6 @@ package body Windows.Media.Devices is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetAudioRenderSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetVideoCaptureSelector
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Devices.MediaDevice");
-      m_Factory     : IMediaDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetVideoCaptureSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -369,20 +392,17 @@ package body Windows.Media.Devices is
       return RetVal;
    end;
    
-   function add_DefaultAudioCaptureDeviceChanged
-   (
-      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged
-   )
-   return Windows.Foundation.EventRegistrationToken is
+   function GetVideoCaptureSelector
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Devices.MediaDevice");
       m_Factory     : IMediaDeviceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+      RetVal        : aliased Windows.String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMediaDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_DefaultAudioCaptureDeviceChanged(handler, RetVal'Access);
+         Hr := m_Factory.GetVideoCaptureSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -405,26 +425,6 @@ package body Windows.Media.Devices is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_DefaultAudioRenderDeviceChanged
-   (
-      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Devices.MediaDevice");
-      m_Factory     : IMediaDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_DefaultAudioRenderDeviceChanged(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure remove_DefaultAudioRenderDeviceChanged

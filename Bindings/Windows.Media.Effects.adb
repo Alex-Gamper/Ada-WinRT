@@ -239,49 +239,6 @@ package body Windows.Media.Effects is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function CreateAudioRenderEffectsManager
-   (
-      deviceId : Windows.String
-      ; category : Windows.Media.Render.AudioRenderCategory
-   )
-   return Windows.Media.Effects.IAudioRenderEffectsManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectsManager");
-      m_Factory     : IAudioEffectsManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Effects.IAudioRenderEffectsManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectsManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateAudioRenderEffectsManager(deviceId, category, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateAudioRenderEffectsManagerWithMode
-   (
-      deviceId : Windows.String
-      ; category : Windows.Media.Render.AudioRenderCategory
-      ; mode : Windows.Media.AudioProcessing
-   )
-   return Windows.Media.Effects.IAudioRenderEffectsManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectsManager");
-      m_Factory     : IAudioEffectsManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Effects.IAudioRenderEffectsManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectsManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateAudioRenderEffectsManagerWithMode(deviceId, category, mode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateAudioCaptureEffectsManager
    (
       deviceId : Windows.String
@@ -319,6 +276,49 @@ package body Windows.Media.Effects is
       Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectsManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateAudioCaptureEffectsManagerWithMode(deviceId, category, mode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateAudioRenderEffectsManager
+   (
+      deviceId : Windows.String
+      ; category : Windows.Media.Render.AudioRenderCategory
+   )
+   return Windows.Media.Effects.IAudioRenderEffectsManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectsManager");
+      m_Factory     : IAudioEffectsManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Effects.IAudioRenderEffectsManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectsManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAudioRenderEffectsManager(deviceId, category, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateAudioRenderEffectsManagerWithMode
+   (
+      deviceId : Windows.String
+      ; category : Windows.Media.Render.AudioRenderCategory
+      ; mode : Windows.Media.AudioProcessing
+   )
+   return Windows.Media.Effects.IAudioRenderEffectsManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Effects.AudioEffectsManager");
+      m_Factory     : IAudioEffectsManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Effects.IAudioRenderEffectsManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioEffectsManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAudioRenderEffectsManagerWithMode(deviceId, category, mode, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

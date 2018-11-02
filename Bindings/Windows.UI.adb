@@ -1224,23 +1224,6 @@ package body Windows.UI is
       return RetVal;
    end;
    
-   function get_LightGreen
-   return Windows.UI.Color is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Colors");
-      m_Factory     : IColorsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Color;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IColorsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LightGreen(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_LightGray
    return Windows.UI.Color is
       Hr            : Windows.HRESULT := S_OK;
@@ -1252,6 +1235,23 @@ package body Windows.UI is
       Hr := RoGetActivationFactory(m_hString, IID_IColorsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_LightGray(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LightGreen
+   return Windows.UI.Color is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Colors");
+      m_Factory     : IColorsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Color;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LightGreen(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

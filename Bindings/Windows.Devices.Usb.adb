@@ -144,6 +144,26 @@ package body Windows.Devices.Usb is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function Parse
+   (
+      descriptor : Windows.Devices.Usb.IUsbDescriptor
+   )
+   return Windows.Devices.Usb.IUsbConfigurationDescriptor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbConfigurationDescriptor");
+      m_Factory     : IUsbConfigurationDescriptorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Usb.IUsbConfigurationDescriptor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbConfigurationDescriptorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Parse(descriptor, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function TryParse
    (
       descriptor : Windows.Devices.Usb.IUsbDescriptor
@@ -165,20 +185,40 @@ package body Windows.Devices.Usb is
       return RetVal;
    end;
    
-   function Parse
+   function FromIdAsync
    (
-      descriptor : Windows.Devices.Usb.IUsbDescriptor
+      deviceId : Windows.String
    )
-   return Windows.Devices.Usb.IUsbConfigurationDescriptor is
+   return Windows.Devices.Usb.IAsyncOperation_IUsbDevice is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbConfigurationDescriptor");
-      m_Factory     : IUsbConfigurationDescriptorStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDevice");
+      m_Factory     : IUsbDeviceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IUsbConfigurationDescriptor;
+      RetVal        : aliased Windows.Devices.Usb.IAsyncOperation_IUsbDevice;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbConfigurationDescriptorStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Parse(descriptor, RetVal'Access);
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceClassSelector
+   (
+      usbClass : Windows.Devices.Usb.IUsbDeviceClass
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDevice");
+      m_Factory     : IUsbDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceClassSelector(usbClass, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -248,97 +288,6 @@ package body Windows.Devices.Usb is
       return RetVal;
    end;
    
-   function GetDeviceClassSelector
-   (
-      usbClass : Windows.Devices.Usb.IUsbDeviceClass
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDevice");
-      m_Factory     : IUsbDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceClassSelector(usbClass, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Usb.IAsyncOperation_IUsbDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDevice");
-      m_Factory     : IUsbDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IAsyncOperation_IUsbDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CdcControl
-   return Windows.Devices.Usb.IUsbDeviceClass is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClasses");
-      m_Factory     : IUsbDeviceClassesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IUsbDeviceClass;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CdcControl(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Physical
-   return Windows.Devices.Usb.IUsbDeviceClass is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClasses");
-      m_Factory     : IUsbDeviceClassesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IUsbDeviceClass;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Physical(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PersonalHealthcare
-   return Windows.Devices.Usb.IUsbDeviceClass is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClasses");
-      m_Factory     : IUsbDeviceClassesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IUsbDeviceClass;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PersonalHealthcare(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_ActiveSync
    return Windows.Devices.Usb.IUsbDeviceClass is
       Hr            : Windows.HRESULT := S_OK;
@@ -356,7 +305,7 @@ package body Windows.Devices.Usb is
       return RetVal;
    end;
    
-   function get_PalmSync
+   function get_CdcControl
    return Windows.Devices.Usb.IUsbDeviceClass is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClasses");
@@ -366,7 +315,7 @@ package body Windows.Devices.Usb is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_PalmSync(RetVal'Access);
+         Hr := m_Factory.get_CdcControl(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -424,6 +373,57 @@ package body Windows.Devices.Usb is
       return RetVal;
    end;
    
+   function get_PalmSync
+   return Windows.Devices.Usb.IUsbDeviceClass is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClasses");
+      m_Factory     : IUsbDeviceClassesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Usb.IUsbDeviceClass;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PalmSync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PersonalHealthcare
+   return Windows.Devices.Usb.IUsbDeviceClass is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClasses");
+      m_Factory     : IUsbDeviceClassesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Usb.IUsbDeviceClass;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PersonalHealthcare(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Physical
+   return Windows.Devices.Usb.IUsbDeviceClass is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClasses");
+      m_Factory     : IUsbDeviceClassesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Usb.IUsbDeviceClass;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Physical(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_VendorSpecific
    return Windows.Devices.Usb.IUsbDeviceClass is
       Hr            : Windows.HRESULT := S_OK;
@@ -435,6 +435,26 @@ package body Windows.Devices.Usb is
       Hr := RoGetActivationFactory(m_hString, IID_IUsbDeviceClassesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VendorSpecific(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Parse
+   (
+      descriptor : Windows.Devices.Usb.IUsbDescriptor
+   )
+   return Windows.Devices.Usb.IUsbEndpointDescriptor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbEndpointDescriptor");
+      m_Factory     : IUsbEndpointDescriptorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Usb.IUsbEndpointDescriptor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbEndpointDescriptorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Parse(descriptor, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -466,14 +486,14 @@ package body Windows.Devices.Usb is
    (
       descriptor : Windows.Devices.Usb.IUsbDescriptor
    )
-   return Windows.Devices.Usb.IUsbEndpointDescriptor is
+   return Windows.Devices.Usb.IUsbInterfaceDescriptor is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbEndpointDescriptor");
-      m_Factory     : IUsbEndpointDescriptorStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbInterfaceDescriptor");
+      m_Factory     : IUsbInterfaceDescriptorStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IUsbEndpointDescriptor;
+      RetVal        : aliased Windows.Devices.Usb.IUsbInterfaceDescriptor;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbEndpointDescriptorStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbInterfaceDescriptorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Parse(descriptor, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -497,26 +517,6 @@ package body Windows.Devices.Usb is
       Hr := RoGetActivationFactory(m_hString, IID_IUsbInterfaceDescriptorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryParse(descriptor, parsed, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Parse
-   (
-      descriptor : Windows.Devices.Usb.IUsbDescriptor
-   )
-   return Windows.Devices.Usb.IUsbInterfaceDescriptor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbInterfaceDescriptor");
-      m_Factory     : IUsbInterfaceDescriptorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IUsbInterfaceDescriptor;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbInterfaceDescriptorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Parse(descriptor, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

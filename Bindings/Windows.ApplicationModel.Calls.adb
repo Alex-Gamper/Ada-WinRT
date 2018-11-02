@@ -398,41 +398,6 @@ package body Windows.ApplicationModel.Calls is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_BlockUnknownNumbers
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
-      m_Factory     : IPhoneCallBlockingStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BlockUnknownNumbers(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_BlockUnknownNumbers
-   (
-      value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
-      m_Factory     : IPhoneCallBlockingStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_BlockUnknownNumbers(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_BlockPrivateNumbers
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -444,6 +409,23 @@ package body Windows.ApplicationModel.Calls is
       Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_BlockPrivateNumbers(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BlockUnknownNumbers
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
+      m_Factory     : IPhoneCallBlockingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BlockUnknownNumbers(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -463,6 +445,24 @@ package body Windows.ApplicationModel.Calls is
       Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.put_BlockPrivateNumbers(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure put_BlockUnknownNumbers
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallBlocking");
+      m_Factory     : IPhoneCallBlockingStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallBlockingStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_BlockUnknownNumbers(value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -567,24 +567,6 @@ package body Windows.ApplicationModel.Calls is
       return RetVal;
    end;
    
-   procedure remove_CallStateChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallManager");
-      m_Factory     : IPhoneCallManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_CallStateChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_IsCallActive
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -619,7 +601,10 @@ package body Windows.ApplicationModel.Calls is
       return RetVal;
    end;
    
-   procedure ShowPhoneCallSettingsUI
+   procedure remove_CallStateChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
    is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallManager");
@@ -628,7 +613,7 @@ package body Windows.ApplicationModel.Calls is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.ShowPhoneCallSettingsUI;
+         Hr := m_Factory.remove_CallStateChanged(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -649,6 +634,21 @@ package body Windows.ApplicationModel.Calls is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure ShowPhoneCallSettingsUI
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallManager");
+      m_Factory     : IPhoneCallManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowPhoneCallSettingsUI;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function GetCapabilitiesAsync

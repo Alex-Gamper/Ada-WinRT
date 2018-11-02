@@ -42,17 +42,20 @@ package body Windows.Embedded.DeviceLockdown is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetSupportedLockdownProfiles
-   return Windows.Foundation.Collections.IVectorView_Guid is
+   function ApplyLockdownProfileAsync
+   (
+      profileID : Windows.Guid
+   )
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Embedded.DeviceLockdown.DeviceLockdownProfile");
       m_Factory     : IDeviceLockdownProfileStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_Guid;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDeviceLockdownProfileStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetSupportedLockdownProfiles(RetVal'Access);
+         Hr := m_Factory.ApplyLockdownProfileAsync(profileID, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -76,26 +79,6 @@ package body Windows.Embedded.DeviceLockdown is
       return RetVal;
    end;
    
-   function ApplyLockdownProfileAsync
-   (
-      profileID : Windows.Guid
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Embedded.DeviceLockdown.DeviceLockdownProfile");
-      m_Factory     : IDeviceLockdownProfileStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceLockdownProfileStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ApplyLockdownProfileAsync(profileID, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetLockdownProfileInformation
    (
       profileID : Windows.Guid
@@ -110,6 +93,23 @@ package body Windows.Embedded.DeviceLockdown is
       Hr := RoGetActivationFactory(m_hString, IID_IDeviceLockdownProfileStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetLockdownProfileInformation(profileID, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetSupportedLockdownProfiles
+   return Windows.Foundation.Collections.IVectorView_Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Embedded.DeviceLockdown.DeviceLockdownProfile");
+      m_Factory     : IDeviceLockdownProfileStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceLockdownProfileStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetSupportedLockdownProfiles(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

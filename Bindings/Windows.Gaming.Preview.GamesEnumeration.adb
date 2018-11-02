@@ -85,6 +85,66 @@ package body Windows.Gaming.Preview.GamesEnumeration is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function add_GameAdded
+   (
+      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameList");
+      m_Factory     : IGameListStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGameListStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_GameAdded(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_GameRemoved
+   (
+      handler : Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameList");
+      m_Factory     : IGameListStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGameListStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_GameRemoved(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_GameUpdated
+   (
+      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameList");
+      m_Factory     : IGameListStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGameListStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_GameUpdated(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FindAllAsync
    return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
@@ -122,26 +182,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
       return RetVal;
    end;
    
-   function add_GameAdded
-   (
-      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameList");
-      m_Factory     : IGameListStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGameListStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_GameAdded(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure remove_GameAdded
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -160,26 +200,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function add_GameRemoved
-   (
-      handler : Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameList");
-      m_Factory     : IGameListStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGameListStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_GameRemoved(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure remove_GameRemoved
    (
       token : Windows.Foundation.EventRegistrationToken
@@ -196,26 +216,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_GameUpdated
-   (
-      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Preview.GamesEnumeration.GameList");
-      m_Factory     : IGameListStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGameListStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_GameUpdated(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    procedure remove_GameUpdated

@@ -737,23 +737,6 @@ package body Windows.Media.Capture is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetGlobalSettings
-   return Windows.Media.Capture.IAppBroadcastGlobalSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppBroadcastManager");
-      m_Factory     : IAppBroadcastManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Capture.IAppBroadcastGlobalSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBroadcastManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetGlobalSettings(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure ApplyGlobalSettings
    (
       value : Windows.Media.Capture.IAppBroadcastGlobalSettings
@@ -772,23 +755,6 @@ package body Windows.Media.Capture is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function GetProviderSettings
-   return Windows.Media.Capture.IAppBroadcastProviderSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppBroadcastManager");
-      m_Factory     : IAppBroadcastManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Capture.IAppBroadcastProviderSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppBroadcastManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetProviderSettings(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure ApplyProviderSettings
    (
       value : Windows.Media.Capture.IAppBroadcastProviderSettings
@@ -805,6 +771,40 @@ package body Windows.Media.Capture is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetGlobalSettings
+   return Windows.Media.Capture.IAppBroadcastGlobalSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppBroadcastManager");
+      m_Factory     : IAppBroadcastManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Capture.IAppBroadcastGlobalSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBroadcastManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetGlobalSettings(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetProviderSettings
+   return Windows.Media.Capture.IAppBroadcastProviderSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppBroadcastManager");
+      m_Factory     : IAppBroadcastManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Capture.IAppBroadcastProviderSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppBroadcastManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetProviderSettings(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function GetDefault
@@ -881,23 +881,6 @@ package body Windows.Media.Capture is
       return RetVal;
    end;
    
-   function GetCurrentSettings
-   return Windows.Media.Capture.IAppCaptureSettings is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppCaptureManager");
-      m_Factory     : IAppCaptureManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Capture.IAppCaptureSettings;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppCaptureManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetCurrentSettings(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure ApplySettings
    (
       appCaptureSettings : Windows.Media.Capture.IAppCaptureSettings
@@ -914,6 +897,23 @@ package body Windows.Media.Capture is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetCurrentSettings
+   return Windows.Media.Capture.IAppCaptureSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Capture.AppCaptureManager");
+      m_Factory     : IAppCaptureManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Capture.IAppCaptureSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppCaptureManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCurrentSettings(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    procedure Show
@@ -945,26 +945,6 @@ package body Windows.Media.Capture is
       Hr := RoGetActivationFactory(m_hString, IID_IGameBarServicesManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function IsVideoProfileSupported
-   (
-      videoDeviceId : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Capture.MediaCapture");
-      m_Factory     : IMediaCaptureStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaCaptureStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsVideoProfileSupported(videoDeviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1026,6 +1006,26 @@ package body Windows.Media.Capture is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaCaptureStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindKnownVideoProfiles(videoDeviceId, name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsVideoProfileSupported
+   (
+      videoDeviceId : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Capture.MediaCapture");
+      m_Factory     : IMediaCaptureStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaCaptureStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsVideoProfileSupported(videoDeviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

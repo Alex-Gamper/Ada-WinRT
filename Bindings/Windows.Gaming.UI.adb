@@ -90,6 +90,26 @@ package body Windows.Gaming.UI is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function add_IsInputRedirectedChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameBar");
+      m_Factory     : IGameBarStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGameBarStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_IsInputRedirectedChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function add_VisibilityChanged
    (
       handler : Windows.Foundation.EventHandler_Object
@@ -110,38 +130,34 @@ package body Windows.Gaming.UI is
       return RetVal;
    end;
    
-   procedure remove_VisibilityChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
+   function get_IsInputRedirected
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameBar");
       m_Factory     : IGameBarStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGameBarStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.remove_VisibilityChanged(token);
+         Hr := m_Factory.get_IsInputRedirected(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
-   function add_IsInputRedirectedChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken is
+   function get_Visible
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameBar");
       m_Factory     : IGameBarStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGameBarStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_IsInputRedirectedChanged(handler, RetVal'Access);
+         Hr := m_Factory.get_Visible(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -166,38 +182,22 @@ package body Windows.Gaming.UI is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function get_Visible
-   return Windows.Boolean is
+   procedure remove_VisibilityChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameBar");
       m_Factory     : IGameBarStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGameBarStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Visible(RetVal'Access);
+         Hr := m_Factory.remove_VisibilityChanged(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsInputRedirected
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameBar");
-      m_Factory     : IGameBarStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGameBarStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsInputRedirected(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function GetDefault

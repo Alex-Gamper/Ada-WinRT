@@ -97,6 +97,26 @@ package body Windows.Devices.Pwm is
       return RetVal;
    end;
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Pwm.IAsyncOperation_IPwmController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Pwm.PwmController");
+      m_Factory     : IPwmControllerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Pwm.IAsyncOperation_IPwmController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPwmControllerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDeviceSelector
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -128,26 +148,6 @@ package body Windows.Devices.Pwm is
       Hr := RoGetActivationFactory(m_hString, IID_IPwmControllerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorFromFriendlyName(friendlyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Pwm.IAsyncOperation_IPwmController is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Pwm.PwmController");
-      m_Factory     : IPwmControllerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Pwm.IAsyncOperation_IPwmController;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPwmControllerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

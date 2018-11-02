@@ -345,27 +345,6 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateField_Default
-   (
-      value : Windows.String
-      ; type_x : Windows.ApplicationModel.Contacts.ContactFieldType
-   )
-   return Windows.ApplicationModel.Contacts.IContactField is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactField");
-      m_Factory     : Windows.ApplicationModel.Contacts.IContactFieldFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactField := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactFieldFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateField_Default(value, type_x, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateField_Category
    (
       value : Windows.String
@@ -411,6 +390,27 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
+   function CreateField_Default
+   (
+      value : Windows.String
+      ; type_x : Windows.ApplicationModel.Contacts.ContactFieldType
+   )
+   return Windows.ApplicationModel.Contacts.IContactField is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactField");
+      m_Factory     : Windows.ApplicationModel.Contacts.IContactFieldFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IContactField := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactFieldFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateField_Default(value, type_x, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create return Windows.ApplicationModel.Contacts.IContactFieldFactory is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactFieldFactory");
@@ -428,9 +428,13 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateInstantMessage_Default
+   function CreateInstantMessage_All
    (
       userName : Windows.String
+      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
+      ; service : Windows.String
+      ; displayText : Windows.String
+      ; verb : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.ApplicationModel.Contacts.IContactInstantMessageField is
       Hr            : Windows.HRESULT := S_OK;
@@ -441,7 +445,7 @@ package body Windows.ApplicationModel.Contacts is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IContactInstantMessageFieldFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstantMessage_Default(userName, RetVal'Access);
+         Hr := m_Factory.CreateInstantMessage_All(userName, category, service, displayText, verb, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -469,13 +473,9 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function CreateInstantMessage_All
+   function CreateInstantMessage_Default
    (
       userName : Windows.String
-      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
-      ; service : Windows.String
-      ; displayText : Windows.String
-      ; verb : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.ApplicationModel.Contacts.IContactInstantMessageField is
       Hr            : Windows.HRESULT := S_OK;
@@ -486,7 +486,7 @@ package body Windows.ApplicationModel.Contacts is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IContactInstantMessageFieldFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstantMessage_All(userName, category, service, displayText, verb, RetVal'Access);
+         Hr := m_Factory.CreateInstantMessage_Default(userName, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -510,9 +510,15 @@ package body Windows.ApplicationModel.Contacts is
       return Convert(RetVal);
    end;
    
-   function CreateLocation_Default
+   function CreateLocation_All
    (
       unstructuredAddress : Windows.String
+      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
+      ; street : Windows.String
+      ; city : Windows.String
+      ; region : Windows.String
+      ; country : Windows.String
+      ; postalCode : Windows.String
    )
    return Windows.ApplicationModel.Contacts.IContactLocationField is
       Hr            : Windows.HRESULT := S_OK;
@@ -523,7 +529,7 @@ package body Windows.ApplicationModel.Contacts is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateLocation_Default(unstructuredAddress, RetVal'Access);
+         Hr := m_Factory.CreateLocation_All(unstructuredAddress, category, street, city, region, country, postalCode, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -551,15 +557,9 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function CreateLocation_All
+   function CreateLocation_Default
    (
       unstructuredAddress : Windows.String
-      ; category : Windows.ApplicationModel.Contacts.ContactFieldCategory
-      ; street : Windows.String
-      ; city : Windows.String
-      ; region : Windows.String
-      ; country : Windows.String
-      ; postalCode : Windows.String
    )
    return Windows.ApplicationModel.Contacts.IContactLocationField is
       Hr            : Windows.HRESULT := S_OK;
@@ -570,7 +570,7 @@ package body Windows.ApplicationModel.Contacts is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IContactLocationFieldFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateLocation_All(unstructuredAddress, category, street, city, region, country, postalCode, RetVal'Access);
+         Hr := m_Factory.CreateLocation_Default(unstructuredAddress, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -745,23 +745,6 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function get_Message
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
-      m_Factory     : IContactLaunchActionVerbsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Message(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Map
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -773,6 +756,23 @@ package body Windows.ApplicationModel.Contacts is
       Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Map(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Message
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs");
+      m_Factory     : IContactLaunchActionVerbsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactLaunchActionVerbsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Message(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -874,23 +874,6 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function IsShowFullContactCardSupportedAsync
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics5 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsShowFullContactCardSupportedAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IncludeMiddleNameInSystemDisplayAndSort
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -902,6 +885,23 @@ package body Windows.ApplicationModel.Contacts is
       Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IncludeMiddleNameInSystemDisplayAndSort(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsShowFullContactCardSupportedAsync
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsShowFullContactCardSupportedAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1007,24 +1007,108 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function RequestStoreAsyncWithAccessType
-   (
-      accessType : Windows.ApplicationModel.Contacts.ContactStoreAccessType
-   )
-   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore is
+   function get_SystemDisplayNameOrder
+   return Windows.ApplicationModel.Contacts.ContactNameOrder is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
       m_Factory     : IContactManagerStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.ContactNameOrder;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.RequestStoreAsyncWithAccessType(accessType, RetVal'Access);
+         Hr := m_Factory.get_SystemDisplayNameOrder(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function get_SystemSortOrder
+   return Windows.ApplicationModel.Contacts.ContactNameOrder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.ContactNameOrder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SystemSortOrder(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsShowContactCardSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsShowContactCardSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsShowDelayLoadedContactCardSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsShowDelayLoadedContactCardSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_SystemDisplayNameOrder
+   (
+      value : Windows.ApplicationModel.Contacts.ContactNameOrder
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_SystemDisplayNameOrder(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure put_SystemSortOrder
+   (
+      value : Windows.ApplicationModel.Contacts.ContactNameOrder
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
+      m_Factory     : IContactManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_SystemSortOrder(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function RequestAnnotationStoreAsync
@@ -1047,17 +1131,20 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function IsShowContactCardSupported
-   return Windows.Boolean is
+   function RequestStoreAsyncWithAccessType
+   (
+      accessType : Windows.ApplicationModel.Contacts.ContactStoreAccessType
+   )
+   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
       m_Factory     : IContactManagerStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.IsShowContactCardSupported(RetVal'Access);
+         Hr := m_Factory.RequestStoreAsyncWithAccessType(accessType, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1083,23 +1170,6 @@ package body Windows.ApplicationModel.Contacts is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function IsShowDelayLoadedContactCardSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsShowDelayLoadedContactCardSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function ShowDelayLoadedContactCardWithOptions
@@ -1139,76 +1209,6 @@ package body Windows.ApplicationModel.Contacts is
       Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ShowFullContactCard(contact, fullContactCardOptions);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_SystemDisplayNameOrder
-   return Windows.ApplicationModel.Contacts.ContactNameOrder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.ContactNameOrder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SystemDisplayNameOrder(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_SystemDisplayNameOrder
-   (
-      value : Windows.ApplicationModel.Contacts.ContactNameOrder
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_SystemDisplayNameOrder(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_SystemSortOrder
-   return Windows.ApplicationModel.Contacts.ContactNameOrder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Contacts.ContactNameOrder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SystemSortOrder(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_SystemSortOrder
-   (
-      value : Windows.ApplicationModel.Contacts.ContactNameOrder
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.ContactManager");
-      m_Factory     : IContactManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContactManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_SystemSortOrder(value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1268,74 +1268,6 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-   function get_Email
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
-      m_Factory     : IKnownContactFieldStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Email(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PhoneNumber
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
-      m_Factory     : IKnownContactFieldStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PhoneNumber(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Location
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
-      m_Factory     : IKnownContactFieldStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Location(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_InstantMessage
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
-      m_Factory     : IKnownContactFieldStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_InstantMessage(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function ConvertNameToType
    (
       name : Windows.String
@@ -1370,6 +1302,74 @@ package body Windows.ApplicationModel.Contacts is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ConvertTypeToName(type_x, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Email
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
+      m_Factory     : IKnownContactFieldStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Email(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InstantMessage
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
+      m_Factory     : IKnownContactFieldStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InstantMessage(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Location
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
+      m_Factory     : IKnownContactFieldStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Location(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PhoneNumber
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Contacts.KnownContactField");
+      m_Factory     : IKnownContactFieldStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownContactFieldStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PhoneNumber(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

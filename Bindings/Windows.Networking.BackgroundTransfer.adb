@@ -481,6 +481,23 @@ package body Windows.Networking.BackgroundTransfer is
       return RetVal;
    end;
    
+   function get_IndirectContentUri
+   return Windows.Foundation.IUriRuntimeClass is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.ContentPrefetcher");
+      m_Factory     : IContentPrefetcher := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IUriRuntimeClass;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentPrefetcher'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IndirectContentUri(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    procedure put_IndirectContentUri
    (
       value : Windows.Foundation.IUriRuntimeClass
@@ -497,23 +514,6 @@ package body Windows.Networking.BackgroundTransfer is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_IndirectContentUri
-   return Windows.Foundation.IUriRuntimeClass is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.ContentPrefetcher");
-      m_Factory     : IContentPrefetcher := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IUriRuntimeClass;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentPrefetcher'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IndirectContentUri(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
 end;

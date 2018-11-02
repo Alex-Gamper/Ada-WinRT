@@ -43,7 +43,7 @@ package body Windows.Media.ClosedCaptioning is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_FontColor
+   function get_BackgroundColor
    return Windows.Media.ClosedCaptioning.ClosedCaptionColor is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
@@ -53,7 +53,41 @@ package body Windows.Media.ClosedCaptioning is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FontColor(RetVal'Access);
+         Hr := m_Factory.get_BackgroundColor(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BackgroundOpacity
+   return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
+      m_Factory     : IClosedCaptionPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BackgroundOpacity(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ComputedBackgroundColor
+   return Windows.UI.Color is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
+      m_Factory     : IClosedCaptionPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Color;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ComputedBackgroundColor(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -71,6 +105,57 @@ package body Windows.Media.ClosedCaptioning is
       Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ComputedFontColor(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ComputedRegionColor
+   return Windows.UI.Color is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
+      m_Factory     : IClosedCaptionPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Color;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ComputedRegionColor(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FontColor
+   return Windows.Media.ClosedCaptioning.ClosedCaptionColor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
+      m_Factory     : IClosedCaptionPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.ClosedCaptioning.ClosedCaptionColor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FontColor(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FontEffect
+   return Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
+      m_Factory     : IClosedCaptionPropertiesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FontEffect(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -128,74 +213,6 @@ package body Windows.Media.ClosedCaptioning is
       return RetVal;
    end;
    
-   function get_FontEffect
-   return Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
-      m_Factory     : IClosedCaptionPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FontEffect(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_BackgroundColor
-   return Windows.Media.ClosedCaptioning.ClosedCaptionColor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
-      m_Factory     : IClosedCaptionPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.ClosedCaptioning.ClosedCaptionColor;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BackgroundColor(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ComputedBackgroundColor
-   return Windows.UI.Color is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
-      m_Factory     : IClosedCaptionPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Color;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ComputedBackgroundColor(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_BackgroundOpacity
-   return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
-      m_Factory     : IClosedCaptionPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BackgroundOpacity(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_RegionColor
    return Windows.Media.ClosedCaptioning.ClosedCaptionColor is
       Hr            : Windows.HRESULT := S_OK;
@@ -207,23 +224,6 @@ package body Windows.Media.ClosedCaptioning is
       Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_RegionColor(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ComputedRegionColor
-   return Windows.UI.Color is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.ClosedCaptioning.ClosedCaptionProperties");
-      m_Factory     : IClosedCaptionPropertiesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Color;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IClosedCaptionPropertiesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ComputedRegionColor(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

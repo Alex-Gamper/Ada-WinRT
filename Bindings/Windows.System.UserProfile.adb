@@ -278,23 +278,6 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-   function get_Languages
-   return Windows.Foundation.Collections.IVectorView_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.GlobalizationPreferences");
-      m_Factory     : IGlobalizationPreferencesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Languages(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_HomeGeographicRegion
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -306,6 +289,23 @@ package body Windows.System.UserProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_HomeGeographicRegion(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Languages
+   return Windows.Foundation.Collections.IVectorView_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.GlobalizationPreferences");
+      m_Factory     : IGlobalizationPreferencesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVectorView_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Languages(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -440,6 +440,26 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
+   function add_AccountPictureChanged
+   (
+      changeHandler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
+      m_Factory     : IUserInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_AccountPictureChanged(changeHandler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AccountPictureChangeEnabled
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -494,128 +514,6 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-   function SetAccountPictureAsync
-   (
-      image : Windows.Storage.IStorageFile
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
-      m_Factory     : IUserInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetAccountPictureAsync(image, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SetAccountPicturesAsync
-   (
-      smallImage : Windows.Storage.IStorageFile
-      ; largeImage : Windows.Storage.IStorageFile
-      ; video : Windows.Storage.IStorageFile
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
-      m_Factory     : IUserInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetAccountPicturesAsync(smallImage, largeImage, video, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SetAccountPictureFromStreamAsync
-   (
-      image : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
-      m_Factory     : IUserInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetAccountPictureFromStreamAsync(image, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function SetAccountPicturesFromStreamsAsync
-   (
-      smallImage : Windows.Storage.Streams.IRandomAccessStream
-      ; largeImage : Windows.Storage.Streams.IRandomAccessStream
-      ; video : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
-      m_Factory     : IUserInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetAccountPicturesFromStreamsAsync(smallImage, largeImage, video, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function add_AccountPictureChanged
-   (
-      changeHandler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
-      m_Factory     : IUserInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_AccountPictureChanged(changeHandler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_AccountPictureChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
-      m_Factory     : IUserInformationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_AccountPictureChanged(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function GetDisplayNameAsync
    return Windows.Foundation.IAsyncOperation_String is
       Hr            : Windows.HRESULT := S_OK;
@@ -627,6 +525,23 @@ package body Windows.System.UserProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDisplayNameAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDomainNameAsync
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
+      m_Factory     : IUserInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDomainNameAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -701,17 +616,102 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-   function GetDomainNameAsync
-   return Windows.Foundation.IAsyncOperation_String is
+   procedure remove_AccountPictureChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
       m_Factory     : IUserInformationStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetDomainNameAsync(RetVal'Access);
+         Hr := m_Factory.remove_AccountPictureChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function SetAccountPictureAsync
+   (
+      image : Windows.Storage.IStorageFile
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
+      m_Factory     : IUserInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetAccountPictureAsync(image, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SetAccountPictureFromStreamAsync
+   (
+      image : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
+      m_Factory     : IUserInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetAccountPictureFromStreamAsync(image, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SetAccountPicturesAsync
+   (
+      smallImage : Windows.Storage.IStorageFile
+      ; largeImage : Windows.Storage.IStorageFile
+      ; video : Windows.Storage.IStorageFile
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
+      m_Factory     : IUserInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetAccountPicturesAsync(smallImage, largeImage, video, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SetAccountPicturesFromStreamsAsync
+   (
+      smallImage : Windows.Storage.Streams.IRandomAccessStream
+      ; largeImage : Windows.Storage.Streams.IRandomAccessStream
+      ; video : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.UserInformation");
+      m_Factory     : IUserInformationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserInformationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetAccountPicturesFromStreamsAsync(smallImage, largeImage, video, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

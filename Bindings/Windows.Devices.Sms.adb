@@ -265,23 +265,6 @@ package body Windows.Devices.Sms is
       return RetVal;
    end;
    
-   function GetDeviceSelector
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsDevice");
-      m_Factory     : ISmsDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmsDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -319,15 +302,15 @@ package body Windows.Devices.Sms is
       return RetVal;
    end;
    
-   function GetDeviceSelector_ISmsDevice2
+   function GetDeviceSelector
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsDevice2");
-      m_Factory     : ISmsDevice2Statics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsDevice");
+      m_Factory     : ISmsDeviceStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.String;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmsDevice2Statics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISmsDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -356,6 +339,26 @@ package body Windows.Devices.Sms is
       return RetVal;
    end;
    
+   function FromParentId
+   (
+      parentDeviceId : Windows.String
+   )
+   return Windows.Devices.Sms.ISmsDevice2 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsDevice2");
+      m_Factory     : ISmsDevice2Statics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sms.ISmsDevice2;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmsDevice2Statics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromParentId(parentDeviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefault
    return Windows.Devices.Sms.ISmsDevice2 is
       Hr            : Windows.HRESULT := S_OK;
@@ -373,20 +376,17 @@ package body Windows.Devices.Sms is
       return RetVal;
    end;
    
-   function FromParentId
-   (
-      parentDeviceId : Windows.String
-   )
-   return Windows.Devices.Sms.ISmsDevice2 is
+   function GetDeviceSelector_ISmsDevice2
+   return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsDevice2");
       m_Factory     : ISmsDevice2Statics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sms.ISmsDevice2;
+      RetVal        : aliased Windows.String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISmsDevice2Statics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FromParentId(parentDeviceId, RetVal'Access);
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -431,26 +431,6 @@ package body Windows.Devices.Sms is
       return RetVal;
    end;
    
-   function FromBinaryMessage
-   (
-      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
-   )
-   return Windows.Devices.Sms.ISmsTextMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
-      m_Factory     : ISmsTextMessageStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Sms.ISmsTextMessage;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmsTextMessageStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromBinaryMessage(binaryMessage, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromBinaryData
    (
       format : Windows.Devices.Sms.SmsDataFormat
@@ -466,6 +446,26 @@ package body Windows.Devices.Sms is
       Hr := RoGetActivationFactory(m_hString, IID_ISmsTextMessageStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromBinaryData(format, value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromBinaryMessage
+   (
+      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
+   )
+   return Windows.Devices.Sms.ISmsTextMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sms.SmsTextMessage");
+      m_Factory     : ISmsTextMessageStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sms.ISmsTextMessage;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmsTextMessageStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromBinaryMessage(binaryMessage, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

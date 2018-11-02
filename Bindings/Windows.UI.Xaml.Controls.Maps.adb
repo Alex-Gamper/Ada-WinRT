@@ -2718,6 +2718,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_CollisionBehaviorDesiredProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapBillboard");
+      m_Factory     : IMapBillboardStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapBillboardStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CollisionBehaviorDesiredProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_LocationProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2746,23 +2763,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapBillboardStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_NormalizedAnchorPointProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CollisionBehaviorDesiredProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapBillboard");
-      m_Factory     : IMapBillboardStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapBillboardStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CollisionBehaviorDesiredProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2888,7 +2888,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_TransitFeaturesVisibleProperty
+   function get_Is3DSupportedProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
@@ -2898,7 +2898,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TransitFeaturesVisibleProperty(RetVal'Access);
+         Hr := m_Factory.get_Is3DSupportedProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsStreetsideSupportedProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsStreetsideSupportedProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2939,6 +2956,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_SceneProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SceneProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_TiltInteractionModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2956,6 +2990,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_TransitFeaturesVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TransitFeaturesVisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_ZoomInteractionModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2967,57 +3018,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ZoomInteractionModeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Is3DSupportedProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Is3DSupportedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsStreetsideSupportedProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsStreetsideSupportedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SceneProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SceneProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3143,6 +3143,40 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_LocationProperty_IMapControl
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocationProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MapElementsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MapElementsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_MapServiceTokenProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3154,6 +3188,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MapServiceTokenProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_NormalizedAnchorPointProperty_IMapControl
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NormalizedAnchorPointProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3194,6 +3245,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_RoutesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RoutesProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_StyleProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3205,6 +3273,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_StyleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TileSourcesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TileSourcesProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3279,74 +3364,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_MapElementsProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MapElementsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RoutesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RoutesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TileSourcesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TileSourcesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LocationProperty_IMapControl
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LocationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetLocation
    (
       element : Windows.UI.Xaml.IDependencyObject
@@ -3361,42 +3378,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetLocation(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetLocation
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Devices.Geolocation.IGeopoint
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetLocation(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_NormalizedAnchorPointProperty_IMapControl
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
-      m_Factory     : IMapControlStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_NormalizedAnchorPointProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3421,6 +3402,25 @@ package body Windows.UI.Xaml.Controls.Maps is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure SetLocation
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Devices.Geolocation.IGeopoint
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
+      m_Factory     : IMapControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetLocation(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    procedure SetNormalizedAnchorPoint
@@ -3589,23 +3589,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_ZIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElement");
-      m_Factory     : IMapElementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapElementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ZIndexProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_VisibleProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3617,6 +3600,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapElementStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElement");
+      m_Factory     : IMapElementStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapElementStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZIndexProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3640,23 +3640,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_LocationProperty_IMapElement3D
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElement3D");
-      m_Factory     : IMapElement3DStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapElement3DStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LocationProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_HeadingProperty_IMapElement3D
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3668,6 +3651,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapElement3DStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_HeadingProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LocationProperty_IMapElement3D
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElement3D");
+      m_Factory     : IMapElement3DStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapElement3DStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocationProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3776,23 +3776,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_TitleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapIcon");
-      m_Factory     : IMapIconStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapIconStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TitleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_NormalizedAnchorPointProperty_IMapIcon
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3810,17 +3793,17 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_ItemsSourceProperty
+   function get_TitleProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapItemsControl");
-      m_Factory     : IMapItemsControlStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapIcon");
+      m_Factory     : IMapIconStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapItemsControlStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMapIconStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ItemsSourceProperty(RetVal'Access);
+         Hr := m_Factory.get_TitleProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3838,6 +3821,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapItemsControlStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ItemsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ItemsSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapItemsControl");
+      m_Factory     : IMapItemsControlStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapItemsControlStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ItemsSourceProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4012,23 +4012,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_StrokeThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapPolygon");
-      m_Factory     : IMapPolygonStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapPolygonStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StrokeThicknessProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_StrokeDashedProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4040,6 +4023,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapPolygonStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_StrokeDashedProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StrokeThicknessProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapPolygon");
+      m_Factory     : IMapPolygonStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapPolygonStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StrokeThicknessProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4184,28 +4184,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function CreateFromLocationWithHeadingAndPitch
-   (
-      location : Windows.Devices.Geolocation.IGeopoint
-      ; headingInDegrees : Windows.Double
-      ; pitchInDegrees : Windows.Double
-   )
-   return Windows.UI.Xaml.Controls.Maps.IMapScene is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapScene");
-      m_Factory     : IMapSceneStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapScene;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapSceneStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromLocationWithHeadingAndPitch(location, headingInDegrees, pitchInDegrees, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateFromLocationAndRadius
    (
       location : Windows.Devices.Geolocation.IGeopoint
@@ -4292,6 +4270,28 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function CreateFromLocationWithHeadingAndPitch
+   (
+      location : Windows.Devices.Geolocation.IGeopoint
+      ; headingInDegrees : Windows.Double
+      ; pitchInDegrees : Windows.Double
+   )
+   return Windows.UI.Xaml.Controls.Maps.IMapScene is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapScene");
+      m_Factory     : IMapSceneStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapScene;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapSceneStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromLocationWithHeadingAndPitch(location, headingInDegrees, pitchInDegrees, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Aerial
    return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
       Hr            : Windows.HRESULT := S_OK;
@@ -4320,74 +4320,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.AerialWithOverlay(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RoadLight
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
-      m_Factory     : IMapStyleSheetStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RoadLight(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RoadDark
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
-      m_Factory     : IMapStyleSheetStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RoadDark(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RoadHighContrastLight
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
-      m_Factory     : IMapStyleSheetStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RoadHighContrastLight(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RoadHighContrastDark
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
-      m_Factory     : IMapStyleSheetStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RoadHighContrastDark(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4434,6 +4366,74 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function RoadDark
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
+      m_Factory     : IMapStyleSheetStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RoadDark(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RoadHighContrastDark
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
+      m_Factory     : IMapStyleSheetStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RoadHighContrastDark(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RoadHighContrastLight
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
+      m_Factory     : IMapStyleSheetStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RoadHighContrastLight(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RoadLight
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheet");
+      m_Factory     : IMapStyleSheetStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RoadLight(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function TryParseFromJson
    (
       styleAsJson : Windows.String
@@ -4449,6 +4449,57 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryParseFromJson(styleAsJson, styleSheet, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AdminDistrict
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AdminDistrict(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AdminDistrictCapital
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AdminDistrictCapital(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Airport
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Airport(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4472,7 +4523,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_Airport
+   function get_ArterialRoad
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -4482,7 +4533,58 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Airport(RetVal'Access);
+         Hr := m_Factory.get_ArterialRoad(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Building
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Building(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Business
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Business(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Capital
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Capital(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4523,6 +4625,91 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_ControlledAccessHighway
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ControlledAccessHighway(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CountryRegion
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CountryRegion(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CountryRegionCapital
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CountryRegionCapital(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_District
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_District(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DrivingRoute
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DrivingRoute(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Education
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -4534,6 +4721,108 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Education(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EducationBuilding
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EducationBuilding(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FoodPoint
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FoodPoint(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Forest
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Forest(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_GolfCourse
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_GolfCourse(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HighSpeedRamp
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HighSpeedRamp(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Highway
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Highway(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4574,6 +4863,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_MajorRoad
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MajorRoad(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Medical
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -4591,6 +4897,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
+   function get_MedicalBuilding
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MedicalBuilding(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Military
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -4602,6 +4925,23 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Military(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_NaturalPoint
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NaturalPoint(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4636,6 +4976,261 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Neighborhood(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Park
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Park(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Peak
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Peak(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PlayingField
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PlayingField(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Point
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Point(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PointOfInterest
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PointOfInterest(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Political
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Political(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PopulatedPlace
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PopulatedPlace(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Railway
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Railway(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Ramp
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Ramp(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Reserve
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Reserve(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_River
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_River(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Road
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Road(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RoadExit
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RoadExit(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RoadShield
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RoadShield(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RouteLine
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RouteLine(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4710,7 +5305,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_Vegetation
+   function get_Street
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -4720,415 +5315,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Vegetation(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Forest
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Forest(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_GolfCourse
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_GolfCourse(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Park
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Park(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PlayingField
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PlayingField(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Reserve
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Reserve(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Point
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Point(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_NaturalPoint
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_NaturalPoint(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Peak
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Peak(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_VolcanicPeak
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_VolcanicPeak(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_WaterPoint
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_WaterPoint(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PointOfInterest
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PointOfInterest(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Business
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Business(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FoodPoint
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FoodPoint(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_PopulatedPlace
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PopulatedPlace(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Capital
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Capital(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AdminDistrictCapital
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AdminDistrictCapital(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CountryRegionCapital
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CountryRegionCapital(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RoadShield
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RoadShield(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RoadExit
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RoadExit(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Transit
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Transit(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Political
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Political(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CountryRegion
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CountryRegion(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AdminDistrict
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AdminDistrict(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_District
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_District(RetVal'Access);
+         Hr := m_Factory.get_Street(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5152,7 +5339,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_Building
+   function get_TollRoad
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -5162,14 +5349,14 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Building(RetVal'Access);
+         Hr := m_Factory.get_TollRoad(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_EducationBuilding
+   function get_Trail
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -5179,14 +5366,14 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_EducationBuilding(RetVal'Access);
+         Hr := m_Factory.get_Trail(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_MedicalBuilding
+   function get_Transit
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -5196,7 +5383,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_MedicalBuilding(RetVal'Access);
+         Hr := m_Factory.get_Transit(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5237,142 +5424,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_Road
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Road(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ControlledAccessHighway
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ControlledAccessHighway(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HighSpeedRamp
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HighSpeedRamp(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Highway
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Highway(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MajorRoad
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MajorRoad(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ArterialRoad
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ArterialRoad(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Street
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Street(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Ramp
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Ramp(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_UnpavedStreet
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -5390,7 +5441,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_TollRoad
+   function get_Vegetation
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -5400,14 +5451,14 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TollRoad(RetVal'Access);
+         Hr := m_Factory.get_Vegetation(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_Railway
+   function get_VolcanicPeak
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -5417,92 +5468,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Railway(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Trail
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Trail(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_WaterRoute
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_WaterRoute(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Water
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Water(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_River
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_River(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RouteLine
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
-      m_Factory     : IMapStyleSheetEntriesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RouteLine(RetVal'Access);
+         Hr := m_Factory.get_VolcanicPeak(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5526,7 +5492,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_DrivingRoute
+   function get_Water
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
@@ -5536,7 +5502,41 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_DrivingRoute(RetVal'Access);
+         Hr := m_Factory.get_Water(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_WaterPoint
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_WaterPoint(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_WaterRoute
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries");
+      m_Factory     : IMapStyleSheetEntriesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapStyleSheetEntriesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_WaterRoute(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5615,7 +5615,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_DataSourceProperty
+   function get_AllowOverstretchProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
@@ -5625,41 +5625,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_DataSourceProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LayerProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
-      m_Factory     : IMapTileSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LayerProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ZoomLevelRangeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
-      m_Factory     : IMapTileSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ZoomLevelRangeProperty(RetVal'Access);
+         Hr := m_Factory.get_AllowOverstretchProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5683,7 +5649,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_AllowOverstretchProperty
+   function get_DataSourceProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
@@ -5693,7 +5659,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_AllowOverstretchProperty(RetVal'Access);
+         Hr := m_Factory.get_DataSourceProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5717,23 +5683,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_IsTransparencyEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
-      m_Factory     : IMapTileSourceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsTransparencyEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IsRetryEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -5751,7 +5700,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function get_ZIndexProperty_IMapTileSource
+   function get_IsTransparencyEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
@@ -5761,7 +5710,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_ZIndexProperty(RetVal'Access);
+         Hr := m_Factory.get_IsTransparencyEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LayerProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
+      m_Factory     : IMapTileSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LayerProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5796,6 +5762,40 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VisibleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZIndexProperty_IMapTileSource
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
+      m_Factory     : IMapTileSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZIndexProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ZoomLevelRangeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
+      m_Factory     : IMapTileSourceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ZoomLevelRangeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5917,26 +5917,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-   function FindNearbyWithLocationAsync
-   (
-      location : Windows.Devices.Geolocation.IGeopoint
-   )
-   return Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.StreetsidePanorama");
-      m_Factory     : IStreetsidePanoramaStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStreetsidePanoramaStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindNearbyWithLocationAsync(location, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FindNearbyWithLocationAndRadiusAsync
    (
       location : Windows.Devices.Geolocation.IGeopoint
@@ -5952,6 +5932,26 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IStreetsidePanoramaStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindNearbyWithLocationAndRadiusAsync(location, radiusInMeters, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindNearbyWithLocationAsync
+   (
+      location : Windows.Devices.Geolocation.IGeopoint
+   )
+   return Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.StreetsidePanorama");
+      m_Factory     : IStreetsidePanoramaStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStreetsidePanoramaStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindNearbyWithLocationAsync(location, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

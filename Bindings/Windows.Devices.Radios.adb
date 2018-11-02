@@ -85,17 +85,20 @@ package body Windows.Devices.Radios is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetRadiosAsync
-   return Windows.Address is
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Radios.IAsyncOperation_IRadio is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Radios.Radio");
       m_Factory     : IRadioStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
+      RetVal        : aliased Windows.Devices.Radios.IAsyncOperation_IRadio;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IRadioStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetRadiosAsync(RetVal'Access);
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -119,20 +122,17 @@ package body Windows.Devices.Radios is
       return RetVal;
    end;
    
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Radios.IAsyncOperation_IRadio is
+   function GetRadiosAsync
+   return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Radios.Radio");
       m_Factory     : IRadioStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Radios.IAsyncOperation_IRadio;
+      RetVal        : aliased Windows.Address;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IRadioStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         Hr := m_Factory.GetRadiosAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

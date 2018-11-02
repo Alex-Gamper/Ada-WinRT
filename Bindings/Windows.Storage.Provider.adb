@@ -215,40 +215,21 @@ package body Windows.Storage.Provider is
       return RetVal;
    end;
    
-   procedure Register
-   (
-      syncRootInformation : Windows.Storage.Provider.IStorageProviderSyncRootInfo
-   )
-   is
+   function GetCurrentSyncRoots
+   return Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderSyncRootManager");
       m_Factory     : IStorageProviderSyncRootManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IStorageProviderSyncRootManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.Register(syncRootInformation);
+         Hr := m_Factory.GetCurrentSyncRoots(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure Unregister
-   (
-      id : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderSyncRootManager");
-      m_Factory     : IStorageProviderSyncRootManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStorageProviderSyncRootManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Unregister(id);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function GetSyncRootInformationForFolder
@@ -291,21 +272,40 @@ package body Windows.Storage.Provider is
       return RetVal;
    end;
    
-   function GetCurrentSyncRoots
-   return Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo is
+   procedure Register
+   (
+      syncRootInformation : Windows.Storage.Provider.IStorageProviderSyncRootInfo
+   )
+   is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderSyncRootManager");
       m_Factory     : IStorageProviderSyncRootManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IStorageProviderSyncRootManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetCurrentSyncRoots(RetVal'Access);
+         Hr := m_Factory.Register(syncRootInformation);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+   end;
+   
+   procedure Unregister
+   (
+      id : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Provider.StorageProviderSyncRootManager");
+      m_Factory     : IStorageProviderSyncRootManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageProviderSyncRootManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Unregister(id);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
 end;

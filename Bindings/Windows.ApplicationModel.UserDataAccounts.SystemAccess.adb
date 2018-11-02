@@ -77,26 +77,6 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function SuppressLocalAccountWithAccountAsync
-   (
-      userDataAccountId : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager");
-      m_Factory     : IUserDataAccountSystemAccessManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountSystemAccessManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SuppressLocalAccountWithAccountAsync(userDataAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateDeviceAccountAsync
    (
       account : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
@@ -151,6 +131,26 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountSystemAccessManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceAccountConfigurationAsync(accountId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SuppressLocalAccountWithAccountAsync
+   (
+      userDataAccountId : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager");
+      m_Factory     : IUserDataAccountSystemAccessManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserDataAccountSystemAccessManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SuppressLocalAccountWithAccountAsync(userDataAccountId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

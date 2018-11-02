@@ -93,6 +93,26 @@ package body Windows.Devices.Spi is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetControllersAsync
+   (
+      provider : Windows.Devices.Spi.Provider.ISpiProvider
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Spi.SpiController");
+      m_Factory     : ISpiControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpiControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetControllersAsync(provider, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefaultAsync
    return Windows.Devices.Spi.IAsyncOperation_ISpiController is
       Hr            : Windows.HRESULT := S_OK;
@@ -110,20 +130,41 @@ package body Windows.Devices.Spi is
       return RetVal;
    end;
    
-   function GetControllersAsync
+   function FromIdAsync
    (
-      provider : Windows.Devices.Spi.Provider.ISpiProvider
+      busId : Windows.String
+      ; settings : Windows.Devices.Spi.ISpiConnectionSettings
    )
-   return Windows.Address is
+   return Windows.Devices.Spi.IAsyncOperation_ISpiDevice is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Spi.SpiController");
-      m_Factory     : ISpiControllerStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Spi.SpiDevice");
+      m_Factory     : ISpiDeviceStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
+      RetVal        : aliased Windows.Devices.Spi.IAsyncOperation_ISpiDevice;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpiControllerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISpiDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetControllersAsync(provider, RetVal'Access);
+         Hr := m_Factory.FromIdAsync(busId, settings, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetBusInfo
+   (
+      busId : Windows.String
+   )
+   return Windows.Devices.Spi.ISpiBusInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Spi.SpiDevice");
+      m_Factory     : ISpiDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Spi.ISpiBusInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpiDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetBusInfo(busId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -161,47 +202,6 @@ package body Windows.Devices.Spi is
       Hr := RoGetActivationFactory(m_hString, IID_ISpiDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorFromFriendlyName(friendlyName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetBusInfo
-   (
-      busId : Windows.String
-   )
-   return Windows.Devices.Spi.ISpiBusInfo is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Spi.SpiDevice");
-      m_Factory     : ISpiDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Spi.ISpiBusInfo;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpiDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetBusInfo(busId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      busId : Windows.String
-      ; settings : Windows.Devices.Spi.ISpiConnectionSettings
-   )
-   return Windows.Devices.Spi.IAsyncOperation_ISpiDevice is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Spi.SpiDevice");
-      m_Factory     : ISpiDeviceStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Spi.IAsyncOperation_ISpiDevice;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpiDeviceStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(busId, settings, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

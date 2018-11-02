@@ -134,27 +134,6 @@ package body Windows.Storage.FileProperties is
       return RetVal;
    end;
    
-   function SetGeotagFromGeolocatorAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; geolocator : Windows.Devices.Geolocation.IGeolocator
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.FileProperties.GeotagHelper");
-      m_Factory     : IGeotagHelperStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGeotagHelperStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetGeotagFromGeolocatorAsync(file, geolocator, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function SetGeotagAsync
    (
       file : Windows.Storage.IStorageFile
@@ -170,6 +149,27 @@ package body Windows.Storage.FileProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IGeotagHelperStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetGeotagAsync(file, geopoint, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SetGeotagFromGeolocatorAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; geolocator : Windows.Devices.Geolocation.IGeolocator
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.FileProperties.GeotagHelper");
+      m_Factory     : IGeotagHelperStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGeotagHelperStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetGeotagFromGeolocatorAsync(file, geolocator, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

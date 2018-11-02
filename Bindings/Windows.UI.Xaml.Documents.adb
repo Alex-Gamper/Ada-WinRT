@@ -962,23 +962,6 @@ package body Windows.UI.Xaml.Documents is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_TextAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Block");
-      m_Factory     : IBlockStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBlockStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TextAlignmentProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_LineHeightProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1024,6 +1007,23 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_IBlockStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MarginProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TextAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Block");
+      m_Factory     : IBlockStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBlockStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextAlignmentProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1102,74 +1102,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_XYFocusLeftProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusLeftProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusRightProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusRightProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusUpProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusDownProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_ElementSoundModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1198,74 +1130,6 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_FocusStateProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusUpNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusUpNavigationStrategyProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusDownNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusDownNavigationStrategyProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusLeftNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusLeftNavigationStrategyProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusRightNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
-      m_Factory     : IContentLinkStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusRightNavigationStrategyProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1306,6 +1170,142 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
+   function get_XYFocusDownNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusDownNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusDownProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusLeftNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusLeftNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusLeftProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusLeftProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusRightNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusRightNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusRightProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusRightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusUpNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusUpNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusUpProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -1327,7 +1327,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_UnicodeStringProperty
+   function get_FillProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
@@ -1337,14 +1337,14 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_UnicodeStringProperty(RetVal'Access);
+         Hr := m_Factory.get_FillProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_IndicesProperty
+   function get_FontRenderingEmSizeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
@@ -1354,7 +1354,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IndicesProperty(RetVal'Access);
+         Hr := m_Factory.get_FontRenderingEmSizeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1378,7 +1378,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_StyleSimulationsProperty
+   function get_IndicesProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
@@ -1388,24 +1388,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_StyleSimulationsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FontRenderingEmSizeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
-      m_Factory     : IGlyphsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FontRenderingEmSizeProperty(RetVal'Access);
+         Hr := m_Factory.get_IndicesProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1446,7 +1429,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_FillProperty
+   function get_StyleSimulationsProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
@@ -1456,24 +1439,24 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FillProperty(RetVal'Access);
+         Hr := m_Factory.get_StyleSimulationsProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_IsColorFontEnabledProperty
+   function get_UnicodeStringProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
-      m_Factory     : IGlyphsStatics2 := null;
+      m_Factory     : IGlyphsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
+         Hr := m_Factory.get_UnicodeStringProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1497,6 +1480,23 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
+   function get_IsColorFontEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
+      m_Factory     : IGlyphsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_FocusStateProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1508,23 +1508,6 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_FocusStateProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusUpNavigationStrategyProperty_IHyperlink
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusUpNavigationStrategyProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1582,6 +1565,57 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
+   function get_XYFocusUpNavigationStrategyProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusUpNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ElementSoundModeProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ElementSoundModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusDownProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_XYFocusLeftProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1627,40 +1661,6 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_XYFocusDownProperty_IHyperlink
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ElementSoundModeProperty_IHyperlink
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ElementSoundModeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1811,7 +1811,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_TextDecorationsProperty
+   function get_AccessKeyScopeOwnerProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
@@ -1821,7 +1821,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics4'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TextDecorationsProperty(RetVal'Access);
+         Hr := m_Factory.get_AccessKeyScopeOwnerProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1845,7 +1845,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_AccessKeyScopeOwnerProperty
+   function get_KeyTipHorizontalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
@@ -1855,7 +1855,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics4'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_AccessKeyScopeOwnerProperty(RetVal'Access);
+         Hr := m_Factory.get_KeyTipHorizontalOffsetProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1879,23 +1879,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_KeyTipHorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
-      m_Factory     : ITextElementStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KeyTipHorizontalOffsetProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_KeyTipVerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1913,7 +1896,24 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_FontSizeProperty
+   function get_TextDecorationsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
+      m_Factory     : ITextElementStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TextDecorationsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CharacterSpacingProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
@@ -1923,7 +1923,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FontSizeProperty(RetVal'Access);
+         Hr := m_Factory.get_CharacterSpacingProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1947,7 +1947,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_FontWeightProperty
+   function get_FontSizeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
@@ -1957,24 +1957,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FontWeightProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_FontStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
-      m_Factory     : ITextElementStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_FontStyleProperty(RetVal'Access);
+         Hr := m_Factory.get_FontSizeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1998,7 +1981,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_CharacterSpacingProperty
+   function get_FontStyleProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
@@ -2008,7 +1991,24 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_CharacterSpacingProperty(RetVal'Access);
+         Hr := m_Factory.get_FontStyleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FontWeightProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
+      m_Factory     : ITextElementStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FontWeightProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2049,23 +2049,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_AllowFocusOnInteractionProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
-      m_Factory     : ITextElementStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AllowFocusOnInteractionProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AccessKeyProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2077,6 +2060,23 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AccessKeyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AllowFocusOnInteractionProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
+      m_Factory     : ITextElementStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AllowFocusOnInteractionProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2117,23 +2117,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_ForegroundProperty_ITextHighlighter
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextHighlighter");
-      m_Factory     : ITextHighlighterStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextHighlighterStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ForegroundProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_BackgroundProperty_ITextHighlighter
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2145,6 +2128,23 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_ITextHighlighterStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_BackgroundProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ForegroundProperty_ITextHighlighter
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextHighlighter");
+      m_Factory     : ITextHighlighterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextHighlighterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ForegroundProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2189,46 +2189,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetAnnotationAlternates
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetAnnotationAlternates(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetAnnotationAlternates
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetAnnotationAlternates(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_EastAsianExpertFormsProperty
+   function get_CapitalSpacingProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
@@ -2238,53 +2199,14 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_EastAsianExpertFormsProperty(RetVal'Access);
+         Hr := m_Factory.get_CapitalSpacingProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetEastAsianExpertForms
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetEastAsianExpertForms(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetEastAsianExpertForms
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetEastAsianExpertForms(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_EastAsianLanguageProperty
+   function get_CapitalsProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
@@ -2294,53 +2216,14 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_EastAsianLanguageProperty(RetVal'Access);
+         Hr := m_Factory.get_CapitalsProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function GetEastAsianLanguage
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontEastAsianLanguage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.FontEastAsianLanguage;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetEastAsianLanguage(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetEastAsianLanguage
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontEastAsianLanguage
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetEastAsianLanguage(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_EastAsianWidthsProperty
+   function get_CaseSensitiveFormsProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
@@ -2350,386 +2233,11 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_EastAsianWidthsProperty(RetVal'Access);
+         Hr := m_Factory.get_CaseSensitiveFormsProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function GetEastAsianWidths
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontEastAsianWidths is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.FontEastAsianWidths;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetEastAsianWidths(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetEastAsianWidths
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontEastAsianWidths
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetEastAsianWidths(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StandardLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StandardLigaturesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStandardLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStandardLigatures(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStandardLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStandardLigatures(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_ContextualLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ContextualLigaturesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetContextualLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetContextualLigatures(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetContextualLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetContextualLigatures(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_DiscretionaryLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DiscretionaryLigaturesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDiscretionaryLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDiscretionaryLigatures(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetDiscretionaryLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetDiscretionaryLigatures(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_HistoricalLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HistoricalLigaturesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetHistoricalLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetHistoricalLigatures(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetHistoricalLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetHistoricalLigatures(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StandardSwashesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StandardSwashesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStandardSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStandardSwashes(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStandardSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStandardSwashes(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_ContextualSwashesProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ContextualSwashesProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetContextualSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetContextualSwashes(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetContextualSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetContextualSwashes(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_ContextualAlternatesProperty
@@ -2749,43 +2257,276 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetContextualAlternates
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
+   function get_ContextualLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetContextualAlternates(element, RetVal'Access);
+         Hr := m_Factory.get_ContextualLigaturesProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure SetContextualAlternates
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
+   function get_ContextualSwashesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetContextualAlternates(element, value);
+         Hr := m_Factory.get_ContextualSwashesProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DiscretionaryLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DiscretionaryLigaturesProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EastAsianExpertFormsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EastAsianExpertFormsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EastAsianLanguageProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EastAsianLanguageProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_EastAsianWidthsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_EastAsianWidthsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FractionProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FractionProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HistoricalFormsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HistoricalFormsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HistoricalLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HistoricalLigaturesProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_KerningProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_KerningProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MathematicalGreekProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MathematicalGreekProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_NumeralAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NumeralAlignmentProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_NumeralStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NumeralStyleProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SlashedZeroProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SlashedZeroProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StandardLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StandardLigaturesProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StandardSwashesProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StandardSwashesProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function get_StylisticAlternatesProperty
@@ -2805,549 +2546,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetStylisticAlternates
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticAlternates(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticAlternates
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticAlternates(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet1Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet1Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet1
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet1(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet1
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet1(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet2Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet2Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet2
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet2(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet2
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet2(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet3Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet3Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet3
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet3(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet3
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet3(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet4Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet4Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet4
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet4(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet4
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet4(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet5Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet5Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet5
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet5(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet5
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet5(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet6Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet6Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet6
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet6(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet6
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet6(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet7Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet7Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet7
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet7(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet7
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet7(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet8Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet8Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet8
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet8(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet8
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet8(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_StylisticSet9Property
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StylisticSet9Property(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStylisticSet9
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet9(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet9
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet9(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_StylisticSet10Property
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3363,45 +2561,6 @@ package body Windows.UI.Xaml.Documents is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function GetStylisticSet10
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet10(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet10
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet10(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_StylisticSet11Property
@@ -3421,45 +2580,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetStylisticSet11
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet11(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet11
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet11(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_StylisticSet12Property
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3475,45 +2595,6 @@ package body Windows.UI.Xaml.Documents is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function GetStylisticSet12
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet12(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet12
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet12(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_StylisticSet13Property
@@ -3533,45 +2614,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetStylisticSet13
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet13(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet13
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet13(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_StylisticSet14Property
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3587,45 +2629,6 @@ package body Windows.UI.Xaml.Documents is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function GetStylisticSet14
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet14(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet14
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet14(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_StylisticSet15Property
@@ -3645,45 +2648,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetStylisticSet15
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet15(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet15
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet15(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_StylisticSet16Property
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3699,45 +2663,6 @@ package body Windows.UI.Xaml.Documents is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function GetStylisticSet16
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet16(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet16
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet16(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_StylisticSet17Property
@@ -3757,45 +2682,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetStylisticSet17
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet17(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet17
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet17(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function get_StylisticSet18Property
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3811,45 +2697,6 @@ package body Windows.UI.Xaml.Documents is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function GetStylisticSet18
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet18(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet18
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet18(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_StylisticSet19Property
@@ -3869,43 +2716,21 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetStylisticSet19
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
+   function get_StylisticSet1Property
+   return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet19(element, RetVal'Access);
+         Hr := m_Factory.get_StylisticSet1Property(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   procedure SetStylisticSet19
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet19(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function get_StylisticSet20Property
@@ -3925,46 +2750,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function GetStylisticSet20
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStylisticSet20(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStylisticSet20
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStylisticSet20(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_CapitalsProperty
+   function get_StylisticSet2Property
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
@@ -3974,7 +2760,163 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_CapitalsProperty(RetVal'Access);
+         Hr := m_Factory.get_StylisticSet2Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StylisticSet3Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StylisticSet3Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StylisticSet4Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StylisticSet4Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StylisticSet5Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StylisticSet5Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StylisticSet6Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StylisticSet6Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StylisticSet7Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StylisticSet7Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StylisticSet8Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StylisticSet8Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StylisticSet9Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StylisticSet9Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VariantsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VariantsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetAnnotationAlternates
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetAnnotationAlternates(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4001,42 +2943,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   procedure SetCapitals
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontCapitals
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetCapitals(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_CapitalSpacingProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CapitalSpacingProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetCapitalSpacing
    (
       element : Windows.UI.Xaml.IDependencyObject
@@ -4051,98 +2957,6 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetCapitalSpacing(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetCapitalSpacing
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetCapitalSpacing(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_KerningProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_KerningProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetKerning
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetKerning(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetKerning
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetKerning(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_CaseSensitiveFormsProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CaseSensitiveFormsProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4169,43 +2983,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   procedure SetCaseSensitiveForms
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetCaseSensitiveForms(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_HistoricalFormsProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HistoricalFormsProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetHistoricalForms
+   function GetContextualAlternates
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
@@ -4218,43 +2996,127 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetHistoricalForms(element, RetVal'Access);
+         Hr := m_Factory.GetContextualAlternates(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure SetHistoricalForms
+   function GetContextualLigatures
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
    )
-   is
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetHistoricalForms(element, value);
+         Hr := m_Factory.GetContextualLigatures(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
-   function get_FractionProperty
-   return Windows.UI.Xaml.IDependencyProperty is
+   function GetContextualSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.Int32;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_FractionProperty(RetVal'Access);
+         Hr := m_Factory.GetContextualSwashes(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDiscretionaryLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDiscretionaryLigatures(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetEastAsianExpertForms
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetEastAsianExpertForms(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetEastAsianLanguage
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontEastAsianLanguage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.FontEastAsianLanguage;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetEastAsianLanguage(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetEastAsianWidths
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontEastAsianWidths is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.FontEastAsianWidths;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetEastAsianWidths(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4281,155 +3143,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   procedure SetFraction
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontFraction
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetFraction(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_NumeralStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_NumeralStyleProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetNumeralStyle
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontNumeralStyle is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.FontNumeralStyle;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetNumeralStyle(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetNumeralStyle
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontNumeralStyle
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetNumeralStyle(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_NumeralAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_NumeralAlignmentProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetNumeralAlignment
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontNumeralAlignment is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.FontNumeralAlignment;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetNumeralAlignment(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetNumeralAlignment
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontNumeralAlignment
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetNumeralAlignment(element, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_SlashedZeroProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
-      m_Factory     : ITypographyStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SlashedZeroProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetSlashedZero
+   function GetHistoricalForms
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
@@ -4442,43 +3156,47 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetSlashedZero(element, RetVal'Access);
+         Hr := m_Factory.GetHistoricalForms(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   procedure SetSlashedZero
+   function GetHistoricalLigatures
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
    )
-   is
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetSlashedZero(element, value);
+         Hr := m_Factory.GetHistoricalLigatures(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
-   function get_MathematicalGreekProperty
-   return Windows.UI.Xaml.IDependencyProperty is
+   function GetKerning
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.Boolean;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_MathematicalGreekProperty(RetVal'Access);
+         Hr := m_Factory.GetKerning(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4505,36 +3223,520 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   procedure SetMathematicalGreek
+   function GetNumeralAlignment
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
    )
-   is
+   return Windows.UI.Xaml.FontNumeralAlignment is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.FontNumeralAlignment;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.SetMathematicalGreek(element, value);
+         Hr := m_Factory.GetNumeralAlignment(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
-   function get_VariantsProperty
-   return Windows.UI.Xaml.IDependencyProperty is
+   function GetNumeralStyle
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontNumeralStyle is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
       m_Factory     : ITypographyStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+      RetVal        : aliased Windows.UI.Xaml.FontNumeralStyle;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_VariantsProperty(RetVal'Access);
+         Hr := m_Factory.GetNumeralStyle(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetSlashedZero
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetSlashedZero(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStandardLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStandardLigatures(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStandardSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStandardSwashes(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticAlternates
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticAlternates(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet1
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet1(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet10
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet10(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet11
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet11(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet12
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet12(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet13
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet13(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet14
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet14(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet15
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet15(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet16
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet16(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet17
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet17(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet18
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet18(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet19
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet19(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet2
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet2(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet20
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet20(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet3
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet3(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet4
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet4(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet5
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet5(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet6
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet6(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet7
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet7(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet8
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet8(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStylisticSet9
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStylisticSet9(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4559,6 +3761,804 @@ package body Windows.UI.Xaml.Documents is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure SetAnnotationAlternates
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetAnnotationAlternates(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetCapitals
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontCapitals
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetCapitals(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetCapitalSpacing
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetCapitalSpacing(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetCaseSensitiveForms
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetCaseSensitiveForms(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetContextualAlternates
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetContextualAlternates(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetContextualLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetContextualLigatures(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetContextualSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetContextualSwashes(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetDiscretionaryLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetDiscretionaryLigatures(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetEastAsianExpertForms
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetEastAsianExpertForms(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetEastAsianLanguage
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontEastAsianLanguage
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetEastAsianLanguage(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetEastAsianWidths
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontEastAsianWidths
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetEastAsianWidths(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetFraction
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontFraction
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetFraction(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetHistoricalForms
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetHistoricalForms(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetHistoricalLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetHistoricalLigatures(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetKerning
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetKerning(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetMathematicalGreek
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetMathematicalGreek(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetNumeralAlignment
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontNumeralAlignment
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetNumeralAlignment(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetNumeralStyle
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontNumeralStyle
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetNumeralStyle(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetSlashedZero
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetSlashedZero(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStandardLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStandardLigatures(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStandardSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStandardSwashes(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticAlternates
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticAlternates(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet1
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet1(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet10
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet10(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet11
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet11(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet12
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet12(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet13
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet13(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet14
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet14(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet15
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet15(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet16
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet16(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet17
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet17(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet18
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet18(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet19
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet19(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet2
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet2(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet20
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet20(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet3
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet3(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet4
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet4(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet5
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet5(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet6
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet6(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet7
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet7(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet8
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet8(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SetStylisticSet9
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Typography");
+      m_Factory     : ITypographyStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITypographyStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStylisticSet9(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    procedure SetVariants

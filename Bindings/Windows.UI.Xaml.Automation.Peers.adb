@@ -1462,23 +1462,6 @@ package body Windows.UI.Xaml.Automation.Peers is
       return RetVal;
    end;
    
-   function get_TypeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation");
-      m_Factory     : IAutomationPeerAnnotationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerAnnotationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TypeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_PeerProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1490,6 +1473,23 @@ package body Windows.UI.Xaml.Automation.Peers is
       Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerAnnotationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PeerProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TypeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation");
+      m_Factory     : IAutomationPeerAnnotationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerAnnotationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TypeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1828,26 +1828,6 @@ package body Windows.UI.Xaml.Automation.Peers is
       return RetVal;
    end;
    
-   function FromElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Automation.Peers.IAutomationPeer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer");
-      m_Factory     : IFrameworkElementAutomationPeerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromElement(element, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreatePeerForElement
    (
       element : Windows.UI.Xaml.IUIElement
@@ -1862,6 +1842,26 @@ package body Windows.UI.Xaml.Automation.Peers is
       Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreatePeerForElement(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Automation.Peers.IAutomationPeer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer");
+      m_Factory     : IFrameworkElementAutomationPeerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromElement(element, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

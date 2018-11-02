@@ -231,6 +231,26 @@ package body Windows.Security.Credentials is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function DeleteAsync
+   (
+      name : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Credentials.KeyCredentialManager");
+      m_Factory     : IKeyCredentialManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyCredentialManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DeleteAsync(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function IsSupportedAsync
    return Windows.Foundation.IAsyncOperation_Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -242,6 +262,26 @@ package body Windows.Security.Credentials is
       Hr := RoGetActivationFactory(m_hString, IID_IKeyCredentialManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsSupportedAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function OpenAsync
+   (
+      name : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Credentials.KeyCredentialManager");
+      m_Factory     : IKeyCredentialManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKeyCredentialManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.OpenAsync(name, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -280,46 +320,6 @@ package body Windows.Security.Credentials is
       Hr := RoGetActivationFactory(m_hString, IID_IKeyCredentialManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestCreateAsync(name, option, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function OpenAsync
-   (
-      name : Windows.String
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Credentials.KeyCredentialManager");
-      m_Factory     : IKeyCredentialManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyCredentialManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.OpenAsync(name, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function DeleteAsync
-   (
-      name : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Security.Credentials.KeyCredentialManager");
-      m_Factory     : IKeyCredentialManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKeyCredentialManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.DeleteAsync(name, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

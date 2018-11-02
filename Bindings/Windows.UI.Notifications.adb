@@ -190,6 +190,26 @@ package body Windows.UI.Notifications is
       return Convert(RetVal);
    end;
    
+   function CreateNotificationDataWithValues
+   (
+      initialValues : Windows.Address
+   )
+   return Windows.UI.Notifications.INotificationData is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.NotificationData");
+      m_Factory     : Windows.UI.Notifications.INotificationDataFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.INotificationData := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INotificationDataFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateNotificationDataWithValues(initialValues, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateNotificationDataWithValuesAndSequenceNumber
    (
       initialValues : Windows.Address
@@ -205,26 +225,6 @@ package body Windows.UI.Notifications is
       Hr := RoGetActivationFactory(m_hString, IID_INotificationDataFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateNotificationDataWithValuesAndSequenceNumber(initialValues, sequenceNumber, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateNotificationDataWithValues
-   (
-      initialValues : Windows.Address
-   )
-   return Windows.UI.Notifications.INotificationData is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.NotificationData");
-      m_Factory     : Windows.UI.Notifications.INotificationDataFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.INotificationData := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INotificationDataFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateNotificationDataWithValues(initialValues, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -484,7 +484,7 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function get_Style
+   function get_Align
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationHints");
@@ -494,24 +494,7 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationHintsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Style(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Wrap
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationHints");
-      m_Factory     : IKnownAdaptiveNotificationHintsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationHintsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Wrap(RetVal'Access);
+         Hr := m_Factory.get_Align(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -552,6 +535,23 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
+   function get_Style
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationHints");
+      m_Factory     : IKnownAdaptiveNotificationHintsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationHintsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Style(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_TextStacking
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -569,7 +569,7 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function get_Align
+   function get_Wrap
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationHints");
@@ -579,41 +579,7 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationHintsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Align(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Caption
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Caption(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Body
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Body(RetVal'Access);
+         Hr := m_Factory.get_Wrap(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -637,7 +603,7 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function get_Subtitle
+   function get_BaseSubtle
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -647,14 +613,14 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Subtitle(RetVal'Access);
+         Hr := m_Factory.get_BaseSubtle(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_Title
+   function get_Body
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -664,109 +630,7 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_Title(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Subheader
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Subheader(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Header
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Header(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TitleNumeral
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TitleNumeral(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SubheaderNumeral
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SubheaderNumeral(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HeaderNumeral
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeaderNumeral(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CaptionSubtle
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
-      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CaptionSubtle(RetVal'Access);
+         Hr := m_Factory.get_Body(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -790,7 +654,7 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function get_BaseSubtle
+   function get_Caption
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -800,14 +664,14 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_BaseSubtle(RetVal'Access);
+         Hr := m_Factory.get_Caption(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_SubtitleSubtle
+   function get_CaptionSubtle
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -817,14 +681,14 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SubtitleSubtle(RetVal'Access);
+         Hr := m_Factory.get_CaptionSubtle(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_TitleSubtle
+   function get_Header
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -834,14 +698,14 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_TitleSubtle(RetVal'Access);
+         Hr := m_Factory.get_Header(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_SubheaderSubtle
+   function get_HeaderNumeral
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -851,14 +715,14 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SubheaderSubtle(RetVal'Access);
+         Hr := m_Factory.get_HeaderNumeral(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_SubheaderNumeralSubtle
+   function get_HeaderNumeralSubtle
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -868,7 +732,7 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_SubheaderNumeralSubtle(RetVal'Access);
+         Hr := m_Factory.get_HeaderNumeralSubtle(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -892,7 +756,7 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function get_HeaderNumeralSubtle
+   function get_Subheader
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
@@ -902,7 +766,143 @@ package body Windows.UI.Notifications is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_HeaderNumeralSubtle(RetVal'Access);
+         Hr := m_Factory.get_Subheader(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SubheaderNumeral
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SubheaderNumeral(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SubheaderNumeralSubtle
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SubheaderNumeralSubtle(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SubheaderSubtle
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SubheaderSubtle(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Subtitle
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Subtitle(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SubtitleSubtle
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SubtitleSubtle(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Title
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Title(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TitleNumeral
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TitleNumeral(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TitleSubtle
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles");
+      m_Factory     : IKnownAdaptiveNotificationTextStylesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownAdaptiveNotificationTextStylesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TitleSubtle(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1117,6 +1117,24 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
+   procedure ConfigureNotificationMirroring
+   (
+      value : Windows.UI.Notifications.NotificationMirroring
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
+      m_Factory     : IToastNotificationManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ConfigureNotificationMirroring(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function GetForUser
    (
       user : Windows.System.IUser
@@ -1135,24 +1153,6 @@ package body Windows.UI.Notifications is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   procedure ConfigureNotificationMirroring
-   (
-      value : Windows.UI.Notifications.NotificationMirroring
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
-      m_Factory     : IToastNotificationManagerStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ConfigureNotificationMirroring(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function CreateToastNotifier

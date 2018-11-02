@@ -569,6 +569,23 @@ package body Windows.Devices.SmartCards is
       return RetVal;
    end;
    
+   function get_MaxAppletIdGroupRegistrations
+   return Windows.UInt16 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardEmulator");
+      m_Factory     : ISmartCardEmulatorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt16;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardEmulatorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxAppletIdGroupRegistrations(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetAppletIdGroupRegistrationsAsync
    return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
@@ -620,23 +637,6 @@ package body Windows.Devices.SmartCards is
       Hr := RoGetActivationFactory(m_hString, IID_ISmartCardEmulatorStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.UnregisterAppletIdGroupAsync(registration, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MaxAppletIdGroupRegistrations
-   return Windows.UInt16 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardEmulator");
-      m_Factory     : ISmartCardEmulatorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt16;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardEmulatorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MaxAppletIdGroupRegistrations(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -807,6 +807,26 @@ package body Windows.Devices.SmartCards is
       return RetVal;
    end;
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardReader");
+      m_Factory     : ISmartCardReaderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardReaderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDeviceSelector
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -838,26 +858,6 @@ package body Windows.Devices.SmartCards is
       Hr := RoGetActivationFactory(m_hString, IID_ISmartCardReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorWithKind(kind, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardReader");
-      m_Factory     : ISmartCardReaderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardReaderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -76,23 +76,6 @@ package body Windows.Services.Cortana is
       return RetVal;
    end;
    
-   function IsSupported
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Cortana.CortanaSettings");
-      m_Factory     : ICortanaSettingsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICortanaSettingsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsSupported(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetDefault
    return Windows.Services.Cortana.ICortanaSettings is
       Hr            : Windows.HRESULT := S_OK;
@@ -104,6 +87,23 @@ package body Windows.Services.Cortana is
       Hr := RoGetActivationFactory(m_hString, IID_ICortanaSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Cortana.CortanaSettings");
+      m_Factory     : ICortanaSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICortanaSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsSupported(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
