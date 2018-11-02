@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
 with Windows; use Windows;
-limited with Windows.Networking.Connectivity;
-with Windows.Foundation;
-limited with Windows.Devices.Sms;
-limited with Windows.Storage.Streams;
 limited with Windows.Data.Xml.Dom;
+limited with Windows.Devices.Sms;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Networking.Connectivity;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Networking.NetworkOperators is
 

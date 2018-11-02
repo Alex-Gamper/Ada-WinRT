@@ -26,15 +26,15 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Security.Credentials;
+with Windows; use Windows;
+limited with Windows.ApplicationModel.Background;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Security.Credentials;
 limited with Windows.Storage;
-with Windows; use Windows;
 limited with Windows.Storage.Streams;
-limited with Windows.Web;
 limited with Windows.UI.Notifications;
-limited with Windows.ApplicationModel.Background;
+limited with Windows.Web;
 --------------------------------------------------------------------------------
 package Windows.Networking.BackgroundTransfer is
 

@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.DataTransfer;
+with Windows.Storage.Streams;
 with Windows.UI;
 with Windows.Web;
 with Windows.Web.Http;
-with Windows.Storage.Streams;
-with Windows.ApplicationModel.DataTransfer;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Web.UI is

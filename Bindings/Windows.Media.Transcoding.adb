@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Media.Core;
-with Windows.Storage.Streams;
 with Windows.Media.MediaProperties;
 with Windows.Storage;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Transcoding is

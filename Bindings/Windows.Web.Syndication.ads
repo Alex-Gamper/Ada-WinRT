@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Data.Xml.Dom;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Data.Xml.Dom;
 limited with Windows.Security.Credentials;
 --------------------------------------------------------------------------------
 package Windows.Web.Syndication is

@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Globalization;
-with Windows.Security.Cryptography.Certificates;
-with Windows.Networking.Sockets;
 with Windows.Devices.Enumeration;
+with Windows.Globalization;
+with Windows.Networking.Sockets;
 with Windows.Security.Credentials;
+with Windows.Security.Cryptography.Certificates;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Devices.AllJoyn is

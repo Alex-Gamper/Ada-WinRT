@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Data.Text;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
 limited with Windows.Storage.FileProperties;
-limited with Windows.Data.Text;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Storage.Search is
 

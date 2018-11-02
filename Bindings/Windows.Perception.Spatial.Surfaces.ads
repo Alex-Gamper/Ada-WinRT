@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Graphics.DirectX;
-limited with Windows.Storage.Streams;
-with Windows.Foundation.Numerics;
 with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+with Windows.Foundation.Numerics;
+limited with Windows.Graphics.DirectX;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Perception.Spatial.Surfaces is
 

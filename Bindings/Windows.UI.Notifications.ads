@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.ApplicationModel;
+limited with Windows.Data.Xml.Dom;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Data.Xml.Dom;
 limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.UI.Notifications is

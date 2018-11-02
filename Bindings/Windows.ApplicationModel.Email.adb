@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.Appointments;
+with Windows.Security.Cryptography.Certificates;
 with Windows.Storage.Streams;
 with Windows.System;
-with Windows.Security.Cryptography.Certificates;
-with Windows.ApplicationModel.Appointments;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.Email is

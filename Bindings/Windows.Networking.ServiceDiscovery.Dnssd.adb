@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Networking;
-with Windows.Networking.Sockets;
 with Windows.Networking.Connectivity;
+with Windows.Networking.Sockets;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Networking.ServiceDiscovery.Dnssd is

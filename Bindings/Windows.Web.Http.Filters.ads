@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Security.Cryptography.Certificates;
-limited with Windows.Networking.Sockets;
 with Windows.Foundation.Collections;
+limited with Windows.Networking.Sockets;
 limited with Windows.Security.Credentials;
+limited with Windows.Security.Cryptography.Certificates;
 --------------------------------------------------------------------------------
 package Windows.Web.Http.Filters is
 

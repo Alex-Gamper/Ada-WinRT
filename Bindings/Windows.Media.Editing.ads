@@ -28,14 +28,14 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Media.MediaProperties;
-limited with Windows.Media.Effects;
-limited with Windows.Storage;
-limited with Windows.Graphics.Imaging;
-limited with Windows.Media.Transcoding;
-limited with Windows.Media.Core;
-limited with Windows.UI;
 limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Graphics.Imaging;
+limited with Windows.Media.Core;
+limited with Windows.Media.Effects;
+limited with Windows.Media.MediaProperties;
+limited with Windows.Media.Transcoding;
+limited with Windows.Storage;
+limited with Windows.UI;
 --------------------------------------------------------------------------------
 package Windows.Media.Editing is
 

@@ -28,8 +28,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Storage;
 limited with Windows.Globalization;
+limited with Windows.Storage;
 --------------------------------------------------------------------------------
 package Windows.Media.SpeechRecognition is
 

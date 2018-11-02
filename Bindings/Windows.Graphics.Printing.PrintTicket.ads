@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.Data.Xml.Dom;
-with Windows.Foundation.Collections;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 --------------------------------------------------------------------------------
 package Windows.Graphics.Printing.PrintTicket is
 

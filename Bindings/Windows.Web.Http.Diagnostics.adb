@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Web.Http;
 with Windows.System.Diagnostics;
+with Windows.Web.Http;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Web.Http.Diagnostics is

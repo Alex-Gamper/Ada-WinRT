@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-with Windows; use Windows;
 limited with Windows.Globalization;
-limited with Windows.Security.Cryptography.Certificates;
 limited with Windows.Networking.Sockets;
-limited with Windows.Devices.Enumeration;
 limited with Windows.Security.Credentials;
+limited with Windows.Security.Cryptography.Certificates;
 --------------------------------------------------------------------------------
 package Windows.Devices.AllJoyn is
 

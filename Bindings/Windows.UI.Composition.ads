@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Numerics;
-limited with Windows.UI.Core;
-limited with Windows.System;
-with Windows.Foundation.Collections;
 with Windows.Foundation;
-limited with Windows.Graphics.DirectX;
+with Windows.Foundation.Collections;
+with Windows.Foundation.Numerics;
 limited with Windows.Graphics;
+limited with Windows.Graphics.DirectX;
 limited with Windows.Graphics.Effects;
+limited with Windows.System;
+limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.UI.Composition is
 

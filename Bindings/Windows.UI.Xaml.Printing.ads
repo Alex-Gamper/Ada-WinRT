@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Graphics.Printing;
 with Windows.Foundation;
+limited with Windows.Graphics.Printing;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Printing is
 

@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.System;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Storage.Streams;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Gaming.XboxLive.Storage is
 

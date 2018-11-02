@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.ApplicationModel.Core;
-limited with Windows.UI.Core;
 limited with Windows.System;
+limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.UI.Input.Core is
 

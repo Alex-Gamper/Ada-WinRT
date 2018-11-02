@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Services.Maps;
 with Windows.Devices.Geolocation;
 with Windows.Globalization;
+with Windows.Services.Maps;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Services.Maps.LocalSearch is

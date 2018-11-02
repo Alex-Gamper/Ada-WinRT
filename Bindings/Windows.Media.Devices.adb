@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage.Streams;
-with Windows.Media.MediaProperties;
 with Windows.Media.Capture;
 with Windows.Media.Devices.Core;
+with Windows.Media.MediaProperties;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Devices is

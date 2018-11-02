@@ -26,15 +26,15 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Perception.Spatial;
-with Windows.Foundation.Numerics;
-with Windows.Foundation;
-limited with Windows.Perception;
 limited with Windows.Devices.Haptics;
-limited with Windows.Storage.Streams;
 limited with Windows.Devices.Power;
-limited with Windows.Perception.People;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
+with Windows.Foundation.Numerics;
+limited with Windows.Perception;
+limited with Windows.Perception.People;
+limited with Windows.Perception.Spatial;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.UI.Input.Spatial is
 

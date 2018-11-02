@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
+limited with Windows.ApplicationModel.Appointments;
+limited with Windows.ApplicationModel.Contacts;
+limited with Windows.ApplicationModel.Email;
+limited with Windows.ApplicationModel.UserDataTasks;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.ApplicationModel.Appointments;
-limited with Windows.ApplicationModel.Email;
-limited with Windows.ApplicationModel.Contacts;
-limited with Windows.ApplicationModel.UserDataTasks;
+limited with Windows.Storage.Streams;
 limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.UserDataAccounts is

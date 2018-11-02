@@ -26,17 +26,17 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
+limited with Windows.ApplicationModel;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
-limited with Windows.ApplicationModel;
-with Windows; use Windows;
-limited with Windows.System.Diagnostics;
-limited with Windows.UI.Popups;
-limited with Windows.Storage.Search;
-limited with Windows.UI.ViewManagement;
 limited with Windows.Storage;
+limited with Windows.Storage.Search;
+limited with Windows.Storage.Streams;
+limited with Windows.System.Diagnostics;
 limited with Windows.System.RemoteSystems;
+limited with Windows.UI.Popups;
+limited with Windows.UI.ViewManagement;
 --------------------------------------------------------------------------------
 package Windows.System is
 

@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Graphics.Imaging;
 with Windows.Storage;
 with Windows.Storage.Streams;
-with Windows.Graphics.Imaging;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.AI.MachineLearning.Preview is

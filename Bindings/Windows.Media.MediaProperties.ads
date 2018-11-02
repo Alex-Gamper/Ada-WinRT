@@ -27,11 +27,11 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows; use Windows;
-with Windows.Foundation.Collections;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Media.Core;
 limited with Windows.Storage;
 limited with Windows.Storage.Streams;
-limited with Windows.Media.Core;
 --------------------------------------------------------------------------------
 package Windows.Media.MediaProperties is
 

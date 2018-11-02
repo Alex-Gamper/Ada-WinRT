@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage;
 with Windows; use Windows;
 with Windows.Foundation;
+limited with Windows.Storage;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Calls.Provider is
 

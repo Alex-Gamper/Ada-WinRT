@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
-limited with Windows.UI.Core;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 with Windows.Foundation.Numerics;
 limited with Windows.Storage.Streams;
+limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.UI.Input.Inking is
 

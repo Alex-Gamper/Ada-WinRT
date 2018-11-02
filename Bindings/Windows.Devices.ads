@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.Devices.Adc.Provider;
-limited with Windows.Devices.Pwm.Provider;
 limited with Windows.Devices.Gpio.Provider;
 limited with Windows.Devices.I2c.Provider;
+limited with Windows.Devices.Pwm.Provider;
 limited with Windows.Devices.Spi.Provider;
 --------------------------------------------------------------------------------
 package Windows.Devices is

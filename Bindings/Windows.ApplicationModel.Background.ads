@@ -26,24 +26,24 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.ApplicationModel.Calls.Background;
-limited with Windows.Devices.SmartCards;
-with Windows.Foundation.Collections;
-limited with Windows.Storage.Provider;
 with Windows; use Windows;
-limited with Windows.System;
 limited with Windows.ApplicationModel.Activation;
-limited with Windows.Devices.Sms;
-limited with Windows.Storage;
-limited with Windows.Devices.Bluetooth.Background;
-limited with Windows.Networking.Sockets;
-limited with Windows.Networking;
-limited with Windows.Devices.Bluetooth.GenericAttributeProfile;
+limited with Windows.ApplicationModel.Calls.Background;
 limited with Windows.Devices.Bluetooth;
 limited with Windows.Devices.Bluetooth.Advertisement;
+limited with Windows.Devices.Bluetooth.Background;
+limited with Windows.Devices.Bluetooth.GenericAttributeProfile;
 limited with Windows.Devices.Geolocation;
 limited with Windows.Devices.Sensors;
+limited with Windows.Devices.SmartCards;
+limited with Windows.Devices.Sms;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Networking;
+limited with Windows.Networking.Sockets;
+limited with Windows.Storage;
+limited with Windows.Storage.Provider;
+limited with Windows.System;
 limited with Windows.UI.Notifications;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Background is

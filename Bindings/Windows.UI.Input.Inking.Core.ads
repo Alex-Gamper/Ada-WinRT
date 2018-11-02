@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.UI.Core;
 with Windows.Foundation.Collections;
-limited with Windows.UI.Composition;
 with Windows.Foundation.Numerics;
+limited with Windows.UI.Composition;
+limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.UI.Input.Inking.Core is
 

@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
 with Windows.Foundation;
-limited with Windows.System.RemoteSystems;
+with Windows.Foundation.Collections;
 limited with Windows.System;
+limited with Windows.System.RemoteSystems;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.AppService is
 

@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.UI.Composition;
 with Windows.UI.Core;
 with Windows.UI.Input.Inking;
-with Windows.UI.Composition;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Input.Inking.Core is

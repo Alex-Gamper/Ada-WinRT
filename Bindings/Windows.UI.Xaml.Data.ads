@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.UI.Xaml.Interop;
-with Windows.Foundation;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Data is
 

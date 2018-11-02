@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI.Xaml.Media;
 limited with Windows.UI.Composition;
+limited with Windows.UI.Xaml.Media;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Shapes is
 

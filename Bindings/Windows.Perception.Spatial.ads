@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-with Windows.Foundation.Numerics;
 with Windows.Foundation.Collections;
+with Windows.Foundation.Numerics;
 limited with Windows.Storage.Streams;
 limited with Windows.System.RemoteSystems;
 --------------------------------------------------------------------------------

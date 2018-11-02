@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.Background;
+with Windows.Storage.Streams;
 with Windows.UI;
 with Windows.UI.Popups;
-with Windows.Storage.Streams;
-with Windows.ApplicationModel.Background;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Devices.Enumeration is

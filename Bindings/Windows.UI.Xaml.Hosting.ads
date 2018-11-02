@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
+with Windows.Foundation;
 limited with Windows.UI.Composition;
 limited with Windows.UI.Xaml.Controls;
-with Windows.Foundation;
-with Windows; use Windows;
 limited with Windows.UI.Xaml.Controls.Primitives;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Hosting is

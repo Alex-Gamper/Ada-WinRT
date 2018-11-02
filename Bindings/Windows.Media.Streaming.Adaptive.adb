@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Web.Http;
 with Windows.Storage.Streams;
+with Windows.Web.Http;
 with Windows.Media.Core;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

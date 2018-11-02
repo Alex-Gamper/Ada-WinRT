@@ -26,17 +26,17 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Devices.Enumeration;
+with Windows.Graphics.DirectX.Direct3D11;
+with Windows.Media;
+with Windows.Media.Audio;
+with Windows.Media.Casting;
+with Windows.Media.Core;
+with Windows.Media.MediaProperties;
 with Windows.Media.Protection;
 with Windows.Storage;
 with Windows.Storage.Streams;
-with Windows.Media.Core;
-with Windows.Media;
-with Windows.Devices.Enumeration;
-with Windows.Media.Casting;
 with Windows.UI.Composition;
-with Windows.Graphics.DirectX.Direct3D11;
-with Windows.Media.Audio;
-with Windows.Media.MediaProperties;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Playback is

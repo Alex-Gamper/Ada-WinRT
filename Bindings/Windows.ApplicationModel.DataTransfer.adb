@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Security.EnterpriseData;
+with Windows.Storage;
 with Windows.Storage.Streams;
 with Windows.UI;
-with Windows.Storage;
-with Windows.Security.EnterpriseData;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.DataTransfer is

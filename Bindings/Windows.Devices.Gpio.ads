@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Devices.Gpio.Provider;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Devices.Gpio.Provider;
 --------------------------------------------------------------------------------
 package Windows.Devices.Gpio is
 

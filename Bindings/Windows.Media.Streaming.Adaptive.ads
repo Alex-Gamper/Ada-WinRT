@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Web.Http;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Storage.Streams;
+limited with Windows.Web.Http;
 limited with Windows.Media.Core;
 --------------------------------------------------------------------------------
 package Windows.Media.Streaming.Adaptive is

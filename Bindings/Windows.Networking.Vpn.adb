@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Networking;
+with Windows.Networking.Sockets;
 with Windows.Security.Credentials;
 with Windows.Security.Cryptography.Certificates;
 with Windows.Storage.Streams;
-with Windows.Networking.Sockets;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Networking.Vpn is

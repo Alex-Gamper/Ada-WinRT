@@ -26,16 +26,16 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Media.Render;
-with Windows.Media.Devices;
-with Windows.Media.Capture;
-with Windows.Media;
-with Windows.Media.MediaProperties;
 with Windows.Devices.Enumeration;
-with Windows.Storage;
+with Windows.Media;
+with Windows.Media.Capture;
 with Windows.Media.Core;
+with Windows.Media.Devices;
 with Windows.Media.Effects;
+with Windows.Media.MediaProperties;
+with Windows.Media.Render;
 with Windows.Media.Transcoding;
+with Windows.Storage;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Audio is

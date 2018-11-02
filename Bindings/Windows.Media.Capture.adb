@@ -26,18 +26,18 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage;
-with Windows.Media.MediaProperties;
-with Windows.Storage.Streams;
-with Windows.Media;
-with Windows.Media.Devices;
-with Windows.Media.Capture.Core;
-with Windows.Media.Effects;
-with Windows.Media.Capture.Frames;
-with Windows.Graphics.Imaging;
-with Windows.Media.Core;
 with Windows.Graphics.DirectX.Direct3D11;
+with Windows.Graphics.Imaging;
+with Windows.Media;
+with Windows.Media.Capture.Core;
+with Windows.Media.Capture.Frames;
+with Windows.Media.Core;
+with Windows.Media.Devices;
+with Windows.Media.Effects;
+with Windows.Media.MediaProperties;
 with Windows.Security.Authentication.Web;
+with Windows.Storage;
+with Windows.Storage.Streams;
 with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

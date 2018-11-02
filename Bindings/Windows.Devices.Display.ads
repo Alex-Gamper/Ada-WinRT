@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Graphics;
 with Windows.Foundation;
+limited with Windows.Graphics;
 --------------------------------------------------------------------------------
 package Windows.Devices.Display is
 

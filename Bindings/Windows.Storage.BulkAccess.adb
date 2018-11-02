@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Storage;
 with Windows.Storage.FileProperties;
 with Windows.Storage.Search;
 with Windows.Storage.Streams;
-with Windows.Storage;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Storage.BulkAccess is

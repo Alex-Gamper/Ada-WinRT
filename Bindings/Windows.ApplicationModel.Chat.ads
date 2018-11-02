@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Media.MediaProperties;
 with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
+limited with Windows.Media.MediaProperties;
 limited with Windows.Security.Credentials;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Chat is
 

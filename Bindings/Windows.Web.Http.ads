@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Networking.Sockets;
+limited with Windows.Security.Cryptography.Certificates;
+limited with Windows.Storage.Streams;
 limited with Windows.Web.Http.Filters;
 limited with Windows.Web.Http.Headers;
-with Windows.Foundation.Collections;
-with Windows.Foundation;
-limited with Windows.Storage.Streams;
-limited with Windows.Security.Cryptography.Certificates;
-limited with Windows.Networking.Sockets;
 --------------------------------------------------------------------------------
 package Windows.Web.Http is
 

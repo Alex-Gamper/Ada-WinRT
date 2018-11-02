@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel;
+with Windows.ApplicationModel.Activation;
 with Windows.System;
 with Windows.UI.Core;
-with Windows.ApplicationModel.Activation;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.Core is

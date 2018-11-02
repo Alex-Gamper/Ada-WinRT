@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Devices.I2c.Provider;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Devices.I2c.Provider;
 --------------------------------------------------------------------------------
 package Windows.Devices.I2c is
 

@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.ApplicationModel.Appointments;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Security.Cryptography.Certificates;
 limited with Windows.Storage.Streams;
 limited with Windows.System;
-limited with Windows.Security.Cryptography.Certificates;
-limited with Windows.ApplicationModel.Appointments;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Email is
 

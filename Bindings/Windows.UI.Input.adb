@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI.Core;
-with Windows.Devices.Input;
 with Windows.Devices.Haptics;
+with Windows.Devices.Input;
 with Windows.Storage.Streams;
+with Windows.UI.Core;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Input is

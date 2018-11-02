@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage.Streams;
+with Windows.Data.Text;
 with Windows.Storage;
 with Windows.Storage.FileProperties;
-with Windows.Data.Text;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Storage.Search is

@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
-with Windows.Foundation;
 with Windows; use Windows;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Devices.Usb is
 

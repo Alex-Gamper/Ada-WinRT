@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI;
-with Windows.UI.Popups;
+with Windows.ApplicationModel.Core;
 with Windows.Perception.Spatial;
 with Windows.System;
-with Windows.ApplicationModel.Core;
+with Windows.UI;
+with Windows.UI.Popups;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.StartScreen is

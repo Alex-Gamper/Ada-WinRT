@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.UI;
-limited with Windows.UI.Shell;
 with Windows.Foundation.Collections;
 limited with Windows.Security.Credentials;
+limited with Windows.UI;
+limited with Windows.UI.Shell;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.UserActivities is
 

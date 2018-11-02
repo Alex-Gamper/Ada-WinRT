@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.UI.Core;
-limited with Windows.Devices.Input;
-with Windows.Foundation.Collections;
 limited with Windows.Devices.Haptics;
+limited with Windows.Devices.Input;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.Storage.Streams;
+limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.UI.Input is
 

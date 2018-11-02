@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Media.MediaProperties;
-with Windows.Foundation.Collections;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 with Windows.Foundation.Numerics;
+limited with Windows.Media.MediaProperties;
 limited with Windows.Perception.Spatial;
 --------------------------------------------------------------------------------
 package Windows.Media.Devices.Core is

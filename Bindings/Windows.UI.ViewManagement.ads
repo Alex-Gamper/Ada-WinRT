@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 limited with Windows.UI.Core;
-limited with Windows.Devices.Enumeration;
 limited with Windows.UI.Popups;
 --------------------------------------------------------------------------------
 package Windows.UI.ViewManagement is

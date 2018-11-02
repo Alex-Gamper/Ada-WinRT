@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI;
 with Windows.Devices.Geolocation;
 with Windows.Services.Maps;
+with Windows.UI;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Services.Maps.Guidance is

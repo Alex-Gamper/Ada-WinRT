@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage;
-with Windows.Media.SpeechRecognition;
-with Windows.Globalization;
 with Windows.ApplicationModel.AppService;
+with Windows.Globalization;
+with Windows.Media.SpeechRecognition;
+with Windows.Storage;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.VoiceCommands is

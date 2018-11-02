@@ -26,29 +26,29 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Devices.Printers.Extensions;
-limited with Windows.ApplicationModel.Calls;
-limited with Windows.UI.ViewManagement;
-limited with Windows.ApplicationModel.Contacts.Provider;
-limited with Windows.ApplicationModel.Contacts;
-limited with Windows.ApplicationModel.Wallet;
 limited with Windows.ApplicationModel.Appointments.AppointmentsProvider;
-limited with Windows.System;
-with Windows.Foundation;
 limited with Windows.ApplicationModel.Background;
+limited with Windows.ApplicationModel.Calls;
+limited with Windows.ApplicationModel.Contacts;
+limited with Windows.ApplicationModel.Contacts.Provider;
 limited with Windows.ApplicationModel.DataTransfer.ShareTarget;
-limited with Windows.ApplicationModel.UserDataAccounts.Provider;
-with Windows.Foundation.Collections;
-limited with Windows.UI.Notifications;
 limited with Windows.ApplicationModel.Search;
-limited with Windows.Storage;
-limited with Windows.Storage.Search;
-limited with Windows.Storage.Pickers.Provider;
-limited with Windows.Storage.Provider;
+limited with Windows.ApplicationModel.UserDataAccounts.Provider;
+limited with Windows.ApplicationModel.Wallet;
+limited with Windows.Devices.Enumeration;
+limited with Windows.Devices.Printers.Extensions;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Media.SpeechRecognition;
 limited with Windows.Security.Authentication.Web;
 limited with Windows.Security.Authentication.Web.Provider;
-limited with Windows.Devices.Enumeration;
-limited with Windows.Media.SpeechRecognition;
+limited with Windows.Storage;
+limited with Windows.Storage.Pickers.Provider;
+limited with Windows.Storage.Provider;
+limited with Windows.Storage.Search;
+limited with Windows.System;
+limited with Windows.UI.Notifications;
+limited with Windows.UI.ViewManagement;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Activation is
 

@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI.ViewManagement;
-with Windows.UI.Popups;
+with Windows.Data.Text;
 with Windows.Storage.Streams;
 with Windows.System;
-with Windows.Data.Text;
 with Windows.UI;
+with Windows.UI.Popups;
+with Windows.UI.ViewManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.Contacts is

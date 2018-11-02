@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-with Windows; use Windows;
 limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Networking.Connectivity is

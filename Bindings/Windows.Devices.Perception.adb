@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Devices.Enumeration;
-with Windows.Media.Devices.Core;
 with Windows.Graphics.Imaging;
 with Windows.Media;
+with Windows.Media.Devices.Core;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Devices.Perception is

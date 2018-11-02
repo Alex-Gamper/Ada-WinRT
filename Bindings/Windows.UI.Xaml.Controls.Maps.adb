@@ -27,11 +27,11 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Devices.Geolocation;
-with Windows.Storage.Streams;
-with Windows.UI.Xaml;
-with Windows.UI;
 with Windows.Services.Maps;
 with Windows.Services.Maps.LocalSearch;
+with Windows.Storage.Streams;
+with Windows.UI;
+with Windows.UI.Xaml;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml.Controls.Maps is

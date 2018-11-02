@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.System;
 limited with Windows.UI.Input;
-with Windows.Foundation.Collections;
 limited with Windows.UI.Popups;
 --------------------------------------------------------------------------------
 package Windows.UI.Core is

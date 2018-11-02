@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI.Xaml.Interop;
 with Windows.Foundation;
+limited with Windows.UI.Xaml.Interop;
 limited with Windows.UI.Xaml.Media.Animation;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Navigation is

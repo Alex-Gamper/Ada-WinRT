@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Numerics;
 with Windows.Foundation;
+with Windows.Foundation.Numerics;
 package Windows.Gaming.Input.ForceFeedback is
 
    pragma preelaborate;

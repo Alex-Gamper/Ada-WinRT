@@ -28,8 +28,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Graphics.Imaging;
 limited with Windows.Globalization;
+limited with Windows.Graphics.Imaging;
 --------------------------------------------------------------------------------
 package Windows.Media.Ocr is
 

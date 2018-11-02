@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Storage;
 with Windows.Foundation.Collections;
+limited with Windows.Storage;
 --------------------------------------------------------------------------------
 package Windows.Media.AppRecording is
 

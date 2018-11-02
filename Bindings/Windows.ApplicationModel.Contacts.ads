@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
-limited with Windows.UI.ViewManagement;
+limited with Windows.Data.Text;
 with Windows.Foundation;
-limited with Windows.UI.Popups;
+with Windows.Foundation.Collections;
 limited with Windows.Storage.Streams;
 limited with Windows.System;
-limited with Windows.Data.Text;
 limited with Windows.UI;
+limited with Windows.UI.Popups;
+limited with Windows.UI.ViewManagement;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Contacts is
 

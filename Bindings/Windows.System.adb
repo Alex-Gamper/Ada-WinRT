@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage.Streams;
 with Windows.ApplicationModel;
-with Windows.System.Diagnostics;
-with Windows.UI.Popups;
-with Windows.Storage.Search;
-with Windows.UI.ViewManagement;
 with Windows.Storage;
+with Windows.Storage.Search;
+with Windows.Storage.Streams;
+with Windows.System.Diagnostics;
 with Windows.System.RemoteSystems;
+with Windows.UI.Popups;
+with Windows.UI.ViewManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.System is

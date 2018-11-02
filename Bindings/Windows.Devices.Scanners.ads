@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Graphics.Printing;
 with Windows.Foundation.Collections;
+limited with Windows.Graphics.Printing;
 limited with Windows.Storage;
 limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------

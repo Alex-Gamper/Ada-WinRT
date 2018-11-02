@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage.Streams;
+with Windows.ApplicationModel.Background;
 with Windows.Networking;
 with Windows.Networking.Connectivity;
-with Windows.Security.Cryptography.Certificates;
 with Windows.Security.Credentials;
+with Windows.Security.Cryptography.Certificates;
+with Windows.Storage.Streams;
 with Windows.Web;
-with Windows.ApplicationModel.Background;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Networking.Sockets is

@@ -26,16 +26,16 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Media.Capture;
 with Windows.Devices.Enumeration;
-with Windows.Perception.Spatial;
-with Windows.Media.Devices.Core;
-with Windows.Media.Devices;
-with Windows.Media.MediaProperties;
-with Windows.Storage.Streams;
-with Windows.Graphics.Imaging;
 with Windows.Graphics.DirectX.Direct3D11;
+with Windows.Graphics.Imaging;
 with Windows.Media;
+with Windows.Media.Capture;
+with Windows.Media.Devices;
+with Windows.Media.Devices.Core;
+with Windows.Media.MediaProperties;
+with Windows.Perception.Spatial;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Capture.Frames is

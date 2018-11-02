@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Graphics.Imaging;
-with Windows.Graphics.DirectX.Direct3D11;
-with Windows.Graphics.DirectX;
-with Windows.Storage.Streams;
-with Windows.Storage;
 with Windows.ApplicationModel.AppService;
+with Windows.Graphics.DirectX;
+with Windows.Graphics.DirectX.Direct3D11;
+with Windows.Graphics.Imaging;
+with Windows.Storage;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media is

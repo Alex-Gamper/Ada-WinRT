@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel.Core;
-with Windows.UI.Input;
-with Windows.UI.Core;
 with Windows.System;
+with Windows.UI.Core;
+with Windows.UI.Input;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Input.Core is

@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 with Windows.Foundation;
 limited with Windows.Storage.Streams;
-with Windows; use Windows;
 --------------------------------------------------------------------------------
 package Windows.Gaming.Input.Custom is
 

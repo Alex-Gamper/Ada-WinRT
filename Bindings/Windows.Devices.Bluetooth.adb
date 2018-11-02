@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Devices.Bluetooth.GenericAttributeProfile;
+with Windows.Devices.Bluetooth.Rfcomm;
+with Windows.Devices.Enumeration;
 with Windows.Devices.Radios;
 with Windows.Networking;
 with Windows.Storage.Streams;
-with Windows.Devices.Bluetooth.Rfcomm;
-with Windows.Devices.Enumeration;
-with Windows.Devices.Bluetooth.GenericAttributeProfile;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Devices.Bluetooth is

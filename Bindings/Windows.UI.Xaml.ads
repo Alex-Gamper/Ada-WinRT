@@ -26,27 +26,27 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI.Xaml.Controls;
-with Windows.Foundation;
-limited with Windows.UI.Core;
-limited with Windows.UI.Xaml.Interop;
 limited with Windows.ApplicationModel;
-limited with Windows.UI.Xaml.Media.Imaging;
-limited with Windows.Graphics.Imaging;
+limited with Windows.ApplicationModel.Activation;
 limited with Windows.ApplicationModel.Core;
 limited with Windows.ApplicationModel.DataTransfer;
 limited with Windows.ApplicationModel.DataTransfer.DragDrop;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.UI.Xaml.Media;
-limited with Windows.UI.Xaml.Media.Animation;
-limited with Windows.UI.Xaml.Input;
-limited with Windows.UI.Xaml.Automation.Peers;
-limited with Windows.UI.Xaml.Media.Media3D;
+limited with Windows.Graphics.Imaging;
+limited with Windows.UI.Composition;
+limited with Windows.UI.Core;
 limited with Windows.UI.Input;
+limited with Windows.UI.Xaml.Automation.Peers;
+limited with Windows.UI.Xaml.Controls;
 limited with Windows.UI.Xaml.Controls.Primitives;
 limited with Windows.UI.Xaml.Data;
-limited with Windows.ApplicationModel.Activation;
-limited with Windows.UI.Composition;
+limited with Windows.UI.Xaml.Input;
+limited with Windows.UI.Xaml.Interop;
+limited with Windows.UI.Xaml.Media;
+limited with Windows.UI.Xaml.Media.Animation;
+limited with Windows.UI.Xaml.Media.Imaging;
+limited with Windows.UI.Xaml.Media.Media3D;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml is
 

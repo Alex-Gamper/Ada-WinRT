@@ -28,12 +28,12 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Graphics.DirectX.Direct3D11;
-limited with Windows.UI.Core;
-limited with Windows.Perception.Spatial;
-limited with Windows.Perception;
 with Windows.Foundation.Numerics;
 limited with Windows.Graphics.DirectX;
+limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Perception;
+limited with Windows.Perception.Spatial;
+limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.Graphics.Holographic is
 

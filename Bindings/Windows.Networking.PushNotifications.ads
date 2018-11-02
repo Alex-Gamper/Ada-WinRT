@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.System;
-limited with Windows.Storage.Streams;
-limited with Windows.UI.Notifications;
 with Windows.Foundation.Collections;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
+limited with Windows.UI.Notifications;
 --------------------------------------------------------------------------------
 package Windows.Networking.PushNotifications is
 

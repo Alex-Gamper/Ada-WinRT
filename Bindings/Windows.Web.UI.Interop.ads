@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.ApplicationModel.DataTransfer;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.UI;
-limited with Windows.Web.Http;
 limited with Windows.Storage.Streams;
-limited with Windows.ApplicationModel.DataTransfer;
-limited with Windows.UI.Core;
 limited with Windows.System;
+limited with Windows.UI;
+limited with Windows.UI.Core;
+limited with Windows.Web.Http;
 --------------------------------------------------------------------------------
 package Windows.Web.UI.Interop is
 

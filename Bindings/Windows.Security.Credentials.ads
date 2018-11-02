@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Storage.Streams;
-limited with Windows.Security.Cryptography.Core;
-limited with Windows.System;
 with Windows.Foundation.Collections;
+limited with Windows.Security.Cryptography.Core;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Security.Credentials is
 

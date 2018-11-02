@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
-with Windows.Foundation;
-limited with Windows.Web.Http;
 with Windows; use Windows;
-limited with Windows.System;
 limited with Windows.ApplicationModel;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.System;
+limited with Windows.Web.Http;
 --------------------------------------------------------------------------------
 package Windows.Services.Store is
 

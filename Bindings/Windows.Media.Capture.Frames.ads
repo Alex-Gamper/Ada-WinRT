@@ -26,17 +26,17 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Devices.Enumeration;
-with Windows.Foundation.Collections;
 with Windows; use Windows;
-limited with Windows.Perception.Spatial;
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
-limited with Windows.Media.Devices.Core;
-limited with Windows.Media.Devices;
-limited with Windows.Media.MediaProperties;
-limited with Windows.Storage.Streams;
-limited with Windows.Graphics.Imaging;
+with Windows.Foundation.Collections;
 limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Graphics.Imaging;
+limited with Windows.Media.Devices;
+limited with Windows.Media.Devices.Core;
+limited with Windows.Media.MediaProperties;
+limited with Windows.Perception.Spatial;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Media.Capture.Frames is
 

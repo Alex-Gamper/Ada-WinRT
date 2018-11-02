@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI.Xaml.Media;
-with Windows.UI.Xaml;
 with Windows.UI.Composition;
+with Windows.UI.Xaml;
+with Windows.UI.Xaml.Media;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml.Shapes is

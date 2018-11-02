@@ -28,10 +28,10 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.UI.Xaml.Controls.Primitives;
 limited with Windows.Media.Playback;
 limited with Windows.Storage.Streams;
 limited with Windows.UI.Composition;
+limited with Windows.UI.Xaml.Controls.Primitives;
 limited with Windows.UI.Xaml.Media.Media3D;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Media is

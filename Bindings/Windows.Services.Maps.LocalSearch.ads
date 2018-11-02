@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.Devices.Geolocation;
-with Windows.Foundation.Collections;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.Globalization;
 --------------------------------------------------------------------------------
 package Windows.Services.Maps.LocalSearch is

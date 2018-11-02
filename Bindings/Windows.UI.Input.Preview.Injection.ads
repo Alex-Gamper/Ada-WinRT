@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Gaming.Input;
 with Windows.Foundation.Collections;
+limited with Windows.Gaming.Input;
 --------------------------------------------------------------------------------
 package Windows.UI.Input.Preview.Injection is
 

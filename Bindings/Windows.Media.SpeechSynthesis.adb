@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Media;
-with Windows.Storage.Streams;
 with Windows.Media.Core;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.SpeechSynthesis is

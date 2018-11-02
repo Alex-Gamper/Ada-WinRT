@@ -26,21 +26,21 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.ApplicationModel.Calls.Background;
-with Windows.Devices.SmartCards;
-with Windows.Storage.Provider;
-with Windows.System;
 with Windows.ApplicationModel.Activation;
-with Windows.Devices.Sms;
-with Windows.Storage;
-with Windows.Devices.Bluetooth.Background;
-with Windows.Networking.Sockets;
-with Windows.Networking;
-with Windows.Devices.Bluetooth.GenericAttributeProfile;
+with Windows.ApplicationModel.Calls.Background;
 with Windows.Devices.Bluetooth;
 with Windows.Devices.Bluetooth.Advertisement;
+with Windows.Devices.Bluetooth.Background;
+with Windows.Devices.Bluetooth.GenericAttributeProfile;
 with Windows.Devices.Geolocation;
 with Windows.Devices.Sensors;
+with Windows.Devices.SmartCards;
+with Windows.Devices.Sms;
+with Windows.Networking;
+with Windows.Networking.Sockets;
+with Windows.Storage;
+with Windows.Storage.Provider;
+with Windows.System;
 with Windows.UI.Notifications;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

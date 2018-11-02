@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Networking;
-limited with Windows.Networking.Sockets;
+with Windows; use Windows;
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Networking;
+limited with Windows.Networking.Sockets;
 limited with Windows.Storage.Streams;
-limited with Windows.Devices.Enumeration;
-with Windows; use Windows;
 --------------------------------------------------------------------------------
 package Windows.Devices.Bluetooth.Rfcomm is
 

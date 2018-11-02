@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Devices.Geolocation;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.Storage.Streams;
 limited with Windows.UI;
-with Windows.Foundation.Collections;
-limited with Windows.Devices.Geolocation;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Wallet is
 

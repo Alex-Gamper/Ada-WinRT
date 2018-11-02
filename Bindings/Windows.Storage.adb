@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.System;
 with Windows.Storage.FileProperties;
+with Windows.Storage.Provider;
 with Windows.Storage.Search;
 with Windows.Storage.Streams;
-with Windows.Storage.Provider;
+with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Storage is

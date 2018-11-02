@@ -26,25 +26,25 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.Storage.Streams;
-with Windows.Foundation.Collections;
-limited with Windows.Graphics.Imaging;
-limited with Windows.UI;
-limited with Windows.Media.MediaProperties;
-limited with Windows.Media.Protection;
-limited with Windows.Storage.FileProperties;
 with Windows; use Windows;
 limited with Windows.ApplicationModel.AppService;
-limited with Windows.Media.Devices.Core;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Graphics.Imaging;
 limited with Windows.Media.Capture;
-limited with Windows.Media.FaceAnalysis;
-limited with Windows.Media.Devices;
-limited with Windows.Media.Streaming.Adaptive;
-limited with Windows.Storage;
-limited with Windows.Networking.BackgroundTransfer;
 limited with Windows.Media.Capture.Frames;
+limited with Windows.Media.Devices;
+limited with Windows.Media.Devices.Core;
+limited with Windows.Media.FaceAnalysis;
+limited with Windows.Media.MediaProperties;
 limited with Windows.Media.Playback;
+limited with Windows.Media.Protection;
+limited with Windows.Media.Streaming.Adaptive;
+limited with Windows.Networking.BackgroundTransfer;
+limited with Windows.Storage;
+limited with Windows.Storage.FileProperties;
+limited with Windows.Storage.Streams;
+limited with Windows.UI;
 limited with Windows.Media.Effects;
 --------------------------------------------------------------------------------
 package Windows.Media.Core is

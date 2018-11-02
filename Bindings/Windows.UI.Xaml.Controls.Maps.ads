@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
 limited with Windows.Devices.Geolocation;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
-limited with Windows.Services.Maps;
 with Windows.Foundation.Numerics;
+limited with Windows.Services.Maps;
 limited with Windows.Services.Maps.LocalSearch;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Controls.Maps is
 

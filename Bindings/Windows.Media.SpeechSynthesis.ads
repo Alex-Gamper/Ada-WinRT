@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
 with Windows.Foundation;
-limited with Windows.Storage.Streams;
+with Windows.Foundation.Collections;
 limited with Windows.Media.Core;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Media.SpeechSynthesis is
 

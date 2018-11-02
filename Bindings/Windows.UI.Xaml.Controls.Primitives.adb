@@ -27,12 +27,12 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.UI;
-with Windows.UI.Xaml.Controls;
 with Windows.UI.Xaml;
-with Windows.UI.Xaml.Media;
-with Windows.UI.Xaml.Media.Animation;
+with Windows.UI.Xaml.Controls;
 with Windows.UI.Xaml.Input;
 with Windows.UI.Xaml.Interop;
+with Windows.UI.Xaml.Media;
+with Windows.UI.Xaml.Media.Animation;
 with Windows.UI.Xaml.Data;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

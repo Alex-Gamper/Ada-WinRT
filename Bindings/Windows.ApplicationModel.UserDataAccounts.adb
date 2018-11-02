@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage.Streams;
 with Windows.ApplicationModel.Appointments;
-with Windows.ApplicationModel.Email;
 with Windows.ApplicationModel.Contacts;
+with Windows.ApplicationModel.Email;
 with Windows.ApplicationModel.UserDataTasks;
+with Windows.Storage.Streams;
 with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

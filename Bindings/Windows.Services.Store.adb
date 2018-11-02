@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Web.Http;
-with Windows.System;
 with Windows.ApplicationModel;
+with Windows.System;
+with Windows.Web.Http;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Services.Store is

@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.Graphics.Imaging;
 limited with Windows.Storage.Streams;
-with Windows.Foundation.Collections;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.SocialInfo is
 

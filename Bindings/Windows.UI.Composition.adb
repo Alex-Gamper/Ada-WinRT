@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Graphics;
+with Windows.Graphics.DirectX;
+with Windows.Graphics.Effects;
+with Windows.System;
 with Windows.UI;
 with Windows.UI.Core;
-with Windows.System;
-with Windows.Graphics.DirectX;
-with Windows.Graphics;
-with Windows.Graphics.Effects;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Composition is

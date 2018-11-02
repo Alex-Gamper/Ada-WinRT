@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI.Xaml.Automation.Text;
 with Windows.Foundation;
 limited with Windows.UI.Xaml.Automation.Peers;
+limited with Windows.UI.Xaml.Automation.Text;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Automation.Provider is
 

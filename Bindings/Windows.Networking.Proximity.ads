@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
 with Windows.Foundation;
-limited with Windows.Networking.Sockets;
 with Windows.Foundation.Collections;
+limited with Windows.Networking.Sockets;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Networking.Proximity is
 

@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
-limited with Windows.System;
-limited with Windows.Storage;
-limited with Windows.ApplicationModel.Core;
 with Windows; use Windows;
 limited with Windows.ApplicationModel.Activation;
+limited with Windows.ApplicationModel.Core;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Storage;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel is
 

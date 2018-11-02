@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.ApplicationModel.Activation;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.System;
 limited with Windows.UI.Core;
-limited with Windows.ApplicationModel.Activation;
-with Windows.Foundation.Collections;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Core is
 

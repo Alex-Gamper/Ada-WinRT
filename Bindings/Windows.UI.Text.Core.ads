@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.Globalization;
 limited with Windows.UI.ViewManagement;
-with Windows.Foundation.Collections;
 --------------------------------------------------------------------------------
 package Windows.UI.Text.Core is
 

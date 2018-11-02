@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows; use Windows;
+limited with Windows.ApplicationModel;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.ApplicationModel;
 --------------------------------------------------------------------------------
 package Windows.Management.Deployment is
 

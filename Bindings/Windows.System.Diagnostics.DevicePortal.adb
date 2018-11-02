@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Web.Http;
 with Windows.ApplicationModel.AppService;
 with Windows.Networking.Sockets;
+with Windows.Web.Http;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.System.Diagnostics.DevicePortal is

@@ -28,8 +28,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Networking.Sockets;
 limited with Windows.Networking.Connectivity;
+limited with Windows.Networking.Sockets;
 --------------------------------------------------------------------------------
 package Windows.Networking.ServiceDiscovery.Dnssd is
 

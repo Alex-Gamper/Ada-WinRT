@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Media.Playback;
-with Windows; use Windows;
 --------------------------------------------------------------------------------
 package Windows.Media.Protection is
 

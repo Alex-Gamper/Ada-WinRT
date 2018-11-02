@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.UI;
 with Windows; use Windows;
-limited with Windows.Storage.Streams;
+with Windows.Foundation;
 limited with Windows.Storage;
+limited with Windows.Storage.Streams;
+limited with Windows.UI;
 --------------------------------------------------------------------------------
 package Windows.Data.Pdf is
 

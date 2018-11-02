@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 limited with Windows.Storage.Streams;
-limited with Windows.Devices.Enumeration;
 --------------------------------------------------------------------------------
 package Windows.Devices.Midi is
 

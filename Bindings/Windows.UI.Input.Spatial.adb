@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Perception.Spatial;
-with Windows.Perception;
 with Windows.Devices.Haptics;
-with Windows.Storage.Streams;
 with Windows.Devices.Power;
+with Windows.Perception;
 with Windows.Perception.People;
+with Windows.Perception.Spatial;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Input.Spatial is

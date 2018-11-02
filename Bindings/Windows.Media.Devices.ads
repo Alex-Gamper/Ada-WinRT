@@ -27,11 +27,11 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Storage.Streams;
 with Windows.Foundation.Collections;
-limited with Windows.Media.MediaProperties;
 limited with Windows.Media.Capture;
 limited with Windows.Media.Devices.Core;
+limited with Windows.Media.MediaProperties;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Media.Devices is
 

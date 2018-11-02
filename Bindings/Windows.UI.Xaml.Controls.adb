@@ -26,34 +26,34 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI;
-with Windows.UI.Xaml;
-with Windows.UI.Xaml.Media;
 with Windows.ApplicationModel.Contacts;
-with Windows.UI.Xaml.Input;
 with Windows.ApplicationModel.DataTransfer;
-with Windows.UI.Xaml.Controls.Primitives;
-with Windows.UI.Xaml.Interop;
-with Windows.UI.Xaml.Data;
-with Windows.UI.Xaml.Media.Animation;
-with Windows.Media.Capture;
-with Windows.UI.Text;
-with Windows.Media.PlayTo;
-with Windows.Media.Casting;
-with Windows.UI.Composition;
-with Windows.UI.Xaml.Documents;
-with Windows.Web;
 with Windows.ApplicationModel.Search;
-with Windows.System;
-with Windows.UI.Input.Inking;
-with Windows.Media.Protection;
-with Windows.Storage.Streams;
+with Windows.Globalization;
+with Windows.Media.Capture;
+with Windows.Media.Casting;
 with Windows.Media.Core;
 with Windows.Media.Playback;
-with Windows.UI.Xaml.Navigation;
-with Windows.Web.Http;
-with Windows.Globalization;
+with Windows.Media.PlayTo;
+with Windows.Media.Protection;
+with Windows.Storage.Streams;
+with Windows.System;
+with Windows.UI;
+with Windows.UI.Composition;
 with Windows.UI.Core;
+with Windows.UI.Input.Inking;
+with Windows.UI.Text;
+with Windows.UI.Xaml;
+with Windows.UI.Xaml.Controls.Primitives;
+with Windows.UI.Xaml.Data;
+with Windows.UI.Xaml.Documents;
+with Windows.UI.Xaml.Input;
+with Windows.UI.Xaml.Interop;
+with Windows.UI.Xaml.Media;
+with Windows.UI.Xaml.Media.Animation;
+with Windows.UI.Xaml.Navigation;
+with Windows.Web;
+with Windows.Web.Http;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml.Controls is

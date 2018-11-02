@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.Background;
 with Windows.Security.Credentials;
 with Windows.Storage;
 with Windows.Storage.Streams;
-with Windows.Web;
 with Windows.UI.Notifications;
-with Windows.ApplicationModel.Background;
+with Windows.Web;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Networking.BackgroundTransfer is

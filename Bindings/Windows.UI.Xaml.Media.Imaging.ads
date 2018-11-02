@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
-with Windows.Foundation;
 limited with Windows.ApplicationModel.Background;
+with Windows.Foundation;
 limited with Windows.Graphics.Imaging;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Media.Imaging is
 

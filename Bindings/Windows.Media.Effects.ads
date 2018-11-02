@@ -26,18 +26,18 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
-limited with Windows.Graphics.DirectX.Direct3D11;
-limited with Windows.Media.Editing;
-limited with Windows.Media.Render;
-limited with Windows.Media.Capture;
 with Windows.Foundation;
-limited with Windows.Storage.Streams;
-limited with Windows.Media.MediaProperties;
-limited with Windows.UI;
-limited with Windows.Media.Transcoding;
-limited with Windows.Media.Playback;
+with Windows.Foundation.Collections;
 with Windows.Foundation.Numerics;
+limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Media.Capture;
+limited with Windows.Media.Editing;
+limited with Windows.Media.MediaProperties;
+limited with Windows.Media.Playback;
+limited with Windows.Media.Render;
+limited with Windows.Media.Transcoding;
+limited with Windows.Storage.Streams;
+limited with Windows.UI;
 --------------------------------------------------------------------------------
 package Windows.Media.Effects is
 

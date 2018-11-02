@@ -26,20 +26,20 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.Storage;
-limited with Windows.Media.MediaProperties;
-limited with Windows.Storage.Streams;
-with Windows.Foundation.Collections;
 with Windows; use Windows;
-limited with Windows.Media.Devices;
-limited with Windows.Media.Capture.Core;
-limited with Windows.Media.Effects;
-limited with Windows.Media.Capture.Frames;
-limited with Windows.Graphics.Imaging;
-limited with Windows.Media.Core;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Graphics.Imaging;
+limited with Windows.Media.Capture.Core;
+limited with Windows.Media.Capture.Frames;
+limited with Windows.Media.Core;
+limited with Windows.Media.Devices;
+limited with Windows.Media.Effects;
+limited with Windows.Media.MediaProperties;
 limited with Windows.Security.Authentication.Web;
+limited with Windows.Storage;
+limited with Windows.Storage.Streams;
 limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Media.Capture is

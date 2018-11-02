@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
 with Windows.Foundation;
-limited with Windows.Security.Cryptography.Certificates;
 with Windows.Foundation.Collections;
+limited with Windows.Security.Cryptography.Certificates;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Security.Cryptography.Core is
 

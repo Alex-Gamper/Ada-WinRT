@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Security.Authentication.Web.Core;
-with Windows.Foundation.Collections;
-limited with Windows.Security.Credentials;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Security.Authentication.Web.Core;
+limited with Windows.Security.Credentials;
 limited with Windows.Security.Cryptography.Core;
 limited with Windows.Storage.Streams;
-limited with Windows.Web.Http;
 limited with Windows.System;
+limited with Windows.Web.Http;
 --------------------------------------------------------------------------------
 package Windows.Security.Authentication.Web.Provider is
 

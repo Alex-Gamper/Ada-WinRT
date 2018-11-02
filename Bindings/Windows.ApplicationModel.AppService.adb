@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.System.RemoteSystems;
-with Windows.System;
 with Windows.ApplicationModel;
+with Windows.System;
+with Windows.System.RemoteSystems;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.AppService is

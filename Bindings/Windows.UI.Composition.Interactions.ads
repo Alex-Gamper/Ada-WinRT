@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Numerics;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+with Windows.Foundation.Numerics;
 limited with Windows.UI.Input;
 --------------------------------------------------------------------------------
 package Windows.UI.Composition.Interactions is

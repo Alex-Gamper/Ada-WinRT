@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 package Windows.ApplicationModel.Contacts.Provider is
 
    pragma preelaborate;

@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Storage;
 with Windows.Foundation.Collections;
 limited with Windows.Globalization;
+limited with Windows.Storage;
 limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.System.UserProfile is

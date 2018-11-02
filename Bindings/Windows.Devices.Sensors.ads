@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Graphics.Display;
 with Windows.Foundation.Collections;
+limited with Windows.Graphics.Display;
 --------------------------------------------------------------------------------
 package Windows.Devices.Sensors is
 

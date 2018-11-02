@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
+limited with Windows.Devices.Enumeration;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Networking;
-with Windows.Foundation;
 limited with Windows.Networking.Sockets;
-limited with Windows.Devices.Enumeration;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Devices.WiFiDirect.Services is
 

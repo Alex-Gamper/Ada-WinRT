@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Storage.Streams;
 with Windows.Foundation.Collections;
-limited with Windows.Networking;
 limited with Windows.Globalization;
+limited with Windows.Networking;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Web.Http.Headers is
 

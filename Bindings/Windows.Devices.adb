@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Devices.Adc.Provider;
-with Windows.Devices.Pwm.Provider;
 with Windows.Devices.Gpio.Provider;
 with Windows.Devices.I2c.Provider;
+with Windows.Devices.Pwm.Provider;
 with Windows.Devices.Spi.Provider;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

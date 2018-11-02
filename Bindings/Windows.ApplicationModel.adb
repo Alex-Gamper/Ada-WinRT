@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.Activation;
+with Windows.ApplicationModel.Core;
+with Windows.Storage;
 with Windows.Storage.Streams;
 with Windows.System;
-with Windows.Storage;
-with Windows.ApplicationModel.Core;
-with Windows.ApplicationModel.Activation;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel is

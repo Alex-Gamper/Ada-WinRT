@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Storage.Streams;
 with Windows.Foundation.Collections;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Security.Authentication.Identity.Provider is
 

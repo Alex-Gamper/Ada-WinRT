@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.System;
 with Windows.Foundation.Collections;
 limited with Windows.Management.Deployment;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Store.Preview.InstallControl is
 

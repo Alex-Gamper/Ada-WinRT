@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.System;
-limited with Windows.Storage.Streams;
 with Windows.Foundation;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Management.Policies is
 

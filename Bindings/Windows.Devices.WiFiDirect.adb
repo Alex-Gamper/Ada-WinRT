@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Networking;
-with Windows.Storage.Streams;
 with Windows.Devices.Enumeration;
+with Windows.Networking;
 with Windows.Security.Credentials;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Devices.WiFiDirect is

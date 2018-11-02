@@ -28,8 +28,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
 limited with Windows.Storage;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Search is
 

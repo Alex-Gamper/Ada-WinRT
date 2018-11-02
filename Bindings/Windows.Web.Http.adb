@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Networking.Sockets;
+with Windows.Security.Cryptography.Certificates;
+with Windows.Storage.Streams;
 with Windows.Web.Http.Filters;
 with Windows.Web.Http.Headers;
-with Windows.Storage.Streams;
-with Windows.Security.Cryptography.Certificates;
-with Windows.Networking.Sockets;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Web.Http is

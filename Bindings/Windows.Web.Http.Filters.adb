@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Web.Http;
-with Windows.Security.Cryptography.Certificates;
 with Windows.Networking.Sockets;
 with Windows.Security.Credentials;
+with Windows.Security.Cryptography.Certificates;
+with Windows.Web.Http;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Web.Http.Filters is

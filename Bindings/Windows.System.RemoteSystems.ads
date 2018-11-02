@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Networking;
 with Windows.Foundation.Collections;
+limited with Windows.Networking;
 --------------------------------------------------------------------------------
 package Windows.System.RemoteSystems is
 

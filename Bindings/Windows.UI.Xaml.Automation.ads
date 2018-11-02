@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI.Xaml.Automation.Peers;
 with Windows.Foundation.Collections;
+limited with Windows.UI.Xaml.Automation.Peers;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Automation is
 

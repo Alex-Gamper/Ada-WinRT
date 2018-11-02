@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel.Contacts;
-with Windows.UI;
 with Windows.System;
+with Windows.UI;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.Calls is

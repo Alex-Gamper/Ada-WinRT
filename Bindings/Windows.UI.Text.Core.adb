@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Globalization;
-with Windows.UI.ViewManagement;
 with Windows.UI.Text;
+with Windows.UI.ViewManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Text.Core is

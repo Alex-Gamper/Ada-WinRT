@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI.Xaml;
 with Windows.UI;
-with Windows.UI.Xaml.Controls.Primitives;
 with Windows.UI.Composition;
+with Windows.UI.Xaml;
 with Windows.UI.Xaml.Controls;
+with Windows.UI.Xaml.Controls.Primitives;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml.Media.Animation is

@@ -26,27 +26,27 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Devices.Printers.Extensions;
-with Windows.ApplicationModel.Calls;
-with Windows.UI.ViewManagement;
-with Windows.ApplicationModel.Contacts.Provider;
-with Windows.ApplicationModel.Contacts;
-with Windows.ApplicationModel.Wallet;
 with Windows.ApplicationModel.Appointments.AppointmentsProvider;
-with Windows.System;
 with Windows.ApplicationModel.Background;
+with Windows.ApplicationModel.Calls;
+with Windows.ApplicationModel.Contacts;
+with Windows.ApplicationModel.Contacts.Provider;
 with Windows.ApplicationModel.DataTransfer.ShareTarget;
-with Windows.ApplicationModel.UserDataAccounts.Provider;
-with Windows.UI.Notifications;
 with Windows.ApplicationModel.Search;
-with Windows.Storage;
-with Windows.Storage.Search;
-with Windows.Storage.Pickers.Provider;
-with Windows.Storage.Provider;
+with Windows.ApplicationModel.UserDataAccounts.Provider;
+with Windows.ApplicationModel.Wallet;
+with Windows.Devices.Enumeration;
+with Windows.Devices.Printers.Extensions;
+with Windows.Media.SpeechRecognition;
 with Windows.Security.Authentication.Web;
 with Windows.Security.Authentication.Web.Provider;
-with Windows.Devices.Enumeration;
-with Windows.Media.SpeechRecognition;
+with Windows.Storage;
+with Windows.Storage.Pickers.Provider;
+with Windows.Storage.Provider;
+with Windows.Storage.Search;
+with Windows.System;
+with Windows.UI.Notifications;
+with Windows.UI.ViewManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.Activation is

@@ -28,8 +28,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
 limited with Windows.Networking;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Security.Cryptography.Certificates is
 

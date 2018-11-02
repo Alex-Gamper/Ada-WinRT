@@ -27,11 +27,11 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Media.Core;
-limited with Windows.Storage.Streams;
-limited with Windows.Media.MediaProperties;
 with Windows.Foundation.Collections;
+limited with Windows.Media.Core;
+limited with Windows.Media.MediaProperties;
 limited with Windows.Storage;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Media.Transcoding is
 

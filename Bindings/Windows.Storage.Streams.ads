@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
 with Windows; use Windows;
+with Windows.Foundation;
 limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Storage.Streams is

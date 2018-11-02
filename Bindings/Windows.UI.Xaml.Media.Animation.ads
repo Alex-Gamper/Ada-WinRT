@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.UI.Xaml.Controls.Primitives;
 with Windows.Foundation.Collections;
 limited with Windows.UI.Composition;
 limited with Windows.UI.Xaml.Controls;
+limited with Windows.UI.Xaml.Controls.Primitives;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Media.Animation is
 

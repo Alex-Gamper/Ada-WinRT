@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.UI;
-with Windows.Foundation.Collections;
-limited with Windows.Web.Http;
-limited with Windows.Storage.Streams;
 limited with Windows.ApplicationModel.DataTransfer;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Storage.Streams;
+limited with Windows.UI;
+limited with Windows.Web.Http;
 --------------------------------------------------------------------------------
 package Windows.Web.UI is
 

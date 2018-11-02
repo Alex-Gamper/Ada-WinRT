@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.Storage;
-with Windows.Foundation.Collections;
-limited with Windows.Media.SpeechRecognition;
-limited with Windows.Globalization;
 limited with Windows.ApplicationModel.AppService;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Globalization;
+limited with Windows.Media.SpeechRecognition;
+limited with Windows.Storage;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.VoiceCommands is
 

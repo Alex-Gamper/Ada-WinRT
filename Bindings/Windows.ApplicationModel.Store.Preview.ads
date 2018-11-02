@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
 with Windows.Foundation;
-limited with Windows.System;
-limited with Windows.Storage.Streams;
+with Windows.Foundation.Collections;
 limited with Windows.Security.Authentication.Web.Core;
-limited with Windows.UI.Xaml;
 limited with Windows.Security.Credentials;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
+limited with Windows.UI.Xaml;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Store.Preview is
 

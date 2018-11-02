@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.System;
+with Windows.Devices.Haptics;
 with Windows.Devices.Power;
 with Windows.Gaming.Input.ForceFeedback;
-with Windows.Devices.Haptics;
+with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Gaming.Input is

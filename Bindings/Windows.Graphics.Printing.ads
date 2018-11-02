@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.Storage.Streams;
-with Windows.Foundation.Collections;
 limited with Windows.ApplicationModel.DataTransfer;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Graphics.Printing is
 

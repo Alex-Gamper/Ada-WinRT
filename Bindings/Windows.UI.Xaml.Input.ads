@@ -27,11 +27,11 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.Devices.Input;
-limited with Windows.System;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.System;
 limited with Windows.UI.Core;
 limited with Windows.UI.Input;
-with Windows.Foundation.Collections;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Input is
 

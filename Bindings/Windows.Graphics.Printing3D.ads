@@ -27,9 +27,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.Storage.Streams;
 with Windows.Foundation.Collections;
 with Windows.Foundation.Numerics;
+limited with Windows.Storage.Streams;
 limited with Windows.UI;
 --------------------------------------------------------------------------------
 package Windows.Graphics.Printing3D is

@@ -26,8 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.System;
 with Windows.Foundation;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Media.AppBroadcasting is
 

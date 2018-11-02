@@ -28,14 +28,14 @@
 --------------------------------------------------------------------------------
 with Windows.Graphics.DirectX.Direct3D11;
 with Windows.Media;
-with Windows.Media.Editing;
-with Windows.Media.Render;
 with Windows.Media.Capture;
-with Windows.Storage.Streams;
+with Windows.Media.Editing;
 with Windows.Media.MediaProperties;
-with Windows.UI;
-with Windows.Media.Transcoding;
 with Windows.Media.Playback;
+with Windows.Media.Render;
+with Windows.Media.Transcoding;
+with Windows.Storage.Streams;
+with Windows.UI;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Effects is

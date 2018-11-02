@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI.Popups;
-limited with Windows.Security.Credentials;
-with Windows.Foundation.Collections;
-limited with Windows.System;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Security.Credentials;
+limited with Windows.System;
+limited with Windows.UI.Popups;
 --------------------------------------------------------------------------------
 package Windows.UI.ApplicationSettings is
 

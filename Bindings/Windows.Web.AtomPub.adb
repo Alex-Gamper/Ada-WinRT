@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Web.Syndication;
 with Windows.Data.Xml.Dom;
-with Windows.Storage.Streams;
 with Windows.Security.Credentials;
+with Windows.Storage.Streams;
+with Windows.Web.Syndication;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Web.AtomPub is

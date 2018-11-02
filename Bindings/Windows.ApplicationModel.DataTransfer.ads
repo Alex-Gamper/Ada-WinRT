@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
-with Windows.Foundation.Collections;
 with Windows.Foundation;
-limited with Windows.UI;
-limited with Windows.Storage;
+with Windows.Foundation.Collections;
 limited with Windows.Security.EnterpriseData;
+limited with Windows.Storage;
+limited with Windows.Storage.Streams;
+limited with Windows.UI;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.DataTransfer is
 

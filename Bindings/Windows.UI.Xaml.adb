@@ -26,25 +26,25 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.UI.Xaml.Controls;
-with Windows.UI.Core;
-with Windows.UI.Xaml.Interop;
 with Windows.ApplicationModel;
-with Windows.UI.Xaml.Media.Imaging;
-with Windows.Graphics.Imaging;
+with Windows.ApplicationModel.Activation;
 with Windows.ApplicationModel.Core;
 with Windows.ApplicationModel.DataTransfer;
 with Windows.ApplicationModel.DataTransfer.DragDrop;
-with Windows.UI.Xaml.Media;
-with Windows.UI.Xaml.Media.Animation;
-with Windows.UI.Xaml.Input;
-with Windows.UI.Xaml.Automation.Peers;
-with Windows.UI.Xaml.Media.Media3D;
+with Windows.Graphics.Imaging;
+with Windows.UI.Composition;
+with Windows.UI.Core;
 with Windows.UI.Input;
+with Windows.UI.Xaml.Automation.Peers;
+with Windows.UI.Xaml.Controls;
 with Windows.UI.Xaml.Controls.Primitives;
 with Windows.UI.Xaml.Data;
-with Windows.ApplicationModel.Activation;
-with Windows.UI.Composition;
+with Windows.UI.Xaml.Input;
+with Windows.UI.Xaml.Interop;
+with Windows.UI.Xaml.Media;
+with Windows.UI.Xaml.Media.Animation;
+with Windows.UI.Xaml.Media.Imaging;
+with Windows.UI.Xaml.Media.Media3D;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml is

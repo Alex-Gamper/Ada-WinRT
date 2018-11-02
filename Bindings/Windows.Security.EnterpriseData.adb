@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Networking;
 with Windows.Storage;
 with Windows.Storage.Streams;
-with Windows.Networking;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Security.EnterpriseData is

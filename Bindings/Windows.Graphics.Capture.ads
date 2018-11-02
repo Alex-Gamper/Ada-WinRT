@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Graphics.DirectX.Direct3D11;
 with Windows.Foundation;
 limited with Windows.Graphics.DirectX;
+limited with Windows.Graphics.DirectX.Direct3D11;
 limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Graphics.Capture is

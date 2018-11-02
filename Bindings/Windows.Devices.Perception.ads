@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
 limited with Windows.Devices.Enumeration;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Media.Devices.Core;
 with Windows.Foundation.Numerics;
 limited with Windows.Graphics.Imaging;
 limited with Windows.Media;
+limited with Windows.Media.Devices.Core;
 --------------------------------------------------------------------------------
 package Windows.Devices.Perception is
 

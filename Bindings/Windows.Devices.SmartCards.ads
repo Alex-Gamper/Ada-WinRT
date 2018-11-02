@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.Streams;
+with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-with Windows; use Windows;
 limited with Windows.Security.Cryptography.Core;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Devices.SmartCards is
 

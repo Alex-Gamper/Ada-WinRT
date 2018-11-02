@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
-with Windows; use Windows;
 limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Graphics.Imaging is
 

@@ -26,9 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Graphics.Imaging;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Graphics.Imaging;
 --------------------------------------------------------------------------------
 package Windows.Media.FaceAnalysis is
 

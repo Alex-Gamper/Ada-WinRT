@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage.Streams;
-with Windows.UI.Xaml;
 with Windows.ApplicationModel.Background;
 with Windows.Graphics.Imaging;
+with Windows.Storage.Streams;
+with Windows.UI.Xaml;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml.Media.Imaging is

@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI;
-with Windows.Foundation.Collections;
-with Windows.Foundation;
-limited with Windows.UI.Popups;
-limited with Windows.Storage.Streams;
-limited with Windows.ApplicationModel.Background;
 with Windows; use Windows;
+limited with Windows.ApplicationModel.Background;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Storage.Streams;
+limited with Windows.UI;
+limited with Windows.UI.Popups;
 --------------------------------------------------------------------------------
 package Windows.Devices.Enumeration is
 

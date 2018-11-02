@@ -26,22 +26,22 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Storage.Streams;
-with Windows.Graphics.Imaging;
-with Windows.UI;
-with Windows.Media.MediaProperties;
-with Windows.Media.Protection;
-with Windows.Storage.FileProperties;
 with Windows.ApplicationModel.AppService;
-with Windows.Media.Devices.Core;
+with Windows.Graphics.Imaging;
 with Windows.Media.Capture;
-with Windows.Media.FaceAnalysis;
-with Windows.Media.Devices;
-with Windows.Media.Streaming.Adaptive;
-with Windows.Storage;
-with Windows.Networking.BackgroundTransfer;
 with Windows.Media.Capture.Frames;
+with Windows.Media.Devices;
+with Windows.Media.Devices.Core;
+with Windows.Media.FaceAnalysis;
+with Windows.Media.MediaProperties;
 with Windows.Media.Playback;
+with Windows.Media.Protection;
+with Windows.Media.Streaming.Adaptive;
+with Windows.Networking.BackgroundTransfer;
+with Windows.Storage;
+with Windows.Storage.FileProperties;
+with Windows.Storage.Streams;
+with Windows.UI;
 with Windows.Media.Effects;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

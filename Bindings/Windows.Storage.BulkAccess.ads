@@ -26,10 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Storage.FileProperties;
 with Windows.Foundation;
-limited with Windows.Storage.Search;
 with Windows.Foundation.Collections;
+limited with Windows.Storage.FileProperties;
+limited with Windows.Storage.Search;
 limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Storage.BulkAccess is

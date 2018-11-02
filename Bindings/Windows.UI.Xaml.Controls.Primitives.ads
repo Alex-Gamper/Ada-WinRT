@@ -26,13 +26,13 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Numerics;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.UI.Xaml.Media;
-limited with Windows.UI.Xaml.Media.Animation;
+with Windows.Foundation.Numerics;
 limited with Windows.UI.Xaml.Input;
 limited with Windows.UI.Xaml.Interop;
+limited with Windows.UI.Xaml.Media;
+limited with Windows.UI.Xaml.Media.Animation;
 limited with Windows.UI.Xaml.Data;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Controls.Primitives is

@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Media.MediaProperties;
-with Windows.Media.Effects;
-with Windows.Storage;
-with Windows.Graphics.Imaging;
-with Windows.Media.Transcoding;
-with Windows.Media.Core;
-with Windows.UI;
 with Windows.Graphics.DirectX.Direct3D11;
+with Windows.Graphics.Imaging;
+with Windows.Media.Core;
+with Windows.Media.Effects;
+with Windows.Media.MediaProperties;
+with Windows.Media.Transcoding;
+with Windows.Storage;
+with Windows.UI;
 with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

@@ -26,19 +26,19 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+with Windows.Foundation.Numerics;
+limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Media.Audio;
+limited with Windows.Media.Casting;
+limited with Windows.Media.Core;
+limited with Windows.Media.MediaProperties;
 limited with Windows.Media.Protection;
 limited with Windows.Storage;
 limited with Windows.Storage.Streams;
-limited with Windows.Media.Core;
-limited with Windows.Devices.Enumeration;
-limited with Windows.Media.Casting;
 limited with Windows.UI.Composition;
-limited with Windows.Graphics.DirectX.Direct3D11;
-limited with Windows.Media.Audio;
-limited with Windows.Media.MediaProperties;
-with Windows.Foundation.Numerics;
 --------------------------------------------------------------------------------
 package Windows.Media.Playback is
 

@@ -28,11 +28,11 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.System;
 limited with Windows.Storage.FileProperties;
+limited with Windows.Storage.Provider;
 limited with Windows.Storage.Search;
 limited with Windows.Storage.Streams;
-limited with Windows.Storage.Provider;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Storage is
 

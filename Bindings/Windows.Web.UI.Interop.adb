@@ -26,14 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.DataTransfer;
+with Windows.Storage.Streams;
+with Windows.System;
 with Windows.UI;
-with Windows.Web.UI;
+with Windows.UI.Core;
 with Windows.Web;
 with Windows.Web.Http;
-with Windows.Storage.Streams;
-with Windows.ApplicationModel.DataTransfer;
-with Windows.UI.Core;
-with Windows.System;
+with Windows.Web.UI;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Web.UI.Interop is

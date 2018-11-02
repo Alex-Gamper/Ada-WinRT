@@ -26,18 +26,18 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.Media.Render;
-limited with Windows.Media.Devices;
-limited with Windows.Media.Capture;
-with Windows.Foundation;
-limited with Windows.Media.MediaProperties;
 limited with Windows.Devices.Enumeration;
-limited with Windows.Storage;
-limited with Windows.Media.Core;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.Media.Effects;
-limited with Windows.Media.Transcoding;
 with Windows.Foundation.Numerics;
+limited with Windows.Media.Capture;
+limited with Windows.Media.Core;
+limited with Windows.Media.Devices;
+limited with Windows.Media.Effects;
+limited with Windows.Media.MediaProperties;
+limited with Windows.Media.Render;
+limited with Windows.Media.Transcoding;
+limited with Windows.Storage;
 --------------------------------------------------------------------------------
 package Windows.Media.Audio is
 

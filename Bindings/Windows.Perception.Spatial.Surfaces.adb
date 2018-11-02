@@ -27,8 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Graphics.DirectX;
-with Windows.Storage.Streams;
 with Windows.Perception.Spatial;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Perception.Spatial.Surfaces is

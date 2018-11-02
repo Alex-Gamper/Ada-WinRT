@@ -26,15 +26,15 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation;
-limited with Windows.Devices.Radios;
 with Windows; use Windows;
-limited with Windows.Networking;
-with Windows.Foundation.Collections;
-limited with Windows.Storage.Streams;
+limited with Windows.Devices.Bluetooth.GenericAttributeProfile;
 limited with Windows.Devices.Bluetooth.Rfcomm;
 limited with Windows.Devices.Enumeration;
-limited with Windows.Devices.Bluetooth.GenericAttributeProfile;
+limited with Windows.Devices.Radios;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Networking;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Devices.Bluetooth is
 

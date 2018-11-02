@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.ApplicationModel.Core;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.UI.Popups;
 limited with Windows.Perception.Spatial;
 limited with Windows.System;
-limited with Windows.ApplicationModel.Core;
+limited with Windows.UI.Popups;
 --------------------------------------------------------------------------------
 package Windows.UI.StartScreen is
 

@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-limited with Windows.UI.Xaml.Controls.Primitives;
-limited with Windows.UI.Xaml.Controls;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.UI.Xaml.Automation.Provider;
+limited with Windows.UI.Xaml.Controls;
+limited with Windows.UI.Xaml.Controls.Primitives;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Automation.Peers is
 

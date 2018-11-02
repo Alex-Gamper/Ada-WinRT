@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Graphics.Imaging;
 limited with Windows.Storage;
 limited with Windows.Storage.Streams;
-limited with Windows.Graphics.Imaging;
 --------------------------------------------------------------------------------
 package Windows.AI.MachineLearning.Preview is
 

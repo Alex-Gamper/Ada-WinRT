@@ -27,14 +27,14 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows; use Windows;
-limited with Windows.Storage.Streams;
-with Windows.Foundation;
-limited with Windows.Networking.Connectivity;
-with Windows.Foundation.Collections;
-limited with Windows.Security.Cryptography.Certificates;
-limited with Windows.Security.Credentials;
-limited with Windows.Web;
 limited with Windows.ApplicationModel.Background;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Networking.Connectivity;
+limited with Windows.Security.Credentials;
+limited with Windows.Security.Cryptography.Certificates;
+limited with Windows.Storage.Streams;
+limited with Windows.Web;
 --------------------------------------------------------------------------------
 package Windows.Networking.Sockets is
 

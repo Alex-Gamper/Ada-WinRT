@@ -27,10 +27,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
-limited with Windows.UI.Popups;
 with Windows.Foundation.Collections;
 limited with Windows.System;
 limited with Windows.UI;
+limited with Windows.UI.Popups;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Appointments is
 

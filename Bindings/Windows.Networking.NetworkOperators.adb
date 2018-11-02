@@ -26,11 +26,11 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Networking.Connectivity;
-with Windows.Devices.Sms;
-with Windows.Storage.Streams;
-with Windows.Networking;
 with Windows.Data.Xml.Dom;
+with Windows.Devices.Sms;
+with Windows.Networking;
+with Windows.Networking.Connectivity;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Networking.NetworkOperators is

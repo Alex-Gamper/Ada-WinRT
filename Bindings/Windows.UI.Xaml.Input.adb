@@ -28,9 +28,9 @@
 --------------------------------------------------------------------------------
 with Windows.Devices.Input;
 with Windows.System;
-with Windows.UI.Xaml;
 with Windows.UI.Core;
 with Windows.UI.Input;
+with Windows.UI.Xaml;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml.Input is

@@ -26,12 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
-limited with Windows.UI.Xaml.Media;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.UI.Core;
 limited with Windows.UI.Text;
 limited with Windows.UI.Xaml.Input;
-limited with Windows.UI.Core;
+limited with Windows.UI.Xaml.Media;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Documents is
 

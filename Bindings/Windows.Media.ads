@@ -26,15 +26,15 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
-with Windows.Foundation;
-limited with Windows.Graphics.Imaging;
-limited with Windows.Graphics.DirectX.Direct3D11;
-limited with Windows.Graphics.DirectX;
-limited with Windows.Storage.Streams;
-limited with Windows.Storage;
 with Windows; use Windows;
 limited with Windows.ApplicationModel.AppService;
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Graphics.DirectX;
+limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Graphics.Imaging;
+limited with Windows.Storage;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.Media is
 

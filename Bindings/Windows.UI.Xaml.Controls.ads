@@ -26,34 +26,34 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.ApplicationModel.Contacts;
+limited with Windows.ApplicationModel.DataTransfer;
+limited with Windows.ApplicationModel.Search;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
-limited with Windows.UI.Xaml.Media;
-limited with Windows.ApplicationModel.Contacts;
-limited with Windows.UI.Xaml.Input;
-limited with Windows.ApplicationModel.DataTransfer;
-limited with Windows.UI.Xaml.Controls.Primitives;
-limited with Windows.UI.Xaml.Interop;
-limited with Windows.UI.Xaml.Data;
-limited with Windows.UI.Xaml.Media.Animation;
+limited with Windows.Globalization;
 limited with Windows.Media.Capture;
-limited with Windows.UI.Text;
-limited with Windows.Media.PlayTo;
 limited with Windows.Media.Casting;
-limited with Windows.UI.Composition;
-limited with Windows.UI.Xaml.Documents;
-limited with Windows.Web;
-limited with Windows.ApplicationModel.Search;
-limited with Windows.System;
-limited with Windows.UI.Input.Inking;
-limited with Windows.Media.Protection;
-limited with Windows.Storage.Streams;
 limited with Windows.Media.Core;
 limited with Windows.Media.Playback;
-limited with Windows.UI.Xaml.Navigation;
-limited with Windows.Web.Http;
-limited with Windows.Globalization;
+limited with Windows.Media.PlayTo;
+limited with Windows.Media.Protection;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
+limited with Windows.UI.Composition;
 limited with Windows.UI.Core;
+limited with Windows.UI.Input.Inking;
+limited with Windows.UI.Text;
+limited with Windows.UI.Xaml.Controls.Primitives;
+limited with Windows.UI.Xaml.Data;
+limited with Windows.UI.Xaml.Documents;
+limited with Windows.UI.Xaml.Input;
+limited with Windows.UI.Xaml.Interop;
+limited with Windows.UI.Xaml.Media;
+limited with Windows.UI.Xaml.Media.Animation;
+limited with Windows.UI.Xaml.Navigation;
+limited with Windows.Web;
+limited with Windows.Web.Http;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Controls is
 
