@@ -812,6 +812,104 @@ package Windows.ApplicationModel.Store.Preview is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function FilterUnsupportedSystemFeaturesAsync
+   (
+      systemFeatures : Windows.ApplicationModel.Store.Preview.IIterable_StoreSystemFeature
+   )
+   return Windows.Address;
+   
+   function get_HardwareManufacturerInfo
+   return Windows.ApplicationModel.Store.Preview.IStoreHardwareManufacturerInfo;
+   
+   function IsStoreWebAccountId
+   (
+      webAccountId : Windows.String
+   )
+   return Windows.Boolean;
+   
+   procedure SetMobileOperatorConfiguration
+   (
+      mobileOperatorId : Windows.String
+      ; appDownloadLimitInMegabytes : Windows.UInt32
+      ; updateDownloadLimitInMegabytes : Windows.UInt32
+   )
+   ;
+   
+   procedure SetStoreWebAccountId
+   (
+      webAccountId : Windows.String
+   )
+   ;
+   
+   procedure SetSystemConfiguration
+   (
+      catalogHardwareManufacturerId : Windows.String
+      ; catalogStoreContentModifierId : Windows.String
+      ; systemConfigurationExpiration : Windows.Foundation.DateTime
+      ; catalogHardwareDescriptor : Windows.String
+   )
+   ;
+   
+   function get_PurchasePromptingPolicy
+   return Windows.Foundation.IReference_UInt32;
+   
+   procedure put_PurchasePromptingPolicy
+   (
+      value : Windows.Foundation.IReference_UInt32
+   )
+   ;
+   
+   function GetPurchasePromptingPolicyForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IReference_UInt32;
+   
+   function GetStoreLogDataAsync
+   (
+      options : Windows.ApplicationModel.Store.Preview.StoreLogOptions
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference;
+   
+   function HasStoreWebAccount
+   return Windows.Boolean;
+   
+   function HasStoreWebAccountForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Boolean;
+   
+   function IsStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+   )
+   return Windows.Boolean;
+   
+   procedure SetPurchasePromptingPolicyForUser
+   (
+      user : Windows.System.IUser
+      ; value : Windows.Foundation.IReference_UInt32
+   )
+   ;
+   
+   procedure SetStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+   )
+   ;
+   
+   function GetEnterpriseStoreWebAccountId
+   return Windows.String;
+   
+   function GetEnterpriseStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.String;
+   
    function GetStoreWebAccountId
    return Windows.String;
    
@@ -834,15 +932,6 @@ package Windows.ApplicationModel.Store.Preview is
    )
    ;
    
-   function GetEnterpriseStoreWebAccountId
-   return Windows.String;
-   
-   function GetEnterpriseStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.String;
-   
    function ShouldRestrictToEnterpriseStoreOnly
    return Windows.Boolean;
    
@@ -852,94 +941,8 @@ package Windows.ApplicationModel.Store.Preview is
    )
    return Windows.Boolean;
    
-   procedure SetSystemConfiguration
-   (
-      catalogHardwareManufacturerId : Windows.String
-      ; catalogStoreContentModifierId : Windows.String
-      ; systemConfigurationExpiration : Windows.Foundation.DateTime
-      ; catalogHardwareDescriptor : Windows.String
-   )
-   ;
-   
-   procedure SetMobileOperatorConfiguration
-   (
-      mobileOperatorId : Windows.String
-      ; appDownloadLimitInMegabytes : Windows.UInt32
-      ; updateDownloadLimitInMegabytes : Windows.UInt32
-   )
-   ;
-   
-   procedure SetStoreWebAccountId
-   (
-      webAccountId : Windows.String
-   )
-   ;
-   
-   function IsStoreWebAccountId
-   (
-      webAccountId : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function get_HardwareManufacturerInfo
-   return Windows.ApplicationModel.Store.Preview.IStoreHardwareManufacturerInfo;
-   
-   function FilterUnsupportedSystemFeaturesAsync
-   (
-      systemFeatures : Windows.ApplicationModel.Store.Preview.IIterable_StoreSystemFeature
-   )
+   function LoadAddOnProductInfosAsync
    return Windows.Address;
-   
-   function get_PurchasePromptingPolicy
-   return Windows.Foundation.IReference_UInt32;
-   
-   procedure put_PurchasePromptingPolicy
-   (
-      value : Windows.Foundation.IReference_UInt32
-   )
-   ;
-   
-   function HasStoreWebAccount
-   return Windows.Boolean;
-   
-   function HasStoreWebAccountForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Boolean;
-   
-   function GetStoreLogDataAsync
-   (
-      options : Windows.ApplicationModel.Store.Preview.StoreLogOptions
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference;
-   
-   procedure SetStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-   )
-   ;
-   
-   function IsStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function GetPurchasePromptingPolicyForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Foundation.IReference_UInt32;
-   
-   procedure SetPurchasePromptingPolicyForUser
-   (
-      user : Windows.System.IUser
-      ; value : Windows.Foundation.IReference_UInt32
-   )
-   ;
    
    function RequestProductPurchaseByProductIdAndSkuIdAsync
    (
@@ -948,20 +951,17 @@ package Windows.ApplicationModel.Store.Preview is
    )
    return Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults;
    
-   function LoadAddOnProductInfosAsync
-   return Windows.Address;
-   
-   function RequestTokenWithUIElementHostingAsync
-   (
-      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
-      ; uiElement : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
-   
    function RequestTokenWithUIElementHostingAndWebAccountAsync
    (
       request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
       ; webAccount : Windows.Security.Credentials.IWebAccount
+      ; uiElement : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   
+   function RequestTokenWithUIElementHostingAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
       ; uiElement : Windows.UI.Xaml.IUIElement
    )
    return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;

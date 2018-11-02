@@ -574,17 +574,23 @@ package Windows.UI.Xaml.Hosting is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetElementChildVisual
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Composition.IVisual;
+   
    function GetElementVisual
    (
       element : Windows.UI.Xaml.IUIElement
    )
    return Windows.UI.Composition.IVisual;
    
-   function GetElementChildVisual
+   function GetScrollViewerManipulationPropertySet
    (
-      element : Windows.UI.Xaml.IUIElement
+      scrollViewer : Windows.UI.Xaml.Controls.IScrollViewer
    )
-   return Windows.UI.Composition.IVisual;
+   return Windows.UI.Composition.ICompositionPropertySet;
    
    procedure SetElementChildVisual
    (
@@ -593,20 +599,20 @@ package Windows.UI.Xaml.Hosting is
    )
    ;
    
-   function GetScrollViewerManipulationPropertySet
+   function GetPointerPositionPropertySet
    (
-      scrollViewer : Windows.UI.Xaml.Controls.IScrollViewer
+      targetElement : Windows.UI.Xaml.IUIElement
    )
    return Windows.UI.Composition.ICompositionPropertySet;
    
-   procedure SetImplicitShowAnimation
+   procedure SetImplicitHideAnimation
    (
       element : Windows.UI.Xaml.IUIElement
       ; animation : Windows.UI.Composition.ICompositionAnimationBase
    )
    ;
    
-   procedure SetImplicitHideAnimation
+   procedure SetImplicitShowAnimation
    (
       element : Windows.UI.Xaml.IUIElement
       ; animation : Windows.UI.Composition.ICompositionAnimationBase
@@ -620,14 +626,11 @@ package Windows.UI.Xaml.Hosting is
    )
    ;
    
-   function GetPointerPositionPropertySet
-   (
-      targetElement : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Composition.ICompositionPropertySet;
-   
    function get_CompleteTimelinesAutomatically
    return Windows.Boolean;
+   
+   procedure NotifyWindowSizeChanged
+   ;
    
    procedure put_CompleteTimelinesAutomatically
    (
@@ -641,18 +644,6 @@ package Windows.UI.Xaml.Hosting is
    )
    ;
    
-   procedure NotifyWindowSizeChanged
-   ;
-   
-   function GetFlyoutPlacementTargetInfo
-   (
-      placementTarget : Windows.UI.Xaml.IFrameworkElement
-      ; preferredPlacement : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
-      ; targetPreferredPlacement : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
-      ; allowFallbacks : access Windows.Boolean
-   )
-   return Windows.Foundation.Rect;
-   
    function GetFlyoutPlacement
    (
       placementTargetBounds : Windows.Foundation.Rect
@@ -662,6 +653,15 @@ package Windows.UI.Xaml.Hosting is
       ; targetPreferredPlacement : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
       ; allowFallbacks : Windows.Boolean
       ; chosenPlacement : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+   )
+   return Windows.Foundation.Rect;
+   
+   function GetFlyoutPlacementTargetInfo
+   (
+      placementTarget : Windows.UI.Xaml.IFrameworkElement
+      ; preferredPlacement : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+      ; targetPreferredPlacement : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+      ; allowFallbacks : access Windows.Boolean
    )
    return Windows.Foundation.Rect;
    

@@ -450,11 +450,11 @@ package Windows.Media.Ocr is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_MaxImageDimension
-   return Windows.UInt32;
-   
    function get_AvailableRecognizerLanguages
    return Windows.Globalization.IVectorView_ILanguage;
+   
+   function get_MaxImageDimension
+   return Windows.UInt32;
    
    function IsLanguageSupported
    (

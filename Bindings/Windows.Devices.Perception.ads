@@ -3050,28 +3050,19 @@ package Windows.Devices.Perception is
    function get_TangentialDistortion
    return Windows.String;
    
-   function get_Exposure
+   function get_AutoExposureEnabled
    return Windows.String;
    
-   function get_AutoExposureEnabled
+   function get_Exposure
    return Windows.String;
    
    function get_ExposureCompensation
    return Windows.String;
    
-   function get_MinDepth
-   return Windows.String;
-   
    function get_MaxDepth
    return Windows.String;
    
-   function get_Id
-   return Windows.String;
-   
-   function get_PhysicalDeviceIds
-   return Windows.String;
-   
-   function get_FrameKind
+   function get_MinDepth
    return Windows.String;
    
    function get_DeviceModelVersion
@@ -3080,16 +3071,16 @@ package Windows.Devices.Perception is
    function get_EnclosureLocation
    return Windows.String;
    
+   function get_FrameKind
+   return Windows.String;
+   
+   function get_Id
+   return Windows.String;
+   
+   function get_PhysicalDeviceIds
+   return Windows.String;
+   
    function get_DeviceId
-   return Windows.String;
-   
-   function get_Exposure_KnownPerceptionInfraredFrameSourceProperties
-   return Windows.String;
-   
-   function get_AutoExposureEnabled_KnownPerceptionInfraredFrameSourceProperties
-   return Windows.String;
-   
-   function get_ExposureCompensation_KnownPerceptionInfraredFrameSourceProperties
    return Windows.String;
    
    function get_ActiveIlluminationEnabled
@@ -3098,40 +3089,49 @@ package Windows.Devices.Perception is
    function get_AmbientSubtractionEnabled
    return Windows.String;
    
-   function get_StructureLightPatternEnabled
+   function get_AutoExposureEnabled_KnownPerceptionInfraredFrameSourceProperties
+   return Windows.String;
+   
+   function get_Exposure_KnownPerceptionInfraredFrameSourceProperties
+   return Windows.String;
+   
+   function get_ExposureCompensation_KnownPerceptionInfraredFrameSourceProperties
    return Windows.String;
    
    function get_InterleavedIlluminationEnabled
    return Windows.String;
    
-   function get_VideoProfile
-   return Windows.String;
-   
-   function get_SupportedVideoProfiles
+   function get_StructureLightPatternEnabled
    return Windows.String;
    
    function get_AvailableVideoProfiles
    return Windows.String;
    
-   function get_IsMirrored
-   return Windows.String;
-   
    function get_CameraIntrinsics
    return Windows.String;
    
-   function get_BitmapPixelFormat
+   function get_IsMirrored
+   return Windows.String;
+   
+   function get_SupportedVideoProfiles
+   return Windows.String;
+   
+   function get_VideoProfile
    return Windows.String;
    
    function get_BitmapAlphaMode
    return Windows.String;
    
-   function get_Width
+   function get_BitmapPixelFormat
+   return Windows.String;
+   
+   function get_FrameDuration
    return Windows.String;
    
    function get_Height
    return Windows.String;
    
-   function get_FrameDuration
+   function get_Width
    return Windows.String;
    
    function CreateWatcher

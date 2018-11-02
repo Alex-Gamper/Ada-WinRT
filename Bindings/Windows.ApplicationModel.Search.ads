@@ -780,10 +780,10 @@ package Windows.ApplicationModel.Search is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   procedure HideThisApplication
-   ;
-   
    function GetForCurrentView
    return Windows.ApplicationModel.Search.ISearchPane;
+   
+   procedure HideThisApplication
+   ;
    
 end;

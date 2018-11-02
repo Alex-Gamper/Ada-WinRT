@@ -544,6 +544,12 @@ package Windows.Devices.SerialCommunication is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice;
+   
    function GetDeviceSelector
    return Windows.String;
    
@@ -559,11 +565,5 @@ package Windows.Devices.SerialCommunication is
       ; productId : Windows.UInt16
    )
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice;
    
 end;

@@ -988,16 +988,13 @@ package Windows.UI.Xaml.Shapes is
    function get_X1Property
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_Y1Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_X2Property
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_Y2Property
+   function get_Y1Property
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DataProperty
+   function get_Y2Property
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -1006,6 +1003,9 @@ package Windows.UI.Xaml.Shapes is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Shapes.IPath;
+   
+   function get_DataProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FillRuleProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -1035,16 +1035,16 @@ package Windows.UI.Xaml.Shapes is
    function get_FillProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeProperty
+   function get_StretchProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeMiterLimitProperty
+   function get_StrokeDashArrayProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeThicknessProperty
+   function get_StrokeDashCapProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeStartLineCapProperty
+   function get_StrokeDashOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_StrokeEndLineCapProperty
@@ -1053,16 +1053,16 @@ package Windows.UI.Xaml.Shapes is
    function get_StrokeLineJoinProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeDashOffsetProperty
+   function get_StrokeMiterLimitProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeDashCapProperty
+   function get_StrokeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeDashArrayProperty
+   function get_StrokeStartLineCapProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StretchProperty
+   function get_StrokeThicknessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
 end;

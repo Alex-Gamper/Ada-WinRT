@@ -413,22 +413,22 @@ package Windows.Management is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_SessionIds
-   return Windows.Foundation.Collections.IVectorView_String;
-   
-   function TryCreateSession
-   return Windows.Management.IMdmSession;
-   
    procedure DeleteSessionById
    (
       sessionId : Windows.String
    )
    ;
    
+   function get_SessionIds
+   return Windows.Foundation.Collections.IVectorView_String;
+   
    function GetSessionById
    (
       sessionId : Windows.String
    )
+   return Windows.Management.IMdmSession;
+   
+   function TryCreateSession
    return Windows.Management.IMdmSession;
    
 end;

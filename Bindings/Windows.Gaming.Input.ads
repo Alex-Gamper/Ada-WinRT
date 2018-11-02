@@ -2047,23 +2047,11 @@ package Windows.Gaming.Input is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IArcadeStick;
-   
    function add_ArcadeStickAdded
    (
       value : Windows.Gaming.Input.EventHandler_IArcadeStick
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_ArcadeStickAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function add_ArcadeStickRemoved
    (
@@ -2071,14 +2059,26 @@ package Windows.Gaming.Input is
    )
    return Windows.Foundation.EventRegistrationToken;
    
+   function get_ArcadeSticks
+   return Windows.Gaming.Input.IVectorView_IArcadeStick;
+   
+   procedure remove_ArcadeStickAdded
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    procedure remove_ArcadeStickRemoved
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function get_ArcadeSticks
-   return Windows.Gaming.Input.IVectorView_IArcadeStick;
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IArcadeStick;
    
    function add_FlightStickAdded
    (
@@ -2086,26 +2086,11 @@ package Windows.Gaming.Input is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_FlightStickAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function add_FlightStickRemoved
    (
       value : Windows.Gaming.Input.EventHandler_IFlightStick
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_FlightStickRemoved
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_FlightSticks
-   return Windows.Gaming.Input.IVectorView_IFlightStick;
    
    function FromGameController
    (
@@ -2113,17 +2098,26 @@ package Windows.Gaming.Input is
    )
    return Windows.Gaming.Input.IFlightStick;
    
+   function get_FlightSticks
+   return Windows.Gaming.Input.IVectorView_IFlightStick;
+   
+   procedure remove_FlightStickAdded
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_FlightStickRemoved
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    function add_GamepadAdded
    (
       value : Windows.Gaming.Input.EventHandler_IGamepad
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_GamepadAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function add_GamepadRemoved
    (
@@ -2131,14 +2125,20 @@ package Windows.Gaming.Input is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_GamepadRemoved
+   function get_Gamepads
+   return Windows.Gaming.Input.IVectorView_IGamepad;
+   
+   procedure remove_GamepadAdded
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function get_Gamepads
-   return Windows.Gaming.Input.IVectorView_IGamepad;
+   procedure remove_GamepadRemoved
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    function FromGameController
    (
@@ -2152,26 +2152,26 @@ package Windows.Gaming.Input is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_RacingWheelAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function add_RacingWheelRemoved
    (
       value : Windows.Gaming.Input.EventHandler_IRacingWheel
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_RacingWheelRemoved
+   function get_RacingWheels
+   return Windows.Gaming.Input.IVectorView_IRacingWheel;
+   
+   procedure remove_RacingWheelAdded
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function get_RacingWheels
-   return Windows.Gaming.Input.IVectorView_IRacingWheel;
+   procedure remove_RacingWheelRemoved
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    function FromGameController
    (
@@ -2185,26 +2185,11 @@ package Windows.Gaming.Input is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_RawGameControllerAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function add_RawGameControllerRemoved
    (
       value : Windows.Gaming.Input.EventHandler_IRawGameController
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_RawGameControllerRemoved
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_RawGameControllers
-   return Windows.Gaming.Input.IVectorView_IRawGameController;
    
    function FromGameController
    (
@@ -2212,17 +2197,26 @@ package Windows.Gaming.Input is
    )
    return Windows.Gaming.Input.IRawGameController;
    
+   function get_RawGameControllers
+   return Windows.Gaming.Input.IVectorView_IRawGameController;
+   
+   procedure remove_RawGameControllerAdded
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_RawGameControllerRemoved
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    function add_UINavigationControllerAdded
    (
       value : Windows.Gaming.Input.EventHandler_IUINavigationController
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_UINavigationControllerAdded
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function add_UINavigationControllerRemoved
    (
@@ -2230,14 +2224,20 @@ package Windows.Gaming.Input is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_UINavigationControllerRemoved
+   function get_UINavigationControllers
+   return Windows.Gaming.Input.IVectorView_IUINavigationController;
+   
+   procedure remove_UINavigationControllerAdded
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function get_UINavigationControllers
-   return Windows.Gaming.Input.IVectorView_IUINavigationController;
+   procedure remove_UINavigationControllerRemoved
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    function FromGameController
    (

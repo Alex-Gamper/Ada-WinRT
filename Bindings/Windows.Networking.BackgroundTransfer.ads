@@ -1954,17 +1954,17 @@ package Windows.Networking.BackgroundTransfer is
    )
    return Windows.Address;
    
-   function RequestUnconstrainedDownloadsAsync
-   (
-      operations : Windows.Networking.BackgroundTransfer.IIterable_IDownloadOperation
-   )
-   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
-   
    function GetCurrentDownloadsForTransferGroupAsync
    (
       group : Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup
    )
    return Windows.Address;
+   
+   function RequestUnconstrainedDownloadsAsync
+   (
+      operations : Windows.Networking.BackgroundTransfer.IIterable_IDownloadOperation
+   )
+   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
    
    function GetStatus
    (
@@ -1977,12 +1977,6 @@ package Windows.Networking.BackgroundTransfer is
       name : Windows.String
    )
    return Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup;
-   
-   function RequestUnconstrainedUploadsAsync
-   (
-      operations : Windows.Networking.BackgroundTransfer.IIterable_IUploadOperation
-   )
-   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
    
    function GetCurrentUploadsAsync
    return Windows.Address;
@@ -1999,11 +1993,17 @@ package Windows.Networking.BackgroundTransfer is
    )
    return Windows.Address;
    
-   function get_LastSuccessfulPrefetchTime
-   return Windows.Foundation.IReference_DateTime;
+   function RequestUnconstrainedUploadsAsync
+   (
+      operations : Windows.Networking.BackgroundTransfer.IIterable_IUploadOperation
+   )
+   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
    
    function get_ContentUris
    return Windows.Foundation.IVector_IUriRuntimeClass;
+   
+   function get_IndirectContentUri
+   return Windows.Foundation.IUriRuntimeClass;
    
    procedure put_IndirectContentUri
    (
@@ -2011,7 +2011,7 @@ package Windows.Networking.BackgroundTransfer is
    )
    ;
    
-   function get_IndirectContentUri
-   return Windows.Foundation.IUriRuntimeClass;
+   function get_LastSuccessfulPrefetchTime
+   return Windows.Foundation.IReference_DateTime;
    
 end;

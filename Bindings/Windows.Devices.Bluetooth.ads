@@ -1800,9 +1800,6 @@ package Windows.Devices.Bluetooth is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -1812,11 +1809,8 @@ package Windows.Devices.Bluetooth is
    function GetDefaultAsync
    return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter;
    
-   function FromRawValue
-   (
-      rawValue : Windows.UInt32
-   )
-   return Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
+   function GetDeviceSelector
+   return Windows.String;
    
    function FromParts
    (
@@ -1826,9 +1820,42 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
    
-   function GetDeviceSelectorFromPairingState
+   function FromRawValue
    (
-      pairingState : Windows.Boolean
+      rawValue : Windows.UInt32
+   )
+   return Windows.Devices.Bluetooth.IBluetoothClassOfDevice;
+   
+   function FromBluetoothAddressAsync
+   (
+      address : Windows.UInt64
+   )
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
+   
+   function FromHostNameAsync
+   (
+      hostName : Windows.Networking.IHostName
+   )
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
+   
+   function GetDeviceSelector_IBluetoothDevice
+   return Windows.String;
+   
+   function GetDeviceSelectorFromBluetoothAddress
+   (
+      bluetoothAddress : Windows.UInt64
+   )
+   return Windows.String;
+   
+   function GetDeviceSelectorFromClassOfDevice
+   (
+      classOfDevice : Windows.Devices.Bluetooth.IBluetoothClassOfDevice
    )
    return Windows.String;
    
@@ -1844,37 +1871,10 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.String;
    
-   function GetDeviceSelectorFromBluetoothAddress
+   function GetDeviceSelectorFromPairingState
    (
-      bluetoothAddress : Windows.UInt64
+      pairingState : Windows.Boolean
    )
-   return Windows.String;
-   
-   function GetDeviceSelectorFromClassOfDevice
-   (
-      classOfDevice : Windows.Devices.Bluetooth.IBluetoothClassOfDevice
-   )
-   return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
-   
-   function FromHostNameAsync
-   (
-      hostName : Windows.Networking.IHostName
-   )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
-   
-   function FromBluetoothAddressAsync
-   (
-      address : Windows.UInt64
-   )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
-   
-   function GetDeviceSelector_IBluetoothDevice
    return Windows.String;
    
    function FromId
@@ -1883,12 +1883,6 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.Devices.Bluetooth.IBluetoothDeviceId;
    
-   function FromRawValue
-   (
-      rawValue : Windows.UInt16
-   )
-   return Windows.Devices.Bluetooth.IBluetoothLEAppearance;
-   
    function FromParts
    (
       appearanceCategory : Windows.UInt16
@@ -1896,31 +1890,40 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.Devices.Bluetooth.IBluetoothLEAppearance;
    
-   function get_Uncategorized
+   function FromRawValue
+   (
+      rawValue : Windows.UInt16
+   )
+   return Windows.Devices.Bluetooth.IBluetoothLEAppearance;
+   
+   function get_BarcodeScanner
    return Windows.UInt16;
    
-   function get_Phone
-   return Windows.UInt16;
-   
-   function get_Computer
-   return Windows.UInt16;
-   
-   function get_Watch
+   function get_BloodPressure
    return Windows.UInt16;
    
    function get_Clock
    return Windows.UInt16;
    
-   function get_Display
+   function get_Computer
    return Windows.UInt16;
    
-   function get_RemoteControl
+   function get_Cycling
+   return Windows.UInt16;
+   
+   function get_Display
    return Windows.UInt16;
    
    function get_EyeGlasses
    return Windows.UInt16;
    
-   function get_Tag
+   function get_GlucoseMeter
+   return Windows.UInt16;
+   
+   function get_HeartRate
+   return Windows.UInt16;
+   
+   function get_HumanInterfaceDevice
    return Windows.UInt16;
    
    function get_Keyring
@@ -1929,49 +1932,37 @@ package Windows.Devices.Bluetooth is
    function get_MediaPlayer
    return Windows.UInt16;
    
-   function get_BarcodeScanner
+   function get_OutdoorSportActivity
    return Windows.UInt16;
    
-   function get_Thermometer
-   return Windows.UInt16;
-   
-   function get_HeartRate
-   return Windows.UInt16;
-   
-   function get_BloodPressure
-   return Windows.UInt16;
-   
-   function get_HumanInterfaceDevice
-   return Windows.UInt16;
-   
-   function get_GlucoseMeter
-   return Windows.UInt16;
-   
-   function get_RunningWalking
-   return Windows.UInt16;
-   
-   function get_Cycling
+   function get_Phone
    return Windows.UInt16;
    
    function get_PulseOximeter
    return Windows.UInt16;
    
+   function get_RemoteControl
+   return Windows.UInt16;
+   
+   function get_RunningWalking
+   return Windows.UInt16;
+   
+   function get_Tag
+   return Windows.UInt16;
+   
+   function get_Thermometer
+   return Windows.UInt16;
+   
+   function get_Uncategorized
+   return Windows.UInt16;
+   
+   function get_Watch
+   return Windows.UInt16;
+   
    function get_WeightScale
    return Windows.UInt16;
    
-   function get_OutdoorSportActivity
-   return Windows.UInt16;
-   
-   function get_Generic
-   return Windows.UInt16;
-   
-   function get_SportsWatch
-   return Windows.UInt16;
-   
-   function get_ThermometerEar
-   return Windows.UInt16;
-   
-   function get_HeartRateBelt
+   function get_BarcodeScanner_BluetoothLEAppearanceSubcategories
    return Windows.UInt16;
    
    function get_BloodPressureArm
@@ -1980,46 +1971,13 @@ package Windows.Devices.Bluetooth is
    function get_BloodPressureWrist
    return Windows.UInt16;
    
-   function get_Keyboard
-   return Windows.UInt16;
-   
-   function get_Mouse
-   return Windows.UInt16;
-   
-   function get_Joystick
-   return Windows.UInt16;
-   
-   function get_Gamepad
-   return Windows.UInt16;
-   
-   function get_DigitizerTablet
-   return Windows.UInt16;
-   
    function get_CardReader
    return Windows.UInt16;
    
-   function get_DigitalPen
-   return Windows.UInt16;
-   
-   function get_BarcodeScanner_BluetoothLEAppearanceSubcategories
-   return Windows.UInt16;
-   
-   function get_RunningWalkingInShoe
-   return Windows.UInt16;
-   
-   function get_RunningWalkingOnShoe
-   return Windows.UInt16;
-   
-   function get_RunningWalkingOnHip
+   function get_CyclingCadenceSensor
    return Windows.UInt16;
    
    function get_CyclingComputer
-   return Windows.UInt16;
-   
-   function get_CyclingSpeedSensor
-   return Windows.UInt16;
-   
-   function get_CyclingCadenceSensor
    return Windows.UInt16;
    
    function get_CyclingPowerSensor
@@ -2028,10 +1986,28 @@ package Windows.Devices.Bluetooth is
    function get_CyclingSpeedCadenceSensor
    return Windows.UInt16;
    
-   function get_OximeterFingertip
+   function get_CyclingSpeedSensor
    return Windows.UInt16;
    
-   function get_OximeterWristWorn
+   function get_DigitalPen
+   return Windows.UInt16;
+   
+   function get_DigitizerTablet
+   return Windows.UInt16;
+   
+   function get_Gamepad
+   return Windows.UInt16;
+   
+   function get_Generic
+   return Windows.UInt16;
+   
+   function get_HeartRateBelt
+   return Windows.UInt16;
+   
+   function get_Joystick
+   return Windows.UInt16;
+   
+   function get_Keyboard
    return Windows.UInt16;
    
    function get_LocationDisplay
@@ -2040,17 +2016,35 @@ package Windows.Devices.Bluetooth is
    function get_LocationNavigationDisplay
    return Windows.UInt16;
    
-   function get_LocationPod
-   return Windows.UInt16;
-   
    function get_LocationNavigationPod
    return Windows.UInt16;
    
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
+   function get_LocationPod
+   return Windows.UInt16;
+   
+   function get_Mouse
+   return Windows.UInt16;
+   
+   function get_OximeterFingertip
+   return Windows.UInt16;
+   
+   function get_OximeterWristWorn
+   return Windows.UInt16;
+   
+   function get_RunningWalkingInShoe
+   return Windows.UInt16;
+   
+   function get_RunningWalkingOnHip
+   return Windows.UInt16;
+   
+   function get_RunningWalkingOnShoe
+   return Windows.UInt16;
+   
+   function get_SportsWatch
+   return Windows.UInt16;
+   
+   function get_ThermometerEar
+   return Windows.UInt16;
    
    function FromBluetoothAddressAsync
    (
@@ -2058,24 +2052,25 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
+   
    function GetDeviceSelector_IBluetoothLEDevice
    return Windows.String;
    
-   function GetDeviceSelectorFromPairingState_IBluetoothLEDevice
+   function FromBluetoothAddressWithBluetoothAddressTypeAsync
    (
-      pairingState : Windows.Boolean
+      bluetoothAddress : Windows.UInt64
+      ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
    )
-   return Windows.String;
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
    
-   function GetDeviceSelectorFromConnectionStatus_IBluetoothLEDevice
+   function GetDeviceSelectorFromAppearance
    (
-      connectionStatus : Windows.Devices.Bluetooth.BluetoothConnectionStatus
-   )
-   return Windows.String;
-   
-   function GetDeviceSelectorFromDeviceName_IBluetoothLEDevice
-   (
-      deviceName : Windows.String
+      appearance : Windows.Devices.Bluetooth.IBluetoothLEAppearance
    )
    return Windows.String;
    
@@ -2092,18 +2087,23 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.String;
    
-   function GetDeviceSelectorFromAppearance
+   function GetDeviceSelectorFromConnectionStatus_IBluetoothLEDevice
    (
-      appearance : Windows.Devices.Bluetooth.IBluetoothLEAppearance
+      connectionStatus : Windows.Devices.Bluetooth.BluetoothConnectionStatus
    )
    return Windows.String;
    
-   function FromBluetoothAddressWithBluetoothAddressTypeAsync
+   function GetDeviceSelectorFromDeviceName_IBluetoothLEDevice
    (
-      bluetoothAddress : Windows.UInt64
-      ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
+      deviceName : Windows.String
    )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
+   return Windows.String;
+   
+   function GetDeviceSelectorFromPairingState_IBluetoothLEDevice
+   (
+      pairingState : Windows.Boolean
+   )
+   return Windows.String;
    
    function FromShortId
    (

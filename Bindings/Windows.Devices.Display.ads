@@ -359,9 +359,6 @@ package Windows.Devices.Display is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -373,5 +370,8 @@ package Windows.Devices.Display is
       deviceInterfaceId : Windows.String
    )
    return Windows.Devices.Display.IAsyncOperation_IDisplayMonitor;
+   
+   function GetDeviceSelector
+   return Windows.String;
    
 end;

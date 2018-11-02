@@ -201,14 +201,14 @@ package Windows.ApplicationModel.Calls.Provider is
    function get_IsCurrentAppActiveCallOriginApp
    return Windows.Boolean;
    
-   procedure ShowPhoneCallOriginSettingsUI
-   ;
-   
    procedure SetCallOrigin
    (
       requestId : Windows.Guid
       ; callOrigin : Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin
    )
+   ;
+   
+   procedure ShowPhoneCallOriginSettingsUI
    ;
    
    function RequestSetAsActiveCallOriginAppAsync

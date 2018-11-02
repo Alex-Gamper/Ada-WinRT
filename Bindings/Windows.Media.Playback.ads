@@ -5057,26 +5057,29 @@ package Windows.Media.Playback is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Current
-   return Windows.Media.Playback.IMediaPlayer;
-   
    function add_MessageReceivedFromBackground
    (
       value : Windows.Media.Playback.EventHandler_IMediaPlayerDataReceivedEventArgs
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_MessageReceivedFromBackground
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function add_MessageReceivedFromForeground
    (
       value : Windows.Media.Playback.EventHandler_IMediaPlayerDataReceivedEventArgs
    )
    return Windows.Foundation.EventRegistrationToken;
+   
+   function get_Current
+   return Windows.Media.Playback.IMediaPlayer;
+   
+   function IsMediaPlaying
+   return Windows.Boolean;
+   
+   procedure remove_MessageReceivedFromBackground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    procedure remove_MessageReceivedFromForeground
    (
@@ -5095,9 +5098,6 @@ package Windows.Media.Playback is
       value : Windows.Foundation.Collections.IPropertySet
    )
    ;
-   
-   function IsMediaPlaying
-   return Windows.Boolean;
    
    procedure Shutdown
    ;

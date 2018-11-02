@@ -1530,20 +1530,20 @@ package Windows.UI.StartScreen is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function IsSupported
+   return Windows.Boolean;
+   
    function LoadCurrentAsync
    return Windows.UI.StartScreen.IAsyncOperation_IJumpList;
    
-   function IsSupported
-   return Windows.Boolean;
+   function CreateSeparator
+   return Windows.UI.StartScreen.IJumpListItem;
    
    function CreateWithArguments
    (
       arguments : Windows.String
       ; displayName : Windows.String
    )
-   return Windows.UI.StartScreen.IJumpListItem;
-   
-   function CreateSeparator
    return Windows.UI.StartScreen.IJumpListItem;
    
    function Exists

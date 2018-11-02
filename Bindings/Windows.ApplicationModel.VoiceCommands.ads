@@ -980,28 +980,18 @@ package Windows.ApplicationModel.VoiceCommands is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_InstalledCommandDefinitions
+   return Windows.Address;
+   
    function InstallCommandDefinitionsFromStorageFileAsync
    (
       file : Windows.Storage.IStorageFile
    )
    return Windows.Foundation.IAsyncAction;
    
-   function get_InstalledCommandDefinitions
-   return Windows.Address;
-   
-   function get_MaxSupportedVoiceCommandContentTiles
-   return Windows.UInt32;
-   
    function CreateResponse
    (
       userMessage : Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage
-   )
-   return Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse;
-   
-   function CreateResponseWithTiles
-   (
-      message : Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage
-      ; contentTiles : Windows.ApplicationModel.VoiceCommands.IIterable_IVoiceCommandContentTile
    )
    return Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse;
    
@@ -1019,6 +1009,16 @@ package Windows.ApplicationModel.VoiceCommands is
       ; contentTiles : Windows.ApplicationModel.VoiceCommands.IIterable_IVoiceCommandContentTile
    )
    return Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse;
+   
+   function CreateResponseWithTiles
+   (
+      message : Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage
+      ; contentTiles : Windows.ApplicationModel.VoiceCommands.IIterable_IVoiceCommandContentTile
+   )
+   return Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse;
+   
+   function get_MaxSupportedVoiceCommandContentTiles
+   return Windows.UInt32;
    
    function FromAppServiceTriggerDetails
    (

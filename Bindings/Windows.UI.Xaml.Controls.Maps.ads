@@ -7813,58 +7813,13 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource;
    
+   function get_CollisionBehaviorDesiredProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_LocationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_NormalizedAnchorPointProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CollisionBehaviorDesiredProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MapProjectionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StyleSheetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ViewPaddingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RegionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BusinessLandmarksEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TransitFeaturesEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BusinessLandmarksVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TransitFeaturesVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PanInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotateInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TiltInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZoomInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Is3DSupportedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsStreetsideSupportedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SceneProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CenterProperty
@@ -7888,7 +7843,16 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_LoadingStatusProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_LocationProperty_IMapControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MapElementsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_MapServiceTokenProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NormalizedAnchorPointProperty_IMapControl
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PedestrianFeaturesVisibleProperty
@@ -7897,7 +7861,13 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_PitchProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_RoutesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_StyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TileSourcesProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TrafficFlowVisibleProperty
@@ -7912,23 +7882,17 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_ZoomLevelProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MapElementsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RoutesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TileSourcesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LocationProperty_IMapControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetLocation
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Devices.Geolocation.IGeopoint;
+   
+   function GetNormalizedAnchorPoint
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Foundation.Point;
    
    procedure SetLocation
    (
@@ -7937,15 +7901,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    ;
    
-   function get_NormalizedAnchorPointProperty_IMapControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetNormalizedAnchorPoint
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Foundation.Point;
-   
    procedure SetNormalizedAnchorPoint
    (
       element : Windows.UI.Xaml.IDependencyObject
@@ -7953,7 +7908,52 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    ;
    
+   function get_BusinessLandmarksVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Is3DSupportedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsStreetsideSupportedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PanInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotateInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SceneProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TiltInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TransitFeaturesVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BusinessLandmarksEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TransitFeaturesEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MapProjectionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StyleSheetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ViewPaddingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_LayersProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RegionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateMapControl
@@ -7969,15 +7969,21 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapCustomExperience;
    
-   function get_IsEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapElement;
+   
+   function get_VisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MapTabIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MapStyleSheetEntryProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7988,19 +7994,13 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_TagProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ZIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MapTabIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LocationProperty_IMapElement3D
+   function get_IsEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeadingProperty_IMapElement3D
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocationProperty_IMapElement3D
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PitchProperty_IMapElement3D
@@ -8015,22 +8015,22 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_MapElementsProperty_IMapElementsLayer
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CollisionBehaviorDesiredProperty_IMapIcon
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_LocationProperty_IMapIcon
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TitleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_NormalizedAnchorPointProperty_IMapIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ItemsSourceProperty
+   function get_TitleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CollisionBehaviorDesiredProperty_IMapIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemsSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemTemplateProperty
@@ -8075,10 +8075,10 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_PathProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeThicknessProperty
+   function get_StrokeDashedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StrokeDashedProperty
+   function get_StrokeThicknessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PathProperty_IMapPolyline
@@ -8121,14 +8121,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapScene;
    
-   function CreateFromLocationWithHeadingAndPitch
-   (
-      location : Windows.Devices.Geolocation.IGeopoint
-      ; headingInDegrees : Windows.Double
-      ; pitchInDegrees : Windows.Double
-   )
-   return Windows.UI.Xaml.Controls.Maps.IMapScene;
-   
    function CreateFromLocationAndRadius
    (
       location : Windows.Devices.Geolocation.IGeopoint
@@ -8159,22 +8151,18 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapScene;
    
+   function CreateFromLocationWithHeadingAndPitch
+   (
+      location : Windows.Devices.Geolocation.IGeopoint
+      ; headingInDegrees : Windows.Double
+      ; pitchInDegrees : Windows.Double
+   )
+   return Windows.UI.Xaml.Controls.Maps.IMapScene;
+   
    function Aerial
    return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
    
    function AerialWithOverlay
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   
-   function RoadLight
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   
-   function RoadDark
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   
-   function RoadHighContrastLight
-   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
-   
-   function RoadHighContrastDark
    return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
    
    function Combine
@@ -8189,6 +8177,18 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
    
+   function RoadDark
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   
+   function RoadHighContrastDark
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   
+   function RoadHighContrastLight
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   
+   function RoadLight
+   return Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
+   
    function TryParseFromJson
    (
       styleAsJson : Windows.String
@@ -8196,10 +8196,28 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.Boolean;
    
-   function get_Area
+   function get_AdminDistrict
+   return Windows.String;
+   
+   function get_AdminDistrictCapital
    return Windows.String;
    
    function get_Airport
+   return Windows.String;
+   
+   function get_Area
+   return Windows.String;
+   
+   function get_ArterialRoad
+   return Windows.String;
+   
+   function get_Building
+   return Windows.String;
+   
+   function get_Business
+   return Windows.String;
+   
+   function get_Capital
    return Windows.String;
    
    function get_Cemetery
@@ -8208,7 +8226,40 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_Continent
    return Windows.String;
    
+   function get_ControlledAccessHighway
+   return Windows.String;
+   
+   function get_CountryRegion
+   return Windows.String;
+   
+   function get_CountryRegionCapital
+   return Windows.String;
+   
+   function get_District
+   return Windows.String;
+   
+   function get_DrivingRoute
+   return Windows.String;
+   
    function get_Education
+   return Windows.String;
+   
+   function get_EducationBuilding
+   return Windows.String;
+   
+   function get_FoodPoint
+   return Windows.String;
+   
+   function get_Forest
+   return Windows.String;
+   
+   function get_GolfCourse
+   return Windows.String;
+   
+   function get_HighSpeedRamp
+   return Windows.String;
+   
+   function get_Highway
    return Windows.String;
    
    function get_IndigenousPeoplesReserve
@@ -8217,16 +8268,70 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_Island
    return Windows.String;
    
+   function get_MajorRoad
+   return Windows.String;
+   
    function get_Medical
    return Windows.String;
    
+   function get_MedicalBuilding
+   return Windows.String;
+   
    function get_Military
+   return Windows.String;
+   
+   function get_NaturalPoint
    return Windows.String;
    
    function get_Nautical
    return Windows.String;
    
    function get_Neighborhood
+   return Windows.String;
+   
+   function get_Park
+   return Windows.String;
+   
+   function get_Peak
+   return Windows.String;
+   
+   function get_PlayingField
+   return Windows.String;
+   
+   function get_Point
+   return Windows.String;
+   
+   function get_PointOfInterest
+   return Windows.String;
+   
+   function get_Political
+   return Windows.String;
+   
+   function get_PopulatedPlace
+   return Windows.String;
+   
+   function get_Railway
+   return Windows.String;
+   
+   function get_Ramp
+   return Windows.String;
+   
+   function get_Reserve
+   return Windows.String;
+   
+   function get_River
+   return Windows.String;
+   
+   function get_Road
+   return Windows.String;
+   
+   function get_RoadExit
+   return Windows.String;
+   
+   function get_RoadShield
+   return Windows.String;
+   
+   function get_RouteLine
    return Windows.String;
    
    function get_Runway
@@ -8241,91 +8346,19 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_Stadium
    return Windows.String;
    
-   function get_Vegetation
-   return Windows.String;
-   
-   function get_Forest
-   return Windows.String;
-   
-   function get_GolfCourse
-   return Windows.String;
-   
-   function get_Park
-   return Windows.String;
-   
-   function get_PlayingField
-   return Windows.String;
-   
-   function get_Reserve
-   return Windows.String;
-   
-   function get_Point
-   return Windows.String;
-   
-   function get_NaturalPoint
-   return Windows.String;
-   
-   function get_Peak
-   return Windows.String;
-   
-   function get_VolcanicPeak
-   return Windows.String;
-   
-   function get_WaterPoint
-   return Windows.String;
-   
-   function get_PointOfInterest
-   return Windows.String;
-   
-   function get_Business
-   return Windows.String;
-   
-   function get_FoodPoint
-   return Windows.String;
-   
-   function get_PopulatedPlace
-   return Windows.String;
-   
-   function get_Capital
-   return Windows.String;
-   
-   function get_AdminDistrictCapital
-   return Windows.String;
-   
-   function get_CountryRegionCapital
-   return Windows.String;
-   
-   function get_RoadShield
-   return Windows.String;
-   
-   function get_RoadExit
-   return Windows.String;
-   
-   function get_Transit
-   return Windows.String;
-   
-   function get_Political
-   return Windows.String;
-   
-   function get_CountryRegion
-   return Windows.String;
-   
-   function get_AdminDistrict
-   return Windows.String;
-   
-   function get_District
+   function get_Street
    return Windows.String;
    
    function get_Structure
    return Windows.String;
    
-   function get_Building
+   function get_TollRoad
    return Windows.String;
    
-   function get_EducationBuilding
+   function get_Trail
    return Windows.String;
    
-   function get_MedicalBuilding
+   function get_Transit
    return Windows.String;
    
    function get_TransitBuilding
@@ -8334,58 +8367,25 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_Transportation
    return Windows.String;
    
-   function get_Road
-   return Windows.String;
-   
-   function get_ControlledAccessHighway
-   return Windows.String;
-   
-   function get_HighSpeedRamp
-   return Windows.String;
-   
-   function get_Highway
-   return Windows.String;
-   
-   function get_MajorRoad
-   return Windows.String;
-   
-   function get_ArterialRoad
-   return Windows.String;
-   
-   function get_Street
-   return Windows.String;
-   
-   function get_Ramp
-   return Windows.String;
-   
    function get_UnpavedStreet
    return Windows.String;
    
-   function get_TollRoad
+   function get_Vegetation
    return Windows.String;
    
-   function get_Railway
-   return Windows.String;
-   
-   function get_Trail
-   return Windows.String;
-   
-   function get_WaterRoute
-   return Windows.String;
-   
-   function get_Water
-   return Windows.String;
-   
-   function get_River
-   return Windows.String;
-   
-   function get_RouteLine
+   function get_VolcanicPeak
    return Windows.String;
    
    function get_WalkingRoute
    return Windows.String;
    
-   function get_DrivingRoute
+   function get_Water
+   return Windows.String;
+   
+   function get_WaterPoint
+   return Windows.String;
+   
+   function get_WaterRoute
    return Windows.String;
    
    function get_Disabled
@@ -8403,39 +8403,6 @@ package Windows.UI.Xaml.Controls.Maps is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileDataSource;
-   
-   function get_DataSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LayerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZoomLevelRangeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BoundsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowOverstretchProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsFadingEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTransparencyEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsRetryEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZIndexProperty_IMapTileSource
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TilePixelSizeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VisibleProperty_IMapTileSource
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -8482,16 +8449,49 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource;
    
-   function FindNearbyWithLocationAsync
-   (
-      location : Windows.Devices.Geolocation.IGeopoint
-   )
-   return Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama;
+   function get_AllowOverstretchProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BoundsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DataSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsFadingEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsRetryEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTransparencyEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LayerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TilePixelSizeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VisibleProperty_IMapTileSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZIndexProperty_IMapTileSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomLevelRangeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function FindNearbyWithLocationAndRadiusAsync
    (
       location : Windows.Devices.Geolocation.IGeopoint
       ; radiusInMeters : Windows.Double
+   )
+   return Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama;
+   
+   function FindNearbyWithLocationAsync
+   (
+      location : Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama;
    

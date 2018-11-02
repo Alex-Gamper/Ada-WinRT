@@ -349,13 +349,6 @@ package Windows.Globalization.PhoneNumberFormatting is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   procedure TryCreate
-   (
-      regionCode : Windows.String
-      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter
-   )
-   ;
-   
    function GetCountryCodeForRegion
    (
       regionCode : Windows.String
@@ -368,6 +361,13 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; stripNonDigit : Windows.Boolean
    )
    return Windows.String;
+   
+   procedure TryCreate
+   (
+      regionCode : Windows.String
+      ; phoneNumber : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter
+   )
+   ;
    
    function WrapWithLeftToRightMarkers
    (

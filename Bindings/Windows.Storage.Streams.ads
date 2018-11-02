@@ -1825,29 +1825,6 @@ package Windows.Storage.Streams is
    )
    return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream;
    
-   function OpenWithOptionsAsync
-   (
-      filePath : Windows.String
-      ; accessMode : Windows.Storage.FileAccessMode
-      ; sharingOptions : Windows.Storage.StorageOpenOptions
-      ; openDisposition : Windows.Storage.Streams.FileOpenDisposition
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream;
-   
-   function OpenTransactedWriteAsync
-   (
-      filePath : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageStreamTransaction;
-   
-   function OpenTransactedWriteWithOptionsAsync
-   (
-      filePath : Windows.String
-      ; openOptions : Windows.Storage.StorageOpenOptions
-      ; openDisposition : Windows.Storage.Streams.FileOpenDisposition
-   )
-   return Windows.Storage.IAsyncOperation_IStorageStreamTransaction;
-   
    function OpenForUserAsync
    (
       user : Windows.System.IUser
@@ -1866,6 +1843,12 @@ package Windows.Storage.Streams is
    )
    return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream;
    
+   function OpenTransactedWriteAsync
+   (
+      filePath : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageStreamTransaction;
+   
    function OpenTransactedWriteForUserAsync
    (
       user : Windows.System.IUser
@@ -1882,6 +1865,30 @@ package Windows.Storage.Streams is
    )
    return Windows.Storage.IAsyncOperation_IStorageStreamTransaction;
    
+   function OpenTransactedWriteWithOptionsAsync
+   (
+      filePath : Windows.String
+      ; openOptions : Windows.Storage.StorageOpenOptions
+      ; openDisposition : Windows.Storage.Streams.FileOpenDisposition
+   )
+   return Windows.Storage.IAsyncOperation_IStorageStreamTransaction;
+   
+   function OpenWithOptionsAsync
+   (
+      filePath : Windows.String
+      ; accessMode : Windows.Storage.FileAccessMode
+      ; sharingOptions : Windows.Storage.StorageOpenOptions
+      ; openDisposition : Windows.Storage.Streams.FileOpenDisposition
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream;
+   
+   function CopyAndCloseAsync
+   (
+      source : Windows.Storage.Streams.IInputStream
+      ; destination : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Address;
+   
    function CopyAsync
    (
       source : Windows.Storage.Streams.IInputStream
@@ -1897,28 +1904,21 @@ package Windows.Storage.Streams is
    )
    return Windows.Address;
    
-   function CopyAndCloseAsync
-   (
-      source : Windows.Storage.Streams.IInputStream
-      ; destination : Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.Address;
-   
    function CreateFromFile
    (
       file : Windows.Storage.IStorageFile
    )
    return Windows.Storage.Streams.IRandomAccessStreamReference;
    
-   function CreateFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Storage.Streams.IRandomAccessStreamReference;
-   
    function CreateFromStream
    (
       stream : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Storage.Streams.IRandomAccessStreamReference;
+   
+   function CreateFromUri
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.Storage.Streams.IRandomAccessStreamReference;
    

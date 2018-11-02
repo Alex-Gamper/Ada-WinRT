@@ -294,16 +294,16 @@ package Windows.Devices.Sensors.Custom is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   (
-      interfaceId : Windows.Guid
-   )
-   return Windows.String;
-   
    function FromIdAsync
    (
       sensorId : Windows.String
    )
    return Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor;
+   
+   function GetDeviceSelector
+   (
+      interfaceId : Windows.Guid
+   )
+   return Windows.String;
    
 end;

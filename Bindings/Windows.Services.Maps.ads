@@ -2177,16 +2177,16 @@ package Windows.Services.Maps is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function FindLocationsAtAsync
-   (
-      queryPoint : Windows.Devices.Geolocation.IGeopoint
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult;
-   
    function FindLocationsAsync
    (
       searchText : Windows.String
       ; referencePoint : Windows.Devices.Geolocation.IGeopoint
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult;
+   
+   function FindLocationsAtAsync
+   (
+      queryPoint : Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult;
    
@@ -2211,27 +2211,6 @@ package Windows.Services.Maps is
    procedure ShowMapsUpdateUI
    ;
    
-   function GetDrivingRouteFromEnhancedWaypointsAsync
-   (
-      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   
-   function GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync
-   (
-      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
-      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   
-   function GetDrivingRouteWithOptionsAsync
-   (
-      startPoint : Windows.Devices.Geolocation.IGeopoint
-      ; endPoint : Windows.Devices.Geolocation.IGeopoint
-      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   
    function GetDrivingRouteAsync
    (
       startPoint : Windows.Devices.Geolocation.IGeopoint
@@ -2239,43 +2218,16 @@ package Windows.Services.Maps is
    )
    return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
    
-   function GetDrivingRouteWithOptimizationAsync
+   function GetDrivingRouteFromWaypointsAndOptimizationAsync
    (
-      startPoint : Windows.Devices.Geolocation.IGeopoint
-      ; endPoint : Windows.Devices.Geolocation.IGeopoint
+      wayPoints : Windows.Devices.Geolocation.IIterable_IGeopoint
       ; optimization : Windows.Services.Maps.MapRouteOptimization
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   
-   function GetDrivingRouteWithOptimizationAndRestrictionsAsync
-   (
-      startPoint : Windows.Devices.Geolocation.IGeopoint
-      ; endPoint : Windows.Devices.Geolocation.IGeopoint
-      ; optimization : Windows.Services.Maps.MapRouteOptimization
-      ; restrictions : Windows.Services.Maps.MapRouteRestrictions
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   
-   function GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync
-   (
-      startPoint : Windows.Devices.Geolocation.IGeopoint
-      ; endPoint : Windows.Devices.Geolocation.IGeopoint
-      ; optimization : Windows.Services.Maps.MapRouteOptimization
-      ; restrictions : Windows.Services.Maps.MapRouteRestrictions
-      ; headingInDegrees : Windows.Double
    )
    return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
    
    function GetDrivingRouteFromWaypointsAsync
    (
       wayPoints : Windows.Devices.Geolocation.IIterable_IGeopoint
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   
-   function GetDrivingRouteFromWaypointsAndOptimizationAsync
-   (
-      wayPoints : Windows.Devices.Geolocation.IIterable_IGeopoint
-      ; optimization : Windows.Services.Maps.MapRouteOptimization
    )
    return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
    
@@ -2296,6 +2248,33 @@ package Windows.Services.Maps is
    )
    return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
    
+   function GetDrivingRouteWithOptimizationAndRestrictionsAsync
+   (
+      startPoint : Windows.Devices.Geolocation.IGeopoint
+      ; endPoint : Windows.Devices.Geolocation.IGeopoint
+      ; optimization : Windows.Services.Maps.MapRouteOptimization
+      ; restrictions : Windows.Services.Maps.MapRouteRestrictions
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   
+   function GetDrivingRouteWithOptimizationAsync
+   (
+      startPoint : Windows.Devices.Geolocation.IGeopoint
+      ; endPoint : Windows.Devices.Geolocation.IGeopoint
+      ; optimization : Windows.Services.Maps.MapRouteOptimization
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   
+   function GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync
+   (
+      startPoint : Windows.Devices.Geolocation.IGeopoint
+      ; endPoint : Windows.Devices.Geolocation.IGeopoint
+      ; optimization : Windows.Services.Maps.MapRouteOptimization
+      ; restrictions : Windows.Services.Maps.MapRouteRestrictions
+      ; headingInDegrees : Windows.Double
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   
    function GetWalkingRouteAsync
    (
       startPoint : Windows.Devices.Geolocation.IGeopoint
@@ -2309,17 +2288,44 @@ package Windows.Services.Maps is
    )
    return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
    
+   function GetDrivingRouteWithOptionsAsync
+   (
+      startPoint : Windows.Devices.Geolocation.IGeopoint
+      ; endPoint : Windows.Devices.Geolocation.IGeopoint
+      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   
+   function GetDrivingRouteFromEnhancedWaypointsAsync
+   (
+      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   
+   function GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync
+   (
+      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
+      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   
+   function get_ServiceToken
+   return Windows.String;
+   
    procedure put_ServiceToken
    (
       value : Windows.String
    )
    ;
    
-   function get_ServiceToken
-   return Windows.String;
-   
    function get_WorldViewRegionCode
    return Windows.String;
+   
+   function get_DataAttributions
+   return Windows.String;
+   
+   function get_DataUsagePreference
+   return Windows.Services.Maps.MapServiceDataUsagePreference;
    
    procedure put_DataUsagePreference
    (
@@ -2327,35 +2333,9 @@ package Windows.Services.Maps is
    )
    ;
    
-   function get_DataUsagePreference
-   return Windows.Services.Maps.MapServiceDataUsagePreference;
-   
-   function get_DataAttributions
-   return Windows.String;
-   
-   function CreateFromAddress
-   (
-      displayAddress : Windows.String
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function CreateFromAddressWithName
-   (
-      displayAddress : Windows.String
-      ; displayName : Windows.String
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
    function Create
    (
       referencePoint : Windows.Devices.Geolocation.IGeopoint
-   )
-   return Windows.Services.Maps.IPlaceInfo;
-   
-   function CreateWithGeopointAndOptions
-   (
-      referencePoint : Windows.Devices.Geolocation.IGeopoint
-      ; options : Windows.Services.Maps.IPlaceInfoCreateOptions
    )
    return Windows.Services.Maps.IPlaceInfo;
    
@@ -2379,7 +2359,27 @@ package Windows.Services.Maps is
    )
    return Windows.Services.Maps.IPlaceInfo;
    
+   function CreateWithGeopointAndOptions
+   (
+      referencePoint : Windows.Devices.Geolocation.IGeopoint
+      ; options : Windows.Services.Maps.IPlaceInfoCreateOptions
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
    function get_IsShowSupported
    return Windows.Boolean;
+   
+   function CreateFromAddress
+   (
+      displayAddress : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function CreateFromAddressWithName
+   (
+      displayAddress : Windows.String
+      ; displayName : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo;
    
 end;

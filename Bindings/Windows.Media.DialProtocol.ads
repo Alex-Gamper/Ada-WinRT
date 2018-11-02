@@ -736,11 +736,11 @@ package Windows.Media.DialProtocol is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
+   function DeviceInfoSupportsDialAsync
    (
-      appName : Windows.String
+      device : Windows.Devices.Enumeration.IDeviceInformation
    )
-   return Windows.String;
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function FromIdAsync
    (
@@ -748,11 +748,11 @@ package Windows.Media.DialProtocol is
    )
    return Windows.Media.DialProtocol.IAsyncOperation_IDialDevice;
    
-   function DeviceInfoSupportsDialAsync
+   function GetDeviceSelector
    (
-      device : Windows.Devices.Enumeration.IDeviceInformation
+      appName : Windows.String
    )
-   return Windows.Foundation.IAsyncOperation_Boolean;
+   return Windows.String;
    
    function get_Current
    return Windows.Media.DialProtocol.IDialReceiverApp;

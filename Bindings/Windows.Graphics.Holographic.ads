@@ -1665,20 +1665,11 @@ package Windows.Graphics.Holographic is
    function GetDefault
    return Windows.Graphics.Holographic.IHolographicDisplay;
    
-   function get_IsConfigured
-   return Windows.Boolean;
-   
    function CreateForCoreWindow
    (
       window : Windows.UI.Core.ICoreWindow
    )
    return Windows.Graphics.Holographic.IHolographicSpace;
-   
-   function get_IsSupported
-   return Windows.Boolean;
-   
-   function get_IsAvailable
-   return Windows.Boolean;
    
    function add_IsAvailableChanged
    (
@@ -1686,10 +1677,19 @@ package Windows.Graphics.Holographic is
    )
    return Windows.Foundation.EventRegistrationToken;
    
+   function get_IsAvailable
+   return Windows.Boolean;
+   
+   function get_IsSupported
+   return Windows.Boolean;
+   
    procedure remove_IsAvailableChanged
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
+   function get_IsConfigured
+   return Windows.Boolean;
    
 end;

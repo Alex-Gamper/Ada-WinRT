@@ -441,6 +441,13 @@ package Windows.Devices.I2c is
    function GetDefaultAsync
    return Windows.Devices.I2c.IAsyncOperation_II2cController;
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+      ; settings : Windows.Devices.I2c.II2cConnectionSettings
+   )
+   return Windows.Devices.I2c.IAsyncOperation_II2cDevice;
+   
    function GetDeviceSelector
    return Windows.String;
    
@@ -449,12 +456,5 @@ package Windows.Devices.I2c is
       friendlyName : Windows.String
    )
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-      ; settings : Windows.Devices.I2c.II2cConnectionSettings
-   )
-   return Windows.Devices.I2c.IAsyncOperation_II2cDevice;
    
 end;

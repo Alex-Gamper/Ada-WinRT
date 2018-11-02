@@ -2503,6 +2503,12 @@ package Windows.Devices.Usb is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function Parse
+   (
+      descriptor : Windows.Devices.Usb.IUsbDescriptor
+   )
+   return Windows.Devices.Usb.IUsbConfigurationDescriptor;
+   
    function TryParse
    (
       descriptor : Windows.Devices.Usb.IUsbDescriptor
@@ -2510,11 +2516,17 @@ package Windows.Devices.Usb is
    )
    return Windows.Boolean;
    
-   function Parse
+   function FromIdAsync
    (
-      descriptor : Windows.Devices.Usb.IUsbDescriptor
+      deviceId : Windows.String
    )
-   return Windows.Devices.Usb.IUsbConfigurationDescriptor;
+   return Windows.Devices.Usb.IAsyncOperation_IUsbDevice;
+   
+   function GetDeviceClassSelector
+   (
+      usbClass : Windows.Devices.Usb.IUsbDeviceClass
+   )
+   return Windows.String;
    
    function GetDeviceSelector
    (
@@ -2537,31 +2549,10 @@ package Windows.Devices.Usb is
    )
    return Windows.String;
    
-   function GetDeviceClassSelector
-   (
-      usbClass : Windows.Devices.Usb.IUsbDeviceClass
-   )
-   return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Usb.IAsyncOperation_IUsbDevice;
-   
-   function get_CdcControl
-   return Windows.Devices.Usb.IUsbDeviceClass;
-   
-   function get_Physical
-   return Windows.Devices.Usb.IUsbDeviceClass;
-   
-   function get_PersonalHealthcare
-   return Windows.Devices.Usb.IUsbDeviceClass;
-   
    function get_ActiveSync
    return Windows.Devices.Usb.IUsbDeviceClass;
    
-   function get_PalmSync
+   function get_CdcControl
    return Windows.Devices.Usb.IUsbDeviceClass;
    
    function get_DeviceFirmwareUpdate
@@ -2573,8 +2564,23 @@ package Windows.Devices.Usb is
    function get_Measurement
    return Windows.Devices.Usb.IUsbDeviceClass;
    
+   function get_PalmSync
+   return Windows.Devices.Usb.IUsbDeviceClass;
+   
+   function get_PersonalHealthcare
+   return Windows.Devices.Usb.IUsbDeviceClass;
+   
+   function get_Physical
+   return Windows.Devices.Usb.IUsbDeviceClass;
+   
    function get_VendorSpecific
    return Windows.Devices.Usb.IUsbDeviceClass;
+   
+   function Parse
+   (
+      descriptor : Windows.Devices.Usb.IUsbDescriptor
+   )
+   return Windows.Devices.Usb.IUsbEndpointDescriptor;
    
    function TryParse
    (
@@ -2587,7 +2593,7 @@ package Windows.Devices.Usb is
    (
       descriptor : Windows.Devices.Usb.IUsbDescriptor
    )
-   return Windows.Devices.Usb.IUsbEndpointDescriptor;
+   return Windows.Devices.Usb.IUsbInterfaceDescriptor;
    
    function TryParse
    (
@@ -2595,11 +2601,5 @@ package Windows.Devices.Usb is
       ; parsed : access Windows.Devices.Usb.IUsbInterfaceDescriptor
    )
    return Windows.Boolean;
-   
-   function Parse
-   (
-      descriptor : Windows.Devices.Usb.IUsbDescriptor
-   )
-   return Windows.Devices.Usb.IUsbInterfaceDescriptor;
    
 end;

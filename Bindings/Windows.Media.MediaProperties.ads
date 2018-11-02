@@ -2034,16 +2034,13 @@ package Windows.Media.MediaProperties is
    )
    return Windows.Media.MediaProperties.IAudioEncodingProperties;
    
-   function get_ConstrainedBaseline
-   return Windows.Int32;
-   
    function get_Baseline
    return Windows.Int32;
    
-   function get_Extended
+   function get_ConstrainedBaseline
    return Windows.Int32;
    
-   function get_Main
+   function get_Extended
    return Windows.Int32;
    
    function get_High
@@ -2058,11 +2055,26 @@ package Windows.Media.MediaProperties is
    function get_High444
    return Windows.Int32;
    
-   function get_StereoHigh
+   function get_Main
    return Windows.Int32;
    
    function get_MultiviewHigh
    return Windows.Int32;
+   
+   function get_StereoHigh
+   return Windows.Int32;
+   
+   function CreateJpeg
+   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   
+   function CreateJpegXR
+   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   
+   function CreatePng
+   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   
+   function CreateBmp
+   return Windows.Media.MediaProperties.IImageEncodingProperties;
    
    function CreateUncompressed
    (
@@ -2070,17 +2082,59 @@ package Windows.Media.MediaProperties is
    )
    return Windows.Media.MediaProperties.IImageEncodingProperties;
    
-   function CreateBmp
-   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   function CreateFromFileAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.Media.MediaProperties.IAsyncOperation_IMediaEncodingProfile;
    
-   function CreateJpeg
-   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   function CreateFromStreamAsync
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Media.MediaProperties.IAsyncOperation_IMediaEncodingProfile;
    
-   function CreatePng
-   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   function CreateM4a
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
    
-   function CreateJpegXR
-   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   function CreateMp3
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
+   
+   function CreateMp4
+   (
+      quality : Windows.Media.MediaProperties.VideoEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
+   
+   function CreateWma
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
+   
+   function CreateWmv
+   (
+      quality : Windows.Media.MediaProperties.VideoEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
+   
+   function CreateAvi
+   (
+      quality : Windows.Media.MediaProperties.VideoEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
+   
+   function CreateWav
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
    
    function CreateAlac
    (
@@ -2099,81 +2153,6 @@ package Windows.Media.MediaProperties is
       quality : Windows.Media.MediaProperties.VideoEncodingQuality
    )
    return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateM4a
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateMp3
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateWma
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateMp4
-   (
-      quality : Windows.Media.MediaProperties.VideoEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateWmv
-   (
-      quality : Windows.Media.MediaProperties.VideoEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateFromFileAsync
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   return Windows.Media.MediaProperties.IAsyncOperation_IMediaEncodingProfile;
-   
-   function CreateFromStreamAsync
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Media.MediaProperties.IAsyncOperation_IMediaEncodingProfile;
-   
-   function CreateWav
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateAvi
-   (
-      quality : Windows.Media.MediaProperties.VideoEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function get_P010
-   return Windows.String;
-   
-   function get_Alac
-   return Windows.String;
-   
-   function get_Flac
-   return Windows.String;
-   
-   function get_Vp9
-   return Windows.String;
-   
-   function get_L8
-   return Windows.String;
-   
-   function get_L16
-   return Windows.String;
-   
-   function get_D16
-   return Windows.String;
    
    function get_Aac
    return Windows.String;
@@ -2241,6 +2220,9 @@ package Windows.Media.MediaProperties is
    function get_Mjpg
    return Windows.String;
    
+   function get_Mp3
+   return Windows.String;
+   
    function get_Mpeg
    return Windows.String;
    
@@ -2248,9 +2230,6 @@ package Windows.Media.MediaProperties is
    return Windows.String;
    
    function get_Mpeg2
-   return Windows.String;
-   
-   function get_Mp3
    return Windows.String;
    
    function get_Mpeg4
@@ -2295,7 +2274,28 @@ package Windows.Media.MediaProperties is
    function get_Yv12
    return Windows.String;
    
-   function get_Simple
+   function get_D16
+   return Windows.String;
+   
+   function get_L16
+   return Windows.String;
+   
+   function get_L8
+   return Windows.String;
+   
+   function get_Vp9
+   return Windows.String;
+   
+   function get_Alac
+   return Windows.String;
+   
+   function get_Flac
+   return Windows.String;
+   
+   function get_P010
+   return Windows.String;
+   
+   function get_High_Mpeg2ProfileIds
    return Windows.Int32;
    
    function get_Main_Mpeg2ProfileIds
@@ -2304,14 +2304,11 @@ package Windows.Media.MediaProperties is
    function get_SignalNoiseRatioScalable
    return Windows.Int32;
    
+   function get_Simple
+   return Windows.Int32;
+   
    function get_SpatiallyScalable
    return Windows.Int32;
-   
-   function get_High_Mpeg2ProfileIds
-   return Windows.Int32;
-   
-   function CreateHevc
-   return Windows.Media.MediaProperties.IVideoEncodingProperties;
    
    function CreateH264
    return Windows.Media.MediaProperties.IVideoEncodingProperties;
@@ -2325,6 +2322,9 @@ package Windows.Media.MediaProperties is
       ; width : Windows.UInt32
       ; height : Windows.UInt32
    )
+   return Windows.Media.MediaProperties.IVideoEncodingProperties;
+   
+   function CreateHevc
    return Windows.Media.MediaProperties.IVideoEncodingProperties;
    
 end;

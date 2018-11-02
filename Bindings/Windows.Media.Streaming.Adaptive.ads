@@ -1449,25 +1449,6 @@ package Windows.Media.Streaming.Adaptive is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function IsContentTypeSupported
-   (
-      contentType : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function CreateFromUriAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
-   
-   function CreateFromUriWithDownloaderAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; httpClient : Windows.Web.Http.IHttpClient
-   )
-   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
-   
    function CreateFromStreamAsync
    (
       stream : Windows.Storage.Streams.IInputStream
@@ -1484,5 +1465,24 @@ package Windows.Media.Streaming.Adaptive is
       ; httpClient : Windows.Web.Http.IHttpClient
    )
    return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
+   
+   function CreateFromUriAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
+   
+   function CreateFromUriWithDownloaderAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; httpClient : Windows.Web.Http.IHttpClient
+   )
+   return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
+   
+   function IsContentTypeSupported
+   (
+      contentType : Windows.String
+   )
+   return Windows.Boolean;
    
 end;

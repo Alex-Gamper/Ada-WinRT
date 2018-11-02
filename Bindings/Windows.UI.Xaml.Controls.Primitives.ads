@@ -7813,16 +7813,16 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_ClickModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsPointerOverProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsPressedProperty
+   function get_CommandParameterProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CommandProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CommandParameterProperty
+   function get_IsPointerOverProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsPressedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -7832,15 +7832,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.UI.Xaml.Controls.Primitives.ICarouselPanel;
    
-   function get_ColorChannelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider;
+   
+   function get_ColorChannelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -7852,31 +7852,31 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_ColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HsvColorProperty
+   function get_ComponentsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinHueProperty
+   function get_HsvColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MaxHueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinSaturationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_MaxSaturationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MinValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MaxValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ShapeProperty
+   function get_MinHueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ComponentsProperty
+   function get_MinSaturationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinValueProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ShapeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled
@@ -7914,25 +7914,10 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.UI.Xaml.Controls.Primitives.IFlyoutBase;
    
-   function get_OverlayInputPassThroughElementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowFocusOnInteractionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LightDismissOverlayModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowFocusWhenDisabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ElementSoundModeProperty
+   function get_AttachedFlyoutProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PlacementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AttachedFlyoutProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetAttachedFlyout
@@ -7954,6 +7939,21 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    ;
    
+   function get_AllowFocusOnInteractionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowFocusWhenDisabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ElementSoundModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LightDismissOverlayModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OverlayInputPassThroughElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function FromIndexAndOffset
    (
       index : Windows.Int32
@@ -7961,7 +7961,14 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.UI.Xaml.Controls.Primitives.GeneratorPosition;
    
-   function get_SelectionCheckMarkVisualEnabledProperty
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
+   
+   function get_CheckBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CheckHintBrushProperty
@@ -7970,7 +7977,10 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_CheckSelectingBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CheckBrushProperty
+   function get_ContentMarginProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DisabledOpacityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DragBackgroundProperty
@@ -7979,16 +7989,37 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_DragForegroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_DragOpacityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_FocusBorderBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GridViewItemPresenterHorizontalContentAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GridViewItemPresenterPaddingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GridViewItemPresenterVerticalContentAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PlaceholderBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_PointerOverBackgroundMarginProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_PointerOverBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ReorderHintOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_SelectedBackgroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedBorderThicknessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedForegroundProperty
@@ -8000,50 +8031,19 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_SelectedPointerOverBorderBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SelectedBorderThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DisabledOpacityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DragOpacityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ReorderHintOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GridViewItemPresenterHorizontalContentAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GridViewItemPresenterVerticalContentAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GridViewItemPresenterPaddingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointerOverBackgroundMarginProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ContentMarginProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
-   
-   function get_EnabledProperty
+   function get_SelectionCheckMarkVisualEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DisabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_EnabledProperty_IJumpListItemForegroundConverter
+   function get_EnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DisabledProperty_IJumpListItemForegroundConverter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EnabledProperty_IJumpListItemForegroundConverter
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetLayoutExceptionElement
@@ -8064,25 +8064,14 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.Foundation.Size;
    
-   function get_SelectedPressedBackgroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter;
    
-   function get_PressedBackgroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CheckBoxBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusSecondaryBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CheckModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointerOverForegroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionCheckMarkVisualEnabledProperty_IListViewItemPresenter
+   function get_CheckBrushProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CheckHintBrushProperty_IListViewItemPresenter
@@ -8091,7 +8080,10 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_CheckSelectingBrushProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CheckBrushProperty_IListViewItemPresenter
+   function get_ContentMarginProperty_IListViewItemPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DisabledOpacityProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DragBackgroundProperty_IListViewItemPresenter
@@ -8100,16 +8092,37 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_DragForegroundProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_DragOpacityProperty_IListViewItemPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_FocusBorderBrushProperty_IListViewItemPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ListViewItemPresenterHorizontalContentAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ListViewItemPresenterPaddingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ListViewItemPresenterVerticalContentAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PlaceholderBackgroundProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_PointerOverBackgroundMarginProperty_IListViewItemPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_PointerOverBackgroundProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ReorderHintOffsetProperty_IListViewItemPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_SelectedBackgroundProperty_IListViewItemPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedBorderThicknessProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedForegroundProperty_IListViewItemPresenter
@@ -8121,34 +8134,31 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_SelectedPointerOverBorderBrushProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SelectedBorderThicknessProperty_IListViewItemPresenter
+   function get_SelectionCheckMarkVisualEnabledProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DisabledOpacityProperty_IListViewItemPresenter
+   function get_CheckBoxBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DragOpacityProperty_IListViewItemPresenter
+   function get_CheckModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ReorderHintOffsetProperty_IListViewItemPresenter
+   function get_FocusSecondaryBorderBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ListViewItemPresenterHorizontalContentAlignmentProperty
+   function get_PointerOverForegroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ListViewItemPresenterVerticalContentAlignmentProperty
+   function get_PressedBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ListViewItemPresenterPaddingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointerOverBackgroundMarginProperty_IListViewItemPresenter
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ContentMarginProperty_IListViewItemPresenter
+   function get_SelectedPressedBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_RevealBackgroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RevealBackgroundShowsAboveContentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_RevealBorderBrushProperty
@@ -8157,20 +8167,16 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_RevealBorderThicknessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_RevealBackgroundShowsAboveContentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter;
-   
-   function get_ShouldLoopProperty
+   function get_ItemHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemTemplateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedIndexProperty
@@ -8179,14 +8185,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_SelectedItemProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ItemWidthProperty
+   function get_ShouldLoopProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ItemHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemTemplateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
    
    function get_TitleProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -8209,49 +8216,27 @@ package Windows.UI.Xaml.Controls.Primitives is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem;
    
-   function get_LightDismissOverlayModeProperty_IPopup
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ChildProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsOpenProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ChildTransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_HorizontalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_IsLightDismissEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinimumProperty
+   function get_IsOpenProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaximumProperty
+   function get_VerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SmallChangeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LargeChangeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ValueProperty
+   function get_LightDismissOverlayModeProperty_IPopup
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -8261,10 +8246,28 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.UI.Xaml.Controls.Primitives.IRangeBase;
    
+   function get_LargeChangeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaximumProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinimumProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SmallChangeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ValueProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_DelayProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IntervalProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IndicatorModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OrientationProperty
@@ -8273,7 +8276,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_ViewportSizeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IndicatorModeProperty
+   function get_IsSynchronizedWithCurrentItemProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedIndexProperty_ISelector
@@ -8282,13 +8285,10 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_SelectedItemProperty_ISelector
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SelectedValueProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_SelectedValuePathProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsSynchronizedWithCurrentItemProperty
+   function get_SelectedValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetIsSelectionActive
@@ -8313,17 +8313,17 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_FillProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsCheckedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsThreeStateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IToggleButton;
+   
+   function get_IsCheckedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsThreeStateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
 end;

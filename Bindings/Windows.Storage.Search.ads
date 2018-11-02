@@ -1310,13 +1310,13 @@ package Windows.Storage.Search is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetIndexer
+   return Windows.Storage.Search.IContentIndexer;
+   
    function GetIndexerWithName
    (
       indexName : Windows.String
    )
-   return Windows.Storage.Search.IContentIndexer;
-   
-   function GetIndexer
    return Windows.Storage.Search.IContentIndexer;
    
 end;

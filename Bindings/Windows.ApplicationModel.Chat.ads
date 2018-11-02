@@ -3437,6 +3437,15 @@ package Windows.ApplicationModel.Chat is
    )
    return Windows.Foundation.IAsyncAction;
    
+   function GetTransportAsync
+   (
+      transportId : Windows.String
+   )
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageTransport;
+   
+   function RegisterTransportAsync
+   return Windows.Foundation.IAsyncOperation_String;
+   
    function GetTransportsAsync
    return Windows.Address;
    
@@ -3455,26 +3464,17 @@ package Windows.ApplicationModel.Chat is
    function RequestSyncManagerAsync
    return Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager;
    
-   function RegisterTransportAsync
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function GetTransportAsync
-   (
-      transportId : Windows.String
-   )
-   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageTransport;
-   
    function GetEndUserMessageManager
    return Windows.ApplicationModel.Chat.IRcsEndUserMessageManager;
-   
-   function GetTransportsAsync_RcsManager
-   return Windows.Address;
    
    function GetTransportAsync
    (
       transportId : Windows.String
    )
    return Windows.ApplicationModel.Chat.IAsyncOperation_IRcsTransport;
+   
+   function GetTransportsAsync_RcsManager
+   return Windows.Address;
    
    function LeaveConversationAsync
    (

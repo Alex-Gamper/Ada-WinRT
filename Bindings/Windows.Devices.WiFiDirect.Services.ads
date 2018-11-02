@@ -1212,6 +1212,12 @@ package Windows.Devices.WiFiDirect.Services is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService;
+   
    function GetSelector
    (
       serviceName : Windows.String
@@ -1224,11 +1230,5 @@ package Windows.Devices.WiFiDirect.Services is
       ; serviceInfoFilter : Windows.Storage.Streams.IBuffer
    )
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService;
    
 end;

@@ -1811,16 +1811,16 @@ package Windows.UI.Xaml.Data is
    )
    ;
    
-   function get_SourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ViewProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_IsSourceGroupedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemsPathProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ViewProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance

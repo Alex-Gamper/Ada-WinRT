@@ -1375,28 +1375,28 @@ package Windows.UI.Xaml.Media.Imaging is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_CreateOptionsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DecodePixelHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DecodePixelWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_UriSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_DecodePixelTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AutoPlayProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsAnimatedBitmapProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsPlayingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AutoPlayProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CreateOptionsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_UriSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DecodePixelWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DecodePixelHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -1406,16 +1406,16 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.UI.Xaml.Media.Imaging.IBitmapSource;
    
-   function get_PixelWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_PixelHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PixelWidthProperty_IRenderTargetBitmap
+   function get_PixelWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PixelHeightProperty_IRenderTargetBitmap
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PixelWidthProperty_IRenderTargetBitmap
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstanceWithDimensions
@@ -1452,13 +1452,13 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
    
-   function get_UriSourceProperty_ISvgImageSource
+   function get_RasterizePixelHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_RasterizePixelWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_RasterizePixelHeightProperty
+   function get_UriSourceProperty_ISvgImageSource
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance

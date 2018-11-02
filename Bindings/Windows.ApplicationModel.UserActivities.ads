@@ -964,6 +964,12 @@ package Windows.ApplicationModel.UserActivities is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function ToJsonArray
+   (
+      activities : Windows.ApplicationModel.UserActivities.IIterable_IUserActivity
+   )
+   return Windows.String;
+   
    function TryParseFromJson
    (
       json : Windows.String
@@ -976,11 +982,8 @@ package Windows.ApplicationModel.UserActivities is
    )
    return Windows.ApplicationModel.UserActivities.IVector_IUserActivity;
    
-   function ToJsonArray
-   (
-      activities : Windows.ApplicationModel.UserActivities.IIterable_IUserActivity
-   )
-   return Windows.String;
+   function GetDefault
+   return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
    
    procedure DisableAutoSessionCreation
    ;
@@ -989,9 +992,6 @@ package Windows.ApplicationModel.UserActivities is
    (
       account : Windows.Security.Credentials.IWebAccount
    )
-   return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
-   
-   function GetDefault
    return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
    
    function FromJson

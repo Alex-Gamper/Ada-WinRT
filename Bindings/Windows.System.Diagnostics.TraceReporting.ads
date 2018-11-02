@@ -447,23 +447,6 @@ package Windows.System.Diagnostics.TraceReporting is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function IsScenarioEnabled
-   (
-      scenarioId : Windows.Guid
-   )
-   return Windows.Boolean;
-   
-   function TryEscalateScenario
-   (
-      scenarioId : Windows.Guid
-      ; escalationType : Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType
-      ; outputDirectory : Windows.String
-      ; timestampOutputDirectory : Windows.Boolean
-      ; forceEscalationUpload : Windows.Boolean
-      ; triggers : IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario
-   )
-   return Windows.Boolean;
-   
    function DownloadLatestSettingsForNamespace
    (
       partner : Windows.String
@@ -474,9 +457,6 @@ package Windows.System.Diagnostics.TraceReporting is
    )
    return Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;
    
-   function GetActiveScenarioList
-   return Windows.Foundation.Collections.IVectorView_Guid;
-   
    function ForceUpload
    (
       latency : Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies
@@ -485,13 +465,8 @@ package Windows.System.Diagnostics.TraceReporting is
    )
    return Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;
    
-   function IsTraceRunning
-   (
-      slotType : Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType
-      ; scenarioId : Windows.Guid
-      ; traceProfileHash : Windows.UInt64
-   )
-   return Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;
+   function GetActiveScenarioList
+   return Windows.Foundation.Collections.IVectorView_Guid;
    
    function GetActiveTraceRuntime
    (
@@ -504,5 +479,30 @@ package Windows.System.Diagnostics.TraceReporting is
       slotType : Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType
    )
    return Windows.System.Diagnostics.TraceReporting.IVectorView_IPlatformDiagnosticTraceInfo;
+   
+   function IsScenarioEnabled
+   (
+      scenarioId : Windows.Guid
+   )
+   return Windows.Boolean;
+   
+   function IsTraceRunning
+   (
+      slotType : Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType
+      ; scenarioId : Windows.Guid
+      ; traceProfileHash : Windows.UInt64
+   )
+   return Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;
+   
+   function TryEscalateScenario
+   (
+      scenarioId : Windows.Guid
+      ; escalationType : Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType
+      ; outputDirectory : Windows.String
+      ; timestampOutputDirectory : Windows.Boolean
+      ; forceEscalationUpload : Windows.Boolean
+      ; triggers : IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario
+   )
+   return Windows.Boolean;
    
 end;

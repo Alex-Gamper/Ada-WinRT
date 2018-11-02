@@ -2254,12 +2254,6 @@ package Windows.System.RemoteSystems is
    function get_SpatialEntity
    return Windows.String;
    
-   function FindByHostNameAsync
-   (
-      hostName : Windows.Networking.IHostName
-   )
-   return Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystem;
-   
    function CreateWatcher
    return Windows.System.RemoteSystems.IRemoteSystemWatcher;
    
@@ -2268,6 +2262,12 @@ package Windows.System.RemoteSystems is
       filters : Windows.System.RemoteSystems.IIterable_IRemoteSystemFilter
    )
    return Windows.System.RemoteSystems.IRemoteSystemWatcher;
+   
+   function FindByHostNameAsync
+   (
+      hostName : Windows.Networking.IHostName
+   )
+   return Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystem;
    
    function RequestAccessAsync
    return Windows.System.RemoteSystems.IAsyncOperation_RemoteSystemAccessStatus;
@@ -2278,16 +2278,16 @@ package Windows.System.RemoteSystems is
    )
    return Windows.Boolean;
    
-   function get_Phone
-   return Windows.String;
-   
-   function get_Hub
+   function get_Desktop
    return Windows.String;
    
    function get_Holographic
    return Windows.String;
    
-   function get_Desktop
+   function get_Hub
+   return Windows.String;
+   
+   function get_Phone
    return Windows.String;
    
    function get_Xbox
@@ -2296,10 +2296,10 @@ package Windows.System.RemoteSystems is
    function get_Iot
    return Windows.String;
    
-   function get_Tablet
+   function get_Laptop
    return Windows.String;
    
-   function get_Laptop
+   function get_Tablet
    return Windows.String;
    
    function CreateWatcher

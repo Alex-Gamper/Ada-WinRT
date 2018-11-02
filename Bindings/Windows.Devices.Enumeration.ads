@@ -2372,9 +2372,9 @@ package Windows.Devices.Enumeration is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function CreateFromId
+   function CreateFromDeviceClass
    (
-      deviceId : Windows.String
+      deviceClass : Windows.Devices.Enumeration.DeviceClass
    )
    return Windows.Devices.Enumeration.IDeviceAccessInformation;
    
@@ -2384,41 +2384,11 @@ package Windows.Devices.Enumeration is
    )
    return Windows.Devices.Enumeration.IDeviceAccessInformation;
    
-   function CreateFromDeviceClass
-   (
-      deviceClass : Windows.Devices.Enumeration.DeviceClass
-   )
-   return Windows.Devices.Enumeration.IDeviceAccessInformation;
-   
-   function GetAqsFilterFromDeviceClass
-   (
-      deviceClass : Windows.Devices.Enumeration.DeviceClass
-   )
-   return Windows.String;
-   
-   function CreateFromIdAsyncWithKindAndAdditionalProperties
+   function CreateFromId
    (
       deviceId : Windows.String
-      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
-      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
    )
-   return Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation;
-   
-   function FindAllAsyncWithKindAqsFilterAndAdditionalProperties
-   (
-      aqsFilter : Windows.String
-      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
-      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
-   )
-   return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
-   
-   function CreateWatcherWithKindAqsFilterAndAdditionalProperties
-   (
-      aqsFilter : Windows.String
-      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
-      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
-   )
-   return Windows.Devices.Enumeration.IDeviceWatcher;
+   return Windows.Devices.Enumeration.IDeviceAccessInformation;
    
    function CreateFromIdAsync
    (
@@ -2433,13 +2403,29 @@ package Windows.Devices.Enumeration is
    )
    return Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation;
    
-   function FindAllAsync
-   return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
+   function CreateWatcher
+   return Windows.Devices.Enumeration.IDeviceWatcher;
    
-   function FindAllAsyncDeviceClass
+   function CreateWatcherAqsFilter
+   (
+      aqsFilter : Windows.String
+   )
+   return Windows.Devices.Enumeration.IDeviceWatcher;
+   
+   function CreateWatcherAqsFilterAndAdditionalProperties
+   (
+      aqsFilter : Windows.String
+      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Devices.Enumeration.IDeviceWatcher;
+   
+   function CreateWatcherDeviceClass
    (
       deviceClass : Windows.Devices.Enumeration.DeviceClass
    )
+   return Windows.Devices.Enumeration.IDeviceWatcher;
+   
+   function FindAllAsync
    return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
    
    function FindAllAsyncAqsFilter
@@ -2455,27 +2441,41 @@ package Windows.Devices.Enumeration is
    )
    return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
    
-   function CreateWatcher
-   return Windows.Devices.Enumeration.IDeviceWatcher;
-   
-   function CreateWatcherDeviceClass
+   function FindAllAsyncDeviceClass
    (
       deviceClass : Windows.Devices.Enumeration.DeviceClass
    )
-   return Windows.Devices.Enumeration.IDeviceWatcher;
+   return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
    
-   function CreateWatcherAqsFilter
+   function CreateFromIdAsyncWithKindAndAdditionalProperties
    (
-      aqsFilter : Windows.String
+      deviceId : Windows.String
+      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
+      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
    )
-   return Windows.Devices.Enumeration.IDeviceWatcher;
+   return Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation;
    
-   function CreateWatcherAqsFilterAndAdditionalProperties
+   function CreateWatcherWithKindAqsFilterAndAdditionalProperties
    (
       aqsFilter : Windows.String
       ; additionalProperties : Windows.Foundation.Collections.IIterable_String
+      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
    )
    return Windows.Devices.Enumeration.IDeviceWatcher;
+   
+   function FindAllAsyncWithKindAqsFilterAndAdditionalProperties
+   (
+      aqsFilter : Windows.String
+      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
+      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
+   )
+   return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
+   
+   function GetAqsFilterFromDeviceClass
+   (
+      deviceClass : Windows.Devices.Enumeration.DeviceClass
+   )
+   return Windows.String;
    
    function TryRegisterForAllInboundPairingRequests
    (

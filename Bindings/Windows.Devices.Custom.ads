@@ -339,12 +339,6 @@ package Windows.Devices.Custom is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   (
-      classGuid : Windows.Guid
-   )
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -352,6 +346,12 @@ package Windows.Devices.Custom is
       ; sharingMode : Windows.Devices.Custom.DeviceSharingMode
    )
    return Windows.Devices.Custom.IAsyncOperation_ICustomDevice;
+   
+   function GetDeviceSelector
+   (
+      classGuid : Windows.Guid
+   )
+   return Windows.String;
    
    function get_Unknown
    return Windows.UInt16;

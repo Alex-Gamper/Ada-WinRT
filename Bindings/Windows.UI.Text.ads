@@ -2600,10 +2600,10 @@ package Windows.UI.Text is
    function get_AutoColor
    return Windows.UI.Color;
    
-   function get_MinUnitCount
+   function get_MaxUnitCount
    return Windows.Int32;
    
-   function get_MaxUnitCount
+   function get_MinUnitCount
    return Windows.Int32;
    
    function get_UndefinedColor
@@ -2612,13 +2612,13 @@ package Windows.UI.Text is
    function get_UndefinedFloatValue
    return Windows.Single;
    
-   function get_UndefinedInt32Value
-   return Windows.Int32;
-   
    function get_UndefinedFontStretch
    return Windows.UI.Text.FontStretch;
    
    function get_UndefinedFontStyle
    return Windows.UI.Text.FontStyle;
+   
+   function get_UndefinedInt32Value
+   return Windows.Int32;
    
 end;

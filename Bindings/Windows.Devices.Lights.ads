@@ -251,9 +251,6 @@ package Windows.Devices.Lights is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelector
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -262,5 +259,8 @@ package Windows.Devices.Lights is
    
    function GetDefaultAsync
    return Windows.Devices.Lights.IAsyncOperation_ILamp;
+   
+   function GetDeviceSelector
+   return Windows.String;
    
 end;

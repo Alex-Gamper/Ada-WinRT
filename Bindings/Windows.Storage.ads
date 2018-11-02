@@ -4117,13 +4117,13 @@ package Windows.Storage is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetDefault
+   return Windows.Storage.IAppDataPaths;
+   
    function GetForUser
    (
       user : Windows.System.IUser
    )
-   return Windows.Storage.IAppDataPaths;
-   
-   function GetDefault
    return Windows.Storage.IAppDataPaths;
    
    function get_Current
@@ -4135,21 +4135,28 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IApplicationData;
    
-   procedure DeferUpdates
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   ;
-   
    function CompleteUpdatesAsync
    (
       file : Windows.Storage.IStorageFile
    )
    return Windows.Storage.Provider.IAsyncOperation_FileUpdateStatus;
    
+   procedure DeferUpdates
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   ;
+   
    function CreateFileAsync
    (
       desiredName : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function CreateFileWithCollisionOptionAsync
+   (
+      desiredName : Windows.String
+      ; option : Windows.Storage.CreationCollisionOption
    )
    return Windows.Storage.IAsyncOperation_IStorageFile;
    
@@ -4158,13 +4165,6 @@ package Windows.Storage is
       desiredName : Windows.String
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;
-   
-   function CreateFileWithCollisionOptionAsync
-   (
-      desiredName : Windows.String
-      ; option : Windows.Storage.CreationCollisionOption
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile;
    
    function CreateFolderWithCollisionOptionAsync
    (
@@ -4180,13 +4180,6 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFile;
    
-   function CreateFolderForUserAsync
-   (
-      user : Windows.System.IUser
-      ; desiredName : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFolder;
-   
    function CreateFileForUserWithCollisionOptionAsync
    (
       user : Windows.System.IUser
@@ -4194,6 +4187,13 @@ package Windows.Storage is
       ; option : Windows.Storage.CreationCollisionOption
    )
    return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function CreateFolderForUserAsync
+   (
+      user : Windows.System.IUser
+      ; desiredName : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder;
    
    function CreateFolderForUserWithCollisionOptionAsync
    (
@@ -4203,30 +4203,17 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;
    
-   function ReadTextAsync
+   function AppendLinesAsync
    (
       file : Windows.Storage.IStorageFile
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function ReadTextWithEncodingAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; encoding : Windows.Storage.Streams.UnicodeEncoding
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function WriteTextAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; contents : Windows.String
+      ; lines : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.Foundation.IAsyncAction;
    
-   function WriteTextWithEncodingAsync
+   function AppendLinesWithEncodingAsync
    (
       file : Windows.Storage.IStorageFile
-      ; contents : Windows.String
+      ; lines : Windows.Foundation.Collections.IIterable_String
       ; encoding : Windows.Storage.Streams.UnicodeEncoding
    )
    return Windows.Foundation.IAsyncAction;
@@ -4246,6 +4233,12 @@ package Windows.Storage is
    )
    return Windows.Foundation.IAsyncAction;
    
+   function ReadBufferAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   
    function ReadLinesAsync
    (
       file : Windows.Storage.IStorageFile
@@ -4258,6 +4251,33 @@ package Windows.Storage is
       ; encoding : Windows.Storage.Streams.UnicodeEncoding
    )
    return Windows.Address;
+   
+   function ReadTextAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function ReadTextWithEncodingAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; encoding : Windows.Storage.Streams.UnicodeEncoding
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function WriteBufferAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function WriteBytesAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; buffer : Windows.UInt8_Ptr
+   )
+   return Windows.Foundation.IAsyncAction;
    
    function WriteLinesAsync
    (
@@ -4274,66 +4294,28 @@ package Windows.Storage is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function AppendLinesAsync
+   function WriteTextAsync
    (
       file : Windows.Storage.IStorageFile
-      ; lines : Windows.Foundation.Collections.IIterable_String
+      ; contents : Windows.String
    )
    return Windows.Foundation.IAsyncAction;
    
-   function AppendLinesWithEncodingAsync
+   function WriteTextWithEncodingAsync
    (
       file : Windows.Storage.IStorageFile
-      ; lines : Windows.Foundation.Collections.IIterable_String
+      ; contents : Windows.String
       ; encoding : Windows.Storage.Streams.UnicodeEncoding
    )
    return Windows.Foundation.IAsyncAction;
    
-   function ReadBufferAsync
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   
-   function WriteBufferAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function WriteBytesAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; buffer : Windows.UInt8_Ptr
-   )
-   return Windows.Foundation.IAsyncAction;
+   function get_CameraRoll
+   return Windows.Storage.IStorageFolder;
    
    function get_Playlists
    return Windows.Storage.IStorageFolder;
    
    function get_SavedPictures
-   return Windows.Storage.IStorageFolder;
-   
-   function get_Objects3D
-   return Windows.Storage.IStorageFolder;
-   
-   function get_AppCaptures
-   return Windows.Storage.IStorageFolder;
-   
-   function get_RecordedCalls
-   return Windows.Storage.IStorageFolder;
-   
-   function get_CameraRoll
-   return Windows.Storage.IStorageFolder;
-   
-   function get_MusicLibrary
-   return Windows.Storage.IStorageFolder;
-   
-   function get_PicturesLibrary
-   return Windows.Storage.IStorageFolder;
-   
-   function get_VideosLibrary
    return Windows.Storage.IStorageFolder;
    
    function get_DocumentsLibrary
@@ -4342,10 +4324,28 @@ package Windows.Storage is
    function get_HomeGroup
    return Windows.Storage.IStorageFolder;
    
+   function get_MediaServerDevices
+   return Windows.Storage.IStorageFolder;
+   
+   function get_MusicLibrary
+   return Windows.Storage.IStorageFolder;
+   
+   function get_PicturesLibrary
+   return Windows.Storage.IStorageFolder;
+   
    function get_RemovableDevices
    return Windows.Storage.IStorageFolder;
    
-   function get_MediaServerDevices
+   function get_VideosLibrary
+   return Windows.Storage.IStorageFolder;
+   
+   function get_AppCaptures
+   return Windows.Storage.IStorageFolder;
+   
+   function get_Objects3D
+   return Windows.Storage.IStorageFolder;
+   
+   function get_RecordedCalls
    return Windows.Storage.IStorageFolder;
    
    function GetFolderForUserAsync
@@ -4355,30 +4355,17 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;
    
-   function ReadTextAsync
+   function AppendLinesAsync
    (
       absolutePath : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function ReadTextWithEncodingAsync
-   (
-      absolutePath : Windows.String
-      ; encoding : Windows.Storage.Streams.UnicodeEncoding
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function WriteTextAsync
-   (
-      absolutePath : Windows.String
-      ; contents : Windows.String
+      ; lines : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.Foundation.IAsyncAction;
    
-   function WriteTextWithEncodingAsync
+   function AppendLinesWithEncodingAsync
    (
       absolutePath : Windows.String
-      ; contents : Windows.String
+      ; lines : Windows.Foundation.Collections.IIterable_String
       ; encoding : Windows.Storage.Streams.UnicodeEncoding
    )
    return Windows.Foundation.IAsyncAction;
@@ -4398,6 +4385,12 @@ package Windows.Storage is
    )
    return Windows.Foundation.IAsyncAction;
    
+   function ReadBufferAsync
+   (
+      absolutePath : Windows.String
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   
    function ReadLinesAsync
    (
       absolutePath : Windows.String
@@ -4410,6 +4403,33 @@ package Windows.Storage is
       ; encoding : Windows.Storage.Streams.UnicodeEncoding
    )
    return Windows.Address;
+   
+   function ReadTextAsync
+   (
+      absolutePath : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function ReadTextWithEncodingAsync
+   (
+      absolutePath : Windows.String
+      ; encoding : Windows.Storage.Streams.UnicodeEncoding
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function WriteBufferAsync
+   (
+      absolutePath : Windows.String
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function WriteBytesAsync
+   (
+      absolutePath : Windows.String
+      ; buffer : Windows.UInt8_Ptr
+   )
+   return Windows.Foundation.IAsyncAction;
    
    function WriteLinesAsync
    (
@@ -4426,52 +4446,20 @@ package Windows.Storage is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function AppendLinesAsync
+   function WriteTextAsync
    (
       absolutePath : Windows.String
-      ; lines : Windows.Foundation.Collections.IIterable_String
+      ; contents : Windows.String
    )
    return Windows.Foundation.IAsyncAction;
    
-   function AppendLinesWithEncodingAsync
+   function WriteTextWithEncodingAsync
    (
       absolutePath : Windows.String
-      ; lines : Windows.Foundation.Collections.IIterable_String
+      ; contents : Windows.String
       ; encoding : Windows.Storage.Streams.UnicodeEncoding
    )
    return Windows.Foundation.IAsyncAction;
-   
-   function ReadBufferAsync
-   (
-      absolutePath : Windows.String
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   
-   function WriteBufferAsync
-   (
-      absolutePath : Windows.String
-      ; buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function WriteBytesAsync
-   (
-      absolutePath : Windows.String
-      ; buffer : Windows.UInt8_Ptr
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function GetFileFromPathAsync
-   (
-      path : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile;
-   
-   function GetFileFromApplicationUriAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile;
    
    function CreateStreamedFileAsync
    (
@@ -4481,18 +4469,30 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFile;
    
-   function ReplaceWithStreamedFileAsync
-   (
-      fileToReplace : Windows.Storage.IStorageFile
-      ; dataRequested : Windows.Storage.StreamedFileDataRequestedHandler
-      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile;
-   
    function CreateStreamedFileFromUriAsync
    (
       displayNameWithExtension : Windows.String
       ; uri : Windows.Foundation.IUriRuntimeClass
+      ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function GetFileFromApplicationUriAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function GetFileFromPathAsync
+   (
+      path : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function ReplaceWithStreamedFileAsync
+   (
+      fileToReplace : Windows.Storage.IStorageFile
+      ; dataRequested : Windows.Storage.StreamedFileDataRequestedHandler
       ; thumbnail : Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.Storage.IAsyncOperation_IStorageFile;
@@ -4527,29 +4527,26 @@ package Windows.Storage is
    function GetDefault
    return Windows.Storage.ISystemDataPaths;
    
+   function get_Audio
+   return Windows.Storage.ISystemAudioProperties;
+   
    function get_Author
    return Windows.String;
    
    function get_Comment
    return Windows.String;
    
+   function get_GPS
+   return Windows.Storage.ISystemGPSProperties;
+   
+   function get_Image
+   return Windows.Storage.ISystemImageProperties;
+   
    function get_ItemNameDisplay
    return Windows.String;
    
    function get_Keywords
    return Windows.String;
-   
-   function get_Rating
-   return Windows.String;
-   
-   function get_Title
-   return Windows.String;
-   
-   function get_Audio
-   return Windows.Storage.ISystemAudioProperties;
-   
-   function get_GPS
-   return Windows.Storage.ISystemGPSProperties;
    
    function get_Media
    return Windows.Storage.ISystemMediaProperties;
@@ -4560,19 +4557,22 @@ package Windows.Storage is
    function get_Photo
    return Windows.Storage.ISystemPhotoProperties;
    
+   function get_Rating
+   return Windows.String;
+   
+   function get_Title
+   return Windows.String;
+   
    function get_Video
    return Windows.Storage.ISystemVideoProperties;
    
-   function get_Image
-   return Windows.Storage.ISystemImageProperties;
+   function GetDefault
+   return Windows.Storage.IUserDataPaths;
    
    function GetForUser
    (
       user : Windows.System.IUser
    )
-   return Windows.Storage.IUserDataPaths;
-   
-   function GetDefault
    return Windows.Storage.IUserDataPaths;
    
 end;

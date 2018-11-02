@@ -635,11 +635,11 @@ package Windows.ApplicationModel.UserDataAccounts is
    )
    return Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore;
    
-   function ShowAddAccountAsync
+   function ShowAccountErrorResolverAsync
    (
-      contentKinds : Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds
+      id : Windows.String
    )
-   return Windows.Foundation.IAsyncOperation_String;
+   return Windows.Foundation.IAsyncAction;
    
    function ShowAccountSettingsAsync
    (
@@ -647,11 +647,11 @@ package Windows.ApplicationModel.UserDataAccounts is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function ShowAccountErrorResolverAsync
+   function ShowAddAccountAsync
    (
-      id : Windows.String
+      contentKinds : Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds
    )
-   return Windows.Foundation.IAsyncAction;
+   return Windows.Foundation.IAsyncOperation_String;
    
    function GetForUser
    (

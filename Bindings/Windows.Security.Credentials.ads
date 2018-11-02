@@ -1223,8 +1223,20 @@ package Windows.Security.Credentials is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function DeleteAsync
+   (
+      name : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction;
+   
    function IsSupportedAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function OpenAsync
+   (
+      name : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult;
    
    function RenewAttestationAsync
    return Windows.Foundation.IAsyncAction;
@@ -1235,17 +1247,5 @@ package Windows.Security.Credentials is
       ; option : Windows.Security.Credentials.KeyCredentialCreationOption
    )
    return Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult;
-   
-   function OpenAsync
-   (
-      name : Windows.String
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult;
-   
-   function DeleteAsync
-   (
-      name : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction;
    
 end;

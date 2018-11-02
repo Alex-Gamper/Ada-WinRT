@@ -1696,55 +1696,37 @@ package Windows.Devices.Bluetooth.Advertisement is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Flags
+   function get_AdvertisingInterval
    return Windows.UInt8;
    
-   function get_IncompleteService16BitUuids
-   return Windows.UInt8;
-   
-   function get_CompleteService16BitUuids
-   return Windows.UInt8;
-   
-   function get_IncompleteService32BitUuids
-   return Windows.UInt8;
-   
-   function get_CompleteService32BitUuids
-   return Windows.UInt8;
-   
-   function get_IncompleteService128BitUuids
-   return Windows.UInt8;
-   
-   function get_CompleteService128BitUuids
-   return Windows.UInt8;
-   
-   function get_ShortenedLocalName
+   function get_Appearance
    return Windows.UInt8;
    
    function get_CompleteLocalName
    return Windows.UInt8;
    
-   function get_TxPowerLevel
+   function get_CompleteService128BitUuids
    return Windows.UInt8;
    
-   function get_SlaveConnectionIntervalRange
+   function get_CompleteService16BitUuids
    return Windows.UInt8;
    
-   function get_ServiceSolicitation16BitUuids
+   function get_CompleteService32BitUuids
    return Windows.UInt8;
    
-   function get_ServiceSolicitation32BitUuids
+   function get_Flags
    return Windows.UInt8;
    
-   function get_ServiceSolicitation128BitUuids
+   function get_IncompleteService128BitUuids
    return Windows.UInt8;
    
-   function get_ServiceData16BitUuids
+   function get_IncompleteService16BitUuids
    return Windows.UInt8;
    
-   function get_ServiceData32BitUuids
+   function get_IncompleteService32BitUuids
    return Windows.UInt8;
    
-   function get_ServiceData128BitUuids
+   function get_ManufacturerSpecificData
    return Windows.UInt8;
    
    function get_PublicTargetAddress
@@ -1753,13 +1735,31 @@ package Windows.Devices.Bluetooth.Advertisement is
    function get_RandomTargetAddress
    return Windows.UInt8;
    
-   function get_Appearance
+   function get_ServiceData128BitUuids
    return Windows.UInt8;
    
-   function get_AdvertisingInterval
+   function get_ServiceData16BitUuids
    return Windows.UInt8;
    
-   function get_ManufacturerSpecificData
+   function get_ServiceData32BitUuids
+   return Windows.UInt8;
+   
+   function get_ServiceSolicitation128BitUuids
+   return Windows.UInt8;
+   
+   function get_ServiceSolicitation16BitUuids
+   return Windows.UInt8;
+   
+   function get_ServiceSolicitation32BitUuids
+   return Windows.UInt8;
+   
+   function get_ShortenedLocalName
+   return Windows.UInt8;
+   
+   function get_SlaveConnectionIntervalRange
+   return Windows.UInt8;
+   
+   function get_TxPowerLevel
    return Windows.UInt8;
    
 end;

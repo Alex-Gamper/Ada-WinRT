@@ -918,8 +918,44 @@ package Windows.Networking.Proximity is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function add_ConnectionRequested
+   (
+      handler : TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_TriggeredConnectionStateChanged
+   (
+      handler : TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function ConnectAsync
+   (
+      peerInformation : Windows.Networking.Proximity.IPeerInformation
+   )
+   return Windows.Networking.Sockets.IAsyncOperation_IStreamSocket;
+   
+   function FindAllPeersAsync
+   return Windows.Address;
+   
    function get_AllowBluetooth
    return Windows.Boolean;
+   
+   function get_AllowInfrastructure
+   return Windows.Boolean;
+   
+   function get_AllowWiFiDirect
+   return Windows.Boolean;
+   
+   function get_AlternateIdentities
+   return Windows.Address;
+   
+   function get_DisplayName
+   return Windows.String;
+   
+   function get_SupportedDiscoveryTypes
+   return Windows.Networking.Proximity.PeerDiscoveryTypes;
    
    procedure put_AllowBluetooth
    (
@@ -927,17 +963,11 @@ package Windows.Networking.Proximity is
    )
    ;
    
-   function get_AllowInfrastructure
-   return Windows.Boolean;
-   
    procedure put_AllowInfrastructure
    (
       value : Windows.Boolean
    )
    ;
-   
-   function get_AllowWiFiDirect
-   return Windows.Boolean;
    
    procedure put_AllowWiFiDirect
    (
@@ -945,20 +975,23 @@ package Windows.Networking.Proximity is
    )
    ;
    
-   function get_DisplayName
-   return Windows.String;
-   
    procedure put_DisplayName
    (
       value : Windows.String
    )
    ;
    
-   function get_SupportedDiscoveryTypes
-   return Windows.Networking.Proximity.PeerDiscoveryTypes;
+   procedure remove_ConnectionRequested
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
-   function get_AlternateIdentities
-   return Windows.Address;
+   procedure remove_TriggeredConnectionStateChanged
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    procedure Start
    ;
@@ -972,50 +1005,14 @@ package Windows.Networking.Proximity is
    procedure Stop
    ;
    
-   function add_TriggeredConnectionStateChanged
-   (
-      handler : TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_TriggeredConnectionStateChanged
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_ConnectionRequested
-   (
-      handler : TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_ConnectionRequested
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function FindAllPeersAsync
-   return Windows.Address;
-   
-   function ConnectAsync
-   (
-      peerInformation : Windows.Networking.Proximity.IPeerInformation
-   )
-   return Windows.Networking.Sockets.IAsyncOperation_IStreamSocket;
-   
-   function get_Role
-   return Windows.Networking.Proximity.PeerRole;
-   
-   procedure put_Role
-   (
-      value : Windows.Networking.Proximity.PeerRole
-   )
-   ;
+   function CreateWatcher
+   return Windows.Networking.Proximity.IPeerWatcher;
    
    function get_DiscoveryData
    return Windows.Storage.Streams.IBuffer;
+   
+   function get_Role
+   return Windows.Networking.Proximity.PeerRole;
    
    procedure put_DiscoveryData
    (
@@ -1023,19 +1020,22 @@ package Windows.Networking.Proximity is
    )
    ;
    
-   function CreateWatcher
-   return Windows.Networking.Proximity.IPeerWatcher;
-   
-   function GetDeviceSelector
-   return Windows.String;
-   
-   function GetDefault
-   return Windows.Networking.Proximity.IProximityDevice;
+   procedure put_Role
+   (
+      value : Windows.Networking.Proximity.PeerRole
+   )
+   ;
    
    function FromId
    (
       deviceId : Windows.String
    )
    return Windows.Networking.Proximity.IProximityDevice;
+   
+   function GetDefault
+   return Windows.Networking.Proximity.IProximityDevice;
+   
+   function GetDeviceSelector
+   return Windows.String;
    
 end;

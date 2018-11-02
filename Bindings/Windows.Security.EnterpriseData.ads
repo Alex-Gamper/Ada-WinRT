@@ -1695,34 +1695,6 @@ package Windows.Security.EnterpriseData is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function ProtectAsync
-   (
-      data : Windows.Storage.Streams.IBuffer
-      ; identity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
-   
-   function UnprotectAsync
-   (
-      data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
-   
-   function ProtectStreamAsync
-   (
-      unprotectedStream : Windows.Storage.Streams.IInputStream
-      ; identity : Windows.String
-      ; protectedStream : Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
-   
-   function UnprotectStreamAsync
-   (
-      protectedStream : Windows.Storage.Streams.IInputStream
-      ; unprotectedStream : Windows.Storage.Streams.IOutputStream
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
-   
    function GetProtectionInfoAsync
    (
       protectedData : Windows.Storage.Streams.IBuffer
@@ -1737,10 +1709,31 @@ package Windows.Security.EnterpriseData is
    
    function ProtectAsync
    (
-      target : Windows.Storage.IStorageItem
+      data : Windows.Storage.Streams.IBuffer
       ; identity : Windows.String
    )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
+   
+   function ProtectStreamAsync
+   (
+      unprotectedStream : Windows.Storage.Streams.IInputStream
+      ; identity : Windows.String
+      ; protectedStream : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
+   
+   function UnprotectAsync
+   (
+      data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult;
+   
+   function UnprotectStreamAsync
+   (
+      protectedStream : Windows.Storage.Streams.IInputStream
+      ; unprotectedStream : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
    
    function CopyProtectionAsync
    (
@@ -1749,17 +1742,20 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
+   function CreateProtectedAndOpenAsync
+   (
+      parentFolder : Windows.Storage.IStorageFolder
+      ; desiredName : Windows.String
+      ; identity : Windows.String
+      ; collisionOption : Windows.Storage.CreationCollisionOption
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult;
+   
    function GetProtectionInfoAsync
    (
       source : Windows.Storage.IStorageItem
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
-   
-   function SaveFileAsContainerAsync
-   (
-      protectedFile : Windows.Storage.IStorageFile
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult;
    
    function LoadFileFromContainerAsync
    (
@@ -1774,27 +1770,18 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult;
    
-   function CreateProtectedAndOpenAsync
+   function ProtectAsync
    (
-      parentFolder : Windows.Storage.IStorageFolder
-      ; desiredName : Windows.String
+      target : Windows.Storage.IStorageItem
       ; identity : Windows.String
-      ; collisionOption : Windows.Storage.CreationCollisionOption
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult;
-   
-   function UnprotectAsync
-   (
-      target : Windows.Storage.IStorageItem
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
    
-   function UnprotectWithOptionsAsync
+   function SaveFileAsContainerAsync
    (
-      target : Windows.Storage.IStorageItem
-      ; options : Windows.Security.EnterpriseData.IFileUnprotectOptions
+      protectedFile : Windows.Storage.IStorageFile
    )
-   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult;
    
    function IsContainerAsync
    (
@@ -1817,12 +1804,18 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult;
    
-   function ProtectAsync
+   function UnprotectAsync
    (
-      storageItem : Windows.Storage.IStorageItem
-      ; enterpriseIdentity : Windows.String
+      target : Windows.Storage.IStorageItem
    )
-   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
+   
+   function UnprotectWithOptionsAsync
+   (
+      target : Windows.Storage.IStorageItem
+      ; options : Windows.Security.EnterpriseData.IFileUnprotectOptions
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
    
    function CopyProtectionAsync_FileRevocationManager
    (
@@ -1831,34 +1824,172 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-   procedure Revoke
-   (
-      enterpriseIdentity : Windows.String
-   )
-   ;
-   
    function GetStatusAsync
    (
       storageItem : Windows.Storage.IStorageItem
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
    
-   function RequestAccessWithAuditingInfoAsync
+   function ProtectAsync
+   (
+      storageItem : Windows.Storage.IStorageItem
+      ; enterpriseIdentity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
+   
+   procedure Revoke
+   (
+      enterpriseIdentity : Windows.String
+   )
+   ;
+   
+   function add_ProtectedAccessResumed
+   (
+      handler : Windows.Security.EnterpriseData.EventHandler_IProtectedAccessResumedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_ProtectedAccessSuspending
+   (
+      handler : Windows.Security.EnterpriseData.EventHandler_IProtectedAccessSuspendingEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_ProtectedContentRevoked
+   (
+      handler : Windows.Security.EnterpriseData.EventHandler_IProtectedContentRevokedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function CheckAccess
    (
       sourceIdentity : Windows.String
       ; targetIdentity : Windows.String
-      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+   )
+   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
+   
+   procedure ClearProcessUIPolicy
+   ;
+   
+   function CreateCurrentThreadNetworkContext
+   (
+      identity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IThreadNetworkContext;
+   
+   function GetForCurrentView
+   return Windows.Security.EnterpriseData.IProtectionPolicyManager;
+   
+   function GetPrimaryManagedIdentityForNetworkEndpointAsync
+   (
+      endpointHost : Windows.Networking.IHostName
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function IsIdentityManaged
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean;
+   
+   procedure remove_ProtectedAccessResumed
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_ProtectedAccessSuspending
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_ProtectedContentRevoked
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function RequestAccessAsync
+   (
+      sourceIdentity : Windows.String
+      ; targetIdentity : Windows.String
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
    
-   function RequestAccessWithMessageAsync
+   procedure RevokeContent
+   (
+      identity : Windows.String
+   )
+   ;
+   
+   function TryApplyProcessUIPolicy
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean;
+   
+   function add_PolicyChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function CheckAccessForApp
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
+   
+   function get_IsProtectionEnabled
+   return Windows.Boolean;
+   
+   function GetEnforcementLevel
+   (
+      identity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.EnforcementLevel;
+   
+   function HasContentBeenRevokedSince
+   (
+      identity : Windows.String
+      ; since : Windows.Foundation.DateTime
+   )
+   return Windows.Boolean;
+   
+   function IsProtectionUnderLockRequired
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean;
+   
+   function IsUserDecryptionAllowed
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean;
+   
+   procedure remove_PolicyChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function RequestAccessForAppAsync
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   
+   procedure LogAuditEvent
    (
       sourceIdentity : Windows.String
       ; targetIdentity : Windows.String
       ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
-      ; messageFromApp : Windows.String
    )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   ;
    
    function RequestAccessForAppWithAuditingInfoAsync
    (
@@ -1877,169 +2008,52 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
    
-   procedure LogAuditEvent
+   function RequestAccessWithAuditingInfoAsync
    (
       sourceIdentity : Windows.String
       ; targetIdentity : Windows.String
       ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
    )
-   ;
-   
-   function HasContentBeenRevokedSince
-   (
-      identity : Windows.String
-      ; since : Windows.Foundation.DateTime
-   )
-   return Windows.Boolean;
-   
-   function CheckAccessForApp
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-   )
-   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
-   
-   function RequestAccessForAppAsync
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-   )
    return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
    
-   function GetEnforcementLevel
-   (
-      identity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.EnforcementLevel;
-   
-   function IsUserDecryptionAllowed
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function IsProtectionUnderLockRequired
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function add_PolicyChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PolicyChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_IsProtectionEnabled
-   return Windows.Boolean;
-   
-   function IsIdentityManaged
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function TryApplyProcessUIPolicy
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean;
-   
-   procedure ClearProcessUIPolicy
-   ;
-   
-   function CreateCurrentThreadNetworkContext
-   (
-      identity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IThreadNetworkContext;
-   
-   function GetPrimaryManagedIdentityForNetworkEndpointAsync
-   (
-      endpointHost : Windows.Networking.IHostName
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   procedure RevokeContent
-   (
-      identity : Windows.String
-   )
-   ;
-   
-   function GetForCurrentView
-   return Windows.Security.EnterpriseData.IProtectionPolicyManager;
-   
-   function add_ProtectedAccessSuspending
-   (
-      handler : Windows.Security.EnterpriseData.EventHandler_IProtectedAccessSuspendingEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_ProtectedAccessSuspending
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_ProtectedAccessResumed
-   (
-      handler : Windows.Security.EnterpriseData.EventHandler_IProtectedAccessResumedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_ProtectedAccessResumed
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_ProtectedContentRevoked
-   (
-      handler : Windows.Security.EnterpriseData.EventHandler_IProtectedContentRevokedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_ProtectedContentRevoked
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function CheckAccess
+   function RequestAccessWithMessageAsync
    (
       sourceIdentity : Windows.String
       ; targetIdentity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
-   
-   function RequestAccessAsync
-   (
-      sourceIdentity : Windows.String
-      ; targetIdentity : Windows.String
+      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+      ; messageFromApp : Windows.String
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   
+   function get_PrimaryManagedIdentity
+   return Windows.String;
+   
+   function GetPrimaryManagedIdentityForIdentity
+   (
+      identity : Windows.String
+   )
+   return Windows.String;
+   
+   function IsFileProtectionRequiredAsync
+   (
+      target : Windows.Storage.IStorageItem
+      ; identity : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function IsFileProtectionRequiredForNewFileAsync
+   (
+      parentFolder : Windows.Storage.IStorageFolder
+      ; identity : Windows.String
+      ; desiredName : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function IsRoamableProtectionEnabled
    (
       identity : Windows.String
    )
    return Windows.Boolean;
-   
-   function RequestAccessWithBehaviorAsync
-   (
-      sourceIdentity : Windows.String
-      ; targetIdentity : Windows.String
-      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
-      ; messageFromApp : Windows.String
-      ; behavior : Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
    
    function RequestAccessForAppWithBehaviorAsync
    (
@@ -2087,28 +2101,14 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
    
-   function IsFileProtectionRequiredAsync
+   function RequestAccessWithBehaviorAsync
    (
-      target : Windows.Storage.IStorageItem
-      ; identity : Windows.String
+      sourceIdentity : Windows.String
+      ; targetIdentity : Windows.String
+      ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
+      ; messageFromApp : Windows.String
+      ; behavior : Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior
    )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function IsFileProtectionRequiredForNewFileAsync
-   (
-      parentFolder : Windows.Storage.IStorageFolder
-      ; identity : Windows.String
-      ; desiredName : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function get_PrimaryManagedIdentity
-   return Windows.String;
-   
-   function GetPrimaryManagedIdentityForIdentity
-   (
-      identity : Windows.String
-   )
-   return Windows.String;
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
    
 end;

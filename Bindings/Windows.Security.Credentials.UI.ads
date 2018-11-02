@@ -549,9 +549,11 @@ package Windows.Security.Credentials.UI is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function PickWithOptionsAsync
+   function PickWithCaptionAsync
    (
-      options : Windows.Security.Credentials.UI.ICredentialPickerOptions
+      targetName : Windows.String
+      ; message : Windows.String
+      ; caption : Windows.String
    )
    return Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults;
    
@@ -562,11 +564,9 @@ package Windows.Security.Credentials.UI is
    )
    return Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults;
    
-   function PickWithCaptionAsync
+   function PickWithOptionsAsync
    (
-      targetName : Windows.String
-      ; message : Windows.String
-      ; caption : Windows.String
+      options : Windows.Security.Credentials.UI.ICredentialPickerOptions
    )
    return Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults;
    

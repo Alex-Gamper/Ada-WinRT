@@ -321,10 +321,10 @@ package Windows.Services.Cortana is
    function GetDefault
    return Windows.Services.Cortana.ICortanaPermissionsManager;
    
-   function IsSupported
-   return Windows.Boolean;
-   
    function GetDefault
    return Windows.Services.Cortana.ICortanaSettings;
+   
+   function IsSupported
+   return Windows.Boolean;
    
 end;

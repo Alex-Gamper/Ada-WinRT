@@ -6961,6 +6961,9 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.UI.Xaml.Media.IAcrylicBrush;
    
+   function get_AlwaysUseFallbackProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_BackgroundSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -6973,19 +6976,16 @@ package Windows.UI.Xaml.Media is
    function get_TintTransitionDurationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AlwaysUseFallbackProperty
+   function get_IsLargeArcProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PointProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SizeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_RotationAngleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsLargeArcProperty
+   function get_SizeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SweepDirectionProperty
@@ -7000,21 +7000,21 @@ package Windows.UI.Xaml.Media is
    function get_Point3Property
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OpacityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TransformProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RelativeTransformProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IBrush;
+   
+   function get_OpacityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RelativeTransformProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TransformProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -7029,6 +7029,9 @@ package Windows.UI.Xaml.Media is
    function get_CenterYProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_RotationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ScaleXProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -7039,9 +7042,6 @@ package Windows.UI.Xaml.Media is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SkewYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TranslateXProperty
@@ -7056,17 +7056,17 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_Rendering
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function add_SurfaceContentsLost
    (
       value : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_Rendering
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    procedure remove_SurfaceContentsLost
    (
@@ -7122,22 +7122,10 @@ package Windows.UI.Xaml.Media is
    function get_TransformProperty_IGeometry
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FillRuleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ChildrenProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SpreadMethodProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MappingModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ColorInterpolationModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GradientStopsProperty
+   function get_FillRuleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -7146,6 +7134,18 @@ package Windows.UI.Xaml.Media is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IGradientBrush;
+   
+   function get_ColorInterpolationModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GradientStopsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MappingModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SpreadMethodProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7156,31 +7156,24 @@ package Windows.UI.Xaml.Media is
    function get_ImageSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StartPointProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_EndPointProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StartPointProperty_ILineGeometry
+   function get_StartPointProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_EndPointProperty_ILineGeometry
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_StartPointProperty_ILineGeometry
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_PointProperty_ILineSegment
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function StartLoadFromUriWithSize
+   function StartLoadFromStream
    (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; desiredMaxSize : Windows.Foundation.Size
-   )
-   return Windows.UI.Xaml.Media.ILoadedImageSurface;
-   
-   function StartLoadFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
+      stream : Windows.Storage.Streams.IRandomAccessStream
    )
    return Windows.UI.Xaml.Media.ILoadedImageSurface;
    
@@ -7191,17 +7184,21 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.UI.Xaml.Media.ILoadedImageSurface;
    
-   function StartLoadFromStream
+   function StartLoadFromUri
    (
-      stream : Windows.Storage.Streams.IRandomAccessStream
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.Xaml.Media.ILoadedImageSurface;
+   
+   function StartLoadFromUriWithSize
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; desiredMaxSize : Windows.Foundation.Size
    )
    return Windows.UI.Xaml.Media.ILoadedImageSurface;
    
    function get_ProjectionMatrixProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Identity
-   return Windows.UI.Xaml.Media.Matrix;
    
    function FromElements
    (
@@ -7212,6 +7209,9 @@ package Windows.UI.Xaml.Media is
       ; offsetX : Windows.Double
       ; offsetY : Windows.Double
    )
+   return Windows.UI.Xaml.Media.Matrix;
+   
+   function get_Identity
    return Windows.UI.Xaml.Media.Matrix;
    
    function GetIsIdentity
@@ -7230,40 +7230,22 @@ package Windows.UI.Xaml.Media is
    function get_MatrixProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SegmentsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StartPointProperty_IPathFigure
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_IsClosedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsFilledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FillRuleProperty_IPathGeometry
+   function get_SegmentsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StartPointProperty_IPathFigure
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FiguresProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_LocalOffsetXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LocalOffsetYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LocalOffsetZProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationXProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationYProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotationZProperty
+   function get_FillRuleProperty_IPathGeometry
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CenterOfRotationXProperty
@@ -7284,7 +7266,25 @@ package Windows.UI.Xaml.Media is
    function get_GlobalOffsetZProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_LocalOffsetXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocalOffsetYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocalOffsetZProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ProjectionMatrixProperty_IPlaneProjection
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationXProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotationZProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PointsProperty
@@ -7326,17 +7326,30 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.UI.Xaml.Media.IRevealBorderBrush;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IRevealBrush;
+   
+   function get_AlwaysUseFallbackProperty_IRevealBrush
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ColorProperty_IRevealBrush
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StateProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetThemeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AlwaysUseFallbackProperty_IRevealBrush
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function GetState
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Media.RevealBrushState;
    
    procedure SetState
    (
@@ -7345,26 +7358,13 @@ package Windows.UI.Xaml.Media is
    )
    ;
    
-   function GetState
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Media.RevealBrushState;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IRevealBrush;
+   function get_AngleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CenterXProperty_IRotateTransform
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CenterYProperty_IRotateTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AngleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CenterXProperty_IScaleTransform
@@ -7379,16 +7379,16 @@ package Windows.UI.Xaml.Media is
    function get_ScaleYProperty_IScaleTransform
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CenterXProperty_ISkewTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CenterYProperty_ISkewTransform
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_AngleXProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AngleYProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterXProperty_ISkewTransform
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CenterYProperty_ISkewTransform
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ColorProperty_ISolidColorBrush
@@ -7410,13 +7410,13 @@ package Windows.UI.Xaml.Media is
    function get_StretchProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_TextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_TimeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ChildrenProperty_ITransformGroup
@@ -7428,25 +7428,11 @@ package Windows.UI.Xaml.Media is
    function get_YProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetOpenPopups
+   procedure DisconnectChildrenRecursive
    (
-      window : Windows.UI.Xaml.IWindow
+      element : Windows.UI.Xaml.IUIElement
    )
-   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
-   
-   function FindElementsInHostCoordinatesPoint
-   (
-      intersectingPoint : Windows.Foundation.Point
-      ; subtree : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.IIterable_IUIElement;
-   
-   function FindElementsInHostCoordinatesRect
-   (
-      intersectingRect : Windows.Foundation.Rect
-      ; subtree : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.IIterable_IUIElement;
+   ;
    
    function FindAllElementsInHostCoordinatesPoint
    (
@@ -7461,6 +7447,20 @@ package Windows.UI.Xaml.Media is
       intersectingRect : Windows.Foundation.Rect
       ; subtree : Windows.UI.Xaml.IUIElement
       ; includeAllElements : Windows.Boolean
+   )
+   return Windows.UI.Xaml.IIterable_IUIElement;
+   
+   function FindElementsInHostCoordinatesPoint
+   (
+      intersectingPoint : Windows.Foundation.Point
+      ; subtree : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.IIterable_IUIElement;
+   
+   function FindElementsInHostCoordinatesRect
+   (
+      intersectingRect : Windows.Foundation.Rect
+      ; subtree : Windows.UI.Xaml.IUIElement
    )
    return Windows.UI.Xaml.IIterable_IUIElement;
    
@@ -7483,11 +7483,18 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.UI.Xaml.IDependencyObject;
    
-   procedure DisconnectChildrenRecursive
+   function GetOpenPopups
    (
-      element : Windows.UI.Xaml.IUIElement
+      window : Windows.UI.Xaml.IWindow
    )
-   ;
+   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
    
    function get_FallbackColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7497,28 +7504,7 @@ package Windows.UI.Xaml.Media is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Media.IXamlLight;
-   
-   procedure AddTargetElement
-   (
-      lightId : Windows.String
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   ;
-   
-   procedure RemoveTargetElement
-   (
-      lightId : Windows.String
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   ;
    
    procedure AddTargetBrush
    (
@@ -7527,10 +7513,24 @@ package Windows.UI.Xaml.Media is
    )
    ;
    
+   procedure AddTargetElement
+   (
+      lightId : Windows.String
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   ;
+   
    procedure RemoveTargetBrush
    (
       lightId : Windows.String
       ; brush : Windows.UI.Xaml.Media.IBrush
+   )
+   ;
+   
+   procedure RemoveTargetElement
+   (
+      lightId : Windows.String
+      ; element : Windows.UI.Xaml.IUIElement
    )
    ;
    

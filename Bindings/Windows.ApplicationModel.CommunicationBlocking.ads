@@ -158,6 +158,12 @@ package Windows.ApplicationModel.CommunicationBlocking is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
+   procedure ShowBlockedCallsUI
+   ;
+   
+   procedure ShowBlockedMessagesUI
+   ;
+   
    function ShowBlockNumbersUI
    (
       phoneNumbers : Windows.Foundation.Collections.IIterable_String
@@ -169,12 +175,6 @@ package Windows.ApplicationModel.CommunicationBlocking is
       phoneNumbers : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.Boolean;
-   
-   procedure ShowBlockedCallsUI
-   ;
-   
-   procedure ShowBlockedMessagesUI
-   ;
    
    function get_IsCurrentAppActiveBlockingApp
    return Windows.Boolean;

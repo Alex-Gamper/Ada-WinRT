@@ -296,6 +296,19 @@ package Windows.Security.Authentication.Web is
    )
    ;
    
+   function AuthenticateSilentlyAsync
+   (
+      requestUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult;
+   
+   function AuthenticateSilentlyWithOptionsAsync
+   (
+      requestUri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.Security.Authentication.Web.WebAuthenticationOptions
+   )
+   return Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult;
+   
    procedure AuthenticateWithCallbackUriAndContinue
    (
       requestUri : Windows.Foundation.IUriRuntimeClass
@@ -311,18 +324,5 @@ package Windows.Security.Authentication.Web is
       ; options : Windows.Security.Authentication.Web.WebAuthenticationOptions
    )
    ;
-   
-   function AuthenticateSilentlyAsync
-   (
-      requestUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult;
-   
-   function AuthenticateSilentlyWithOptionsAsync
-   (
-      requestUri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.Security.Authentication.Web.WebAuthenticationOptions
-   )
-   return Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult;
    
 end;

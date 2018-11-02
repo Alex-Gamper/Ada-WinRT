@@ -253,11 +253,26 @@ package Windows.Media.ClosedCaptioning is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_FontColor
+   function get_BackgroundColor
    return Windows.Media.ClosedCaptioning.ClosedCaptionColor;
+   
+   function get_BackgroundOpacity
+   return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;
+   
+   function get_ComputedBackgroundColor
+   return Windows.UI.Color;
    
    function get_ComputedFontColor
    return Windows.UI.Color;
+   
+   function get_ComputedRegionColor
+   return Windows.UI.Color;
+   
+   function get_FontColor
+   return Windows.Media.ClosedCaptioning.ClosedCaptionColor;
+   
+   function get_FontEffect
+   return Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;
    
    function get_FontOpacity
    return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;
@@ -268,23 +283,8 @@ package Windows.Media.ClosedCaptioning is
    function get_FontStyle
    return Windows.Media.ClosedCaptioning.ClosedCaptionStyle;
    
-   function get_FontEffect
-   return Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;
-   
-   function get_BackgroundColor
-   return Windows.Media.ClosedCaptioning.ClosedCaptionColor;
-   
-   function get_ComputedBackgroundColor
-   return Windows.UI.Color;
-   
-   function get_BackgroundOpacity
-   return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;
-   
    function get_RegionColor
    return Windows.Media.ClosedCaptioning.ClosedCaptionColor;
-   
-   function get_ComputedRegionColor
-   return Windows.UI.Color;
    
    function get_RegionOpacity
    return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;

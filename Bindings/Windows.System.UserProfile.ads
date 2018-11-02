@@ -817,11 +817,23 @@ package Windows.System.UserProfile is
    function GetDefault
    return Windows.System.UserProfile.IFirstSignInSettings;
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.System.UserProfile.IGlobalizationPreferencesForUser;
+   function get_Calendars
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function get_Clocks
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function get_Currencies
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function get_HomeGeographicRegion
+   return Windows.String;
+   
+   function get_Languages
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function get_WeekStartsOn
+   return Windows.Globalization.DayOfWeek;
    
    function TrySetHomeGeographicRegion
    (
@@ -835,23 +847,20 @@ package Windows.System.UserProfile is
    )
    return Windows.Boolean;
    
-   function get_Calendars
-   return Windows.Foundation.Collections.IVectorView_String;
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.UserProfile.IGlobalizationPreferencesForUser;
    
-   function get_Clocks
-   return Windows.Foundation.Collections.IVectorView_String;
+   function RequestSetImageFeedAsync
+   (
+      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
    
-   function get_Currencies
-   return Windows.Foundation.Collections.IVectorView_String;
-   
-   function get_Languages
-   return Windows.Foundation.Collections.IVectorView_String;
-   
-   function get_HomeGeographicRegion
-   return Windows.String;
-   
-   function get_WeekStartsOn
-   return Windows.Globalization.DayOfWeek;
+   function TryRemoveImageFeed
+   return Windows.Boolean;
    
    function get_OriginalImageFile
    return Windows.Foundation.IUriRuntimeClass;
@@ -871,14 +880,11 @@ package Windows.System.UserProfile is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function RequestSetImageFeedAsync
+   function add_AccountPictureChanged
    (
-      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
+      changeHandler : Windows.Foundation.EventHandler_Object
    )
-   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
-   
-   function TryRemoveImageFeed
-   return Windows.Boolean;
+   return Windows.Foundation.EventRegistrationToken;
    
    function get_AccountPictureChangeEnabled
    return Windows.Boolean;
@@ -892,47 +898,10 @@ package Windows.System.UserProfile is
    )
    return Windows.Storage.IStorageFile;
    
-   function SetAccountPictureAsync
-   (
-      image : Windows.Storage.IStorageFile
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   
-   function SetAccountPicturesAsync
-   (
-      smallImage : Windows.Storage.IStorageFile
-      ; largeImage : Windows.Storage.IStorageFile
-      ; video : Windows.Storage.IStorageFile
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   
-   function SetAccountPictureFromStreamAsync
-   (
-      image : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   
-   function SetAccountPicturesFromStreamsAsync
-   (
-      smallImage : Windows.Storage.Streams.IRandomAccessStream
-      ; largeImage : Windows.Storage.Streams.IRandomAccessStream
-      ; video : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
-   
-   function add_AccountPictureChanged
-   (
-      changeHandler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_AccountPictureChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function GetDisplayNameAsync
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function GetDomainNameAsync
    return Windows.Foundation.IAsyncOperation_String;
    
    function GetFirstNameAsync
@@ -947,8 +916,39 @@ package Windows.System.UserProfile is
    function GetSessionInitiationProtocolUriAsync
    return Windows.Foundation.IAsyncOperation_IUriRuntimeClass;
    
-   function GetDomainNameAsync
-   return Windows.Foundation.IAsyncOperation_String;
+   procedure remove_AccountPictureChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function SetAccountPictureAsync
+   (
+      image : Windows.Storage.IStorageFile
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
+   
+   function SetAccountPictureFromStreamAsync
+   (
+      image : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
+   
+   function SetAccountPicturesAsync
+   (
+      smallImage : Windows.Storage.IStorageFile
+      ; largeImage : Windows.Storage.IStorageFile
+      ; video : Windows.Storage.IStorageFile
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
+   
+   function SetAccountPicturesFromStreamsAsync
+   (
+      smallImage : Windows.Storage.Streams.IRandomAccessStream
+      ; largeImage : Windows.Storage.Streams.IRandomAccessStream
+      ; video : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult;
    
    function get_Current
    return Windows.System.UserProfile.IUserProfilePersonalizationSettings;

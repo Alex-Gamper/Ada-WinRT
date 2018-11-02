@@ -306,14 +306,20 @@ package Windows.Devices.Pwm is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefaultAsync
-   return Windows.Devices.Pwm.IAsyncOperation_IPwmController;
-   
    function GetControllersAsync
    (
       provider : Windows.Devices.Pwm.Provider.IPwmProvider
    )
    return Windows.Address;
+   
+   function GetDefaultAsync
+   return Windows.Devices.Pwm.IAsyncOperation_IPwmController;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Pwm.IAsyncOperation_IPwmController;
    
    function GetDeviceSelector
    return Windows.String;
@@ -323,11 +329,5 @@ package Windows.Devices.Pwm is
       friendlyName : Windows.String
    )
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Pwm.IAsyncOperation_IPwmController;
    
 end;

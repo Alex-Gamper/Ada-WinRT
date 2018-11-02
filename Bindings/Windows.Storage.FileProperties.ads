@@ -1241,17 +1241,17 @@ package Windows.Storage.FileProperties is
    )
    return Windows.Devices.Geolocation.IAsyncOperation_IGeopoint;
    
-   function SetGeotagFromGeolocatorAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; geolocator : Windows.Devices.Geolocation.IGeolocator
-   )
-   return Windows.Foundation.IAsyncAction;
-   
    function SetGeotagAsync
    (
       file : Windows.Storage.IStorageFile
       ; geopoint : Windows.Devices.Geolocation.IGeopoint
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function SetGeotagFromGeolocatorAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; geolocator : Windows.Devices.Geolocation.IGeolocator
    )
    return Windows.Foundation.IAsyncAction;
    

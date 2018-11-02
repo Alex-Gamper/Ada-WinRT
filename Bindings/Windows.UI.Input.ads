@@ -3313,18 +3313,18 @@ package Windows.UI.Input is
    )
    return Windows.UI.Input.IPointerPoint;
    
-   function GetIntermediatePoints
-   (
-      pointerId : Windows.UInt32
-   )
-   return Windows.UI.Input.IVector_IPointerPoint;
-   
    function GetCurrentPointTransformed
    (
       pointerId : Windows.UInt32
       ; transform : Windows.UI.Input.IPointerPointTransform
    )
    return Windows.UI.Input.IPointerPoint;
+   
+   function GetIntermediatePoints
+   (
+      pointerId : Windows.UInt32
+   )
+   return Windows.UI.Input.IVector_IPointerPoint;
    
    function GetIntermediatePointsTransformed
    (
@@ -3336,14 +3336,20 @@ package Windows.UI.Input is
    function GetForCurrentView
    return Windows.UI.Input.IPointerVisualizationSettings;
    
-   function IsSupported
-   return Windows.Boolean;
-   
    function CreateForCurrentView
    return Windows.UI.Input.IRadialController;
    
+   function IsSupported
+   return Windows.Boolean;
+   
    function GetForCurrentView
    return Windows.UI.Input.IRadialControllerConfiguration;
+   
+   function get_AppController
+   return Windows.UI.Input.IRadialController;
+   
+   function get_IsAppControllerEnabled
+   return Windows.Boolean;
    
    procedure put_AppController
    (
@@ -3351,17 +3357,11 @@ package Windows.UI.Input is
    )
    ;
    
-   function get_AppController
-   return Windows.UI.Input.IRadialController;
-   
    procedure put_IsAppControllerEnabled
    (
       value : Windows.Boolean
    )
    ;
-   
-   function get_IsAppControllerEnabled
-   return Windows.Boolean;
    
    function CreateFromIcon
    (

@@ -902,14 +902,14 @@ package Windows.Devices.WiFi is
    function FindAllAdaptersAsync
    return Windows.Address;
    
-   function GetDeviceSelector
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
    return Windows.Devices.WiFi.IAsyncOperation_IWiFiAdapter;
+   
+   function GetDeviceSelector
+   return Windows.String;
    
    function RequestAccessAsync
    return Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus;

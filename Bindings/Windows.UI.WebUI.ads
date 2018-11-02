@@ -1770,23 +1770,11 @@ package Windows.UI.WebUI is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_Activated
+   function add_Navigated
    (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_Suspending
-   (
-      handler : Windows.UI.WebUI.SuspendingEventHandler
+      handler : Windows.UI.WebUI.NavigatedEventHandler
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_Suspending
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function add_Resuming
    (
@@ -1794,17 +1782,17 @@ package Windows.UI.WebUI is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_Resuming
+   function add_Suspending
+   (
+      handler : Windows.UI.WebUI.SuspendingEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_Activated
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
-   
-   function add_Navigated
-   (
-      handler : Windows.UI.WebUI.NavigatedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
    
    procedure remove_Navigated
    (
@@ -1812,13 +1800,13 @@ package Windows.UI.WebUI is
    )
    ;
    
-   function add_LeavingBackground
+   procedure remove_Resuming
    (
-      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
+      token : Windows.Foundation.EventRegistrationToken
    )
-   return Windows.Foundation.EventRegistrationToken;
+   ;
    
-   procedure remove_LeavingBackground
+   procedure remove_Suspending
    (
       token : Windows.Foundation.EventRegistrationToken
    )
@@ -1830,15 +1818,27 @@ package Windows.UI.WebUI is
    )
    return Windows.Foundation.EventRegistrationToken;
    
+   function add_LeavingBackground
+   (
+      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure EnablePrelaunch
+   (
+      value : Windows.Boolean
+   )
+   ;
+   
    procedure remove_EnteredBackground
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   procedure EnablePrelaunch
+   procedure remove_LeavingBackground
    (
-      value : Windows.Boolean
+      token : Windows.Foundation.EventRegistrationToken
    )
    ;
    

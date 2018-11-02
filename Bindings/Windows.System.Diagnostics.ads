@@ -839,6 +839,9 @@ package Windows.System.Diagnostics is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_IsSupported
+   return Windows.Boolean;
+   
    function GetDefault
    return Windows.System.Diagnostics.IDiagnosticInvoker;
    
@@ -848,19 +851,16 @@ package Windows.System.Diagnostics is
    )
    return Windows.System.Diagnostics.IDiagnosticInvoker;
    
-   function get_IsSupported
-   return Windows.Boolean;
-   
-   function TryGetForProcessId
-   (
-      processId : Windows.UInt32
-   )
+   function GetForCurrentProcess
    return Windows.System.Diagnostics.IProcessDiagnosticInfo;
    
    function GetForProcesses
    return Windows.System.Diagnostics.IVectorView_IProcessDiagnosticInfo;
    
-   function GetForCurrentProcess
+   function TryGetForProcessId
+   (
+      processId : Windows.UInt32
+   )
    return Windows.System.Diagnostics.IProcessDiagnosticInfo;
    
    function GetForCurrentSystem

@@ -3158,19 +3158,19 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult;
    
+   function CreateCustom
+   (
+      minGain : Windows.Double
+      ; maxGain : Windows.Double
+   )
+   return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
+   
    function CreateNatural
    (
       minGain : Windows.Double
       ; maxGain : Windows.Double
       ; unityGainDistance : Windows.Double
       ; cutoffDistance : Windows.Double
-   )
-   return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
-   
-   function CreateCustom
-   (
-      minGain : Windows.Double
-      ; maxGain : Windows.Double
    )
    return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
    
@@ -3185,35 +3185,19 @@ package Windows.Media.Audio is
    function CreateOmnidirectional
    return Windows.Media.Audio.IAudioNodeEmitterShape;
    
-   function CreateForRenderMonitoring
-   return Windows.Media.Audio.IAudioStateMonitor;
-   
-   function CreateForRenderMonitoringWithCategory
-   (
-      category : Windows.Media.Render.AudioRenderCategory
-   )
-   return Windows.Media.Audio.IAudioStateMonitor;
-   
-   function CreateForRenderMonitoringWithCategoryAndDeviceRole
-   (
-      category : Windows.Media.Render.AudioRenderCategory
-      ; role : Windows.Media.Devices.AudioDeviceRole
-   )
-   return Windows.Media.Audio.IAudioStateMonitor;
-   
-   function CreateForRenderMonitoringWithCategoryAndDeviceId
-   (
-      category : Windows.Media.Render.AudioRenderCategory
-      ; deviceId : Windows.String
-   )
-   return Windows.Media.Audio.IAudioStateMonitor;
-   
    function CreateForCaptureMonitoring
    return Windows.Media.Audio.IAudioStateMonitor;
    
    function CreateForCaptureMonitoringWithCategory
    (
       category : Windows.Media.Capture.MediaCategory
+   )
+   return Windows.Media.Audio.IAudioStateMonitor;
+   
+   function CreateForCaptureMonitoringWithCategoryAndDeviceId
+   (
+      category : Windows.Media.Capture.MediaCategory
+      ; deviceId : Windows.String
    )
    return Windows.Media.Audio.IAudioStateMonitor;
    
@@ -3224,10 +3208,26 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IAudioStateMonitor;
    
-   function CreateForCaptureMonitoringWithCategoryAndDeviceId
+   function CreateForRenderMonitoring
+   return Windows.Media.Audio.IAudioStateMonitor;
+   
+   function CreateForRenderMonitoringWithCategory
    (
-      category : Windows.Media.Capture.MediaCategory
+      category : Windows.Media.Render.AudioRenderCategory
+   )
+   return Windows.Media.Audio.IAudioStateMonitor;
+   
+   function CreateForRenderMonitoringWithCategoryAndDeviceId
+   (
+      category : Windows.Media.Render.AudioRenderCategory
       ; deviceId : Windows.String
+   )
+   return Windows.Media.Audio.IAudioStateMonitor;
+   
+   function CreateForRenderMonitoringWithCategoryAndDeviceRole
+   (
+      category : Windows.Media.Render.AudioRenderCategory
+      ; role : Windows.Media.Devices.AudioDeviceRole
    )
    return Windows.Media.Audio.IAudioStateMonitor;
    

@@ -237,14 +237,14 @@ package Windows.Devices.Power is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_AggregateBattery
-   return Windows.Devices.Power.IBattery;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
    return Windows.Devices.Power.IAsyncOperation_IBattery;
+   
+   function get_AggregateBattery
+   return Windows.Devices.Power.IBattery;
    
    function GetDeviceSelector
    return Windows.String;

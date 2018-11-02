@@ -6584,23 +6584,23 @@ package Windows.Networking.NetworkOperators is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_ServiceInfo
-   return Windows.Networking.NetworkOperators.IESimServiceInfo;
-   
-   function TryCreateESimWatcher
-   return Windows.Networking.NetworkOperators.IESimWatcher;
-   
    function add_ServiceInfoChanged
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
    
+   function get_ServiceInfo
+   return Windows.Networking.NetworkOperators.IESimServiceInfo;
+   
    procedure remove_ServiceInfoChanged
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
+   function TryCreateESimWatcher
+   return Windows.Networking.NetworkOperators.IESimWatcher;
    
    function RequestUnlockAsync
    (
@@ -6645,13 +6645,13 @@ package Windows.Networking.NetworkOperators is
    function get_Gid2_KnownSimFilePaths
    return Windows.Foundation.Collections.IVectorView_UInt32;
    
-   function get_EFSpn_KnownUSimFilePaths
-   return Windows.Foundation.Collections.IVectorView_UInt32;
-   
    function get_EFOpl
    return Windows.Foundation.Collections.IVectorView_UInt32;
    
    function get_EFPnn
+   return Windows.Foundation.Collections.IVectorView_UInt32;
+   
+   function get_EFSpn_KnownUSimFilePaths
    return Windows.Foundation.Collections.IVectorView_UInt32;
    
    function get_Gid1_KnownUSimFilePaths
@@ -6660,17 +6660,14 @@ package Windows.Networking.NetworkOperators is
    function get_Gid2_KnownUSimFilePaths
    return Windows.Foundation.Collections.IVectorView_UInt32;
    
-   function get_AvailableNetworkAccountIds
-   return Windows.Foundation.Collections.IVectorView_String;
-   
    function CreateFromNetworkAccountId
    (
       networkAccountId : Windows.String
    )
    return Windows.Networking.NetworkOperators.IMobileBroadbandAccount;
    
-   function GetDeviceSelector
-   return Windows.String;
+   function get_AvailableNetworkAccountIds
+   return Windows.Foundation.Collections.IVectorView_String;
    
    function FromId
    (
@@ -6681,22 +6678,12 @@ package Windows.Networking.NetworkOperators is
    function GetDefault
    return Windows.Networking.NetworkOperators.IMobileBroadbandModem;
    
-   function CreateFromConnectionProfileWithTargetAdapter
-   (
-      profile : Windows.Networking.Connectivity.IConnectionProfile
-      ; adapter : Windows.Networking.Connectivity.INetworkAdapter
-   )
-   return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
+   function GetDeviceSelector
+   return Windows.String;
    
-   function GetTetheringCapabilityFromConnectionProfile
+   function CreateFromNetworkAccountId
    (
-      profile : Windows.Networking.Connectivity.IConnectionProfile
-   )
-   return Windows.Networking.NetworkOperators.TetheringCapability;
-   
-   function CreateFromConnectionProfile
-   (
-      profile : Windows.Networking.Connectivity.IConnectionProfile
+      networkAccountId : Windows.String
    )
    return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
    
@@ -6706,9 +6693,22 @@ package Windows.Networking.NetworkOperators is
    )
    return Windows.Networking.NetworkOperators.TetheringCapability;
    
-   function CreateFromNetworkAccountId
+   function CreateFromConnectionProfile
    (
-      networkAccountId : Windows.String
+      profile : Windows.Networking.Connectivity.IConnectionProfile
+   )
+   return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
+   
+   function GetTetheringCapabilityFromConnectionProfile
+   (
+      profile : Windows.Networking.Connectivity.IConnectionProfile
+   )
+   return Windows.Networking.NetworkOperators.TetheringCapability;
+   
+   function CreateFromConnectionProfileWithTargetAdapter
+   (
+      profile : Windows.Networking.Connectivity.IConnectionProfile
+      ; adapter : Windows.Networking.Connectivity.INetworkAdapter
    )
    return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
    

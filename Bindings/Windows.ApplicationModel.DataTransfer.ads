@@ -2051,26 +2051,20 @@ package Windows.ApplicationModel.DataTransfer is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetContent
-   return Windows.ApplicationModel.DataTransfer.IDataPackageView;
-   
-   procedure SetContent
-   (
-      content : Windows.ApplicationModel.DataTransfer.IDataPackage
-   )
-   ;
-   
-   procedure Flush
-   ;
-   
-   procedure Clear
-   ;
-   
    function add_ContentChanged
    (
       changeHandler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
+   
+   procedure Clear
+   ;
+   
+   procedure Flush
+   ;
+   
+   function GetContent
+   return Windows.ApplicationModel.DataTransfer.IDataPackageView;
    
    procedure remove_ContentChanged
    (
@@ -2078,30 +2072,36 @@ package Windows.ApplicationModel.DataTransfer is
    )
    ;
    
+   procedure SetContent
+   (
+      content : Windows.ApplicationModel.DataTransfer.IDataPackage
+   )
+   ;
+   
+   function GetForCurrentView
+   return Windows.ApplicationModel.DataTransfer.IDataTransferManager;
+   
+   procedure ShowShareUI
+   ;
+   
+   function IsSupported
+   return Windows.Boolean;
+   
    procedure ShowShareUIWithOptions
    (
       options : Windows.ApplicationModel.DataTransfer.IShareUIOptions
    )
    ;
    
-   procedure ShowShareUI
-   ;
-   
-   function GetForCurrentView
-   return Windows.ApplicationModel.DataTransfer.IDataTransferManager;
-   
-   function IsSupported
-   return Windows.Boolean;
+   function CreateHtmlFormat
+   (
+      htmlFragment : Windows.String
+   )
+   return Windows.String;
    
    function GetStaticFragment
    (
       htmlFormat : Windows.String
-   )
-   return Windows.String;
-   
-   function CreateHtmlFormat
-   (
-      htmlFragment : Windows.String
    )
    return Windows.String;
    
@@ -2123,19 +2123,7 @@ package Windows.ApplicationModel.DataTransfer is
    )
    ;
    
-   function get_UserActivityJsonArray
-   return Windows.String;
-   
-   function get_WebLink
-   return Windows.String;
-   
-   function get_ApplicationLink
-   return Windows.String;
-   
-   function get_Text
-   return Windows.String;
-   
-   function get_Uri
+   function get_Bitmap
    return Windows.String;
    
    function get_Html
@@ -2144,10 +2132,22 @@ package Windows.ApplicationModel.DataTransfer is
    function get_Rtf
    return Windows.String;
    
-   function get_Bitmap
+   function get_StorageItems
    return Windows.String;
    
-   function get_StorageItems
+   function get_Text
+   return Windows.String;
+   
+   function get_Uri
+   return Windows.String;
+   
+   function get_ApplicationLink
+   return Windows.String;
+   
+   function get_WebLink
+   return Windows.String;
+   
+   function get_UserActivityJsonArray
    return Windows.String;
    
 end;

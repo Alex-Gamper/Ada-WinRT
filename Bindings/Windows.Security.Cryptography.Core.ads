@@ -1752,7 +1752,19 @@ package Windows.Security.Cryptography.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_RsaPkcs1
+   function get_DsaSha1
+   return Windows.String;
+   
+   function get_DsaSha256
+   return Windows.String;
+   
+   function get_EcdsaP256Sha256
+   return Windows.String;
+   
+   function get_EcdsaP384Sha384
+   return Windows.String;
+   
+   function get_EcdsaP521Sha512
    return Windows.String;
    
    function get_RsaOaepSha1
@@ -1767,19 +1779,7 @@ package Windows.Security.Cryptography.Core is
    function get_RsaOaepSha512
    return Windows.String;
    
-   function get_EcdsaP256Sha256
-   return Windows.String;
-   
-   function get_EcdsaP384Sha384
-   return Windows.String;
-   
-   function get_EcdsaP521Sha512
-   return Windows.String;
-   
-   function get_DsaSha1
-   return Windows.String;
-   
-   function get_DsaSha256
+   function get_RsaPkcs1
    return Windows.String;
    
    function get_RsaSignPkcs1Sha1
@@ -1821,14 +1821,57 @@ package Windows.Security.Cryptography.Core is
    )
    return Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider;
    
-   function SignHashedData
+   function Decrypt
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; iv : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer;
+   
+   function DecryptAndAuthenticate
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; nonce : Windows.Storage.Streams.IBuffer
+      ; authenticationTag : Windows.Storage.Streams.IBuffer
+      ; authenticatedData : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer;
+   
+   function DeriveKeyMaterial
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; parameters : Windows.Security.Cryptography.Core.IKeyDerivationParameters
+      ; desiredKeySize : Windows.UInt32
+   )
+   return Windows.Storage.Streams.IBuffer;
+   
+   function Encrypt
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; iv : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer;
+   
+   function EncryptAndAuthenticate
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; nonce : Windows.Storage.Streams.IBuffer
+      ; authenticatedData : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData;
+   
+   function Sign
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
       ; data : Windows.Storage.Streams.IBuffer
    )
    return Windows.Storage.Streams.IBuffer;
    
-   function VerifySignatureWithHashInput
+   function VerifySignature
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
       ; data : Windows.Storage.Streams.IBuffer
@@ -1851,6 +1894,13 @@ package Windows.Security.Cryptography.Core is
    )
    return Windows.Storage.Streams.IAsyncOperation_IBuffer;
    
+   function SignHashedData
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer;
+   
    function SignHashedDataAsync
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
@@ -1858,49 +1908,7 @@ package Windows.Security.Cryptography.Core is
    )
    return Windows.Storage.Streams.IAsyncOperation_IBuffer;
    
-   function Encrypt
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; iv : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IBuffer;
-   
-   function Decrypt
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; iv : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IBuffer;
-   
-   function EncryptAndAuthenticate
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; nonce : Windows.Storage.Streams.IBuffer
-      ; authenticatedData : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData;
-   
-   function DecryptAndAuthenticate
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; nonce : Windows.Storage.Streams.IBuffer
-      ; authenticationTag : Windows.Storage.Streams.IBuffer
-      ; authenticatedData : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IBuffer;
-   
-   function Sign
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IBuffer;
-   
-   function VerifySignature
+   function VerifySignatureWithHashInput
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
       ; data : Windows.Storage.Streams.IBuffer
@@ -1908,13 +1916,8 @@ package Windows.Security.Cryptography.Core is
    )
    return Windows.Boolean;
    
-   function DeriveKeyMaterial
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; parameters : Windows.Security.Cryptography.Core.IKeyDerivationParameters
-      ; desiredKeySize : Windows.UInt32
-   )
-   return Windows.Storage.Streams.IBuffer;
+   function get_AllEccCurveNames
+   return Windows.Foundation.Collections.IVectorView_String;
    
    function get_BrainpoolP160r1
    return Windows.String;
@@ -2021,13 +2024,13 @@ package Windows.Security.Cryptography.Core is
    function get_SecP521r1
    return Windows.String;
    
+   function get_Wtls12
+   return Windows.String;
+   
    function get_Wtls7
    return Windows.String;
    
    function get_Wtls9
-   return Windows.String;
-   
-   function get_Wtls12
    return Windows.String;
    
    function get_X962P192v1
@@ -2051,9 +2054,6 @@ package Windows.Security.Cryptography.Core is
    function get_X962P256v1
    return Windows.String;
    
-   function get_AllEccCurveNames
-   return Windows.Foundation.Collections.IVectorView_String;
-   
    function get_Md5
    return Windows.String;
    
@@ -2074,21 +2074,6 @@ package Windows.Security.Cryptography.Core is
       algorithm : Windows.String
    )
    return Windows.Security.Cryptography.Core.IHashAlgorithmProvider;
-   
-   function get_CapiKdfMd5
-   return Windows.String;
-   
-   function get_CapiKdfSha1
-   return Windows.String;
-   
-   function get_CapiKdfSha256
-   return Windows.String;
-   
-   function get_CapiKdfSha384
-   return Windows.String;
-   
-   function get_CapiKdfSha512
-   return Windows.String;
    
    function get_Pbkdf2Md5
    return Windows.String;
@@ -2135,17 +2120,26 @@ package Windows.Security.Cryptography.Core is
    function get_Sp80056aConcatSha512
    return Windows.String;
    
+   function get_CapiKdfMd5
+   return Windows.String;
+   
+   function get_CapiKdfSha1
+   return Windows.String;
+   
+   function get_CapiKdfSha256
+   return Windows.String;
+   
+   function get_CapiKdfSha384
+   return Windows.String;
+   
+   function get_CapiKdfSha512
+   return Windows.String;
+   
    function OpenAlgorithm
    (
       algorithm : Windows.String
    )
    return Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProvider;
-   
-   function BuildForCapi1Kdf
-   (
-      capi1KdfTargetAlgorithm : Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm
-   )
-   return Windows.Security.Cryptography.Core.IKeyDerivationParameters;
    
    function BuildForPbkdf2
    (
@@ -2171,6 +2165,15 @@ package Windows.Security.Cryptography.Core is
    )
    return Windows.Security.Cryptography.Core.IKeyDerivationParameters;
    
+   function BuildForCapi1Kdf
+   (
+      capi1KdfTargetAlgorithm : Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm
+   )
+   return Windows.Security.Cryptography.Core.IKeyDerivationParameters;
+   
+   function get_AesCmac
+   return Windows.String;
+   
    function get_HmacMd5
    return Windows.String;
    
@@ -2184,9 +2187,6 @@ package Windows.Security.Cryptography.Core is
    return Windows.String;
    
    function get_HmacSha512
-   return Windows.String;
-   
-   function get_AesCmac
    return Windows.String;
    
    function OpenAlgorithm
@@ -2211,61 +2211,61 @@ package Windows.Security.Cryptography.Core is
    )
    return Windows.Security.Cryptography.Core.ICryptographicKey;
    
-   function get_DesCbc
-   return Windows.String;
-   
-   function get_DesEcb
-   return Windows.String;
-   
-   function get_TripleDesCbc
-   return Windows.String;
-   
-   function get_TripleDesEcb
-   return Windows.String;
-   
-   function get_Rc2Cbc
-   return Windows.String;
-   
-   function get_Rc2Ecb
-   return Windows.String;
-   
    function get_AesCbc
-   return Windows.String;
-   
-   function get_AesEcb
-   return Windows.String;
-   
-   function get_AesGcm
-   return Windows.String;
-   
-   function get_AesCcm
    return Windows.String;
    
    function get_AesCbcPkcs7
    return Windows.String;
    
+   function get_AesCcm
+   return Windows.String;
+   
+   function get_AesEcb
+   return Windows.String;
+   
    function get_AesEcbPkcs7
+   return Windows.String;
+   
+   function get_AesGcm
+   return Windows.String;
+   
+   function get_DesCbc
    return Windows.String;
    
    function get_DesCbcPkcs7
    return Windows.String;
    
+   function get_DesEcb
+   return Windows.String;
+   
    function get_DesEcbPkcs7
    return Windows.String;
    
-   function get_TripleDesCbcPkcs7
-   return Windows.String;
-   
-   function get_TripleDesEcbPkcs7
+   function get_Rc2Cbc
    return Windows.String;
    
    function get_Rc2CbcPkcs7
+   return Windows.String;
+   
+   function get_Rc2Ecb
    return Windows.String;
    
    function get_Rc2EcbPkcs7
    return Windows.String;
    
    function get_Rc4
+   return Windows.String;
+   
+   function get_TripleDesCbc
+   return Windows.String;
+   
+   function get_TripleDesCbcPkcs7
+   return Windows.String;
+   
+   function get_TripleDesEcb
+   return Windows.String;
+   
+   function get_TripleDesEcbPkcs7
    return Windows.String;
    
    function OpenAlgorithm

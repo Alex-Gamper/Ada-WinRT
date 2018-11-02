@@ -676,16 +676,16 @@ package Windows.Media.SpeechSynthesis is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function TrySetDefaultVoiceAsync
-   (
-      voice : Windows.Media.SpeechSynthesis.IVoiceInformation
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
    function get_AllVoices
    return Windows.Media.SpeechSynthesis.IVectorView_IVoiceInformation;
    
    function get_DefaultVoice
    return Windows.Media.SpeechSynthesis.IVoiceInformation;
+   
+   function TrySetDefaultVoiceAsync
+   (
+      voice : Windows.Media.SpeechSynthesis.IVoiceInformation
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
 end;

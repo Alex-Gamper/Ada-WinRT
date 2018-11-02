@@ -1624,28 +1624,28 @@ package Windows.Media.SpeechRecognition is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_SupportedGrammarLanguages
+   return Windows.Globalization.IVectorView_ILanguage;
+   
+   function get_SupportedTopicLanguages
+   return Windows.Globalization.IVectorView_ILanguage;
+   
+   function get_SystemSpeechLanguage
+   return Windows.Globalization.ILanguage;
+   
    function TrySetSystemSpeechLanguageAsync
    (
       speechLanguage : Windows.Globalization.ILanguage
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-   function get_SystemSpeechLanguage
-   return Windows.Globalization.ILanguage;
-   
-   function get_SupportedTopicLanguages
-   return Windows.Globalization.IVectorView_ILanguage;
-   
-   function get_SupportedGrammarLanguages
-   return Windows.Globalization.IVectorView_ILanguage;
+   function get_InstalledCommandSets
+   return Windows.Address;
    
    function InstallCommandSetsFromStorageFileAsync
    (
       file : Windows.Storage.IStorageFile
    )
    return Windows.Foundation.IAsyncAction;
-   
-   function get_InstalledCommandSets
-   return Windows.Address;
    
 end;

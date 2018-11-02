@@ -3231,6 +3231,24 @@ package Windows.UI.Xaml.Input is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function add_IsDisplayModeEnabledChanged
+   (
+      value : TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure ExitDisplayMode
+   ;
+   
+   function get_IsDisplayModeEnabled
+   return Windows.Boolean;
+   
+   procedure remove_IsDisplayModeEnabledChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    function get_AreKeyTipsEnabled
    return Windows.Boolean;
    
@@ -3240,26 +3258,14 @@ package Windows.UI.Xaml.Input is
    )
    ;
    
-   function get_IsDisplayModeEnabled
-   return Windows.Boolean;
-   
-   function add_IsDisplayModeEnabledChanged
-   (
-      value : TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_IsDisplayModeEnabledChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   procedure ExitDisplayMode
-   ;
-   
    function GetFocusedElement
    return Windows.Object;
+   
+   function TryMoveFocus
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+   )
+   return Windows.Boolean;
    
    function FindNextFocusableElement
    (
@@ -3273,6 +3279,38 @@ package Windows.UI.Xaml.Input is
       ; hintRect : Windows.Foundation.Rect
    )
    return Windows.UI.Xaml.IUIElement;
+   
+   function FindFirstFocusableElement
+   (
+      searchScope : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IDependencyObject;
+   
+   function FindLastFocusableElement
+   (
+      searchScope : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IDependencyObject;
+   
+   function FindNextElement
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+   )
+   return Windows.UI.Xaml.IDependencyObject;
+   
+   function FindNextElementWithOptions
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+   )
+   return Windows.UI.Xaml.IDependencyObject;
+   
+   function TryMoveFocusWithOptions
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+   )
+   return Windows.Boolean;
    
    function TryFocusAsync
    (
@@ -3294,44 +3332,6 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
    
-   function TryMoveFocus
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-   )
-   return Windows.Boolean;
-   
-   function TryMoveFocusWithOptions
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
-   )
-   return Windows.Boolean;
-   
-   function FindNextElement
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-   )
-   return Windows.UI.Xaml.IDependencyObject;
-   
-   function FindFirstFocusableElement
-   (
-      searchScope : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IDependencyObject;
-   
-   function FindLastFocusableElement
-   (
-      searchScope : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IDependencyObject;
-   
-   function FindNextElementWithOptions
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
-   )
-   return Windows.UI.Xaml.IDependencyObject;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -3339,13 +3339,13 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.UI.Xaml.Input.IKeyboardAccelerator;
    
+   function get_IsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_KeyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ModifiersProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ScopeOwnerProperty

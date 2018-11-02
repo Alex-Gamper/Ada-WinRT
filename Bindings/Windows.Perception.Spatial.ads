@@ -1459,13 +1459,6 @@ package Windows.Perception.Spatial is
    )
    return Windows.Perception.Spatial.ISpatialAnchor;
    
-   function TryCreateWithPositionRelativeTo
-   (
-      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
-      ; position : Windows.Foundation.Numerics.Vector3
-   )
-   return Windows.Perception.Spatial.ISpatialAnchor;
-   
    function TryCreateWithPositionAndOrientationRelativeTo
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
@@ -1474,14 +1467,18 @@ package Windows.Perception.Spatial is
    )
    return Windows.Perception.Spatial.ISpatialAnchor;
    
+   function TryCreateWithPositionRelativeTo
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; position : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.Perception.Spatial.ISpatialAnchor;
+   
    function RequestStoreAsync
    return Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore;
    
-   function TryImportAnchorsAsync
-   (
-      stream : Windows.Storage.Streams.IInputStream
-   )
-   return Windows.Address;
+   function RequestAccessAsync
+   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
    
    function TryExportAnchorsAsync
    (
@@ -1490,13 +1487,23 @@ package Windows.Perception.Spatial is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-   function RequestAccessAsync
-   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
+   function TryImportAnchorsAsync
+   (
+      stream : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.Address;
    
    function FromBox
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
       ; box : Windows.Perception.Spatial.SpatialBoundingBox
+   )
+   return Windows.Perception.Spatial.ISpatialBoundingVolume;
+   
+   function FromFrustum
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; frustum : Windows.Perception.Spatial.SpatialBoundingFrustum
    )
    return Windows.Perception.Spatial.ISpatialBoundingVolume;
    
@@ -1514,13 +1521,6 @@ package Windows.Perception.Spatial is
    )
    return Windows.Perception.Spatial.ISpatialBoundingVolume;
    
-   function FromFrustum
-   (
-      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
-      ; frustum : Windows.Perception.Spatial.SpatialBoundingFrustum
-   )
-   return Windows.Perception.Spatial.ISpatialBoundingVolume;
-   
    function get_IsSupported
    return Windows.Boolean;
    
@@ -1533,14 +1533,14 @@ package Windows.Perception.Spatial is
    function GetDefault
    return Windows.Perception.Spatial.ISpatialLocator;
    
-   function get_Current
-   return Windows.Perception.Spatial.ISpatialStageFrameOfReference;
-   
    function add_CurrentChanged
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
+   
+   function get_Current
+   return Windows.Perception.Spatial.ISpatialStageFrameOfReference;
    
    procedure remove_CurrentChanged
    (

@@ -629,16 +629,6 @@ package Windows.UI.Xaml.Media.Media3D is
    function get_TranslateZProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_Identity
-   return Windows.UI.Xaml.Media.Media3D.Matrix3D;
-   
-   function Multiply
-   (
-      matrix1 : Windows.UI.Xaml.Media.Media3D.Matrix3D
-      ; matrix2 : Windows.UI.Xaml.Media.Media3D.Matrix3D
-   )
-   return Windows.UI.Xaml.Media.Media3D.Matrix3D;
-   
    function FromElements
    (
       m11 : Windows.Double
@@ -660,6 +650,9 @@ package Windows.UI.Xaml.Media.Media3D is
    )
    return Windows.UI.Xaml.Media.Media3D.Matrix3D;
    
+   function get_Identity
+   return Windows.UI.Xaml.Media.Media3D.Matrix3D;
+   
    function GetHasInverse
    (
       target : Windows.UI.Xaml.Media.Media3D.Matrix3D
@@ -675,6 +668,13 @@ package Windows.UI.Xaml.Media.Media3D is
    function Invert
    (
       target : Windows.UI.Xaml.Media.Media3D.Matrix3D
+   )
+   return Windows.UI.Xaml.Media.Media3D.Matrix3D;
+   
+   function Multiply
+   (
+      matrix1 : Windows.UI.Xaml.Media.Media3D.Matrix3D
+      ; matrix2 : Windows.UI.Xaml.Media.Media3D.Matrix3D
    )
    return Windows.UI.Xaml.Media.Media3D.Matrix3D;
    

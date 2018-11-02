@@ -174,18 +174,17 @@ package Windows.Security.Cryptography is
    )
    return Windows.Boolean;
    
-   function GenerateRandom
+   function ConvertBinaryToString
    (
-      length : Windows.UInt32
+      encoding : Windows.Security.Cryptography.BinaryStringEncoding
+      ; buffer : Windows.Storage.Streams.IBuffer
    )
-   return Windows.Storage.Streams.IBuffer;
+   return Windows.String;
    
-   function GenerateRandomNumber
-   return Windows.UInt32;
-   
-   function CreateFromByteArray
+   function ConvertStringToBinary
    (
-      value : Windows.UInt8_Ptr
+      value : Windows.String
+      ; encoding : Windows.Security.Cryptography.BinaryStringEncoding
    )
    return Windows.Storage.Streams.IBuffer;
    
@@ -196,19 +195,19 @@ package Windows.Security.Cryptography is
    )
    ;
    
-   function DecodeFromHexString
+   function CreateFromByteArray
+   (
+      value : Windows.UInt8_Ptr
+   )
+   return Windows.Storage.Streams.IBuffer;
+   
+   function DecodeFromBase64String
    (
       value : Windows.String
    )
    return Windows.Storage.Streams.IBuffer;
    
-   function EncodeToHexString
-   (
-      buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.String;
-   
-   function DecodeFromBase64String
+   function DecodeFromHexString
    (
       value : Windows.String
    )
@@ -220,18 +219,19 @@ package Windows.Security.Cryptography is
    )
    return Windows.String;
    
-   function ConvertStringToBinary
+   function EncodeToHexString
    (
-      value : Windows.String
-      ; encoding : Windows.Security.Cryptography.BinaryStringEncoding
+      buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.String;
+   
+   function GenerateRandom
+   (
+      length : Windows.UInt32
    )
    return Windows.Storage.Streams.IBuffer;
    
-   function ConvertBinaryToString
-   (
-      encoding : Windows.Security.Cryptography.BinaryStringEncoding
-      ; buffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.String;
+   function GenerateRandomNumber
+   return Windows.UInt32;
    
 end;

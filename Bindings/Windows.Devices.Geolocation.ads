@@ -1955,9 +1955,6 @@ package Windows.Devices.Geolocation is
    )
    return Windows.Devices.Geolocation.IGeoboundingBox;
    
-   function RequestAccessAsync
-   return Windows.Devices.Geolocation.IAsyncOperation_GeolocationAccessStatus;
-   
    function GetGeopositionHistoryAsync
    (
       startTime : Windows.Foundation.DateTime
@@ -1971,6 +1968,12 @@ package Windows.Devices.Geolocation is
    )
    return Windows.Address;
    
+   function RequestAccessAsync
+   return Windows.Devices.Geolocation.IAsyncOperation_GeolocationAccessStatus;
+   
+   function get_DefaultGeoposition
+   return Windows.Devices.Geolocation.IReference_BasicGeoposition;
+   
    function get_IsDefaultGeopositionRecommended
    return Windows.Boolean;
    
@@ -1979,9 +1982,6 @@ package Windows.Devices.Geolocation is
       value : Windows.Devices.Geolocation.IReference_BasicGeoposition
    )
    ;
-   
-   function get_DefaultGeoposition
-   return Windows.Devices.Geolocation.IReference_BasicGeoposition;
    
    function GetLastReportAsync
    return Windows.Devices.Geolocation.IAsyncOperation_IGeovisit;

@@ -2245,14 +2245,15 @@ package Windows.Foundation.Diagnostics is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   procedure TraceOperationCreation
+   function add_TracingStatusChanged
    (
-      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
-      ; source : Windows.Foundation.Diagnostics.CausalitySource
-      ; platformId : Windows.Guid
-      ; operationId : Windows.UInt64
-      ; operationName : Windows.String
-      ; relatedContext : Windows.UInt64
+      handler : Windows.Foundation.Diagnostics.EventHandler_ITracingStatusChangedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_TracingStatusChanged
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
    )
    ;
    
@@ -2266,6 +2267,17 @@ package Windows.Foundation.Diagnostics is
    )
    ;
    
+   procedure TraceOperationCreation
+   (
+      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
+      ; source : Windows.Foundation.Diagnostics.CausalitySource
+      ; platformId : Windows.Guid
+      ; operationId : Windows.UInt64
+      ; operationName : Windows.String
+      ; relatedContext : Windows.UInt64
+   )
+   ;
+   
    procedure TraceOperationRelation
    (
       traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
@@ -2273,16 +2285,6 @@ package Windows.Foundation.Diagnostics is
       ; platformId : Windows.Guid
       ; operationId : Windows.UInt64
       ; relation : Windows.Foundation.Diagnostics.CausalityRelation
-   )
-   ;
-   
-   procedure TraceSynchronousWorkStart
-   (
-      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
-      ; source : Windows.Foundation.Diagnostics.CausalitySource
-      ; platformId : Windows.Guid
-      ; operationId : Windows.UInt64
-      ; work : Windows.Foundation.Diagnostics.CausalitySynchronousWork
    )
    ;
    
@@ -2294,15 +2296,13 @@ package Windows.Foundation.Diagnostics is
    )
    ;
    
-   function add_TracingStatusChanged
+   procedure TraceSynchronousWorkStart
    (
-      handler : Windows.Foundation.Diagnostics.EventHandler_ITracingStatusChangedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_TracingStatusChanged
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
+      traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
+      ; source : Windows.Foundation.Diagnostics.CausalitySource
+      ; platformId : Windows.Guid
+      ; operationId : Windows.UInt64
+      ; work : Windows.Foundation.Diagnostics.CausalitySynchronousWork
    )
    ;
    

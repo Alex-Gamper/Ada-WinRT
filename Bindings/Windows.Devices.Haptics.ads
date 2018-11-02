@@ -592,13 +592,10 @@ package Windows.Devices.Haptics is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Click
-   return Windows.UInt16;
-   
    function get_BuzzContinuous
    return Windows.UInt16;
    
-   function get_RumbleContinuous
+   function get_Click
    return Windows.UInt16;
    
    function get_Press
@@ -607,11 +604,11 @@ package Windows.Devices.Haptics is
    function get_Release
    return Windows.UInt16;
    
-   function RequestAccessAsync
-   return Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus;
+   function get_RumbleContinuous
+   return Windows.UInt16;
    
-   function GetDeviceSelector
-   return Windows.String;
+   function FindAllAsync
+   return Windows.Address;
    
    function FromIdAsync
    (
@@ -622,7 +619,10 @@ package Windows.Devices.Haptics is
    function GetDefaultAsync
    return Windows.Devices.Haptics.IAsyncOperation_IVibrationDevice;
    
-   function FindAllAsync
-   return Windows.Address;
+   function GetDeviceSelector
+   return Windows.String;
+   
+   function RequestAccessAsync
+   return Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus;
    
 end;

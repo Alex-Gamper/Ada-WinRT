@@ -2010,23 +2010,23 @@ package Windows.Networking.Connectivity is
    )
    ;
    
-   function FindConnectionProfilesAsync
+   function add_NetworkStatusChanged
    (
-      pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
+      networkStatusHandler : Windows.Networking.Connectivity.NetworkStatusChangedEventHandler
    )
-   return Windows.Address;
+   return Windows.Foundation.EventRegistrationToken;
    
    function GetConnectionProfiles
    return Windows.Networking.Connectivity.IVectorView_IConnectionProfile;
+   
+   function GetHostNames
+   return Windows.Networking.IVectorView_IHostName;
    
    function GetInternetConnectionProfile
    return Windows.Networking.Connectivity.IConnectionProfile;
    
    function GetLanIdentifiers
    return Windows.Networking.Connectivity.IVectorView_ILanIdentifier;
-   
-   function GetHostNames
-   return Windows.Networking.IVectorView_IHostName;
    
    function GetProxyConfigurationAsync
    (
@@ -2041,16 +2041,16 @@ package Windows.Networking.Connectivity is
    )
    return Windows.Networking.IVectorView_IEndpointPair;
    
-   function add_NetworkStatusChanged
-   (
-      networkStatusHandler : Windows.Networking.Connectivity.NetworkStatusChangedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
    procedure remove_NetworkStatusChanged
    (
       eventCookie : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
+   function FindConnectionProfilesAsync
+   (
+      pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
+   )
+   return Windows.Address;
    
 end;

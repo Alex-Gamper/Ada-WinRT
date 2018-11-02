@@ -963,6 +963,52 @@ package Windows.Security.Authentication.Web.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function FindAccountAsync
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+      ; webAccountId : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   
+   function FindAccountProviderAsync
+   (
+      webAccountProviderId : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   
+   function FindAccountProviderWithAuthorityAsync
+   (
+      webAccountProviderId : Windows.String
+      ; authority : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   
+   function GetTokenSilentlyAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   
+   function GetTokenSilentlyWithWebAccountAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   
+   function RequestTokenAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   
+   function RequestTokenWithWebAccountAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   
    function FindAccountProviderWithAuthorityForUserAsync
    (
       webAccountProviderId : Windows.String
@@ -970,6 +1016,12 @@ package Windows.Security.Authentication.Web.Core is
       ; user : Windows.System.IUser
    )
    return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   
+   function CreateWebAccountMonitor
+   (
+      webAccounts : Windows.Security.Credentials.IIterable_IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IWebAccountMonitor;
    
    function FindAllAccountsAsync
    (
@@ -1004,57 +1056,5 @@ package Windows.Security.Authentication.Web.Core is
       ; user : Windows.System.IUser
    )
    return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
-   
-   function GetTokenSilentlyAsync
-   (
-      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
-   )
-   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
-   
-   function GetTokenSilentlyWithWebAccountAsync
-   (
-      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
-      ; webAccount : Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
-   
-   function RequestTokenAsync
-   (
-      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
-   )
-   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
-   
-   function RequestTokenWithWebAccountAsync
-   (
-      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
-      ; webAccount : Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
-   
-   function FindAccountAsync
-   (
-      provider : Windows.Security.Credentials.IWebAccountProvider
-      ; webAccountId : Windows.String
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
-   
-   function FindAccountProviderAsync
-   (
-      webAccountProviderId : Windows.String
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
-   
-   function FindAccountProviderWithAuthorityAsync
-   (
-      webAccountProviderId : Windows.String
-      ; authority : Windows.String
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
-   
-   function CreateWebAccountMonitor
-   (
-      webAccounts : Windows.Security.Credentials.IIterable_IWebAccount
-   )
-   return Windows.Security.Authentication.Web.Core.IWebAccountMonitor;
    
 end;

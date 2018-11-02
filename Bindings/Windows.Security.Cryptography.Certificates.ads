@@ -2943,13 +2943,6 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.Foundation.IAsyncOperation_String;
    
-   function InstallCertificateAsync
-   (
-      certificate : Windows.String
-      ; installOption : Windows.Security.Cryptography.Certificates.InstallOptions
-   )
-   return Windows.Foundation.IAsyncAction;
-   
    function ImportPfxDataAsync
    (
       pfxData : Windows.String
@@ -2961,11 +2954,10 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function ImportPfxDataToKspWithParametersAsync
+   function InstallCertificateAsync
    (
-      pfxData : Windows.String
-      ; password : Windows.String
-      ; pfxImportParameters : Windows.Security.Cryptography.Certificates.IPfxImportParameters
+      certificate : Windows.String
+      ; installOption : Windows.Security.Cryptography.Certificates.InstallOptions
    )
    return Windows.Foundation.IAsyncAction;
    
@@ -2984,11 +2976,13 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function GetUserStoreByName
+   function ImportPfxDataToKspWithParametersAsync
    (
-      storeName : Windows.String
+      pfxData : Windows.String
+      ; password : Windows.String
+      ; pfxImportParameters : Windows.Security.Cryptography.Certificates.IPfxImportParameters
    )
-   return Windows.Security.Cryptography.Certificates.IUserCertificateStore;
+   return Windows.Foundation.IAsyncAction;
    
    function FindAllAsync
    return Windows.Address;
@@ -2999,10 +2993,10 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.Address;
    
-   function get_TrustedRootCertificationAuthorities
+   function get_IntermediateCertificationAuthorities
    return Windows.Security.Cryptography.Certificates.ICertificateStore;
    
-   function get_IntermediateCertificationAuthorities
+   function get_TrustedRootCertificationAuthorities
    return Windows.Security.Cryptography.Certificates.ICertificateStore;
    
    function GetStoreByName
@@ -3010,6 +3004,12 @@ package Windows.Security.Cryptography.Certificates is
       storeName : Windows.String
    )
    return Windows.Security.Cryptography.Certificates.ICertificateStore;
+   
+   function GetUserStoreByName
+   (
+      storeName : Windows.String
+   )
+   return Windows.Security.Cryptography.Certificates.IUserCertificateStore;
    
    function GenerateSignatureAsync
    (
@@ -3026,15 +3026,6 @@ package Windows.Security.Cryptography.Certificates is
       ; certificates : Windows.Security.Cryptography.Certificates.IIterable_ICertificate
    )
    return Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   
-   function get_Ecdsa
-   return Windows.String;
-   
-   function get_Ecdh
-   return Windows.String;
-   
-   function get_Rsa
-   return Windows.String;
    
    function get_Dsa
    return Windows.String;
@@ -3057,12 +3048,14 @@ package Windows.Security.Cryptography.Certificates is
    function get_Ecdsa521
    return Windows.String;
    
-   function DecryptTpmAttestationCredentialWithContainerNameAsync
-   (
-      credential : Windows.String
-      ; containerName : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String;
+   function get_Rsa
+   return Windows.String;
+   
+   function get_Ecdh
+   return Windows.String;
+   
+   function get_Ecdsa
+   return Windows.String;
    
    function DecryptTpmAttestationCredentialAsync
    (
@@ -3076,25 +3069,32 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.String;
    
-   function get_SoftwareKeyStorageProvider
+   function DecryptTpmAttestationCredentialWithContainerNameAsync
+   (
+      credential : Windows.String
+      ; containerName : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function get_PlatformKeyStorageProvider
    return Windows.String;
    
    function get_SmartcardKeyStorageProvider
    return Windows.String;
    
-   function get_PlatformKeyStorageProvider
+   function get_SoftwareKeyStorageProvider
    return Windows.String;
    
    function get_PassportKeyStorageProvider
+   return Windows.String;
+   
+   function get_IntermediateCertificationAuthorities
    return Windows.String;
    
    function get_Personal
    return Windows.String;
    
    function get_TrustedRootCertificationAuthorities
-   return Windows.String;
-   
-   function get_IntermediateCertificationAuthorities
    return Windows.String;
    
 end;

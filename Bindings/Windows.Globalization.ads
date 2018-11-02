@@ -3094,6 +3094,12 @@ package Windows.Globalization is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_Languages
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function get_ManifestLanguages
+   return Windows.Foundation.Collections.IVectorView_String;
+   
    function get_PrimaryLanguageOverride
    return Windows.String;
    
@@ -3103,35 +3109,11 @@ package Windows.Globalization is
    )
    ;
    
-   function get_Languages
-   return Windows.Foundation.Collections.IVectorView_String;
-   
-   function get_ManifestLanguages
-   return Windows.Foundation.Collections.IVectorView_String;
-   
    function GetLanguagesForUser
    (
       user : Windows.System.IUser
    )
    return Windows.Foundation.Collections.IVectorView_String;
-   
-   function get_Persian
-   return Windows.String;
-   
-   function get_ChineseLunar
-   return Windows.String;
-   
-   function get_JapaneseLunar
-   return Windows.String;
-   
-   function get_KoreanLunar
-   return Windows.String;
-   
-   function get_TaiwanLunar
-   return Windows.String;
-   
-   function get_VietnameseLunar
-   return Windows.String;
    
    function get_Gregorian
    return Windows.String;
@@ -3160,13 +3142,28 @@ package Windows.Globalization is
    function get_UmAlQura
    return Windows.String;
    
+   function get_Persian
+   return Windows.String;
+   
+   function get_ChineseLunar
+   return Windows.String;
+   
+   function get_JapaneseLunar
+   return Windows.String;
+   
+   function get_KoreanLunar
+   return Windows.String;
+   
+   function get_TaiwanLunar
+   return Windows.String;
+   
+   function get_VietnameseLunar
+   return Windows.String;
+   
    function get_TwelveHour
    return Windows.String;
    
    function get_TwentyFourHour
-   return Windows.String;
-   
-   function get_BYN
    return Windows.String;
    
    function get_AED
@@ -3640,6 +3637,9 @@ package Windows.Globalization is
    function get_ZWL
    return Windows.String;
    
+   function get_BYN
+   return Windows.String;
+   
    function IsSupported
    (
       geographicRegionCode : Windows.String
@@ -3659,11 +3659,8 @@ package Windows.Globalization is
    )
    return Windows.Globalization.IVectorView_IJapanesePhoneme;
    
-   function TrySetInputMethodLanguageTag
-   (
-      languageTag : Windows.String
-   )
-   return Windows.Boolean;
+   function get_CurrentInputMethodLanguageTag
+   return Windows.String;
    
    function IsWellFormed
    (
@@ -3671,44 +3668,11 @@ package Windows.Globalization is
    )
    return Windows.Boolean;
    
-   function get_CurrentInputMethodLanguageTag
-   return Windows.String;
-   
-   function get_Brah
-   return Windows.String;
-   
-   function get_Osma
-   return Windows.String;
-   
-   function get_MathBold
-   return Windows.String;
-   
-   function get_MathDbl
-   return Windows.String;
-   
-   function get_MathSans
-   return Windows.String;
-   
-   function get_MathSanb
-   return Windows.String;
-   
-   function get_MathMono
-   return Windows.String;
-   
-   function get_ZmthBold
-   return Windows.String;
-   
-   function get_ZmthDbl
-   return Windows.String;
-   
-   function get_ZmthSans
-   return Windows.String;
-   
-   function get_ZmthSanb
-   return Windows.String;
-   
-   function get_ZmthMono
-   return Windows.String;
+   function TrySetInputMethodLanguageTag
+   (
+      languageTag : Windows.String
+   )
+   return Windows.Boolean;
    
    function get_Arab
    return Windows.String;
@@ -3816,6 +3780,42 @@ package Windows.Globalization is
    return Windows.String;
    
    function get_Vaii
+   return Windows.String;
+   
+   function get_Brah
+   return Windows.String;
+   
+   function get_MathBold
+   return Windows.String;
+   
+   function get_MathDbl
+   return Windows.String;
+   
+   function get_MathMono
+   return Windows.String;
+   
+   function get_MathSanb
+   return Windows.String;
+   
+   function get_MathSans
+   return Windows.String;
+   
+   function get_Osma
+   return Windows.String;
+   
+   function get_ZmthBold
+   return Windows.String;
+   
+   function get_ZmthDbl
+   return Windows.String;
+   
+   function get_ZmthMono
+   return Windows.String;
+   
+   function get_ZmthSanb
+   return Windows.String;
+   
+   function get_ZmthSans
    return Windows.String;
    
 end;

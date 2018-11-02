@@ -1431,6 +1431,12 @@ package Windows.Graphics.Display is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
+   function CreateFromDisplayBrightnessOverrideScenario
+   (
+      overrideScenario : Windows.Graphics.Display.DisplayBrightnessOverrideScenario
+   )
+   return Windows.Graphics.Display.IBrightnessOverrideSettings;
+   
    function CreateFromLevel
    (
       level : Windows.Double
@@ -1443,12 +1449,6 @@ package Windows.Graphics.Display is
    )
    return Windows.Graphics.Display.IBrightnessOverrideSettings;
    
-   function CreateFromDisplayBrightnessOverrideScenario
-   (
-      overrideScenario : Windows.Graphics.Display.DisplayBrightnessOverrideScenario
-   )
-   return Windows.Graphics.Display.IBrightnessOverrideSettings;
-   
    function CreateFromDisplayColorOverrideScenario
    (
       overrideScenario : Windows.Graphics.Display.DisplayColorOverrideScenario
@@ -1458,11 +1458,17 @@ package Windows.Graphics.Display is
    function GetForCurrentView
    return Windows.Graphics.Display.IDisplayEnhancementOverride;
    
-   function GetForCurrentView
-   return Windows.Graphics.Display.IDisplayInformation;
+   function add_DisplayContentsInvalidated
+   (
+      handler : TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated
+   )
+   return Windows.Foundation.EventRegistrationToken;
    
    function get_AutoRotationPreferences
    return Windows.Graphics.Display.DisplayOrientations;
+   
+   function GetForCurrentView
+   return Windows.Graphics.Display.IDisplayInformation;
    
    procedure put_AutoRotationPreferences
    (
@@ -1470,80 +1476,11 @@ package Windows.Graphics.Display is
    )
    ;
    
-   function add_DisplayContentsInvalidated
-   (
-      handler : TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
    procedure remove_DisplayContentsInvalidated
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
-   
-   function get_CurrentOrientation
-   return Windows.Graphics.Display.DisplayOrientations;
-   
-   function get_NativeOrientation
-   return Windows.Graphics.Display.DisplayOrientations;
-   
-   function get_AutoRotationPreferences_DisplayProperties
-   return Windows.Graphics.Display.DisplayOrientations;
-   
-   procedure put_AutoRotationPreferences_DisplayProperties
-   (
-      value : Windows.Graphics.Display.DisplayOrientations
-   )
-   ;
-   
-   function add_OrientationChanged
-   (
-      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_OrientationChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_ResolutionScale
-   return Windows.Graphics.Display.ResolutionScale;
-   
-   function get_LogicalDpi
-   return Windows.Single;
-   
-   function add_LogicalDpiChanged
-   (
-      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_LogicalDpiChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_StereoEnabled
-   return Windows.Boolean;
-   
-   function add_StereoEnabledChanged
-   (
-      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_StereoEnabledChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function GetColorProfileAsync
-   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream;
    
    function add_ColorProfileChanged
    (
@@ -1551,19 +1488,82 @@ package Windows.Graphics.Display is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_ColorProfileChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function add_DisplayContentsInvalidated
    (
       handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
    )
    return Windows.Foundation.EventRegistrationToken;
    
+   function add_LogicalDpiChanged
+   (
+      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_OrientationChanged
+   (
+      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_StereoEnabledChanged
+   (
+      handler : Windows.Graphics.Display.DisplayPropertiesEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function get_AutoRotationPreferences_DisplayProperties
+   return Windows.Graphics.Display.DisplayOrientations;
+   
+   function get_CurrentOrientation
+   return Windows.Graphics.Display.DisplayOrientations;
+   
+   function get_LogicalDpi
+   return Windows.Single;
+   
+   function get_NativeOrientation
+   return Windows.Graphics.Display.DisplayOrientations;
+   
+   function get_ResolutionScale
+   return Windows.Graphics.Display.ResolutionScale;
+   
+   function get_StereoEnabled
+   return Windows.Boolean;
+   
+   function GetColorProfileAsync
+   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream;
+   
+   procedure put_AutoRotationPreferences_DisplayProperties
+   (
+      value : Windows.Graphics.Display.DisplayOrientations
+   )
+   ;
+   
+   procedure remove_ColorProfileChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    procedure remove_DisplayContentsInvalidated_DisplayProperties
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_LogicalDpiChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_OrientationChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_StereoEnabledChanged
    (
       token : Windows.Foundation.EventRegistrationToken
    )

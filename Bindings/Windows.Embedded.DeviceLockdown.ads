@@ -116,22 +116,22 @@ package Windows.Embedded.DeviceLockdown is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetSupportedLockdownProfiles
-   return Windows.Foundation.Collections.IVectorView_Guid;
-   
-   function GetCurrentLockdownProfile
-   return Windows.Guid;
-   
    function ApplyLockdownProfileAsync
    (
       profileID : Windows.Guid
    )
    return Windows.Foundation.IAsyncAction;
    
+   function GetCurrentLockdownProfile
+   return Windows.Guid;
+   
    function GetLockdownProfileInformation
    (
       profileID : Windows.Guid
    )
    return Windows.Embedded.DeviceLockdown.IDeviceLockdownProfileInformation;
+   
+   function GetSupportedLockdownProfiles
+   return Windows.Foundation.Collections.IVectorView_Guid;
    
 end;

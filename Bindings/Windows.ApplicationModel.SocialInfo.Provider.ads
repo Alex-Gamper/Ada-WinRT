@@ -319,6 +319,12 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateDashboardItemUpdaterAsync
+   (
+      ownerRemoteId : Windows.String
+   )
+   return Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater;
+   
    function CreateSocialFeedUpdaterAsync
    (
       kind : Windows.ApplicationModel.SocialInfo.SocialFeedKind
@@ -327,18 +333,11 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    )
    return Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater;
    
-   function CreateDashboardItemUpdaterAsync
-   (
-      ownerRemoteId : Windows.String
-   )
-   return Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater;
+   function DeprovisionAsync
+   return Windows.Foundation.IAsyncAction;
    
-   procedure UpdateBadgeCountValue
-   (
-      itemRemoteId : Windows.String
-      ; newCount : Windows.Int32
-   )
-   ;
+   function ProvisionAsync
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    procedure ReportNewContentAvailable
    (
@@ -347,10 +346,11 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    )
    ;
    
-   function ProvisionAsync
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function DeprovisionAsync
-   return Windows.Foundation.IAsyncAction;
+   procedure UpdateBadgeCountValue
+   (
+      itemRemoteId : Windows.String
+      ; newCount : Windows.Int32
+   )
+   ;
    
 end;

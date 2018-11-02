@@ -3062,180 +3062,9 @@ package Windows.Foundation is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function CreateEmpty
-   return Windows.Object;
-   
-   function CreateUInt8
-   (
-      value : Windows.UInt8
-   )
-   return Windows.Object;
-   
-   function CreateInt16
-   (
-      value : Windows.Int16
-   )
-   return Windows.Object;
-   
-   function CreateUInt16
-   (
-      value : Windows.UInt16
-   )
-   return Windows.Object;
-   
-   function CreateInt32
-   (
-      value : Windows.Int32
-   )
-   return Windows.Object;
-   
-   function CreateUInt32
-   (
-      value : Windows.UInt32
-   )
-   return Windows.Object;
-   
-   function CreateInt64
-   (
-      value : Windows.Int64
-   )
-   return Windows.Object;
-   
-   function CreateUInt64
-   (
-      value : Windows.UInt64
-   )
-   return Windows.Object;
-   
-   function CreateSingle
-   (
-      value : Windows.Single
-   )
-   return Windows.Object;
-   
-   function CreateDouble
-   (
-      value : Windows.Double
-   )
-   return Windows.Object;
-   
-   function CreateChar16
-   (
-      value : Windows.UInt8
-   )
-   return Windows.Object;
-   
    function CreateBoolean
    (
       value : Windows.Boolean
-   )
-   return Windows.Object;
-   
-   function CreateString
-   (
-      value : Windows.String
-   )
-   return Windows.Object;
-   
-   function CreateInspectable
-   (
-      value : Windows.Object
-   )
-   return Windows.Object;
-   
-   function CreateGuid
-   (
-      value : Windows.Guid
-   )
-   return Windows.Object;
-   
-   function CreateDateTime
-   (
-      value : Windows.Foundation.DateTime
-   )
-   return Windows.Object;
-   
-   function CreateTimeSpan
-   (
-      value : Windows.Foundation.TimeSpan
-   )
-   return Windows.Object;
-   
-   function CreatePoint
-   (
-      value : Windows.Foundation.Point
-   )
-   return Windows.Object;
-   
-   function CreateSize
-   (
-      value : Windows.Foundation.Size
-   )
-   return Windows.Object;
-   
-   function CreateRect
-   (
-      value : Windows.Foundation.Rect
-   )
-   return Windows.Object;
-   
-   function CreateUInt8Array
-   (
-      value : Windows.UInt8_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateInt16Array
-   (
-      value : Windows.Int16_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateUInt16Array
-   (
-      value : Windows.UInt16_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateInt32Array
-   (
-      value : Windows.Int32_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateUInt32Array
-   (
-      value : Windows.UInt32_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateInt64Array
-   (
-      value : Windows.Int64_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateUInt64Array
-   (
-      value : Windows.UInt64_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateSingleArray
-   (
-      value : Windows.Single_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateDoubleArray
-   (
-      value : Windows.Double_Ptr
-   )
-   return Windows.Object;
-   
-   function CreateChar16Array
-   (
-      value : Windows.UInt8_Ptr
    )
    return Windows.Object;
    
@@ -3245,21 +3074,21 @@ package Windows.Foundation is
    )
    return Windows.Object;
    
-   function CreateStringArray
+   function CreateChar16
    (
-      value : Windows.String_Ptr
+      value : Windows.UInt8
    )
    return Windows.Object;
    
-   function CreateInspectableArray
+   function CreateChar16Array
    (
-      value : Windows.Object_Ptr
+      value : Windows.UInt8_Ptr
    )
    return Windows.Object;
    
-   function CreateGuidArray
+   function CreateDateTime
    (
-      value : Windows.Guid_Ptr
+      value : Windows.Foundation.DateTime
    )
    return Windows.Object;
    
@@ -3269,9 +3098,84 @@ package Windows.Foundation is
    )
    return Windows.Object;
    
-   function CreateTimeSpanArray
+   function CreateDouble
    (
-      value : Windows.Foundation.TimeSpan_Ptr
+      value : Windows.Double
+   )
+   return Windows.Object;
+   
+   function CreateDoubleArray
+   (
+      value : Windows.Double_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateEmpty
+   return Windows.Object;
+   
+   function CreateGuid
+   (
+      value : Windows.Guid
+   )
+   return Windows.Object;
+   
+   function CreateGuidArray
+   (
+      value : Windows.Guid_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateInspectable
+   (
+      value : Windows.Object
+   )
+   return Windows.Object;
+   
+   function CreateInspectableArray
+   (
+      value : Windows.Object_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateInt16
+   (
+      value : Windows.Int16
+   )
+   return Windows.Object;
+   
+   function CreateInt16Array
+   (
+      value : Windows.Int16_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateInt32
+   (
+      value : Windows.Int32
+   )
+   return Windows.Object;
+   
+   function CreateInt32Array
+   (
+      value : Windows.Int32_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateInt64
+   (
+      value : Windows.Int64
+   )
+   return Windows.Object;
+   
+   function CreateInt64Array
+   (
+      value : Windows.Int64_Ptr
+   )
+   return Windows.Object;
+   
+   function CreatePoint
+   (
+      value : Windows.Foundation.Point
    )
    return Windows.Object;
    
@@ -3281,9 +3185,9 @@ package Windows.Foundation is
    )
    return Windows.Object;
    
-   function CreateSizeArray
+   function CreateRect
    (
-      value : Windows.Foundation.Size_Ptr
+      value : Windows.Foundation.Rect
    )
    return Windows.Object;
    
@@ -3293,15 +3197,111 @@ package Windows.Foundation is
    )
    return Windows.Object;
    
-   function UnescapeComponent
+   function CreateSingle
    (
-      toUnescape : Windows.String
+      value : Windows.Single
    )
-   return Windows.String;
+   return Windows.Object;
+   
+   function CreateSingleArray
+   (
+      value : Windows.Single_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateSize
+   (
+      value : Windows.Foundation.Size
+   )
+   return Windows.Object;
+   
+   function CreateSizeArray
+   (
+      value : Windows.Foundation.Size_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateString
+   (
+      value : Windows.String
+   )
+   return Windows.Object;
+   
+   function CreateStringArray
+   (
+      value : Windows.String_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateTimeSpan
+   (
+      value : Windows.Foundation.TimeSpan
+   )
+   return Windows.Object;
+   
+   function CreateTimeSpanArray
+   (
+      value : Windows.Foundation.TimeSpan_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateUInt16
+   (
+      value : Windows.UInt16
+   )
+   return Windows.Object;
+   
+   function CreateUInt16Array
+   (
+      value : Windows.UInt16_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateUInt32
+   (
+      value : Windows.UInt32
+   )
+   return Windows.Object;
+   
+   function CreateUInt32Array
+   (
+      value : Windows.UInt32_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateUInt64
+   (
+      value : Windows.UInt64
+   )
+   return Windows.Object;
+   
+   function CreateUInt64Array
+   (
+      value : Windows.UInt64_Ptr
+   )
+   return Windows.Object;
+   
+   function CreateUInt8
+   (
+      value : Windows.UInt8
+   )
+   return Windows.Object;
+   
+   function CreateUInt8Array
+   (
+      value : Windows.UInt8_Ptr
+   )
+   return Windows.Object;
    
    function EscapeComponent
    (
       toEscape : Windows.String
+   )
+   return Windows.String;
+   
+   function UnescapeComponent
+   (
+      toUnescape : Windows.String
    )
    return Windows.String;
    

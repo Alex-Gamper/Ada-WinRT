@@ -443,13 +443,13 @@ package Windows.Perception.Spatial.Surfaces is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_SupportedVertexPositionFormats
-   return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat;
-   
    function get_SupportedTriangleIndexFormats
    return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat;
    
    function get_SupportedVertexNormalFormats
+   return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat;
+   
+   function get_SupportedVertexPositionFormats
    return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat;
    
    function RequestAccessAsync

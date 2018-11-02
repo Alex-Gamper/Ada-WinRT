@@ -4583,8 +4583,12 @@ package Windows.UI.Xaml.Documents is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_TextAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Documents.IBlock;
    
    function get_LineHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -4595,32 +4599,16 @@ package Windows.UI.Xaml.Documents is
    function get_MarginProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HorizontalTextAlignmentProperty
+   function get_TextAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Documents.IBlock;
+   function get_HorizontalTextAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_BackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CursorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusLeftProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusRightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusUpProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusDownProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ElementSoundModeProperty
@@ -4629,22 +4617,34 @@ package Windows.UI.Xaml.Documents is
    function get_FocusStateProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_XYFocusUpNavigationStrategyProperty
+   function get_IsTabStopProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TabIndexProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_XYFocusDownNavigationStrategyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_XYFocusDownProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_XYFocusLeftNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusLeftProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_XYFocusRightNavigationStrategyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTabStopProperty
+   function get_XYFocusRightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TabIndexProperty
+   function get_XYFocusUpNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusUpProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -4654,19 +4654,16 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.UI.Xaml.Documents.IContentLinkProvider;
    
-   function get_UnicodeStringProperty
+   function get_FillProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IndicesProperty
+   function get_FontRenderingEmSizeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontUriProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StyleSimulationsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontRenderingEmSizeProperty
+   function get_IndicesProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OriginXProperty
@@ -4675,28 +4672,28 @@ package Windows.UI.Xaml.Documents is
    function get_OriginYProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FillProperty
+   function get_StyleSimulationsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsColorFontEnabledProperty
+   function get_UnicodeStringProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ColorFontPaletteIndexProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FocusStateProperty_IHyperlink
+   function get_IsColorFontEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_XYFocusUpNavigationStrategyProperty_IHyperlink
+   function get_NavigateUriProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_XYFocusDownNavigationStrategyProperty_IHyperlink
+   function get_UnderlineStyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_XYFocusLeftNavigationStrategyProperty_IHyperlink
+   function get_ElementSoundModeProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_XYFocusRightNavigationStrategyProperty_IHyperlink
+   function get_XYFocusDownProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_XYFocusLeftProperty_IHyperlink
@@ -4708,16 +4705,19 @@ package Windows.UI.Xaml.Documents is
    function get_XYFocusUpProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_XYFocusDownProperty_IHyperlink
+   function get_FocusStateProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ElementSoundModeProperty_IHyperlink
+   function get_XYFocusDownNavigationStrategyProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_UnderlineStyleProperty
+   function get_XYFocusLeftNavigationStrategyProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_NavigateUriProperty
+   function get_XYFocusRightNavigationStrategyProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusUpNavigationStrategyProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsTabStopProperty_IHyperlink
@@ -4746,40 +4746,22 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.UI.Xaml.Documents.ISpan;
    
-   function get_TextDecorationsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsAccessKeyScopeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AccessKeyScopeOwnerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipPlacementModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipHorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipVerticalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontSizeProperty
+   function get_CharacterSpacingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontFamilyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontWeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontStyleProperty
+   function get_FontSizeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontStretchProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CharacterSpacingProperty
+   function get_FontStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontWeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ForegroundProperty
@@ -4788,22 +4770,34 @@ package Windows.UI.Xaml.Documents is
    function get_LanguageProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AllowFocusOnInteractionProperty
+   function get_IsTextScaleFactorEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AccessKeyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_AllowFocusOnInteractionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ExitDisplayModeOnAccessKeyInvokedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTextScaleFactorEnabledProperty
+   function get_AccessKeyScopeOwnerProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ForegroundProperty_ITextHighlighter
+   function get_IsAccessKeyScopeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_BackgroundProperty_ITextHighlighter
+   function get_KeyTipHorizontalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTipPlacementModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTipVerticalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextDecorationsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -4813,7 +4807,139 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.UI.Xaml.Documents.ITextHighlighter;
    
+   function get_BackgroundProperty_ITextHighlighter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ForegroundProperty_ITextHighlighter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_AnnotationAlternatesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CapitalSpacingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CapitalsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CaseSensitiveFormsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ContextualAlternatesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ContextualLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ContextualSwashesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DiscretionaryLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EastAsianExpertFormsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EastAsianLanguageProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EastAsianWidthsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FractionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HistoricalFormsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HistoricalLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KerningProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MathematicalGreekProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NumeralAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NumeralStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SlashedZeroProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StandardLigaturesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StandardSwashesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticAlternatesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet10Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet11Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet12Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet13Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet14Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet15Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet16Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet17Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet18Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet19Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet1Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet20Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet2Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet3Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet4Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet5Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet6Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet7Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet8Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StylisticSet9Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VariantsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetAnnotationAlternates
@@ -4822,159 +4948,23 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Int32;
    
-   procedure SetAnnotationAlternates
+   function GetCapitals
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
    )
-   ;
+   return Windows.UI.Xaml.FontCapitals;
    
-   function get_EastAsianExpertFormsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetEastAsianExpertForms
+   function GetCapitalSpacing
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
    
-   procedure SetEastAsianExpertForms
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_EastAsianLanguageProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetEastAsianLanguage
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontEastAsianLanguage;
-   
-   procedure SetEastAsianLanguage
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontEastAsianLanguage
-   )
-   ;
-   
-   function get_EastAsianWidthsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetEastAsianWidths
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontEastAsianWidths;
-   
-   procedure SetEastAsianWidths
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontEastAsianWidths
-   )
-   ;
-   
-   function get_StandardLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStandardLigatures
+   function GetCaseSensitiveForms
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
-   
-   procedure SetStandardLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_ContextualLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetContextualLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetContextualLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_DiscretionaryLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetDiscretionaryLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetDiscretionaryLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_HistoricalLigaturesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetHistoricalLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetHistoricalLigatures
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StandardSwashesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStandardSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32;
-   
-   procedure SetStandardSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_ContextualSwashesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetContextualSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32;
-   
-   procedure SetContextualSwashes
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_ContextualAlternatesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function GetContextualAlternates
    (
@@ -4982,15 +4972,101 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Boolean;
    
-   procedure SetContextualAlternates
+   function GetContextualLigatures
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
    )
-   ;
+   return Windows.Boolean;
    
-   function get_StylisticAlternatesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function GetContextualSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32;
+   
+   function GetDiscretionaryLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetEastAsianExpertForms
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetEastAsianLanguage
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontEastAsianLanguage;
+   
+   function GetEastAsianWidths
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontEastAsianWidths;
+   
+   function GetFraction
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontFraction;
+   
+   function GetHistoricalForms
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetHistoricalLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetKerning
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetMathematicalGreek
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetNumeralAlignment
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontNumeralAlignment;
+   
+   function GetNumeralStyle
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontNumeralStyle;
+   
+   function GetSlashedZero
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetStandardLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetStandardSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32;
    
    function GetStylisticAlternates
    (
@@ -4998,159 +5074,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Int32;
    
-   procedure SetStylisticAlternates
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_StylisticSet1Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetStylisticSet1
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
-   
-   procedure SetStylisticSet1
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet2Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet2
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet2
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet3Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet3
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet3
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet4Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet4
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet4
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet5Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet5
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet5
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet6Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet6
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet6
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet7Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet7
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet7
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet8Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet8
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet8
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet9Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetStylisticSet9
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetStylisticSet9
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet10Property
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function GetStylisticSet10
    (
@@ -5158,31 +5086,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Boolean;
    
-   procedure SetStylisticSet10
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet11Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetStylisticSet11
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
-   
-   procedure SetStylisticSet11
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet12Property
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function GetStylisticSet12
    (
@@ -5190,31 +5098,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Boolean;
    
-   procedure SetStylisticSet12
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet13Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetStylisticSet13
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
-   
-   procedure SetStylisticSet13
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet14Property
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function GetStylisticSet14
    (
@@ -5222,31 +5110,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Boolean;
    
-   procedure SetStylisticSet14
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet15Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetStylisticSet15
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
-   
-   procedure SetStylisticSet15
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet16Property
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function GetStylisticSet16
    (
@@ -5254,31 +5122,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Boolean;
    
-   procedure SetStylisticSet16
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet17Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetStylisticSet17
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
-   
-   procedure SetStylisticSet17
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet18Property
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function GetStylisticSet18
    (
@@ -5286,31 +5134,17 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Boolean;
    
-   procedure SetStylisticSet18
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_StylisticSet19Property
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetStylisticSet19
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.Boolean;
    
-   procedure SetStylisticSet19
+   function GetStylisticSet2
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
    )
-   ;
-   
-   function get_StylisticSet20Property
-   return Windows.UI.Xaml.IDependencyProperty;
+   return Windows.Boolean;
    
    function GetStylisticSet20
    (
@@ -5318,21 +5152,60 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.Boolean;
    
-   procedure SetStylisticSet20
+   function GetStylisticSet3
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
+   )
+   return Windows.Boolean;
+   
+   function GetStylisticSet4
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetStylisticSet5
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetStylisticSet6
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetStylisticSet7
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetStylisticSet8
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetStylisticSet9
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetVariants
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.FontVariants;
+   
+   procedure SetAnnotationAlternates
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
    )
    ;
-   
-   function get_CapitalsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetCapitals
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontCapitals;
    
    procedure SetCapitals
    (
@@ -5341,46 +5214,12 @@ package Windows.UI.Xaml.Documents is
    )
    ;
    
-   function get_CapitalSpacingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetCapitalSpacing
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
    procedure SetCapitalSpacing
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.Boolean
    )
    ;
-   
-   function get_KerningProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetKerning
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetKerning
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_CaseSensitiveFormsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetCaseSensitiveForms
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
    
    procedure SetCaseSensitiveForms
    (
@@ -5389,30 +5228,54 @@ package Windows.UI.Xaml.Documents is
    )
    ;
    
-   function get_HistoricalFormsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetHistoricalForms
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetHistoricalForms
+   procedure SetContextualAlternates
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.Boolean
    )
    ;
    
-   function get_FractionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetFraction
+   procedure SetContextualLigatures
    (
       element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
    )
-   return Windows.UI.Xaml.FontFraction;
+   ;
+   
+   procedure SetContextualSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   ;
+   
+   procedure SetDiscretionaryLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetEastAsianExpertForms
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetEastAsianLanguage
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontEastAsianLanguage
+   )
+   ;
+   
+   procedure SetEastAsianWidths
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontEastAsianWidths
+   )
+   ;
    
    procedure SetFraction
    (
@@ -5421,62 +5284,26 @@ package Windows.UI.Xaml.Documents is
    )
    ;
    
-   function get_NumeralStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetNumeralStyle
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontNumeralStyle;
-   
-   procedure SetNumeralStyle
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontNumeralStyle
-   )
-   ;
-   
-   function get_NumeralAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetNumeralAlignment
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.FontNumeralAlignment;
-   
-   procedure SetNumeralAlignment
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.FontNumeralAlignment
-   )
-   ;
-   
-   function get_SlashedZeroProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetSlashedZero
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetSlashedZero
+   procedure SetHistoricalForms
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.Boolean
    )
    ;
    
-   function get_MathematicalGreekProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetMathematicalGreek
+   procedure SetHistoricalLigatures
    (
       element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
    )
-   return Windows.Boolean;
+   ;
+   
+   procedure SetKerning
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
    
    procedure SetMathematicalGreek
    (
@@ -5485,14 +5312,187 @@ package Windows.UI.Xaml.Documents is
    )
    ;
    
-   function get_VariantsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetVariants
+   procedure SetNumeralAlignment
    (
       element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontNumeralAlignment
    )
-   return Windows.UI.Xaml.FontVariants;
+   ;
+   
+   procedure SetNumeralStyle
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FontNumeralStyle
+   )
+   ;
+   
+   procedure SetSlashedZero
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStandardLigatures
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStandardSwashes
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   ;
+   
+   procedure SetStylisticAlternates
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   ;
+   
+   procedure SetStylisticSet1
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet10
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet11
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet12
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet13
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet14
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet15
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet16
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet17
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet18
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet19
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet2
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet20
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet3
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet4
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet5
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet6
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet7
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet8
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetStylisticSet9
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
    
    procedure SetVariants
    (

@@ -313,17 +313,17 @@ package Windows.Devices.Radios is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetRadiosAsync
-   return Windows.Address;
-   
-   function GetDeviceSelector
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
    return Windows.Devices.Radios.IAsyncOperation_IRadio;
+   
+   function GetDeviceSelector
+   return Windows.String;
+   
+   function GetRadiosAsync
+   return Windows.Address;
    
    function RequestAccessAsync
    return Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus;

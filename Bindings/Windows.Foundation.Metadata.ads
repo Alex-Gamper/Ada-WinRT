@@ -284,9 +284,32 @@ package Windows.Foundation.Metadata is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function IsTypePresent
+   function IsApiContractPresentByMajor
+   (
+      contractName : Windows.String
+      ; majorVersion : Windows.UInt16
+   )
+   return Windows.Boolean;
+   
+   function IsApiContractPresentByMajorAndMinor
+   (
+      contractName : Windows.String
+      ; majorVersion : Windows.UInt16
+      ; minorVersion : Windows.UInt16
+   )
+   return Windows.Boolean;
+   
+   function IsEnumNamedValuePresent
+   (
+      enumTypeName : Windows.String
+      ; valueName : Windows.String
+   )
+   return Windows.Boolean;
+   
+   function IsEventPresent
    (
       typeName : Windows.String
+      ; eventName : Windows.String
    )
    return Windows.Boolean;
    
@@ -305,13 +328,6 @@ package Windows.Foundation.Metadata is
    )
    return Windows.Boolean;
    
-   function IsEventPresent
-   (
-      typeName : Windows.String
-      ; eventName : Windows.String
-   )
-   return Windows.Boolean;
-   
    function IsPropertyPresent
    (
       typeName : Windows.String
@@ -326,32 +342,16 @@ package Windows.Foundation.Metadata is
    )
    return Windows.Boolean;
    
+   function IsTypePresent
+   (
+      typeName : Windows.String
+   )
+   return Windows.Boolean;
+   
    function IsWriteablePropertyPresent
    (
       typeName : Windows.String
       ; propertyName : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function IsEnumNamedValuePresent
-   (
-      enumTypeName : Windows.String
-      ; valueName : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function IsApiContractPresentByMajor
-   (
-      contractName : Windows.String
-      ; majorVersion : Windows.UInt16
-   )
-   return Windows.Boolean;
-   
-   function IsApiContractPresentByMajorAndMinor
-   (
-      contractName : Windows.String
-      ; majorVersion : Windows.UInt16
-      ; minorVersion : Windows.UInt16
    )
    return Windows.Boolean;
    

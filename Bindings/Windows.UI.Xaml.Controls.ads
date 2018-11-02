@@ -51651,31 +51651,10 @@ package Windows.UI.Xaml.Controls is
    function get_IsStickyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_LightDismissOverlayModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ClosedDisplayModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_KeyboardAcceleratorTextOverrideProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LabelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IconProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsCompactProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LabelPositionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsInOverflowProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DynamicOverflowOrderProperty
+   function get_LightDismissOverlayModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -51685,13 +51664,25 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IAppBarButton;
    
-   function get_IsCompactProperty_IAppBarSeparator
+   function get_IconProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsInOverflowProperty_IAppBarSeparator
+   function get_IsCompactProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DynamicOverflowOrderProperty_IAppBarSeparator
+   function get_LabelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DynamicOverflowOrderProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsInOverflowProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LabelPositionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyboardAcceleratorTextOverrideProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -51701,13 +51692,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IAppBarSeparator;
    
-   function get_LabelPositionProperty_IAppBarToggleButton
+   function get_IsCompactProperty_IAppBarSeparator
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsInOverflowProperty_IAppBarToggleButton
+   function get_DynamicOverflowOrderProperty_IAppBarSeparator
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DynamicOverflowOrderProperty_IAppBarToggleButton
+   function get_IsInOverflowProperty_IAppBarSeparator
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -51717,22 +51708,43 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IAppBarToggleButton;
    
-   function get_LabelProperty_IAppBarToggleButton
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_IconProperty_IAppBarToggleButton
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsCompactProperty_IAppBarToggleButton
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_LabelProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DynamicOverflowOrderProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsInOverflowProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LabelPositionProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_KeyboardAcceleratorTextOverrideProperty_IAppBarToggleButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AutoMaximizeSuggestionAreaProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSuggestionListOpenProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MaxSuggestionListHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsSuggestionListOpenProperty
+   function get_PlaceholderTextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextBoxStyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TextMemberPathProperty
@@ -51744,28 +51756,13 @@ package Windows.UI.Xaml.Controls is
    function get_UpdateTextOnSelectProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PlaceholderTextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AutoMaximizeSuggestionAreaProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextBoxStyleProperty
+   function get_QueryIconProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LightDismissOverlayModeProperty_IAutoSuggestBox
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_QueryIconProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ReasonProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_UriSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -51774,6 +51771,9 @@ package Windows.UI.Xaml.Controls is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IBitmapIcon;
+   
+   function get_UriSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ShowAsMonochromeProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -51785,10 +51785,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IBitmapIconSource;
    
+   function get_ShowAsMonochromeProperty_IBitmapIconSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_UriSourceProperty_IBitmapIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ShowAsMonochromeProperty_IBitmapIconSource
+   function get_BackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_BorderBrushProperty
@@ -51797,16 +51800,13 @@ package Windows.UI.Xaml.Controls is
    function get_BorderThicknessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_BackgroundProperty
+   function get_ChildTransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CornerRadiusProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PaddingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ChildTransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -51819,34 +51819,26 @@ package Windows.UI.Xaml.Controls is
    function get_FlyoutProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ICalendarDatePicker;
    
-   function get_IsCalendarOpenProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DateFormatProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlaceholderTextProperty_ICalendarDatePicker
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderProperty_ICalendarDatePicker
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderTemplateProperty
+   function get_CalendarIdentifierProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CalendarViewStyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinDateProperty
+   function get_DateFormatProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxDateProperty
+   function get_DateProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTodayHighlightedProperty
+   function get_DayOfWeekFormatProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DisplayModeProperty
@@ -51855,24 +51847,32 @@ package Windows.UI.Xaml.Controls is
    function get_FirstDayOfWeekProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DayOfWeekFormatProperty
+   function get_HeaderProperty_ICalendarDatePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CalendarIdentifierProperty
+   function get_HeaderTemplateProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsOutOfScopeEnabledProperty
+   function get_IsCalendarOpenProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsGroupLabelVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ICalendarDatePicker;
+   function get_IsOutOfScopeEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTodayHighlightedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxDateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinDateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlaceholderTextProperty_ICalendarDatePicker
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LightDismissOverlayModeProperty_ICalendarDatePicker
    return Windows.UI.Xaml.IDependencyProperty;
@@ -51884,88 +51884,25 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ICalendarView;
    
+   function get_BlackoutForegroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_CalendarIdentifierProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DayOfWeekFormatProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsGroupLabelVisibleProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DisplayModeProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FirstDayOfWeekProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsOutOfScopeEnabledProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTodayHighlightedProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaxDateProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MinDateProperty_ICalendarView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_NumberOfWeeksInViewProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedDatesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TemplateSettingsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedHoverBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedPressedBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HoverBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PressedBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CalendarItemBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OutOfScopeBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CalendarItemBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PressedForegroundProperty
+   function get_CalendarItemBorderBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TodayForegroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BlackoutForegroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedForegroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OutOfScopeForegroundProperty
+   function get_CalendarItemBorderThicknessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CalendarItemForegroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CalendarViewDayItemStyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DayItemFontFamilyProperty
@@ -51980,7 +51917,13 @@ package Windows.UI.Xaml.Controls is
    function get_DayItemFontWeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TodayFontWeightProperty
+   function get_DayOfWeekFormatProperty_ICalendarView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DisplayModeProperty_ICalendarView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FirstDayOfWeekProperty_ICalendarView
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FirstOfMonthLabelFontFamilyProperty
@@ -51995,18 +51938,6 @@ package Windows.UI.Xaml.Controls is
    function get_FirstOfMonthLabelFontWeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MonthYearItemFontFamilyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MonthYearItemFontSizeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MonthYearItemFontStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MonthYearItemFontWeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_FirstOfYearDecadeLabelFontFamilyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -52019,22 +51950,91 @@ package Windows.UI.Xaml.Controls is
    function get_FirstOfYearDecadeLabelFontWeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HorizontalDayItemAlignmentProperty
+   function get_FocusBorderBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_VerticalDayItemAlignmentProperty
+   function get_HorizontalDayItemAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HorizontalFirstOfMonthLabelAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_HoverBorderBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsGroupLabelVisibleProperty_ICalendarView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsOutOfScopeEnabledProperty_ICalendarView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTodayHighlightedProperty_ICalendarView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxDateProperty_ICalendarView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinDateProperty_ICalendarView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MonthYearItemFontFamilyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MonthYearItemFontSizeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MonthYearItemFontStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MonthYearItemFontWeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NumberOfWeeksInViewProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OutOfScopeBackgroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OutOfScopeForegroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PressedBorderBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PressedForegroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedBorderBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedDatesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedForegroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedHoverBorderBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedPressedBorderBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TemplateSettingsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TodayFontWeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TodayForegroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalDayItemAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_VerticalFirstOfMonthLabelAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CalendarItemBorderThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CalendarViewDayItemStyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -52044,13 +52044,26 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ICalendarViewDayItem;
    
-   function get_IsBlackoutProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_DateProperty_ICalendarViewDayItem
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_IsBlackoutProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ICanvas;
+   
    function get_LeftProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TopProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZIndexProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetLeft
@@ -52059,21 +52072,24 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.Double;
    
+   function GetTop
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Double;
+   
+   function GetZIndex
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Int32;
+   
    procedure SetLeft
    (
       element : Windows.UI.Xaml.IUIElement
       ; length : Windows.Double
    )
    ;
-   
-   function get_TopProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetTop
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Double;
    
    procedure SetTop
    (
@@ -52082,28 +52098,12 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_ZIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetZIndex
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Int32;
-   
    procedure SetZIndex
    (
       element : Windows.UI.Xaml.IUIElement
       ; value : Windows.Int32
    )
    ;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ICanvas;
    
    function get_SourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -52118,16 +52118,32 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ICheckBox;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IColorPicker;
+   
    function get_ColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PreviousColorProperty
+   function get_ColorSpectrumComponentsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ColorSpectrumShapeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsAlphaEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsColorSpectrumVisibleProperty
+   function get_IsAlphaSliderVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsAlphaTextInputVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsColorChannelTextInputVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsColorPreviewVisibleProperty
@@ -52136,43 +52152,43 @@ package Windows.UI.Xaml.Controls is
    function get_IsColorSliderVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsAlphaSliderVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsMoreButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsColorChannelTextInputVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsAlphaTextInputVisibleProperty
+   function get_IsColorSpectrumVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsHexInputVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinHueProperty
+   function get_IsMoreButtonVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MaxHueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinSaturationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_MaxSaturationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MinValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MaxValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ColorSpectrumShapeProperty
+   function get_MinHueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ColorSpectrumComponentsProperty
+   function get_MinSaturationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinValueProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PreviousColorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_WidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -52180,15 +52196,12 @@ package Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IColorPicker;
+   return Windows.UI.Xaml.Controls.IComboBox;
    
-   function get_WidthProperty
+   function get_IsDropDownOpenProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MinWidthProperty
+   function get_MaxDropDownHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeaderProperty_IComboBox
@@ -52200,29 +52213,16 @@ package Windows.UI.Xaml.Controls is
    function get_PlaceholderTextProperty_IComboBox
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IComboBox;
-   
-   function get_SelectionChangedTriggerProperty
+   function get_IsTextSearchEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LightDismissOverlayModeProperty_IComboBox
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTextSearchEnabledProperty
+   function get_SelectionChangedTriggerProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PlaceholderForegroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsDropDownOpenProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaxDropDownHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -52231,15 +52231,6 @@ package Windows.UI.Xaml.Controls is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IComboBoxItem;
-   
-   function get_DefaultLabelPositionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OverflowButtonVisibilityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsDynamicOverflowEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -52255,6 +52246,15 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CommandBarOverflowPresenterStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DefaultLabelPositionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsDynamicOverflowEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OverflowButtonVisibilityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -52283,31 +52283,14 @@ package Windows.UI.Xaml.Controls is
    function get_ContentTransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TitleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TitleTemplateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IContentDialog;
    
    function get_FullSizeDesiredProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PrimaryButtonTextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SecondaryButtonTextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PrimaryButtonCommandProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SecondaryButtonCommandProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PrimaryButtonCommandParameterProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SecondaryButtonCommandParameterProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsPrimaryButtonEnabledProperty
@@ -52316,13 +52299,43 @@ package Windows.UI.Xaml.Controls is
    function get_IsSecondaryButtonEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CloseButtonTextProperty
+   function get_PrimaryButtonCommandParameterProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PrimaryButtonCommandProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PrimaryButtonTextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SecondaryButtonCommandParameterProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SecondaryButtonCommandProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SecondaryButtonTextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TitleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TitleTemplateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CloseButtonCommandParameterProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CloseButtonCommandProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CloseButtonCommandParameterProperty
+   function get_CloseButtonStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CloseButtonTextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DefaultButtonProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PrimaryButtonStyleProperty
@@ -52331,19 +52344,6 @@ package Windows.UI.Xaml.Controls is
    function get_SecondaryButtonStyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CloseButtonStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DefaultButtonProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IContentDialog;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -52351,7 +52351,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IContentPresenter;
    
-   function get_IsTextScaleFactorEnabledProperty
+   function get_CharacterSpacingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContentProperty_IContentPresenter
@@ -52366,22 +52366,19 @@ package Windows.UI.Xaml.Controls is
    function get_ContentTransitionsProperty_IContentPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontSizeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_FontFamilyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontWeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontStyleProperty
+   function get_FontSizeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontStretchProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CharacterSpacingProperty
+   function get_FontStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontWeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ForegroundProperty
@@ -52393,16 +52390,10 @@ package Windows.UI.Xaml.Controls is
    function get_TextLineBoundsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TextWrappingProperty
+   function get_IsTextScaleFactorEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxLinesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LineStackingStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LineHeightProperty
+   function get_BackgroundProperty_IContentPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_BorderBrushProperty_IContentPresenter
@@ -52414,13 +52405,22 @@ package Windows.UI.Xaml.Controls is
    function get_CornerRadiusProperty_IContentPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_HorizontalContentAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LineHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LineStackingStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxLinesProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_PaddingProperty_IContentPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_BackgroundProperty_IContentPresenter
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalContentAlignmentProperty
+   function get_TextWrappingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_VerticalContentAlignmentProperty
@@ -52432,6 +52432,112 @@ package Windows.UI.Xaml.Controls is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IControl;
+   
+   function get_BackgroundProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BorderBrushProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BorderThicknessProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CharacterSpacingProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DefaultStyleKeyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusStateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontFamilyProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontSizeProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontStretchProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontStyleProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontWeightProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ForegroundProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HorizontalContentAlignmentProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTabStopProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaddingProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TabIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TabNavigationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TemplateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalContentAlignmentProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTextScaleFactorEnabledProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTemplateFocusTargetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_UseSystemFocusVisualsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsTemplateFocusTarget
+   (
+      element : Windows.UI.Xaml.IFrameworkElement
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsTemplateFocusTarget
+   (
+      element : Windows.UI.Xaml.IFrameworkElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   function get_ElementSoundModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsFocusEngagedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsFocusEngagementEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RequiresPointerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusDownProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusLeftProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusRightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusUpProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DefaultStyleResourceUriProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -52452,160 +52558,12 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_IsFocusEngagementEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsFocusEngagedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RequiresPointerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusLeftProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusRightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusUpProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusDownProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ElementSoundModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontSizeProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontFamilyProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontWeightProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontStyleProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontStretchProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CharacterSpacingProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ForegroundProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTabStopProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TabIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TabNavigationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TemplateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PaddingProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalContentAlignmentProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VerticalContentAlignmentProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BackgroundProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BorderThicknessProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BorderBrushProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DefaultStyleKeyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusStateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTextScaleFactorEnabledProperty_IControl
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_UseSystemFocusVisualsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTemplateFocusTargetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsTemplateFocusTarget
-   (
-      element : Windows.UI.Xaml.IFrameworkElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsTemplateFocusTarget
-   (
-      element : Windows.UI.Xaml.IFrameworkElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IDataTemplateSelector;
-   
-   function get_HeaderProperty_IDatePicker
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderTemplateProperty_IDatePicker
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CalendarIdentifierProperty_IDatePicker
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DateProperty_IDatePicker
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DayVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MonthVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_YearVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DayFormatProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MonthFormatProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_YearFormatProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MinYearProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaxYearProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OrientationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LightDismissOverlayModeProperty_IDatePicker
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -52614,13 +52572,46 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IDatePicker;
    
-   function get_DayFormatProperty_IDatePickerFlyout
+   function get_CalendarIdentifierProperty_IDatePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MonthFormatProperty_IDatePickerFlyout
+   function get_DateProperty_IDatePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_YearFormatProperty_IDatePickerFlyout
+   function get_DayFormatProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DayVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderProperty_IDatePicker
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderTemplateProperty_IDatePicker
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxYearProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinYearProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MonthFormatProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MonthVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OrientationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_YearFormatProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_YearVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LightDismissOverlayModeProperty_IDatePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CalendarIdentifierProperty_IDatePickerFlyout
@@ -52632,16 +52623,25 @@ package Windows.UI.Xaml.Controls is
    function get_DayVisibleProperty_IDatePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_MaxYearProperty_IDatePickerFlyout
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinYearProperty_IDatePickerFlyout
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_MonthVisibleProperty_IDatePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_YearVisibleProperty_IDatePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinYearProperty_IDatePickerFlyout
+   function get_DayFormatProperty_IDatePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxYearProperty_IDatePickerFlyout
+   function get_MonthFormatProperty_IDatePickerFlyout
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_YearFormatProperty_IDatePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PrimaryTextProperty
@@ -52650,15 +52650,15 @@ package Windows.UI.Xaml.Controls is
    function get_SecondaryTextProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_UseTouchAnimationsForAllNavigationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFlipView;
+   
+   function get_UseTouchAnimationsForAllNavigationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -52687,12 +52687,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IFlyoutPresenter;
    
-   function get_MirroredWhenRightToLeftProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTextScaleFactorEnabledProperty_IFontIcon
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -52700,34 +52694,47 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IFontIcon;
    
-   function get_GlyphProperty
+   function get_FontFamilyProperty_IFontIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontSizeProperty_IFontIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontFamilyProperty_IFontIcon
+   function get_FontStyleProperty_IFontIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontWeightProperty_IFontIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontStyleProperty_IFontIcon
+   function get_GlyphProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_GlyphProperty_IFontIconSource
+   function get_IsTextScaleFactorEnabledProperty_IFontIcon
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MirroredWhenRightToLeftProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IFontIconSource;
+   
+   function get_FontFamilyProperty_IFontIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontSizeProperty_IFontIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontFamilyProperty_IFontIconSource
+   function get_FontStyleProperty_IFontIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontWeightProperty_IFontIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontStyleProperty_IFontIconSource
+   function get_GlyphProperty_IFontIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsTextScaleFactorEnabledProperty_IFontIconSource
@@ -52741,7 +52748,10 @@ package Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IFontIconSource;
+   return Windows.UI.Xaml.Controls.IFrame;
+   
+   function get_BackStackDepthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CacheSizeProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -52758,9 +52768,6 @@ package Windows.UI.Xaml.Controls is
    function get_SourcePageTypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_BackStackDepthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_BackStackProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -52772,10 +52779,31 @@ package Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IFrame;
+   return Windows.UI.Xaml.Controls.IGrid;
+   
+   function get_ColumnProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ColumnSpanProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_RowProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RowSpanProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetColumn
+   (
+      element : Windows.UI.Xaml.IFrameworkElement
+   )
+   return Windows.Int32;
+   
+   function GetColumnSpan
+   (
+      element : Windows.UI.Xaml.IFrameworkElement
+   )
+   return Windows.Int32;
    
    function GetRow
    (
@@ -52783,17 +52811,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.Int32;
    
-   procedure SetRow
-   (
-      element : Windows.UI.Xaml.IFrameworkElement
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_ColumnProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetColumn
+   function GetRowSpan
    (
       element : Windows.UI.Xaml.IFrameworkElement
    )
@@ -52806,31 +52824,6 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_RowSpanProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetRowSpan
-   (
-      element : Windows.UI.Xaml.IFrameworkElement
-   )
-   return Windows.Int32;
-   
-   procedure SetRowSpan
-   (
-      element : Windows.UI.Xaml.IFrameworkElement
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_ColumnSpanProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetColumnSpan
-   (
-      element : Windows.UI.Xaml.IFrameworkElement
-   )
-   return Windows.Int32;
-   
    procedure SetColumnSpan
    (
       element : Windows.UI.Xaml.IFrameworkElement
@@ -52838,18 +52831,19 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function CreateInstance
+   procedure SetRow
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      element : Windows.UI.Xaml.IFrameworkElement
+      ; value : Windows.Int32
    )
-   return Windows.UI.Xaml.Controls.IGrid;
+   ;
    
-   function get_RowSpacingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ColumnSpacingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetRowSpan
+   (
+      element : Windows.UI.Xaml.IFrameworkElement
+      ; value : Windows.Int32
+   )
+   ;
    
    function get_BorderBrushProperty_IGrid
    return Windows.UI.Xaml.IDependencyProperty;
@@ -52861,6 +52855,12 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PaddingProperty_IGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ColumnSpacingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RowSpacingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -52912,37 +52912,16 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IHandwritingView;
    
-   function get_PlacementTargetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlacementAlignmentProperty
+   function get_AreCandidatesEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsOpenProperty_IHandwritingView
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AreCandidatesEnabledProperty
+   function get_PlacementAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HeaderProperty_IHub
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderTemplateProperty_IHub
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OrientationProperty_IHub
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DefaultSectionIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SemanticZoomOwnerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsActiveViewProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsZoomedInViewProperty
+   function get_PlacementTargetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -52952,6 +52931,27 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IHub;
    
+   function get_DefaultSectionIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderProperty_IHub
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderTemplateProperty_IHub
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsActiveViewProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomedInViewProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OrientationProperty_IHub
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SemanticZoomOwnerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -52959,13 +52959,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IHubSection;
    
+   function get_ContentTemplateProperty_IHubSection
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_HeaderProperty_IHubSection
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeaderTemplateProperty_IHubSection
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ContentTemplateProperty_IHubSection
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsHeaderInteractiveProperty
@@ -52987,16 +52987,16 @@ package Windows.UI.Xaml.Controls is
    function get_ForegroundProperty_IIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SourceProperty_IImage
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StretchProperty_IImage
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_NineGridProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PlayToSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SourceProperty_IImage
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StretchProperty_IImage
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53013,13 +53013,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IInkToolbar;
    
-   function get_InitialControlsProperty
+   function get_ActiveToolProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ChildrenProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ActiveToolProperty
+   function get_InitialControlsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_InkDrawingAttributesProperty
@@ -53031,10 +53031,10 @@ package Windows.UI.Xaml.Controls is
    function get_TargetInkCanvasProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsStencilButtonCheckedProperty
+   function get_ButtonFlyoutPlacementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ButtonFlyoutPlacementProperty
+   function get_IsStencilButtonCheckedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OrientationProperty_IInkToolbar
@@ -53061,10 +53061,10 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IInkToolbarCustomPenButton;
    
-   function get_CustomPenProperty
+   function get_ConfigurationContentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ConfigurationContentProperty
+   function get_CustomPenProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53074,9 +53074,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IInkToolbarCustomToggleButton;
    
-   function get_ConfigurationContentProperty_IInkToolbarCustomToolButton
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -53084,7 +53081,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton;
    
-   function get_IsClearAllVisibleProperty
+   function get_ConfigurationContentProperty_IInkToolbarCustomToolButton
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53094,6 +53091,9 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IInkToolbarEraserButton;
    
+   function get_IsClearAllVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -53101,10 +53101,10 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IInkToolbarFlyoutItem;
    
-   function get_KindProperty
+   function get_IsCheckedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsCheckedProperty
+   function get_KindProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53117,19 +53117,19 @@ package Windows.UI.Xaml.Controls is
    function get_IsExtensionGlyphShownProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PaletteProperty
+   function get_MaxStrokeWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MinStrokeWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxStrokeWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedBrushProperty
+   function get_PaletteProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedBrushIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedBrushProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedStrokeWidthProperty
@@ -53152,6 +53152,13 @@ package Windows.UI.Xaml.Controls is
    function get_PenButtonProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IInkToolbarRulerButton;
+   
    function get_RulerProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -53160,46 +53167,40 @@ package Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IInkToolbarRulerButton;
+   return Windows.UI.Xaml.Controls.IInkToolbarStencilButton;
+   
+   function get_IsProtractorItemVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsRulerItemVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ProtractorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RulerProperty_IInkToolbarStencilButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedStencilProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsExtensionGlyphShownProperty_IInkToolbarToolButton
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IInkToolbarStencilButton;
-   
-   function get_RulerProperty_IInkToolbarStencilButton
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ProtractorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedStencilProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsRulerItemVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsProtractorItemVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsExtensionGlyphShownProperty_IInkToolbarToolButton
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemsSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemTemplateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemTemplateSelectorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemsPanelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   return Windows.UI.Xaml.Controls.IItemsControl;
    
    function get_DisplayMemberPathProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GroupStyleSelectorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsGroupingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemContainerStyleProperty
@@ -53211,10 +53212,16 @@ package Windows.UI.Xaml.Controls is
    function get_ItemContainerTransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_GroupStyleSelectorProperty
+   function get_ItemsPanelProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsGroupingProperty
+   function get_ItemsSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemTemplateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemTemplateSelectorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetItemsOwner
@@ -53226,13 +53233,6 @@ package Windows.UI.Xaml.Controls is
    function ItemsControlFromItemContainer
    (
       container : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Controls.IItemsControl;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IItemsControl;
    
@@ -53257,7 +53257,10 @@ package Windows.UI.Xaml.Controls is
    function get_FooterTransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AreStickyGroupHeadersEnabledProperty
+   function get_CacheLengthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GroupHeaderPlacementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_GroupPaddingProperty
@@ -53266,40 +53269,31 @@ package Windows.UI.Xaml.Controls is
    function get_OrientationProperty_IItemsStackPanel
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_GroupHeaderPlacementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CacheLengthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GroupPaddingProperty_IItemsWrapGrid
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OrientationProperty_IItemsWrapGrid
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaximumRowsOrColumnsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GroupHeaderPlacementProperty_IItemsWrapGrid
+   function get_AreStickyGroupHeadersEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CacheLengthProperty_IItemsWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_GroupHeaderPlacementProperty_IItemsWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GroupPaddingProperty_IItemsWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaximumRowsOrColumnsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OrientationProperty_IItemsWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_AreStickyGroupHeadersEnabledProperty_IItemsWrapGrid
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SingleSelectionFollowsFocusProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionModeProperty_IListBox
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53309,6 +53303,12 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IListBox;
    
+   function get_SelectionModeProperty_IListBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SingleSelectionFollowsFocusProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -53316,16 +53316,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IListBoxItem;
    
+   function get_DisplayMemberPathProperty_IListPickerFlyout
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ItemsSourceProperty_IListPickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemTemplateProperty_IListPickerFlyout
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DisplayMemberPathProperty_IListPickerFlyout
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionModeProperty_IListPickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedIndexProperty
@@ -53334,10 +53331,13 @@ package Windows.UI.Xaml.Controls is
    function get_SelectedItemProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_SelectedValuePathProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_SelectedValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SelectedValuePathProperty
+   function get_SelectionModeProperty_IListPickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53347,32 +53347,12 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IListView;
    
-   function get_ShowsScrollingPlaceholdersProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FooterProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FooterTemplateProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FooterTransitionsProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsMultiSelectCheckBoxEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SingleSelectionFollowsFocusProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ReorderModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionModeProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsSwipeEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IListViewBase;
    
    function get_CanDragItemsProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -53380,25 +53360,7 @@ package Windows.UI.Xaml.Controls is
    function get_CanReorderItemsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsItemClickEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_DataFetchSizeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IncrementalLoadingThresholdProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IncrementalLoadingTriggerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SemanticZoomOwnerProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsActiveViewProperty_IListViewBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsZoomedInViewProperty_IListViewBase
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeaderProperty_IListViewBase
@@ -53410,12 +53372,50 @@ package Windows.UI.Xaml.Controls is
    function get_HeaderTransitionsProperty_IListViewBase
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IListViewBase;
+   function get_IncrementalLoadingThresholdProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IncrementalLoadingTriggerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsActiveViewProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsItemClickEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSwipeEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomedInViewProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionModeProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SemanticZoomOwnerProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FooterProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FooterTemplateProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FooterTransitionsProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ShowsScrollingPlaceholdersProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ReorderModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsMultiSelectCheckBoxEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SingleSelectionFollowsFocusProperty_IListViewBase
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -53446,94 +53446,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function get_AreTransportControlsEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StretchProperty_IMediaElement
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsFullWindowProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlayToPreferredSourceUriProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PosterSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SourceProperty_IMediaElement
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsMutedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsAudioOnlyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AutoPlayProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VolumeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BalanceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_NaturalVideoHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_NaturalVideoWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_NaturalDurationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PositionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DownloadProgressProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BufferingProgressProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DownloadProgressOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CurrentStateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CanSeekProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CanPauseProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AudioStreamCountProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AudioStreamIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlaybackRateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsLoopingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlayToSourceProperty_IMediaElement
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DefaultPlaybackRateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AspectRatioWidthProperty
+   function get_ActualStereo3DVideoPackingModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AspectRatioHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_RealTimePlaybackProperty
+   function get_AspectRatioWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AudioCategoryProperty
@@ -53542,7 +53461,79 @@ package Windows.UI.Xaml.Controls is
    function get_AudioDeviceTypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_AudioStreamCountProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AudioStreamIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AutoPlayProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BalanceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BufferingProgressProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanPauseProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanSeekProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CurrentStateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DefaultPlaybackRateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DownloadProgressOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DownloadProgressProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsAudioOnlyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsLoopingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsMutedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsStereo3DVideoProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NaturalDurationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NaturalVideoHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NaturalVideoWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlaybackRateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlayToSourceProperty_IMediaElement
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PositionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PosterSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ProtectionManagerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RealTimePlaybackProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SourceProperty_IMediaElement
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_Stereo3DVideoPackingModeProperty
@@ -53551,10 +53542,19 @@ package Windows.UI.Xaml.Controls is
    function get_Stereo3DVideoRenderModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsStereo3DVideoProperty
+   function get_VolumeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ActualStereo3DVideoPackingModeProperty
+   function get_AreTransportControlsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsFullWindowProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlayToPreferredSourceUriProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StretchProperty_IMediaElement
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53564,16 +53564,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IMediaPlayerElement;
    
-   function get_SourceProperty_IMediaPlayerElement
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_AreTransportControlsEnabledProperty_IMediaPlayerElement
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PosterSourceProperty_IMediaPlayerElement
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StretchProperty_IMediaPlayerElement
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AutoPlayProperty_IMediaPlayerElement
@@ -53585,13 +53576,13 @@ package Windows.UI.Xaml.Controls is
    function get_MediaPlayerProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MediaPlayerProperty_IMediaPlayerPresenter
+   function get_PosterSourceProperty_IMediaPlayerElement
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StretchProperty_IMediaPlayerPresenter
+   function get_SourceProperty_IMediaPlayerElement
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsFullWindowProperty_IMediaPlayerPresenter
+   function get_StretchProperty_IMediaPlayerElement
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53601,43 +53592,23 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IMediaPlayerPresenter;
    
-   function get_IsCompactOverlayButtonVisibleProperty
+   function get_IsFullWindowProperty_IMediaPlayerPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsCompactOverlayEnabledProperty
+   function get_MediaPlayerProperty_IMediaPlayerPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsSkipForwardButtonVisibleProperty
+   function get_StretchProperty_IMediaPlayerPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsSkipForwardEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IMediaTransportControls;
    
-   function get_IsSkipBackwardButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsSkipBackwardEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsNextTrackButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsPreviousTrackButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FastPlayFallbackBehaviourProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsFullWindowButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsFullWindowEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsZoomButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsZoomEnabledProperty
+   function get_IsCompactProperty_IMediaTransportControls
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsFastForwardButtonVisibleProperty
@@ -53652,16 +53623,10 @@ package Windows.UI.Xaml.Controls is
    function get_IsFastRewindEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsStopButtonVisibleProperty
+   function get_IsFullWindowButtonVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsStopEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsVolumeButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsVolumeEnabledProperty
+   function get_IsFullWindowEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsPlaybackRateButtonVisibleProperty
@@ -53676,23 +53641,58 @@ package Windows.UI.Xaml.Controls is
    function get_IsSeekEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsCompactProperty_IMediaTransportControls
+   function get_IsStopButtonVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IMediaTransportControls;
+   function get_IsStopEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ShowAndHideAutomaticallyProperty
+   function get_IsVolumeButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsVolumeEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FastPlayFallbackBehaviourProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsNextTrackButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsPreviousTrackButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSkipBackwardButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSkipBackwardEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSkipForwardButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSkipForwardEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsRepeatButtonVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsRepeatEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsRepeatButtonVisibleProperty
+   function get_ShowAndHideAutomaticallyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsCompactOverlayButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsCompactOverlayEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DropoutOrderProperty
@@ -53711,9 +53711,6 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_MenuFlyoutPresenterStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -53721,7 +53718,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IMenuFlyout;
    
-   function get_KeyboardAcceleratorTextOverrideProperty_IMenuFlyoutItem
+   function get_MenuFlyoutPresenterStyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53731,16 +53728,19 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IMenuFlyoutItem;
    
-   function get_IconProperty_IMenuFlyoutItem
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextProperty_IMenuFlyoutItem
+   function get_CommandParameterProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CommandProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CommandParameterProperty
+   function get_TextProperty_IMenuFlyoutItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IconProperty_IMenuFlyoutItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyboardAcceleratorTextOverrideProperty_IMenuFlyoutItem
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53757,10 +53757,83 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IMenuFlyoutSeparator;
    
+   function get_TextProperty_IMenuFlyoutSubItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_IconProperty_IMenuFlyoutSubItem
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TextProperty_IMenuFlyoutSubItem
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.INavigationView;
+   
+   function get_AlwaysShowHeaderProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AutoSuggestBoxProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CompactModeThresholdWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CompactPaneLengthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DisplayModeProperty_INavigationView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ExpandedModeThresholdWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderProperty_INavigationView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderTemplateProperty_INavigationView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsPaneOpenProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsPaneToggleButtonVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSettingsVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MenuItemContainerStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MenuItemContainerStyleSelectorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MenuItemsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MenuItemsSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MenuItemTemplateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MenuItemTemplateSelectorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OpenPaneLengthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaneFooterProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaneToggleButtonStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectedItemProperty_INavigationView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SettingsItemProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsBackButtonVisibleProperty
@@ -53777,86 +53850,13 @@ package Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.INavigationView;
-   
-   function get_IsPaneOpenProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CompactModeThresholdWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ExpandedModeThresholdWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PaneFooterProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderProperty_INavigationView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderTemplateProperty_INavigationView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DisplayModeProperty_INavigationView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsSettingsVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsPaneToggleButtonVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AlwaysShowHeaderProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CompactPaneLengthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OpenPaneLengthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PaneToggleButtonStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MenuItemsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MenuItemsSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectedItemProperty_INavigationView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SettingsItemProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AutoSuggestBoxProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MenuItemTemplateProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MenuItemTemplateSelectorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MenuItemContainerStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MenuItemContainerStyleSelectorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IconProperty_INavigationViewItem
-   return Windows.UI.Xaml.IDependencyProperty;
+   return Windows.UI.Xaml.Controls.INavigationViewItem;
    
    function get_CompactPaneLengthProperty_INavigationViewItem
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.INavigationViewItem;
+   function get_IconProperty_INavigationViewItem
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -53886,13 +53886,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IPage;
    
+   function get_BottomAppBarProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_FrameProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TopAppBarProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BottomAppBarProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53905,10 +53905,10 @@ package Windows.UI.Xaml.Controls is
    function get_BackgroundProperty_IPanel
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsItemsHostProperty
+   function get_ChildrenTransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ChildrenTransitionsProperty
+   function get_IsItemsHostProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -53921,6 +53921,9 @@ package Windows.UI.Xaml.Controls is
    function get_ChildProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_HorizontalShiftProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_HorizontalSourceEndOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -53930,19 +53933,22 @@ package Windows.UI.Xaml.Controls is
    function get_HorizontalSourceStartOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxHorizontalShiftRatioProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalShiftProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_IsHorizontalShiftClampedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsVerticalShiftClampedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_MaxHorizontalShiftRatioProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxVerticalShiftRatioProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_SourceProperty_IParallaxView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalShiftProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_VerticalSourceEndOffsetProperty
@@ -53954,31 +53960,16 @@ package Windows.UI.Xaml.Controls is
    function get_VerticalSourceStartOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxVerticalShiftRatioProperty
+   function get_IsPasswordRevealButtonEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_VerticalShiftProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PasswordRevealModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextReadingOrderProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_InputScopeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PasswordProperty
+   function get_MaxLengthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PasswordCharProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsPasswordRevealButtonEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaxLengthProperty
+   function get_PasswordProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeaderProperty_IPasswordBox
@@ -53990,13 +53981,19 @@ package Windows.UI.Xaml.Controls is
    function get_PlaceholderTextProperty_IPasswordBox
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SelectionHighlightColorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_PreventKeyboardDisplayOnProgrammaticFocusProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DataProperty
+   function get_SelectionHighlightColorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_InputScopeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PasswordRevealModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextReadingOrderProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -54006,7 +54003,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IPathIcon;
    
-   function get_DataProperty_IPathIconSource
+   function get_DataProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -54016,6 +54013,9 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IPathIconSource;
    
+   function get_DataProperty_IPathIconSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -54023,19 +54023,16 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IPersonPicture;
    
-   function get_BadgeNumberProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_BadgeGlyphProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_BadgeImageSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_BadgeTextProperty
+   function get_BadgeNumberProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsGroupProperty
+   function get_BadgeTextProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContactProperty
@@ -54047,31 +54044,32 @@ package Windows.UI.Xaml.Controls is
    function get_InitialsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_IsGroupProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_PreferSmallImageProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ProfilePictureProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ContentProperty_IPickerFlyout
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ConfirmationButtonsVisibleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HeaderFocusVisualPlacementProperty
+   function get_ContentProperty_IPickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsHeaderItemsCarouselEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TitleProperty_IPivot
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TitleTemplateProperty_IPivot
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IPivot;
    
    function get_HeaderTemplateProperty_IPivot
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsLockedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedIndexProperty_IPivot
@@ -54080,10 +54078,13 @@ package Windows.UI.Xaml.Controls is
    function get_SelectedItemProperty_IPivot
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsLockedProperty
+   function get_SlideInAnimationGroupProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SlideInAnimationGroupProperty
+   function get_TitleProperty_IPivot
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TitleTemplateProperty_IPivot
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetSlideInAnimationGroup
@@ -54111,14 +54112,10 @@ package Windows.UI.Xaml.Controls is
    function get_RightHeaderTemplateProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IPivot;
+   function get_HeaderFocusVisualPlacementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HeaderProperty_IPivotItem
+   function get_IsHeaderItemsCarouselEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -54127,6 +54124,9 @@ package Windows.UI.Xaml.Controls is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPivotItem;
+   
+   function get_HeaderProperty_IPivotItem
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -54147,15 +54147,15 @@ package Windows.UI.Xaml.Controls is
    function get_IsActiveProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_GroupNameProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRadioButton;
+   
+   function get_GroupNameProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -54176,13 +54176,13 @@ package Windows.UI.Xaml.Controls is
    function get_IsReadOnlyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ItemInfoProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_MaxRatingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PlaceholderValueProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemInfoProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ValueProperty
@@ -54245,18 +54245,18 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IRatingItemInfo;
    
-   function get_VisualizerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PullDirectionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRefreshContainer;
+   
+   function get_PullDirectionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VisualizerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -54265,20 +54265,168 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IRefreshVisualizer;
    
+   function get_ContentProperty_IRefreshVisualizer
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_InfoProviderProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OrientationProperty_IRefreshVisualizer
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ContentProperty_IRefreshVisualizer
+   function get_StateProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_StateProperty
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IRelativePanel;
+   
+   function get_AboveProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignBottomWithPanelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignBottomWithProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignHorizontalCenterWithPanelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignHorizontalCenterWithProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignLeftWithPanelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignLeftWithProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignRightWithPanelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignRightWithProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignTopWithPanelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignTopWithProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignVerticalCenterWithPanelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AlignVerticalCenterWithProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BelowProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BorderBrushProperty_IRelativePanel
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BorderThicknessProperty_IRelativePanel
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CornerRadiusProperty_IRelativePanel
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LeftOfProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaddingProperty_IRelativePanel
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RightOfProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetAbove
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
+   
+   function GetAlignBottomWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
+   
+   function GetAlignBottomWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   function GetAlignHorizontalCenterWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
+   
+   function GetAlignHorizontalCenterWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   function GetAlignLeftWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
+   
+   function GetAlignLeftWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   function GetAlignRightWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
+   
+   function GetAlignRightWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   function GetAlignTopWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
+   
+   function GetAlignTopWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   function GetAlignVerticalCenterWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
+   
+   function GetAlignVerticalCenterWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Boolean;
+   
+   function GetBelow
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.Object;
    
    function GetLeftOf
    (
@@ -54286,17 +54434,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.Object;
    
-   procedure SetLeftOf
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_AboveProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAbove
+   function GetRightOf
    (
       element : Windows.UI.Xaml.IUIElement
    )
@@ -54309,190 +54447,12 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_RightOfProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetRightOf
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
-   procedure SetRightOf
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_BelowProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetBelow
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
-   procedure SetBelow
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_AlignHorizontalCenterWithProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignHorizontalCenterWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
-   procedure SetAlignHorizontalCenterWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_AlignVerticalCenterWithProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignVerticalCenterWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
-   procedure SetAlignVerticalCenterWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_AlignLeftWithProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignLeftWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
-   procedure SetAlignLeftWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_AlignTopWithProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignTopWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
-   procedure SetAlignTopWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_AlignRightWithProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignRightWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
-   procedure SetAlignRightWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Object
-   )
-   ;
-   
-   function get_AlignBottomWithProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignBottomWith
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Object;
-   
    procedure SetAlignBottomWith
    (
       element : Windows.UI.Xaml.IUIElement
       ; value : Windows.Object
    )
    ;
-   
-   function get_AlignLeftWithPanelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignLeftWithPanel
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetAlignLeftWithPanel
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_AlignTopWithPanelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignTopWithPanel
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetAlignTopWithPanel
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_AlignRightWithPanelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignRightWithPanel
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetAlignRightWithPanel
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_AlignBottomWithPanelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignBottomWithPanel
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
    
    procedure SetAlignBottomWithPanel
    (
@@ -54501,14 +54461,12 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_AlignHorizontalCenterWithPanelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignHorizontalCenterWithPanel
+   procedure SetAlignHorizontalCenterWith
    (
       element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
    )
-   return Windows.Boolean;
+   ;
    
    procedure SetAlignHorizontalCenterWithPanel
    (
@@ -54517,14 +54475,54 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_AlignVerticalCenterWithPanelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAlignVerticalCenterWithPanel
+   procedure SetAlignLeftWith
    (
       element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
    )
-   return Windows.Boolean;
+   ;
+   
+   procedure SetAlignLeftWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetAlignRightWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
+   )
+   ;
+   
+   procedure SetAlignRightWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetAlignTopWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
+   )
+   ;
+   
+   procedure SetAlignTopWithPanel
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetAlignVerticalCenterWith
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
+   )
+   ;
    
    procedure SetAlignVerticalCenterWithPanel
    (
@@ -54533,29 +54531,101 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_BorderBrushProperty_IRelativePanel
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetBelow
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
+   )
+   ;
    
-   function get_BorderThicknessProperty_IRelativePanel
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetLeftOf
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
+   )
+   ;
    
-   function get_CornerRadiusProperty_IRelativePanel
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PaddingProperty_IRelativePanel
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetRightOf
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Object
+   )
+   ;
    
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.IRelativePanel;
+   return Windows.UI.Xaml.Controls.IRichEditBox;
    
-   function get_ContentLinkForegroundColorProperty
+   function get_AcceptsReturnProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_InputScopeProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsReadOnlyProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSpellCheckEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTextPredictionEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextWrappingProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderTemplateProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsColorFontEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlaceholderTextProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PreventKeyboardDisplayOnProgrammaticFocusProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionHighlightColorProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DesiredCandidateWindowAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextReadingOrderProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ClipboardCopyFormatProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxLengthProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionHighlightColorWhenNotFocusedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CharacterCasingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DisabledFormattingAcceleratorsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HorizontalTextAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContentLinkBackgroundColorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ContentLinkForegroundColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContentLinkProvidersProperty
@@ -54567,110 +54637,31 @@ package Windows.UI.Xaml.Controls is
    function get_IsHandwritingViewEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ClipboardCopyFormatProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DesiredCandidateWindowAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextReadingOrderProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsReadOnlyProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AcceptsReturnProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextWrappingProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsSpellCheckEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTextPredictionEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_InputScopeProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionHighlightColorWhenNotFocusedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaxLengthProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IRichEditBox;
-   
-   function get_HorizontalTextAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CharacterCasingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DisabledFormattingAcceleratorsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderTemplateProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlaceholderTextProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionHighlightColorProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PreventKeyboardDisplayOnProgrammaticFocusProperty_IRichEditBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsColorFontEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextDecorationsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTextScaleFactorEnabledProperty_IRichTextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontSizeProperty_IRichTextBlock
+   function get_CharacterSpacingProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontFamilyProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FontWeightProperty_IRichTextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontStyleProperty_IRichTextBlock
+   function get_FontSizeProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FontStretchProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_FontStyleProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontWeightProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ForegroundProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TextWrappingProperty_IRichTextBlock
+   function get_HasOverflowContentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TextTrimmingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextAlignmentProperty_IRichTextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PaddingProperty_IRichTextBlock
+   function get_IsTextSelectionEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LineHeightProperty_IRichTextBlock
@@ -54679,52 +54670,58 @@ package Windows.UI.Xaml.Controls is
    function get_LineStackingStrategyProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CharacterSpacingProperty_IRichTextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_OverflowContentTargetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTextSelectionEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HasOverflowContentProperty
+   function get_PaddingProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedTextProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_TextAlignmentProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_TextIndentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxLinesProperty_IRichTextBlock
+   function get_TextTrimmingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TextLineBoundsProperty_IRichTextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionHighlightColorProperty_IRichTextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OpticalMarginAlignmentProperty_IRichTextBlock
+   function get_TextWrappingProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsColorFontEnabledProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_MaxLinesProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OpticalMarginAlignmentProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionHighlightColorProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextLineBoundsProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_TextReadingOrderProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTextTrimmedProperty
+   function get_IsTextScaleFactorEnabledProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextDecorationsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HorizontalTextAlignmentProperty_IRichTextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTextTrimmedProperty_IRichTextBlockOverflow
+   function get_IsTextTrimmedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxLinesProperty_IRichTextBlockOverflow
+   function get_HasOverflowContentProperty_IRichTextBlockOverflow
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OverflowContentTargetProperty_IRichTextBlockOverflow
@@ -54733,7 +54730,10 @@ package Windows.UI.Xaml.Controls is
    function get_PaddingProperty_IRichTextBlockOverflow
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HasOverflowContentProperty_IRichTextBlockOverflow
+   function get_MaxLinesProperty_IRichTextBlockOverflow
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTextTrimmedProperty_IRichTextBlockOverflow
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeightProperty
@@ -54745,43 +54745,10 @@ package Windows.UI.Xaml.Controls is
    function get_MinHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HorizontalSnapPointsAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VerticalSnapPointsAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalSnapPointsTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VerticalSnapPointsTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZoomSnapPointsTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ViewportWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ScrollableWidthProperty
+   function get_BringIntoViewOnFocusChangeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ComputedHorizontalScrollBarVisibilityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ExtentWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VerticalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ViewportHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ScrollableHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ComputedVerticalScrollBarVisibilityProperty
@@ -54790,227 +54757,91 @@ package Windows.UI.Xaml.Controls is
    function get_ExtentHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinZoomFactorProperty
+   function get_ExtentWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxZoomFactorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZoomFactorProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZoomSnapPointsProperty
+   function get_HorizontalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HorizontalScrollBarVisibilityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetHorizontalScrollBarVisibility
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Controls.ScrollBarVisibility;
-   
-   procedure SetHorizontalScrollBarVisibility
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; horizontalScrollBarVisibility : Windows.UI.Xaml.Controls.ScrollBarVisibility
-   )
-   ;
-   
-   function get_VerticalScrollBarVisibilityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetVerticalScrollBarVisibility
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Controls.ScrollBarVisibility;
-   
-   procedure SetVerticalScrollBarVisibility
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; verticalScrollBarVisibility : Windows.UI.Xaml.Controls.ScrollBarVisibility
-   )
-   ;
-   
-   function get_IsHorizontalRailEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsHorizontalRailEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsHorizontalRailEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isHorizontalRailEnabled : Windows.Boolean
-   )
-   ;
-   
-   function get_IsVerticalRailEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsVerticalRailEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsVerticalRailEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isVerticalRailEnabled : Windows.Boolean
-   )
-   ;
-   
-   function get_IsHorizontalScrollChainingEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsHorizontalScrollChainingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsHorizontalScrollChainingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isHorizontalScrollChainingEnabled : Windows.Boolean
-   )
-   ;
-   
-   function get_IsVerticalScrollChainingEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsVerticalScrollChainingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsVerticalScrollChainingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isVerticalScrollChainingEnabled : Windows.Boolean
-   )
-   ;
-   
-   function get_IsZoomChainingEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsZoomChainingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsZoomChainingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isZoomChainingEnabled : Windows.Boolean
-   )
-   ;
-   
-   function get_IsScrollInertiaEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsScrollInertiaEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsScrollInertiaEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isScrollInertiaEnabled : Windows.Boolean
-   )
-   ;
-   
-   function get_IsZoomInertiaEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsZoomInertiaEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsZoomInertiaEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isZoomInertiaEnabled : Windows.Boolean
-   )
-   ;
-   
    function get_HorizontalScrollModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetHorizontalScrollMode
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Controls.ScrollMode;
-   
-   procedure SetHorizontalScrollMode
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; horizontalScrollMode : Windows.UI.Xaml.Controls.ScrollMode
-   )
-   ;
-   
-   function get_VerticalScrollModeProperty
+   function get_HorizontalSnapPointsAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetVerticalScrollMode
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Controls.ScrollMode;
-   
-   procedure SetVerticalScrollMode
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; verticalScrollMode : Windows.UI.Xaml.Controls.ScrollMode
-   )
-   ;
-   
-   function get_ZoomModeProperty
+   function get_HorizontalSnapPointsTypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetZoomMode
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Controls.ZoomMode;
-   
-   procedure SetZoomMode
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; zoomMode : Windows.UI.Xaml.Controls.ZoomMode
-   )
-   ;
    
    function get_IsDeferredScrollingEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetIsDeferredScrollingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
+   function get_IsHorizontalRailEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   procedure SetIsDeferredScrollingEnabled
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; isDeferredScrollingEnabled : Windows.Boolean
-   )
-   ;
+   function get_IsHorizontalScrollChainingEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_BringIntoViewOnFocusChangeProperty
+   function get_IsScrollInertiaEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsVerticalRailEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsVerticalScrollChainingEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomChainingEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomInertiaEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxZoomFactorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinZoomFactorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ScrollableHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ScrollableWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalScrollBarVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalScrollModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalSnapPointsAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalSnapPointsTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ViewportHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ViewportWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomFactorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomSnapPointsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomSnapPointsTypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetBringIntoViewOnFocusChange
@@ -55019,6 +54850,84 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.Boolean;
    
+   function GetHorizontalScrollBarVisibility
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Controls.ScrollBarVisibility;
+   
+   function GetHorizontalScrollMode
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Controls.ScrollMode;
+   
+   function GetIsDeferredScrollingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetIsHorizontalRailEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetIsHorizontalScrollChainingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetIsScrollInertiaEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetIsVerticalRailEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetIsVerticalScrollChainingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetIsZoomChainingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetIsZoomInertiaEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetVerticalScrollBarVisibility
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Controls.ScrollBarVisibility;
+   
+   function GetVerticalScrollMode
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Controls.ScrollMode;
+   
+   function GetZoomMode
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Controls.ZoomMode;
+   
    procedure SetBringIntoViewOnFocusChange
    (
       element : Windows.UI.Xaml.IDependencyObject
@@ -55026,8 +54935,96 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_TopLeftHeaderProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetHorizontalScrollBarVisibility
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; horizontalScrollBarVisibility : Windows.UI.Xaml.Controls.ScrollBarVisibility
+   )
+   ;
+   
+   procedure SetHorizontalScrollMode
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; horizontalScrollMode : Windows.UI.Xaml.Controls.ScrollMode
+   )
+   ;
+   
+   procedure SetIsDeferredScrollingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isDeferredScrollingEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetIsHorizontalRailEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isHorizontalRailEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetIsHorizontalScrollChainingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isHorizontalScrollChainingEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetIsScrollInertiaEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isScrollInertiaEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetIsVerticalRailEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isVerticalRailEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetIsVerticalScrollChainingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isVerticalScrollChainingEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetIsZoomChainingEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isZoomChainingEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetIsZoomInertiaEnabled
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; isZoomInertiaEnabled : Windows.Boolean
+   )
+   ;
+   
+   procedure SetVerticalScrollBarVisibility
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; verticalScrollBarVisibility : Windows.UI.Xaml.Controls.ScrollBarVisibility
+   )
+   ;
+   
+   procedure SetVerticalScrollMode
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; verticalScrollMode : Windows.UI.Xaml.Controls.ScrollMode
+   )
+   ;
+   
+   procedure SetZoomMode
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; zoomMode : Windows.UI.Xaml.Controls.ZoomMode
+   )
+   ;
    
    function get_LeftHeaderProperty_IScrollViewer
    return Windows.UI.Xaml.IDependencyProperty;
@@ -55035,22 +55032,7 @@ package Windows.UI.Xaml.Controls is
    function get_TopHeaderProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SearchHistoryEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SearchHistoryContextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlaceholderTextProperty_ISearchBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_QueryTextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusOnKeyboardInputProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ChooseSuggestionOnEnterProperty
+   function get_TopLeftHeaderProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -55059,6 +55041,24 @@ package Windows.UI.Xaml.Controls is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISearchBox;
+   
+   function get_ChooseSuggestionOnEnterProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusOnKeyboardInputProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlaceholderTextProperty_ISearchBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_QueryTextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SearchHistoryContextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SearchHistoryEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstanceWithRemovedItemsAndAddedItems
    (
@@ -55069,23 +55069,27 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ISelectionChangedEventArgs;
    
+   function get_CanChangeViewsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomedInViewActiveProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsZoomOutButtonEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ZoomedInViewProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ZoomedOutViewProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsZoomedInViewActiveProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CanChangeViewsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsZoomOutButtonEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TitleProperty_ISettingsFlyout
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ISettingsFlyout;
    
    function get_HeaderBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -55096,29 +55100,17 @@ package Windows.UI.Xaml.Controls is
    function get_IconSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_TitleProperty_ISettingsFlyout
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ISettingsFlyout;
+   return Windows.UI.Xaml.Controls.ISlider;
    
    function get_IntermediateValueProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StepFrequencyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SnapsToProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TickFrequencyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TickPlacementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OrientationProperty_ISlider
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsDirectionReversedProperty
@@ -55127,7 +55119,22 @@ package Windows.UI.Xaml.Controls is
    function get_IsThumbToolTipEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_OrientationProperty_ISlider
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SnapsToProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StepFrequencyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ThumbToolTipValueConverterProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TickFrequencyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TickPlacementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeaderProperty_ISlider
@@ -55141,19 +55148,15 @@ package Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ISlider;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Controls.ISplitView;
+   
+   function get_CompactPaneLengthProperty_ISplitView
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContentProperty_ISplitView
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PaneProperty
+   function get_DisplayModeProperty_ISplitView
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsPaneOpenProperty_ISplitView
@@ -55162,25 +55165,19 @@ package Windows.UI.Xaml.Controls is
    function get_OpenPaneLengthProperty_ISplitView
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CompactPaneLengthProperty_ISplitView
+   function get_PaneBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PanePlacementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DisplayModeProperty_ISplitView
+   function get_PaneProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TemplateSettingsProperty_ISplitView
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PaneBackgroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_LightDismissOverlayModeProperty_ISplitView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SpacingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -55208,6 +55205,9 @@ package Windows.UI.Xaml.Controls is
    function get_PaddingProperty_IStackPanel
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_SpacingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -55222,6 +55222,13 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ISwapChainBackgroundPanel;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ISwapChainPanel;
+   
    function get_CompositionScaleXProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -55233,14 +55240,10 @@ package Windows.UI.Xaml.Controls is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.ISwapChainPanel;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Controls.ISwipeControl;
+   
+   function get_BottomItemsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LeftItemsProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -55251,9 +55254,6 @@ package Windows.UI.Xaml.Controls is
    function get_TopItemsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_BottomItemsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -55261,28 +55261,25 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ISwipeItem;
    
-   function get_IconSourceProperty_ISwipeItem
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextProperty_ISwipeItem
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_BackgroundProperty_ISwipeItem
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ForegroundProperty_ISwipeItem
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CommandProperty_ISwipeItem
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CommandParameterProperty_ISwipeItem
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_BehaviorOnInvokedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ModeProperty
+   function get_CommandParameterProperty_ISwipeItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CommandProperty_ISwipeItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ForegroundProperty_ISwipeItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IconSourceProperty_ISwipeItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextProperty_ISwipeItem
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -55292,10 +55289,10 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ISwipeItems;
    
-   function get_SymbolProperty
+   function get_ModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SymbolProperty_ISymbolIconSource
+   function get_SymbolProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -55305,64 +55302,31 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ISymbolIconSource;
    
-   function get_IsTextScaleFactorEnabledProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextDecorationsProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionHighlightColorProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaxLinesProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextLineBoundsProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OpticalMarginAlignmentProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsColorFontEnabledProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextReadingOrderProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontSizeProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontFamilyProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontWeightProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontStyleProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FontStretchProperty_ITextBlock
+   function get_SymbolProperty_ISymbolIconSource
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CharacterSpacingProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_FontFamilyProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontSizeProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontStretchProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontStyleProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FontWeightProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ForegroundProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TextWrappingProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextTrimmingProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextAlignmentProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextProperty_ITextBlock
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PaddingProperty_ITextBlock
+   function get_IsTextSelectionEnabledProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LineHeightProperty_ITextBlock
@@ -55371,85 +55335,52 @@ package Windows.UI.Xaml.Controls is
    function get_LineStackingStrategyProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTextSelectionEnabledProperty_ITextBlock
+   function get_PaddingProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectedTextProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTextTrimmedProperty_ITextBlock
+   function get_TextAlignmentProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextTrimmingProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextWrappingProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsColorFontEnabledProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxLinesProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OpticalMarginAlignmentProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionHighlightColorProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextLineBoundsProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextReadingOrderProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTextScaleFactorEnabledProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextDecorationsProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HorizontalTextAlignmentProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_HandwritingViewProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsHandwritingViewEnabledProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HeaderTemplateProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlaceholderTextProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionHighlightColorProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PreventKeyboardDisplayOnProgrammaticFocusProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsColorFontEnabledProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MaxLengthProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsReadOnlyProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AcceptsReturnProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextAlignmentProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextWrappingProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsSpellCheckEnabledProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTextPredictionEnabledProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_InputScopeProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DesiredCandidateWindowAlignmentProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TextReadingOrderProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalTextAlignmentProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CharacterCasingProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PlaceholderForegroundProperty_ITextBox
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SelectionHighlightColorWhenNotFocusedProperty_ITextBox
+   function get_IsTextTrimmedProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -55459,13 +55390,89 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ITextBox;
    
+   function get_AcceptsReturnProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_InputScopeProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsReadOnlyProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsSpellCheckEnabledProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTextPredictionEnabledProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxLengthProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextAlignmentProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextWrappingProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HeaderTemplateProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsColorFontEnabledProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlaceholderTextProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PreventKeyboardDisplayOnProgrammaticFocusProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionHighlightColorProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DesiredCandidateWindowAlignmentProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextReadingOrderProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionHighlightColorWhenNotFocusedProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CharacterCasingProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HorizontalTextAlignmentProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlaceholderForegroundProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HandwritingViewProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsHandwritingViewEnabledProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ITimePicker;
+   
+   function get_ClockIdentifierProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_HeaderProperty_ITimePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeaderTemplateProperty_ITimePicker
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ClockIdentifierProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MinuteIncrementProperty
@@ -55477,23 +55484,13 @@ package Windows.UI.Xaml.Controls is
    function get_LightDismissOverlayModeProperty_ITimePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.ITimePicker;
-   
    function get_ClockIdentifierProperty_ITimePickerFlyout
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TimeProperty_ITimePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MinuteIncrementProperty_ITimePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsCheckedProperty_IToggleMenuFlyoutItem
+   function get_TimeProperty_ITimePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -55503,7 +55500,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IToggleMenuFlyoutItem;
    
-   function get_IsOnProperty
+   function get_IsCheckedProperty_IToggleMenuFlyoutItem
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeaderProperty_IToggleSwitch
@@ -55512,10 +55509,7 @@ package Windows.UI.Xaml.Controls is
    function get_HeaderTemplateProperty_IToggleSwitch
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OnContentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OnContentTemplateProperty
+   function get_IsOnProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OffContentProperty
@@ -55523,6 +55517,19 @@ package Windows.UI.Xaml.Controls is
    
    function get_OffContentTemplateProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OnContentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OnContentTemplateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IToolTip;
    
    function get_HorizontalOffsetProperty_IToolTip
    return Windows.UI.Xaml.IDependencyProperty;
@@ -55539,14 +55546,13 @@ package Windows.UI.Xaml.Controls is
    function get_VerticalOffsetProperty_IToolTip
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.IToolTip;
-   
    function get_PlacementProperty_IToolTipService
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlacementTargetProperty_IToolTipService
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ToolTipProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetPlacement
@@ -55555,6 +55561,18 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.Primitives.PlacementMode;
    
+   function GetPlacementTarget
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IUIElement;
+   
+   function GetToolTip
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Object;
+   
    procedure SetPlacement
    (
       element : Windows.UI.Xaml.IDependencyObject
@@ -55562,30 +55580,12 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_PlacementTargetProperty_IToolTipService
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetPlacementTarget
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IUIElement;
-   
    procedure SetPlacementTarget
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.UI.Xaml.IUIElement
    )
    ;
-   
-   function get_ToolTipProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetToolTip
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Object;
    
    procedure SetToolTip
    (
@@ -55611,16 +55611,16 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ITreeViewItem;
    
-   function get_GlyphOpacityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_GlyphBrushProperty
+   function get_CollapsedGlyphProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ExpandedGlyphProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CollapsedGlyphProperty
+   function get_GlyphBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_GlyphOpacityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_GlyphSizeProperty
@@ -55632,24 +55632,24 @@ package Windows.UI.Xaml.Controls is
    function get_TreeViewItemTemplateSettingsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ExpandedGlyphVisibilityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CollapsedGlyphVisibilityProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IndentationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DragItemsCountProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettings;
+   
+   function get_CollapsedGlyphVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DragItemsCountProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ExpandedGlyphVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IndentationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -55658,18 +55658,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ITreeViewList;
    
-   function get_ContentProperty_ITreeViewNode
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DepthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsExpandedProperty_ITreeViewNode
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HasChildrenProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -55677,7 +55665,16 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.ITreeViewNode;
    
-   function get_ContentProperty_IUserControl
+   function get_ContentProperty_ITreeViewNode
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DepthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HasChildrenProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsExpandedProperty_ITreeViewNode
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -55687,44 +55684,40 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.UI.Xaml.Controls.IUserControl;
    
+   function get_ContentProperty_IUserControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ColumnSpanProperty_IVariableSizedWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HorizontalChildrenAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ItemHeightProperty_IVariableSizedWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemWidthProperty_IVariableSizedWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OrientationProperty_IVariableSizedWrapGrid
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalChildrenAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VerticalChildrenAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_MaximumRowsOrColumnsProperty_IVariableSizedWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OrientationProperty_IVariableSizedWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_RowSpanProperty_IVariableSizedWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetRowSpan
+   function get_VerticalChildrenAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetColumnSpan
    (
       element : Windows.UI.Xaml.IUIElement
    )
    return Windows.Int32;
    
-   procedure SetRowSpan
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_ColumnSpanProperty_IVariableSizedWrapGrid
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetColumnSpan
+   function GetRowSpan
    (
       element : Windows.UI.Xaml.IUIElement
    )
@@ -55737,13 +55730,23 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_StretchProperty_IViewbox
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetRowSpan
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Int32
+   )
+   ;
    
    function get_StretchDirectionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_StretchProperty_IViewbox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_AreScrollSnapPointsRegularProperty_IVirtualizingStackPanel
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsVirtualizingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OrientationProperty_IVirtualizingStackPanel
@@ -55751,6 +55754,12 @@ package Windows.UI.Xaml.Controls is
    
    function get_VirtualizationModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsVirtualizing
+   (
+      o : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
    
    function GetVirtualizationMode
    (
@@ -55765,25 +55774,16 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
-   function get_IsVirtualizingProperty
+   function get_AllowedScriptNotifyUrisProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsVirtualizing
-   (
-      o : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
    
    function get_AnyScriptNotifyUri
    return Windows.Foundation.IVector_IUriRuntimeClass;
    
-   function get_SourceProperty_IWebView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowedScriptNotifyUrisProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_DataTransferPackageProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SourceProperty_IWebView
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CanGoBackProperty_IWebView
@@ -55792,10 +55792,22 @@ package Windows.UI.Xaml.Controls is
    function get_CanGoForwardProperty_IWebView
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_DefaultBackgroundColorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_DocumentTitleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DefaultBackgroundColorProperty
+   function get_ContainsFullScreenElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function ClearTemporaryWebDataAsync
+   return Windows.Foundation.IAsyncAction;
+   
+   function get_DefaultExecutionMode
+   return Windows.UI.Xaml.Controls.WebViewExecutionMode;
+   
+   function get_XYFocusDownProperty_IWebView
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_XYFocusLeftProperty_IWebView
@@ -55807,37 +55819,25 @@ package Windows.UI.Xaml.Controls is
    function get_XYFocusUpProperty_IWebView
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_XYFocusDownProperty_IWebView
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ContainsFullScreenElementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DefaultExecutionMode
-   return Windows.UI.Xaml.Controls.WebViewExecutionMode;
-   
-   function ClearTemporaryWebDataAsync
-   return Windows.Foundation.IAsyncAction;
-   
    function get_SourceNameProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemWidthProperty_IWrapGrid
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ItemHeightProperty_IWrapGrid
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OrientationProperty_IWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HorizontalChildrenAlignmentProperty_IWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_VerticalChildrenAlignmentProperty_IWrapGrid
+   function get_ItemHeightProperty_IWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemWidthProperty_IWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MaximumRowsOrColumnsProperty_IWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OrientationProperty_IWrapGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalChildrenAlignmentProperty_IWrapGrid
    return Windows.UI.Xaml.IDependencyProperty;
    
 end;

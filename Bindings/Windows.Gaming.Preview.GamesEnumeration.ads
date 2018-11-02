@@ -558,6 +558,24 @@ package Windows.Gaming.Preview.GamesEnumeration is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function add_GameAdded
+   (
+      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_GameRemoved
+   (
+      handler : Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_GameUpdated
+   (
+      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
    function FindAllAsync
    return Windows.Address;
    
@@ -567,35 +585,17 @@ package Windows.Gaming.Preview.GamesEnumeration is
    )
    return Windows.Address;
    
-   function add_GameAdded
-   (
-      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
    procedure remove_GameAdded
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function add_GameRemoved
-   (
-      handler : Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
    procedure remove_GameRemoved
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
-   
-   function add_GameUpdated
-   (
-      handler : Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
    
    procedure remove_GameUpdated
    (

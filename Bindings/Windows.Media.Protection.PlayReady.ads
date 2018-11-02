@@ -2572,20 +2572,20 @@ package Windows.Media.Protection.PlayReady is
    function get_LicenseAcquirerServiceRequestType
    return Windows.Guid;
    
-   function get_MeteringReportServiceRequestType
-   return Windows.Guid;
-   
-   function get_RevocationServiceRequestType
-   return Windows.Guid;
-   
    function get_MediaProtectionSystemId
+   return Windows.Guid;
+   
+   function get_MeteringReportServiceRequestType
    return Windows.Guid;
    
    function get_PlayReadySecurityVersion
    return Windows.UInt32;
    
-   function get_SecureStopServiceRequestType
+   function get_RevocationServiceRequestType
    return Windows.Guid;
+   
+   function get_PlayReadyCertificateSecurityLevel
+   return Windows.UInt32;
    
    function CheckSupportedHardware
    (
@@ -2593,13 +2593,13 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.Boolean;
    
+   function get_SecureStopServiceRequestType
+   return Windows.Guid;
+   
    function get_InputTrustAuthorityToCreate
    return Windows.String;
    
    function get_ProtectionSystemId
    return Windows.Guid;
-   
-   function get_PlayReadyCertificateSecurityLevel
-   return Windows.UInt32;
    
 end;

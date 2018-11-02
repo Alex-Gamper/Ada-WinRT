@@ -850,6 +850,13 @@ package Windows.UI.Xaml.Markup is
    )
    return Windows.UI.Xaml.Markup.XamlBinaryWriterErrorInformation;
    
+   function ConvertValue
+   (
+      type_x : Windows.UI.Xaml.Interop.TypeName
+      ; value : Windows.Object
+   )
+   return Windows.Object;
+   
    function get_DataTemplateComponentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -859,37 +866,16 @@ package Windows.UI.Xaml.Markup is
    )
    return Windows.UI.Xaml.Markup.IDataTemplateComponent;
    
-   procedure SetDataTemplateComponent
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.Markup.IDataTemplateComponent
-   )
-   ;
-   
-   procedure SuspendRendering
-   (
-      target : Windows.UI.Xaml.IUIElement
-   )
-   ;
-   
    procedure ResumeRendering
    (
       target : Windows.UI.Xaml.IUIElement
    )
    ;
    
-   function ConvertValue
+   procedure SetDataTemplateComponent
    (
-      type_x : Windows.UI.Xaml.Interop.TypeName
-      ; value : Windows.Object
-   )
-   return Windows.Object;
-   
-   procedure SetPropertyFromString
-   (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.String
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Markup.IDataTemplateComponent
    )
    ;
    
@@ -898,6 +884,14 @@ package Windows.UI.Xaml.Markup is
       dependencyObject : Windows.Object
       ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
       ; value : Windows.Boolean
+   )
+   ;
+   
+   procedure SetPropertyFromByte
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.UInt8
    )
    ;
    
@@ -933,14 +927,6 @@ package Windows.UI.Xaml.Markup is
    )
    ;
    
-   procedure SetPropertyFromUInt32
-   (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.UInt32
-   )
-   ;
-   
    procedure SetPropertyFromInt64
    (
       dependencyObject : Windows.Object
@@ -949,19 +935,11 @@ package Windows.UI.Xaml.Markup is
    )
    ;
    
-   procedure SetPropertyFromUInt64
+   procedure SetPropertyFromObject
    (
       dependencyObject : Windows.Object
       ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.UInt64
-   )
-   ;
-   
-   procedure SetPropertyFromSingle
-   (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.Single
+      ; value : Windows.Object
    )
    ;
    
@@ -981,11 +959,27 @@ package Windows.UI.Xaml.Markup is
    )
    ;
    
+   procedure SetPropertyFromSingle
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.Single
+   )
+   ;
+   
    procedure SetPropertyFromSize
    (
       dependencyObject : Windows.Object
       ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
       ; value : Windows.Foundation.Size
+   )
+   ;
+   
+   procedure SetPropertyFromString
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.String
    )
    ;
    
@@ -997,11 +991,19 @@ package Windows.UI.Xaml.Markup is
    )
    ;
    
-   procedure SetPropertyFromByte
+   procedure SetPropertyFromUInt32
    (
       dependencyObject : Windows.Object
       ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.UInt8
+      ; value : Windows.UInt32
+   )
+   ;
+   
+   procedure SetPropertyFromUInt64
+   (
+      dependencyObject : Windows.Object
+      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.UInt64
    )
    ;
    
@@ -1013,11 +1015,9 @@ package Windows.UI.Xaml.Markup is
    )
    ;
    
-   procedure SetPropertyFromObject
+   procedure SuspendRendering
    (
-      dependencyObject : Windows.Object
-      ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
-      ; value : Windows.Object
+      target : Windows.UI.Xaml.IUIElement
    )
    ;
    

@@ -1474,17 +1474,8 @@ package Windows.Storage.Provider is
    )
    return Windows.Foundation.IAsyncAction;
    
-   procedure Register
-   (
-      syncRootInformation : Windows.Storage.Provider.IStorageProviderSyncRootInfo
-   )
-   ;
-   
-   procedure Unregister
-   (
-      id : Windows.String
-   )
-   ;
+   function GetCurrentSyncRoots
+   return Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo;
    
    function GetSyncRootInformationForFolder
    (
@@ -1498,7 +1489,16 @@ package Windows.Storage.Provider is
    )
    return Windows.Storage.Provider.IStorageProviderSyncRootInfo;
    
-   function GetCurrentSyncRoots
-   return Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo;
+   procedure Register
+   (
+      syncRootInformation : Windows.Storage.Provider.IStorageProviderSyncRootInfo
+   )
+   ;
+   
+   procedure Unregister
+   (
+      id : Windows.String
+   )
+   ;
    
 end;

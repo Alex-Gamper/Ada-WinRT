@@ -165,6 +165,12 @@ package Windows.ApplicationModel.Resources is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetStringForReference
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.String;
+   
    function GetForCurrentView
    return Windows.ApplicationModel.Resources.IResourceLoader;
    
@@ -182,11 +188,5 @@ package Windows.ApplicationModel.Resources is
       name : Windows.String
    )
    return Windows.ApplicationModel.Resources.IResourceLoader;
-   
-   function GetStringForReference
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.String;
    
 end;

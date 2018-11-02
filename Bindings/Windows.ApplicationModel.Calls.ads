@@ -2675,19 +2675,19 @@ package Windows.ApplicationModel.Calls is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_BlockPrivateNumbers
+   return Windows.Boolean;
+   
    function get_BlockUnknownNumbers
    return Windows.Boolean;
    
-   procedure put_BlockUnknownNumbers
+   procedure put_BlockPrivateNumbers
    (
       value : Windows.Boolean
    )
    ;
    
-   function get_BlockPrivateNumbers
-   return Windows.Boolean;
-   
-   procedure put_BlockPrivateNumbers
+   procedure put_BlockUnknownNumbers
    (
       value : Windows.Boolean
    )
@@ -2724,23 +2724,23 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_CallStateChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function get_IsCallActive
    return Windows.Boolean;
    
    function get_IsCallIncoming
    return Windows.Boolean;
    
-   procedure ShowPhoneCallSettingsUI
+   procedure remove_CallStateChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
    ;
    
    function RequestStoreAsync
    return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore;
+   
+   procedure ShowPhoneCallSettingsUI
+   ;
    
    function GetCapabilitiesAsync
    (

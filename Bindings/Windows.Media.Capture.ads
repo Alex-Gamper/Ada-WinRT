@@ -7571,23 +7571,23 @@ package Windows.Media.Capture is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetGlobalSettings
-   return Windows.Media.Capture.IAppBroadcastGlobalSettings;
-   
    procedure ApplyGlobalSettings
    (
       value : Windows.Media.Capture.IAppBroadcastGlobalSettings
    )
    ;
    
-   function GetProviderSettings
-   return Windows.Media.Capture.IAppBroadcastProviderSettings;
-   
    procedure ApplyProviderSettings
    (
       value : Windows.Media.Capture.IAppBroadcastProviderSettings
    )
    ;
+   
+   function GetGlobalSettings
+   return Windows.Media.Capture.IAppBroadcastGlobalSettings;
+   
+   function GetProviderSettings
+   return Windows.Media.Capture.IAppBroadcastProviderSettings;
    
    function GetDefault
    return Windows.Media.Capture.IAppBroadcastPlugInManager;
@@ -7598,23 +7598,23 @@ package Windows.Media.Capture is
    )
    return Windows.Media.Capture.IAppBroadcastPlugInManager;
    
+   function GetForCurrentView
+   return Windows.Media.Capture.IAppCapture;
+   
    function SetAllowedAsync
    (
       allowed : Windows.Boolean
    )
    return Windows.Foundation.IAsyncAction;
    
-   function GetForCurrentView
-   return Windows.Media.Capture.IAppCapture;
-   
-   function GetCurrentSettings
-   return Windows.Media.Capture.IAppCaptureSettings;
-   
    procedure ApplySettings
    (
       appCaptureSettings : Windows.Media.Capture.IAppCaptureSettings
    )
    ;
+   
+   function GetCurrentSettings
+   return Windows.Media.Capture.IAppCaptureSettings;
    
    procedure Show
    (
@@ -7624,12 +7624,6 @@ package Windows.Media.Capture is
    
    function GetDefault
    return Windows.Media.Capture.IGameBarServicesManager;
-   
-   function IsVideoProfileSupported
-   (
-      videoDeviceId : Windows.String
-   )
-   return Windows.Boolean;
    
    function FindAllVideoProfiles
    (
@@ -7649,6 +7643,12 @@ package Windows.Media.Capture is
       ; name : Windows.Media.Capture.KnownVideoProfile
    )
    return Windows.Media.Capture.IVectorView_IMediaCaptureVideoProfile;
+   
+   function IsVideoProfileSupported
+   (
+      videoDeviceId : Windows.String
+   )
+   return Windows.Boolean;
    
    function GetForCurrentView
    return Windows.Media.Capture.IScreenCapture;

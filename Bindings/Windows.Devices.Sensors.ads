@@ -4499,6 +4499,15 @@ package Windows.Devices.Sensors is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetDefault
+   return Windows.Devices.Sensors.IAccelerometer;
+   
+   function GetDefaultWithAccelerometerReadingType
+   (
+      readingType : Windows.Devices.Sensors.AccelerometerReadingType
+   )
+   return Windows.Devices.Sensors.IAccelerometer;
+   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -4511,26 +4520,17 @@ package Windows.Devices.Sensors is
    )
    return Windows.String;
    
-   function GetDefaultWithAccelerometerReadingType
+   function FromIdAsync
    (
-      readingType : Windows.Devices.Sensors.AccelerometerReadingType
+      deviceId : Windows.String
    )
-   return Windows.Devices.Sensors.IAccelerometer;
-   
-   function GetDefault
-   return Windows.Devices.Sensors.IAccelerometer;
+   return Windows.Devices.Sensors.IAsyncOperation_IActivitySensor;
    
    function GetDefaultAsync
    return Windows.Devices.Sensors.IAsyncOperation_IActivitySensor;
    
    function GetDeviceSelector
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Sensors.IAsyncOperation_IActivitySensor;
    
    function GetSystemHistoryAsync
    (
@@ -4548,6 +4548,9 @@ package Windows.Devices.Sensors is
    function GetDefault
    return Windows.Devices.Sensors.IAltimeter;
    
+   function GetDefault
+   return Windows.Devices.Sensors.IBarometer;
+   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -4558,10 +4561,7 @@ package Windows.Devices.Sensors is
    return Windows.String;
    
    function GetDefault
-   return Windows.Devices.Sensors.IBarometer;
-   
-   function GetDeviceSelector_ICompass
-   return Windows.String;
+   return Windows.Devices.Sensors.ICompass;
    
    function FromIdAsync
    (
@@ -4569,20 +4569,23 @@ package Windows.Devices.Sensors is
    )
    return Windows.Devices.Sensors.IAsyncOperation_ICompass;
    
-   function GetDefault
-   return Windows.Devices.Sensors.ICompass;
+   function GetDeviceSelector_ICompass
+   return Windows.String;
    
    function GetDefault
    return Windows.Devices.Sensors.IGyrometer;
-   
-   function GetDeviceSelector_IGyrometer
-   return Windows.String;
    
    function FromIdAsync
    (
       deviceId : Windows.String
    )
    return Windows.Devices.Sensors.IAsyncOperation_IGyrometer;
+   
+   function GetDeviceSelector_IGyrometer
+   return Windows.String;
+   
+   function GetDefault
+   return Windows.Devices.Sensors.IInclinometer;
    
    function GetDefaultForRelativeReadings
    return Windows.Devices.Sensors.IInclinometer;
@@ -4593,8 +4596,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.Devices.Sensors.IInclinometer;
    
-   function GetDefault
-   return Windows.Devices.Sensors.IInclinometer;
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_IInclinometer;
    
    function GetDeviceSelector
    (
@@ -4602,14 +4608,8 @@ package Windows.Devices.Sensors is
    )
    return Windows.String;
    
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Sensors.IAsyncOperation_IInclinometer;
-   
-   function GetDeviceSelector_ILightSensor
-   return Windows.String;
+   function GetDefault
+   return Windows.Devices.Sensors.ILightSensor;
    
    function FromIdAsync
    (
@@ -4617,14 +4617,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.Devices.Sensors.IAsyncOperation_ILightSensor;
    
-   function GetDefault
-   return Windows.Devices.Sensors.ILightSensor;
+   function GetDeviceSelector_ILightSensor
+   return Windows.String;
    
    function GetDefault
    return Windows.Devices.Sensors.IMagnetometer;
-   
-   function GetDeviceSelector_IMagnetometer
-   return Windows.String;
    
    function FromIdAsync
    (
@@ -4632,7 +4629,13 @@ package Windows.Devices.Sensors is
    )
    return Windows.Devices.Sensors.IAsyncOperation_IMagnetometer;
    
+   function GetDeviceSelector_IMagnetometer
+   return Windows.String;
+   
    function GetDefault
+   return Windows.Devices.Sensors.IOrientationSensor;
+   
+   function GetDefaultForRelativeReadings
    return Windows.Devices.Sensors.IOrientationSensor;
    
    function GetDefaultWithSensorReadingType
@@ -4648,8 +4651,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.Devices.Sensors.IOrientationSensor;
    
-   function GetDefaultForRelativeReadings
-   return Windows.Devices.Sensors.IOrientationSensor;
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_IOrientationSensor;
    
    function GetDeviceSelector_IOrientationSensor
    (
@@ -4663,18 +4669,6 @@ package Windows.Devices.Sensors is
       ; optimizationGoal : Windows.Devices.Sensors.SensorOptimizationGoal
    )
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Sensors.IAsyncOperation_IOrientationSensor;
-   
-   function GetReadingsFromTriggerDetails
-   (
-      triggerDetails : Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails
-   )
-   return Windows.Devices.Sensors.IVectorView_IPedometerReading;
    
    function FromIdAsync
    (
@@ -4705,16 +4699,22 @@ package Windows.Devices.Sensors is
    (
       triggerDetails : Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails
    )
-   return Windows.Devices.Sensors.IVectorView_IProximitySensorReading;
-   
-   function GetDeviceSelector_IProximitySensor
-   return Windows.String;
+   return Windows.Devices.Sensors.IVectorView_IPedometerReading;
    
    function FromId
    (
       sensorId : Windows.String
    )
    return Windows.Devices.Sensors.IProximitySensor;
+   
+   function GetDeviceSelector_IProximitySensor
+   return Windows.String;
+   
+   function GetReadingsFromTriggerDetails
+   (
+      triggerDetails : Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails
+   )
+   return Windows.Devices.Sensors.IVectorView_IProximitySensorReading;
    
    function GetDefault
    return Windows.Devices.Sensors.ISimpleOrientationSensor;

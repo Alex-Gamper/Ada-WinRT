@@ -4078,11 +4078,17 @@ package Windows.Devices.SmartCards is
    function get_MaxAppletIds
    return Windows.UInt16;
    
+   function GetSmartCardCryptogramGeneratorAsync
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator;
+   
    function IsSupported
    return Windows.Boolean;
    
-   function GetSmartCardCryptogramGeneratorAsync
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator;
+   function GetDefaultAsync
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator;
+   
+   function get_MaxAppletIdGroupRegistrations
+   return Windows.UInt16;
    
    function GetAppletIdGroupRegistrationsAsync
    return Windows.Address;
@@ -4099,14 +4105,8 @@ package Windows.Devices.SmartCards is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function get_MaxAppletIdGroupRegistrations
-   return Windows.UInt16;
-   
    function IsSupported_ISmartCardEmulator
    return Windows.Boolean;
-   
-   function GetDefaultAsync
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator;
    
    function FromSmartCardAsync
    (
@@ -4154,6 +4154,12 @@ package Windows.Devices.SmartCards is
    )
    return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader;
+   
    function GetDeviceSelector
    return Windows.String;
    
@@ -4162,11 +4168,5 @@ package Windows.Devices.SmartCards is
       kind : Windows.Devices.SmartCards.SmartCardReaderKind
    )
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader;
    
 end;

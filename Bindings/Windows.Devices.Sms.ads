@@ -2749,15 +2749,6 @@ package Windows.Devices.Sms is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function FromNetworkAccountIdAsync
-   (
-      networkAccountId : Windows.String
-   )
-   return Windows.Devices.Sms.IAsyncOperation_ISmsDevice;
-   
-   function GetDeviceSelector
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -2767,8 +2758,14 @@ package Windows.Devices.Sms is
    function GetDefaultAsync
    return Windows.Devices.Sms.IAsyncOperation_ISmsDevice;
    
-   function GetDeviceSelector_ISmsDevice2
+   function GetDeviceSelector
    return Windows.String;
+   
+   function FromNetworkAccountIdAsync
+   (
+      networkAccountId : Windows.String
+   )
+   return Windows.Devices.Sms.IAsyncOperation_ISmsDevice;
    
    function FromId
    (
@@ -2776,14 +2773,17 @@ package Windows.Devices.Sms is
    )
    return Windows.Devices.Sms.ISmsDevice2;
    
-   function GetDefault
-   return Windows.Devices.Sms.ISmsDevice2;
-   
    function FromParentId
    (
       parentDeviceId : Windows.String
    )
    return Windows.Devices.Sms.ISmsDevice2;
+   
+   function GetDefault
+   return Windows.Devices.Sms.ISmsDevice2;
+   
+   function GetDeviceSelector_ISmsDevice2
+   return Windows.String;
    
    function get_AllRegistrations
    return Windows.Devices.Sms.IVectorView_ISmsMessageRegistration;
@@ -2795,16 +2795,16 @@ package Windows.Devices.Sms is
    )
    return Windows.Devices.Sms.ISmsMessageRegistration;
    
-   function FromBinaryMessage
-   (
-      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
-   )
-   return Windows.Devices.Sms.ISmsTextMessage;
-   
    function FromBinaryData
    (
       format : Windows.Devices.Sms.SmsDataFormat
       ; value : Windows.UInt8_Ptr
+   )
+   return Windows.Devices.Sms.ISmsTextMessage;
+   
+   function FromBinaryMessage
+   (
+      binaryMessage : Windows.Devices.Sms.ISmsBinaryMessage
    )
    return Windows.Devices.Sms.ISmsTextMessage;
    

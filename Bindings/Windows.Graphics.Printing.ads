@@ -2002,19 +2002,43 @@ package Windows.Graphics.Printing is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function IsSupported
-   return Windows.Boolean;
-   
    function GetForCurrentView
    return Windows.Graphics.Printing.IPrintManager;
    
    function ShowPrintUIAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
    
+   function IsSupported
+   return Windows.Boolean;
+   
+   function get_Binding
+   return Windows.String;
+   
+   function get_Collation
+   return Windows.String;
+   
+   function get_ColorMode
+   return Windows.String;
+   
+   function get_Copies
+   return Windows.String;
+   
+   function get_Duplex
+   return Windows.String;
+   
+   function get_HolePunch
+   return Windows.String;
+   
+   function get_InputBin
+   return Windows.String;
+   
    function get_MediaSize
    return Windows.String;
    
    function get_MediaType
+   return Windows.String;
+   
+   function get_NUp
    return Windows.String;
    
    function get_Orientation
@@ -2023,31 +2047,7 @@ package Windows.Graphics.Printing is
    function get_PrintQuality
    return Windows.String;
    
-   function get_ColorMode
-   return Windows.String;
-   
-   function get_Duplex
-   return Windows.String;
-   
-   function get_Collation
-   return Windows.String;
-   
    function get_Staple
-   return Windows.String;
-   
-   function get_HolePunch
-   return Windows.String;
-   
-   function get_Binding
-   return Windows.String;
-   
-   function get_Copies
-   return Windows.String;
-   
-   function get_NUp
-   return Windows.String;
-   
-   function get_InputBin
    return Windows.String;
    
    function get_Bordering

@@ -4265,18 +4265,18 @@ package Windows.System is
    function RequestAccessAsync
    return Windows.System.IAsyncOperation_DiagnosticAccessStatus;
    
-   function RequestInfoForPackageAsync
-   (
-      packageFamilyName : Windows.String
-   )
-   return Windows.Address;
-   
    function RequestInfoForAppAsync
    return Windows.Address;
    
    function RequestInfoForAppUserModelId
    (
       appUserModelId : Windows.String
+   )
+   return Windows.Address;
+   
+   function RequestInfoForPackageAsync
+   (
+      packageFamilyName : Windows.String
    )
    return Windows.Address;
    
@@ -4292,28 +4292,28 @@ package Windows.System is
    function CreateOnDedicatedThread
    return Windows.System.IDispatcherQueueController;
    
+   function get_AccountName
+   return Windows.String;
+   
    function get_DisplayName
+   return Windows.String;
+   
+   function get_DomainName
    return Windows.String;
    
    function get_FirstName
    return Windows.String;
    
-   function get_LastName
-   return Windows.String;
-   
-   function get_ProviderName
-   return Windows.String;
-   
-   function get_AccountName
-   return Windows.String;
-   
    function get_GuestHost
+   return Windows.String;
+   
+   function get_LastName
    return Windows.String;
    
    function get_PrincipalName
    return Windows.String;
    
-   function get_DomainName
+   function get_ProviderName
    return Windows.String;
    
    function get_SessionInitiationProtocolUri
@@ -4345,6 +4345,25 @@ package Windows.System is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
+   function FindFileHandlersAsync
+   (
+      extension : Windows.String
+   )
+   return Windows.Address;
+   
+   function FindUriSchemeHandlersAsync
+   (
+      scheme : Windows.String
+   )
+   return Windows.Address;
+   
+   function FindUriSchemeHandlersWithLaunchUriTypeAsync
+   (
+      scheme : Windows.String
+      ; launchQuerySupportType : Windows.System.LaunchQuerySupportType
+   )
+   return Windows.Address;
+   
    function LaunchUriForResultsAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -4368,6 +4387,19 @@ package Windows.System is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
+   function QueryFileSupportAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   
+   function QueryFileSupportWithPackageFamilyNameAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; packageFamilyName : Windows.String
+   )
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   
    function QueryUriSupportAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -4383,80 +4415,24 @@ package Windows.System is
    )
    return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
    
-   function QueryFileSupportAsync
+   function LaunchFolderAsync
    (
-      file : Windows.Storage.IStorageFile
+      folder : Windows.Storage.IStorageFolder
    )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
-   function QueryFileSupportWithPackageFamilyNameAsync
+   function LaunchFolderWithOptionsAsync
    (
-      file : Windows.Storage.IStorageFile
-      ; packageFamilyName : Windows.String
+      folder : Windows.Storage.IStorageFolder
+      ; options : Windows.System.IFolderLauncherOptions
    )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
-   
-   function FindUriSchemeHandlersAsync
-   (
-      scheme : Windows.String
-   )
-   return Windows.Address;
-   
-   function FindUriSchemeHandlersWithLaunchUriTypeAsync
-   (
-      scheme : Windows.String
-      ; launchQuerySupportType : Windows.System.LaunchQuerySupportType
-   )
-   return Windows.Address;
-   
-   function FindFileHandlersAsync
-   (
-      extension : Windows.String
-   )
-   return Windows.Address;
-   
-   function QueryAppUriSupportAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
-   
-   function QueryAppUriSupportWithPackageFamilyNameAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; packageFamilyName : Windows.String
-   )
-   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function FindAppUriHandlersAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.Address;
-   
-   function LaunchUriForUserAsync
-   (
-      user : Windows.System.IUser
-      ; uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.IAsyncOperation_LaunchUriStatus;
-   
-   function LaunchUriWithOptionsForUserAsync
-   (
-      user : Windows.System.IUser
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.System.ILauncherOptions
-   )
-   return Windows.System.IAsyncOperation_LaunchUriStatus;
-   
-   function LaunchUriWithDataForUserAsync
-   (
-      user : Windows.System.IUser
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.System.ILauncherOptions
-      ; inputData : Windows.Foundation.Collections.IPropertySet
-   )
-   return Windows.System.IAsyncOperation_LaunchUriStatus;
    
    function LaunchUriForResultsForUserAsync
    (
@@ -4475,42 +4451,42 @@ package Windows.System is
    )
    return Windows.System.IAsyncOperation_ILaunchUriResult;
    
-   function LaunchFolderAsync
+   function LaunchUriForUserAsync
    (
-      folder : Windows.Storage.IStorageFolder
+      user : Windows.System.IUser
+      ; uri : Windows.Foundation.IUriRuntimeClass
    )
-   return Windows.Foundation.IAsyncOperation_Boolean;
+   return Windows.System.IAsyncOperation_LaunchUriStatus;
    
-   function LaunchFolderWithOptionsAsync
+   function LaunchUriWithDataForUserAsync
    (
-      folder : Windows.Storage.IStorageFolder
-      ; options : Windows.System.IFolderLauncherOptions
+      user : Windows.System.IUser
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.System.ILauncherOptions
+      ; inputData : Windows.Foundation.Collections.IPropertySet
    )
-   return Windows.Foundation.IAsyncOperation_Boolean;
+   return Windows.System.IAsyncOperation_LaunchUriStatus;
    
-   function get_ExpectedAppMemoryUsageLimit
-   return Windows.UInt64;
-   
-   function get_AppMemoryUsage
-   return Windows.UInt64;
-   
-   function get_AppMemoryUsageLimit
-   return Windows.UInt64;
-   
-   function get_AppMemoryUsageLevel
-   return Windows.System.AppMemoryUsageLevel;
-   
-   function add_AppMemoryUsageIncreased
+   function LaunchUriWithOptionsForUserAsync
    (
-      handler : Windows.Foundation.EventHandler_Object
+      user : Windows.System.IUser
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.System.ILauncherOptions
    )
-   return Windows.Foundation.EventRegistrationToken;
+   return Windows.System.IAsyncOperation_LaunchUriStatus;
    
-   procedure remove_AppMemoryUsageIncreased
+   function QueryAppUriSupportAsync
    (
-      token : Windows.Foundation.EventRegistrationToken
+      uri : Windows.Foundation.IUriRuntimeClass
    )
-   ;
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   
+   function QueryAppUriSupportWithPackageFamilyNameAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; packageFamilyName : Windows.String
+   )
+   return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
    
    function add_AppMemoryUsageDecreased
    (
@@ -4518,11 +4494,11 @@ package Windows.System is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_AppMemoryUsageDecreased
+   function add_AppMemoryUsageIncreased
    (
-      token : Windows.Foundation.EventRegistrationToken
+      handler : Windows.Foundation.EventHandler_Object
    )
-   ;
+   return Windows.Foundation.EventRegistrationToken;
    
    function add_AppMemoryUsageLimitChanging
    (
@@ -4530,11 +4506,38 @@ package Windows.System is
    )
    return Windows.Foundation.EventRegistrationToken;
    
+   function get_AppMemoryUsage
+   return Windows.UInt64;
+   
+   function get_AppMemoryUsageLevel
+   return Windows.System.AppMemoryUsageLevel;
+   
+   function get_AppMemoryUsageLimit
+   return Windows.UInt64;
+   
+   procedure remove_AppMemoryUsageDecreased
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_AppMemoryUsageIncreased
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    procedure remove_AppMemoryUsageLimitChanging
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
+   function GetAppMemoryReport
+   return Windows.System.IAppMemoryReport;
+   
+   function GetProcessMemoryReport
+   return Windows.System.IProcessMemoryReport;
    
    function TrySetAppMemoryUsageLimit
    (
@@ -4542,11 +4545,8 @@ package Windows.System is
    )
    return Windows.Boolean;
    
-   function GetAppMemoryReport
-   return Windows.System.IAppMemoryReport;
-   
-   function GetProcessMemoryReport
-   return Windows.System.IProcessMemoryReport;
+   function get_ExpectedAppMemoryUsageLimit
+   return Windows.UInt64;
    
    function RunToCompletionAsync
    (
@@ -4570,20 +4570,20 @@ package Windows.System is
    )
    return Windows.System.IAsyncOperation_RemoteLaunchUriStatus;
    
-   function LaunchUriWithOptionsAsync
-   (
-      remoteSystemConnectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
-      ; uri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.System.IRemoteLauncherOptions
-   )
-   return Windows.System.IAsyncOperation_RemoteLaunchUriStatus;
-   
    function LaunchUriWithDataAsync
    (
       remoteSystemConnectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
       ; uri : Windows.Foundation.IUriRuntimeClass
       ; options : Windows.System.IRemoteLauncherOptions
       ; inputData : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.System.IAsyncOperation_RemoteLaunchUriStatus;
+   
+   function LaunchUriWithOptionsAsync
+   (
+      remoteSystemConnectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.System.IRemoteLauncherOptions
    )
    return Windows.System.IAsyncOperation_RemoteLaunchUriStatus;
    
@@ -4596,12 +4596,6 @@ package Windows.System is
    
    procedure CancelShutdown
    ;
-   
-   function IsPowerStateSupported
-   (
-      powerState : Windows.System.PowerState
-   )
-   return Windows.Boolean;
    
    procedure EnterPowerState
    (
@@ -4616,13 +4610,10 @@ package Windows.System is
    )
    ;
    
-   function get_CurrentTimeZoneDisplayName
-   return Windows.String;
-   
-   function get_SupportedTimeZoneDisplayNames
-   return Windows.Foundation.Collections.IVectorView_String;
-   
-   function get_CanChangeTimeZone
+   function IsPowerStateSupported
+   (
+      powerState : Windows.System.PowerState
+   )
    return Windows.Boolean;
    
    procedure ChangeTimeZoneByDisplayName
@@ -4630,6 +4621,15 @@ package Windows.System is
       timeZoneDisplayName : Windows.String
    )
    ;
+   
+   function get_CanChangeTimeZone
+   return Windows.Boolean;
+   
+   function get_CurrentTimeZoneDisplayName
+   return Windows.String;
+   
+   function get_SupportedTimeZoneDisplayNames
+   return Windows.Foundation.Collections.IVectorView_String;
    
    function AutoUpdateTimeZoneAsync
    (
@@ -4662,17 +4662,17 @@ package Windows.System is
    )
    return Windows.System.IUser;
    
-   function FindUserFromDeviceId
-   (
-      deviceId : Windows.String
-   )
-   return Windows.System.IUser;
-   
    function add_UserDeviceAssociationChanged
    (
       handler : Windows.System.EventHandler_IUserDeviceAssociationChangedEventArgs
    )
    return Windows.Foundation.EventRegistrationToken;
+   
+   function FindUserFromDeviceId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.System.IUser;
    
    procedure remove_UserDeviceAssociationChanged
    (

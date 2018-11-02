@@ -1408,6 +1408,13 @@ package Windows.Devices.HumanInterfaceDevice is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+      ; accessMode : Windows.Storage.FileAccessMode
+   )
+   return Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice;
+   
    function GetDeviceSelector
    (
       usagePage : Windows.UInt16
@@ -1423,12 +1430,5 @@ package Windows.Devices.HumanInterfaceDevice is
       ; productId : Windows.UInt16
    )
    return Windows.String;
-   
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-      ; accessMode : Windows.Storage.FileAccessMode
-   )
-   return Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice;
    
 end;

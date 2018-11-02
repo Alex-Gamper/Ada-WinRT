@@ -446,6 +446,9 @@ package Windows.Media.FaceAnalysis is
    function CreateAsync
    return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceDetector;
    
+   function get_IsSupported
+   return Windows.Boolean;
+   
    function GetSupportedBitmapPixelFormats
    return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
    
@@ -455,11 +458,11 @@ package Windows.Media.FaceAnalysis is
    )
    return Windows.Boolean;
    
-   function get_IsSupported
-   return Windows.Boolean;
-   
    function CreateAsync
    return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker;
+   
+   function get_IsSupported_IFaceTracker
+   return Windows.Boolean;
    
    function GetSupportedBitmapPixelFormats_IFaceTracker
    return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
@@ -468,9 +471,6 @@ package Windows.Media.FaceAnalysis is
    (
       bitmapPixelFormat : Windows.Graphics.Imaging.BitmapPixelFormat
    )
-   return Windows.Boolean;
-   
-   function get_IsSupported_IFaceTracker
    return Windows.Boolean;
    
 end;

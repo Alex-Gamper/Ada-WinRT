@@ -540,17 +540,17 @@ package Windows.System.Profile is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_DeviceForm
+   return Windows.String;
+   
+   function get_VersionInfo
+   return Windows.System.Profile.IAnalyticsVersionInfo;
+   
    function GetSystemPropertiesAsync
    (
       attributeNames : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.Address;
-   
-   function get_VersionInfo
-   return Windows.System.Profile.IAnalyticsVersionInfo;
-   
-   function get_DeviceForm
-   return Windows.String;
    
    function get_IsEducationEnvironment
    return Windows.Boolean;
@@ -561,74 +561,71 @@ package Windows.System.Profile is
    )
    return Windows.System.Profile.IHardwareToken;
    
-   function get_RetailAccessCode
-   return Windows.String;
-   
-   function get_ManufacturerName
-   return Windows.String;
-   
-   function get_ModelName
-   return Windows.String;
-   
-   function get_DisplayModelName
-   return Windows.String;
-   
-   function get_Price
-   return Windows.String;
-   
-   function get_IsFeatured
-   return Windows.String;
-   
-   function get_FormFactor
-   return Windows.String;
-   
-   function get_ScreenSize
-   return Windows.String;
-   
-   function get_Weight
+   function get_BatteryLifeDescription
    return Windows.String;
    
    function get_DisplayDescription
    return Windows.String;
    
-   function get_BatteryLifeDescription
+   function get_DisplayModelName
    return Windows.String;
    
-   function get_ProcessorDescription
-   return Windows.String;
-   
-   function get_Memory
-   return Windows.String;
-   
-   function get_StorageDescription
-   return Windows.String;
-   
-   function get_GraphicsDescription
+   function get_FormFactor
    return Windows.String;
    
    function get_FrontCameraDescription
    return Windows.String;
    
-   function get_RearCameraDescription
+   function get_GraphicsDescription
    return Windows.String;
    
    function get_HasNfc
    return Windows.String;
    
+   function get_HasOpticalDrive
+   return Windows.String;
+   
    function get_HasSdSlot
    return Windows.String;
    
-   function get_HasOpticalDrive
+   function get_IsFeatured
    return Windows.String;
    
    function get_IsOfficeInstalled
    return Windows.String;
    
-   function get_WindowsEdition
+   function get_ManufacturerName
    return Windows.String;
    
-   function get_CollectionLevel
-   return Windows.System.Profile.PlatformDataCollectionLevel;
+   function get_Memory
+   return Windows.String;
+   
+   function get_ModelName
+   return Windows.String;
+   
+   function get_Price
+   return Windows.String;
+   
+   function get_ProcessorDescription
+   return Windows.String;
+   
+   function get_RearCameraDescription
+   return Windows.String;
+   
+   function get_RetailAccessCode
+   return Windows.String;
+   
+   function get_ScreenSize
+   return Windows.String;
+   
+   function get_StorageDescription
+   return Windows.String;
+   
+   function get_Weight
+   return Windows.String;
+   
+   function get_WindowsEdition
+   return Windows.String;
    
    function add_CollectionLevelChanged
    (
@@ -636,17 +633,20 @@ package Windows.System.Profile is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_CollectionLevelChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
    function CanCollectDiagnostics
    (
       level : Windows.System.Profile.PlatformDataCollectionLevel
    )
    return Windows.Boolean;
+   
+   function get_CollectionLevel
+   return Windows.System.Profile.PlatformDataCollectionLevel;
+   
+   procedure remove_CollectionLevelChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    function get_IsDemoModeEnabled
    return Windows.Boolean;
@@ -654,10 +654,10 @@ package Windows.System.Profile is
    function get_Properties
    return Windows.Address;
    
-   function get_ShouldAvoidLocalStorage
+   function get_IsEnabled
    return Windows.Boolean;
    
-   function get_IsEnabled
+   function get_ShouldAvoidLocalStorage
    return Windows.Boolean;
    
    function GetSystemIdForPublisher

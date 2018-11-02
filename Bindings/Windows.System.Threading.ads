@@ -252,18 +252,18 @@ package Windows.System.Threading is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function RunWithPriorityAsync
-   (
-      handler : Windows.System.Threading.WorkItemHandler
-      ; priority : Windows.System.Threading.WorkItemPriority
-   )
-   return Windows.Foundation.IAsyncAction;
-   
    function RunWithPriorityAndOptionsAsync
    (
       handler : Windows.System.Threading.WorkItemHandler
       ; priority : Windows.System.Threading.WorkItemPriority
       ; options : Windows.System.Threading.WorkItemOptions
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function RunWithPriorityAsync
+   (
+      handler : Windows.System.Threading.WorkItemHandler
+      ; priority : Windows.System.Threading.WorkItemPriority
    )
    return Windows.Foundation.IAsyncAction;
    
@@ -274,18 +274,18 @@ package Windows.System.Threading is
    )
    return Windows.System.Threading.IThreadPoolTimer;
    
-   function CreateTimer
-   (
-      handler : Windows.System.Threading.TimerElapsedHandler
-      ; delay_x : Windows.Foundation.TimeSpan
-   )
-   return Windows.System.Threading.IThreadPoolTimer;
-   
    function CreatePeriodicTimerWithCompletion
    (
       handler : Windows.System.Threading.TimerElapsedHandler
       ; period : Windows.Foundation.TimeSpan
       ; destroyed : Windows.System.Threading.TimerDestroyedHandler
+   )
+   return Windows.System.Threading.IThreadPoolTimer;
+   
+   function CreateTimer
+   (
+      handler : Windows.System.Threading.TimerElapsedHandler
+      ; delay_x : Windows.Foundation.TimeSpan
    )
    return Windows.System.Threading.IThreadPoolTimer;
    

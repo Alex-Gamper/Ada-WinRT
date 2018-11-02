@@ -5410,16 +5410,16 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Email.IEmailManagerForUser;
-   
    function RequestStoreAsync
    (
       accessType : Windows.ApplicationModel.Email.EmailStoreAccessType
    )
    return Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.ApplicationModel.Email.IEmailManagerForUser;
    
 end;

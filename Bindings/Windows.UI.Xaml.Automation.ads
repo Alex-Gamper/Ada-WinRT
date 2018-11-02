@@ -2691,38 +2691,11 @@ package Windows.UI.Xaml.Automation is
    function get_TargetProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_TypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ElementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_LandmarkTypeProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_LocalizedLandmarkTypeProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_IsPeripheralProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_IsDataValidForFormProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_FullDescriptionProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_DescribedByProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_FlowsToProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_FlowsFromProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_CultureProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   function get_TypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AcceleratorKeyProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
@@ -2781,6 +2754,9 @@ package Windows.UI.Xaml.Automation is
    function get_LabeledByProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
+   function get_LiveSettingProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
    function get_LocalizedControlTypeProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
@@ -2790,7 +2766,13 @@ package Windows.UI.Xaml.Automation is
    function get_OrientationProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_LiveSettingProperty
+   function get_ControlledPeersProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_AnnotationsProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_LevelProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_PositionInSetProperty
@@ -2799,47 +2781,121 @@ package Windows.UI.Xaml.Automation is
    function get_SizeOfSetProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_LevelProperty
+   function get_LandmarkTypeProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_AnnotationsProperty
+   function get_LocalizedLandmarkTypeProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_DescribedByProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_FlowsFromProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_FlowsToProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_FullDescriptionProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_IsDataValidForFormProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_IsPeripheralProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_CultureProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_HeadingLevelProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_ControlledPeersProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_AccessibilityViewProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAccessibilityView
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Automation.Peers.AccessibilityView;
-   
-   procedure SetAccessibilityView
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.Automation.Peers.AccessibilityView
-   )
-   ;
-   
-   function get_ControlledPeersProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetControlledPeers
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IUIElement;
-   
    function get_AcceleratorKeyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_AccessKeyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AutomationIdProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HelpTextProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsRequiredForFormProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemStatusProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LabeledByProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LiveSettingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NameProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function GetAcceleratorKey
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   function GetAccessKey
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   function GetAutomationId
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   function GetHelpText
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   function GetIsRequiredForForm
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   function GetItemStatus
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   function GetItemType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   function GetLabeledBy
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IUIElement;
+   
+   function GetLiveSetting
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting;
+   
+   function GetName
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
@@ -2852,30 +2908,12 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
-   function get_AccessKeyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAccessKey
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
-   
    procedure SetAccessKey
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.String
    )
    ;
-   
-   function get_AutomationIdProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAutomationId
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
    
    procedure SetAutomationId
    (
@@ -2884,30 +2922,12 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
-   function get_HelpTextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetHelpText
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
-   
    procedure SetHelpText
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.String
    )
    ;
-   
-   function get_IsRequiredForFormProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsRequiredForForm
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
    
    procedure SetIsRequiredForForm
    (
@@ -2916,30 +2936,12 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
-   function get_ItemStatusProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetItemStatus
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
-   
    procedure SetItemStatus
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.String
    )
    ;
-   
-   function get_ItemTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetItemType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
    
    procedure SetItemType
    (
@@ -2948,46 +2950,12 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
-   function get_LabeledByProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLabeledBy
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IUIElement;
-   
    procedure SetLabeledBy
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.UI.Xaml.IUIElement
    )
    ;
-   
-   function get_NameProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetName
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
-   
-   procedure SetName
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.String
-   )
-   ;
-   
-   function get_LiveSettingProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLiveSetting
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting;
    
    procedure SetLiveSetting
    (
@@ -2996,8 +2964,61 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
+   procedure SetName
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.String
+   )
+   ;
+   
+   function get_AccessibilityViewProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ControlledPeersProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetAccessibilityView
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.Peers.AccessibilityView;
+   
+   function GetControlledPeers
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IUIElement;
+   
+   procedure SetAccessibilityView
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Automation.Peers.AccessibilityView
+   )
+   ;
+   
+   function get_AnnotationsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LevelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_PositionInSetProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SizeOfSetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetAnnotations
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.IVector_IAutomationAnnotation;
+   
+   function GetLevel
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32;
    
    function GetPositionInSet
    (
@@ -3005,33 +3026,7 @@ package Windows.UI.Xaml.Automation is
    )
    return Windows.Int32;
    
-   procedure SetPositionInSet
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_SizeOfSetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetSizeOfSet
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32;
-   
-   procedure SetSizeOfSet
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   ;
-   
-   function get_LevelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLevel
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
@@ -3044,32 +3039,24 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
-   function get_AnnotationsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetAnnotations
+   procedure SetPositionInSet
    (
       element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
    )
-   return Windows.UI.Xaml.Automation.IVector_IAutomationAnnotation;
+   ;
    
-   function get_HeadingLevelProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetHeadingLevel
+   procedure SetSizeOfSet
    (
       element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel;
-   
-   procedure SetHeadingLevel
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+      ; value : Windows.Int32
    )
    ;
    
    function get_LandmarkTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocalizedLandmarkTypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetLandmarkType
@@ -3078,21 +3065,18 @@ package Windows.UI.Xaml.Automation is
    )
    return Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType;
    
+   function GetLocalizedLandmarkType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
    procedure SetLandmarkType
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType
    )
    ;
-   
-   function get_LocalizedLandmarkTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLocalizedLandmarkType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
    
    procedure SetLocalizedLandmarkType
    (
@@ -3101,24 +3085,50 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
-   function get_IsPeripheralProperty
+   function get_DescribedByProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetIsPeripheral
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
+   function get_FlowsFromProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   procedure SetIsPeripheral
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
+   function get_FlowsToProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FullDescriptionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsDataValidForFormProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsPeripheralProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LocalizedControlTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetDescribedBy
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IDependencyObject;
+   
+   function GetFlowsFrom
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IDependencyObject;
+   
+   function GetFlowsTo
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IDependencyObject;
+   
+   function GetFullDescription
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
    
    function GetIsDataValidForForm
    (
@@ -3126,17 +3136,13 @@ package Windows.UI.Xaml.Automation is
    )
    return Windows.Boolean;
    
-   procedure SetIsDataValidForForm
+   function GetIsPeripheral
    (
       element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
    )
-   ;
+   return Windows.Boolean;
    
-   function get_FullDescriptionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetFullDescription
+   function GetLocalizedControlType
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
@@ -3149,14 +3155,19 @@ package Windows.UI.Xaml.Automation is
    )
    ;
    
-   function get_LocalizedControlTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLocalizedControlType
+   procedure SetIsDataValidForForm
    (
       element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
    )
-   return Windows.String;
+   ;
+   
+   procedure SetIsPeripheral
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
    
    procedure SetLocalizedControlType
    (
@@ -3164,33 +3175,6 @@ package Windows.UI.Xaml.Automation is
       ; value : Windows.String
    )
    ;
-   
-   function get_DescribedByProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetDescribedBy
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IDependencyObject;
-   
-   function get_FlowsToProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetFlowsTo
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IDependencyObject;
-   
-   function get_FlowsFromProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetFlowsFrom
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IDependencyObject;
    
    function get_CultureProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -3205,6 +3189,22 @@ package Windows.UI.Xaml.Automation is
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.Int32
+   )
+   ;
+   
+   function get_HeadingLevelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetHeadingLevel
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel;
+   
+   procedure SetHeadingLevel
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
    )
    ;
    
@@ -3358,13 +3358,13 @@ package Windows.UI.Xaml.Automation is
    function get_CanZoomProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_ZoomLevelProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
    function get_MaxZoomProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_MinZoomProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
+   function get_ZoomLevelProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_CanMoveProperty

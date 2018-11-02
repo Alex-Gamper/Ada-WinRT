@@ -2072,36 +2072,6 @@ package Windows.UI.ViewManagement is
    function TryUnsnapToFullscreen
    return Windows.Boolean;
    
-   function GetForCurrentView
-   return Windows.UI.ViewManagement.IApplicationView;
-   
-   function get_TerminateAppOnFinalViewClose
-   return Windows.Boolean;
-   
-   procedure put_TerminateAppOnFinalViewClose
-   (
-      value : Windows.Boolean
-   )
-   ;
-   
-   function get_PreferredLaunchWindowingMode
-   return Windows.UI.ViewManagement.ApplicationViewWindowingMode;
-   
-   procedure put_PreferredLaunchWindowingMode
-   (
-      value : Windows.UI.ViewManagement.ApplicationViewWindowingMode
-   )
-   ;
-   
-   function get_PreferredLaunchViewSize
-   return Windows.Foundation.Size;
-   
-   procedure put_PreferredLaunchViewSize
-   (
-      value : Windows.Foundation.Size
-   )
-   ;
-   
    function GetApplicationViewIdForWindow
    (
       window : Windows.UI.Core.ICoreWindow
@@ -2113,6 +2083,36 @@ package Windows.UI.ViewManagement is
    
    function TryUnsnap
    return Windows.Boolean;
+   
+   function get_TerminateAppOnFinalViewClose
+   return Windows.Boolean;
+   
+   function GetForCurrentView
+   return Windows.UI.ViewManagement.IApplicationView;
+   
+   procedure put_TerminateAppOnFinalViewClose
+   (
+      value : Windows.Boolean
+   )
+   ;
+   
+   function get_PreferredLaunchViewSize
+   return Windows.Foundation.Size;
+   
+   function get_PreferredLaunchWindowingMode
+   return Windows.UI.ViewManagement.ApplicationViewWindowingMode;
+   
+   procedure put_PreferredLaunchViewSize
+   (
+      value : Windows.Foundation.Size
+   )
+   ;
+   
+   procedure put_PreferredLaunchWindowingMode
+   (
+      value : Windows.UI.ViewManagement.ApplicationViewWindowingMode
+   )
+   ;
    
    function get_DisableLayoutScaling
    return Windows.Boolean;
@@ -2126,25 +2126,11 @@ package Windows.UI.ViewManagement is
    procedure DisableShowingMainViewOnActivation
    ;
    
-   function TryShowAsStandaloneAsync
+   function PrepareForCustomAnimatedSwitchAsync
    (
-      viewId : Windows.Int32
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function TryShowAsStandaloneWithSizePreferenceAsync
-   (
-      viewId : Windows.Int32
-      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync
-   (
-      viewId : Windows.Int32
-      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
-      ; anchorViewId : Windows.Int32
-      ; anchorSizePreference : Windows.UI.ViewManagement.ViewSizePreference
+      toViewId : Windows.Int32
+      ; fromViewId : Windows.Int32
+      ; options : Windows.UI.ViewManagement.ApplicationViewSwitchingOptions
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
@@ -2169,11 +2155,25 @@ package Windows.UI.ViewManagement is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function PrepareForCustomAnimatedSwitchAsync
+   function TryShowAsStandaloneAsync
    (
-      toViewId : Windows.Int32
-      ; fromViewId : Windows.Int32
-      ; options : Windows.UI.ViewManagement.ApplicationViewSwitchingOptions
+      viewId : Windows.Int32
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync
+   (
+      viewId : Windows.Int32
+      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
+      ; anchorViewId : Windows.Int32
+      ; anchorSizePreference : Windows.UI.ViewManagement.ViewSizePreference
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function TryShowAsStandaloneWithSizePreferenceAsync
+   (
+      viewId : Windows.Int32
+      ; sizePreference : Windows.UI.ViewManagement.ViewSizePreference
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
@@ -2201,13 +2201,44 @@ package Windows.UI.ViewManagement is
    function GetForCurrentView
    return Windows.UI.ViewManagement.IInputPane;
    
-   function StartProjectingWithDeviceInfoAsync
+   function add_ProjectionDisplayAvailableChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function get_ProjectionDisplayAvailable
+   return Windows.Boolean;
+   
+   procedure remove_ProjectionDisplayAvailableChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function StartProjectingAsync
    (
       projectionViewId : Windows.Int32
       ; anchorViewId : Windows.Int32
-      ; displayDeviceInfo : Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.Foundation.IAsyncAction;
+   
+   function StopProjectingAsync
+   (
+      projectionViewId : Windows.Int32
+      ; anchorViewId : Windows.Int32
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function SwapDisplaysForViewsAsync
+   (
+      projectionViewId : Windows.Int32
+      ; anchorViewId : Windows.Int32
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function GetDeviceSelector
+   return Windows.String;
    
    function RequestStartProjectingAsync
    (
@@ -2226,44 +2257,13 @@ package Windows.UI.ViewManagement is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-   function GetDeviceSelector
-   return Windows.String;
-   
-   function StartProjectingAsync
+   function StartProjectingWithDeviceInfoAsync
    (
       projectionViewId : Windows.Int32
       ; anchorViewId : Windows.Int32
+      ; displayDeviceInfo : Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.Foundation.IAsyncAction;
-   
-   function SwapDisplaysForViewsAsync
-   (
-      projectionViewId : Windows.Int32
-      ; anchorViewId : Windows.Int32
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function StopProjectingAsync
-   (
-      projectionViewId : Windows.Int32
-      ; anchorViewId : Windows.Int32
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function get_ProjectionDisplayAvailable
-   return Windows.Boolean;
-   
-   function add_ProjectionDisplayAvailableChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_ProjectionDisplayAvailableChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function GetForCurrentView
    return Windows.UI.ViewManagement.IStatusBar;

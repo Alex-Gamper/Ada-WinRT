@@ -4478,22 +4478,31 @@ package Windows.Media.Devices is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefault
-   return Windows.Media.Devices.ICallControl;
-   
    function FromId
    (
       deviceId : Windows.String
    )
    return Windows.Media.Devices.ICallControl;
    
+   function GetDefault
+   return Windows.Media.Devices.ICallControl;
+   
+   function add_DefaultAudioCaptureDeviceChanged
+   (
+      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_DefaultAudioRenderDeviceChanged
+   (
+      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
    function GetAudioCaptureSelector
    return Windows.String;
    
    function GetAudioRenderSelector
-   return Windows.String;
-   
-   function GetVideoCaptureSelector
    return Windows.String;
    
    function GetDefaultAudioCaptureId
@@ -4508,23 +4517,14 @@ package Windows.Media.Devices is
    )
    return Windows.String;
    
-   function add_DefaultAudioCaptureDeviceChanged
-   (
-      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged
-   )
-   return Windows.Foundation.EventRegistrationToken;
+   function GetVideoCaptureSelector
+   return Windows.String;
    
    procedure remove_DefaultAudioCaptureDeviceChanged
    (
       cookie : Windows.Foundation.EventRegistrationToken
    )
    ;
-   
-   function add_DefaultAudioRenderDeviceChanged
-   (
-      handler : TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged
-   )
-   return Windows.Foundation.EventRegistrationToken;
    
    procedure remove_DefaultAudioRenderDeviceChanged
    (

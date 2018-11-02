@@ -5151,186 +5151,6 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.Guid;
    
-   function get_AlertCategoryId
-   return Windows.Guid;
-   
-   function get_AlertCategoryIdBitMask
-   return Windows.Guid;
-   
-   function get_AlertLevel
-   return Windows.Guid;
-   
-   function get_AlertNotificationControlPoint
-   return Windows.Guid;
-   
-   function get_AlertStatus
-   return Windows.Guid;
-   
-   function get_GapAppearance
-   return Windows.Guid;
-   
-   function get_BootKeyboardInputReport
-   return Windows.Guid;
-   
-   function get_BootKeyboardOutputReport
-   return Windows.Guid;
-   
-   function get_BootMouseInputReport
-   return Windows.Guid;
-   
-   function get_CurrentTime
-   return Windows.Guid;
-   
-   function get_CyclingPowerControlPoint
-   return Windows.Guid;
-   
-   function get_CyclingPowerFeature
-   return Windows.Guid;
-   
-   function get_CyclingPowerMeasurement
-   return Windows.Guid;
-   
-   function get_CyclingPowerVector
-   return Windows.Guid;
-   
-   function get_DateTime
-   return Windows.Guid;
-   
-   function get_DayDateTime
-   return Windows.Guid;
-   
-   function get_DayOfWeek
-   return Windows.Guid;
-   
-   function get_GapDeviceName
-   return Windows.Guid;
-   
-   function get_DstOffset
-   return Windows.Guid;
-   
-   function get_ExactTime256
-   return Windows.Guid;
-   
-   function get_FirmwareRevisionString
-   return Windows.Guid;
-   
-   function get_HardwareRevisionString
-   return Windows.Guid;
-   
-   function get_HidControlPoint
-   return Windows.Guid;
-   
-   function get_HidInformation
-   return Windows.Guid;
-   
-   function get_Ieee1107320601RegulatoryCertificationDataList
-   return Windows.Guid;
-   
-   function get_LnControlPoint
-   return Windows.Guid;
-   
-   function get_LnFeature
-   return Windows.Guid;
-   
-   function get_LocalTimeInformation
-   return Windows.Guid;
-   
-   function get_LocationAndSpeed
-   return Windows.Guid;
-   
-   function get_ManufacturerNameString
-   return Windows.Guid;
-   
-   function get_ModelNumberString
-   return Windows.Guid;
-   
-   function get_Navigation
-   return Windows.Guid;
-   
-   function get_NewAlert
-   return Windows.Guid;
-   
-   function get_GapPeripheralPreferredConnectionParameters
-   return Windows.Guid;
-   
-   function get_GapPeripheralPrivacyFlag
-   return Windows.Guid;
-   
-   function get_PnpId
-   return Windows.Guid;
-   
-   function get_PositionQuality
-   return Windows.Guid;
-   
-   function get_ProtocolMode
-   return Windows.Guid;
-   
-   function get_GapReconnectionAddress
-   return Windows.Guid;
-   
-   function get_ReferenceTimeInformation
-   return Windows.Guid;
-   
-   function get_Report
-   return Windows.Guid;
-   
-   function get_ReportMap
-   return Windows.Guid;
-   
-   function get_RingerControlPoint
-   return Windows.Guid;
-   
-   function get_RingerSetting
-   return Windows.Guid;
-   
-   function get_ScanIntervalWindow
-   return Windows.Guid;
-   
-   function get_ScanRefresh
-   return Windows.Guid;
-   
-   function get_SerialNumberString
-   return Windows.Guid;
-   
-   function get_GattServiceChanged
-   return Windows.Guid;
-   
-   function get_SoftwareRevisionString
-   return Windows.Guid;
-   
-   function get_SupportedNewAlertCategory
-   return Windows.Guid;
-   
-   function get_SupportUnreadAlertCategory
-   return Windows.Guid;
-   
-   function get_SystemId
-   return Windows.Guid;
-   
-   function get_TimeAccuracy
-   return Windows.Guid;
-   
-   function get_TimeSource
-   return Windows.Guid;
-   
-   function get_TimeUpdateControlPoint
-   return Windows.Guid;
-   
-   function get_TimeUpdateState
-   return Windows.Guid;
-   
-   function get_TimeWithDst
-   return Windows.Guid;
-   
-   function get_TimeZone
-   return Windows.Guid;
-   
-   function get_TxPowerLevel
-   return Windows.Guid;
-   
-   function get_UnreadAlertStatus
-   return Windows.Guid;
-   
    function get_BatteryLevel
    return Windows.Guid;
    
@@ -5394,6 +5214,186 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    function get_TemperatureType
    return Windows.Guid;
    
+   function get_AlertCategoryId
+   return Windows.Guid;
+   
+   function get_AlertCategoryIdBitMask
+   return Windows.Guid;
+   
+   function get_AlertLevel
+   return Windows.Guid;
+   
+   function get_AlertNotificationControlPoint
+   return Windows.Guid;
+   
+   function get_AlertStatus
+   return Windows.Guid;
+   
+   function get_BootKeyboardInputReport
+   return Windows.Guid;
+   
+   function get_BootKeyboardOutputReport
+   return Windows.Guid;
+   
+   function get_BootMouseInputReport
+   return Windows.Guid;
+   
+   function get_CurrentTime
+   return Windows.Guid;
+   
+   function get_CyclingPowerControlPoint
+   return Windows.Guid;
+   
+   function get_CyclingPowerFeature
+   return Windows.Guid;
+   
+   function get_CyclingPowerMeasurement
+   return Windows.Guid;
+   
+   function get_CyclingPowerVector
+   return Windows.Guid;
+   
+   function get_DateTime
+   return Windows.Guid;
+   
+   function get_DayDateTime
+   return Windows.Guid;
+   
+   function get_DayOfWeek
+   return Windows.Guid;
+   
+   function get_DstOffset
+   return Windows.Guid;
+   
+   function get_ExactTime256
+   return Windows.Guid;
+   
+   function get_FirmwareRevisionString
+   return Windows.Guid;
+   
+   function get_GapAppearance
+   return Windows.Guid;
+   
+   function get_GapDeviceName
+   return Windows.Guid;
+   
+   function get_GapPeripheralPreferredConnectionParameters
+   return Windows.Guid;
+   
+   function get_GapPeripheralPrivacyFlag
+   return Windows.Guid;
+   
+   function get_GapReconnectionAddress
+   return Windows.Guid;
+   
+   function get_GattServiceChanged
+   return Windows.Guid;
+   
+   function get_HardwareRevisionString
+   return Windows.Guid;
+   
+   function get_HidControlPoint
+   return Windows.Guid;
+   
+   function get_HidInformation
+   return Windows.Guid;
+   
+   function get_Ieee1107320601RegulatoryCertificationDataList
+   return Windows.Guid;
+   
+   function get_LnControlPoint
+   return Windows.Guid;
+   
+   function get_LnFeature
+   return Windows.Guid;
+   
+   function get_LocalTimeInformation
+   return Windows.Guid;
+   
+   function get_LocationAndSpeed
+   return Windows.Guid;
+   
+   function get_ManufacturerNameString
+   return Windows.Guid;
+   
+   function get_ModelNumberString
+   return Windows.Guid;
+   
+   function get_Navigation
+   return Windows.Guid;
+   
+   function get_NewAlert
+   return Windows.Guid;
+   
+   function get_PnpId
+   return Windows.Guid;
+   
+   function get_PositionQuality
+   return Windows.Guid;
+   
+   function get_ProtocolMode
+   return Windows.Guid;
+   
+   function get_ReferenceTimeInformation
+   return Windows.Guid;
+   
+   function get_Report
+   return Windows.Guid;
+   
+   function get_ReportMap
+   return Windows.Guid;
+   
+   function get_RingerControlPoint
+   return Windows.Guid;
+   
+   function get_RingerSetting
+   return Windows.Guid;
+   
+   function get_ScanIntervalWindow
+   return Windows.Guid;
+   
+   function get_ScanRefresh
+   return Windows.Guid;
+   
+   function get_SerialNumberString
+   return Windows.Guid;
+   
+   function get_SoftwareRevisionString
+   return Windows.Guid;
+   
+   function get_SupportedNewAlertCategory
+   return Windows.Guid;
+   
+   function get_SupportUnreadAlertCategory
+   return Windows.Guid;
+   
+   function get_SystemId
+   return Windows.Guid;
+   
+   function get_TimeAccuracy
+   return Windows.Guid;
+   
+   function get_TimeSource
+   return Windows.Guid;
+   
+   function get_TimeUpdateControlPoint
+   return Windows.Guid;
+   
+   function get_TimeUpdateState
+   return Windows.Guid;
+   
+   function get_TimeWithDst
+   return Windows.Guid;
+   
+   function get_TimeZone
+   return Windows.Guid;
+   
+   function get_TxPowerLevel
+   return Windows.Guid;
+   
+   function get_UnreadAlertStatus
+   return Windows.Guid;
+   
    function ConvertShortIdToUuid_IGattDescriptor
    (
       shortId : Windows.UInt16
@@ -5418,17 +5418,17 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    function get_ServerCharacteristicConfiguration
    return Windows.Guid;
    
+   function ConvertShortIdToUuid_IGattDeviceService
+   (
+      shortId : Windows.UInt16
+   )
+   return Windows.Guid;
+   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
    return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService;
-   
-   function GetDeviceSelectorFromUuid
-   (
-      serviceUuid : Windows.Guid
-   )
-   return Windows.String;
    
    function GetDeviceSelectorFromShortId
    (
@@ -5436,11 +5436,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.String;
    
-   function ConvertShortIdToUuid_IGattDeviceService
+   function GetDeviceSelectorFromUuid
    (
-      shortId : Windows.UInt16
+      serviceUuid : Windows.Guid
    )
-   return Windows.Guid;
+   return Windows.String;
    
    function FromIdWithSharingModeAsync
    (
@@ -5452,13 +5452,6 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    function GetDeviceSelectorForBluetoothDeviceId
    (
       bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
-   )
-   return Windows.String;
-   
-   function GetDeviceSelectorForBluetoothDeviceIdWithCacheMode
-   (
-      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
-      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
    )
    return Windows.String;
    
@@ -5477,6 +5470,16 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.String;
    
+   function GetDeviceSelectorForBluetoothDeviceIdWithCacheMode
+   (
+      bluetoothDeviceId : Windows.Devices.Bluetooth.IBluetoothDeviceId
+      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
+   )
+   return Windows.String;
+   
+   function get_BluetoothSigAssignedNumbers
+   return Windows.UInt8;
+   
    function FromParts
    (
       formatType : Windows.UInt8
@@ -5487,46 +5490,34 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat;
    
-   function get_BluetoothSigAssignedNumbers
+   function get_Bit2
    return Windows.UInt8;
    
    function get_Boolean
    return Windows.UInt8;
    
-   function get_Bit2
+   function get_DUInt16
+   return Windows.UInt8;
+   
+   function get_Float
+   return Windows.UInt8;
+   
+   function get_Float32
+   return Windows.UInt8;
+   
+   function get_Float64
    return Windows.UInt8;
    
    function get_Nibble
    return Windows.UInt8;
    
-   function get_UInt8
-   return Windows.UInt8;
-   
-   function get_UInt12
-   return Windows.UInt8;
-   
-   function get_UInt16
-   return Windows.UInt8;
-   
-   function get_UInt24
-   return Windows.UInt8;
-   
-   function get_UInt32
-   return Windows.UInt8;
-   
-   function get_UInt48
-   return Windows.UInt8;
-   
-   function get_UInt64
-   return Windows.UInt8;
-   
-   function get_UInt128
-   return Windows.UInt8;
-   
-   function get_SInt8
+   function get_SFloat
    return Windows.UInt8;
    
    function get_SInt12
+   return Windows.UInt8;
+   
+   function get_SInt128
    return Windows.UInt8;
    
    function get_SInt16
@@ -5544,58 +5535,40 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    function get_SInt64
    return Windows.UInt8;
    
-   function get_SInt128
-   return Windows.UInt8;
-   
-   function get_Float32
-   return Windows.UInt8;
-   
-   function get_Float64
-   return Windows.UInt8;
-   
-   function get_SFloat
-   return Windows.UInt8;
-   
-   function get_Float
-   return Windows.UInt8;
-   
-   function get_DUInt16
-   return Windows.UInt8;
-   
-   function get_Utf8
-   return Windows.UInt8;
-   
-   function get_Utf16
+   function get_SInt8
    return Windows.UInt8;
    
    function get_Struct
    return Windows.UInt8;
    
-   function get_InvalidHandle
+   function get_UInt12
    return Windows.UInt8;
    
-   function get_ReadNotPermitted
+   function get_UInt128
    return Windows.UInt8;
    
-   function get_WriteNotPermitted
+   function get_UInt16
    return Windows.UInt8;
    
-   function get_InvalidPdu
+   function get_UInt24
    return Windows.UInt8;
    
-   function get_InsufficientAuthentication
+   function get_UInt32
    return Windows.UInt8;
    
-   function get_RequestNotSupported
+   function get_UInt48
    return Windows.UInt8;
    
-   function get_InvalidOffset
+   function get_UInt64
    return Windows.UInt8;
    
-   function get_InsufficientAuthorization
+   function get_UInt8
    return Windows.UInt8;
    
-   function get_PrepareQueueFull
+   function get_Utf16
+   return Windows.UInt8;
+   
+   function get_Utf8
    return Windows.UInt8;
    
    function get_AttributeNotFound
@@ -5604,22 +5577,49 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    function get_AttributeNotLong
    return Windows.UInt8;
    
-   function get_InsufficientEncryptionKeySize
+   function get_InsufficientAuthentication
    return Windows.UInt8;
    
-   function get_InvalidAttributeValueLength
-   return Windows.UInt8;
-   
-   function get_UnlikelyError
+   function get_InsufficientAuthorization
    return Windows.UInt8;
    
    function get_InsufficientEncryption
    return Windows.UInt8;
    
-   function get_UnsupportedGroupType
+   function get_InsufficientEncryptionKeySize
    return Windows.UInt8;
    
    function get_InsufficientResources
+   return Windows.UInt8;
+   
+   function get_InvalidAttributeValueLength
+   return Windows.UInt8;
+   
+   function get_InvalidHandle
+   return Windows.UInt8;
+   
+   function get_InvalidOffset
+   return Windows.UInt8;
+   
+   function get_InvalidPdu
+   return Windows.UInt8;
+   
+   function get_PrepareQueueFull
+   return Windows.UInt8;
+   
+   function get_ReadNotPermitted
+   return Windows.UInt8;
+   
+   function get_RequestNotSupported
+   return Windows.UInt8;
+   
+   function get_UnlikelyError
+   return Windows.UInt8;
+   
+   function get_UnsupportedGroupType
+   return Windows.UInt8;
+   
+   function get_WriteNotPermitted
    return Windows.UInt8;
    
    function CreateAsync
@@ -5627,6 +5627,33 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       serviceUuid : Windows.Guid
    )
    return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult;
+   
+   function get_Battery
+   return Windows.Guid;
+   
+   function get_BloodPressure
+   return Windows.Guid;
+   
+   function get_CyclingSpeedAndCadence
+   return Windows.Guid;
+   
+   function get_GenericAccess
+   return Windows.Guid;
+   
+   function get_GenericAttribute
+   return Windows.Guid;
+   
+   function get_Glucose
+   return Windows.Guid;
+   
+   function get_HealthThermometer
+   return Windows.Guid;
+   
+   function get_HeartRate
+   return Windows.Guid;
+   
+   function get_RunningSpeedAndCadence
+   return Windows.Guid;
    
    function get_AlertNotification
    return Windows.Guid;
@@ -5665,33 +5692,6 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    return Windows.Guid;
    
    function get_TxPower
-   return Windows.Guid;
-   
-   function get_Battery
-   return Windows.Guid;
-   
-   function get_BloodPressure
-   return Windows.Guid;
-   
-   function get_CyclingSpeedAndCadence
-   return Windows.Guid;
-   
-   function get_GenericAccess
-   return Windows.Guid;
-   
-   function get_GenericAttribute
-   return Windows.Guid;
-   
-   function get_Glucose
-   return Windows.Guid;
-   
-   function get_HealthThermometer
-   return Windows.Guid;
-   
-   function get_HeartRate
-   return Windows.Guid;
-   
-   function get_RunningSpeedAndCadence
    return Windows.Guid;
    
    function FromDeviceIdAsync

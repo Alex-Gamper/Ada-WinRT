@@ -7183,93 +7183,6 @@ package Windows.Media.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_VideoFormatDV25
-   return Windows.String;
-   
-   function get_VideoFormatDV50
-   return Windows.String;
-   
-   function get_VideoFormatDvc
-   return Windows.String;
-   
-   function get_VideoFormatDvh1
-   return Windows.String;
-   
-   function get_VideoFormatDvhD
-   return Windows.String;
-   
-   function get_VideoFormatDvsd
-   return Windows.String;
-   
-   function get_VideoFormatDvsl
-   return Windows.String;
-   
-   function get_VideoFormatH263
-   return Windows.String;
-   
-   function get_VideoFormatH264
-   return Windows.String;
-   
-   function get_VideoFormatH265
-   return Windows.String;
-   
-   function get_VideoFormatH264ES
-   return Windows.String;
-   
-   function get_VideoFormatHevc
-   return Windows.String;
-   
-   function get_VideoFormatHevcES
-   return Windows.String;
-   
-   function get_VideoFormatM4S2
-   return Windows.String;
-   
-   function get_VideoFormatMjpg
-   return Windows.String;
-   
-   function get_VideoFormatMP43
-   return Windows.String;
-   
-   function get_VideoFormatMP4S
-   return Windows.String;
-   
-   function get_VideoFormatMP4V
-   return Windows.String;
-   
-   function get_VideoFormatMpeg2
-   return Windows.String;
-   
-   function get_VideoFormatVP80
-   return Windows.String;
-   
-   function get_VideoFormatVP90
-   return Windows.String;
-   
-   function get_VideoFormatMpg1
-   return Windows.String;
-   
-   function get_VideoFormatMss1
-   return Windows.String;
-   
-   function get_VideoFormatMss2
-   return Windows.String;
-   
-   function get_VideoFormatWmv1
-   return Windows.String;
-   
-   function get_VideoFormatWmv2
-   return Windows.String;
-   
-   function get_VideoFormatWmv3
-   return Windows.String;
-   
-   function get_VideoFormatWvc1
-   return Windows.String;
-   
-   function get_VideoFormat420O
-   return Windows.String;
-   
    function get_AudioFormatAac
    return Windows.String;
    
@@ -7336,11 +7249,92 @@ package Windows.Media.Core is
    function get_AudioFormatWMAudioV9
    return Windows.String;
    
-   function get_SupportedBitmapPixelFormats
-   return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
+   function get_VideoFormat420O
+   return Windows.String;
    
-   function get_MaxSupportedFrameCount
-   return Windows.Int32;
+   function get_VideoFormatDV25
+   return Windows.String;
+   
+   function get_VideoFormatDV50
+   return Windows.String;
+   
+   function get_VideoFormatDvc
+   return Windows.String;
+   
+   function get_VideoFormatDvh1
+   return Windows.String;
+   
+   function get_VideoFormatDvhD
+   return Windows.String;
+   
+   function get_VideoFormatDvsd
+   return Windows.String;
+   
+   function get_VideoFormatDvsl
+   return Windows.String;
+   
+   function get_VideoFormatH263
+   return Windows.String;
+   
+   function get_VideoFormatH264
+   return Windows.String;
+   
+   function get_VideoFormatH264ES
+   return Windows.String;
+   
+   function get_VideoFormatH265
+   return Windows.String;
+   
+   function get_VideoFormatHevc
+   return Windows.String;
+   
+   function get_VideoFormatHevcES
+   return Windows.String;
+   
+   function get_VideoFormatM4S2
+   return Windows.String;
+   
+   function get_VideoFormatMjpg
+   return Windows.String;
+   
+   function get_VideoFormatMP43
+   return Windows.String;
+   
+   function get_VideoFormatMP4S
+   return Windows.String;
+   
+   function get_VideoFormatMP4V
+   return Windows.String;
+   
+   function get_VideoFormatMpeg2
+   return Windows.String;
+   
+   function get_VideoFormatMpg1
+   return Windows.String;
+   
+   function get_VideoFormatMss1
+   return Windows.String;
+   
+   function get_VideoFormatMss2
+   return Windows.String;
+   
+   function get_VideoFormatVP80
+   return Windows.String;
+   
+   function get_VideoFormatVP90
+   return Windows.String;
+   
+   function get_VideoFormatWmv1
+   return Windows.String;
+   
+   function get_VideoFormatWmv2
+   return Windows.String;
+   
+   function get_VideoFormatWmv3
+   return Windows.String;
+   
+   function get_VideoFormatWvc1
+   return Windows.String;
    
    function FuseAsync
    (
@@ -7348,9 +7342,21 @@ package Windows.Media.Core is
    )
    return Windows.Address;
    
+   function get_MaxSupportedFrameCount
+   return Windows.Int32;
+   
+   function get_SupportedBitmapPixelFormats
+   return Windows.Graphics.Imaging.IVectorView_BitmapPixelFormat;
+   
    function CreateFromAdaptiveMediaSource
    (
       mediaSource : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource
+   )
+   return Windows.Media.Core.IMediaSource2;
+   
+   function CreateFromIMediaSource
+   (
+      mediaSource : Windows.Media.Core.IMediaSource
    )
    return Windows.Media.Core.IMediaSource2;
    
@@ -7363,12 +7369,6 @@ package Windows.Media.Core is
    function CreateFromMseStreamSource
    (
       mediaSource : Windows.Media.Core.IMseStreamSource
-   )
-   return Windows.Media.Core.IMediaSource2;
-   
-   function CreateFromIMediaSource
-   (
-      mediaSource : Windows.Media.Core.IMediaSource
    )
    return Windows.Media.Core.IMediaSource2;
    
@@ -7404,15 +7404,15 @@ package Windows.Media.Core is
    )
    return Windows.Media.Core.IMediaSource2;
    
-   function CreateFromDownloadOperation
-   (
-      downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
-   )
-   return Windows.Media.Core.IMediaSource2;
-   
    function CreateFromMediaFrameSource
    (
       frameSource : Windows.Media.Capture.Frames.IMediaFrameSource
+   )
+   return Windows.Media.Core.IMediaSource2;
+   
+   function CreateFromDownloadOperation
+   (
+      downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
    )
    return Windows.Media.Core.IMediaSource2;
    
@@ -7437,17 +7437,36 @@ package Windows.Media.Core is
    )
    return Windows.Boolean;
    
+   function CreateFromStream
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Media.Core.ITimedTextSource;
+   
+   function CreateFromStreamWithLanguage
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+      ; defaultLanguage : Windows.String
+   )
+   return Windows.Media.Core.ITimedTextSource;
+   
+   function CreateFromUri
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Media.Core.ITimedTextSource;
+   
+   function CreateFromUriWithLanguage
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; defaultLanguage : Windows.String
+   )
+   return Windows.Media.Core.ITimedTextSource;
+   
    function CreateFromStreamWithIndex
    (
       stream : Windows.Storage.Streams.IRandomAccessStream
       ; indexStream : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Media.Core.ITimedTextSource;
-   
-   function CreateFromUriWithIndex
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; indexUri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.Media.Core.ITimedTextSource;
    
@@ -7459,36 +7478,17 @@ package Windows.Media.Core is
    )
    return Windows.Media.Core.ITimedTextSource;
    
+   function CreateFromUriWithIndex
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; indexUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Media.Core.ITimedTextSource;
+   
    function CreateFromUriWithIndexAndLanguage
    (
       uri : Windows.Foundation.IUriRuntimeClass
       ; indexUri : Windows.Foundation.IUriRuntimeClass
-      ; defaultLanguage : Windows.String
-   )
-   return Windows.Media.Core.ITimedTextSource;
-   
-   function CreateFromStream
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-   )
-   return Windows.Media.Core.ITimedTextSource;
-   
-   function CreateFromUri
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Media.Core.ITimedTextSource;
-   
-   function CreateFromStreamWithLanguage
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-      ; defaultLanguage : Windows.String
-   )
-   return Windows.Media.Core.ITimedTextSource;
-   
-   function CreateFromUriWithLanguage
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
       ; defaultLanguage : Windows.String
    )
    return Windows.Media.Core.ITimedTextSource;

@@ -1431,14 +1431,6 @@ package Windows.ApplicationModel.Resources.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   procedure SetGlobalQualifierValueWithPersistence
-   (
-      key : Windows.String
-      ; value : Windows.String
-      ; persistence : Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence
-   )
-   ;
-   
    function CreateMatchingContext
    (
       result : Windows.ApplicationModel.Resources.Core.IIterable_IResourceQualifier
@@ -1448,12 +1440,8 @@ package Windows.ApplicationModel.Resources.Core is
    function GetForCurrentView
    return Windows.ApplicationModel.Resources.Core.IResourceContext;
    
-   procedure SetGlobalQualifierValue
-   (
-      key : Windows.String
-      ; value : Windows.String
-   )
-   ;
+   function GetForViewIndependentUse
+   return Windows.ApplicationModel.Resources.Core.IResourceContext;
    
    procedure ResetGlobalQualifierValues
    ;
@@ -1464,8 +1452,20 @@ package Windows.ApplicationModel.Resources.Core is
    )
    ;
    
-   function GetForViewIndependentUse
-   return Windows.ApplicationModel.Resources.Core.IResourceContext;
+   procedure SetGlobalQualifierValue
+   (
+      key : Windows.String
+      ; value : Windows.String
+   )
+   ;
+   
+   procedure SetGlobalQualifierValueWithPersistence
+   (
+      key : Windows.String
+      ; value : Windows.String
+      ; persistence : Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence
+   )
+   ;
    
    function get_Current
    return Windows.ApplicationModel.Resources.Core.IResourceManager;

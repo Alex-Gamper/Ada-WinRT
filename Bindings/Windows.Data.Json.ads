@@ -677,19 +677,6 @@ package Windows.Data.Json is
    )
    return Windows.Boolean;
    
-   function Parse
-   (
-      input : Windows.String
-   )
-   return Windows.Data.Json.IJsonValue;
-   
-   function TryParse
-   (
-      input : Windows.String
-      ; result : access Windows.Data.Json.IJsonValue
-   )
-   return Windows.Boolean;
-   
    function CreateBooleanValue
    (
       input : Windows.Boolean
@@ -707,6 +694,19 @@ package Windows.Data.Json is
       input : Windows.String
    )
    return Windows.Data.Json.IJsonValue;
+   
+   function Parse
+   (
+      input : Windows.String
+   )
+   return Windows.Data.Json.IJsonValue;
+   
+   function TryParse
+   (
+      input : Windows.String
+      ; result : access Windows.Data.Json.IJsonValue
+   )
+   return Windows.Boolean;
    
    function CreateNullValue
    return Windows.Data.Json.IJsonValue;

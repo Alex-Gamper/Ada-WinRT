@@ -785,42 +785,14 @@ package Windows.Devices.Perception.Provider is
    function get_Infrared
    return Windows.String;
    
-   procedure RegisterFrameProviderInfo
+   procedure PublishFrameForProvider
    (
-      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
-   )
-   ;
-   
-   procedure UnregisterFrameProviderInfo
-   (
-      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
-   )
-   ;
-   
-   procedure RegisterFaceAuthenticationGroup
-   (
-      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
-   )
-   ;
-   
-   procedure UnregisterFaceAuthenticationGroup
-   (
-      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
+      provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
+      ; frame : Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    ;
    
    procedure RegisterControlGroup
-   (
-      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
-      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
-   )
-   ;
-   
-   procedure UnregisterControlGroup
    (
       manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
       ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
@@ -834,6 +806,27 @@ package Windows.Devices.Perception.Provider is
    )
    ;
    
+   procedure RegisterFaceAuthenticationGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
+   )
+   ;
+   
+   procedure RegisterFrameProviderInfo
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
+   )
+   ;
+   
+   procedure UnregisterControlGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
+   )
+   ;
+   
    procedure UnregisterCorrelationGroup
    (
       manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
@@ -841,17 +834,24 @@ package Windows.Devices.Perception.Provider is
    )
    ;
    
+   procedure UnregisterFaceAuthenticationGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
+   )
+   ;
+   
+   procedure UnregisterFrameProviderInfo
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
+   )
+   ;
+   
    procedure UpdateAvailabilityForProvider
    (
       provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
       ; available : Windows.Boolean
-   )
-   ;
-   
-   procedure PublishFrameForProvider
-   (
-      provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
-      ; frame : Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    ;
    

@@ -7217,10 +7217,10 @@ package Windows.ApplicationModel.Contacts is
    function get_Call
    return Windows.String;
    
-   function get_Message
+   function get_Map
    return Windows.String;
    
-   function get_Map
+   function get_Message
    return Windows.String;
    
    function get_Post
@@ -7252,23 +7252,8 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.ApplicationModel.Contacts.IContactCardDelayedDataLoader;
    
-   function IsShowFullContactCardSupportedAsync
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function get_IncludeMiddleNameInSystemDisplayAndSort
-   return Windows.Boolean;
-   
-   procedure put_IncludeMiddleNameInSystemDisplayAndSort
-   (
-      value : Windows.Boolean
-   )
-   ;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Contacts.IContactManagerForUser;
+   function RequestStoreAsync
+   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
    
    function ConvertContactToVCardAsync
    (
@@ -7289,11 +7274,29 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.ApplicationModel.Contacts.IAsyncOperation_IContact;
    
-   function RequestStoreAsyncWithAccessType
+   function get_SystemDisplayNameOrder
+   return Windows.ApplicationModel.Contacts.ContactNameOrder;
+   
+   function get_SystemSortOrder
+   return Windows.ApplicationModel.Contacts.ContactNameOrder;
+   
+   function IsShowContactCardSupported
+   return Windows.Boolean;
+   
+   function IsShowDelayLoadedContactCardSupported
+   return Windows.Boolean;
+   
+   procedure put_SystemDisplayNameOrder
    (
-      accessType : Windows.ApplicationModel.Contacts.ContactStoreAccessType
+      value : Windows.ApplicationModel.Contacts.ContactNameOrder
    )
-   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
+   ;
+   
+   procedure put_SystemSortOrder
+   (
+      value : Windows.ApplicationModel.Contacts.ContactNameOrder
+   )
+   ;
    
    function RequestAnnotationStoreAsync
    (
@@ -7301,8 +7304,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationStore;
    
-   function IsShowContactCardSupported
-   return Windows.Boolean;
+   function RequestStoreAsyncWithAccessType
+   (
+      accessType : Windows.ApplicationModel.Contacts.ContactStoreAccessType
+   )
+   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
    
    procedure ShowContactCardWithOptions
    (
@@ -7312,9 +7318,6 @@ package Windows.ApplicationModel.Contacts is
       ; contactCardOptions : Windows.ApplicationModel.Contacts.IContactCardOptions
    )
    ;
-   
-   function IsShowDelayLoadedContactCardSupported
-   return Windows.Boolean;
    
    function ShowDelayLoadedContactCardWithOptions
    (
@@ -7332,26 +7335,23 @@ package Windows.ApplicationModel.Contacts is
    )
    ;
    
-   function get_SystemDisplayNameOrder
-   return Windows.ApplicationModel.Contacts.ContactNameOrder;
-   
-   procedure put_SystemDisplayNameOrder
+   function GetForUser
    (
-      value : Windows.ApplicationModel.Contacts.ContactNameOrder
+      user : Windows.System.IUser
+   )
+   return Windows.ApplicationModel.Contacts.IContactManagerForUser;
+   
+   function get_IncludeMiddleNameInSystemDisplayAndSort
+   return Windows.Boolean;
+   
+   function IsShowFullContactCardSupportedAsync
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   procedure put_IncludeMiddleNameInSystemDisplayAndSort
+   (
+      value : Windows.Boolean
    )
    ;
-   
-   function get_SystemSortOrder
-   return Windows.ApplicationModel.Contacts.ContactNameOrder;
-   
-   procedure put_SystemSortOrder
-   (
-      value : Windows.ApplicationModel.Contacts.ContactNameOrder
-   )
-   ;
-   
-   function RequestStoreAsync
-   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
    
    function CreateForUser
    (
@@ -7361,18 +7361,6 @@ package Windows.ApplicationModel.Contacts is
    
    function IsSupportedAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function get_Email
-   return Windows.String;
-   
-   function get_PhoneNumber
-   return Windows.String;
-   
-   function get_Location
-   return Windows.String;
-   
-   function get_InstantMessage
-   return Windows.String;
    
    function ConvertNameToType
    (
@@ -7384,6 +7372,18 @@ package Windows.ApplicationModel.Contacts is
    (
       type_x : Windows.ApplicationModel.Contacts.ContactFieldType
    )
+   return Windows.String;
+   
+   function get_Email
+   return Windows.String;
+   
+   function get_InstantMessage
+   return Windows.String;
+   
+   function get_Location
+   return Windows.String;
+   
+   function get_PhoneNumber
    return Windows.String;
    
    function GetDefault

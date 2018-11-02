@@ -1185,12 +1185,6 @@ package Windows.UI is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function ToDisplayName
-   (
-      color : Windows.UI.Color
-   )
-   return Windows.String;
-   
    function FromArgb
    (
       a : Windows.UInt8
@@ -1199,6 +1193,12 @@ package Windows.UI is
       ; b : Windows.UInt8
    )
    return Windows.UI.Color;
+   
+   function ToDisplayName
+   (
+      color : Windows.UI.Color
+   )
+   return Windows.String;
    
    function get_AliceBlue
    return Windows.UI.Color;
@@ -1401,10 +1401,10 @@ package Windows.UI is
    function get_LightGoldenrodYellow
    return Windows.UI.Color;
    
-   function get_LightGreen
+   function get_LightGray
    return Windows.UI.Color;
    
-   function get_LightGray
+   function get_LightGreen
    return Windows.UI.Color;
    
    function get_LightPink

@@ -1298,19 +1298,6 @@ package Windows.Data.Xml.Dom is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function LoadFromUriAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
-   
-   function LoadFromUriWithSettingsAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; loadSettings : Windows.Data.Xml.Dom.IXmlLoadSettings
-   )
-   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
-   
    function LoadFromFileAsync
    (
       file : Windows.Storage.IStorageFile
@@ -1320,6 +1307,19 @@ package Windows.Data.Xml.Dom is
    function LoadFromFileWithSettingsAsync
    (
       file : Windows.Storage.IStorageFile
+      ; loadSettings : Windows.Data.Xml.Dom.IXmlLoadSettings
+   )
+   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
+   
+   function LoadFromUriAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
+   
+   function LoadFromUriWithSettingsAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
       ; loadSettings : Windows.Data.Xml.Dom.IXmlLoadSettings
    )
    return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;

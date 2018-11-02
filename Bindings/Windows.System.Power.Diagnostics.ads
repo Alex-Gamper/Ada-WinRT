@@ -106,20 +106,20 @@ package Windows.System.Power.Diagnostics is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_DeviceSpecificConversionFactor
-   return Windows.Double;
-   
    function ComputeTotalEnergyUsage
    return Windows.UInt64;
+   
+   function get_DeviceSpecificConversionFactor
+   return Windows.Double;
    
    procedure ResetTotalEnergyUsage
    ;
    
-   function get_DeviceSpecificConversionFactor_ForegroundEnergyDiagnostics
-   return Windows.Double;
-   
    function ComputeTotalEnergyUsage_ForegroundEnergyDiagnostics
    return Windows.UInt64;
+   
+   function get_DeviceSpecificConversionFactor_ForegroundEnergyDiagnostics
+   return Windows.Double;
    
    procedure ResetTotalEnergyUsage_ForegroundEnergyDiagnostics
    ;

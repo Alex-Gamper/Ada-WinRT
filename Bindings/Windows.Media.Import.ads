@@ -1922,24 +1922,24 @@ package Windows.Media.Import is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function IsSupportedAsync
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
    function FindAllSourcesAsync
    return Windows.Address;
    
    function GetPendingOperations
    return Windows.Media.Import.IVectorView_IPhotoImportOperation;
    
-   function FromIdAsync
-   (
-      sourceId : Windows.String
-   )
-   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
+   function IsSupportedAsync
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function FromFolderAsync
    (
       sourceRootFolder : Windows.Storage.IStorageFolder
+   )
+   return Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
+   
+   function FromIdAsync
+   (
+      sourceId : Windows.String
    )
    return Windows.Media.Import.IAsyncOperation_IPhotoImportSource;
    

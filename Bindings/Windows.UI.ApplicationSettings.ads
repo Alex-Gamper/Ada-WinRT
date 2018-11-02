@@ -1346,16 +1346,10 @@ package Windows.UI.ApplicationSettings is
    procedure Show
    ;
    
-   function ShowManageAccountsAsync
-   return Windows.Foundation.IAsyncAction;
-   
    function ShowAddAccountAsync
    return Windows.Foundation.IAsyncAction;
    
-   function ShowManageAccountsForUserAsync
-   (
-      user : Windows.System.IUser
-   )
+   function ShowManageAccountsAsync
    return Windows.Foundation.IAsyncAction;
    
    function ShowAddAccountForUserAsync
@@ -1364,16 +1358,22 @@ package Windows.UI.ApplicationSettings is
    )
    return Windows.Foundation.IAsyncAction;
    
+   function ShowManageAccountsForUserAsync
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IAsyncAction;
+   
    function get_AccountsCommand
    return Windows.UI.Popups.IUICommand;
+   
+   function get_Edge
+   return Windows.UI.ApplicationSettings.SettingsEdgeLocation;
    
    function GetForCurrentView
    return Windows.UI.ApplicationSettings.ISettingsPane;
    
    procedure Show_ISettingsPane
    ;
-   
-   function get_Edge
-   return Windows.UI.ApplicationSettings.SettingsEdgeLocation;
    
 end;

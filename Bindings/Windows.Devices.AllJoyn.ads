@@ -2310,12 +2310,6 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo;
    
-   function GetFromServiceInfoAsync
-   (
-      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
-   )
-   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
-   
    function GetFromServiceInfoAndBusAttachmentAsync
    (
       serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
@@ -2323,20 +2317,11 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
    
-   function get_Ok
-   return Windows.Int32;
-   
-   function get_Fail
-   return Windows.Int32;
-   
-   function get_OperationTimedOut
-   return Windows.Int32;
-   
-   function get_OtherEndClosed
-   return Windows.Int32;
-   
-   function get_ConnectionRefused
-   return Windows.Int32;
+   function GetFromServiceInfoAsync
+   (
+      serviceInfo : Windows.Devices.AllJoyn.IAllJoynServiceInfo
+   )
+   return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
    
    function get_AuthenticationFailed
    return Windows.Int32;
@@ -2344,10 +2329,10 @@ package Windows.Devices.AllJoyn is
    function get_AuthenticationRejectedByUser
    return Windows.Int32;
    
-   function get_SslConnectFailed
+   function get_ConnectionRefused
    return Windows.Int32;
    
-   function get_SslIdentityVerificationFailed
+   function get_Fail
    return Windows.Int32;
    
    function get_InsufficientSecurity
@@ -2375,6 +2360,21 @@ package Windows.Devices.AllJoyn is
    return Windows.Int32;
    
    function get_InvalidArgument8
+   return Windows.Int32;
+   
+   function get_Ok
+   return Windows.Int32;
+   
+   function get_OperationTimedOut
+   return Windows.Int32;
+   
+   function get_OtherEndClosed
+   return Windows.Int32;
+   
+   function get_SslConnectFailed
+   return Windows.Int32;
+   
+   function get_SslIdentityVerificationFailed
    return Windows.Int32;
    
 end;

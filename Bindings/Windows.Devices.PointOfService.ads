@@ -6979,13 +6979,13 @@ package Windows.Devices.PointOfService is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
+   return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
+   
+   function GetDefaultAsync
    return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
    
    function GetDeviceSelector
@@ -6997,25 +6997,70 @@ package Windows.Devices.PointOfService is
    )
    return Windows.String;
    
-   function get_Unknown
+   function get_AusPost
    return Windows.UInt32;
    
-   function get_Ean8
+   function get_Aztec
    return Windows.UInt32;
    
-   function get_Ean8Add2
+   function get_CanPost
    return Windows.UInt32;
    
-   function get_Ean8Add5
+   function get_Ccab
    return Windows.UInt32;
    
-   function get_Eanv
+   function get_Ccc
    return Windows.UInt32;
    
-   function get_EanvAdd2
+   function get_ChinaPost
    return Windows.UInt32;
    
-   function get_EanvAdd5
+   function get_Codabar
+   return Windows.UInt32;
+   
+   function get_Codablock128
+   return Windows.UInt32;
+   
+   function get_CodablockA
+   return Windows.UInt32;
+   
+   function get_CodablockF
+   return Windows.UInt32;
+   
+   function get_Code11
+   return Windows.UInt32;
+   
+   function get_Code128
+   return Windows.UInt32;
+   
+   function get_Code16k
+   return Windows.UInt32;
+   
+   function get_Code32
+   return Windows.UInt32;
+   
+   function get_Code39
+   return Windows.UInt32;
+   
+   function get_Code39Ex
+   return Windows.UInt32;
+   
+   function get_Code49
+   return Windows.UInt32;
+   
+   function get_Code93
+   return Windows.UInt32;
+   
+   function get_Code93Ex
+   return Windows.UInt32;
+   
+   function get_DataCode
+   return Windows.UInt32;
+   
+   function get_DataMatrix
+   return Windows.UInt32;
+   
+   function get_DutchKix
    return Windows.UInt32;
    
    function get_Ean13
@@ -7027,10 +7072,64 @@ package Windows.Devices.PointOfService is
    function get_Ean13Add5
    return Windows.UInt32;
    
+   function get_Ean8
+   return Windows.UInt32;
+   
+   function get_Ean8Add2
+   return Windows.UInt32;
+   
+   function get_Ean8Add5
+   return Windows.UInt32;
+   
+   function get_Ean99
+   return Windows.UInt32;
+   
+   function get_Ean99Add2
+   return Windows.UInt32;
+   
+   function get_Ean99Add5
+   return Windows.UInt32;
+   
+   function get_Eanv
+   return Windows.UInt32;
+   
+   function get_EanvAdd2
+   return Windows.UInt32;
+   
+   function get_EanvAdd5
+   return Windows.UInt32;
+   
+   function get_ExtendedBase
+   return Windows.UInt32;
+   
+   function get_Gs1128
+   return Windows.UInt32;
+   
+   function get_Gs1128Coupon
+   return Windows.UInt32;
+   
+   function get_Gs1DatabarType1
+   return Windows.UInt32;
+   
+   function get_Gs1DatabarType2
+   return Windows.UInt32;
+   
+   function get_Gs1DatabarType3
+   return Windows.UInt32;
+   
+   function get_HanXin
+   return Windows.UInt32;
+   
+   function get_InfoMail
+   return Windows.UInt32;
+   
    function get_Isbn
    return Windows.UInt32;
    
    function get_IsbnAdd5
+   return Windows.UInt32;
+   
+   function get_Isbt
    return Windows.UInt32;
    
    function get_Ismn
@@ -7051,186 +7150,6 @@ package Windows.Devices.PointOfService is
    function get_IssnAdd5
    return Windows.UInt32;
    
-   function get_Ean99
-   return Windows.UInt32;
-   
-   function get_Ean99Add2
-   return Windows.UInt32;
-   
-   function get_Ean99Add5
-   return Windows.UInt32;
-   
-   function get_Upca
-   return Windows.UInt32;
-   
-   function get_UpcaAdd2
-   return Windows.UInt32;
-   
-   function get_UpcaAdd5
-   return Windows.UInt32;
-   
-   function get_Upce
-   return Windows.UInt32;
-   
-   function get_UpceAdd2
-   return Windows.UInt32;
-   
-   function get_UpceAdd5
-   return Windows.UInt32;
-   
-   function get_UpcCoupon
-   return Windows.UInt32;
-   
-   function get_TfStd
-   return Windows.UInt32;
-   
-   function get_TfDis
-   return Windows.UInt32;
-   
-   function get_TfInt
-   return Windows.UInt32;
-   
-   function get_TfInd
-   return Windows.UInt32;
-   
-   function get_TfMat
-   return Windows.UInt32;
-   
-   function get_TfIata
-   return Windows.UInt32;
-   
-   function get_Gs1DatabarType1
-   return Windows.UInt32;
-   
-   function get_Gs1DatabarType2
-   return Windows.UInt32;
-   
-   function get_Gs1DatabarType3
-   return Windows.UInt32;
-   
-   function get_Code39
-   return Windows.UInt32;
-   
-   function get_Code39Ex
-   return Windows.UInt32;
-   
-   function get_Trioptic39
-   return Windows.UInt32;
-   
-   function get_Code32
-   return Windows.UInt32;
-   
-   function get_Pzn
-   return Windows.UInt32;
-   
-   function get_Code93
-   return Windows.UInt32;
-   
-   function get_Code93Ex
-   return Windows.UInt32;
-   
-   function get_Code128
-   return Windows.UInt32;
-   
-   function get_Gs1128
-   return Windows.UInt32;
-   
-   function get_Gs1128Coupon
-   return Windows.UInt32;
-   
-   function get_UccEan128
-   return Windows.UInt32;
-   
-   function get_Sisac
-   return Windows.UInt32;
-   
-   function get_Isbt
-   return Windows.UInt32;
-   
-   function get_Codabar
-   return Windows.UInt32;
-   
-   function get_Code11
-   return Windows.UInt32;
-   
-   function get_Msi
-   return Windows.UInt32;
-   
-   function get_Plessey
-   return Windows.UInt32;
-   
-   function get_Telepen
-   return Windows.UInt32;
-   
-   function get_Code16k
-   return Windows.UInt32;
-   
-   function get_CodablockA
-   return Windows.UInt32;
-   
-   function get_CodablockF
-   return Windows.UInt32;
-   
-   function get_Codablock128
-   return Windows.UInt32;
-   
-   function get_Code49
-   return Windows.UInt32;
-   
-   function get_Aztec
-   return Windows.UInt32;
-   
-   function get_DataCode
-   return Windows.UInt32;
-   
-   function get_DataMatrix
-   return Windows.UInt32;
-   
-   function get_HanXin
-   return Windows.UInt32;
-   
-   function get_Maxicode
-   return Windows.UInt32;
-   
-   function get_MicroPdf417
-   return Windows.UInt32;
-   
-   function get_MicroQr
-   return Windows.UInt32;
-   
-   function get_Pdf417
-   return Windows.UInt32;
-   
-   function get_Qr
-   return Windows.UInt32;
-   
-   function get_MsTag
-   return Windows.UInt32;
-   
-   function get_Ccab
-   return Windows.UInt32;
-   
-   function get_Ccc
-   return Windows.UInt32;
-   
-   function get_Tlc39
-   return Windows.UInt32;
-   
-   function get_AusPost
-   return Windows.UInt32;
-   
-   function get_CanPost
-   return Windows.UInt32;
-   
-   function get_ChinaPost
-   return Windows.UInt32;
-   
-   function get_DutchKix
-   return Windows.UInt32;
-   
-   function get_InfoMail
-   return Windows.UInt32;
-   
    function get_ItalianPost25
    return Windows.UInt32;
    
@@ -7243,10 +7162,106 @@ package Windows.Devices.PointOfService is
    function get_KoreanPost
    return Windows.UInt32;
    
+   function get_Maxicode
+   return Windows.UInt32;
+   
+   function get_Micr
+   return Windows.UInt32;
+   
+   function get_MicroPdf417
+   return Windows.UInt32;
+   
+   function get_MicroQr
+   return Windows.UInt32;
+   
+   function get_Msi
+   return Windows.UInt32;
+   
+   function get_MsTag
+   return Windows.UInt32;
+   
+   function get_OcrA
+   return Windows.UInt32;
+   
+   function get_OcrB
+   return Windows.UInt32;
+   
+   function get_Pdf417
+   return Windows.UInt32;
+   
+   function get_Plessey
+   return Windows.UInt32;
+   
+   function get_Pzn
+   return Windows.UInt32;
+   
+   function get_Qr
+   return Windows.UInt32;
+   
+   function get_Sisac
+   return Windows.UInt32;
+   
    function get_SwedenPost
    return Windows.UInt32;
    
+   function get_Telepen
+   return Windows.UInt32;
+   
+   function get_TfDis
+   return Windows.UInt32;
+   
+   function get_TfIata
+   return Windows.UInt32;
+   
+   function get_TfInd
+   return Windows.UInt32;
+   
+   function get_TfInt
+   return Windows.UInt32;
+   
+   function get_TfMat
+   return Windows.UInt32;
+   
+   function get_TfStd
+   return Windows.UInt32;
+   
+   function get_Tlc39
+   return Windows.UInt32;
+   
+   function get_Trioptic39
+   return Windows.UInt32;
+   
+   function get_UccEan128
+   return Windows.UInt32;
+   
    function get_UkPost
+   return Windows.UInt32;
+   
+   function get_Unknown
+   return Windows.UInt32;
+   
+   function get_Upca
+   return Windows.UInt32;
+   
+   function get_UpcaAdd2
+   return Windows.UInt32;
+   
+   function get_UpcaAdd5
+   return Windows.UInt32;
+   
+   function get_UpcCoupon
+   return Windows.UInt32;
+   
+   function get_Upce
+   return Windows.UInt32;
+   
+   function get_UpceAdd2
+   return Windows.UInt32;
+   
+   function get_UpceAdd5
+   return Windows.UInt32;
+   
+   function get_Us4StateFics
    return Windows.UInt32;
    
    function get_UsIntelligent
@@ -7261,21 +7276,6 @@ package Windows.Devices.PointOfService is
    function get_UsPostNet
    return Windows.UInt32;
    
-   function get_Us4StateFics
-   return Windows.UInt32;
-   
-   function get_OcrA
-   return Windows.UInt32;
-   
-   function get_OcrB
-   return Windows.UInt32;
-   
-   function get_Micr
-   return Windows.UInt32;
-   
-   function get_ExtendedBase
-   return Windows.UInt32;
-   
    function GetName
    (
       scanDataType : Windows.UInt32
@@ -7285,22 +7285,22 @@ package Windows.Devices.PointOfService is
    function get_Gs1DWCode
    return Windows.UInt32;
    
-   function GetDeviceSelectorWithConnectionTypes_ICashDrawer
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String;
-   
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
    return Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer;
    
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer;
+   
    function GetDeviceSelector_ICashDrawer
+   return Windows.String;
+   
+   function GetDeviceSelectorWithConnectionTypes_ICashDrawer
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
    return Windows.String;
    
    function FromIdAsync
@@ -7339,34 +7339,37 @@ package Windows.Devices.PointOfService is
    function get_StatisticsCategorySelector
    return Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector;
    
-   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String;
-   
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
    return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
    
+   function GetDefaultAsync
+   return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
+   
    function GetDeviceSelector_IMagneticStripeReader
    return Windows.String;
    
-   function get_Unknown_MagneticStripeReaderCardTypes
+   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String;
+   
+   function get_Aamva
    return Windows.UInt32;
    
    function get_Bank
    return Windows.UInt32;
    
-   function get_Aamva
+   function get_ExtendedBase_MagneticStripeReaderCardTypes
    return Windows.UInt32;
    
-   function get_ExtendedBase_MagneticStripeReaderCardTypes
+   function get_Unknown_MagneticStripeReaderCardTypes
+   return Windows.UInt32;
+   
+   function get_ExtendedBase_MagneticStripeReaderEncryptionAlgorithms
    return Windows.UInt32;
    
    function get_None
@@ -7375,16 +7378,13 @@ package Windows.Devices.PointOfService is
    function get_TripleDesDukpt
    return Windows.UInt32;
    
-   function get_ExtendedBase_MagneticStripeReaderEncryptionAlgorithms
-   return Windows.UInt32;
-   
-   function GetDefaultAsync
-   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
    )
+   return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
+   
+   function GetDefaultAsync
    return Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter;
    
    function GetDeviceSelector_IPosPrinter
@@ -7396,13 +7396,13 @@ package Windows.Devices.PointOfService is
    )
    return Windows.String;
    
-   function get_Utf16LE
+   function get_Ansi
    return Windows.UInt32;
    
    function get_Ascii
    return Windows.UInt32;
    
-   function get_Ansi
+   function get_Utf16LE
    return Windows.UInt32;
    
 end;

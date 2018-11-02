@@ -1474,21 +1474,6 @@ package Windows.Media.Effects is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function CreateAudioRenderEffectsManager
-   (
-      deviceId : Windows.String
-      ; category : Windows.Media.Render.AudioRenderCategory
-   )
-   return Windows.Media.Effects.IAudioRenderEffectsManager;
-   
-   function CreateAudioRenderEffectsManagerWithMode
-   (
-      deviceId : Windows.String
-      ; category : Windows.Media.Render.AudioRenderCategory
-      ; mode : Windows.Media.AudioProcessing
-   )
-   return Windows.Media.Effects.IAudioRenderEffectsManager;
-   
    function CreateAudioCaptureEffectsManager
    (
       deviceId : Windows.String
@@ -1503,5 +1488,20 @@ package Windows.Media.Effects is
       ; mode : Windows.Media.AudioProcessing
    )
    return Windows.Media.Effects.IAudioCaptureEffectsManager;
+   
+   function CreateAudioRenderEffectsManager
+   (
+      deviceId : Windows.String
+      ; category : Windows.Media.Render.AudioRenderCategory
+   )
+   return Windows.Media.Effects.IAudioRenderEffectsManager;
+   
+   function CreateAudioRenderEffectsManagerWithMode
+   (
+      deviceId : Windows.String
+      ; category : Windows.Media.Render.AudioRenderCategory
+      ; mode : Windows.Media.AudioProcessing
+   )
+   return Windows.Media.Effects.IAudioRenderEffectsManager;
    
 end;

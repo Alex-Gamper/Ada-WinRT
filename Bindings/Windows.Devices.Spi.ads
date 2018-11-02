@@ -463,14 +463,27 @@ package Windows.Devices.Spi is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefaultAsync
-   return Windows.Devices.Spi.IAsyncOperation_ISpiController;
-   
    function GetControllersAsync
    (
       provider : Windows.Devices.Spi.Provider.ISpiProvider
    )
    return Windows.Address;
+   
+   function GetDefaultAsync
+   return Windows.Devices.Spi.IAsyncOperation_ISpiController;
+   
+   function FromIdAsync
+   (
+      busId : Windows.String
+      ; settings : Windows.Devices.Spi.ISpiConnectionSettings
+   )
+   return Windows.Devices.Spi.IAsyncOperation_ISpiDevice;
+   
+   function GetBusInfo
+   (
+      busId : Windows.String
+   )
+   return Windows.Devices.Spi.ISpiBusInfo;
    
    function GetDeviceSelector
    return Windows.String;
@@ -480,18 +493,5 @@ package Windows.Devices.Spi is
       friendlyName : Windows.String
    )
    return Windows.String;
-   
-   function GetBusInfo
-   (
-      busId : Windows.String
-   )
-   return Windows.Devices.Spi.ISpiBusInfo;
-   
-   function FromIdAsync
-   (
-      busId : Windows.String
-      ; settings : Windows.Devices.Spi.ISpiConnectionSettings
-   )
-   return Windows.Devices.Spi.IAsyncOperation_ISpiDevice;
    
 end;

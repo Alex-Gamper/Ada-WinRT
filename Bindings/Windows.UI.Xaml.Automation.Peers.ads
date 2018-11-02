@@ -5536,19 +5536,19 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
    
-   function GenerateRawElementProviderRuntimeId
-   return Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId;
-   
    function ListenerExists
    (
       eventId : Windows.UI.Xaml.Automation.Peers.AutomationEvents
    )
    return Windows.Boolean;
    
-   function get_TypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function GenerateRawElementProviderRuntimeId
+   return Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId;
    
    function get_PeerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstanceWithOwner
@@ -5673,18 +5673,6 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer;
    
-   function FromElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
-   
-   function CreatePeerForElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
-   
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.IFrameworkElement
@@ -5692,6 +5680,18 @@ package Windows.UI.Xaml.Automation.Peers is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
+   
+   function CreatePeerForElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
+   
+   function FromElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
    
    function CreateInstanceWithOwner
    (

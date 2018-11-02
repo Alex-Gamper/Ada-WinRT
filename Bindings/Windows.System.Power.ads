@@ -392,22 +392,31 @@ package Windows.System.Power is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_LowUsageLevel
+   function add_RecentEnergyUsageIncreased
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_RecentEnergyUsageReturnedToLow
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function get_ExcessiveUsageLevel
    return Windows.UInt32;
    
-   function get_NearMaxAcceptableUsageLevel
+   function get_LowUsageLevel
    return Windows.UInt32;
    
    function get_MaxAcceptableUsageLevel
    return Windows.UInt32;
    
-   function get_ExcessiveUsageLevel
+   function get_NearMaxAcceptableUsageLevel
    return Windows.UInt32;
    
    function get_NearTerminationUsageLevel
-   return Windows.UInt32;
-   
-   function get_TerminationUsageLevel
    return Windows.UInt32;
    
    function get_RecentEnergyUsage
@@ -416,11 +425,8 @@ package Windows.System.Power is
    function get_RecentEnergyUsageLevel
    return Windows.UInt32;
    
-   function add_RecentEnergyUsageIncreased
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
+   function get_TerminationUsageLevel
+   return Windows.UInt32;
    
    procedure remove_RecentEnergyUsageIncreased
    (
@@ -428,28 +434,34 @@ package Windows.System.Power is
    )
    ;
    
-   function add_RecentEnergyUsageReturnedToLow
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
    procedure remove_RecentEnergyUsageReturnedToLow
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function get_LowUsageLevel_ForegroundEnergyManager
+   function add_RecentEnergyUsageIncreased_ForegroundEnergyManager
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_RecentEnergyUsageReturnedToLow_ForegroundEnergyManager
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function get_ExcessiveUsageLevel_ForegroundEnergyManager
    return Windows.UInt32;
    
-   function get_NearMaxAcceptableUsageLevel_ForegroundEnergyManager
+   function get_LowUsageLevel_ForegroundEnergyManager
    return Windows.UInt32;
    
    function get_MaxAcceptableUsageLevel_ForegroundEnergyManager
    return Windows.UInt32;
    
-   function get_ExcessiveUsageLevel_ForegroundEnergyManager
+   function get_NearMaxAcceptableUsageLevel_ForegroundEnergyManager
    return Windows.UInt32;
    
    function get_RecentEnergyUsage_ForegroundEnergyManager
@@ -458,23 +470,11 @@ package Windows.System.Power is
    function get_RecentEnergyUsageLevel_ForegroundEnergyManager
    return Windows.UInt32;
    
-   function add_RecentEnergyUsageIncreased_ForegroundEnergyManager
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
    procedure remove_RecentEnergyUsageIncreased_ForegroundEnergyManager
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
-   
-   function add_RecentEnergyUsageReturnedToLow_ForegroundEnergyManager
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
    
    procedure remove_RecentEnergyUsageReturnedToLow_ForegroundEnergyManager
    (
@@ -482,8 +482,11 @@ package Windows.System.Power is
    )
    ;
    
-   function get_EnergySaverStatus
-   return Windows.System.Power.EnergySaverStatus;
+   function add_BatteryStatusChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
    
    function add_EnergySaverStatusChanged
    (
@@ -491,44 +494,11 @@ package Windows.System.Power is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_EnergySaverStatusChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_BatteryStatus
-   return Windows.System.Power.BatteryStatus;
-   
-   function add_BatteryStatusChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_BatteryStatusChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_PowerSupplyStatus
-   return Windows.System.Power.PowerSupplyStatus;
-   
    function add_PowerSupplyStatusChanged
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PowerSupplyStatusChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_RemainingChargePercent
-   return Windows.Int32;
    
    function add_RemainingChargePercentChanged
    (
@@ -536,20 +506,50 @@ package Windows.System.Power is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_RemainingChargePercentChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_RemainingDischargeTime
-   return Windows.Foundation.TimeSpan;
-   
    function add_RemainingDischargeTimeChanged
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
+   
+   function get_BatteryStatus
+   return Windows.System.Power.BatteryStatus;
+   
+   function get_EnergySaverStatus
+   return Windows.System.Power.EnergySaverStatus;
+   
+   function get_PowerSupplyStatus
+   return Windows.System.Power.PowerSupplyStatus;
+   
+   function get_RemainingChargePercent
+   return Windows.Int32;
+   
+   function get_RemainingDischargeTime
+   return Windows.Foundation.TimeSpan;
+   
+   procedure remove_BatteryStatusChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_EnergySaverStatusChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_PowerSupplyStatusChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_RemainingChargePercentChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    procedure remove_RemainingDischargeTimeChanged
    (

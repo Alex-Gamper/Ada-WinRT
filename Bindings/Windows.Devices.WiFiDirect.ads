@@ -1170,9 +1170,6 @@ package Windows.Devices.WiFiDirect is
    )
    return Windows.Devices.Enumeration.DevicePairingKinds;
    
-   function GetDeviceSelector
-   return Windows.String;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -1180,9 +1177,6 @@ package Windows.Devices.WiFiDirect is
    return Windows.Devices.WiFiDirect.IAsyncOperation_IWiFiDirectDevice;
    
    function GetDeviceSelector
-   (
-      type_x : Windows.Devices.WiFiDirect.WiFiDirectDeviceSelectorType
-   )
    return Windows.String;
    
    function FromIdAsync
@@ -1191,6 +1185,12 @@ package Windows.Devices.WiFiDirect is
       ; connectionParameters : Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters
    )
    return Windows.Devices.WiFiDirect.IAsyncOperation_IWiFiDirectDevice;
+   
+   function GetDeviceSelector
+   (
+      type_x : Windows.Devices.WiFiDirect.WiFiDirectDeviceSelectorType
+   )
+   return Windows.String;
    
    function CreateFromBuffer
    (

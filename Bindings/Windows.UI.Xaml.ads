@@ -11345,12 +11345,6 @@ package Windows.UI.Xaml is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_MinWindowWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MinWindowHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -11358,14 +11352,21 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IAdaptiveTrigger;
    
-   function get_Current
+   function get_MinWindowHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinWindowWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
    return Windows.UI.Xaml.IApplication;
    
-   procedure Start
-   (
-      callback : Windows.UI.Xaml.ApplicationInitializationCallback
-   )
-   ;
+   function get_Current
+   return Windows.UI.Xaml.IApplication;
    
    procedure LoadComponent
    (
@@ -11382,12 +11383,11 @@ package Windows.UI.Xaml is
    )
    ;
    
-   function CreateInstance
+   procedure Start
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      callback : Windows.UI.Xaml.ApplicationInitializationCallback
    )
-   return Windows.UI.Xaml.IApplication;
+   ;
    
    function FromRadii
    (
@@ -11404,6 +11404,13 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.CornerRadius;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.IDataTemplate;
+   
    function get_ExtensionInstanceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -11419,13 +11426,6 @@ package Windows.UI.Xaml is
       ; value : Windows.UI.Xaml.IDataTemplateExtension
    )
    ;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.IDataTemplate;
    
    function CreateInstance
    (
@@ -11484,10 +11484,11 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IDispatcherTimer;
    
-   function get_Automatic
-   return Windows.UI.Xaml.Duration;
-   
-   function get_Forever
+   function Add
+   (
+      target : Windows.UI.Xaml.Duration
+      ; duration : Windows.UI.Xaml.Duration
+   )
    return Windows.UI.Xaml.Duration;
    
    function Compare
@@ -11497,29 +11498,28 @@ package Windows.UI.Xaml is
    )
    return Windows.Int32;
    
+   function Equals
+   (
+      target : Windows.UI.Xaml.Duration
+      ; value : Windows.UI.Xaml.Duration
+   )
+   return Windows.Boolean;
+   
    function FromTimeSpan
    (
       timeSpan : Windows.Foundation.TimeSpan
    )
    return Windows.UI.Xaml.Duration;
    
+   function get_Automatic
+   return Windows.UI.Xaml.Duration;
+   
+   function get_Forever
+   return Windows.UI.Xaml.Duration;
+   
    function GetHasTimeSpan
    (
       target : Windows.UI.Xaml.Duration
-   )
-   return Windows.Boolean;
-   
-   function Add
-   (
-      target : Windows.UI.Xaml.Duration
-      ; duration : Windows.UI.Xaml.Duration
-   )
-   return Windows.UI.Xaml.Duration;
-   
-   function Equals
-   (
-      target : Windows.UI.Xaml.Duration
-      ; value : Windows.UI.Xaml.Duration
    )
    return Windows.Boolean;
    
@@ -11530,6 +11530,30 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.Duration;
    
+   function get_State
+   return Windows.UI.Xaml.ElementSoundPlayerState;
+   
+   function get_Volume
+   return Windows.Double;
+   
+   procedure Play
+   (
+      sound : Windows.UI.Xaml.ElementSoundKind
+   )
+   ;
+   
+   procedure put_State
+   (
+      value : Windows.UI.Xaml.ElementSoundPlayerState
+   )
+   ;
+   
+   procedure put_Volume
+   (
+      value : Windows.Double
+   )
+   ;
+   
    function get_SpatialAudioMode
    return Windows.UI.Xaml.ElementSpatialAudioMode;
    
@@ -11539,57 +11563,6 @@ package Windows.UI.Xaml is
    )
    ;
    
-   function get_Volume
-   return Windows.Double;
-   
-   procedure put_Volume
-   (
-      value : Windows.Double
-   )
-   ;
-   
-   function get_State
-   return Windows.UI.Xaml.ElementSoundPlayerState;
-   
-   procedure put_State
-   (
-      value : Windows.UI.Xaml.ElementSoundPlayerState
-   )
-   ;
-   
-   procedure Play
-   (
-      sound : Windows.UI.Xaml.ElementSoundKind
-   )
-   ;
-   
-   function get_AllowFocusOnInteractionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualMarginProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualSecondaryThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualPrimaryThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualSecondaryBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualPrimaryBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowFocusWhenDisabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ActualThemeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RequestedThemeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -11597,25 +11570,31 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IFrameworkElement;
    
-   function get_TagProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LanguageProperty
+   function get_ActualHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ActualWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ActualHeightProperty
+   function get_DataContextProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_WidthProperty
+   function get_FlowDirectionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_HeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinWidthProperty
+   function get_HorizontalAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LanguageProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MarginProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MaxHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MaxWidthProperty
@@ -11624,28 +11603,46 @@ package Windows.UI.Xaml is
    function get_MinHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MaxHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HorizontalAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VerticalAlignmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MarginProperty
+   function get_MinWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_NameProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DataContextProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_StyleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FlowDirectionProperty
+   function get_TagProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalAlignmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_WidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RequestedThemeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowFocusOnInteractionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowFocusWhenDisabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualMarginProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualPrimaryBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualPrimaryThicknessProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualSecondaryBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualSecondaryThicknessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    procedure DeferTree
@@ -11654,6 +11651,9 @@ package Windows.UI.Xaml is
    )
    ;
    
+   function get_ActualThemeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -11661,8 +11661,12 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IFrameworkTemplate;
    
-   function get_Auto
-   return Windows.UI.Xaml.GridLength;
+   function Equals
+   (
+      target : Windows.UI.Xaml.GridLength
+      ; value : Windows.UI.Xaml.GridLength
+   )
+   return Windows.Boolean;
    
    function FromPixels
    (
@@ -11675,6 +11679,9 @@ package Windows.UI.Xaml is
       value : Windows.Double
       ; type_x : Windows.UI.Xaml.GridUnitType
    )
+   return Windows.UI.Xaml.GridLength;
+   
+   function get_Auto
    return Windows.UI.Xaml.GridLength;
    
    function GetIsAbsolute
@@ -11692,13 +11699,6 @@ package Windows.UI.Xaml is
    function GetIsStar
    (
       target : Windows.UI.Xaml.GridLength
-   )
-   return Windows.Boolean;
-   
-   function Equals
-   (
-      target : Windows.UI.Xaml.GridLength
-      ; value : Windows.UI.Xaml.GridLength
    )
    return Windows.Boolean;
    
@@ -11752,8 +11752,19 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IPropertyMetadata;
    
-   function get_Empty
-   return Windows.Foundation.Rect;
+   function Contains
+   (
+      target : Windows.Foundation.Rect
+      ; point : Windows.Foundation.Point
+   )
+   return Windows.Boolean;
+   
+   function Equals
+   (
+      target : Windows.Foundation.Rect
+      ; value : Windows.Foundation.Rect
+   )
+   return Windows.Boolean;
    
    function FromCoordinatesAndDimensions
    (
@@ -11764,13 +11775,6 @@ package Windows.UI.Xaml is
    )
    return Windows.Foundation.Rect;
    
-   function FromPoints
-   (
-      point1 : Windows.Foundation.Point
-      ; point2 : Windows.Foundation.Point
-   )
-   return Windows.Foundation.Rect;
-   
    function FromLocationAndSize
    (
       location : Windows.Foundation.Point
@@ -11778,17 +11782,27 @@ package Windows.UI.Xaml is
    )
    return Windows.Foundation.Rect;
    
-   function GetIsEmpty
+   function FromPoints
    (
-      target : Windows.Foundation.Rect
+      point1 : Windows.Foundation.Point
+      ; point2 : Windows.Foundation.Point
    )
-   return Windows.Boolean;
+   return Windows.Foundation.Rect;
+   
+   function get_Empty
+   return Windows.Foundation.Rect;
    
    function GetBottom
    (
       target : Windows.Foundation.Rect
    )
    return Windows.Single;
+   
+   function GetIsEmpty
+   (
+      target : Windows.Foundation.Rect
+   )
+   return Windows.Boolean;
    
    function GetLeft
    (
@@ -11807,20 +11821,6 @@ package Windows.UI.Xaml is
       target : Windows.Foundation.Rect
    )
    return Windows.Single;
-   
-   function Contains
-   (
-      target : Windows.Foundation.Rect
-      ; point : Windows.Foundation.Point
-   )
-   return Windows.Boolean;
-   
-   function Equals
-   (
-      target : Windows.Foundation.Rect
-      ; value : Windows.Foundation.Rect
-   )
-   return Windows.Boolean;
    
    function Intersect
    (
@@ -11857,8 +11857,12 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IRoutedEventArgs;
    
-   function get_Empty
-   return Windows.Foundation.Size;
+   function Equals
+   (
+      target : Windows.Foundation.Size
+      ; value : Windows.Foundation.Size
+   )
+   return Windows.Boolean;
    
    function FromDimensions
    (
@@ -11867,16 +11871,12 @@ package Windows.UI.Xaml is
    )
    return Windows.Foundation.Size;
    
+   function get_Empty
+   return Windows.Foundation.Size;
+   
    function GetIsEmpty
    (
       target : Windows.Foundation.Size
-   )
-   return Windows.Boolean;
-   
-   function Equals
-   (
-      target : Windows.Foundation.Size
-      ; value : Windows.Foundation.Size
    )
    return Windows.Boolean;
    
@@ -11905,61 +11905,16 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.Thickness;
    
-   function get_KeyDownEvent
-   return Windows.UI.Xaml.IRoutedEvent;
+   function get_AllowDropProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_KeyUpEvent
-   return Windows.UI.Xaml.IRoutedEvent;
+   function get_CacheModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_PointerEnteredEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PointerPressedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PointerMovedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PointerReleasedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PointerExitedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PointerCaptureLostEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PointerCanceledEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PointerWheelChangedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_TappedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
+   function get_ClipProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_DoubleTappedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_HoldingEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_RightTappedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_ManipulationStartingEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_ManipulationInertiaStartingEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_ManipulationStartedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_ManipulationDeltaEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_ManipulationCompletedEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
    function get_DragEnterEvent
@@ -11974,17 +11929,77 @@ package Windows.UI.Xaml is
    function get_DropEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
-   function get_AllowDropProperty
+   function get_HoldingEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_IsDoubleTapEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsHitTestVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsHoldingEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsRightTapEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTapEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyDownEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_KeyUpEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_ManipulationCompletedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_ManipulationDeltaEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_ManipulationInertiaStartingEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_ManipulationModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ManipulationStartedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_ManipulationStartingEvent
+   return Windows.UI.Xaml.IRoutedEvent;
    
    function get_OpacityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ClipProperty
+   function get_PointerCanceledEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PointerCaptureLostEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PointerCapturesProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_RenderTransformProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function get_PointerEnteredEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PointerExitedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PointerMovedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PointerPressedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PointerReleasedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PointerWheelChangedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
    
    function get_ProjectionProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -11992,59 +12007,44 @@ package Windows.UI.Xaml is
    function get_RenderTransformOriginProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsHitTestVisibleProperty
+   function get_RenderTransformProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_VisibilityProperty
+   function get_RightTappedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_TappedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_TransitionsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_UseLayoutRoundingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TransitionsProperty
+   function get_VisibilityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CacheModeProperty
+   function get_CompositeModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsTapEnabledProperty
+   function get_CanDragProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsDoubleTapEnabledProperty
+   function get_Transform3DProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsRightTapEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsHoldingEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ManipulationModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PointerCapturesProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BringIntoViewRequestedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_ContextRequestedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_KeyTipTargetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyboardAcceleratorPlacementTargetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyboardAcceleratorPlacementModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   procedure RegisterAsScrollPort
+   function TryStartDirectManipulation
    (
-      element : Windows.UI.Xaml.IUIElement
+      value : Windows.UI.Xaml.Input.IPointer
    )
-   ;
+   return Windows.Boolean;
+   
+   function get_AccessKeyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AccessKeyScopeOwnerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContextFlyoutProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -12055,23 +12055,38 @@ package Windows.UI.Xaml is
    function get_IsAccessKeyScopeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AccessKeyScopeOwnerProperty
+   function get_HighContrastAdjustmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AccessKeyProperty
+   function get_KeyTipHorizontalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_Transform3DProperty
+   function get_KeyTipPlacementModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CanDragProperty
+   function get_KeyTipVerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function TryStartDirectManipulation
-   (
-      value : Windows.UI.Xaml.Input.IPointer
-   )
-   return Windows.Boolean;
+   function get_LightsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TabFocusNavigationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusDownNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusKeyboardNavigationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusLeftNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusRightNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusUpNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_GettingFocusEvent
    return Windows.UI.Xaml.IRoutedEvent;
@@ -12082,56 +12097,42 @@ package Windows.UI.Xaml is
    function get_NoFocusCandidateFoundEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
-   function get_LightsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipPlacementModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipHorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipVerticalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusKeyboardNavigationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusUpNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusDownNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusLeftNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusRightNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HighContrastAdjustmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TabFocusNavigationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PreviewKeyDownEvent
+   function get_CharacterReceivedEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
-   function get_CharacterReceivedEvent
+   function get_PreviewKeyDownEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
    function get_PreviewKeyUpEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
-   function get_CompositeModeProperty
+   function get_BringIntoViewRequestedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_ContextRequestedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_KeyboardAcceleratorPlacementModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetVisualStateGroups
+   function get_KeyboardAcceleratorPlacementTargetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTipTargetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   procedure RegisterAsScrollPort
    (
-      obj : Windows.UI.Xaml.IFrameworkElement
+      element : Windows.UI.Xaml.IUIElement
    )
-   return Windows.UI.Xaml.IVector_IVisualStateGroup;
+   ;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.IVisualStateManager;
    
    function get_CustomVisualStateManagerProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -12142,12 +12143,11 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IVisualStateManager;
    
-   procedure SetCustomVisualStateManager
+   function GetVisualStateGroups
    (
       obj : Windows.UI.Xaml.IFrameworkElement
-      ; value : Windows.UI.Xaml.IVisualStateManager
    )
-   ;
+   return Windows.UI.Xaml.IVector_IVisualStateGroup;
    
    function GoToState
    (
@@ -12157,12 +12157,12 @@ package Windows.UI.Xaml is
    )
    return Windows.Boolean;
    
-   function CreateInstance
+   procedure SetCustomVisualStateManager
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      obj : Windows.UI.Xaml.IFrameworkElement
+      ; value : Windows.UI.Xaml.IVisualStateManager
    )
-   return Windows.UI.Xaml.IVisualStateManager;
+   ;
    
    function CreateInstance
    (

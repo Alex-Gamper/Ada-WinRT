@@ -1255,6 +1255,18 @@ package Windows.Data.Text is
    )
    return Windows.UInt32;
    
+   function GetGeneralCategory
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Data.Text.UnicodeGeneralCategory;
+   
+   function GetNumericType
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Data.Text.UnicodeNumericType;
+   
    procedure GetSurrogatePairFromCodepoint
    (
       codepoint : Windows.UInt32
@@ -1263,36 +1275,6 @@ package Windows.Data.Text is
    )
    ;
    
-   function IsHighSurrogate
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsLowSurrogate
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsSupplementary
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsNoncharacter
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsWhitespace
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
    function IsAlphabetic
    (
       codepoint : Windows.UInt32
@@ -1300,30 +1282,6 @@ package Windows.Data.Text is
    return Windows.Boolean;
    
    function IsCased
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsUppercase
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsLowercase
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsIdStart
-   (
-      codepoint : Windows.UInt32
-   )
-   return Windows.Boolean;
-   
-   function IsIdContinue
    (
       codepoint : Windows.UInt32
    )
@@ -1341,16 +1299,58 @@ package Windows.Data.Text is
    )
    return Windows.Boolean;
    
-   function GetNumericType
+   function IsHighSurrogate
    (
       codepoint : Windows.UInt32
    )
-   return Windows.Data.Text.UnicodeNumericType;
+   return Windows.Boolean;
    
-   function GetGeneralCategory
+   function IsIdContinue
    (
       codepoint : Windows.UInt32
    )
-   return Windows.Data.Text.UnicodeGeneralCategory;
+   return Windows.Boolean;
+   
+   function IsIdStart
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean;
+   
+   function IsLowercase
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean;
+   
+   function IsLowSurrogate
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean;
+   
+   function IsNoncharacter
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean;
+   
+   function IsSupplementary
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean;
+   
+   function IsUppercase
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean;
+   
+   function IsWhitespace
+   (
+      codepoint : Windows.UInt32
+   )
+   return Windows.Boolean;
    
 end;

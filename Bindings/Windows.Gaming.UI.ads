@@ -457,23 +457,23 @@ package Windows.Gaming.UI is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function add_IsInputRedirectedChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
    function add_VisibilityChanged
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_VisibilityChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
+   function get_IsInputRedirected
+   return Windows.Boolean;
    
-   function add_IsInputRedirectedChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
+   function get_Visible
+   return Windows.Boolean;
    
    procedure remove_IsInputRedirectedChanged
    (
@@ -481,11 +481,11 @@ package Windows.Gaming.UI is
    )
    ;
    
-   function get_Visible
-   return Windows.Boolean;
-   
-   function get_IsInputRedirected
-   return Windows.Boolean;
+   procedure remove_VisibilityChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    function GetDefault
    return Windows.Gaming.UI.IGameChatOverlay;

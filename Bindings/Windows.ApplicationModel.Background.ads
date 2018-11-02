@@ -3024,27 +3024,20 @@ package Windows.ApplicationModel.Background is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetAccessStatus
+   return Windows.ApplicationModel.Background.AlarmAccessStatus;
+   
    function RequestAccessAsync
    return Windows.ApplicationModel.Background.IAsyncOperation_AlarmAccessStatus;
    
    function GetAccessStatus
-   return Windows.ApplicationModel.Background.AlarmAccessStatus;
+   return Windows.ApplicationModel.Background.BackgroundAccessStatus;
    
-   function RequestAccessKindAsync
-   (
-      requestedAccess : Windows.ApplicationModel.Background.BackgroundAccessRequestKind
-      ; reason : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function RequestAccessAsync
-   return Windows.ApplicationModel.Background.IAsyncOperation_BackgroundAccessStatus;
-   
-   function RequestAccessForApplicationAsync
+   function GetAccessStatusForApplication
    (
       applicationId : Windows.String
    )
-   return Windows.ApplicationModel.Background.IAsyncOperation_BackgroundAccessStatus;
+   return Windows.ApplicationModel.Background.BackgroundAccessStatus;
    
    procedure RemoveAccess
    ;
@@ -3055,14 +3048,21 @@ package Windows.ApplicationModel.Background is
    )
    ;
    
-   function GetAccessStatus
-   return Windows.ApplicationModel.Background.BackgroundAccessStatus;
+   function RequestAccessAsync
+   return Windows.ApplicationModel.Background.IAsyncOperation_BackgroundAccessStatus;
    
-   function GetAccessStatusForApplication
+   function RequestAccessForApplicationAsync
    (
       applicationId : Windows.String
    )
-   return Windows.ApplicationModel.Background.BackgroundAccessStatus;
+   return Windows.ApplicationModel.Background.IAsyncOperation_BackgroundAccessStatus;
+   
+   function RequestAccessKindAsync
+   (
+      requestedAccess : Windows.ApplicationModel.Background.BackgroundAccessRequestKind
+      ; reason : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function get_AllTasks
    return Windows.Address;

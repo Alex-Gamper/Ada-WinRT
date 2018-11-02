@@ -556,21 +556,6 @@ package Windows.Devices.Enumeration.Pnp is
    )
    return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IPnpObject;
    
-   function FindAllAsync
-   (
-      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
-      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
-   
-   function FindAllAsyncAqsFilter
-   (
-      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
-      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
-      ; aqsFilter : Windows.String
-   )
-   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
-   
    function CreateWatcher
    (
       type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
@@ -585,5 +570,20 @@ package Windows.Devices.Enumeration.Pnp is
       ; aqsFilter : Windows.String
    )
    return Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher;
+   
+   function FindAllAsync
+   (
+      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
+      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
+   
+   function FindAllAsyncAqsFilter
+   (
+      type_x : Windows.Devices.Enumeration.Pnp.PnpObjectType
+      ; requestedProperties : Windows.Foundation.Collections.IIterable_String
+      ; aqsFilter : Windows.String
+   )
+   return Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject;
    
 end;

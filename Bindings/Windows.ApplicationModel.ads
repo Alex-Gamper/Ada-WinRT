@@ -2413,23 +2413,23 @@ package Windows.ApplicationModel is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_RecommendedInstance
-   return Windows.ApplicationModel.IAppInstance;
-   
-   function GetActivatedEventArgs
-   return Windows.ApplicationModel.Activation.IActivatedEventArgs;
-   
    function FindOrRegisterInstanceForKey
    (
       key : Windows.String
    )
    return Windows.ApplicationModel.IAppInstance;
    
-   procedure Unregister
-   ;
+   function get_RecommendedInstance
+   return Windows.ApplicationModel.IAppInstance;
+   
+   function GetActivatedEventArgs
+   return Windows.ApplicationModel.Activation.IActivatedEventArgs;
    
    function GetInstances
    return Windows.ApplicationModel.IVector_IAppInstance;
+   
+   procedure Unregister
+   ;
    
    procedure ShowInstalledApplicationsUI
    ;
@@ -2439,15 +2439,6 @@ package Windows.ApplicationModel is
    
    function get_DesignMode2Enabled
    return Windows.Boolean;
-   
-   function LaunchFullTrustProcessForCurrentAppAsync
-   return Windows.Foundation.IAsyncAction;
-   
-   function LaunchFullTrustProcessForCurrentAppWithParametersAsync
-   (
-      parameterGroupId : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction;
    
    function LaunchFullTrustProcessForAppAsync
    (
@@ -2459,6 +2450,15 @@ package Windows.ApplicationModel is
    (
       fullTrustPackageRelativeAppId : Windows.String
       ; parameterGroupId : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function LaunchFullTrustProcessForCurrentAppAsync
+   return Windows.Foundation.IAsyncAction;
+   
+   function LaunchFullTrustProcessForCurrentAppWithParametersAsync
+   (
+      parameterGroupId : Windows.String
    )
    return Windows.Foundation.IAsyncAction;
    
@@ -2474,13 +2474,13 @@ package Windows.ApplicationModel is
    function get_RequiredGroupName
    return Windows.String;
    
-   function GetForCurrentPackageAsync
-   return Windows.Address;
-   
    function GetAsync
    (
       taskId : Windows.String
    )
    return Windows.ApplicationModel.IAsyncOperation_IStartupTask;
+   
+   function GetForCurrentPackageAsync
+   return Windows.Address;
    
 end;

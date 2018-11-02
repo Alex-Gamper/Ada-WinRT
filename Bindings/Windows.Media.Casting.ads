@@ -889,6 +889,18 @@ package Windows.Media.Casting is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function DeviceInfoSupportsCastingAsync
+   (
+      device : Windows.Devices.Enumeration.IDeviceInformation
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function FromIdAsync
+   (
+      value : Windows.String
+   )
+   return Windows.Media.Casting.IAsyncOperation_ICastingDevice;
+   
    function GetDeviceSelector
    (
       type_x : Windows.Media.Casting.CastingPlaybackTypes
@@ -900,17 +912,5 @@ package Windows.Media.Casting is
       castingSource : Windows.Media.Casting.ICastingSource
    )
    return Windows.Foundation.IAsyncOperation_String;
-   
-   function FromIdAsync
-   (
-      value : Windows.String
-   )
-   return Windows.Media.Casting.IAsyncOperation_ICastingDevice;
-   
-   function DeviceInfoSupportsCastingAsync
-   (
-      device : Windows.Devices.Enumeration.IDeviceInformation
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
    
 end;

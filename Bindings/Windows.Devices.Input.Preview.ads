@@ -808,10 +808,10 @@ package Windows.Devices.Input.Preview is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForCurrentView
-   return Windows.Devices.Input.Preview.IGazeInputSourcePreview;
-   
    function CreateWatcher
    return Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview;
+   
+   function GetForCurrentView
+   return Windows.Devices.Input.Preview.IGazeInputSourcePreview;
    
 end;

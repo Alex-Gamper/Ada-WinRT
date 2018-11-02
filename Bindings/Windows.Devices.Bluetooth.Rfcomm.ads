@@ -661,16 +661,21 @@ package Windows.Devices.Bluetooth.Rfcomm is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDeviceSelectorForBluetoothDevice
+   function FromIdAsync
    (
-      bluetoothDevice : Windows.Devices.Bluetooth.IBluetoothDevice
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService;
+   
+   function GetDeviceSelector
+   (
+      serviceId : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
    )
    return Windows.String;
    
-   function GetDeviceSelectorForBluetoothDeviceWithCacheMode
+   function GetDeviceSelectorForBluetoothDevice
    (
       bluetoothDevice : Windows.Devices.Bluetooth.IBluetoothDevice
-      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
    )
    return Windows.String;
    
@@ -689,23 +694,12 @@ package Windows.Devices.Bluetooth.Rfcomm is
    )
    return Windows.String;
    
-   function FromIdAsync
+   function GetDeviceSelectorForBluetoothDeviceWithCacheMode
    (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService;
-   
-   function GetDeviceSelector
-   (
-      serviceId : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
+      bluetoothDevice : Windows.Devices.Bluetooth.IBluetoothDevice
+      ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
    )
    return Windows.String;
-   
-   function FromUuid
-   (
-      uuid : Windows.Guid
-   )
-   return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
    
    function FromShortId
    (
@@ -713,13 +707,19 @@ package Windows.Devices.Bluetooth.Rfcomm is
    )
    return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
    
-   function get_SerialPort
+   function FromUuid
+   (
+      uuid : Windows.Guid
+   )
    return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
    
-   function get_ObexObjectPush
+   function get_GenericFileTransfer
    return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
    
    function get_ObexFileTransfer
+   return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
+   
+   function get_ObexObjectPush
    return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
    
    function get_PhoneBookAccessPce
@@ -728,7 +728,7 @@ package Windows.Devices.Bluetooth.Rfcomm is
    function get_PhoneBookAccessPse
    return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
    
-   function get_GenericFileTransfer
+   function get_SerialPort
    return Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId;
    
    function CreateAsync

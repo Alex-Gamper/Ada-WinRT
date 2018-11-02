@@ -2018,30 +2018,6 @@ package Windows.Graphics.Imaging is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_BmpDecoderId
-   return Windows.Guid;
-   
-   function get_JpegDecoderId
-   return Windows.Guid;
-   
-   function get_PngDecoderId
-   return Windows.Guid;
-   
-   function get_TiffDecoderId
-   return Windows.Guid;
-   
-   function get_GifDecoderId
-   return Windows.Guid;
-   
-   function get_JpegXRDecoderId
-   return Windows.Guid;
-   
-   function get_IcoDecoderId
-   return Windows.Guid;
-   
-   function GetDecoderInformationEnumerator
-   return Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation;
-   
    function CreateAsync
    (
       stream : Windows.Storage.Streams.IRandomAccessStream
@@ -2055,31 +2031,47 @@ package Windows.Graphics.Imaging is
    )
    return Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder;
    
-   function get_BmpEncoderId
+   function get_BmpDecoderId
    return Windows.Guid;
    
-   function get_JpegEncoderId
+   function get_GifDecoderId
    return Windows.Guid;
    
-   function get_PngEncoderId
+   function get_IcoDecoderId
    return Windows.Guid;
    
-   function get_TiffEncoderId
+   function get_JpegDecoderId
    return Windows.Guid;
    
-   function get_GifEncoderId
+   function get_JpegXRDecoderId
    return Windows.Guid;
    
-   function get_JpegXREncoderId
+   function get_PngDecoderId
    return Windows.Guid;
    
-   function GetEncoderInformationEnumerator
+   function get_TiffDecoderId
+   return Windows.Guid;
+   
+   function GetDecoderInformationEnumerator
    return Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation;
    
    function CreateAsync
    (
       encoderId : Windows.Guid
       ; stream : Windows.Storage.Streams.IRandomAccessStream
+   )
+   return Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder;
+   
+   function CreateForInPlacePropertyEncodingAsync
+   (
+      bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
+   )
+   return Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder;
+   
+   function CreateForTranscodingAsync
+   (
+      stream : Windows.Storage.Streams.IRandomAccessStream
+      ; bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
    )
    return Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder;
    
@@ -2091,24 +2083,26 @@ package Windows.Graphics.Imaging is
    )
    return Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder;
    
-   function CreateForTranscodingAsync
-   (
-      stream : Windows.Storage.Streams.IRandomAccessStream
-      ; bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
-   )
-   return Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder;
+   function get_BmpEncoderId
+   return Windows.Guid;
    
-   function CreateForInPlacePropertyEncodingAsync
-   (
-      bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
-   )
-   return Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder;
+   function get_GifEncoderId
+   return Windows.Guid;
    
-   function Copy
-   (
-      source : Windows.Graphics.Imaging.ISoftwareBitmap
-   )
-   return Windows.Graphics.Imaging.ISoftwareBitmap;
+   function get_JpegEncoderId
+   return Windows.Guid;
+   
+   function get_JpegXREncoderId
+   return Windows.Guid;
+   
+   function get_PngEncoderId
+   return Windows.Guid;
+   
+   function get_TiffEncoderId
+   return Windows.Guid;
+   
+   function GetEncoderInformationEnumerator
+   return Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation;
    
    function Convert
    (
@@ -2125,6 +2119,12 @@ package Windows.Graphics.Imaging is
    )
    return Windows.Graphics.Imaging.ISoftwareBitmap;
    
+   function Copy
+   (
+      source : Windows.Graphics.Imaging.ISoftwareBitmap
+   )
+   return Windows.Graphics.Imaging.ISoftwareBitmap;
+   
    function CreateCopyFromBuffer
    (
       source : Windows.Storage.Streams.IBuffer
@@ -2133,6 +2133,12 @@ package Windows.Graphics.Imaging is
       ; height : Windows.Int32
    )
    return Windows.Graphics.Imaging.ISoftwareBitmap;
+   
+   function CreateCopyFromSurfaceAsync
+   (
+      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+   )
+   return Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap;
    
    function CreateCopyWithAlphaFromBuffer
    (
@@ -2143,12 +2149,6 @@ package Windows.Graphics.Imaging is
       ; alpha : Windows.Graphics.Imaging.BitmapAlphaMode
    )
    return Windows.Graphics.Imaging.ISoftwareBitmap;
-   
-   function CreateCopyFromSurfaceAsync
-   (
-      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
-   )
-   return Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap;
    
    function CreateCopyWithAlphaFromSurfaceAsync
    (

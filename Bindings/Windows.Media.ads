@@ -2504,125 +2504,11 @@ package Windows.Media is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function add_SoundLevelChanged
+   function add_ChannelDownPressed
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_SoundLevelChanged
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_PlayPressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PlayPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_PausePressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PausePressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_StopPressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_StopPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_PlayPauseTogglePressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PlayPauseTogglePressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_RecordPressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_RecordPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_NextTrackPressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_NextTrackPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_PreviousTrackPressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PreviousTrackPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_FastForwardPressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_FastForwardPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_RewindPressed
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_RewindPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function add_ChannelUpPressed
    (
@@ -2630,53 +2516,80 @@ package Windows.Media is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_ChannelUpPressed
-   (
-      cookie : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_ChannelDownPressed
+   function add_FastForwardPressed
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_ChannelDownPressed
+   function add_NextTrackPressed
    (
-      cookie : Windows.Foundation.EventRegistrationToken
+      handler : Windows.Foundation.EventHandler_Object
    )
-   ;
+   return Windows.Foundation.EventRegistrationToken;
    
-   function get_SoundLevel
-   return Windows.Media.SoundLevel;
-   
-   procedure put_TrackName
+   function add_PausePressed
    (
-      value : Windows.String
+      handler : Windows.Foundation.EventHandler_Object
    )
-   ;
+   return Windows.Foundation.EventRegistrationToken;
    
-   function get_TrackName
-   return Windows.String;
-   
-   procedure put_ArtistName
+   function add_PlayPauseTogglePressed
    (
-      value : Windows.String
+      handler : Windows.Foundation.EventHandler_Object
    )
-   ;
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_PlayPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_PreviousTrackPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_RecordPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_RewindPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_SoundLevelChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_StopPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function get_AlbumArt
+   return Windows.Foundation.IUriRuntimeClass;
    
    function get_ArtistName
    return Windows.String;
    
-   procedure put_IsPlaying
-   (
-      value : Windows.Boolean
-   )
-   ;
-   
    function get_IsPlaying
    return Windows.Boolean;
+   
+   function get_SoundLevel
+   return Windows.Media.SoundLevel;
+   
+   function get_TrackName
+   return Windows.String;
    
    procedure put_AlbumArt
    (
@@ -2684,8 +2597,95 @@ package Windows.Media is
    )
    ;
    
-   function get_AlbumArt
-   return Windows.Foundation.IUriRuntimeClass;
+   procedure put_ArtistName
+   (
+      value : Windows.String
+   )
+   ;
+   
+   procedure put_IsPlaying
+   (
+      value : Windows.Boolean
+   )
+   ;
+   
+   procedure put_TrackName
+   (
+      value : Windows.String
+   )
+   ;
+   
+   procedure remove_ChannelDownPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_ChannelUpPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_FastForwardPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_NextTrackPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_PausePressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_PlayPauseTogglePressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_PlayPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_PreviousTrackPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_RecordPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_RewindPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_SoundLevelChanged
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_StopPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    function get_Bookmark
    return Windows.String;
@@ -2713,15 +2713,15 @@ package Windows.Media is
    )
    return Windows.Media.IVideoFrame;
    
-   function CreateWithSoftwareBitmap
-   (
-      bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
-   )
-   return Windows.Media.IVideoFrame;
-   
    function CreateWithDirect3D11Surface
    (
       surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+   )
+   return Windows.Media.IVideoFrame;
+   
+   function CreateWithSoftwareBitmap
+   (
+      bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.Media.IVideoFrame;
    

@@ -5906,12 +5906,6 @@ package Windows.UI.Xaml.Media.Animation is
    function get_BouncinessProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_FromProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ToProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ByProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -5921,13 +5915,13 @@ package Windows.UI.Xaml.Media.Animation is
    function get_EnableDependentAnimationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_FromProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ToProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_EnableDependentAnimationProperty_IColorAnimationUsingKeyFrames
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ValueProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -5937,10 +5931,16 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
    
-   function get_IsStaggeringEnabledProperty
+   function get_KeyTimeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsStaggerElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsStaggeringEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetIsStaggerElement
@@ -5965,11 +5965,23 @@ package Windows.UI.Xaml.Media.Animation is
    function get_VerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ExitElementContainerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ExitElementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsEntranceElementProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsExitElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetExitElementContainer
+   (
+      element : Windows.UI.Xaml.Controls.IListViewBase
+   )
+   return Windows.Boolean;
    
    function GetIsEntranceElement
    (
@@ -5977,35 +5989,9 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.Boolean;
    
-   procedure SetIsEntranceElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_IsExitElementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function GetIsExitElement
    (
       element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsExitElement
-   (
-      element : Windows.UI.Xaml.IUIElement
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_ExitElementContainerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetExitElementContainer
-   (
-      element : Windows.UI.Xaml.Controls.IListViewBase
    )
    return Windows.Boolean;
    
@@ -6016,11 +6002,19 @@ package Windows.UI.Xaml.Media.Animation is
    )
    ;
    
-   function get_FromProperty_IDoubleAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetIsEntranceElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
    
-   function get_ToProperty_IDoubleAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetIsExitElement
+   (
+      element : Windows.UI.Xaml.IUIElement
+      ; value : Windows.Boolean
+   )
+   ;
    
    function get_ByProperty_IDoubleAnimation
    return Windows.UI.Xaml.IDependencyProperty;
@@ -6029,6 +6023,12 @@ package Windows.UI.Xaml.Media.Animation is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_EnableDependentAnimationProperty_IDoubleAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FromProperty_IDoubleAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ToProperty_IDoubleAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_EnableDependentAnimationProperty_IDoubleAnimationUsingKeyFrames
@@ -6041,22 +6041,22 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
    
-   function get_ValueProperty_IDoubleKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_KeyTimeProperty_IDoubleKeyFrame
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ValueProperty_IDoubleKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_TargetNameProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DirectionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty_IDragOverThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ToOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_DirectionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_EntranceTargetNameProperty
@@ -6167,19 +6167,13 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
    
-   function get_ValueProperty_IObjectKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_KeyTimeProperty_IObjectKeyFrame
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ValueProperty_IObjectKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_EdgeProperty_IPaneThemeTransition
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FromProperty_IPointAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ToProperty_IPointAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ByProperty_IPointAnimation
@@ -6191,6 +6185,12 @@ package Windows.UI.Xaml.Media.Animation is
    function get_EnableDependentAnimationProperty_IPointAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_FromProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ToProperty_IPointAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_EnableDependentAnimationProperty_IPointAnimationUsingKeyFrames
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -6200,12 +6200,6 @@ package Windows.UI.Xaml.Media.Animation is
    function get_TargetNameProperty_IPointerUpThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ValueProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -6213,13 +6207,19 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
    
-   function get_TargetNameProperty_IPopInThemeAnimation
+   function get_KeyTimeProperty_IPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ValueProperty_IPointKeyFrame
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FromHorizontalOffsetProperty_IPopInThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FromVerticalOffsetProperty_IPopInThemeAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TargetNameProperty_IPopInThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty_IPopOutThemeAnimation
@@ -6234,8 +6234,12 @@ package Windows.UI.Xaml.Media.Animation is
    function get_PowerProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_Forever
-   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   function Equals
+   (
+      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
+   )
+   return Windows.Boolean;
    
    function FromCount
    (
@@ -6247,6 +6251,9 @@ package Windows.UI.Xaml.Media.Animation is
    (
       duration : Windows.Foundation.TimeSpan
    )
+   return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
+   
+   function get_Forever
    return Windows.UI.Xaml.Media.Animation.RepeatBehavior;
    
    function GetHasCount
@@ -6261,20 +6268,13 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.Boolean;
    
-   function Equals
-   (
-      target : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-      ; value : Windows.UI.Xaml.Media.Animation.RepeatBehavior
-   )
-   return Windows.Boolean;
-   
-   function get_TargetNameProperty_IRepositionThemeAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_FromHorizontalOffsetProperty_IRepositionThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FromVerticalOffsetProperty_IRepositionThemeAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TargetNameProperty_IRepositionThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsStaggeringEnabledProperty_IRepositionThemeTransition
@@ -6289,10 +6289,7 @@ package Windows.UI.Xaml.Media.Animation is
    function get_KeySplineProperty_ISplinePointKeyFrame
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OpenedTargetNameProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OpenedTargetProperty
+   function get_ClosedLengthProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ClosedTargetNameProperty
@@ -6307,25 +6304,25 @@ package Windows.UI.Xaml.Media.Animation is
    function get_ContentTargetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OpenedLengthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ClosedLengthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OffsetFromCenterProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ContentTranslationDirectionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContentTranslationOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OpenedTargetNameProperty_ISplitOpenThemeAnimation
+   function get_OffsetFromCenterProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OpenedTargetProperty_ISplitOpenThemeAnimation
+   function get_OpenedLengthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OpenedTargetNameProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OpenedTargetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ClosedLengthProperty_ISplitOpenThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ClosedTargetNameProperty_ISplitOpenThemeAnimation
@@ -6340,38 +6337,28 @@ package Windows.UI.Xaml.Media.Animation is
    function get_ContentTargetProperty_ISplitOpenThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_OpenedLengthProperty_ISplitOpenThemeAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ClosedLengthProperty_ISplitOpenThemeAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_OffsetFromCenterProperty_ISplitOpenThemeAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_ContentTranslationDirectionProperty_ISplitOpenThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ContentTranslationOffsetProperty_ISplitOpenThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_TargetPropertyProperty
+   function get_OffsetFromCenterProperty_ISplitOpenThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function GetTargetProperty
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-   )
-   return Windows.String;
+   function get_OpenedLengthProperty_ISplitOpenThemeAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
    
-   procedure SetTargetProperty
-   (
-      element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; path : Windows.String
-   )
-   ;
+   function get_OpenedTargetNameProperty_ISplitOpenThemeAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OpenedTargetProperty_ISplitOpenThemeAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty_IStoryboard
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TargetPropertyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function GetTargetName
@@ -6380,12 +6367,11 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.String;
    
-   procedure SetTargetName
+   function GetTargetProperty
    (
       element : Windows.UI.Xaml.Media.Animation.ITimeline
-      ; name : Windows.String
    )
-   ;
+   return Windows.String;
    
    procedure SetTarget
    (
@@ -6394,13 +6380,27 @@ package Windows.UI.Xaml.Media.Animation is
    )
    ;
    
-   function get_TargetNameProperty_ISwipeBackThemeAnimation
-   return Windows.UI.Xaml.IDependencyProperty;
+   procedure SetTargetName
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; name : Windows.String
+   )
+   ;
+   
+   procedure SetTargetProperty
+   (
+      element : Windows.UI.Xaml.Media.Animation.ITimeline
+      ; path : Windows.String
+   )
+   ;
    
    function get_FromHorizontalOffsetProperty_ISwipeBackThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FromVerticalOffsetProperty_ISwipeBackThemeAnimation
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TargetNameProperty_ISwipeBackThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TargetNameProperty_ISwipeHintThemeAnimation
@@ -6412,14 +6412,15 @@ package Windows.UI.Xaml.Media.Animation is
    function get_ToVerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.ITimeline;
+   
    function get_AllowDependentAnimations
    return Windows.Boolean;
-   
-   procedure put_AllowDependentAnimations
-   (
-      value : Windows.Boolean
-   )
-   ;
    
    function get_AutoReverseProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -6430,20 +6431,19 @@ package Windows.UI.Xaml.Media.Animation is
    function get_DurationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_SpeedRatioProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_FillBehaviorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_RepeatBehaviorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
+   function get_SpeedRatioProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   procedure put_AllowDependentAnimations
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      value : Windows.Boolean
    )
-   return Windows.UI.Xaml.Media.Animation.ITimeline;
+   ;
    
 end;

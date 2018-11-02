@@ -2911,12 +2911,6 @@ package Windows.ApplicationModel.Appointments is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Appointments.IAppointmentManagerForUser;
-   
    function ShowAddAppointmentAsync
    (
       appointment : Windows.ApplicationModel.Appointments.IAppointment
@@ -2932,20 +2926,35 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.Foundation.IAsyncOperation_String;
    
+   function ShowRemoveAppointmentAsync
+   (
+      appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function ShowRemoveAppointmentWithPlacementAndDateAsync
+   (
+      appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+      ; instanceStartDate : Windows.Foundation.DateTime
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function ShowRemoveAppointmentWithPlacementAsync
+   (
+      appointmentId : Windows.String
+      ; selection : Windows.Foundation.Rect
+      ; preferredPlacement : Windows.UI.Popups.Placement
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
    function ShowReplaceAppointmentAsync
    (
       appointmentId : Windows.String
       ; appointment : Windows.ApplicationModel.Appointments.IAppointment
       ; selection : Windows.Foundation.Rect
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function ShowReplaceAppointmentWithPlacementAsync
-   (
-      appointmentId : Windows.String
-      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
    )
    return Windows.Foundation.IAsyncOperation_String;
    
@@ -2959,29 +2968,14 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.Foundation.IAsyncOperation_String;
    
-   function ShowRemoveAppointmentAsync
+   function ShowReplaceAppointmentWithPlacementAsync
    (
       appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function ShowRemoveAppointmentWithPlacementAsync
-   (
-      appointmentId : Windows.String
+      ; appointment : Windows.ApplicationModel.Appointments.IAppointment
       ; selection : Windows.Foundation.Rect
       ; preferredPlacement : Windows.UI.Popups.Placement
    )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function ShowRemoveAppointmentWithPlacementAndDateAsync
-   (
-      appointmentId : Windows.String
-      ; selection : Windows.Foundation.Rect
-      ; preferredPlacement : Windows.UI.Popups.Placement
-      ; instanceStartDate : Windows.Foundation.DateTime
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
+   return Windows.Foundation.IAsyncOperation_String;
    
    function ShowTimeFrameAsync
    (
@@ -2989,6 +2983,12 @@ package Windows.ApplicationModel.Appointments is
       ; duration : Windows.Foundation.TimeSpan
    )
    return Windows.Foundation.IAsyncAction;
+   
+   function RequestStoreAsync
+   (
+      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
+   )
+   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
    
    function ShowAppointmentDetailsAsync
    (
@@ -3009,61 +3009,34 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.Foundation.IAsyncOperation_String;
    
-   function RequestStoreAsync
+   function GetForUser
    (
-      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
+      user : Windows.System.IUser
    )
-   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
+   return Windows.ApplicationModel.Appointments.IAppointmentManagerForUser;
    
-   function get_Subject
-   return Windows.String;
-   
-   function get_Location
-   return Windows.String;
-   
-   function get_StartTime
-   return Windows.String;
-   
-   function get_Duration
-   return Windows.String;
-   
-   function get_Reminder
-   return Windows.String;
-   
-   function get_BusyStatus
-   return Windows.String;
-   
-   function get_Sensitivity
-   return Windows.String;
-   
-   function get_OriginalStartTime
-   return Windows.String;
-   
-   function get_IsResponseRequested
+   function get_AllDay
    return Windows.String;
    
    function get_AllowNewTimeProposal
    return Windows.String;
    
-   function get_AllDay
+   function get_BusyStatus
    return Windows.String;
+   
+   function get_DefaultProperties
+   return Windows.Foundation.Collections.IVector_String;
    
    function get_Details
    return Windows.String;
    
-   function get_OnlineMeetingLink
-   return Windows.String;
-   
-   function get_ReplyTime
-   return Windows.String;
-   
-   function get_Organizer
-   return Windows.String;
-   
-   function get_UserResponse
+   function get_Duration
    return Windows.String;
    
    function get_HasInvitees
+   return Windows.String;
+   
+   function get_Invitees
    return Windows.String;
    
    function get_IsCanceledMeeting
@@ -3072,25 +3045,52 @@ package Windows.ApplicationModel.Appointments is
    function get_IsOrganizedByUser
    return Windows.String;
    
+   function get_IsResponseRequested
+   return Windows.String;
+   
+   function get_Location
+   return Windows.String;
+   
+   function get_OnlineMeetingLink
+   return Windows.String;
+   
+   function get_Organizer
+   return Windows.String;
+   
+   function get_OriginalStartTime
+   return Windows.String;
+   
    function get_Recurrence
+   return Windows.String;
+   
+   function get_Reminder
+   return Windows.String;
+   
+   function get_ReplyTime
+   return Windows.String;
+   
+   function get_Sensitivity
+   return Windows.String;
+   
+   function get_StartTime
+   return Windows.String;
+   
+   function get_Subject
    return Windows.String;
    
    function get_Uri
    return Windows.String;
    
-   function get_Invitees
+   function get_UserResponse
    return Windows.String;
-   
-   function get_DefaultProperties
-   return Windows.Foundation.Collections.IVector_String;
    
    function get_ChangeNumber
    return Windows.String;
    
-   function get_RemoteChangeNumber
+   function get_DetailsKind
    return Windows.String;
    
-   function get_DetailsKind
+   function get_RemoteChangeNumber
    return Windows.String;
    
 end;

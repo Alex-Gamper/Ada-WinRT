@@ -1849,18 +1849,11 @@ package Windows.Networking.XboxLive is
    )
    return Windows.Networking.XboxLive.IXboxLiveDeviceAddress;
    
-   function GetLocal
-   return Windows.Networking.XboxLive.IXboxLiveDeviceAddress;
-   
    function get_MaxSnapshotBytesSize
    return Windows.UInt32;
    
-   function FindEndpointPairBySocketAddressBytes
-   (
-      localSocketAddress : Windows.UInt8_Ptr
-      ; remoteSocketAddress : Windows.UInt8_Ptr
-   )
-   return Windows.Networking.XboxLive.IXboxLiveEndpointPair;
+   function GetLocal
+   return Windows.Networking.XboxLive.IXboxLiveDeviceAddress;
    
    function FindEndpointPairByHostNamesAndPorts
    (
@@ -1871,14 +1864,39 @@ package Windows.Networking.XboxLive is
    )
    return Windows.Networking.XboxLive.IXboxLiveEndpointPair;
    
+   function FindEndpointPairBySocketAddressBytes
+   (
+      localSocketAddress : Windows.UInt8_Ptr
+      ; remoteSocketAddress : Windows.UInt8_Ptr
+   )
+   return Windows.Networking.XboxLive.IXboxLiveEndpointPair;
+   
+   function get_Templates
+   return Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPairTemplate;
+   
    function GetTemplateByName
    (
       name : Windows.String
    )
    return Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate;
    
-   function get_Templates
-   return Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPairTemplate;
+   procedure ClearPrivatePayload
+   ;
+   
+   function get_IsSystemInboundBandwidthConstrained
+   return Windows.Boolean;
+   
+   function get_IsSystemOutboundBandwidthConstrained
+   return Windows.Boolean;
+   
+   function get_MaxPrivatePayloadSize
+   return Windows.UInt32;
+   
+   function get_MaxSimultaneousProbeConnections
+   return Windows.UInt32;
+   
+   function get_PublishedPrivatePayload
+   return Windows.Storage.Streams.IBuffer;
    
    procedure PublishPrivatePayloadBytes
    (
@@ -1886,20 +1904,11 @@ package Windows.Networking.XboxLive is
    )
    ;
    
-   procedure ClearPrivatePayload
-   ;
-   
-   function get_MaxSimultaneousProbeConnections
-   return Windows.UInt32;
-   
-   procedure put_MaxSimultaneousProbeConnections
+   procedure put_IsSystemInboundBandwidthConstrained
    (
-      value : Windows.UInt32
+      value : Windows.Boolean
    )
    ;
-   
-   function get_IsSystemOutboundBandwidthConstrained
-   return Windows.Boolean;
    
    procedure put_IsSystemOutboundBandwidthConstrained
    (
@@ -1907,25 +1916,16 @@ package Windows.Networking.XboxLive is
    )
    ;
    
-   function get_IsSystemInboundBandwidthConstrained
-   return Windows.Boolean;
-   
-   procedure put_IsSystemInboundBandwidthConstrained
+   procedure put_MaxSimultaneousProbeConnections
    (
-      value : Windows.Boolean
+      value : Windows.UInt32
    )
    ;
-   
-   function get_PublishedPrivatePayload
-   return Windows.Storage.Streams.IBuffer;
    
    procedure put_PublishedPrivatePayload
    (
       value : Windows.Storage.Streams.IBuffer
    )
    ;
-   
-   function get_MaxPrivatePayloadSize
-   return Windows.UInt32;
    
 end;

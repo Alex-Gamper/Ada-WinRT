@@ -605,6 +605,9 @@ package Windows.Services.Maps.LocalSearch is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_All
+   return Windows.String;
+   
    function get_BankAndCreditUnions
    return Windows.String;
    
@@ -615,9 +618,6 @@ package Windows.Services.Maps.LocalSearch is
    return Windows.String;
    
    function get_HotelsAndMotels
-   return Windows.String;
-   
-   function get_All
    return Windows.String;
    
    function get_Parking

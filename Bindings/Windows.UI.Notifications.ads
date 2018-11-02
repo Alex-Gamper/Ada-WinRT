@@ -3584,12 +3584,6 @@ package Windows.UI.Notifications is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.UI.Notifications.IBadgeUpdateManagerForUser;
-   
    function CreateBadgeUpdaterForApplication
    return Windows.UI.Notifications.IBadgeUpdater;
    
@@ -3611,10 +3605,13 @@ package Windows.UI.Notifications is
    )
    return Windows.Data.Xml.Dom.IXmlDocument;
    
-   function get_Style
-   return Windows.String;
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.UI.Notifications.IBadgeUpdateManagerForUser;
    
-   function get_Wrap
+   function get_Align
    return Windows.String;
    
    function get_MaxLines
@@ -3623,67 +3620,70 @@ package Windows.UI.Notifications is
    function get_MinLines
    return Windows.String;
    
+   function get_Style
+   return Windows.String;
+   
    function get_TextStacking
    return Windows.String;
    
-   function get_Align
-   return Windows.String;
-   
-   function get_Caption
-   return Windows.String;
-   
-   function get_Body
+   function get_Wrap
    return Windows.String;
    
    function get_Base
    return Windows.String;
    
-   function get_Subtitle
+   function get_BaseSubtle
    return Windows.String;
    
-   function get_Title
-   return Windows.String;
-   
-   function get_Subheader
-   return Windows.String;
-   
-   function get_Header
-   return Windows.String;
-   
-   function get_TitleNumeral
-   return Windows.String;
-   
-   function get_SubheaderNumeral
-   return Windows.String;
-   
-   function get_HeaderNumeral
-   return Windows.String;
-   
-   function get_CaptionSubtle
+   function get_Body
    return Windows.String;
    
    function get_BodySubtle
    return Windows.String;
    
-   function get_BaseSubtle
+   function get_Caption
    return Windows.String;
    
-   function get_SubtitleSubtle
+   function get_CaptionSubtle
    return Windows.String;
    
-   function get_TitleSubtle
+   function get_Header
    return Windows.String;
    
-   function get_SubheaderSubtle
+   function get_HeaderNumeral
    return Windows.String;
    
-   function get_SubheaderNumeralSubtle
+   function get_HeaderNumeralSubtle
    return Windows.String;
    
    function get_HeaderSubtle
    return Windows.String;
    
-   function get_HeaderNumeralSubtle
+   function get_Subheader
+   return Windows.String;
+   
+   function get_SubheaderNumeral
+   return Windows.String;
+   
+   function get_SubheaderNumeralSubtle
+   return Windows.String;
+   
+   function get_SubheaderSubtle
+   return Windows.String;
+   
+   function get_Subtitle
+   return Windows.String;
+   
+   function get_SubtitleSubtle
+   return Windows.String;
+   
+   function get_Title
+   return Windows.String;
+   
+   function get_TitleNumeral
+   return Windows.String;
+   
+   function get_TitleSubtle
    return Windows.String;
    
    function get_ToastGeneric
@@ -3710,12 +3710,6 @@ package Windows.UI.Notifications is
    )
    return Windows.Data.Xml.Dom.IXmlDocument;
    
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.UI.Notifications.ITileUpdateManagerForUser;
-   
    function CreateTileUpdaterForApplication
    return Windows.UI.Notifications.ITileUpdater;
    
@@ -3737,20 +3731,11 @@ package Windows.UI.Notifications is
    )
    return Windows.Data.Xml.Dom.IXmlDocument;
    
-   function GetDefault
-   return Windows.UI.Notifications.IToastNotificationManagerForUser;
-   
    function GetForUser
    (
       user : Windows.System.IUser
    )
-   return Windows.UI.Notifications.IToastNotificationManagerForUser;
-   
-   procedure ConfigureNotificationMirroring
-   (
-      value : Windows.UI.Notifications.NotificationMirroring
-   )
-   ;
+   return Windows.UI.Notifications.ITileUpdateManagerForUser;
    
    function CreateToastNotifier
    return Windows.UI.Notifications.IToastNotifier;
@@ -3769,5 +3754,20 @@ package Windows.UI.Notifications is
    
    function get_History
    return Windows.UI.Notifications.IToastNotificationHistory;
+   
+   procedure ConfigureNotificationMirroring
+   (
+      value : Windows.UI.Notifications.NotificationMirroring
+   )
+   ;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.UI.Notifications.IToastNotificationManagerForUser;
+   
+   function GetDefault
+   return Windows.UI.Notifications.IToastNotificationManagerForUser;
    
 end;

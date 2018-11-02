@@ -930,6 +930,21 @@ package Windows.Security.Authentication.Identity.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function add_AuthenticationStageChanged
+   (
+      handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function GetAuthenticationStageInfoAsync
+   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
+   
+   procedure remove_AuthenticationStageChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    function ShowNotificationMessageAsync
    (
       deviceName : Windows.String
@@ -944,20 +959,8 @@ package Windows.Security.Authentication.Identity.Provider is
    )
    return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult;
    
-   function add_AuthenticationStageChanged
-   (
-      handler : Windows.Security.Authentication.Identity.Provider.EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_AuthenticationStageChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function GetAuthenticationStageInfoAsync
-   return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
+   function IsDevicePresenceMonitoringSupported
+   return Windows.Boolean;
    
    function RegisterDevicePresenceMonitoringAsync
    (
@@ -984,8 +987,11 @@ package Windows.Security.Authentication.Identity.Provider is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function IsDevicePresenceMonitoringSupported
-   return Windows.Boolean;
+   function FindAllRegisteredDeviceInfoAsync
+   (
+      queryType : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope
+   )
+   return Windows.Address;
    
    function RequestStartRegisteringDeviceAsync
    (
@@ -997,12 +1003,6 @@ package Windows.Security.Authentication.Identity.Provider is
       ; mutualAuthenticationKey : Windows.Storage.Streams.IBuffer
    )
    return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult;
-   
-   function FindAllRegisteredDeviceInfoAsync
-   (
-      queryType : Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope
-   )
-   return Windows.Address;
    
    function UnregisterDeviceAsync
    (

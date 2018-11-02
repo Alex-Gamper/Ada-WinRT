@@ -424,9 +424,6 @@ package Windows.Networking.PushNotifications is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefault
-   return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
-   
    function CreatePushNotificationChannelForApplicationAsync
    return Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel;
    
@@ -446,6 +443,9 @@ package Windows.Networking.PushNotifications is
    (
       user : Windows.System.IUser
    )
+   return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
+   
+   function GetDefault
    return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
    
 end;

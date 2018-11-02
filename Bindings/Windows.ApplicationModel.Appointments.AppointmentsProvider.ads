@@ -272,19 +272,19 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_ShowAppointmentDetails
-   return Windows.String;
-   
    function get_AddAppointment
-   return Windows.String;
-   
-   function get_ReplaceAppointment
    return Windows.String;
    
    function get_RemoveAppointment
    return Windows.String;
    
+   function get_ReplaceAppointment
+   return Windows.String;
+   
    function get_ShowTimeFrame
+   return Windows.String;
+   
+   function get_ShowAppointmentDetails
    return Windows.String;
    
 end;

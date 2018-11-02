@@ -992,8 +992,11 @@ package Windows.ApplicationModel.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_Id
-   return Windows.String;
+   function add_Resuming
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
    
    function add_Suspending
    (
@@ -1001,17 +1004,14 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_Suspending
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
+   function get_Id
+   return Windows.String;
    
-   function add_Resuming
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
+   function get_Properties
+   return Windows.Foundation.Collections.IPropertySet;
+   
+   function GetCurrentView
+   return Windows.ApplicationModel.Core.ICoreApplicationView;
    
    procedure remove_Resuming
    (
@@ -1019,11 +1019,11 @@ package Windows.ApplicationModel.Core is
    )
    ;
    
-   function get_Properties
-   return Windows.Foundation.Collections.IPropertySet;
-   
-   function GetCurrentView
-   return Windows.ApplicationModel.Core.ICoreApplicationView;
+   procedure remove_Suspending
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    procedure Run
    (
@@ -1037,35 +1037,11 @@ package Windows.ApplicationModel.Core is
    )
    ;
    
-   procedure IncrementApplicationUseCount
-   ;
-   
-   procedure DecrementApplicationUseCount
-   ;
-   
    function add_BackgroundActivated
    (
       handler : Windows.ApplicationModel.Activation.EventHandler_IBackgroundActivatedEventArgs
    )
    return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_BackgroundActivated
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_LeavingBackground
-   (
-      handler : Windows.ApplicationModel.EventHandler_ILeavingBackgroundEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_LeavingBackground
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
    
    function add_EnteredBackground
    (
@@ -1073,11 +1049,11 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_EnteredBackground
+   function add_LeavingBackground
    (
-      token : Windows.Foundation.EventRegistrationToken
+      handler : Windows.ApplicationModel.EventHandler_ILeavingBackgroundEventArgs
    )
-   ;
+   return Windows.Foundation.EventRegistrationToken;
    
    procedure EnablePrelaunch
    (
@@ -1085,54 +1061,23 @@ package Windows.ApplicationModel.Core is
    )
    ;
    
-   function CreateNewViewWithViewSource
-   (
-      viewSource : Windows.ApplicationModel.Core.IFrameworkViewSource
-   )
-   return Windows.ApplicationModel.Core.ICoreApplicationView;
-   
-   procedure Exit_x
-   ;
-   
-   function add_Exiting
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_Exiting
+   procedure remove_BackgroundActivated
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function CreateNewViewFromMainView
-   return Windows.ApplicationModel.Core.ICoreApplicationView;
-   
-   function add_UnhandledErrorDetected
-   (
-      handler : Windows.ApplicationModel.Core.EventHandler_IUnhandledErrorDetectedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_UnhandledErrorDetected
+   procedure remove_EnteredBackground
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function get_Views
-   return Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView;
-   
-   function CreateNewView
+   procedure remove_LeavingBackground
    (
-      runtimeType : Windows.String
-      ; entryPoint : Windows.String
+      token : Windows.Foundation.EventRegistrationToken
    )
-   return Windows.ApplicationModel.Core.ICoreApplicationView;
-   
-   function get_MainView
-   return Windows.ApplicationModel.Core.ICoreApplicationView;
+   ;
    
    function RequestRestartAsync
    (
@@ -1146,5 +1091,60 @@ package Windows.ApplicationModel.Core is
       ; launchArguments : Windows.String
    )
    return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+   
+   function add_Exiting
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure Exit_x
+   ;
+   
+   procedure remove_Exiting
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_UnhandledErrorDetected
+   (
+      handler : Windows.ApplicationModel.Core.EventHandler_IUnhandledErrorDetectedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_UnhandledErrorDetected
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure DecrementApplicationUseCount
+   ;
+   
+   procedure IncrementApplicationUseCount
+   ;
+   
+   function CreateNewView
+   (
+      runtimeType : Windows.String
+      ; entryPoint : Windows.String
+   )
+   return Windows.ApplicationModel.Core.ICoreApplicationView;
+   
+   function get_MainView
+   return Windows.ApplicationModel.Core.ICoreApplicationView;
+   
+   function get_Views
+   return Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView;
+   
+   function CreateNewViewFromMainView
+   return Windows.ApplicationModel.Core.ICoreApplicationView;
+   
+   function CreateNewViewWithViewSource
+   (
+      viewSource : Windows.ApplicationModel.Core.IFrameworkViewSource
+   )
+   return Windows.ApplicationModel.Core.ICoreApplicationView;
    
 end;
