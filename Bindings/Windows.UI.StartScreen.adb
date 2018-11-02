@@ -86,30 +86,6 @@ package body Windows.UI.StartScreen is
       return Convert(RetVal);
    end;
    
-   function CreateMinimalTile
-   (
-      tileId : Windows.String
-      ; displayName : Windows.String
-      ; arguments : Windows.String
-      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
-      ; desiredSize : Windows.UI.StartScreen.TileSize
-   )
-   return Windows.UI.StartScreen.ISecondaryTile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
-      m_Factory     : Windows.UI.StartScreen.ISecondaryTileFactory2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.StartScreen.ISecondaryTile := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMinimalTile(tileId, displayName, arguments, square150x150Logo, desiredSize, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateTile
    (
       tileId : Windows.String
@@ -175,6 +151,30 @@ package body Windows.UI.StartScreen is
       Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithId(tileId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateMinimalTile
+   (
+      tileId : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
+      ; desiredSize : Windows.UI.StartScreen.TileSize
+   )
+   return Windows.UI.StartScreen.ISecondaryTile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
+      m_Factory     : Windows.UI.StartScreen.ISecondaryTileFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.StartScreen.ISecondaryTile := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMinimalTile(tileId, displayName, arguments, square150x150Logo, desiredSize, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

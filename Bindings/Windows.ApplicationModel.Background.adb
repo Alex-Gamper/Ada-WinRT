@@ -578,6 +578,26 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
+   )
+   return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger");
+      m_Factory     : Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicNotificationTriggerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(characteristic, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateWithEventTriggeringMode
    (
       characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
@@ -593,26 +613,6 @@ package body Windows.ApplicationModel.Background is
       Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicNotificationTriggerFactory2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithEventTriggeringMode(characteristic, eventTriggeringMode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function Create
-   (
-      characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
-   )
-   return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger");
-      m_Factory     : Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicNotificationTriggerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(characteristic, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
